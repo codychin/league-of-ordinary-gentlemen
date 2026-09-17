@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 
 export const runtime = 'nodejs';
 
+// Media upload proxy. Keep this route server-side so editorial media credentials never ship to the browser.
 export async function POST(request) {
   try {
     const uploadKey = process.env.BRIEF_MEDIA_UPLOAD_KEY;
