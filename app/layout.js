@@ -1,3 +1,4 @@
 import './globals.css'
+import './v2.css'
 export const metadata={title:'The Brief of Ordinary Gentleman',description:'Sports, culture and investigations from the League of Ordinary Gentlemen'}
 export default function RootLayout({children}){return <html lang="en"><body>{children}</body></html>}
