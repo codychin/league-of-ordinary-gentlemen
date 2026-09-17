@@ -6,6 +6,7 @@ export async function POST(request) {
   try {
     const uploadKey = process.env.BRIEF_MEDIA_UPLOAD_KEY;
     if (!uploadKey) return NextResponse.json({ error: 'Media upload is not configured' }, { status: 503 });
+    if (request.headers.get('x-brief-media-key') !== uploadKey) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
     const form = await request.formData();
     const file = form.get('file');
@@ -16,7 +17,7 @@ export async function POST(request) {
     const upstream = new FormData();
     upstream.append('file', file, filename);
     upstream.append('folder', folder);
-    upstream.append('filename', filename);
+    upstream.append('name', filename);
 
     const response = await fetch('https://dnzdbqycuuoonewcowis.supabase.co/functions/v1/brief-media', {
       method: 'POST',
