@@ -1,0 +1,39 @@
+.culturePagination {
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 18px;
+  padding: 18px 0 0;
+  border: 0;
+  border-top: 1px solid #5a554c;
+  background: transparent;
+  color: var(--paper);
+}
+
+.culturePagination button {
+  appearance: none;
+  padding: 10px 14px;
+  border: 1px solid #777066;
+  background: transparent;
+  color: var(--paper);
+  cursor: pointer;
+  font: 900 9px Arial, sans-serif;
+  letter-spacing: 1.5px;
+}
+
+.culturePagination button:hover:not(:disabled) {
+  border-color: var(--red);
+  color: #fff;
+}
+
+.culturePagination button:disabled {
+  cursor: default;
+  opacity: .35;
+}
+
+.culturePagination span {
+  color: #bdb5a8;
+  font: 800 9px Arial, sans-serif;
+  letter-spacing: 1.5px;
+}
