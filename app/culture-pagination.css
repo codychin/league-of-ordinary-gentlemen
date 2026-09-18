@@ -37,3 +37,14 @@
   font: 800 9px Arial, sans-serif;
   letter-spacing: 1.5px;
 }
+
+.articleSource {
+  margin: -22px 0 30px;
+  color: var(--muted);
+  font: 800 9px Arial, sans-serif;
+  letter-spacing: 1.3px;
+}
+
+.articleSource a {
+  color: var(--red);
+}
