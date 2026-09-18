@@ -1,11 +1,11 @@
-const VERSION='ordinary-brief-v1'
+const VERSION='ordinary-brief-v2'
 const STATIC_CACHE=`${VERSION}-static`
 const PAGE_CACHE=`${VERSION}-pages`
 const PRECACHE=[
   '/offline',
-  '/icons/ordinary-brief-192.png',
-  '/icons/ordinary-brief-512.png',
-  '/icons/apple-touch-icon.png',
+  '/icons/ordinary-brief-v2-192.png',
+  '/icons/ordinary-brief-v2-512.png',
+  '/icons/apple-touch-icon-v2.png',
 ]
 
 self.addEventListener('install',event=>{
@@ -51,4 +51,3 @@ self.addEventListener('fetch',event=>{
     )
   }
 })
-

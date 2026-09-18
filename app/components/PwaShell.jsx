@@ -22,11 +22,27 @@ function MobileAppNav(){
   },[])
 
   const items=[
-    {href:'/',label:'Front',active:pathname==='/'&&!hash},
-    {href:'/#scores',label:'Scores',active:pathname==='/'&&hash==='#scores'},
+    {href:'/',label:'Home',active:pathname==='/'&&!hash},
+    {href:'/#scores',label:'Scores',hash:'#scores',active:pathname==='/'&&hash==='#scores'},
     {href:'/teams',label:'Teams',active:pathname.startsWith('/teams')},
-    {href:'/#culture',label:'Culture',active:pathname==='/'&&hash==='#culture'},
+    {href:'/#culture',label:'Culture',hash:'#culture',active:pathname==='/'&&hash==='#culture'},
   ]
+
+  const navigate=(event,item)=>{
+    if(pathname!=='/') return
+
+    event.preventDefault()
+    if(!item.hash){
+      window.history.pushState(null,'','/')
+      window.scrollTo({top:0,behavior:'auto'})
+      setHash('')
+      return
+    }
+
+    window.history.pushState(null,'',item.hash)
+    document.getElementById(item.hash.slice(1))?.scrollIntoView({behavior:'auto',block:'start'})
+    setHash(item.hash)
+  }
 
   return <nav className="appTabBar" aria-label="App navigation">
     {items.map((item,index)=><Link
@@ -34,7 +50,7 @@ function MobileAppNav(){
       href={item.href}
       className={item.active?'active':''}
       aria-current={item.active?'page':undefined}
-      onClick={()=>setHash(item.href.includes('#')?`#${item.href.split('#')[1]}`:'')}
+      onClick={event=>navigate(event,item)}
     ><span>0{index+1}</span>{item.label}</Link>)}
   </nav>
 }
@@ -107,4 +123,3 @@ export default function PwaShell(){
 
   return <><InstallPrompt/><MobileAppNav/></>
 }
-
