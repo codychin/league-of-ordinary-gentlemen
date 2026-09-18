@@ -22,6 +22,38 @@
 .dossierReceipt{max-width:760px;margin:38px auto;padding:24px;border:3px double var(--red);display:flex;flex-direction:column;gap:8px;transform:rotate(-.35deg)}
 .dossierReceipt b{font-size:24px;line-height:1.2}
 .dossierReceipt span{font-size:13px;color:var(--muted)}
+.teamStats.six{grid-template-columns:repeat(6,1fr)}
+.teamStats.six div{padding:18px 14px}
+.teamStats.six b{font-size:29px}
+.liveOperations{padding:4px 0 34px;border-bottom:4px solid var(--ink)}
+.operationsHead{display:flex;align-items:end;justify-content:space-between;margin-bottom:16px}
+.operationsHead small{font:900 8px Arial,sans-serif;letter-spacing:1.6px;color:var(--red)}
+.operationsHead h2{font-size:38px;line-height:1;margin:5px 0 0}
+.operationsHead>span{font:800 8px Arial,sans-serif;letter-spacing:1.2px;color:var(--muted)}
+.matchupBoard{display:grid;grid-template-columns:1fr 55px 1fr;align-items:stretch;border:1px solid var(--ink)}
+.matchupTeam{display:grid;grid-template-columns:1fr auto;gap:6px 20px;align-items:center;padding:22px;color:var(--ink);text-decoration:none}
+.matchupTeam.active{background:var(--ink);color:var(--paper)}
+.matchupTeam small{font:900 11px Arial,sans-serif;letter-spacing:.8px}
+.matchupTeam b{font:900 42px Arial,sans-serif;grid-row:1/3;grid-column:2}
+.matchupTeam span{font:800 9px Arial,sans-serif;letter-spacing:1px;color:var(--muted)}
+.matchupTeam.active span{color:#bdb5a8}
+.matchupVs{display:flex;align-items:center;justify-content:center;border-inline:1px solid var(--ink);font:900 11px Arial,sans-serif;color:var(--red)}
+.rosterSection{padding:35px 0 42px;border-bottom:4px solid var(--ink)}
+.rosterHeader,.rosterRow{display:grid;grid-template-columns:75px minmax(230px,1fr) 70px 110px 55px;gap:14px;align-items:center}
+.rosterHeader{padding:9px 12px;background:var(--ink);color:var(--paper);font:900 8px Arial,sans-serif;letter-spacing:1.2px}
+.rosterHeader span:last-child{text-align:right}
+.rosterRow{padding:12px;border-bottom:1px solid var(--line);font-size:14px}
+.rosterRow.reserve{background:rgba(17,16,14,.035)}
+.rosterRow>b{font:900 9px Arial,sans-serif;letter-spacing:.7px;color:var(--red)}
+.rosterRow>span:nth-child(2){display:flex;align-items:baseline;gap:8px;min-width:0}
+.rosterRow>span:nth-child(2) strong{font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rosterRow em{font:900 8px Arial,sans-serif;color:var(--muted);font-style:normal}
+.rosterRow>strong{text-align:right;font:900 17px Arial,sans-serif}
+.statusFlag{color:var(--red);font:900 9px Arial,sans-serif;text-transform:uppercase}
+.transactionRow{display:grid;grid-template-columns:86px 1fr;padding:12px 0;border-bottom:1px solid var(--line);gap:3px 10px}
+.transactionRow small{font:900 8px Arial,sans-serif;color:var(--red);letter-spacing:.8px}
+.transactionRow b{font-size:14px}
+.transactionRow span{grid-column:2;font-size:13px;color:var(--muted);line-height:1.35}
 
 @media(max-width:760px){
   .personGrid,.personGrid.single,.institutionalFile{grid-template-columns:1fr}
@@ -29,4 +61,12 @@
   .personCard+article{border-left:0;border-top:1px solid var(--line);padding:26px 0 10px}
   .associates article{grid-template-columns:1fr;gap:18px}
   .posture{min-height:145px}
+  .teamStats.six{grid-template-columns:repeat(2,1fr)}
+  .operationsHead{align-items:flex-start;flex-direction:column;gap:8px}
+  .matchupBoard{grid-template-columns:1fr}
+  .matchupVs{border-inline:0;border-block:1px solid var(--ink);padding:6px}
+  .rosterHeader{display:none}
+  .rosterRow{grid-template-columns:58px minmax(0,1fr) 42px 48px;gap:8px}
+  .rosterRow>span:nth-child(4){display:none}
+  .rosterRow>span:nth-child(2){align-items:flex-start;flex-direction:column;gap:2px}
 }
