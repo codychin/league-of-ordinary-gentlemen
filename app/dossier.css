@@ -25,6 +25,26 @@
 .teamStats.six{grid-template-columns:repeat(6,1fr)}
 .teamStats.six div{padding:18px 14px}
 .teamStats.six b{font-size:29px}
+.seasonRead{padding:4px 0 38px;border-bottom:4px solid var(--ink)}
+.seasonSummary{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--ink);margin-bottom:28px}
+.seasonSummary>div{padding:20px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:4px}
+.seasonSummary>div:last-child{border-right:0}
+.seasonSummary b{font:900 32px Arial,sans-serif}
+.seasonSummary span{font:900 9px Arial,sans-serif;letter-spacing:1.1px}
+.seasonSummary small{font:800 8px Arial,sans-serif;letter-spacing:.8px;color:var(--muted)}
+.seasonDetailGrid{display:grid;grid-template-columns:1fr 1fr;gap:45px}
+.weekResult{display:grid;grid-template-columns:42px 62px 1fr auto;gap:10px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}
+.weekResult>b{display:flex;align-items:center;justify-content:center;width:30px;height:30px;background:var(--ink);color:white;font:900 11px Arial,sans-serif}
+.weekResult>b.win{background:var(--red)}
+.weekResult>b.live{background:var(--acid);color:var(--ink);font-size:7px}
+.weekResult>span{font:900 8px Arial,sans-serif;letter-spacing:.8px;color:var(--muted)}
+.weekResult>a{color:var(--ink);text-decoration:none;font-size:14px;font-weight:bold}
+.weekResult>strong{font:900 15px Arial,sans-serif}
+.positionStat{display:grid;grid-template-columns:42px 1fr 58px;gap:10px;align-items:center;padding:9px 0}
+.positionStat>b,.positionStat>strong{font:900 10px Arial,sans-serif}
+.positionStat>strong{text-align:right}
+.positionStat>div{height:9px;background:#d8d1c4;overflow:hidden}
+.positionStat i{display:block;height:100%;background:var(--red)}
 .liveOperations{padding:4px 0 34px;border-bottom:4px solid var(--ink)}
 .operationsHead{display:flex;align-items:end;justify-content:space-between;margin-bottom:16px}
 .operationsHead small{font:900 8px Arial,sans-serif;letter-spacing:1.6px;color:var(--red)}
@@ -39,16 +59,16 @@
 .matchupTeam.active span{color:#bdb5a8}
 .matchupVs{display:flex;align-items:center;justify-content:center;border-inline:1px solid var(--ink);font:900 11px Arial,sans-serif;color:var(--red)}
 .rosterSection{padding:35px 0 42px;border-bottom:4px solid var(--ink)}
-.rosterHeader,.rosterRow{display:grid;grid-template-columns:75px minmax(230px,1fr) 70px 110px 55px;gap:14px;align-items:center}
+.rosterHeader,.rosterRow{display:grid;grid-template-columns:68px minmax(210px,1fr) 55px 92px 48px 62px 52px;gap:12px;align-items:center}
 .rosterHeader{padding:9px 12px;background:var(--ink);color:var(--paper);font:900 8px Arial,sans-serif;letter-spacing:1.2px}
-.rosterHeader span:last-child{text-align:right}
+.rosterHeader span:nth-last-child(-n+3){text-align:right}
 .rosterRow{padding:12px;border-bottom:1px solid var(--line);font-size:14px}
 .rosterRow.reserve{background:rgba(17,16,14,.035)}
 .rosterRow>b{font:900 9px Arial,sans-serif;letter-spacing:.7px;color:var(--red)}
 .rosterRow>span:nth-child(2){display:flex;align-items:baseline;gap:8px;min-width:0}
 .rosterRow>span:nth-child(2) strong{font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .rosterRow em{font:900 8px Arial,sans-serif;color:var(--muted);font-style:normal}
-.rosterRow>strong{text-align:right;font:900 17px Arial,sans-serif}
+.rosterRow>span:nth-child(5){text-align:right;font:900 12px Arial,sans-serif}.rosterRow>strong{text-align:right;font:900 17px Arial,sans-serif}
 .statusFlag{color:var(--red);font:900 9px Arial,sans-serif;text-transform:uppercase}
 .transactionRow{display:grid;grid-template-columns:86px 1fr;padding:12px 0;border-bottom:1px solid var(--line);gap:3px 10px}
 .transactionRow small{font:900 8px Arial,sans-serif;color:var(--red);letter-spacing:.8px}
@@ -62,11 +82,15 @@
   .associates article{grid-template-columns:1fr;gap:18px}
   .posture{min-height:145px}
   .teamStats.six{grid-template-columns:repeat(2,1fr)}
+  .seasonSummary,.seasonDetailGrid{grid-template-columns:1fr}
+  .seasonSummary>div{border-right:0;border-bottom:1px solid var(--line)}
+  .seasonSummary>div:last-child{border-bottom:0}
+  .seasonDetailGrid{gap:28px}
   .operationsHead{align-items:flex-start;flex-direction:column;gap:8px}
   .matchupBoard{grid-template-columns:1fr}
   .matchupVs{border-inline:0;border-block:1px solid var(--ink);padding:6px}
   .rosterHeader{display:none}
-  .rosterRow{grid-template-columns:58px minmax(0,1fr) 42px 48px;gap:8px}
-  .rosterRow>span:nth-child(4){display:none}
+  .rosterRow{grid-template-columns:54px minmax(0,1fr) 42px 46px 46px;gap:8px}
+  .rosterRow>span:nth-child(4),.rosterRow>span:nth-child(5){display:none}
   .rosterRow>span:nth-child(2){align-items:flex-start;flex-direction:column;gap:2px}
 }

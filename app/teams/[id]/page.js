@@ -8,6 +8,7 @@ export default async function Team({params}) {
   const t=teams.find(x=>x.id===id)
   if(!t) return <main>Team not found.</main>
   const ops=leagueSnapshot.teams[id]
+  const maxPositionPoints=Math.max(...Object.values(ops.season.positionTotals),1)
 
   return <>
     <header className="articleHeader"><Link href="/" className="miniMast">The Brief of Ordinary Gentleman</Link><SiteNav/></header>
@@ -15,7 +16,20 @@ export default async function Team({params}) {
       <div className="eyebrow">FRANCHISE FILE • 2026</div>
       <h1>{t.team}</h1>
       <div className="ownerLine"><b>{t.owners}</b><span>{t.aliases}</span></div>
-      <div className="teamStats six"><div><b>{ops.record}</b><span>RECORD</span></div><div><b>#{ops.seed}</b><span>SEED</span></div><div><b>{ops.pointsFor}</b><span>PF</span></div><div><b>{ops.pointsAgainst}</b><span>PA</span></div><div><b>#{ops.projectedRank}</b><span>ESPN PROJ.</span></div><div><b>W{leagueSnapshot.week}</b><span>THROUGH</span></div></div>
+      <div className="teamStats six"><div><b>{ops.record}</b><span>RECORD</span></div><div><b>#{ops.seed}</b><span>SEED</span></div><div><b>{ops.pointsFor}</b><span>PF</span></div><div><b>{ops.season.ppg}</b><span>PPG</span></div><div><b>#{ops.season.pfRank}</b><span>PF RANK</span></div><div><b>#{ops.season.projectedRank}</b><span>ESPN PROJ.</span></div></div>
+
+      <section className="seasonRead">
+        <div className="operationsHead"><div><small>2026 SEASON FILE</small><h2>Season to Date</h2></div><span>OFFICIAL TOTALS THROUGH WEEK {ops.season.completedGames} • LIVE WEEK {leagueSnapshot.week} SHOWN BELOW</span></div>
+        <div className="seasonSummary">
+          <div><b>{ops.pointsAgainst}</b><span>POINTS AGAINST</span><small>#{ops.season.paRank} MOST</small></div>
+          <div><b>{ops.season.startedPoints}</b><span>STARTER POINTS</span><small>INCLUDING LIVE WEEK {leagueSnapshot.week}</small></div>
+          <div><b>{ops.season.benchPoints}</b><span>BENCH POINTS</span><small>SEASON TO DATE</small></div>
+        </div>
+        <div className="seasonDetailGrid">
+          <div><div className="hubHead">WEEKLY RESULTS</div>{ops.season.weekly.map(w=><div className="weekResult" key={w.week}><b className={w.result==='W'?'win':w.result==='L'?'loss':'live'}>{w.result==='—'?'LIVE':w.result}</b><span>WEEK {w.week}</span><Link href={`/teams/${w.opponentSlug}`}>{w.opponent}</Link><strong>{w.score}–{w.opponentScore}</strong></div>)}</div>
+          <div><div className="hubHead">STARTER PRODUCTION BY SLOT</div>{Object.entries(ops.season.positionTotals).map(([slot,points])=><div className="positionStat" key={slot}><b>{slot}</b><div><i style={{width:`${Math.max(3,(points/maxPositionPoints)*100)}%`}}/></div><strong>{points}</strong></div>)}</div>
+        </div>
+      </section>
 
       <section className="liveOperations">
         <div className="operationsHead"><div><small>FOOTBALL OPERATIONS • LIVE SNAPSHOT</small><h2>Week {leagueSnapshot.week}</h2></div><span>{leagueSnapshot.updatedAt}</span></div>
@@ -28,8 +42,8 @@ export default async function Team({params}) {
 
       <section className="rosterSection">
         <div className="hubHead">ACTIVE ROSTER • WEEK {leagueSnapshot.week}</div>
-        <div className="rosterHeader"><span>SLOT</span><span>PLAYER</span><span>NFL</span><span>STATUS</span><span>PTS</span></div>
-        {ops.roster.map((p,i)=>{const reserve=p.slot==='Bench'||p.slot==='IR';return <div className={`rosterRow ${reserve?'reserve':''}`} key={p.id}><b>{p.slot}</b><span><strong>{p.name}</strong><em>{p.position}</em></span><span>{p.team}</span><span className={p.status?'statusFlag':''}>{p.status||'—'}</span><strong>{Number(p.weekPoints).toFixed(1)}</strong></div>})}
+        <div className="rosterHeader"><span>SLOT</span><span>PLAYER</span><span>NFL</span><span>STATUS</span><span>STARTS</span><span>SEASON</span><span>W{leagueSnapshot.week}</span></div>
+        {ops.roster.map((p,i)=>{const reserve=p.slot==='Bench'||p.slot==='IR';return <div className={`rosterRow ${reserve?'reserve':''}`} key={p.id}><b>{p.slot}</b><span><strong>{p.name}</strong><em>{p.position}</em></span><span>{p.team}</span><span className={p.status?'statusFlag':''}>{p.status||'—'}</span><span>{p.starts}</span><strong>{Number(p.seasonPoints).toFixed(1)}</strong><strong>{Number(p.weekPoints).toFixed(1)}</strong></div>})}
       </section>
 
       <section className="franchiseLead"><div><small>WEEK 1</small><h2>{t.week1}</h2><p>{t.note}</p></div><aside><small>ON FILE</small><p>{t.lore}</p></aside></section>

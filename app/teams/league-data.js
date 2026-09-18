@@ -1,5 +1,5 @@
 export const leagueSnapshot = {
-  "updatedAt": "SEPTEMBER 18, 2026 • 3:49 PM ET",
+  "updatedAt": "SEPTEMBER 18, 2026 • 3:55 PM ET",
   "week": 2,
   "teams": {
     "kupp-doubs": {
@@ -26,7 +26,9 @@ export const leagueSnapshot = {
           "team": "LAC",
           "slot": "QB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 12.76,
+          "starts": 2
         },
         {
           "id": "3117251",
@@ -35,7 +37,9 @@ export const leagueSnapshot = {
           "team": "SF",
           "slot": "RB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 15.8,
+          "starts": 2
         },
         {
           "id": "4361579",
@@ -44,7 +48,9 @@ export const leagueSnapshot = {
           "team": "DAL",
           "slot": "RB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 24.4,
+          "starts": 2
         },
         {
           "id": "3915416",
@@ -53,7 +59,9 @@ export const leagueSnapshot = {
           "team": "BUF",
           "slot": "WR",
           "status": "Questionable",
-          "weekPoints": 1
+          "weekPoints": 1,
+          "seasonPoints": 28,
+          "starts": 2
         },
         {
           "id": "4695883",
@@ -62,7 +70,9 @@ export const leagueSnapshot = {
           "team": "CAR",
           "slot": "WR",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 37.8,
+          "starts": 1
         },
         {
           "id": "4361050",
@@ -71,7 +81,9 @@ export const leagueSnapshot = {
           "team": "NYG",
           "slot": "TE",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 28.8,
+          "starts": 2
         },
         {
           "id": "4426388",
@@ -80,7 +92,9 @@ export const leagueSnapshot = {
           "team": "DET",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 4.300000000000001
+          "weekPoints": 4.300000000000001,
+          "seasonPoints": 13.8,
+          "starts": 2
         },
         {
           "id": "4569987",
@@ -89,7 +103,9 @@ export const leagueSnapshot = {
           "team": "PIT",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 12.3,
+          "starts": 2
         },
         {
           "id": "-16025",
@@ -98,7 +114,9 @@ export const leagueSnapshot = {
           "team": "SF",
           "slot": "D/ST",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 1
         },
         {
           "id": "4689936",
@@ -107,7 +125,9 @@ export const leagueSnapshot = {
           "team": "DET",
           "slot": "K",
           "status": "",
-          "weekPoints": 6
+          "weekPoints": 6,
+          "seasonPoints": 14,
+          "starts": 2
         },
         {
           "id": "4047646",
@@ -116,7 +136,9 @@ export const leagueSnapshot = {
           "team": "NE",
           "slot": "IR",
           "status": "IR",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 4.6,
+          "starts": 1
         },
         {
           "id": "4047365",
@@ -125,7 +147,9 @@ export const leagueSnapshot = {
           "team": "GB",
           "slot": "Bench",
           "status": "Day-to-Day",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
         },
         {
           "id": "4870795",
@@ -134,7 +158,9 @@ export const leagueSnapshot = {
           "team": "PHI",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 3.5,
+          "starts": 0
         },
         {
           "id": "-16014",
@@ -143,7 +169,9 @@ export const leagueSnapshot = {
           "team": "LAR",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 1
         },
         {
           "id": "3929645",
@@ -152,7 +180,9 @@ export const leagueSnapshot = {
           "team": "NO",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 13.4,
+          "starts": 0
         },
         {
           "id": "16733",
@@ -161,7 +191,9 @@ export const leagueSnapshot = {
           "team": "NYG",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 1,
+          "starts": 0
         },
         {
           "id": "4569559",
@@ -170,7 +202,9 @@ export const leagueSnapshot = {
           "team": "NO",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
         }
       ],
       "moves": [
@@ -184,7 +218,45 @@ export const leagueSnapshot = {
           "label": "Waiver claim",
           "detail": "Added Devaughn Vele • $12"
         }
-      ]
+      ],
+      "season": {
+        "completedGames": 1,
+        "ppg": 143.16,
+        "pfRank": 7,
+        "paRank": 9,
+        "projectedRank": 6,
+        "startedPoints": 154.46,
+        "benchPoints": 73.34,
+        "positionTotals": {
+          "QB": 12.76,
+          "RB": 40.2,
+          "WR": 32.6,
+          "TE": 28.8,
+          "FLEX": 26.1,
+          "D/ST": 0,
+          "K": 14
+        },
+        "weekly": [
+          {
+            "week": 1,
+            "status": "FINAL",
+            "opponent": "I'm a Skatt man",
+            "opponentSlug": "skatt",
+            "score": 143.16,
+            "opponentScore": 131.22,
+            "result": "W"
+          },
+          {
+            "week": 2,
+            "status": "LIVE",
+            "opponent": "For the Love of the Kraft",
+            "opponentSlug": "kraft",
+            "score": 11.3,
+            "opponentScore": 0,
+            "result": "—"
+          }
+        ]
+      }
     },
     "danir": {
       "teamId": 2,
@@ -210,7 +282,9 @@ export const leagueSnapshot = {
           "team": "SF",
           "slot": "QB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 22.6,
+          "starts": 1
         },
         {
           "id": "4429795",
@@ -219,7 +293,9 @@ export const leagueSnapshot = {
           "team": "DET",
           "slot": "RB",
           "status": "",
-          "weekPoints": 23.900000000000002
+          "weekPoints": 23.900000000000002,
+          "seasonPoints": 64.4,
+          "starts": 2
         },
         {
           "id": "4427366",
@@ -228,7 +304,9 @@ export const leagueSnapshot = {
           "team": "NYJ",
           "slot": "RB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 26,
+          "starts": 2
         },
         {
           "id": "4595348",
@@ -237,7 +315,9 @@ export const leagueSnapshot = {
           "team": "NYG",
           "slot": "WR",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 13.9,
+          "starts": 2
         },
         {
           "id": "4035687",
@@ -246,7 +326,9 @@ export const leagueSnapshot = {
           "team": "PIT",
           "slot": "WR",
           "status": "Questionable",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 9.8,
+          "starts": 2
         },
         {
           "id": "4431459",
@@ -255,7 +337,9 @@ export const leagueSnapshot = {
           "team": "IND",
           "slot": "TE",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 9.3,
+          "starts": 2
         },
         {
           "id": "4882093",
@@ -264,7 +348,9 @@ export const leagueSnapshot = {
           "team": "JAX",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 12.3,
+          "starts": 2
         },
         {
           "id": "3128429",
@@ -273,7 +359,9 @@ export const leagueSnapshot = {
           "team": "DEN",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 2.6,
+          "starts": 2
         },
         {
           "id": "-16007",
@@ -282,7 +370,9 @@ export const leagueSnapshot = {
           "team": "DEN",
           "slot": "D/ST",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 2,
+          "starts": 2
         },
         {
           "id": "4574716",
@@ -291,7 +381,9 @@ export const leagueSnapshot = {
           "team": "LAR",
           "slot": "K",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 2
         },
         {
           "id": "4426385",
@@ -300,7 +392,9 @@ export const leagueSnapshot = {
           "team": "SEA",
           "slot": "IR",
           "status": "Out",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
         },
         {
           "id": "4429025",
@@ -309,7 +403,9 @@ export const leagueSnapshot = {
           "team": "LAC",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 2.7,
+          "starts": 0
         },
         {
           "id": "4608686",
@@ -318,7 +414,9 @@ export const leagueSnapshot = {
           "team": "CHI",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 29.4,
+          "starts": 0
         },
         {
           "id": "4688813",
@@ -327,7 +425,9 @@ export const leagueSnapshot = {
           "team": "IND",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 5.2,
+          "starts": 0
         },
         {
           "id": "4426338",
@@ -336,7 +436,9 @@ export const leagueSnapshot = {
           "team": "DEN",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 4.74,
+          "starts": 1
         },
         {
           "id": "4428850",
@@ -345,7 +447,9 @@ export const leagueSnapshot = {
           "team": "PHI",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
         },
         {
           "id": "4697815",
@@ -354,7 +458,9 @@ export const leagueSnapshot = {
           "team": "WSH",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
         }
       ],
       "moves": [
@@ -378,7 +484,45 @@ export const leagueSnapshot = {
           "label": "Waiver claim",
           "detail": "Added Devaughn Vele; dropped Jacob Saylors • $2"
         }
-      ]
+      ],
+      "season": {
+        "completedGames": 1,
+        "ppg": 121.14,
+        "pfRank": 11,
+        "paRank": 1,
+        "projectedRank": 9,
+        "startedPoints": 145.04,
+        "benchPoints": 69.1,
+        "positionTotals": {
+          "QB": 4.74,
+          "RB": 90.4,
+          "WR": 23.7,
+          "TE": 9.3,
+          "FLEX": 14.9,
+          "D/ST": 2,
+          "K": 0
+        },
+        "weekly": [
+          {
+            "week": 1,
+            "status": "FINAL",
+            "opponent": "Mr Hopkins Opus",
+            "opponentSlug": "hopkins-opus",
+            "score": 121.14,
+            "opponentScore": 181.6,
+            "result": "L"
+          },
+          {
+            "week": 2,
+            "status": "LIVE",
+            "opponent": "CeeDeep Shaheeded Rivalry",
+            "opponentSlug": "ceedeep",
+            "score": 23.9,
+            "opponentScore": 53.02,
+            "result": "—"
+          }
+        ]
+      }
     },
     "all-ugly": {
       "teamId": 3,
@@ -404,7 +548,9 @@ export const leagueSnapshot = {
           "team": "CHI",
           "slot": "QB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 39.26,
+          "starts": 2
         },
         {
           "id": "4685382",
@@ -413,7 +559,9 @@ export const leagueSnapshot = {
           "team": "LAC",
           "slot": "RB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 8.5,
+          "starts": 2
         },
         {
           "id": "4685512",
@@ -422,7 +570,9 @@ export const leagueSnapshot = {
           "team": "SEA",
           "slot": "RB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 9.8,
+          "starts": 2
         },
         {
           "id": "4374302",
@@ -431,7 +581,9 @@ export const leagueSnapshot = {
           "team": "DET",
           "slot": "WR",
           "status": "",
-          "weekPoints": 36.2
+          "weekPoints": 36.2,
+          "seasonPoints": 65.9,
+          "starts": 2
         },
         {
           "id": "4241478",
@@ -440,7 +592,9 @@ export const leagueSnapshot = {
           "team": "PHI",
           "slot": "WR",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 9.3,
+          "starts": 2
         },
         {
           "id": "4723086",
@@ -449,7 +603,9 @@ export const leagueSnapshot = {
           "team": "CHI",
           "slot": "TE",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 1,
+          "starts": 2
         },
         {
           "id": "4248528",
@@ -458,7 +614,9 @@ export const leagueSnapshot = {
           "team": "GB",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 36.7,
+          "starts": 2
         },
         {
           "id": "4678008",
@@ -467,7 +625,9 @@ export const leagueSnapshot = {
           "team": "CAR",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 6.6,
+          "starts": 2
         },
         {
           "id": "-16024",
@@ -476,7 +636,9 @@ export const leagueSnapshot = {
           "team": "LAC",
           "slot": "D/ST",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": -1,
+          "starts": 2
         },
         {
           "id": "4686361",
@@ -485,7 +647,9 @@ export const leagueSnapshot = {
           "team": "JAX",
           "slot": "K",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 13,
+          "starts": 2
         },
         {
           "id": "4870847",
@@ -494,7 +658,9 @@ export const leagueSnapshot = {
           "team": "BAL",
           "slot": "IR",
           "status": "IR",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 3.1,
+          "starts": 0
         },
         {
           "id": "4710714",
@@ -503,7 +669,9 @@ export const leagueSnapshot = {
           "team": "SF",
           "slot": "Bench",
           "status": "Out",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 1,
+          "starts": 0
         },
         {
           "id": "4429059",
@@ -512,7 +680,9 @@ export const leagueSnapshot = {
           "team": "HOU",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 7.15,
+          "starts": 0
         },
         {
           "id": "4682648",
@@ -521,7 +691,9 @@ export const leagueSnapshot = {
           "team": "NYG",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 5.5,
+          "starts": 0
         },
         {
           "id": "4429013",
@@ -530,7 +702,9 @@ export const leagueSnapshot = {
           "team": "PHI",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 2.9,
+          "starts": 0
         },
         {
           "id": "4870612",
@@ -539,7 +713,9 @@ export const leagueSnapshot = {
           "team": "ATL",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 1.25,
+          "starts": 0
         },
         {
           "id": "4832846",
@@ -548,7 +724,9 @@ export const leagueSnapshot = {
           "team": "MIN",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
         }
       ],
       "moves": [
@@ -557,7 +735,45 @@ export const leagueSnapshot = {
           "label": "Free-agent move",
           "detail": "Added Demond Claiborne • $0"
         }
-      ]
+      ],
+      "season": {
+        "completedGames": 1,
+        "ppg": 152.86,
+        "pfRank": 4,
+        "paRank": 3,
+        "projectedRank": 12,
+        "startedPoints": 189.06,
+        "benchPoints": 20.9,
+        "positionTotals": {
+          "QB": 39.26,
+          "RB": 18.3,
+          "WR": 75.2,
+          "TE": 1,
+          "FLEX": 43.3,
+          "D/ST": -1,
+          "K": 13
+        },
+        "weekly": [
+          {
+            "week": 1,
+            "status": "FINAL",
+            "opponent": "Royrek Tishmeshulam",
+            "opponentSlug": "royrek",
+            "score": 152.86,
+            "opponentScore": 160.91,
+            "result": "L"
+          },
+          {
+            "week": 2,
+            "status": "LIVE",
+            "opponent": "Lloyd of the Rings",
+            "opponentSlug": "lloyd-rings",
+            "score": 36.2,
+            "opponentScore": 23.5,
+            "result": "—"
+          }
+        ]
+      }
     },
     "route-22": {
       "teamId": 4,
@@ -583,7 +799,9 @@ export const leagueSnapshot = {
           "team": "LAR",
           "slot": "QB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 3.3,
+          "starts": 2
         },
         {
           "id": "4379399",
@@ -592,7 +810,9 @@ export const leagueSnapshot = {
           "team": "BUF",
           "slot": "RB",
           "status": "",
-          "weekPoints": 27
+          "weekPoints": 27,
+          "seasonPoints": 39.2,
+          "starts": 2
         },
         {
           "id": "4890973",
@@ -601,7 +821,9 @@ export const leagueSnapshot = {
           "team": "LV",
           "slot": "RB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 39,
+          "starts": 2
         },
         {
           "id": "4428331",
@@ -610,7 +832,9 @@ export const leagueSnapshot = {
           "team": "KC",
           "slot": "WR",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 10.9,
+          "starts": 2
         },
         {
           "id": "4685472",
@@ -619,7 +843,9 @@ export const leagueSnapshot = {
           "team": "CAR",
           "slot": "WR",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 9.5,
+          "starts": 2
         },
         {
           "id": "5083315",
@@ -628,7 +854,9 @@ export const leagueSnapshot = {
           "team": "NYJ",
           "slot": "TE",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 12.5,
+          "starts": 1
         },
         {
           "id": "4431299",
@@ -637,7 +865,9 @@ export const leagueSnapshot = {
           "team": "CHI",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 8.2,
+          "starts": 2
         },
         {
           "id": "4432708",
@@ -646,7 +876,9 @@ export const leagueSnapshot = {
           "team": "ARI",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 5.3,
+          "starts": 1
         },
         {
           "id": "-16023",
@@ -655,7 +887,9 @@ export const leagueSnapshot = {
           "team": "PIT",
           "slot": "D/ST",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 22,
+          "starts": 2
         },
         {
           "id": "3055899",
@@ -664,7 +898,9 @@ export const leagueSnapshot = {
           "team": "KC",
           "slot": "K",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 8,
+          "starts": 2
         },
         {
           "id": "3045147",
@@ -673,7 +909,9 @@ export const leagueSnapshot = {
           "team": "ARI",
           "slot": "IR",
           "status": "IR",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
         },
         {
           "id": "4371733",
@@ -682,7 +920,9 @@ export const leagueSnapshot = {
           "team": "TB",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 2.3,
+          "starts": 0
         },
         {
           "id": "4683062",
@@ -691,7 +931,9 @@ export const leagueSnapshot = {
           "team": "KC",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 5.8,
+          "starts": 0
         },
         {
           "id": "4360689",
@@ -700,7 +942,9 @@ export const leagueSnapshot = {
           "team": "NO",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 26.6,
+          "starts": 0
         },
         {
           "id": "4832955",
@@ -709,7 +953,9 @@ export const leagueSnapshot = {
           "team": "KC",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
         },
         {
           "id": "4241474",
@@ -718,7 +964,9 @@ export const leagueSnapshot = {
           "team": "ATL",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
         },
         {
           "id": "4432665",
@@ -727,7 +975,9 @@ export const leagueSnapshot = {
           "team": "LV",
           "slot": "Bench",
           "status": "Questionable",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
         }
       ],
       "moves": [
@@ -751,7 +1001,45 @@ export const leagueSnapshot = {
           "label": "Waiver claim",
           "detail": "Added Devaughn Vele; dropped Kenny Gainwell • $0"
         }
-      ]
+      ],
+      "season": {
+        "completedGames": 1,
+        "ppg": 147.9,
+        "pfRank": 6,
+        "paRank": 10,
+        "projectedRank": 2,
+        "startedPoints": 174.9,
+        "benchPoints": 55.1,
+        "positionTotals": {
+          "QB": 3.3,
+          "RB": 78.2,
+          "WR": 20.4,
+          "TE": 11.1,
+          "FLEX": 31.9,
+          "D/ST": 22,
+          "K": 8
+        },
+        "weekly": [
+          {
+            "week": 1,
+            "status": "FINAL",
+            "opponent": "CeeDeep Shaheeded Rivalry",
+            "opponentSlug": "ceedeep",
+            "score": 147.9,
+            "opponentScore": 129.81,
+            "result": "W"
+          },
+          {
+            "week": 2,
+            "status": "LIVE",
+            "opponent": "Shake 'N Baker",
+            "opponentSlug": "shake-baker",
+            "score": 27,
+            "opponentScore": 0,
+            "result": "—"
+          }
+        ]
+      }
     },
     "skatt": {
       "teamId": 5,
@@ -777,7 +1065,9 @@ export const leagueSnapshot = {
           "team": "PHI",
           "slot": "QB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 28.42,
+          "starts": 2
         },
         {
           "id": "4430737",
@@ -786,7 +1076,9 @@ export const leagueSnapshot = {
           "team": "LAR",
           "slot": "RB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 15.6,
+          "starts": 2
         },
         {
           "id": "4696981",
@@ -795,7 +1087,9 @@ export const leagueSnapshot = {
           "team": "NYG",
           "slot": "RB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 16.9,
+          "starts": 2
         },
         {
           "id": "4362628",
@@ -804,7 +1098,9 @@ export const leagueSnapshot = {
           "team": "CIN",
           "slot": "WR",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 4.2,
+          "starts": 2
         },
         {
           "id": "4372016",
@@ -813,7 +1109,9 @@ export const leagueSnapshot = {
           "team": "DEN",
           "slot": "WR",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 0.2,
+          "starts": 2
         },
         {
           "id": "4361307",
@@ -822,7 +1120,9 @@ export const leagueSnapshot = {
           "team": "ARI",
           "slot": "TE",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 25.5,
+          "starts": 2
         },
         {
           "id": "4871023",
@@ -831,7 +1131,9 @@ export const leagueSnapshot = {
           "team": "TEN",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 6.8,
+          "starts": 2
         },
         {
           "id": "3126486",
@@ -840,7 +1142,9 @@ export const leagueSnapshot = {
           "team": "SF",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 20.6,
+          "starts": 1
         },
         {
           "id": "-16027",
@@ -849,7 +1153,9 @@ export const leagueSnapshot = {
           "team": "TB",
           "slot": "D/ST",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 1
         },
         {
           "id": "4567104",
@@ -858,7 +1164,9 @@ export const leagueSnapshot = {
           "team": "MIN",
           "slot": "K",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 8.5,
+          "starts": 2
         },
         {
           "id": "4361529",
@@ -867,7 +1175,9 @@ export const leagueSnapshot = {
           "team": "DET",
           "slot": "IR",
           "status": "IR",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
         },
         {
           "id": "4360078",
@@ -876,7 +1186,9 @@ export const leagueSnapshot = {
           "team": "IND",
           "slot": "Bench",
           "status": "Questionable",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 9.1,
+          "starts": 1
         },
         {
           "id": "4241985",
@@ -885,7 +1197,9 @@ export const leagueSnapshot = {
           "team": "DEN",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 3.4,
+          "starts": 0
         },
         {
           "id": "4832800",
@@ -894,7 +1208,9 @@ export const leagueSnapshot = {
           "team": "CLE",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 15.9,
+          "starts": 0
         },
         {
           "id": "4360635",
@@ -903,7 +1219,9 @@ export const leagueSnapshot = {
           "team": "WSH",
           "slot": "Bench",
           "status": "Out",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 2.6,
+          "starts": 0
         },
         {
           "id": "-16017",
@@ -912,7 +1230,9 @@ export const leagueSnapshot = {
           "team": "NE",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 7.5,
+          "starts": 0
         },
         {
           "id": "4429022",
@@ -921,7 +1241,9 @@ export const leagueSnapshot = {
           "team": "HOU",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 2.1,
+          "starts": 0
         }
       ],
       "moves": [
@@ -940,7 +1262,45 @@ export const leagueSnapshot = {
           "label": "Waiver claim",
           "detail": "Added Jaguars D/ST • $2"
         }
-      ]
+      ],
+      "season": {
+        "completedGames": 1,
+        "ppg": 131.22,
+        "pfRank": 9,
+        "paRank": 7,
+        "projectedRank": 8,
+        "startedPoints": 131.22,
+        "benchPoints": 52.1,
+        "positionTotals": {
+          "QB": 28.42,
+          "RB": 32.5,
+          "WR": 4.4,
+          "TE": 25.5,
+          "FLEX": 15.9,
+          "D/ST": 16,
+          "K": 8.5
+        },
+        "weekly": [
+          {
+            "week": 1,
+            "status": "FINAL",
+            "opponent": "Kupp Kupp Doubs",
+            "opponentSlug": "kupp-doubs",
+            "score": 131.22,
+            "opponentScore": 143.16,
+            "result": "L"
+          },
+          {
+            "week": 2,
+            "status": "LIVE",
+            "opponent": "Pollard Greens",
+            "opponentSlug": "pollard-greens",
+            "score": 0,
+            "opponentScore": 0,
+            "result": "—"
+          }
+        ]
+      }
     },
     "pollard-greens": {
       "teamId": 6,
@@ -966,7 +1326,9 @@ export const leagueSnapshot = {
           "team": "NE",
           "slot": "QB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 9.52,
+          "starts": 2
         },
         {
           "id": "4685702",
@@ -975,7 +1337,9 @@ export const leagueSnapshot = {
           "team": "CLE",
           "slot": "RB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 7.2,
+          "starts": 2
         },
         {
           "id": "4035538",
@@ -984,7 +1348,9 @@ export const leagueSnapshot = {
           "team": "HOU",
           "slot": "RB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 29.9,
+          "starts": 2
         },
         {
           "id": "4430878",
@@ -993,7 +1359,9 @@ export const leagueSnapshot = {
           "team": "SEA",
           "slot": "WR",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 32.2,
+          "starts": 2
         },
         {
           "id": "4426502",
@@ -1002,7 +1370,9 @@ export const leagueSnapshot = {
           "team": "ATL",
           "slot": "WR",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 4.6,
+          "starts": 2
         },
         {
           "id": "5083076",
@@ -1011,7 +1381,9 @@ export const leagueSnapshot = {
           "team": "CLE",
           "slot": "TE",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 3.1,
+          "starts": 2
         },
         {
           "id": "4361370",
@@ -1020,7 +1392,9 @@ export const leagueSnapshot = {
           "team": "NO",
           "slot": "FLEX",
           "status": "Questionable",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 29.2,
+          "starts": 2
         },
         {
           "id": "16737",
@@ -1029,7 +1403,9 @@ export const leagueSnapshot = {
           "team": "SF",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 17.9,
+          "starts": 2
         },
         {
           "id": "-16033",
@@ -1038,7 +1414,9 @@ export const leagueSnapshot = {
           "team": "BAL",
           "slot": "D/ST",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 7.5,
+          "starts": 2
         },
         {
           "id": "3953687",
@@ -1047,7 +1425,9 @@ export const leagueSnapshot = {
           "team": "DAL",
           "slot": "K",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": -1.5,
+          "starts": 2
         },
         {
           "id": "4569587",
@@ -1056,7 +1436,9 @@ export const leagueSnapshot = {
           "team": "TEN",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 7.8,
+          "starts": 0
         },
         {
           "id": "4430834",
@@ -1065,7 +1447,9 @@ export const leagueSnapshot = {
           "team": "TB",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
         },
         {
           "id": "3917792",
@@ -1074,7 +1458,9 @@ export const leagueSnapshot = {
           "team": "IND",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 8.14,
+          "starts": 0
         },
         {
           "id": "4036133",
@@ -1083,7 +1469,9 @@ export const leagueSnapshot = {
           "team": "MIN",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 15.1,
+          "starts": 0
         },
         {
           "id": "4819231",
@@ -1092,7 +1480,9 @@ export const leagueSnapshot = {
           "team": "GB",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 0.5,
+          "starts": 0
         },
         {
           "id": "4038441",
@@ -1101,7 +1491,9 @@ export const leagueSnapshot = {
           "team": "BAL",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 5.4,
+          "starts": 0
         }
       ],
       "moves": [
@@ -1115,7 +1507,45 @@ export const leagueSnapshot = {
           "label": "Waiver claim",
           "detail": "Added Kaleb Johnson; dropped Travis Hunter • $3"
         }
-      ]
+      ],
+      "season": {
+        "completedGames": 1,
+        "ppg": 139.62,
+        "pfRank": 8,
+        "paRank": 2,
+        "projectedRank": 7,
+        "startedPoints": 139.62,
+        "benchPoints": 36.94,
+        "positionTotals": {
+          "QB": 9.52,
+          "RB": 37.1,
+          "WR": 36.8,
+          "TE": 3.1,
+          "FLEX": 47.1,
+          "D/ST": 7.5,
+          "K": -1.5
+        },
+        "weekly": [
+          {
+            "week": 1,
+            "status": "FINAL",
+            "opponent": "Lloyd of the Rings",
+            "opponentSlug": "lloyd-rings",
+            "score": 139.62,
+            "opponentScore": 166.3,
+            "result": "L"
+          },
+          {
+            "week": 2,
+            "status": "LIVE",
+            "opponent": "I'm a Skatt man",
+            "opponentSlug": "skatt",
+            "score": 0,
+            "opponentScore": 0,
+            "result": "—"
+          }
+        ]
+      }
     },
     "hopkins-opus": {
       "teamId": 7,
@@ -1141,7 +1571,9 @@ export const leagueSnapshot = {
           "team": "NYG",
           "slot": "QB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 28.7,
+          "starts": 2
         },
         {
           "id": "4242335",
@@ -1150,7 +1582,9 @@ export const leagueSnapshot = {
           "team": "IND",
           "slot": "RB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 26,
+          "starts": 2
         },
         {
           "id": "4567048",
@@ -1159,7 +1593,9 @@ export const leagueSnapshot = {
           "team": "KC",
           "slot": "RB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 44.4,
+          "starts": 2
         },
         {
           "id": "4426354",
@@ -1168,7 +1604,9 @@ export const leagueSnapshot = {
           "team": "DAL",
           "slot": "WR",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 4.8,
+          "starts": 2
         },
         {
           "id": "4612826",
@@ -1177,7 +1615,9 @@ export const leagueSnapshot = {
           "team": "LAC",
           "slot": "WR",
           "status": "Questionable",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 18.2,
+          "starts": 2
         },
         {
           "id": "4430027",
@@ -1186,7 +1626,9 @@ export const leagueSnapshot = {
           "team": "DET",
           "slot": "TE",
           "status": "",
-          "weekPoints": 16.2
+          "weekPoints": 16.2,
+          "seasonPoints": 27,
+          "starts": 2
         },
         {
           "id": "4596448",
@@ -1195,7 +1637,9 @@ export const leagueSnapshot = {
           "team": "TB",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 20.1,
+          "starts": 2
         },
         {
           "id": "3916148",
@@ -1204,7 +1648,9 @@ export const leagueSnapshot = {
           "team": "TEN",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 4.1,
+          "starts": 2
         },
         {
           "id": "-16026",
@@ -1213,7 +1659,9 @@ export const leagueSnapshot = {
           "team": "SEA",
           "slot": "D/ST",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 15,
+          "starts": 2
         },
         {
           "id": "17372",
@@ -1222,7 +1670,9 @@ export const leagueSnapshot = {
           "team": "PIT",
           "slot": "K",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 9.5,
+          "starts": 2
         },
         {
           "id": "4870653",
@@ -1231,7 +1681,9 @@ export const leagueSnapshot = {
           "team": "CLE",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 7.6,
+          "starts": 0
         },
         {
           "id": "4361432",
@@ -1240,7 +1692,9 @@ export const leagueSnapshot = {
           "team": "NE",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": -1,
+          "starts": 0
         },
         {
           "id": "4242355",
@@ -1249,7 +1703,9 @@ export const leagueSnapshot = {
           "team": "DAL",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 1.6,
+          "starts": 0
         },
         {
           "id": "4685247",
@@ -1258,7 +1714,9 @@ export const leagueSnapshot = {
           "team": "NYJ",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 6,
+          "starts": 0
         },
         {
           "id": "3139477",
@@ -1267,7 +1725,9 @@ export const leagueSnapshot = {
           "team": "KC",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 23.36,
+          "starts": 0
         },
         {
           "id": "3043116",
@@ -1276,7 +1736,9 @@ export const leagueSnapshot = {
           "team": "SF",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
         }
       ],
       "moves": [
@@ -1295,7 +1757,45 @@ export const leagueSnapshot = {
           "label": "Free-agent move",
           "detail": "Added Chris Boswell • $0"
         }
-      ]
+      ],
+      "season": {
+        "completedGames": 1,
+        "ppg": 181.6,
+        "pfRank": 1,
+        "paRank": 11,
+        "projectedRank": 1,
+        "startedPoints": 197.8,
+        "benchPoints": 41.16,
+        "positionTotals": {
+          "QB": 28.7,
+          "RB": 70.4,
+          "WR": 23,
+          "TE": 27,
+          "FLEX": 24.2,
+          "D/ST": 15,
+          "K": 9.5
+        },
+        "weekly": [
+          {
+            "week": 1,
+            "status": "FINAL",
+            "opponent": "DarkHorse Danir",
+            "opponentSlug": "danir",
+            "score": 181.6,
+            "opponentScore": 121.14,
+            "result": "W"
+          },
+          {
+            "week": 2,
+            "status": "LIVE",
+            "opponent": "Royrek Tishmeshulam",
+            "opponentSlug": "royrek",
+            "score": 16.2,
+            "opponentScore": 0,
+            "result": "—"
+          }
+        ]
+      }
     },
     "shake-baker": {
       "teamId": 8,
@@ -1321,7 +1821,9 @@ export const leagueSnapshot = {
           "team": "WSH",
           "slot": "QB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 17.16,
+          "starts": 1
         },
         {
           "id": "4430807",
@@ -1330,7 +1832,9 @@ export const leagueSnapshot = {
           "team": "ATL",
           "slot": "RB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 32.4,
+          "starts": 2
         },
         {
           "id": "4038815",
@@ -1339,7 +1843,9 @@ export const leagueSnapshot = {
           "team": "PIT",
           "slot": "RB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 5.9,
+          "starts": 2
         },
         {
           "id": "4569618",
@@ -1348,7 +1854,9 @@ export const leagueSnapshot = {
           "team": "NYJ",
           "slot": "WR",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 14.9,
+          "starts": 2
         },
         {
           "id": "4239993",
@@ -1357,7 +1865,9 @@ export const leagueSnapshot = {
           "team": "CIN",
           "slot": "WR",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 9.9,
+          "starts": 2
         },
         {
           "id": "4360248",
@@ -1366,7 +1876,9 @@ export const leagueSnapshot = {
           "team": "ATL",
           "slot": "TE",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": -1,
+          "starts": 2
         },
         {
           "id": "2976212",
@@ -1375,7 +1887,9 @@ export const leagueSnapshot = {
           "team": "WSH",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 14.5,
+          "starts": 2
         },
         {
           "id": "3916433",
@@ -1384,7 +1898,9 @@ export const leagueSnapshot = {
           "team": "JAX",
           "slot": "FLEX",
           "status": "Questionable",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 13.3,
+          "starts": 2
         },
         {
           "id": "-16034",
@@ -1393,7 +1909,9 @@ export const leagueSnapshot = {
           "team": "HOU",
           "slot": "D/ST",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": -3.5,
+          "starts": 2
         },
         {
           "id": "2473037",
@@ -1402,7 +1920,9 @@ export const leagueSnapshot = {
           "team": "SEA",
           "slot": "K",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 8,
+          "starts": 2
         },
         {
           "id": "4373626",
@@ -1411,7 +1931,9 @@ export const leagueSnapshot = {
           "team": "ARI",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 11.7,
+          "starts": 0
         },
         {
           "id": "3052587",
@@ -1420,7 +1942,9 @@ export const leagueSnapshot = {
           "team": "TB",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 11.14,
+          "starts": 1
         },
         {
           "id": "4428718",
@@ -1429,7 +1953,9 @@ export const leagueSnapshot = {
           "team": "LV",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 5.7,
+          "starts": 0
         },
         {
           "id": "3054850",
@@ -1438,7 +1964,9 @@ export const leagueSnapshot = {
           "team": "NO",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
         },
         {
           "id": "4241416",
@@ -1447,7 +1975,9 @@ export const leagueSnapshot = {
           "team": "CAR",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
         },
         {
           "id": "15847",
@@ -1456,10 +1986,50 @@ export const leagueSnapshot = {
           "team": "KC",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
         }
       ],
-      "moves": []
+      "moves": [],
+      "season": {
+        "completedGames": 1,
+        "ppg": 105.54,
+        "pfRank": 12,
+        "paRank": 5,
+        "projectedRank": 11,
+        "startedPoints": 105.54,
+        "benchPoints": 39.06,
+        "positionTotals": {
+          "QB": 11.14,
+          "RB": 38.3,
+          "WR": 24.8,
+          "TE": -1,
+          "FLEX": 27.8,
+          "D/ST": -3.5,
+          "K": 8
+        },
+        "weekly": [
+          {
+            "week": 1,
+            "status": "FINAL",
+            "opponent": "For the Love of the Kraft",
+            "opponentSlug": "kraft",
+            "score": 105.54,
+            "opponentScore": 148.16,
+            "result": "L"
+          },
+          {
+            "week": 2,
+            "status": "LIVE",
+            "opponent": "The Route 22 Clubhouse",
+            "opponentSlug": "route-22",
+            "score": 0,
+            "opponentScore": 27,
+            "result": "—"
+          }
+        ]
+      }
     },
     "kraft": {
       "teamId": 9,
@@ -1485,7 +2055,9 @@ export const leagueSnapshot = {
           "team": "CIN",
           "slot": "QB",
           "status": "Questionable",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 15.66,
+          "starts": 2
         },
         {
           "id": "4870808",
@@ -1494,7 +2066,9 @@ export const leagueSnapshot = {
           "team": "ARI",
           "slot": "RB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 15.1,
+          "starts": 2
         },
         {
           "id": "4259545",
@@ -1503,7 +2077,9 @@ export const leagueSnapshot = {
           "team": "CHI",
           "slot": "RB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 38.2,
+          "starts": 2
         },
         {
           "id": "4685278",
@@ -1512,7 +2088,9 @@ export const leagueSnapshot = {
           "team": "CHI",
           "slot": "WR",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 10.6,
+          "starts": 2
         },
         {
           "id": "3116165",
@@ -1521,7 +2099,9 @@ export const leagueSnapshot = {
           "team": "TB",
           "slot": "WR",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 7.4,
+          "starts": 2
         },
         {
           "id": "4572680",
@@ -1530,7 +2110,9 @@ export const leagueSnapshot = {
           "team": "GB",
           "slot": "TE",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 8.5,
+          "starts": 2
         },
         {
           "id": "4426515",
@@ -1539,7 +2121,9 @@ export const leagueSnapshot = {
           "team": "LAR",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 11.9,
+          "starts": 2
         },
         {
           "id": "4429096",
@@ -1548,7 +2132,9 @@ export const leagueSnapshot = {
           "team": "LAR",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 5.4,
+          "starts": 1
         },
         {
           "id": "-16021",
@@ -1557,7 +2143,9 @@ export const leagueSnapshot = {
           "team": "PHI",
           "slot": "D/ST",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 4,
+          "starts": 2
         },
         {
           "id": "4697745",
@@ -1566,7 +2154,9 @@ export const leagueSnapshot = {
           "team": "BAL",
           "slot": "K",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 16.5,
+          "starts": 2
         },
         {
           "id": "4880281",
@@ -1575,7 +2165,9 @@ export const leagueSnapshot = {
           "team": "NO",
           "slot": "IR",
           "status": "IR",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
         },
         {
           "id": "4258173",
@@ -1584,7 +2176,9 @@ export const leagueSnapshot = {
           "team": "HOU",
           "slot": "Bench",
           "status": "Questionable",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 20.3,
+          "starts": 1
         },
         {
           "id": "4702555",
@@ -1593,7 +2187,9 @@ export const leagueSnapshot = {
           "team": "DEN",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": -0.25,
+          "starts": 0
         },
         {
           "id": "4362619",
@@ -1602,7 +2198,9 @@ export const leagueSnapshot = {
           "team": "JAX",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 3.9,
+          "starts": 0
         },
         {
           "id": "4869961",
@@ -1611,7 +2209,9 @@ export const leagueSnapshot = {
           "team": "MIA",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 2.5,
+          "starts": 0
         },
         {
           "id": "4696044",
@@ -1620,7 +2220,9 @@ export const leagueSnapshot = {
           "team": "SF",
           "slot": "Bench",
           "status": "Questionable",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 10.4,
+          "starts": 0
         },
         {
           "id": "5081432",
@@ -1629,7 +2231,9 @@ export const leagueSnapshot = {
           "team": "WSH",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
         }
       ],
       "moves": [
@@ -1643,7 +2247,45 @@ export const leagueSnapshot = {
           "label": "Free-agent move",
           "detail": "Added Kaelon Black • $0"
         }
-      ]
+      ],
+      "season": {
+        "completedGames": 1,
+        "ppg": 148.16,
+        "pfRank": 5,
+        "paRank": 12,
+        "projectedRank": 3,
+        "startedPoints": 148.16,
+        "benchPoints": 27.85,
+        "positionTotals": {
+          "QB": 15.66,
+          "RB": 53.3,
+          "WR": 32.2,
+          "TE": 8.5,
+          "FLEX": 18,
+          "D/ST": 4,
+          "K": 16.5
+        },
+        "weekly": [
+          {
+            "week": 1,
+            "status": "FINAL",
+            "opponent": "Shake 'N Baker",
+            "opponentSlug": "shake-baker",
+            "score": 148.16,
+            "opponentScore": 105.54,
+            "result": "W"
+          },
+          {
+            "week": 2,
+            "status": "LIVE",
+            "opponent": "Kupp Kupp Doubs",
+            "opponentSlug": "kupp-doubs",
+            "score": 0,
+            "opponentScore": 11.3,
+            "result": "—"
+          }
+        ]
+      }
     },
     "royrek": {
       "teamId": 10,
@@ -1669,7 +2311,9 @@ export const leagueSnapshot = {
           "team": "BAL",
           "slot": "QB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 30.66,
+          "starts": 2
         },
         {
           "id": "3929630",
@@ -1678,7 +2322,9 @@ export const leagueSnapshot = {
           "team": "PHI",
           "slot": "RB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 11.5,
+          "starts": 2
         },
         {
           "id": "4569173",
@@ -1687,7 +2333,9 @@ export const leagueSnapshot = {
           "team": "NE",
           "slot": "RB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 15.3,
+          "starts": 2
         },
         {
           "id": "4262921",
@@ -1696,7 +2344,9 @@ export const leagueSnapshot = {
           "team": "MIN",
           "slot": "WR",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 32.2,
+          "starts": 2
         },
         {
           "id": "16800",
@@ -1705,7 +2355,9 @@ export const leagueSnapshot = {
           "team": "LAR",
           "slot": "WR",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 4.6,
+          "starts": 2
         },
         {
           "id": "3121023",
@@ -1714,7 +2366,9 @@ export const leagueSnapshot = {
           "team": "PHI",
           "slot": "TE",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 27.7,
+          "starts": 2
         },
         {
           "id": "4047650",
@@ -1723,7 +2377,9 @@ export const leagueSnapshot = {
           "team": "PIT",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 9,
+          "starts": 2
         },
         {
           "id": "3042519",
@@ -1732,7 +2388,9 @@ export const leagueSnapshot = {
           "team": "MIN",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 12.2,
+          "starts": 2
         },
         {
           "id": "-16001",
@@ -1741,7 +2399,9 @@ export const leagueSnapshot = {
           "team": "ATL",
           "slot": "D/ST",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 1
         },
         {
           "id": "2971573",
@@ -1750,7 +2410,9 @@ export const leagueSnapshot = {
           "team": "HOU",
           "slot": "K",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 9.75,
+          "starts": 2
         },
         {
           "id": "4701936",
@@ -1759,7 +2421,9 @@ export const leagueSnapshot = {
           "team": "GB",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 14.5,
+          "starts": 0
         },
         {
           "id": "4429205",
@@ -1768,7 +2432,9 @@ export const leagueSnapshot = {
           "team": "MIN",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 1,
+          "starts": 0
         },
         {
           "id": "4428557",
@@ -1777,7 +2443,9 @@ export const leagueSnapshot = {
           "team": "TEN",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 3.7,
+          "starts": 0
         },
         {
           "id": "3116365",
@@ -1786,7 +2454,9 @@ export const leagueSnapshot = {
           "team": "BAL",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 9.9,
+          "starts": 0
         },
         {
           "id": "3917315",
@@ -1795,7 +2465,9 @@ export const leagueSnapshot = {
           "team": "MIN",
           "slot": "Bench",
           "status": "Out",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 0.82,
+          "starts": 0
         },
         {
           "id": "3925357",
@@ -1804,7 +2476,9 @@ export const leagueSnapshot = {
           "team": "TEN",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": -1,
+          "starts": 0
         }
       ],
       "moves": [
@@ -1813,7 +2487,45 @@ export const leagueSnapshot = {
           "label": "Free-agent move",
           "detail": "Added Falcons D/ST; dropped Lions D/ST • $0"
         }
-      ]
+      ],
+      "season": {
+        "completedGames": 1,
+        "ppg": 160.91,
+        "pfRank": 3,
+        "paRank": 4,
+        "projectedRank": 5,
+        "startedPoints": 160.91,
+        "benchPoints": 28.92,
+        "positionTotals": {
+          "QB": 30.66,
+          "RB": 26.8,
+          "WR": 36.8,
+          "TE": 27.7,
+          "FLEX": 21.2,
+          "D/ST": 8,
+          "K": 9.75
+        },
+        "weekly": [
+          {
+            "week": 1,
+            "status": "FINAL",
+            "opponent": "The All Ugly Team",
+            "opponentSlug": "all-ugly",
+            "score": 160.91,
+            "opponentScore": 152.86,
+            "result": "W"
+          },
+          {
+            "week": 2,
+            "status": "LIVE",
+            "opponent": "Mr Hopkins Opus",
+            "opponentSlug": "hopkins-opus",
+            "score": 0,
+            "opponentScore": 16.2,
+            "result": "—"
+          }
+        ]
+      }
     },
     "lloyd-rings": {
       "teamId": 11,
@@ -1839,7 +2551,9 @@ export const leagueSnapshot = {
           "team": "DAL",
           "slot": "QB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 13.6,
+          "starts": 2
         },
         {
           "id": "4362238",
@@ -1848,7 +2562,9 @@ export const leagueSnapshot = {
           "team": "CIN",
           "slot": "RB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 21.4,
+          "starts": 2
         },
         {
           "id": "3043078",
@@ -1857,7 +2573,9 @@ export const leagueSnapshot = {
           "team": "BAL",
           "slot": "RB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 41.7,
+          "starts": 2
         },
         {
           "id": "4429615",
@@ -1866,7 +2584,9 @@ export const leagueSnapshot = {
           "team": "BAL",
           "slot": "WR",
           "status": "Doubtful",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 32,
+          "starts": 2
         },
         {
           "id": "4567750",
@@ -1875,7 +2595,9 @@ export const leagueSnapshot = {
           "team": "TB",
           "slot": "WR",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 10.3,
+          "starts": 2
         },
         {
           "id": "4385690",
@@ -1884,7 +2606,9 @@ export const leagueSnapshot = {
           "team": "BUF",
           "slot": "TE",
           "status": "",
-          "weekPoints": 23.5
+          "weekPoints": 23.5,
+          "seasonPoints": 44.5,
+          "starts": 2
         },
         {
           "id": "4432620",
@@ -1893,7 +2617,9 @@ export const leagueSnapshot = {
           "team": "JAX",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 20.3,
+          "starts": 2
         },
         {
           "id": "4429023",
@@ -1902,7 +2628,9 @@ export const leagueSnapshot = {
           "team": "GB",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 4,
+          "starts": 2
         },
         {
           "id": "-16009",
@@ -1911,7 +2639,9 @@ export const leagueSnapshot = {
           "team": "GB",
           "slot": "D/ST",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 1,
+          "starts": 2
         },
         {
           "id": "4362081",
@@ -1920,7 +2650,9 @@ export const leagueSnapshot = {
           "team": "LAC",
           "slot": "K",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 1,
+          "starts": 2
         },
         {
           "id": "4360569",
@@ -1929,7 +2661,9 @@ export const leagueSnapshot = {
           "team": "MIN",
           "slot": "IR",
           "status": "IR",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 14.4,
+          "starts": 0
         },
         {
           "id": "4360761",
@@ -1938,7 +2672,9 @@ export const leagueSnapshot = {
           "team": "ARI",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 11.6,
+          "starts": 0
         },
         {
           "id": "4575131",
@@ -1947,7 +2683,9 @@ export const leagueSnapshot = {
           "team": "WSH",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 13.2,
+          "starts": 0
         },
         {
           "id": "4686658",
@@ -1956,7 +2694,9 @@ export const leagueSnapshot = {
           "team": "LV",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 5.8,
+          "starts": 0
         },
         {
           "id": "4360310",
@@ -1965,7 +2705,9 @@ export const leagueSnapshot = {
           "team": "JAX",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 27.3,
+          "starts": 0
         },
         {
           "id": "4869645",
@@ -1974,7 +2716,9 @@ export const leagueSnapshot = {
           "team": "MIA",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
         },
         {
           "id": "3123076",
@@ -1983,7 +2727,9 @@ export const leagueSnapshot = {
           "team": "LAC",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
         }
       ],
       "moves": [
@@ -2002,7 +2748,45 @@ export const leagueSnapshot = {
           "label": "Waiver claim",
           "detail": "Added Caleb Douglas; dropped Jaylin Noel • $20"
         }
-      ]
+      ],
+      "season": {
+        "completedGames": 1,
+        "ppg": 166.3,
+        "pfRank": 2,
+        "paRank": 8,
+        "projectedRank": 4,
+        "startedPoints": 189.8,
+        "benchPoints": 80.1,
+        "positionTotals": {
+          "QB": 13.6,
+          "RB": 63.1,
+          "WR": 42.3,
+          "TE": 44.5,
+          "FLEX": 24.3,
+          "D/ST": 1,
+          "K": 1
+        },
+        "weekly": [
+          {
+            "week": 1,
+            "status": "FINAL",
+            "opponent": "Pollard Greens",
+            "opponentSlug": "pollard-greens",
+            "score": 166.3,
+            "opponentScore": 139.62,
+            "result": "W"
+          },
+          {
+            "week": 2,
+            "status": "LIVE",
+            "opponent": "The All Ugly Team",
+            "opponentSlug": "all-ugly",
+            "score": 23.5,
+            "opponentScore": 36.2,
+            "result": "—"
+          }
+        ]
+      }
     },
     "ceedeep": {
       "teamId": 12,
@@ -2028,7 +2812,9 @@ export const leagueSnapshot = {
           "team": "BUF",
           "slot": "QB",
           "status": "",
-          "weekPoints": 45.22
+          "weekPoints": 45.22,
+          "seasonPoints": 86.48,
+          "starts": 2
         },
         {
           "id": "4429160",
@@ -2037,7 +2823,9 @@ export const leagueSnapshot = {
           "team": "MIA",
           "slot": "RB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 10.7,
+          "starts": 2
         },
         {
           "id": "4239996",
@@ -2046,7 +2834,9 @@ export const leagueSnapshot = {
           "team": "NO",
           "slot": "RB",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 14.7,
+          "starts": 2
         },
         {
           "id": "4241389",
@@ -2055,7 +2845,9 @@ export const leagueSnapshot = {
           "team": "DAL",
           "slot": "WR",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 14.5,
+          "starts": 2
         },
         {
           "id": "3121422",
@@ -2064,7 +2856,9 @@ export const leagueSnapshot = {
           "team": "WSH",
           "slot": "WR",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 2.4,
+          "starts": 2
         },
         {
           "id": "3046439",
@@ -2073,7 +2867,9 @@ export const leagueSnapshot = {
           "team": "NE",
           "slot": "TE",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 4.6,
+          "starts": 2
         },
         {
           "id": "4373678",
@@ -2082,7 +2878,9 @@ export const leagueSnapshot = {
           "team": "BUF",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 7.800000000000001
+          "weekPoints": 7.800000000000001,
+          "seasonPoints": 17.8,
+          "starts": 1
         },
         {
           "id": "4032473",
@@ -2091,7 +2889,9 @@ export const leagueSnapshot = {
           "team": "SEA",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 4.65,
+          "starts": 2
         },
         {
           "id": "-16012",
@@ -2100,7 +2900,9 @@ export const leagueSnapshot = {
           "team": "KC",
           "slot": "D/ST",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 16.5,
+          "starts": 2
         },
         {
           "id": "4034949",
@@ -2109,7 +2911,9 @@ export const leagueSnapshot = {
           "team": "SF",
           "slot": "K",
           "status": "Questionable",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 12.5,
+          "starts": 2
         },
         {
           "id": "4366031",
@@ -2118,7 +2922,9 @@ export const leagueSnapshot = {
           "team": "HOU",
           "slot": "IR",
           "status": "IR",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
         },
         {
           "id": "4432710",
@@ -2127,7 +2933,9 @@ export const leagueSnapshot = {
           "team": "NE",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
         },
         {
           "id": "3040151",
@@ -2136,7 +2944,9 @@ export const leagueSnapshot = {
           "team": "SF",
           "slot": "Bench",
           "status": "Questionable",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 4.7,
+          "starts": 0
         },
         {
           "id": "4432773",
@@ -2145,7 +2955,9 @@ export const leagueSnapshot = {
           "team": "JAX",
           "slot": "Bench",
           "status": "Questionable",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 8,
+          "starts": 1
         },
         {
           "id": "4362249",
@@ -2154,7 +2966,9 @@ export const leagueSnapshot = {
           "team": "GB",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 4,
+          "starts": 0
         },
         {
           "id": "4568490",
@@ -2163,7 +2977,9 @@ export const leagueSnapshot = {
           "team": "DEN",
           "slot": "Bench",
           "status": "Questionable",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 10.4,
+          "starts": 0
         },
         {
           "id": "4596334",
@@ -2172,7 +2988,9 @@ export const leagueSnapshot = {
           "team": "LAC",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0
+          "weekPoints": 0,
+          "seasonPoints": 1.05,
+          "starts": 0
         }
       ],
       "moves": [
@@ -2181,7 +2999,45 @@ export const leagueSnapshot = {
           "label": "Free-agent move",
           "detail": "Added Hunter Henry • $0"
         }
-      ]
+      ],
+      "season": {
+        "completedGames": 1,
+        "ppg": 129.81,
+        "pfRank": 10,
+        "paRank": 6,
+        "projectedRank": 10,
+        "startedPoints": 182.83,
+        "benchPoints": 30.15,
+        "positionTotals": {
+          "QB": 86.48,
+          "RB": 25.4,
+          "WR": 16.9,
+          "TE": 4.6,
+          "FLEX": 20.45,
+          "D/ST": 16.5,
+          "K": 12.5
+        },
+        "weekly": [
+          {
+            "week": 1,
+            "status": "FINAL",
+            "opponent": "The Route 22 Clubhouse",
+            "opponentSlug": "route-22",
+            "score": 129.81,
+            "opponentScore": 147.9,
+            "result": "L"
+          },
+          {
+            "week": 2,
+            "status": "LIVE",
+            "opponent": "DarkHorse Danir",
+            "opponentSlug": "danir",
+            "score": 53.02,
+            "opponentScore": 23.9,
+            "result": "—"
+          }
+        ]
+      }
     }
   }
 }
