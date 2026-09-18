@@ -4,6 +4,8 @@ export default function manifest() {
     name: 'The Brief of Ordinary Gentleman',
     short_name: 'The Brief',
     description: 'Fantasy football, personal grievances and other matters of irrelevance.',
+    lang: 'en-US',
+    dir: 'ltr',
     start_url: '/',
     scope: '/',
     display: 'standalone',
@@ -32,4 +34,3 @@ export default function manifest() {
     ],
   }
 }
-
