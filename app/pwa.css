@@ -83,6 +83,29 @@
   .notificationSetting button[aria-checked='true']{border-color:var(--red);background:var(--red)}
   .notificationSetting button[aria-checked='true'] span{background:var(--paper);transform:translateX(18px)}
   .notificationSetting button:disabled{opacity:.45}
+  html.standaloneApp[data-app-tab='home'] header{position:sticky;top:0;z-index:70;background:rgba(243,239,229,.94);border-bottom:1px solid rgba(17,16,14,.16);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+  html.standaloneApp[data-app-tab='home'] .utility{height:calc(env(safe-area-inset-top) + 48px);display:flex;align-items:flex-end;padding:0 54px 9px 16px;text-align:left}
+  html.standaloneApp[data-app-tab='home'] .utilityMain{font-size:0;letter-spacing:0;color:var(--ink)}
+  html.standaloneApp[data-app-tab='home'] .utilityMain:before{content:'THE BRIEF';font:900 22px/1 Georgia,serif;letter-spacing:-1px}
+  html.standaloneApp[data-app-tab='home'] .utilityMain i{display:none}
+  html.standaloneApp[data-app-tab='home'] .mast{display:none}
+  html.standaloneApp[data-app-tab='home'] main{padding-top:0}
+  html.standaloneApp[data-app-tab='home'] .hero{padding-top:18px}
+  html.standaloneApp[data-app-tab='home'] .hero h2{font-size:36px;line-height:.98;letter-spacing:-1.4px}
+  html.standaloneApp[data-app-tab='home'] .hero h2 em{color:inherit}
+  html.standaloneApp[data-app-tab='home'] .hero .standfirst{font-size:16px;line-height:1.42}
+  html.standaloneApp[data-app-tab='detail'] .articleMain,
+  html.standaloneApp[data-app-tab='culture'] .articleMain{padding-top:calc(env(safe-area-inset-top) + 42px)}
+  html.standaloneApp[data-app-tab='scores'] .upcoming{padding:calc(env(safe-area-inset-top) + 18px) 0 28px!important;border-top:0!important}
+  html.standaloneApp[data-app-tab='scores'] .upcomingGrid{grid-template-columns:1fr;gap:10px}
+  html.standaloneApp[data-app-tab='scores'] .upcomingGrid article{min-height:0;padding:18px;border:0;border-radius:14px;background:rgba(255,255,255,.44);box-shadow:0 1px 0 rgba(17,16,14,.12),0 5px 18px rgba(17,16,14,.07)}
+  html.standaloneApp[data-app-tab='scores'] .upcomingGrid article.featured{border:1px solid rgba(165,42,34,.25);border-left:5px solid var(--red);padding:28px 18px 18px}
+  html.standaloneApp[data-app-tab='scores'] .upcomingGrid article>small{top:10px;left:18px}
+  html.standaloneApp[data-app-tab='scores'] .upcomingGrid article b{font-size:15px}
+  html.standaloneApp[data-app-tab='scores'] .upcomingGrid article strong{font-size:27px}
+  html.standaloneApp[data-app-tab='scores'] .scoreSection{padding-top:24px}
+  html.standaloneApp[data-app-tab='scores'] .scores{grid-template-columns:1fr}
+  html.standaloneApp[data-app-tab='scores'] .match{border-right:0;padding:14px 4px}
   html.standaloneApp .siteNav{display:none!important}
   html.standaloneApp[data-app-tab='detail'] .articleHeader,
   html.standaloneApp[data-app-tab='culture'] body:has(.articleMain) .articleHeader{display:none}
