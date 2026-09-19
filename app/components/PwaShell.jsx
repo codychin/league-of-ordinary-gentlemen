@@ -19,9 +19,7 @@ function TabIcon({name}){
 function MobileAppNav(){
   const pathname=usePathname()
   const router=useRouter()
-  const [hash,setHash]=useState('')
   const [activeTab,setActiveTab]=useState(pathname.startsWith('/teams')?'teams':pathname==='/'?'home':'detail')
-  const motionTimer=useRef(null)
   const tabFor=nextHash=>{
     if(pathname.startsWith('/teams')) return 'teams'
     if(pathname!=='/') return document.querySelector('[data-app-section="culture"]')?'culture':'detail'
@@ -32,7 +30,11 @@ function MobileAppNav(){
 
   const activate=nextHash=>{
     const nextTab=tabFor(nextHash)
-    setHash(nextHash)
+    setActiveTab(nextTab)
+    document.documentElement.dataset.appTab=nextTab
+  }
+
+  const setVisualTab=nextTab=>{
     setActiveTab(nextTab)
     document.documentElement.dataset.appTab=nextTab
   }
@@ -61,22 +63,14 @@ function MobileAppNav(){
   },[pathname])
 
   const items=[
-    {href:'/',label:'Home',active:activeTab==='home'},
-    {href:'/#scores',label:'Scores',hash:'#scores',active:activeTab==='scores'},
-    {href:'/teams',label:'Teams',active:activeTab==='teams'},
-    {href:'/#culture',label:'Culture',hash:'#culture',active:activeTab==='culture'},
+    {href:'/',label:'Home',tab:'home',active:activeTab==='home'||activeTab==='detail'},
+    {href:'/#scores',label:'Scores',tab:'scores',hash:'#scores',active:activeTab==='scores'},
+    {href:'/teams',label:'Teams',tab:'teams',active:activeTab==='teams'},
+    {href:'/#culture',label:'Culture',tab:'culture',hash:'#culture',active:activeTab==='culture'},
   ]
 
-  const activeIndex=Math.max(0,items.findIndex(item=>item.active))
-  const beginTransition=()=>{
-    window.clearTimeout(motionTimer.current)
-    document.documentElement.classList.remove('appTabAnimating')
-    window.requestAnimationFrame(()=>document.documentElement.classList.add('appTabAnimating'))
-    motionTimer.current=window.setTimeout(()=>document.documentElement.classList.remove('appTabAnimating'),260)
-  }
-
   const navigate=(event,item)=>{
-    beginTransition()
+    setVisualTab(item.tab)
     if(item.href==='/teams'){
       event.preventDefault()
       if(pathname.startsWith('/teams')) window.scrollTo({top:0,behavior:'auto'})
@@ -106,8 +100,8 @@ function MobileAppNav(){
   }
 
   return <nav className="appTabBar" aria-label="App navigation">
-    <span className="appTabGlider" style={{transform:`translate3d(${activeIndex*100}%,0,0)`}} aria-hidden="true"/>
-    {items.map((item,index)=><Link
+    <span className="appTabGlider" aria-hidden="true"/>
+    {items.map(item=><Link
       key={item.label}
       href={item.href}
       className={item.active?'active':''}
@@ -116,6 +110,65 @@ function MobileAppNav(){
       onClick={event=>navigate(event,item)}
     ><TabIcon name={item.label}/><span className="appTabLabel">{item.label}</span></Link>)}
   </nav>
+}
+
+function PullToRefresh(){
+  const indicatorRef=useRef(null)
+
+  useEffect(()=>{
+    const standalone=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true
+    if(!standalone) return
+
+    const indicator=indicatorRef.current
+    let startY=0
+    let distance=0
+    let tracking=false
+    const threshold=64
+
+    const reset=()=>{
+      tracking=false
+      distance=0
+      indicator.style.setProperty('--pull-distance','0px')
+      indicator.classList.remove('visible','ready','refreshing')
+    }
+    const start=event=>{
+      if(window.scrollY>0||event.touches.length!==1||(event.target instanceof Element&&event.target.closest('input,textarea,select,button'))) return
+      startY=event.touches[0].clientY
+      tracking=true
+    }
+    const move=event=>{
+      if(!tracking) return
+      const delta=event.touches[0].clientY-startY
+      if(delta<=0){reset();return}
+      event.preventDefault()
+      distance=Math.min(92,delta*.52)
+      indicator.style.setProperty('--pull-distance',`${distance}px`)
+      indicator.classList.add('visible')
+      indicator.classList.toggle('ready',distance>=threshold)
+    }
+    const end=()=>{
+      if(!tracking) return
+      tracking=false
+      if(distance<threshold){reset();return}
+      indicator.classList.remove('ready')
+      indicator.classList.add('refreshing')
+      indicator.style.setProperty('--pull-distance','46px')
+      window.setTimeout(()=>window.location.reload(),180)
+    }
+
+    document.addEventListener('touchstart',start,{passive:true})
+    document.addEventListener('touchmove',move,{passive:false})
+    document.addEventListener('touchend',end,{passive:true})
+    document.addEventListener('touchcancel',reset,{passive:true})
+    return()=>{
+      document.removeEventListener('touchstart',start)
+      document.removeEventListener('touchmove',move)
+      document.removeEventListener('touchend',end)
+      document.removeEventListener('touchcancel',reset)
+    }
+  },[])
+
+  return <div className="pullRefresh" ref={indicatorRef} aria-hidden="true"><span/><b/></div>
 }
 
 function InstallPrompt(){
@@ -184,5 +237,5 @@ export default function PwaShell(){
     }
   },[])
 
-  return <><InstallPrompt/><MobileAppNav/></>
+  return <><PullToRefresh/><InstallPrompt/><MobileAppNav/></>
 }

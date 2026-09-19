@@ -1,4 +1,4 @@
-.appTabBar,.installPrompt{display:none}
+.appTabBar,.installPrompt,.pullRefresh{display:none}
 .liveNumbers{display:flex;flex-direction:column;align-items:flex-end;line-height:1}.liveNumbers em{margin-top:3px;font:800 7px Arial,sans-serif;letter-spacing:.7px;color:var(--muted);font-style:normal;white-space:nowrap}
 
 .offlinePage{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;max-width:760px;padding:60px 28px}
@@ -11,14 +11,26 @@
   body{padding-bottom:58px;overscroll-behavior-y:none}
   [id]{scroll-margin-top:46px}
   .appTabBar{position:fixed;top:auto;left:50%;right:auto;bottom:max(3px,calc(env(safe-area-inset-bottom) - 8px));width:min(380px,calc(100% - 24px));height:42px;transform:translateX(-50%);z-index:90;display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:3px 8px;background:linear-gradient(145deg,rgba(255,255,255,.68),rgba(224,217,205,.52));border:1px solid rgba(255,255,255,.82);border-radius:24px;box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 8px 28px rgba(17,16,14,.18),0 1px 3px rgba(17,16,14,.12);backdrop-filter:blur(26px) saturate(190%);-webkit-backdrop-filter:blur(26px) saturate(190%);overflow:hidden}
-  .appTabGlider{position:absolute;left:8px;top:3px;width:calc((100% - 16px)/4);height:34px;pointer-events:none;transition:transform .42s cubic-bezier(.2,.9,.2,1)}
+  .appTabGlider{position:absolute;left:8px;top:3px;width:calc((100% - 16px)/4);height:34px;pointer-events:none;transform:translate3d(0,0,0);transition:transform .34s cubic-bezier(.22,.75,.18,1);will-change:transform}
   .appTabGlider:after{content:'';display:block;width:44px;height:34px;margin:auto;border:1px solid rgba(165,42,34,.22);border-radius:18px;background:radial-gradient(circle at 30% 15%,rgba(255,255,255,.96),rgba(255,255,255,.56) 42%,rgba(165,42,34,.17));box-shadow:inset 0 1px 1px rgba(255,255,255,.98),0 3px 11px rgba(17,16,14,.14)}
   .appTabBar a{position:relative;display:flex;min-width:0;height:36px;padding:2px 0 0;align-items:center;justify-content:center;color:var(--muted);text-decoration:none}
   .appTabIcon{position:relative;z-index:1;width:40px;height:32px;display:grid;place-items:center;border-radius:17px;transition:color .2s ease,transform .24s cubic-bezier(.22,.8,.25,1)}
   .appTabIcon svg{width:23px;height:23px;display:block}
   .appTabLabel{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
-  .appTabBar a.active{color:var(--red)}
-  .appTabBar a.active .appTabIcon{transform:scale(1.05)}
+  html[data-app-tab='home'] .appTabBar a:nth-of-type(1),html[data-app-tab='detail'] .appTabBar a:nth-of-type(1),html[data-app-tab='scores'] .appTabBar a:nth-of-type(2),html[data-app-tab='teams'] .appTabBar a:nth-of-type(3),html[data-app-tab='culture'] .appTabBar a:nth-of-type(4){color:var(--red)}
+  html[data-app-tab='home'] .appTabBar a:nth-of-type(1) .appTabIcon,html[data-app-tab='detail'] .appTabBar a:nth-of-type(1) .appTabIcon,html[data-app-tab='scores'] .appTabBar a:nth-of-type(2) .appTabIcon,html[data-app-tab='teams'] .appTabBar a:nth-of-type(3) .appTabIcon,html[data-app-tab='culture'] .appTabBar a:nth-of-type(4) .appTabIcon{transform:translate3d(0,-1px,0) scale(1.06)}
+  html[data-app-tab='scores'] .appTabGlider{transform:translate3d(100%,0,0)}
+  html[data-app-tab='teams'] .appTabGlider{transform:translate3d(200%,0,0)}
+  html[data-app-tab='culture'] .appTabGlider{transform:translate3d(300%,0,0)}
+  .pullRefresh{--pull-distance:0px;position:fixed;top:calc(env(safe-area-inset-top) + 5px);left:50%;z-index:110;display:flex;align-items:center;gap:7px;padding:7px 11px;border:1px solid rgba(255,255,255,.8);border-radius:18px;background:rgba(243,239,229,.82);box-shadow:0 5px 18px rgba(17,16,14,.14);backdrop-filter:blur(18px) saturate(170%);-webkit-backdrop-filter:blur(18px) saturate(170%);opacity:0;pointer-events:none;transform:translate3d(-50%,calc(var(--pull-distance) - 58px),0);transition:opacity .14s ease,transform .18s ease;color:var(--ink)}
+  .pullRefresh.visible{opacity:1;transition:opacity .1s ease}
+  .pullRefresh span{width:13px;height:13px;border:2px solid rgba(17,16,14,.28);border-top-color:var(--red);border-radius:50%;transform:rotate(0deg);transition:transform .18s ease}
+  .pullRefresh.visible span{transform:rotate(150deg)}
+  .pullRefresh.ready span{transform:rotate(300deg)}
+  .pullRefresh b:before{content:'PULL TO REFRESH';font:900 7px Arial,sans-serif;letter-spacing:1.2px}
+  .pullRefresh.ready b:before{content:'RELEASE TO REFRESH'}
+  .pullRefresh.refreshing b:before{content:'REFRESHING'}
+  .pullRefresh.refreshing span{animation:pullRefreshSpin .7s linear infinite}
   .installPrompt{position:fixed;left:12px;right:12px;bottom:calc(48px + env(safe-area-inset-bottom));z-index:95;display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:center;gap:12px;padding:13px 14px;background:var(--ink);color:var(--paper);border:1px solid #4b4841;box-shadow:0 12px 35px rgba(0,0,0,.3)}
   .installMark{width:46px;height:46px;display:grid;place-items:center;border:2px solid var(--paper);font:900 19px Georgia,serif;letter-spacing:-1px;color:var(--paper)}
   .installMark:after{content:'';position:absolute;width:32px;height:3px;background:var(--red);transform:translateY(-16px)}
@@ -48,7 +60,6 @@
   html.standaloneApp[data-app-tab='culture'] .affairs{min-height:calc(100svh - 40px - env(safe-area-inset-bottom));margin-top:0;padding-top:calc(22px + env(safe-area-inset-top))}
   html.standaloneApp[data-app-tab='scores'] footer,
   html.standaloneApp[data-app-tab='culture'] footer{display:none}
-  html.standaloneApp.appTabAnimating main{animation:appTabContentIn .22s ease-out}
   @media(display-mode:standalone){
     .utility{padding-top:calc(5px + env(safe-area-inset-top));padding-bottom:5px}
     .siteNav{display:none!important}
@@ -73,5 +84,5 @@
   }
 }
 
-@keyframes appTabContentIn{from{opacity:.86;transform:translate3d(0,5px,0)}to{opacity:1;transform:none}}
-@media(prefers-reduced-motion:reduce){.appTabGlider,.appTabIcon{transition:none!important}html.standaloneApp.appTabAnimating main{animation:none!important}}
+@keyframes pullRefreshSpin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.appTabGlider,.appTabIcon,.pullRefresh{transition:none!important}.pullRefresh.refreshing span{animation:none!important}}

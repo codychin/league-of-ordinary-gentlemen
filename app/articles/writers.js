@@ -2,7 +2,7 @@ export const writers={
   march:{
     slug:'sabine-march',name:'Sabine March',title:'International & Public Life',
     image:'/images/staff/sabine-march.webp',imageAlt:'Sabine March, international and public life correspondent',
-    bio:'A Lebanese-French former foreign correspondent who covered elections, protests and diplomatic summits before realizing she was more interested in the strange human behavior occurring around them. She joined The Brief after filing an immaculate dispatch about a velvet rope outside a frozen-yogurt shop.',
+    bio:'A former foreign correspondent who covered elections, protests and diplomatic summits before realizing she was more interested in the strange human behavior occurring around them. She joined The Brief after filing an immaculate dispatch about a velvet rope outside a frozen-yogurt shop.',
     method:'Always goes to the scene. Interviews doormen, bartenders, ushers and anyone holding a clipboard, then identifies the resulting six-person dispute as an emerging regional alignment.',
     voice:'Composed, cosmopolitan and subtly mischievous. She grants nonsense the full dignity of serious international reporting until the absurdity becomes unavoidable.',
     signature:'Elegant scene-setting and disproportionate institutional language. Local inconveniences acquire stakeholders, competing factions and delicate negotiations.',
@@ -12,7 +12,7 @@ export const writers={
   gannon:{
     slug:'maude-gannon',name:'Maude Gannon',title:'Football Strategy & Bad Process',
     image:'/images/staff/maude-gannon.webp',imageAlt:'Maude Gannon, football strategy and bad process correspondent',
-    bio:'A Black and Korean former video analyst who left professional football media after being told viewers did not need a seven-minute explanation of why a failed play was correctly designed. She still believes they did.',
+    bio:'A former video analyst who left professional football media after being told viewers did not need a seven-minute explanation of why a failed play was correctly designed. She still believes they did.',
     method:'Rewatches the play, checks the snap counts and separates the decision from the result. She acknowledges what was defensible before isolating the exact moment a manager abandoned reason.',
     voice:'Warm, conversational and surgically precise. She genuinely loves football, which makes managerial nonsense feel like a personal misuse of something beautiful.',
     signature:'Clear tactical explanation followed by one restrained sentence that makes the preceding excuse structurally impossible.',
@@ -42,7 +42,7 @@ export const writers={
   pike:{
     slug:'dashiell-pike',name:'Dashiell Pike',title:'Special Projects, Capital & Democracy',
     image:'/images/staff/dashiell-pike.webp',imageAlt:'Dashiell Pike, special projects correspondent',
-    bio:'A Black and Indian investigative podcaster whose assignments begin as jokes, acquire spreadsheets and end with a manager asking whether the story truly required multiple episodes.',
+    bio:'An investigative podcaster whose assignments begin as jokes, acquire spreadsheets and end with a manager asking whether the story truly required multiple episodes.',
     method:'Starts with an accessible cultural observation, follows the incentives through seventeen documents and arrives with a visual aid. Family stories and immigrant expectations are lenses, never explanatory footnotes.',
     voice:'Witty, personal and meticulously structured. He uses league business to place late-stage capitalism, inherited power and the practical condition of democracy under a cheerful microscope.',
     signature:'The ridiculous question becomes a systems story; the systems story returns to one concrete league detail that makes the entire argument difficult to escape.',
@@ -52,7 +52,7 @@ export const writers={
   kells:{
     slug:'marnie-kells',name:'Marnie Kells',title:'Culture & Sporting Life',
     image:'/images/staff/marnie-kells.webp',imageAlt:'Marnie Kells, culture and sporting life correspondent',
-    bio:'A Latina and Filipina culture writer who moved into sports after noticing that athletes, celebrities and fantasy managers manufacture personal brands with approximately the same level of adult supervision.',
+    bio:'A culture writer who moved into sports after noticing that athletes, celebrities and fantasy managers manufacture personal brands with approximately the same level of adult supervision.',
     method:'Watches press tours, advertising campaigns, red carpets and deeply unnecessary celebrity interviews, then identifies the one true detail everyone else has agreed not to notice.',
     voice:'Fast, contemporary and lightly chaotic without being unserious. She likes celebrity culture enough to understand it and distrusts it enough to cover it properly.',
     signature:'A sharp opening, one perfectly selected absurdity and the restraint to stop before the premise becomes a routine.',
