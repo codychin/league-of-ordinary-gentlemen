@@ -9,11 +9,23 @@ const DISMISS_KEY='ordinary-brief-install-dismissed'
 function MobileAppNav(){
   const pathname=usePathname()
   const [hash,setHash]=useState('')
+  const tabFor=nextHash=>{
+    if(pathname.startsWith('/teams')) return 'teams'
+    if(pathname!=='/') return 'detail'
+    if(nextHash==='#scores') return 'scores'
+    if(nextHash==='#culture') return 'culture'
+    return 'home'
+  }
+
+  const activate=nextHash=>{
+    setHash(nextHash)
+    document.documentElement.dataset.appTab=tabFor(nextHash)
+  }
 
   useEffect(()=>{
     const scrollToLocation=()=>{
       const nextHash=window.location.hash
-      setHash(nextHash)
+      activate(nextHash)
       window.requestAnimationFrame(()=>{
         if(!nextHash){
           window.scrollTo({top:0,behavior:'auto'})
@@ -22,13 +34,11 @@ function MobileAppNav(){
         document.getElementById(nextHash.slice(1))?.scrollIntoView({behavior:'auto',block:'start'})
       })
     }
-    const sync=()=>setHash(window.location.hash)
-    sync()
-    window.addEventListener('hashchange',sync)
+    scrollToLocation()
+    window.addEventListener('hashchange',scrollToLocation)
     window.addEventListener('popstate',scrollToLocation)
-    if(pathname==='/') scrollToLocation()
     return()=>{
-      window.removeEventListener('hashchange',sync)
+      window.removeEventListener('hashchange',scrollToLocation)
       window.removeEventListener('popstate',scrollToLocation)
     }
   },[pathname])
@@ -41,6 +51,13 @@ function MobileAppNav(){
   ]
 
   const navigate=(event,item)=>{
+    if(item.href==='/teams'){
+      event.preventDefault()
+      if(pathname.startsWith('/teams')) window.scrollTo({top:0,behavior:'auto'})
+      else window.location.assign('/teams')
+      return
+    }
+
     if(pathname!=='/'){
       if(item.href.startsWith('/#')||item.href==='/'){
         event.preventDefault()
@@ -53,13 +70,13 @@ function MobileAppNav(){
     if(!item.hash){
       if(window.location.hash) window.history.pushState(null,'','/')
       window.scrollTo({top:0,behavior:'auto'})
-      setHash('')
+      activate('')
       return
     }
 
     if(window.location.hash!==item.hash) window.history.pushState(null,'',item.hash)
+    activate(item.hash)
     document.getElementById(item.hash.slice(1))?.scrollIntoView({behavior:'auto',block:'start'})
-    setHash(item.hash)
   }
 
   return <nav className="appTabBar" aria-label="App navigation">
