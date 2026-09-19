@@ -49,7 +49,7 @@
   .installAction{align-self:stretch;max-width:76px;border:0;border-left:1px solid #5a554c;background:transparent;color:var(--paper);padding:0 4px 0 12px;font:900 9px/1.2 Arial,sans-serif;letter-spacing:.8px;cursor:pointer}
   .installDismiss{position:absolute;top:-9px;right:-7px;width:24px;height:24px;border-radius:50%;border:1px solid var(--paper);background:var(--ink);color:var(--paper);font:18px/20px Arial,sans-serif;cursor:pointer}
   html.standaloneApp .utility{padding-top:calc(5px + env(safe-area-inset-top));padding-bottom:5px}
-  html.standaloneApp .articleAlerts{display:block;position:fixed;top:calc(env(safe-area-inset-top) + 5px);right:10px;z-index:100}
+  html.standaloneApp .articleAlerts{display:block;position:fixed;top:calc(env(safe-area-inset-top) + 7px);right:10px;z-index:100}
   .articleAlertBell{position:relative;width:34px;height:34px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.82);border-radius:50%;background:rgba(243,239,229,.72);color:var(--ink);box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 5px 16px rgba(17,16,14,.14);backdrop-filter:blur(18px) saturate(180%);-webkit-backdrop-filter:blur(18px) saturate(180%)}
   .articleAlertBell svg{width:19px;height:19px}
   .articleAlertBell span.unread{position:absolute;top:1px;right:1px;width:8px;height:8px;border:2px solid var(--paper);border-radius:50%;background:var(--red)}
@@ -84,9 +84,10 @@
   .notificationSetting button[aria-checked='true'] span{background:var(--paper);transform:translateX(18px)}
   .notificationSetting button:disabled{opacity:.45}
   html.standaloneApp[data-app-tab='home'] header{position:sticky;top:0;z-index:70;background:rgba(243,239,229,.94);border-bottom:1px solid rgba(17,16,14,.16);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
-  html.standaloneApp[data-app-tab='home'] .utility{box-sizing:content-box;height:38px;display:flex;align-items:center;justify-content:center;padding:calc(env(safe-area-inset-top) + 3px) 54px 3px;text-align:center}
-  html.standaloneApp[data-app-tab='home'] .utilityMain{position:relative;width:34px;height:34px;display:block;font-size:0;letter-spacing:0;color:transparent;background:url('/icons/ordinary-brief-v3-192.png') center/34px 34px no-repeat}
-  html.standaloneApp[data-app-tab='home'] .utilityMain:before{content:none}
+  html.standaloneApp[data-app-tab='home'] .utility{box-sizing:content-box;height:38px;display:flex;align-items:center;justify-content:center;padding:calc(env(safe-area-inset-top) + 3px) 54px 8px;text-align:center}
+  html.standaloneApp[data-app-tab='home'] .utilityMain{position:relative;width:auto;height:34px;display:flex;align-items:center;gap:8px;font:700 20px/1 Georgia,serif;letter-spacing:-.7px;color:var(--ink)}
+  html.standaloneApp[data-app-tab='home'] .utilityMain:before{content:'The'}
+  html.standaloneApp[data-app-tab='home'] .utilityMain:after{content:'Brief';display:flex;align-items:center;height:34px;padding-left:42px;background:url('/icons/ordinary-brief-v3-192.png') left center/34px 34px no-repeat}
   html.standaloneApp[data-app-tab='home'] .utilityMain i{display:none}
   html.standaloneApp[data-app-tab='home'] .mast{display:none}
   html.standaloneApp[data-app-tab='home'] main{padding-top:0}
@@ -96,7 +97,7 @@
   html.standaloneApp[data-app-tab='home'] .hero .standfirst{font-size:16px;line-height:1.42}
   html.standaloneApp[data-app-tab='detail'] .articleMain,
   html.standaloneApp[data-app-tab='culture'] .articleMain{padding-top:calc(env(safe-area-inset-top) + 42px)}
-  html.standaloneApp[data-app-tab='scores'] .upcoming{padding:calc(env(safe-area-inset-top) + 18px) 0 28px!important;border-top:0!important}
+  html.standaloneApp[data-app-tab='scores'] .upcoming{padding:calc(env(safe-area-inset-top) + 4px) 0 28px!important;border-top:0!important}
   html.standaloneApp[data-app-tab='scores'] .upcomingGrid{grid-template-columns:1fr;gap:10px}
   html.standaloneApp[data-app-tab='scores'] .upcomingGrid article{min-height:0;padding:18px;border:0;border-radius:14px;background:rgba(255,255,255,.44);box-shadow:0 1px 0 rgba(17,16,14,.12),0 5px 18px rgba(17,16,14,.07)}
   html.standaloneApp[data-app-tab='scores'] .upcomingGrid article.featured{border:1px solid rgba(165,42,34,.25);border-left:5px solid var(--red);padding:28px 18px 18px}
