@@ -409,3 +409,40 @@
   html.standaloneApp[data-app-tab='scores'] .matchupPortraits .rightPlayer{right:2px}
   html.standaloneApp[data-app-tab='scores'] .matchupPlayers{display:none!important}
 }
+
+
+/* Final score-card vertical rhythm: copy first, portraits second */
+@media(max-width:760px){
+  html.standaloneApp[data-app-tab='scores'] .playerHeadlineMatchup{
+    min-height:164px;
+    padding-top:20px!important;
+  }
+  html.standaloneApp[data-app-tab='scores'] .matchupEditorial{
+    min-height:108px;
+    padding-top:0!important;
+    align-items:start!important;
+  }
+  html.standaloneApp[data-app-tab='scores'] .matchupSide{
+    position:relative;
+    z-index:3;
+    padding-top:0!important;
+  }
+  html.standaloneApp[data-app-tab='scores'] .matchupSide b{
+    min-height:31px;
+    margin:0 0 2px;
+  }
+  html.standaloneApp[data-app-tab='scores'] .matchupSide strong{
+    margin-top:0;
+  }
+  html.standaloneApp[data-app-tab='scores'] .matchupPortraits{
+    inset:66px 0 23px;
+    z-index:1;
+  }
+  html.standaloneApp[data-app-tab='scores'] .matchupPortraits img{
+    bottom:-2px;
+    height:88px;
+  }
+  html.standaloneApp[data-app-tab='scores'] .matchupEditorial>i{
+    margin-top:28px!important;
+  }
+}
