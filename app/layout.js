@@ -30,6 +30,6 @@ export const metadata={
 
 export const viewport={width:'device-width',initialScale:1,viewportFit:'cover',themeColor:'#11100e'}
 
-const standaloneBoot=`try{if(matchMedia('(display-mode: standalone)').matches||navigator.standalone===true){document.documentElement.classList.add('standaloneApp');var p=location.pathname,h=location.hash;document.documentElement.dataset.appTab=p.startsWith('/teams')?'teams':p!=='/'?'detail':h==='#scores'?'scores':h==='#culture'?'culture':'home'}}catch(e){}`
+const standaloneBoot=`try{var preview=new URLSearchParams(location.search).get('app-preview')==='1';if(preview||matchMedia('(display-mode: standalone)').matches||navigator.standalone===true){document.documentElement.classList.add('standaloneApp');if(preview)document.documentElement.classList.add('appPreview');var p=location.pathname,h=location.hash;document.documentElement.dataset.appTab=p.startsWith('/teams')?'teams':p!=='/'?'detail':h==='#scores'?'scores':h==='#culture'?'culture':'home'}}catch(e){}`
 
 export default function RootLayout({children}){return <html lang="en"><head><script id="standalone-boot" dangerouslySetInnerHTML={{__html:standaloneBoot}}/></head><body>{children}<PwaShell/></body></html>}
