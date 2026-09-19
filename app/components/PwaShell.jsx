@@ -253,19 +253,14 @@ function MobileAppNav(){
     {href:'/#culture',label:'Culture',tab:'culture',hash:'#culture',active:activeTab==='culture'},
   ]
 
-  const primeTab=item=>{
-    setMoreOpen(false)
-    setActiveTab(item.tab)
-    document.documentElement.dataset.appTab=item.tab
-  }
-
   const navigate=(event,item)=>{
     setMoreOpen(false)
     setVisualTab(item.tab)
     if(item.href==='/teams'){
-      event.preventDefault()
-      if(pathname.startsWith('/teams')) resetAppScroll()
-      else router.push('/teams')
+      if(pathname.startsWith('/teams')){
+        event.preventDefault()
+        resetAppScroll()
+      }
       return
     }
 
@@ -328,8 +323,6 @@ function MobileAppNav(){
       className={item.active?'active':''}
       aria-current={item.active?'page':undefined}
       aria-label={item.label}
-      onPointerDown={()=>primeTab(item)}
-      onTouchStart={()=>primeTab(item)}
       onClick={event=>navigate(event,item)}
       ><TabIcon name={item.label}/><span className="appTabLabel">{item.label}</span></Link>)}
       <button className={moreOpen?'active':''} type="button" aria-label="More" aria-expanded={moreOpen} onPointerDown={()=>{setActiveTab('more');document.documentElement.dataset.appTab='more'}} onClick={()=>setMoreOpen(value=>!value)}><TabIcon name="More"/><span className="appTabLabel">More</span></button>
