@@ -189,5 +189,6 @@
 @media(max-width:760px){
   .appTabBar a,.appTabBar>button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
   html.standaloneApp main{contain:paint}
-  html.standaloneApp .appSectionHeader,html.standaloneApp .appTabBar{transform:translateZ(0);backface-visibility:hidden}
+  html.standaloneApp .appSectionHeader{transform:translateZ(0);backface-visibility:hidden}
+  html.standaloneApp .appTabBar{transform:translate3d(-50%,0,0);backface-visibility:hidden}
 }
