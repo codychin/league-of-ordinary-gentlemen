@@ -97,7 +97,12 @@
   html.standaloneApp[data-app-tab='home'] .hero .standfirst{font-size:16px;line-height:1.42}
   html.standaloneApp[data-app-tab='detail'] .articleMain,
   html.standaloneApp[data-app-tab='culture'] .articleMain{padding-top:calc(env(safe-area-inset-top) + 42px)}
-  html.standaloneApp[data-app-tab='scores'] .upcoming{padding:calc(env(safe-area-inset-top) + 4px) 0 28px!important;border-top:0!important}
+  html.standaloneApp[data-app-tab='scores'] .upcoming{padding:env(safe-area-inset-top) 0 24px!important;border-top:0!important}
+  html.standaloneApp[data-app-tab='scores'] .scoreHero{margin:0 -22px 14px;padding:8px 22px 14px;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;border-bottom:4px solid var(--ink)}
+  html.standaloneApp[data-app-tab='scores'] .scoreHero small{display:block;margin-bottom:3px;font:900 7px Arial,sans-serif;letter-spacing:1.4px;color:var(--red)}
+  html.standaloneApp[data-app-tab='scores'] .scoreHero h2{margin:0;font:900 34px/.9 Georgia,serif;letter-spacing:-1.8px}
+  html.standaloneApp[data-app-tab='scores'] .scoreHero>span{padding-bottom:2px;text-align:right;font:900 7px/1.35 Arial,sans-serif;letter-spacing:1px;color:var(--muted)}
+  html.standaloneApp[data-app-tab='scores'] .scoreHero>span b{display:inline-block;margin-right:4px;padding:3px 5px;background:var(--red);color:white;font-size:7px;letter-spacing:1px}
   html.standaloneApp[data-app-tab='scores'] .upcomingGrid{grid-template-columns:1fr;gap:10px}
   html.standaloneApp[data-app-tab='scores'] .upcomingGrid article{min-height:0;padding:18px;border:0;border-radius:14px;background:rgba(255,255,255,.44);box-shadow:0 1px 0 rgba(17,16,14,.12),0 5px 18px rgba(17,16,14,.07)}
   html.standaloneApp[data-app-tab='scores'] .upcomingGrid article.featured{border:1px solid rgba(165,42,34,.25);border-left:5px solid var(--red);padding:28px 18px 18px}
@@ -106,7 +111,11 @@
   html.standaloneApp[data-app-tab='scores'] .upcomingGrid article strong{font-size:27px}
   html.standaloneApp[data-app-tab='scores'] .scoreSection{padding-top:24px}
   html.standaloneApp[data-app-tab='scores'] .scores{grid-template-columns:1fr}
-  html.standaloneApp[data-app-tab='scores'] .match{border-right:0;padding:14px 4px}
+  html.standaloneApp[data-app-tab='scores'] .match{border-right:0;padding:16px 4px}
+  html.standaloneApp[data-app-tab='scores'] .match.notable{padding-top:42px}
+  html.standaloneApp[data-app-tab='scores'] .scoreNote{top:14px;left:4px;padding-bottom:6px}
+  html.standaloneApp[data-app-tab='scores'] .match div{padding:5px 0;align-items:baseline}
+  html.standaloneApp[data-app-tab='scores'] .match div:first-of-type{padding-top:0}
   html.standaloneApp .siteNav{display:none!important}
   html.standaloneApp[data-app-tab='detail'] .articleHeader,
   html.standaloneApp[data-app-tab='culture'] body:has(.articleMain) .articleHeader{display:none}
