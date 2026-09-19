@@ -6,6 +6,7 @@ import {usePathname, useRouter} from 'next/navigation'
 
 const DISMISS_KEY='ordinary-brief-install-dismissed'
 const NOTIFICATION_SEEN_KEY='ordinary-brief-last-notification'
+const APP_TAB_KEY='ordinary-brief-active-tab'
 const PUSH_API='https://dnzdbqycuuoonewcowis.supabase.co/functions/v1/brief-push'
 
 function urlBase64ToUint8Array(value){
@@ -204,6 +205,24 @@ function MobileAppNav(){
     if(standalone&&'scrollRestoration' in window.history) window.history.scrollRestoration='manual'
     const scrollToLocation=()=>{
       const nextHash=window.location.hash
+      if(standalone){
+        let nextTab
+        if(pathname.startsWith('/teams')) nextTab='teams'
+        else if(pathname!=='/') nextTab=document.querySelector('[data-app-section="culture"]')?'culture':'detail'
+        else if(nextHash==='#scores') nextTab='scores'
+        else if(nextHash==='#culture') nextTab='culture'
+        else nextTab=window.sessionStorage.getItem(APP_TAB_KEY)||'home'
+        if(!['home','scores','culture','teams','detail'].includes(nextTab)) nextTab='home'
+        setActiveTab(nextTab)
+        document.documentElement.dataset.appTab=nextTab
+        if(pathname==='/'&&['home','scores','culture'].includes(nextTab)) window.sessionStorage.setItem(APP_TAB_KEY,nextTab)
+        if(nextHash){
+          const clean=window.location.pathname+window.location.search
+          window.history.replaceState(null,'',clean)
+        }
+        resetAppScroll()
+        return
+      }
       activate(nextHash)
       window.requestAnimationFrame(()=>{
         if(!nextHash){
@@ -243,12 +262,30 @@ function MobileAppNav(){
     if(pathname!=='/'){
       if(item.href.startsWith('/#')||item.href==='/'){
         event.preventDefault()
-        router.push(item.href)
+        const standalone=document.documentElement.classList.contains('standaloneApp')
+        if(standalone){
+          window.sessionStorage.setItem(APP_TAB_KEY,item.tab)
+          const query=document.documentElement.classList.contains('appPreview')?'?app-preview=1':''
+          router.push('/'+query)
+        }else{
+          router.push(item.href)
+        }
       }
       return
     }
 
     event.preventDefault()
+    const standalone=document.documentElement.classList.contains('standaloneApp')
+    if(standalone){
+      window.sessionStorage.setItem(APP_TAB_KEY,item.tab)
+      const clean=window.location.pathname+window.location.search
+      if(window.location.hash) window.history.replaceState(null,'',clean)
+      setActiveTab(item.tab)
+      document.documentElement.dataset.appTab=item.tab
+      resetAppScroll()
+      return
+    }
+
     if(!item.hash){
       if(window.location.hash) window.history.pushState(null,'','/')
       activate('')
@@ -258,12 +295,7 @@ function MobileAppNav(){
 
     if(window.location.hash!==item.hash) window.history.pushState(null,'',item.hash)
     activate(item.hash)
-    const standalone=document.documentElement.classList.contains('standaloneApp')
-    if(standalone){
-      resetAppScroll()
-    }else{
-      document.getElementById(item.hash.slice(1))?.scrollIntoView({behavior:'auto',block:'start'})
-    }
+    document.getElementById(item.hash.slice(1))?.scrollIntoView({behavior:'auto',block:'start'})
   }
 
   const headerLabel=moreOpen?'More':activeTab==='scores'?'Scores':activeTab==='teams'?'Teams':activeTab==='culture'?'Culture':activeTab==='detail'?'The Brief':''
