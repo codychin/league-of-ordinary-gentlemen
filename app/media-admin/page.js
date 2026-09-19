@@ -32,7 +32,7 @@ export default function MediaAdmin(){
       const response=await fetch(`${PUSH_API}?action=send`,{
         method:'POST',
         headers:{'Content-Type':'application/json','x-brief-media-key':String(form.get('key')||'')},
-        body:JSON.stringify({articleId:form.get('articleId'),title:form.get('title'),body:form.get('body')}),
+        body:JSON.stringify({articleId:form.get('articleId'),title:form.get('title'),body:form.get('body'),homepage:true}),
       })
       const result=await response.json().catch(()=>({error:'Alert failed'}))
       setAlertStatus(response.ok?`Sent to ${result.sent} subscriber${result.sent===1?'':'s'}${result.failed?`; ${result.failed} failed`:''}.`:`Error: ${result.error||response.status}`)
@@ -56,8 +56,8 @@ export default function MediaAdmin(){
     </form>
     <p style={{marginTop:14,wordBreak:'break-all'}}>{mediaStatus}</p>
 
-    <h2 style={{marginTop:42}}>Article alert</h2>
-    <p>Send only after the article is live in production. Each article slug can notify subscribers once.</p>
+    <h2 style={{marginTop:42}}>Homepage story alert</h2>
+    <p>Use only after a story is live and featured on the main page. Culture briefs and archive-only articles do not receive a push. Each article slug can notify subscribers once.</p>
     <form onSubmit={sendAlert} style={formStyle}>
       <label>Editorial key<input name="key" type="password" required style={fieldStyle}/></label>
       <label>Article slug<input name="articleId" placeholder="league-unbearable-tnf" pattern="[a-z0-9-]+" required style={fieldStyle}/></label>

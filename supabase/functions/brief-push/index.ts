@@ -31,6 +31,16 @@ Deno.serve(async(req)=>{
       return response({publicKey:data.public_key})
     }
 
+    if(req.method==='GET'&&action==='notifications'){
+      const {data,error}=await db
+        .from('brief_push_deliveries')
+        .select('article_id,title,body,url,sent_at')
+        .order('sent_at',{ascending:false})
+        .limit(12)
+      if(error) throw error
+      return response({notifications:data||[]})
+    }
+
     const body=await req.json()
 
     if(req.method==='POST'&&action==='subscribe'){
@@ -69,6 +79,12 @@ Deno.serve(async(req)=>{
       const title=String(body?.title||'').trim().slice(0,120)
       const message=String(body?.body||'').trim().slice(0,240)
       if(!articleId||!title||!message) return response({error:'Article ID, title and body are required'},400)
+      if(body?.homepage!==true) return response({error:'Push alerts are reserved for stories featured on the main page'},400)
+      const url=`/articles/${articleId}`
+      const homepageResponse=await fetch('https://www.ordinarybrief.com/',{headers:{'User-Agent':'The-Brief-Push-Desk/1.0'}})
+      if(!homepageResponse.ok) return response({error:'The production homepage could not be verified'},502)
+      const homepage=await homepageResponse.text()
+      if(!homepage.includes(`href="${url}"`)) return response({error:'This story is not currently featured on the production homepage'},409)
 
       const {data:prior}=await db.from('brief_push_deliveries').select('article_id').eq('article_id',articleId).maybeSingle()
       if(prior) return response({error:'An alert was already sent for this article'},409)
@@ -81,7 +97,6 @@ Deno.serve(async(req)=>{
       if(subscriptionsError) throw subscriptionsError
 
       webpush.setVapidDetails(config.subject,config.public_key,config.private_key)
-      const url=`/articles/${articleId}`
       const payload=JSON.stringify({
         title,
         body:message,

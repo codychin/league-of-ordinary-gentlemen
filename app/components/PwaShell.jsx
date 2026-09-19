@@ -5,6 +5,7 @@ import {useEffect, useRef, useState} from 'react'
 import {usePathname, useRouter} from 'next/navigation'
 
 const DISMISS_KEY='ordinary-brief-install-dismissed'
+const NOTIFICATION_SEEN_KEY='ordinary-brief-last-notification'
 const PUSH_API='https://dnzdbqycuuoonewcowis.supabase.co/functions/v1/brief-push'
 
 function urlBase64ToUint8Array(value){
@@ -18,8 +19,7 @@ function BellIcon(){
   return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9Z"/><path d="M10 21h4"/></svg>
 }
 
-function ArticleAlerts(){
-  const [open,setOpen]=useState(false)
+function ArticleAlertSettings(){
   const [state,setState]=useState('loading')
   const [message,setMessage]=useState('Checking this device…')
 
@@ -33,7 +33,7 @@ function ArticleAlerts(){
       try{
         const registration=await navigator.serviceWorker.ready
         const subscription=await registration.pushManager.getSubscription()
-        if(active){setState(subscription?'subscribed':'available');setMessage(subscription?'New article alerts are on.':'Get one alert when a new article is published.')}
+        if(active){setState(subscription?'subscribed':'available');setMessage(subscription?'Homepage story alerts are on.':'Get alerts for stories featured on the main page.')}
       }catch{
         if(active){setState('error');setMessage('Article alerts could not be checked.')}
       }
@@ -44,7 +44,7 @@ function ArticleAlerts(){
 
   const enable=async()=>{
     setState('working')
-    setMessage('Turning on article alerts…')
+    setMessage('Turning on homepage alerts…')
     try{
       const permission=await Notification.requestPermission()
       if(permission!=='granted'){
@@ -60,7 +60,7 @@ function ArticleAlerts(){
       const saveResponse=await fetch(`${PUSH_API}?action=subscribe`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(subscription)})
       if(!saveResponse.ok){await subscription.unsubscribe();throw new Error('Subscription could not be saved')}
       setState('subscribed')
-      setMessage('New article alerts are on.')
+      setMessage('Homepage story alerts are on.')
     }catch{
       setState('error')
       setMessage('Could not turn on alerts. Please try again.')
@@ -69,7 +69,7 @@ function ArticleAlerts(){
 
   const disable=async()=>{
     setState('working')
-    setMessage('Turning off article alerts…')
+    setMessage('Turning off homepage alerts…')
     try{
       const registration=await navigator.serviceWorker.ready
       const subscription=await registration.pushManager.getSubscription()
@@ -79,20 +79,66 @@ function ArticleAlerts(){
       }
       if('clearAppBadge' in navigator) await navigator.clearAppBadge()
       setState('available')
-      setMessage('Get one alert when a new article is published.')
+      setMessage('Get alerts for stories featured on the main page.')
     }catch{
       setState('error')
       setMessage('Could not update alerts. Please try again.')
     }
   }
 
+  return <div className="notificationSetting" aria-live="polite">
+    <div><b>Homepage story alerts</b><p>{message}</p></div>
+    {state==='subscribed'
+      ?<button type="button" onClick={disable} aria-label="Turn off homepage story alerts" aria-pressed="true">ON</button>
+      :<button type="button" onClick={enable} aria-label="Turn on homepage story alerts" aria-pressed="false" disabled={!['available','error'].includes(state)}>{state==='working'?'…':'OFF'}</button>}
+  </div>
+}
+
+function NotificationCenter(){
+  const [open,setOpen]=useState(false)
+  const [notifications,setNotifications]=useState([])
+  const [loading,setLoading]=useState(true)
+  const [unread,setUnread]=useState(false)
+
+  useEffect(()=>{
+    let active=true
+    const load=()=>fetch(`${PUSH_API}?action=notifications`,{cache:'no-store'})
+        .then(response=>response.ok?response.json():Promise.reject())
+        .then(({notifications:items=[]})=>{
+          if(!active)return
+          setNotifications(items)
+          setUnread(Boolean(items[0]?.sent_at&&items[0].sent_at!==window.localStorage.getItem(NOTIFICATION_SEEN_KEY)))
+        })
+        .catch(()=>{})
+        .finally(()=>{if(active)setLoading(false)})
+    const onMessage=event=>{if(event.data?.type==='article-push')load()}
+    load()
+    navigator.serviceWorker?.addEventListener('message',onMessage)
+    return()=>{
+      active=false
+      navigator.serviceWorker?.removeEventListener('message',onMessage)
+    }
+  },[])
+
+  const toggle=()=>{
+    const next=!open
+    setOpen(next)
+    if(next&&notifications[0]?.sent_at){
+      window.localStorage.setItem(NOTIFICATION_SEEN_KEY,notifications[0].sent_at)
+      setUnread(false)
+      if('clearAppBadge' in navigator) navigator.clearAppBadge().catch(()=>{})
+    }
+  }
+
   return <div className={`articleAlerts ${open?'open':''}`}>
-    <button className="articleAlertBell" type="button" onClick={()=>setOpen(value=>!value)} aria-label="Article alert settings" aria-expanded={open}><BellIcon/><span className={state==='subscribed'?'enabled':''}/></button>
+    <button className="articleAlertBell" type="button" onClick={toggle} aria-label="Notifications" aria-expanded={open}><BellIcon/>{unread&&<span className="unread"/>}</button>
     {open&&<aside className="articleAlertPanel" aria-live="polite">
-      <div><small>THE BRIEF • ALERTS</small><b>New article notifications</b><p>{message}</p></div>
-      {state==='subscribed'
-        ?<button type="button" onClick={disable}>TURN OFF</button>
-        :<button type="button" onClick={enable} disabled={!['available','error'].includes(state)}>{state==='working'?'WORKING…':'TURN ON'}</button>}
+      <div className="notificationPanelHead"><small>THE BRIEF • NOTIFICATIONS</small><b>Latest bulletins</b></div>
+      <div className="notificationList">{loading
+        ?<p>Checking the wire…</p>
+        :notifications.length?notifications.map(item=><Link key={item.article_id} href={item.url} onClick={()=>setOpen(false)}><b>{item.title}</b><span>{item.body}</span></Link>)
+        :<p>No bulletins yet. A rare moment of institutional restraint.</p>}
+      </div>
     </aside>}
   </div>
 }
@@ -103,6 +149,7 @@ function TabIcon({name}){
     Scores:<><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M7 9h3v3H7zM14 9h3M14 12h3M7 16h10"/></>,
     Teams:<><path d="M8.5 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM15.8 10a2.4 2.4 0 1 0 0-4.8"/><path d="M3 19c.4-3.6 2.2-5.4 5.5-5.4S13.6 15.4 14 19M14.5 13.2c3.7-.2 5.8 1.7 6 5.8"/></>,
     Culture:<><path d="m12 3 1.7 5.3L19 10l-5.3 1.7L12 17l-1.7-5.3L5 10l5.3-1.7z"/><path d="m18.5 15 .7 2.3 2.3.7-2.3.7-.7 2.3-.7-2.3-2.3-.7 2.3-.7z"/></>,
+    More:<><circle cx="5" cy="12" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="19" cy="12" r="1.4"/></>,
   }
   return <span className="appTabIcon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{paths[name]}</svg></span>
 }
@@ -111,6 +158,7 @@ function MobileAppNav(){
   const pathname=usePathname()
   const router=useRouter()
   const [activeTab,setActiveTab]=useState(pathname.startsWith('/teams')?'teams':pathname==='/'?'home':'detail')
+  const [moreOpen,setMoreOpen]=useState(false)
   const tabFor=nextHash=>{
     if(pathname.startsWith('/teams')) return 'teams'
     if(pathname!=='/') return document.querySelector('[data-app-section="culture"]')?'culture':'detail'
@@ -130,6 +178,7 @@ function MobileAppNav(){
   }
 
   useEffect(()=>{
+    setMoreOpen(false)
     const standalone=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true
     document.documentElement.classList.toggle('standaloneApp',standalone)
     const scrollToLocation=()=>{
@@ -160,6 +209,7 @@ function MobileAppNav(){
   ]
 
   const navigate=(event,item)=>{
+    setMoreOpen(false)
     setVisualTab(item.tab)
     if(item.href==='/teams'){
       event.preventDefault()
@@ -189,17 +239,29 @@ function MobileAppNav(){
     document.getElementById(item.hash.slice(1))?.scrollIntoView({behavior:'auto',block:'start'})
   }
 
-  return <nav className="appTabBar" data-active-tab={activeTab==='detail'?'home':activeTab} aria-label="App navigation">
-    <span className="appTabGlider" aria-hidden="true"/>
-    {items.map(item=><Link
+  return <>
+    {moreOpen&&<aside className="appMoreSheet" aria-label="More and settings">
+      <div className="appMoreHead"><small>THE BRIEF</small><b>More</b><button type="button" onClick={()=>setMoreOpen(false)} aria-label="Close more menu">×</button></div>
+      <div className="appMoreLinks">
+        <Link href="/archive">Archive<span>Every filing, including the regrettable ones</span></Link>
+        <Link href="/staff">Staff<span>Meet the people responsible</span></Link>
+        <Link href="/corrections">Corrections<span>The permanent record objects</span></Link>
+      </div>
+      <div className="appSettings"><small>SETTINGS</small><ArticleAlertSettings/></div>
+    </aside>}
+    <nav className="appTabBar" data-active-tab={moreOpen?'more':activeTab==='detail'?'home':activeTab} aria-label="App navigation">
+      <span className="appTabGlider" aria-hidden="true"/>
+      {items.map(item=><Link
       key={item.label}
       href={item.href}
       className={item.active?'active':''}
       aria-current={item.active?'page':undefined}
       aria-label={item.label}
       onClick={event=>navigate(event,item)}
-    ><TabIcon name={item.label}/><span className="appTabLabel">{item.label}</span></Link>)}
-  </nav>
+      ><TabIcon name={item.label}/><span className="appTabLabel">{item.label}</span></Link>)}
+      <button className={moreOpen?'active':''} type="button" aria-label="More" aria-expanded={moreOpen} onClick={()=>setMoreOpen(value=>!value)}><TabIcon name="More"/><span className="appTabLabel">More</span></button>
+    </nav>
+  </>
 }
 
 function PullToRefresh(){
@@ -327,5 +389,5 @@ export default function PwaShell(){
     }
   },[])
 
-  return <><PullToRefresh/><InstallPrompt/><ArticleAlerts/><MobileAppNav/></>
+  return <><PullToRefresh/><InstallPrompt/><NotificationCenter/><MobileAppNav/></>
 }

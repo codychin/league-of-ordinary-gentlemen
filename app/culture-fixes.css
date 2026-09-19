@@ -1,0 +1,9 @@
+/* Culture headlines remain white in every interaction state. */
+.affairs .storylink h2,
+.affairs .storylink h3,
+.affairs .storylink:hover h2,
+.affairs .storylink:hover h3,
+.affairs .storylink:active h2,
+.affairs .storylink:active h3,
+.affairs .storylink:visited h2,
+.affairs .storylink:visited h3{color:inherit}

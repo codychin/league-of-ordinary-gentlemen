@@ -8,6 +8,7 @@ import './culture-pagination.css'
 import './dossier.css'
 import './pwa.css'
 import './staff.css'
+import './culture-fixes.css'
 import PwaShell from './components/PwaShell'
 
 export const metadata={

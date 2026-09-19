@@ -1,4 +1,4 @@
-const VERSION='ordinary-brief-v3'
+const VERSION='ordinary-brief-v4'
 const STATIC_CACHE=`${VERSION}-static`
 const PAGE_CACHE=`${VERSION}-pages`
 const PRECACHE=[
@@ -65,6 +65,7 @@ self.addEventListener('push',event=>{
       data:{url:payload.url||'/'},
     }),
     self.navigator?.setAppBadge?.(1),
+    self.clients.matchAll({type:'window',includeUncontrolled:true}).then(windows=>windows.forEach(client=>client.postMessage({type:'article-push'}))),
   ]))
 })
 
