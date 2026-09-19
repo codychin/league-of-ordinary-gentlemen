@@ -11,6 +11,16 @@ const fmt=value=>{
 }
 const activeRoster=team=>team.roster.filter(player=>player.slot!=='Bench'&&player.slot!=='IR')
 const profileFor=id=>teams.find(team=>team.id===id)
+const trendFor=player=>{
+  if(!player||player.slot==='D/ST'||player.slot==='K') return null
+  const current=Number(player.weekPoints)||0
+  const prior=Math.max(0,(Number(player.seasonPoints)||0)-current)
+  const hotLine=player.position==='QB'?20:14
+  const coldLine=player.position==='QB'?15:9
+  if(prior>=hotLine&&current>=hotLine) return {type:'hot',label:'HEATER',detail:`${fmt(prior)} → ${fmt(current)}`}
+  if(current>0&&prior<coldLine&&current<coldLine) return {type:'cold',label:'COLD',detail:`${fmt(prior)} → ${fmt(current)}`}
+  return null
+}
 
 const previewKey=(a,b)=>[a,b].sort().join(':')
 const matchupPreviews={
@@ -130,11 +140,11 @@ export default async function MatchupPreview({params}){
         <div className="matchupSectionHead"><small>ACTUAL MATCHUP</small><h2>Starting lineups</h2></div>
         <div className="lineupTeams"><span>{left.teamName}</span><span>{right.teamName}</span></div>
         <div className="lineupRows">
-          {rows.map(([lp,rp],index)=><div className="lineupRow" key={index}>
-            <div className="lineupPlayer left"><small>{lp?.slot||'—'}</small><b>{lp?.name||'—'}</b><span>{lp?fmt(lp.weekPoints):'—'} PTS</span>{lp?.status&&<em>{lp.status}</em>}</div>
+          {rows.map(([lp,rp],index)=>{const lt=trendFor(lp),rt=trendFor(rp);return <div className="lineupRow" key={index}>
+            <div className={`lineupPlayer left ${lt?lt.type:''}`}><small>{lp?.slot||'—'}</small><b>{lp?.name||'—'}</b><span>{lp?fmt(lp.weekPoints):'—'} PTS</span>{lt&&<mark className={`trendBadge ${lt.type}`}>{lt.label}<i>{lt.detail}</i></mark>}{lp?.status&&<em>{lp.status}</em>}</div>
             <div className="lineupVs">VS</div>
-            <div className="lineupPlayer right"><small>{rp?.slot||'—'}</small><b>{rp?.name||'—'}</b><span>{rp?fmt(rp.weekPoints):'—'} PTS</span>{rp?.status&&<em>{rp.status}</em>}</div>
-          </div>)}
+            <div className={`lineupPlayer right ${rt?rt.type:''}`}><small>{rp?.slot||'—'}</small><b>{rp?.name||'—'}</b><span>{rp?fmt(rp.weekPoints):'—'} PTS</span>{rt&&<mark className={`trendBadge ${rt.type}`}>{rt.label}<i>{rt.detail}</i></mark>}{rp?.status&&<em>{rp.status}</em>}</div>
+          </div>})}
         </div>
       </section>
 
