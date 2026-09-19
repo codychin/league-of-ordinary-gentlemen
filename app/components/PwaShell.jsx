@@ -189,8 +189,10 @@ function MobileAppNav(){
 
   useEffect(()=>{
     setMoreOpen(false)
-    const standalone=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true
+    const preview=new URLSearchParams(window.location.search).get('app-preview')==='1'
+    const standalone=preview||window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true
     document.documentElement.classList.toggle('standaloneApp',standalone)
+    document.documentElement.classList.toggle('appPreview',preview)
     const scrollToLocation=()=>{
       const nextHash=window.location.hash
       activate(nextHash)
