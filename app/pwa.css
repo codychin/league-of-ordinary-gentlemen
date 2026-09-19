@@ -64,11 +64,9 @@
   .appMoreHead small,.appSettings>small{font:900 7px Arial,sans-serif;letter-spacing:1.4px;color:var(--acid)}
   .appMoreHead b{font-size:22px}
   .appMoreHead button{position:absolute;top:-5px;right:-3px;border:0;background:transparent;color:var(--paper);font:25px/1 Arial,sans-serif}
-  .appMoreLinks{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid #4b4841}
-  .appMoreLinks a{display:flex;flex-direction:column;gap:5px;padding:14px 10px 14px 0;color:var(--paper);text-decoration:none;border-right:1px solid #4b4841}
-  .appMoreLinks a+ a{padding-left:10px}
-  .appMoreLinks a:last-child{border-right:0;padding-right:0}
-  .appMoreLinks a{font:900 10px Arial,sans-serif;letter-spacing:.7px}
+  .appMoreLinks{display:flex;flex-direction:column;border-bottom:1px solid #4b4841}
+  .appMoreLinks a{display:flex;flex-direction:column;gap:4px;padding:12px 0;color:var(--paper);text-decoration:none;border-bottom:1px solid #4b4841;font:900 10px Arial,sans-serif;letter-spacing:.7px}
+  .appMoreLinks a:last-child{border-bottom:0}
   .appMoreLinks span{font:10px/1.25 Georgia,serif;letter-spacing:0;color:#a9a196}
   .appSettings{padding-top:14px}
   .notificationSetting{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:15px;margin-top:8px}
