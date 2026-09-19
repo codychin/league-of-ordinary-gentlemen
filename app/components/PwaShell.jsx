@@ -6,6 +6,16 @@ import {usePathname} from 'next/navigation'
 
 const DISMISS_KEY='ordinary-brief-install-dismissed'
 
+function TabIcon({name}){
+  const paths={
+    Home:<><path d="M4 7.5 12 3l8 4.5v11A1.5 1.5 0 0 1 18.5 20h-13A1.5 1.5 0 0 1 4 18.5z"/><path d="M8 11h8M8 14h8M8 17h5"/></>,
+    Scores:<><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M7 9h3v3H7zM14 9h3M14 12h3M7 16h10"/></>,
+    Teams:<><path d="M8.5 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM15.8 10a2.4 2.4 0 1 0 0-4.8"/><path d="M3 19c.4-3.6 2.2-5.4 5.5-5.4S13.6 15.4 14 19M14.5 13.2c3.7-.2 5.8 1.7 6 5.8"/></>,
+    Culture:<><path d="m12 3 1.7 5.3L19 10l-5.3 1.7L12 17l-1.7-5.3L5 10l5.3-1.7z"/><path d="m18.5 15 .7 2.3 2.3.7-2.3.7-.7 2.3-.7-2.3-2.3-.7 2.3-.7z"/></>,
+  }
+  return <span className="appTabIcon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{paths[name]}</svg></span>
+}
+
 function MobileAppNav(){
   const pathname=usePathname()
   const [hash,setHash]=useState('')
@@ -23,6 +33,8 @@ function MobileAppNav(){
   }
 
   useEffect(()=>{
+    const standalone=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true
+    document.documentElement.classList.toggle('standaloneApp',standalone)
     const scrollToLocation=()=>{
       const nextHash=window.location.hash
       activate(nextHash)
@@ -85,8 +97,9 @@ function MobileAppNav(){
       href={item.href}
       className={item.active?'active':''}
       aria-current={item.active?'page':undefined}
+      aria-label={item.label}
       onClick={event=>navigate(event,item)}
-    ><span>0{index+1}</span>{item.label}</Link>)}
+    ><TabIcon name={item.label}/><span className="appTabLabel">{item.label}</span></Link>)}
   </nav>
 }
 
