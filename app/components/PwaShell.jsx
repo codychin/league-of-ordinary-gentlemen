@@ -187,12 +187,21 @@ function MobileAppNav(){
     setActiveTab(nextTab)
   }
 
+  const resetAppScroll=()=>{
+    const doReset=()=>window.scrollTo({top:0,left:0,behavior:'auto'})
+    doReset()
+    window.requestAnimationFrame(()=>window.requestAnimationFrame(doReset))
+    window.setTimeout(doReset,80)
+  }
+
   useEffect(()=>{
     setMoreOpen(false)
     const preview=new URLSearchParams(window.location.search).get('app-preview')==='1'
     const standalone=preview||window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true
     document.documentElement.classList.toggle('standaloneApp',standalone)
     document.documentElement.classList.toggle('appPreview',preview)
+    const priorRestoration='scrollRestoration' in window.history?window.history.scrollRestoration:null
+    if(standalone&&'scrollRestoration' in window.history) window.history.scrollRestoration='manual'
     const scrollToLocation=()=>{
       const nextHash=window.location.hash
       activate(nextHash)
@@ -210,6 +219,7 @@ function MobileAppNav(){
     return()=>{
       window.removeEventListener('hashchange',scrollToLocation)
       window.removeEventListener('popstate',scrollToLocation)
+      if(priorRestoration!==null&&'scrollRestoration' in window.history) window.history.scrollRestoration=priorRestoration
     }
   },[pathname])
 
@@ -225,7 +235,7 @@ function MobileAppNav(){
     setVisualTab(item.tab)
     if(item.href==='/teams'){
       event.preventDefault()
-      if(pathname.startsWith('/teams')) window.scrollTo({top:0,behavior:'auto'})
+      if(pathname.startsWith('/teams')) resetAppScroll()
       else router.push('/teams')
       return
     }
@@ -241,8 +251,8 @@ function MobileAppNav(){
     event.preventDefault()
     if(!item.hash){
       if(window.location.hash) window.history.pushState(null,'','/')
-      window.scrollTo({top:0,behavior:'auto'})
       activate('')
+      resetAppScroll()
       return
     }
 
@@ -250,7 +260,7 @@ function MobileAppNav(){
     activate(item.hash)
     const standalone=document.documentElement.classList.contains('standaloneApp')
     if(standalone){
-      window.scrollTo({top:0,behavior:'auto'})
+      resetAppScroll()
     }else{
       document.getElementById(item.hash.slice(1))?.scrollIntoView({behavior:'auto',block:'start'})
     }
