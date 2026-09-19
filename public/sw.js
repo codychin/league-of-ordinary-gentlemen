@@ -1,11 +1,11 @@
-const VERSION='ordinary-brief-v5'
+const VERSION='ordinary-brief-v6'
 const STATIC_CACHE=`${VERSION}-static`
 const PAGE_CACHE=`${VERSION}-pages`
 const PRECACHE=[
   '/offline',
-  '/icons/ordinary-brief-v2-192.png',
-  '/icons/ordinary-brief-v2-512.png',
-  '/icons/apple-touch-icon-v2.png',
+  '/icons/ordinary-brief-v3-192.png',
+  '/icons/ordinary-brief-v3-512.png',
+  '/icons/apple-touch-icon-v3.png',
 ]
 
 self.addEventListener('install',event=>{
@@ -59,7 +59,7 @@ self.addEventListener('push',event=>{
   event.waitUntil(Promise.all([
     self.registration.showNotification(title,{
       body:payload.body||'A new article has been published.',
-      icon:payload.icon||'/icons/ordinary-brief-v2-192.png',
+      icon:payload.icon||'/icons/ordinary-brief-v3-192.png',
       badge:payload.badge||'/icons/ordinary-brief-32.png',
       ...(payload.image?{image:payload.image}:{}),
       tag:payload.tag||'ordinary-brief-article',

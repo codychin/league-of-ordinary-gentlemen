@@ -118,7 +118,7 @@ Deno.serve(async(req)=>{
         body:message,
         url,
         tag:`article-${articleId}`,
-        icon:'/icons/ordinary-brief-v2-192.png',
+        icon:'/icons/ordinary-brief-v3-192.png',
         badge:'/icons/ordinary-brief-32.png',
         ...(image?{image}:{}),
       })

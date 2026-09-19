@@ -20,11 +20,11 @@ export const metadata={
   appleWebApp:{capable:true,statusBarStyle:'black-translucent',title:'The Brief'},
   icons:{
     icon:[
-      {url:'/icons/ordinary-brief-32.png',sizes:'32x32',type:'image/png'},
-      {url:'/icons/ordinary-brief-v2-192.png',sizes:'192x192',type:'image/png'},
-      {url:'/icons/ordinary-brief-v2-512.png',sizes:'512x512',type:'image/png'},
+      {url:'/icons/ordinary-brief-v3-32.png',sizes:'32x32',type:'image/png'},
+      {url:'/icons/ordinary-brief-v3-192.png',sizes:'192x192',type:'image/png'},
+      {url:'/icons/ordinary-brief-v3-512.png',sizes:'512x512',type:'image/png'},
     ],
-    apple:[{url:'/icons/apple-touch-icon-v2.png',sizes:'180x180',type:'image/png'}],
+    apple:[{url:'/icons/apple-touch-icon-v3.png',sizes:'180x180',type:'image/png'}],
   },
 }
 
