@@ -168,10 +168,11 @@ function MoreMenuIcon({name}){
 function MobileAppNav(){
   const pathname=usePathname()
   const router=useRouter()
-  const [activeTab,setActiveTab]=useState(pathname.startsWith('/teams')?'teams':pathname==='/'?'home':'detail')
+  const [activeTab,setActiveTab]=useState(pathname.startsWith('/teams')?'teams':pathname.startsWith('/matchups')?'scores':pathname==='/'?'home':'detail')
   const [moreOpen,setMoreOpen]=useState(false)
   const tabFor=nextHash=>{
     if(pathname.startsWith('/teams')) return 'teams'
+    if(pathname.startsWith('/matchups')) return 'scores'
     if(pathname!=='/') return document.querySelector('[data-app-section="culture"]')?'culture':'detail'
     if(nextHash==='#scores') return 'scores'
     if(nextHash==='#culture') return 'culture'
@@ -208,6 +209,7 @@ function MobileAppNav(){
       if(standalone){
         let nextTab
         if(pathname.startsWith('/teams')) nextTab='teams'
+        else if(pathname.startsWith('/matchups')) nextTab='scores'
         else if(pathname!=='/') nextTab=document.querySelector('[data-app-section="culture"]')?'culture':'detail'
         else if(nextHash==='#scores') nextTab='scores'
         else if(nextHash==='#culture') nextTab='culture'
@@ -298,7 +300,7 @@ function MobileAppNav(){
     document.getElementById(item.hash.slice(1))?.scrollIntoView({behavior:'auto',block:'start'})
   }
 
-  const headerLabel=moreOpen?'More':activeTab==='scores'?'Scores':activeTab==='teams'?'Teams':activeTab==='culture'?'Culture':activeTab==='detail'?'The Brief':''
+  const headerLabel=moreOpen?'More':pathname.startsWith('/matchups')?'Matchup':activeTab==='scores'?'Scores':activeTab==='teams'?'Teams':activeTab==='culture'?'Culture':activeTab==='detail'?'The Brief':''
   return <>
     <div className="appSectionHeader" aria-hidden="true"><span>{headerLabel}</span></div>
     {moreOpen&&<aside className="appMoreSheet" aria-label="More and settings">
@@ -327,6 +329,7 @@ function MobileAppNav(){
 
 function PullToRefresh(){
   const indicatorRef=useRef(null)
+  const router=useRouter()
 
   useEffect(()=>{
     const standalone=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true
@@ -366,7 +369,10 @@ function PullToRefresh(){
       indicator.classList.remove('ready')
       indicator.classList.add('refreshing')
       indicator.style.setProperty('--pull-distance','46px')
-      window.setTimeout(()=>window.location.reload(),180)
+      window.setTimeout(()=>{
+        router.refresh()
+        window.setTimeout(reset,520)
+      },180)
     }
 
     document.addEventListener('touchstart',start,{passive:true})
