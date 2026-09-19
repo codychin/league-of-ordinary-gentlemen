@@ -261,11 +261,19 @@ function MobileAppNav(){
 
   const navigate=(event,item)=>{
     setMoreOpen(false)
-    setVisualTab(item.tab)
+
     if(item.href==='/teams'){
+      event.preventDefault()
       if(pathname.startsWith('/teams')){
-        event.preventDefault()
         resetAppScroll()
+      }else{
+        const standalone=document.documentElement.classList.contains('standaloneApp')
+        if(standalone){
+          window.scrollTo({top:0,left:0,behavior:'auto'})
+          router.push('/teams',{scroll:false})
+        }else{
+          router.push('/teams')
+        }
       }
       return
     }
@@ -279,7 +287,8 @@ function MobileAppNav(){
           const params=new URLSearchParams()
           params.set('tab',item.tab)
           if(document.documentElement.classList.contains('appPreview')) params.set('app-preview','1')
-          router.push('/?'+params.toString())
+          window.scrollTo({top:0,left:0,behavior:'auto'})
+          router.push('/?'+params.toString(),{scroll:false})
         }else{
           router.push(item.href)
         }
@@ -290,6 +299,7 @@ function MobileAppNav(){
     event.preventDefault()
     const standalone=document.documentElement.classList.contains('standaloneApp')
     if(standalone){
+      setVisualTab(item.tab)
       window.sessionStorage.setItem(APP_TAB_KEY,item.tab)
       const clean=window.location.pathname+window.location.search
       if(window.location.hash) window.history.replaceState(null,'',clean)
