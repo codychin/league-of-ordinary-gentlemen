@@ -12,6 +12,40 @@ const fmt=value=>{
 const activeRoster=team=>team.roster.filter(player=>player.slot!=='Bench'&&player.slot!=='IR')
 const profileFor=id=>teams.find(team=>team.id===id)
 
+const previewKey=(a,b)=>[a,b].sort().join(':')
+const matchupPreviews={
+  'pollard-greens:skatt':{
+    writer:'kells',
+    title:'This Game Has Too Many Personal Brands and Not Enough Stability',
+    body:"Pollard Greens brings Big Citrus, Earthsherm Jam and a receiver room that already looks like it has a publicist. I’m a Skatt Man counters with Yonjuries, The Count and enough medical ambiguity to support a docuseries. The matchup itself is competitive. The surrounding mythology is doing considerably more work."
+  },
+  'kraft:kupp-doubs':{
+    writer:'march',
+    title:'A Quiet Bilateral Summit Between Two Functional Governments',
+    body:"For the Love of the Kraft and Kupp Kupp Doubs arrive without a constitutional crisis, which in this league qualifies as a diplomatic breakthrough. Tish has spent the opening weeks practicing quiet competence. Roy Bird has kept an emergency stockpile of bench points. The question is whether restraint can survive four quarters of fantasy football without producing an incident."
+  },
+  'all-ugly:lloyd-rings':{
+    writer:'gannon',
+    title:'The Process Game',
+    body:"All Ugly’s Week 1 loss was the kind of result that makes process people unbearable because the process was, irritatingly, mostly fine. Lloyd of the Rings is the opposite problem: a family office getting enormous production from veteran stars and daring you to call it unsustainable. This one is less about who drafted the prettier roster than who gets the correct decisions from the players they already have."
+  },
+  'route-22:shake-baker':{
+    writer:'pike',
+    title:'One Team Wants Every Asset. The Other Has Six Names.',
+    body:"Route 22 treats roster construction like a permanently open capital market. Shake ’N Baker treats identity like a holding company. Choe and Gerstone will spend the week evaluating everybody else’s assets while Seth Waldenberg’s alias complex attempts to establish which executive is actually responsible for the lineup. Somewhere underneath all of that, there is a very real football game."
+  },
+  'hopkins-opus:royrek':{
+    writer:'sorrell',
+    title:'Power, Confidence and the League’s Two Most Convenient Institutions',
+    body:"Kash enters with the most valuable political asset in fantasy football: a recent overwhelming victory and the willingness to mention it. Royrek enters with a different kind of institutional advantage, one in which the owner of record and the draft authority have never been forced into a particularly uncomfortable public accounting. Both teams are talented. More importantly, both organizations understand narrative control."
+  },
+  'ceedeep:danir':{
+    writer:'crane',
+    title:'The Quarterback Had Already Done His Part',
+    body:"By the time I got to this file, Josh Allen had already scored enough points to make Sunday feel optional and Danir had already spent two weeks collecting evidence that the correct lineup exists somewhere nearby, usually on the bench. The numbers say CeeDeep has the edge. The history says Danir is fully capable of turning a reasonable football decision into a three-day inquiry."
+  },
+}
+
 export default async function MatchupPreview({params}){
   const {a,b}=await params
   const left=leagueSnapshot.teams[a]
@@ -30,10 +64,12 @@ export default async function MatchupPreview({params}){
   const projectedLeader=Number(left.matchup.projection)>=Number(right.matchup.projection)?leftProfile:rightProfile
   const leftStatuses=leftStarters.filter(player=>player.status).length
   const rightStatuses=rightStarters.filter(player=>player.status).length
-  const writer=writers.gannon
-  const matchupRead=projectionGap<5
-    ? `${leftProfile.team} and ${rightProfile.team} arrive close enough in projection that this should come down to ordinary football nonsense: one busted coverage, one goal-line carry, one manager discovering too late that a perfectly defensible process still produces a ridiculous result. ${leftProfile.owners} brings ${leftProfile.posture.toLowerCase()} ${rightProfile.owners} counters with ${rightProfile.posture.toLowerCase()} The margin is small. The opportunity for retrospective certainty is enormous.`
-    : `${projectedLeader.team} has the cleaner projection entering the week, but the interesting part is how each roster is built to get there. ${leftProfile.team} comes in with ${leftProfile.posture.toLowerCase()} ${rightProfile.team} arrives with ${rightProfile.posture.toLowerCase()} A ${projectionGap.toFixed(1)}-point projection gap is real enough to notice and small enough to embarrass anyone who treats it like destiny.`
+  const preview=matchupPreviews[previewKey(a,b)]||{
+    writer:'gannon',
+    title:'What this matchup is actually asking',
+    body:`${leftProfile.team} and ${rightProfile.team} arrive with enough live projection uncertainty to make confident analysis irresponsible, which has never stopped this publication before. The useful part is the roster construction, the manager tendencies and which side creates the first avoidable problem.`
+  }
+  const writer=writers[preview.writer]
 
   return <>
     <header className="articleHeader"><Link href="/" className="miniMast">The Brief of Ordinary Gentleman</Link><SiteNav/></header>
@@ -63,8 +99,8 @@ export default async function MatchupPreview({params}){
           <img src={writer.image} alt={writer.imageAlt}/>
           <div><small>GAME PREVIEW • {writer.title.toUpperCase()}</small><b>{writer.name}</b></div>
         </div>
-        <h2>What this matchup is actually asking</h2>
-        <p>{matchupRead}</p>
+        <h2>{preview.title}</h2>
+        <p>{preview.body}</p>
       </section>
 
       <section className="matchupPrimer">
