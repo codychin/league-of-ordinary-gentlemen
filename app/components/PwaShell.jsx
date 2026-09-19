@@ -325,7 +325,7 @@ function MobileAppNav(){
       aria-label={item.label}
       onClick={event=>navigate(event,item)}
       ><TabIcon name={item.label}/><span className="appTabLabel">{item.label}</span></Link>)}
-      <button className={moreOpen?'active':''} type="button" aria-label="More" aria-expanded={moreOpen} onPointerDown={()=>{setActiveTab('more');document.documentElement.dataset.appTab='more'}} onClick={()=>setMoreOpen(value=>!value)}><TabIcon name="More"/><span className="appTabLabel">More</span></button>
+      <button className={moreOpen?'active':''} type="button" aria-label="More" aria-expanded={moreOpen} onClick={()=>setMoreOpen(value=>!value)}><TabIcon name="More"/><span className="appTabLabel">More</span></button>
     </nav>
   </>
 }
