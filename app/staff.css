@@ -55,3 +55,16 @@
 }
 
 @media(max-width:760px){html.standaloneApp .staffPage{padding-top:16px}html.standaloneApp .directoryHead{padding-top:0}}
+
+/* Article bylines: keep the author together and tuck the beat directly underneath. */
+.byline{margin-top:10px;gap:10px}
+.bylineWriter{align-items:center}
+.bylineWriter span{display:flex;flex-direction:column;gap:2px;min-width:0}
+.bylineWriter strong{border-bottom:0;font:700 13px/1.15 Arial,sans-serif;letter-spacing:0;white-space:nowrap;text-transform:none}
+.bylineWriter em{margin:0;align-self:auto;font:800 8px/1.25 Arial,sans-serif;letter-spacing:1px;color:var(--red);font-style:normal;text-transform:uppercase;white-space:normal}
+.byline>em{display:none}
+@media(max-width:760px){
+  .byline{margin-top:8px;margin-bottom:2px;align-items:center}
+  .bylineWriter img{width:38px;height:38px}
+  .byline time{margin-left:auto;font-size:8px}
+}
