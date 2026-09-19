@@ -85,12 +85,10 @@
   .notificationSetting button:disabled{opacity:.45}
   html.standaloneApp[data-app-tab='home'] header{position:sticky;top:0;z-index:70;background:rgba(243,239,229,.94);border-bottom:1px solid rgba(17,16,14,.16);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
   html.standaloneApp[data-app-tab='home'] .utility{box-sizing:content-box;height:38px;display:flex;align-items:center;justify-content:center;padding:calc(env(safe-area-inset-top) + 3px) 54px 8px;text-align:center}
-  html.standaloneApp[data-app-tab='home'] .utilityMain{position:relative;width:auto;height:34px;display:flex;align-items:center;gap:8px;font:700 20px/1 Georgia,serif;letter-spacing:-.7px;color:var(--ink)}
-  html.standaloneApp[data-app-tab='home'] .utilityMain:before{content:'The'}
-  html.standaloneApp[data-app-tab='home'] .utilityMain:after{content:'Brief';display:flex;align-items:center;height:34px;padding-left:42px;background:url('/icons/ordinary-brief-v3-192.png') left center/34px 34px no-repeat}
+  html.standaloneApp[data-app-tab='home'] .utilityMain{position:relative;width:126px;height:34px;display:block;font-size:0;line-height:0;letter-spacing:0;color:transparent;overflow:visible}
+  html.standaloneApp[data-app-tab='home'] .utilityMain:before{content:'The';position:absolute;right:calc(50% + 25px);top:50%;transform:translateY(-50%);font:700 20px/1 Georgia,serif;letter-spacing:-.7px;color:var(--ink)}
+  html.standaloneApp[data-app-tab='home'] .utilityMain:after{content:'Brief';position:absolute;left:calc(50% - 17px);top:0;height:34px;display:flex;align-items:center;padding-left:42px;background:url('/icons/ordinary-brief-v3-192.png') left center/34px 34px no-repeat;font:700 20px/1 Georgia,serif;letter-spacing:-.7px;color:var(--ink);white-space:nowrap}
   html.standaloneApp[data-app-tab='home'] .utilityMain i{display:none}
-  html.standaloneApp[data-app-tab='home'] .utilityMain{overflow:hidden;text-indent:-9999px}
-  html.standaloneApp[data-app-tab='home'] .utilityMain:before,html.standaloneApp[data-app-tab='home'] .utilityMain:after{text-indent:0}
   html.standaloneApp[data-app-tab='home'] .mast{display:none}
   html.standaloneApp[data-app-tab='home'] main{padding-top:0}
   html.standaloneApp[data-app-tab='home'] .hero{padding-top:18px}
