@@ -85,16 +85,16 @@ export default async function MatchupPreview({params}){
     <header className="articleHeader"><Link href="/" className="miniMast">The Brief of Ordinary Gentleman</Link><SiteNav/></header>
     <main className="matchupPage">
       <section className="matchupLead">
-        <div className="matchupKicker">WEEK {leagueSnapshot.week} • GAME PREVIEW</div>
+        <div className="matchupHeroKicker">WEEK {leagueSnapshot.week} • GAME PREVIEW</div>
         <div className="matchupScoreboard">
-          <Link href={`/teams/${a}`} className="matchupSide">
+          <Link href={`/teams/${a}`} className="matchupHeroSide">
             <small>{leftProfile.owners}</small>
             <h1>{left.teamName}</h1>
             <b>{fmt(left.matchup.score)}</b>
             <span>PROJECTED {left.matchup.projection}</span>
           </Link>
-          <div className="matchupCenter"><span>VS</span><small>LIVE</small></div>
-          <Link href={`/teams/${b}`} className="matchupSide right">
+          <div className="matchupHeroCenter"><span>VS</span><small>LIVE</small></div>
+          <Link href={`/teams/${b}`} className="matchupHeroSide right">
             <small>{rightProfile.owners}</small>
             <h1>{right.teamName}</h1>
             <b>{fmt(right.matchup.score)}</b>
