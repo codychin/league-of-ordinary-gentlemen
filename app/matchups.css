@@ -70,10 +70,12 @@
   .managerGrid{gap:12px}
   .lineupTeams{gap:20px;font-size:7px}
   .lineupRow{grid-template-columns:1fr 24px 1fr}
-  .lineupPlayer,.lineupPlayer.right{display:flex;flex-direction:column;align-items:flex-start;gap:3px;padding:10px 8px;text-align:left}
-  .lineupPlayer.right{align-items:flex-end;text-align:right}
-  .lineupPlayer b{font-size:12px;line-height:1.15}
-  .lineupPlayer span{font-size:10px}
+  .lineupPlayer,.lineupPlayer.right{display:grid;grid-template-rows:auto minmax(28px,auto) auto auto;gap:3px;padding:10px 8px;text-align:left}
+  .lineupPlayer{justify-items:start}
+  .lineupPlayer.right{justify-items:end;text-align:right}
+  .lineupPlayer b{font-size:12px;line-height:1.15;align-self:start}
+  .lineupPlayer span{font-size:10px;align-self:end}
+  .lineupPlayer em{align-self:start}
   .matchupBottom{grid-template-columns:1fr}
   html.standaloneApp[data-app-tab='scores'] main.matchupPage>*{display:block}
 }
