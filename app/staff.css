@@ -4,13 +4,20 @@
 .byline em{font-style:normal;color:var(--red)}
 .byline span{margin-left:auto}
 .staffPage{max-width:1040px;padding-bottom:70px}
+.openMasthead{margin-top:26px;max-width:720px;border-left:5px solid var(--red);padding:12px 16px;display:flex;flex-direction:column;gap:4px;background:rgba(17,16,14,.045)}
+.openMasthead b{font:900 9px Arial,sans-serif;letter-spacing:1.4px;color:var(--red)}
+.openMasthead span{font-size:14px;line-height:1.4}
 .staffGrid{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--ink)}
 .staffCard{padding:32px 36px 36px 0;border-bottom:1px solid var(--line)}
 .staffCard:nth-child(even){padding-left:36px;padding-right:0;border-left:1px solid var(--line)}
 .staffCard small,.staffCard aside b{font:900 8px Arial,sans-serif;letter-spacing:1.5px;color:var(--red);text-transform:uppercase}
 .staffCard h2{font-size:38px;line-height:1;margin:8px 0 16px;letter-spacing:-1.5px}
 .staffCard>p{font-size:17px;line-height:1.5;color:#454139}
+.staffCard dl{margin:22px 0 0;border-top:1px solid var(--line)}
+.staffCard dl>div{display:grid;grid-template-columns:86px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.staffCard dt{font:900 8px Arial,sans-serif;letter-spacing:1.2px;color:var(--red)}
+.staffCard dd{margin:0;font-size:13px;line-height:1.4;color:var(--muted)}
 .staffCard aside{margin-top:22px;padding:16px;background:var(--ink);color:var(--paper);display:flex;flex-direction:column;gap:7px}
 .staffCard aside b{color:var(--acid)}
 .staffCard aside span{font-size:14px;line-height:1.4}
-@media(max-width:760px){.byline{align-items:flex-start}.byline span{width:100%;margin:2px 0 0}.staffGrid{grid-template-columns:1fr}.staffCard,.staffCard:nth-child(even){padding:26px 0;border-left:0}.staffCard h2{font-size:34px}}
+@media(max-width:760px){.byline{align-items:flex-start}.byline span{width:100%;margin:2px 0 0}.staffGrid{grid-template-columns:1fr}.staffCard,.staffCard:nth-child(even){padding:26px 0;border-left:0}.staffCard h2{font-size:34px}.staffCard dl>div{grid-template-columns:74px 1fr}}
