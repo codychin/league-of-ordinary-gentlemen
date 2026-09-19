@@ -175,3 +175,14 @@
   .lineupPlayer.left span{justify-self:end}
   .lineupPlayer.right span{justify-self:start}
 }
+
+.lineupPlayer.hot{background:rgba(165,42,34,.055)}
+.lineupPlayer.cold{background:rgba(17,16,14,.045)}
+.trendBadge{grid-column:1/-1;width:max-content;margin-top:2px;padding:3px 5px;border:0;font:900 7px Arial,sans-serif;letter-spacing:.9px;font-style:normal}
+.trendBadge.hot{background:var(--red);color:#fff}
+.trendBadge.cold{background:#d8d1c4;color:var(--ink)}
+.trendBadge i{margin-left:5px;font:800 7px Arial,sans-serif;font-style:normal;letter-spacing:.4px;opacity:.8}
+.lineupPlayer.right .trendBadge{justify-self:end}
+@media(max-width:760px){
+  .trendBadge{margin-top:1px}
+}
