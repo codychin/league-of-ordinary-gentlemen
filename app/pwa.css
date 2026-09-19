@@ -142,7 +142,7 @@
   html.standaloneApp[data-app-tab='scores'] header,
   html.standaloneApp[data-app-tab='culture'] header,
   html.standaloneApp[data-app-tab='teams'] .articleHeader{display:none}
-  html.standaloneApp[data-app-tab='scores'] main>*:not(.scoreSection):not(.upcoming),
+  html.standaloneApp[data-app-tab='scores'] main:not(.matchupPage)>*:not(.scoreSection):not(.upcoming),
   html.standaloneApp[data-app-tab='culture'] main:not(.articleMain)>*:not(.affairs){display:none}
   html.standaloneApp[data-app-tab='scores'] main{padding-top:0}
   html.standaloneApp[data-app-tab='teams'] main{padding-top:env(safe-area-inset-top)}
@@ -162,7 +162,7 @@
     html[data-app-tab='home'] main>.upcoming{display:none}
     html[data-app-tab='scores'] header,
     html[data-app-tab='culture'] header{display:none}
-    html[data-app-tab='scores'] main>*:not(.scoreSection):not(.upcoming),
+    html[data-app-tab='scores'] main:not(.matchupPage)>*:not(.scoreSection):not(.upcoming),
     html[data-app-tab='culture'] main:not(.articleMain)>*:not(.affairs){display:none}
     html[data-app-tab='scores'] main{padding-top:0}
     html[data-app-tab='culture'] main:not(.articleMain){max-width:none;padding:0}
