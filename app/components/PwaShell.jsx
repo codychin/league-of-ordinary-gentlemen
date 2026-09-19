@@ -378,17 +378,19 @@ function InstallPrompt(){
 
   if(!show) return null
 
-  return <aside className="installPrompt" aria-label="Install The Brief">
-    <button className="installDismiss" type="button" onClick={dismiss} aria-label="Dismiss install message">×</button>
+  return <aside className={`installPrompt ${expanded?'expanded':''}`} aria-label="Download the Ordinary Brief app">
+    <button className="installDismiss" type="button" onClick={dismiss} aria-label="Dismiss app download message">×</button>
     <div className="installMark">OB</div>
     <div className="installCopy">
-      <b>Put The Brief on your home screen.</b>
-      <span>Open it like an app. No bookmark retrieval operation required.</span>
-      {expanded&&<small>{isIOS
-        ? isSafari?'Tap the Share button, then choose Add to Home Screen.':'Open ordinarybrief.com in Safari, tap Share, then Add to Home Screen.'
-        :'Open your browser menu and choose Install app or Add to Home screen.'}</small>}
+      <b>Download the Ordinary Brief app</b>
+      <span>Faster access, push alerts, and journalism without purpose — now with an icon.</span>
+      {expanded&&<div className="installSteps">{isIOS
+        ? isSafari
+          ? <><span><i>1</i>Tap the <strong>Share</strong> button in Safari.</span><span><i>2</i>Choose <strong>Add to Home Screen</strong>.</span><span><i>3</i>Tap <strong>Add</strong>. The Brief will appear with your apps.</span></>
+          : <><span><i>1</i>Open <strong>ordinarybrief.com</strong> in Safari.</span><span><i>2</i>Tap <strong>Share</strong>, then <strong>Add to Home Screen</strong>.</span><span><i>3</i>Tap <strong>Add</strong>. You're in.</span></>
+        : <span>Use your browser's <strong>Install app</strong> option to add The Brief.</span>}</div>}
     </div>
-    <button className="installAction" type="button" onClick={install}>{installEvent?'INSTALL':'HOW'}</button>
+    <button className="installAction" type="button" onClick={install}>{installEvent?'DOWNLOAD APP':expanded?'CLOSE':'DOWNLOAD APP'}</button>
   </aside>
 }
 
