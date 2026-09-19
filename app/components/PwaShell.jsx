@@ -251,7 +251,9 @@ function MobileAppNav(){
     document.getElementById(item.hash.slice(1))?.scrollIntoView({behavior:'auto',block:'start'})
   }
 
+  const headerLabel=moreOpen?'More':activeTab==='scores'?'Scores':activeTab==='teams'?'Teams':activeTab==='culture'?'Culture':activeTab==='detail'?'The Brief':''
   return <>
+    <div className="appSectionHeader" aria-hidden="true"><span>{headerLabel}</span></div>
     {moreOpen&&<aside className="appMoreSheet" aria-label="More and settings">
       <div className="appMoreHead"><small>THE BRIEF</small><b>More</b><button type="button" onClick={()=>setMoreOpen(false)} aria-label="Close more menu">×</button></div>
       <div className="appSettings"><small>SETTINGS</small><ArticleAlertSettings/></div>
