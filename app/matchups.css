@@ -149,3 +149,20 @@
   .lineupPlayer.right em{justify-self:end}
   .lineupVs{align-self:stretch}
 }
+
+
+/* Keep long starter names clear of the fixed score columns */
+@media(max-width:760px){
+  .lineupPlayer.left{grid-template-columns:34px minmax(0,1fr) 54px;column-gap:7px}
+  .lineupPlayer.right{grid-template-columns:54px minmax(0,1fr) 34px;column-gap:7px}
+  .lineupPlayer b,.lineupPlayer.right b{
+    width:100%;
+    overflow-wrap:anywhere;
+    word-break:normal;
+    hyphens:none;
+  }
+  .lineupPlayer.left b{padding-right:2px}
+  .lineupPlayer.right b{padding-left:2px}
+  .lineupPlayer span,.lineupPlayer.right span{position:relative;z-index:1}
+  .lineupPlayer small,.lineupPlayer.right small{white-space:nowrap}
+}
