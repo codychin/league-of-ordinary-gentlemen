@@ -12,3 +12,72 @@
   .playerHeadlineMatchup .matchupPlayers{display:none}
   .playerHeadlineMatchup .matchupOpen{position:relative;z-index:3}
 }
+
+
+/* Web score cards mirror the horizontal app matchup composition */
+@media(min-width:761px){
+  .upcomingGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .playerHeadlineMatchup{
+    min-height:230px!important;
+    padding:26px 18px 12px!important;
+    display:block!important;
+  }
+  .playerHeadlineMatchup>.matchupKicker{
+    position:absolute;
+    top:10px;
+    left:50%;
+    transform:translateX(-50%);
+    width:calc(100% - 32px);
+    text-align:center;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .playerHeadlineMatchup .matchupEditorial{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) 54px minmax(0,1fr)!important;
+    gap:8px!important;
+    align-items:start!important;
+    min-height:164px;
+    padding-top:22px;
+  }
+  .playerHeadlineMatchup .matchupSide{
+    display:flex!important;
+    flex-direction:column;
+    gap:3px;
+    min-width:0;
+    position:relative;
+    z-index:3;
+  }
+  .playerHeadlineMatchup .matchupSide.left{align-items:flex-start;text-align:left}
+  .playerHeadlineMatchup .matchupSide.right{align-items:flex-end;text-align:right}
+  .playerHeadlineMatchup .matchupSide b{
+    width:100%;
+    min-height:44px;
+    font:700 22px/1 Georgia,serif;
+    letter-spacing:-.7px;
+  }
+  .playerHeadlineMatchup .matchupSide strong{font:900 34px/.95 Arial,sans-serif}
+  .playerHeadlineMatchup .matchupSide em{font:800 8px Arial,sans-serif;letter-spacing:.6px;color:var(--muted);font-style:normal;white-space:nowrap}
+  .playerHeadlineMatchup .matchupEditorial>i{
+    align-self:start;
+    margin-top:42px;
+    text-align:center;
+    color:var(--red);
+    font:900 28px/1 Georgia,serif;
+    font-style:normal;
+  }
+  .playerHeadlineMatchup .matchupPortraits{inset:92px 0 28px}
+  .playerHeadlineMatchup .matchupPortraits img{width:30%;height:112px}
+  .playerHeadlineMatchup .matchupOpen{
+    display:block;
+    margin:0;
+    padding-top:8px;
+    border-top:1px solid rgba(17,16,14,.14);
+    text-align:center;
+  }
+}
+@media(min-width:1000px){
+  .upcomingGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .playerHeadlineMatchup .matchupSide b{font-size:24px}
+}
