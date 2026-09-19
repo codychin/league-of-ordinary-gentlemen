@@ -22,6 +22,7 @@ function BellIcon(){
 function ArticleAlertSettings(){
   const [state,setState]=useState('loading')
   const [message,setMessage]=useState('Checking this device…')
+  const showDetail=['install','unsupported','denied','error'].includes(state)
 
   useEffect(()=>{
     let active=true
@@ -87,10 +88,10 @@ function ArticleAlertSettings(){
   }
 
   return <div className="notificationSetting" aria-live="polite">
-    <div><b>Homepage story alerts</b><p>{message}</p></div>
+    <div><b>Enable notifications</b>{showDetail&&<p>{message}</p>}</div>
     {state==='subscribed'
-      ?<button type="button" onClick={disable} aria-label="Turn off homepage story alerts" aria-pressed="true">ON</button>
-      :<button type="button" onClick={enable} aria-label="Turn on homepage story alerts" aria-pressed="false" disabled={!['available','error'].includes(state)}>{state==='working'?'…':'OFF'}</button>}
+      ?<button type="button" onClick={disable} aria-label="Turn off notifications" role="switch" aria-checked="true">ON</button>
+      :<button type="button" onClick={enable} aria-label="Turn on notifications" role="switch" aria-checked="false" disabled={!['available','error'].includes(state)}>{state==='working'?'…':'OFF'}</button>}
   </div>
 }
 
