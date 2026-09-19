@@ -248,7 +248,12 @@ function MobileAppNav(){
 
     if(window.location.hash!==item.hash) window.history.pushState(null,'',item.hash)
     activate(item.hash)
-    document.getElementById(item.hash.slice(1))?.scrollIntoView({behavior:'auto',block:'start'})
+    const standalone=document.documentElement.classList.contains('standaloneApp')
+    if(standalone){
+      window.scrollTo({top:0,behavior:'auto'})
+    }else{
+      document.getElementById(item.hash.slice(1))?.scrollIntoView({behavior:'auto',block:'start'})
+    }
   }
 
   const headerLabel=moreOpen?'More':activeTab==='scores'?'Scores':activeTab==='teams'?'Teams':activeTab==='culture'?'Culture':activeTab==='detail'?'The Brief':''
