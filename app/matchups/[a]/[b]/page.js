@@ -2,6 +2,7 @@ import Link from 'next/link'
 import SiteNav from '../../../components/SiteNav'
 import {leagueSnapshot} from '../../../teams/league-data'
 import {teams} from '../../../teams/data'
+import {writers} from '../../../articles/writers'
 
 const fmt=value=>{
   const n=Number(value)
@@ -29,6 +30,10 @@ export default async function MatchupPreview({params}){
   const projectedLeader=Number(left.matchup.projection)>=Number(right.matchup.projection)?leftProfile:rightProfile
   const leftStatuses=leftStarters.filter(player=>player.status).length
   const rightStatuses=rightStarters.filter(player=>player.status).length
+  const writer=writers.gannon
+  const matchupRead=projectionGap<5
+    ? `${leftProfile.team} and ${rightProfile.team} arrive close enough in projection that this should come down to ordinary football nonsense: one busted coverage, one goal-line carry, one manager discovering too late that a perfectly defensible process still produces a ridiculous result. ${leftProfile.owners} brings ${leftProfile.posture.toLowerCase()} ${rightProfile.owners} counters with ${rightProfile.posture.toLowerCase()} The margin is small. The opportunity for retrospective certainty is enormous.`
+    : `${projectedLeader.team} has the cleaner projection entering the week, but the interesting part is how each roster is built to get there. ${leftProfile.team} comes in with ${leftProfile.posture.toLowerCase()} ${rightProfile.team} arrives with ${rightProfile.posture.toLowerCase()} A ${projectionGap.toFixed(1)}-point projection gap is real enough to notice and small enough to embarrass anyone who treats it like destiny.`
 
   return <>
     <header className="articleHeader"><Link href="/" className="miniMast">The Brief of Ordinary Gentleman</Link><SiteNav/></header>
@@ -53,8 +58,17 @@ export default async function MatchupPreview({params}){
         <div className="matchupUpdated">LIVE SNAPSHOT • {leagueSnapshot.updatedAt}</div>
       </section>
 
+      <section className="matchupColumn">
+        <div className="matchupColumnByline">
+          <img src={writer.image} alt={writer.imageAlt}/>
+          <div><small>GAME PREVIEW • {writer.title.toUpperCase()}</small><b>{writer.name}</b></div>
+        </div>
+        <h2>What this matchup is actually asking</h2>
+        <p>{matchupRead}</p>
+      </section>
+
       <section className="matchupPrimer">
-        <div className="matchupSectionHead"><small>THE BRIEF'S READ</small><h2>Before Sunday gets involved</h2></div>
+        <div className="matchupSectionHead"><small>THE BRIEF'S READ</small><h2>Numbers worth staring at</h2></div>
         <div className="primerGrid">
           <article><b>{projectionGap.toFixed(1)}</b><span>PROJECTED POINT GAP</span><p>{projectedLeader.team} enters with the higher live projection. Close enough to remain socially dangerous.</p></article>
           <article><b>{left.record} / {right.record}</b><span>RECORDS</span><p>{leftProfile.note}</p></article>
