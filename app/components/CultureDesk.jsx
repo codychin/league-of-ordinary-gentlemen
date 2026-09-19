@@ -2,14 +2,15 @@
 
 import Link from 'next/link'
 import {useState} from 'react'
+import PreviewAuthor from './PreviewAuthor'
 
 const PAGE_SIZE=5
 const MEDIA='https://dnzdbqycuuoonewcowis.supabase.co/storage/v1/object/public/brief-media'
 
 const stories=[
-  {href:'/articles/nigella-shake-n-baker',image:'/images/culture/nigella-shake-n-baker.webp',tag:'SELECTION COMMITTEE',title:"Nigella Lawson Joins Bake Off; Shake ’N Baker Thanks Committee for Its Consideration",dek:"Eating is her superpower. Shake ’N Baker says the process was competitive and wishes all parties continued success.",read:'REVIEW THE APPOINTMENT →'},
-  {href:'/articles/sydney-sweeney-consensus',image:'/images/culture/sydney-sweeney-consensus.webp',tag:'UNANIMOUS CONSENT',title:'Sydney Sweeney Sports Ad Divides Nation; League Reaches Consensus in Record Time',dek:'A provocative campaign produced nationwide disagreement and the fastest unanimous decision in league history.',read:'REVIEW THE CONSENSUS →'},
-  {href:'/articles/upper-east-side-froyo',photoClass:'froyoPhoto',tag:'MUNICIPAL AFFAIRS',title:'Upper East Side Residents Discover Waiting in Line; League Office Monitoring for Possible Waiver Implications',dek:"Mimi's has introduced crowd-control infrastructure to Lexington Avenue. Big Citrus has not been formally implicated.",read:'REVIEW THE CIVIC EMERGENCY →'},
+  {href:'/articles/nigella-shake-n-baker',slug:'nigella-shake-n-baker',image:'/images/culture/nigella-shake-n-baker.webp',tag:'SELECTION COMMITTEE',title:"Nigella Lawson Joins Bake Off; Shake ’N Baker Thanks Committee for Its Consideration",dek:"Eating is her superpower. Shake ’N Baker says the process was competitive and wishes all parties continued success.",read:'REVIEW THE APPOINTMENT →'},
+  {href:'/articles/sydney-sweeney-consensus',slug:'sydney-sweeney-consensus',image:'/images/culture/sydney-sweeney-consensus.webp',tag:'UNANIMOUS CONSENT',title:'Sydney Sweeney Sports Ad Divides Nation; League Reaches Consensus in Record Time',dek:'A provocative campaign produced nationwide disagreement and the fastest unanimous decision in league history.',read:'REVIEW THE CONSENSUS →'},
+  {href:'/articles/upper-east-side-froyo',slug:'upper-east-side-froyo',photoClass:'froyoPhoto',tag:'MUNICIPAL AFFAIRS',title:'Upper East Side Residents Discover Waiting in Line; League Office Monitoring for Possible Waiver Implications',dek:"Mimi's has introduced crowd-control infrastructure to Lexington Avenue. Big Citrus has not been formally implicated.",read:'REVIEW THE CIVIC EMERGENCY →'},
   {photoClass:'swiftPhoto',tag:'CELEBRITY PERSONNEL',title:'Taylor Swift, Tom Cruise Attend Chiefs Game; Route 22 Has Already Asked What It Would Take',dek:"The two were seated together at Arrowhead Monday night. Choe and Gerstone have not confirmed contact, though the Clubhouse's recent transaction volume makes a formal denial advisable."},
   {photoClass:'spongePhoto',tag:'BROOKLYN BUREAU',title:'Pregnant SpongeBob Rave Held in Brooklyn Without Prior Approval From League Office',dek:'A sold-out event involving SpongeBob, Final Fantasy, Kingdom Hearts and male pregnancy proceeded despite no apparent connection to fantasy football. Bonanz remains, for now, uninvolved.'},
   {photoClass:'knicksPhoto',tag:'FASHION & COMMERCE',title:'Knicks Attend Tommy Hilfiger Show at Plaza; Big Citrus Not Among Those Photographed',dek:"Josh Hart, Miles McBride and Karl-Anthony Towns appeared at the New York Fashion Week event. Sherm's absence from published photographs has not been explained."},
@@ -17,7 +18,7 @@ const stories=[
 ]
 
 function Story({story}){
-  const body=<><div className={`culturePhoto ${story.photoClass||''}`} style={story.image?{backgroundImage:`url('${story.image}')`}:undefined}/><div className="tag">{story.tag}</div><h3>{story.title}</h3><p>{story.dek}</p>{story.read&&<div className="read">{story.read}</div>}</>
+  const body=<><div className={`culturePhoto ${story.photoClass||''}`} style={story.image?{backgroundImage:`url('${story.image}')`}:undefined}/><div className="tag">{story.tag}</div><h3>{story.title}</h3><p>{story.dek}</p>{story.slug&&<PreviewAuthor slug={story.slug}/>} {story.read&&<div className="read">{story.read}</div>}</>
   return story.href?<Link href={story.href} className="card storylink">{body}</Link>:<article className="card">{body}</article>
 }
 
