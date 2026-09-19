@@ -93,3 +93,59 @@
   .matchupColumn h2{font-size:27px}
   .matchupColumn p{font-size:16px;line-height:1.5}
 }
+
+
+/* Mobile matchup alignment + density pass */
+@media(max-width:760px){
+  .matchupPage{padding-top:8px!important}
+  .matchupLead{padding:0 0 18px}
+  .matchupKicker{margin-bottom:9px}
+  .matchupScoreboard{grid-template-columns:minmax(0,1fr) 38px minmax(0,1fr)}
+  .matchupSide,.matchupSide.right{
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    grid-template-rows:16px minmax(44px,auto) 42px 16px;
+    align-content:start;
+    align-items:start;
+    gap:3px;
+    min-width:0;
+    padding:14px 12px 13px;
+  }
+  .matchupSide.right{justify-items:end;text-align:right}
+  .matchupSide small{grid-column:1;grid-row:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+  .matchupSide h1{grid-column:1;grid-row:2;align-self:start}
+  .matchupSide b{grid-column:1;grid-row:3;align-self:center;order:initial}
+  .matchupSide span{grid-column:1;grid-row:4;align-self:end;order:initial;white-space:nowrap;font-size:7px}
+  .matchupUpdated{margin-top:7px}
+  .matchupColumn{padding:18px 0 22px}
+  .matchupPrimer,.managerPreview,.lineupPreview{padding:24px 0}
+
+  .lineupRow{grid-template-columns:minmax(0,1fr) 24px minmax(0,1fr);min-height:84px}
+  .lineupPlayer,.lineupPlayer.right{
+    display:grid;
+    grid-template-rows:auto auto;
+    align-content:center;
+    gap:7px 6px;
+    min-width:0;
+    padding:11px 8px;
+  }
+  .lineupPlayer.left{
+    grid-template-columns:36px minmax(0,1fr) 50px;
+    grid-template-areas:"pos name pts" "status status status";
+    justify-items:start;
+    text-align:left;
+  }
+  .lineupPlayer.right{
+    grid-template-columns:50px minmax(0,1fr) 36px;
+    grid-template-areas:"pts name pos" "status status status";
+    justify-items:end;
+    text-align:right;
+  }
+  .lineupPlayer small,.lineupPlayer.right small{grid-area:pos;align-self:center}
+  .lineupPlayer b,.lineupPlayer.right b{grid-area:name;align-self:center;font-size:12px;line-height:1.08;min-width:0}
+  .lineupPlayer span,.lineupPlayer.right span{grid-area:pts;align-self:center;font-size:10px;white-space:nowrap}
+  .lineupPlayer em,.lineupPlayer.right em{grid-area:status;align-self:start}
+  .lineupPlayer.left em{justify-self:start}
+  .lineupPlayer.right em{justify-self:end}
+  .lineupVs{align-self:stretch}
+}
