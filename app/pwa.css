@@ -172,6 +172,12 @@
     html[data-app-tab='scores'] footer,
     html[data-app-tab='culture'] footer{display:none}
   }
+  /* One content gutter beneath the persistent app header. */
+  html.standaloneApp[data-app-tab='scores'] .upcoming{padding-top:16px!important}
+  html.standaloneApp[data-app-tab='teams'] main{padding-top:16px!important}
+  html.standaloneApp[data-app-tab='culture'] main:not(.articleMain){padding-top:0!important}
+  html.standaloneApp[data-app-tab='culture'] .affairs{padding-top:16px!important}
+
 }
 
 @keyframes pullRefreshSpin{to{transform:rotate(360deg)}}
