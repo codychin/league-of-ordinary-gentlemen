@@ -363,3 +363,49 @@
     font-size:7px!important;
   }
 }
+
+
+/* Score cards: names above portraits, cleaner image scale, no player captions */
+@media(max-width:760px){
+  html.standaloneApp[data-app-tab='scores'] .playerHeadlineMatchup{
+    min-height:170px;
+    padding:24px 12px 9px!important;
+  }
+  html.standaloneApp[data-app-tab='scores'] .matchupEditorial{
+    align-items:start!important;
+    min-height:112px;
+    padding-top:4px!important;
+  }
+  html.standaloneApp[data-app-tab='scores'] .matchupSide.left{
+    align-items:flex-start;
+    padding-left:0;
+    padding-right:5px;
+  }
+  html.standaloneApp[data-app-tab='scores'] .matchupSide.right{
+    align-items:flex-end;
+    padding-right:0;
+    padding-left:5px;
+    text-align:right;
+  }
+  html.standaloneApp[data-app-tab='scores'] .matchupSide b{
+    width:100%;
+    min-height:34px;
+    font-size:15px!important;
+    line-height:1!important;
+    text-wrap:pretty;
+    overflow-wrap:normal;
+    word-break:normal;
+  }
+  html.standaloneApp[data-app-tab='scores'] .matchupSide.left b{text-align:left}
+  html.standaloneApp[data-app-tab='scores'] .matchupSide.right b{text-align:right}
+  html.standaloneApp[data-app-tab='scores'] .matchupPortraits{
+    inset:54px 0 24px;
+  }
+  html.standaloneApp[data-app-tab='scores'] .matchupPortraits img{
+    width:31%;
+    height:100px;
+  }
+  html.standaloneApp[data-app-tab='scores'] .matchupPortraits .leftPlayer{left:2px}
+  html.standaloneApp[data-app-tab='scores'] .matchupPortraits .rightPlayer{right:2px}
+  html.standaloneApp[data-app-tab='scores'] .matchupPlayers{display:none!important}
+}
