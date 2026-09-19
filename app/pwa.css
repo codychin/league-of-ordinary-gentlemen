@@ -446,3 +446,31 @@
     margin-top:28px!important;
   }
 }
+
+
+/* Portraits sit inward and terminate exactly at the preview divider */
+@media(max-width:760px){
+  html.standaloneApp[data-app-tab='scores'] .playerHeadlineMatchup{--preview-h:29px}
+  html.standaloneApp[data-app-tab='scores'] .matchupPortraits{
+    top:66px!important;
+    bottom:var(--preview-h)!important;
+    overflow:hidden;
+  }
+  html.standaloneApp[data-app-tab='scores'] .matchupPortraits img{
+    bottom:0!important;
+    height:88px;
+  }
+  html.standaloneApp[data-app-tab='scores'] .matchupPortraits .leftPlayer{left:24px!important}
+  html.standaloneApp[data-app-tab='scores'] .matchupPortraits .rightPlayer{right:24px!important}
+  html.standaloneApp[data-app-tab='scores'] .playerHeadlineMatchup .matchupOpen{
+    min-height:var(--preview-h);
+    position:absolute;
+    left:12px;
+    right:12px;
+    bottom:0;
+    display:flex!important;
+    align-items:center;
+    justify-content:center;
+    padding:0!important;
+  }
+}
