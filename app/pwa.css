@@ -243,3 +243,123 @@
     margin-top:12px;
   }
 }
+
+@media(max-width:760px){
+  html.standaloneApp[data-app-tab='scores'] .upcomingGrid{gap:9px}
+  html.standaloneApp[data-app-tab='scores'] .playerHeadlineMatchup{
+    position:relative;
+    min-height:154px;
+    padding:24px 12px 9px!important;
+    border:1px solid rgba(17,16,14,.22)!important;
+    border-radius:0!important;
+    background:linear-gradient(180deg,rgba(255,255,255,.5),rgba(255,255,255,.2))!important;
+    box-shadow:none!important;
+    overflow:hidden;
+  }
+  html.standaloneApp[data-app-tab='scores'] .matchupKicker{
+    position:absolute!important;
+    top:8px!important;
+    left:50%!important;
+    transform:translateX(-50%);
+    width:calc(100% - 24px);
+    text-align:center;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    color:var(--red)!important;
+    font:900 7px Arial,sans-serif!important;
+    letter-spacing:1.15px!important;
+  }
+  html.standaloneApp[data-app-tab='scores'] .matchupPortraits{
+    position:absolute;
+    inset:22px 0 24px;
+    display:block!important;
+    padding:0!important;
+    pointer-events:none;
+  }
+  html.standaloneApp[data-app-tab='scores'] .matchupPortraits img{
+    position:absolute;
+    bottom:-4px;
+    width:34%;
+    height:116px;
+    object-fit:contain;
+    object-position:center bottom;
+    filter:grayscale(1) contrast(1.08);
+    opacity:.9;
+  }
+  html.standaloneApp[data-app-tab='scores'] .matchupPortraits .leftPlayer{left:-11px}
+  html.standaloneApp[data-app-tab='scores'] .matchupPortraits .rightPlayer{right:-11px;transform:scaleX(-1)}
+  html.standaloneApp[data-app-tab='scores'] .matchupEditorial{
+    position:relative;
+    z-index:2;
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) 42px minmax(0,1fr)!important;
+    align-items:center!important;
+    gap:5px!important;
+    min-height:92px;
+    padding:5px 0 1px!important;
+  }
+  html.standaloneApp[data-app-tab='scores'] .matchupSide{
+    display:flex!important;
+    flex-direction:column;
+    gap:2px;
+    min-width:0;
+  }
+  html.standaloneApp[data-app-tab='scores'] .matchupSide.left{align-items:flex-start;padding-left:54px}
+  html.standaloneApp[data-app-tab='scores'] .matchupSide.right{align-items:flex-end;padding-right:54px;text-align:right}
+  html.standaloneApp[data-app-tab='scores'] .matchupSide b{
+    max-width:100%;
+    font:700 17px/.92 Georgia,serif!important;
+    letter-spacing:-.55px!important;
+    text-wrap:balance;
+  }
+  html.standaloneApp[data-app-tab='scores'] .matchupSide strong{
+    font:900 27px/.9 Arial,sans-serif!important;
+    letter-spacing:-1px!important;
+  }
+  html.standaloneApp[data-app-tab='scores'] .matchupSide em{
+    font:800 7px Arial,sans-serif!important;
+    letter-spacing:.5px;
+    color:var(--muted);
+    font-style:normal;
+    white-space:nowrap;
+  }
+  html.standaloneApp[data-app-tab='scores'] .matchupEditorial>i{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    align-self:center;
+    width:42px;
+    height:42px;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    border-radius:0!important;
+    background:transparent!important;
+    color:var(--red)!important;
+    font:900 24px/.9 Georgia,serif!important;
+    letter-spacing:-1px!important;
+  }
+  html.standaloneApp[data-app-tab='scores'] .matchupPlayers{
+    position:relative;
+    z-index:2;
+    display:flex!important;
+    justify-content:space-between;
+    gap:12px!important;
+    padding:0 3px 5px!important;
+    color:var(--muted);
+    font:italic 700 7px Georgia,serif;
+  }
+  html.standaloneApp[data-app-tab='scores'] .matchupPlayers span:last-child{text-align:right}
+  html.standaloneApp[data-app-tab='scores'] .playerHeadlineMatchup .matchupOpen{
+    position:relative;
+    z-index:3;
+    display:block;
+    margin:0!important;
+    padding-top:6px!important;
+    border-top:1px solid rgba(17,16,14,.14);
+    text-align:center;
+    background:rgba(243,239,229,.7);
+    font-size:7px!important;
+  }
+}
