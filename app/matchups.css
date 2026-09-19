@@ -186,3 +186,34 @@
 @media(max-width:760px){
   .trendBadge{margin-top:1px}
 }
+
+
+/* Isolate detail-page scoreboard from home score-card matchupSide rules */
+.matchupPage .matchupScoreboard .matchupSide{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:5px 14px;
+  padding:22px;
+}
+.matchupPage .matchupScoreboard .matchupSide.right{text-align:right}
+.matchupPage .matchupScoreboard .matchupSide h1{grid-column:1}
+.matchupPage .matchupScoreboard .matchupSide b{grid-column:2;grid-row:1/4;align-self:center}
+@media(max-width:760px){
+  html.standaloneApp[data-app-tab='scores'] main.matchupPage{padding-top:0!important}
+  html.standaloneApp[data-app-tab='scores'] .matchupPage .matchupLead{padding-top:8px}
+  .matchupPage .matchupKicker{position:static!important;transform:none!important;width:auto!important;text-align:left!important}
+  .matchupPage .matchupScoreboard .matchupSide,
+  .matchupPage .matchupScoreboard .matchupSide.right{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr)!important;
+    grid-template-rows:16px minmax(44px,auto) 42px 16px!important;
+    align-content:start!important;
+    gap:3px!important;
+    padding:14px 12px 13px!important;
+  }
+  .matchupPage .matchupScoreboard .matchupSide.right{justify-items:end!important;text-align:right!important}
+  .matchupPage .matchupScoreboard .matchupSide small{grid-column:1!important;grid-row:1!important}
+  .matchupPage .matchupScoreboard .matchupSide h1{grid-column:1!important;grid-row:2!important}
+  .matchupPage .matchupScoreboard .matchupSide b{grid-column:1!important;grid-row:3!important;align-self:center!important}
+  .matchupPage .matchupScoreboard .matchupSide span{grid-column:1!important;grid-row:4!important}
+}
