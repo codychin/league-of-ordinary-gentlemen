@@ -7,21 +7,18 @@
 .offlinePage a{margin-top:24px;border-top:3px solid var(--ink);padding-top:14px;color:var(--ink);text-decoration:none;font:900 11px Arial,sans-serif;letter-spacing:1.5px}
 
 @media(max-width:760px){
-  html{scroll-behavior:auto;scroll-padding-top:42px;scroll-padding-bottom:calc(40px + env(safe-area-inset-bottom))}
-  body{padding-bottom:calc(40px + env(safe-area-inset-bottom));overscroll-behavior-y:none}
+  html{scroll-behavior:auto;scroll-padding-top:42px;scroll-padding-bottom:58px}
+  body{padding-bottom:58px;overscroll-behavior-y:none}
   [id]{scroll-margin-top:46px}
-  .appTabBar{position:fixed;inset:auto 0 0;z-index:90;display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:0 8px;background:linear-gradient(180deg,rgba(255,255,255,.72),rgba(236,230,218,.82));border-top:1px solid rgba(255,255,255,.9);border-bottom:0;box-shadow:0 -1px 0 rgba(17,16,14,.12),0 -8px 24px rgba(17,16,14,.09);backdrop-filter:blur(24px) saturate(170%);-webkit-backdrop-filter:blur(24px) saturate(170%)}
-  .appTabBar:before{content:'';position:absolute;top:4px;width:40px;height:32px;left:calc(12.5% - 20px);border:1px solid rgba(165,42,34,.2);border-radius:17px;background:linear-gradient(145deg,rgba(255,255,255,.88),rgba(165,42,34,.14));box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 3px 10px rgba(17,16,14,.12);transition:left .24s cubic-bezier(.22,.8,.25,1)}
-  .appTabBar.active-1:before{left:calc(37.5% - 20px)}
-  .appTabBar.active-2:before{left:calc(62.5% - 20px)}
-  .appTabBar.active-3:before{left:calc(87.5% - 20px)}
-  .appTabBar a{position:relative;display:flex;min-width:0;height:calc(40px + env(safe-area-inset-bottom));padding:4px 0 calc(4px + env(safe-area-inset-bottom));align-items:flex-end;justify-content:center;color:var(--muted);text-decoration:none}
+  .appTabBar{position:fixed;left:50%;right:auto;bottom:max(3px,calc(env(safe-area-inset-bottom) - 8px));width:min(380px,calc(100% - 24px));height:42px;transform:translateX(-50%);z-index:90;display:grid;grid-template-columns:repeat(4,1fr);gap:0;padding:3px 8px;background:linear-gradient(145deg,rgba(255,255,255,.68),rgba(224,217,205,.52));border:1px solid rgba(255,255,255,.82);border-radius:24px;box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 8px 28px rgba(17,16,14,.18),0 1px 3px rgba(17,16,14,.12);backdrop-filter:blur(26px) saturate(190%);-webkit-backdrop-filter:blur(26px) saturate(190%);overflow:hidden}
+  .appTabGlider{position:absolute;left:8px;top:3px;width:calc((100% - 16px)/4);height:34px;pointer-events:none;transition:transform .42s cubic-bezier(.2,.9,.2,1)}
+  .appTabGlider:after{content:'';display:block;width:44px;height:34px;margin:auto;border:1px solid rgba(165,42,34,.22);border-radius:18px;background:radial-gradient(circle at 30% 15%,rgba(255,255,255,.96),rgba(255,255,255,.56) 42%,rgba(165,42,34,.17));box-shadow:inset 0 1px 1px rgba(255,255,255,.98),0 3px 11px rgba(17,16,14,.14)}
+  .appTabBar a{position:relative;display:flex;min-width:0;height:36px;padding:2px 0 0;align-items:center;justify-content:center;color:var(--muted);text-decoration:none}
   .appTabIcon{position:relative;z-index:1;width:40px;height:32px;display:grid;place-items:center;border-radius:17px;transition:color .2s ease,transform .24s cubic-bezier(.22,.8,.25,1)}
   .appTabIcon svg{width:23px;height:23px;display:block}
   .appTabLabel{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
   .appTabBar a.active{color:var(--red)}
-  .appTabBar a.active .appTabIcon{transform:translateY(-1px) scale(1.06)}
-  .appTabBar a.active:after{content:'';position:absolute;bottom:calc(2px + env(safe-area-inset-bottom));width:4px;height:4px;border-radius:50%;background:var(--red)}
+  .appTabBar a.active .appTabIcon{transform:scale(1.05)}
   .installPrompt{position:fixed;left:12px;right:12px;bottom:calc(48px + env(safe-area-inset-bottom));z-index:95;display:grid;grid-template-columns:46px minmax(0,1fr) auto;align-items:center;gap:12px;padding:13px 14px;background:var(--ink);color:var(--paper);border:1px solid #4b4841;box-shadow:0 12px 35px rgba(0,0,0,.3)}
   .installMark{width:46px;height:46px;display:grid;place-items:center;border:2px solid var(--paper);font:900 19px Georgia,serif;letter-spacing:-1px;color:var(--paper)}
   .installMark:after{content:'';position:absolute;width:32px;height:3px;background:var(--red);transform:translateY(-16px)}
@@ -33,8 +30,10 @@
   .installDismiss{position:absolute;top:-9px;right:-7px;width:24px;height:24px;border-radius:50%;border:1px solid var(--paper);background:var(--ink);color:var(--paper);font:18px/20px Arial,sans-serif;cursor:pointer}
   html.standaloneApp .utility{padding-top:calc(5px + env(safe-area-inset-top));padding-bottom:5px}
   html.standaloneApp .siteNav{display:none!important}
-  html.standaloneApp[data-app-tab='detail'] .articleHeader{display:none}
-  html.standaloneApp[data-app-tab='detail'] .articleMain{padding-top:calc(env(safe-area-inset-top) + 24px)}
+  html.standaloneApp[data-app-tab='detail'] .articleHeader,
+  html.standaloneApp[data-app-tab='culture'] body:has(.articleMain) .articleHeader{display:none}
+  html.standaloneApp[data-app-tab='detail'] .articleMain,
+  html.standaloneApp[data-app-tab='culture'] .articleMain{padding-top:calc(env(safe-area-inset-top) + 24px)}
   html.standaloneApp[data-app-tab='home'] main>.affairs,
   html.standaloneApp[data-app-tab='home'] main>.scoreSection,
   html.standaloneApp[data-app-tab='home'] main>.upcoming{display:none}
@@ -42,29 +41,30 @@
   html.standaloneApp[data-app-tab='culture'] header,
   html.standaloneApp[data-app-tab='teams'] .articleHeader{display:none}
   html.standaloneApp[data-app-tab='scores'] main>*:not(.scoreSection):not(.upcoming),
-  html.standaloneApp[data-app-tab='culture'] main>*:not(.affairs){display:none}
+  html.standaloneApp[data-app-tab='culture'] main:not(.articleMain)>*:not(.affairs){display:none}
   html.standaloneApp[data-app-tab='scores'] main,
   html.standaloneApp[data-app-tab='teams'] main{padding-top:env(safe-area-inset-top)}
-  html.standaloneApp[data-app-tab='culture'] main{max-width:none;padding:0}
+  html.standaloneApp[data-app-tab='culture'] main:not(.articleMain){max-width:none;padding:0}
   html.standaloneApp[data-app-tab='culture'] .affairs{min-height:calc(100svh - 40px - env(safe-area-inset-bottom));margin-top:0;padding-top:calc(22px + env(safe-area-inset-top))}
   html.standaloneApp[data-app-tab='scores'] footer,
   html.standaloneApp[data-app-tab='culture'] footer{display:none}
-  html.standaloneApp.appTabAnimating main{animation:appTabContentIn .25s cubic-bezier(.22,.8,.25,1)}
-  html.standaloneApp.appTabAnimating .appTabBar a.active svg{animation:appTabIconPop .25s cubic-bezier(.22,.8,.25,1)}
+  html.standaloneApp.appTabAnimating main{animation:appTabContentIn .22s ease-out}
   @media(display-mode:standalone){
     .utility{padding-top:calc(5px + env(safe-area-inset-top));padding-bottom:5px}
     .siteNav{display:none!important}
-    html[data-app-tab='detail'] .articleHeader{display:none}
-    html[data-app-tab='detail'] .articleMain{padding-top:calc(env(safe-area-inset-top) + 24px)}
+    html[data-app-tab='detail'] .articleHeader,
+    html[data-app-tab='culture'] body:has(.articleMain) .articleHeader{display:none}
+    html[data-app-tab='detail'] .articleMain,
+    html[data-app-tab='culture'] .articleMain{padding-top:calc(env(safe-area-inset-top) + 24px)}
     html[data-app-tab='home'] main>.affairs,
     html[data-app-tab='home'] main>.scoreSection,
     html[data-app-tab='home'] main>.upcoming{display:none}
     html[data-app-tab='scores'] header,
     html[data-app-tab='culture'] header{display:none}
     html[data-app-tab='scores'] main>*:not(.scoreSection):not(.upcoming),
-    html[data-app-tab='culture'] main>*:not(.affairs){display:none}
+    html[data-app-tab='culture'] main:not(.articleMain)>*:not(.affairs){display:none}
     html[data-app-tab='scores'] main{padding-top:env(safe-area-inset-top)}
-    html[data-app-tab='culture'] main{max-width:none;padding:0}
+    html[data-app-tab='culture'] main:not(.articleMain){max-width:none;padding:0}
     html[data-app-tab='teams'] .articleHeader{display:none}
     html[data-app-tab='teams'] main{padding-top:env(safe-area-inset-top)}
     html[data-app-tab='culture'] .affairs{min-height:calc(100svh - 40px - env(safe-area-inset-bottom));margin-top:0;padding-top:calc(22px + env(safe-area-inset-top))}
@@ -73,6 +73,5 @@
   }
 }
 
-@keyframes appTabContentIn{from{opacity:.72;transform:translateY(4px);filter:blur(1px)}to{opacity:1;transform:none;filter:none}}
-@keyframes appTabIconPop{0%{transform:scale(.86)}70%{transform:scale(1.1)}100%{transform:scale(1)}}
-@media(prefers-reduced-motion:reduce){.appTabBar:before,.appTabIcon{transition:none!important}html.standaloneApp.appTabAnimating main,html.standaloneApp.appTabAnimating .appTabBar a.active svg{animation:none!important}}
+@keyframes appTabContentIn{from{opacity:.86;transform:translate3d(0,5px,0)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.appTabGlider,.appTabIcon{transition:none!important}html.standaloneApp.appTabAnimating main{animation:none!important}}

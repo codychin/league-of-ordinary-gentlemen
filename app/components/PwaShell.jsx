@@ -20,18 +20,21 @@ function MobileAppNav(){
   const pathname=usePathname()
   const router=useRouter()
   const [hash,setHash]=useState('')
+  const [activeTab,setActiveTab]=useState(pathname.startsWith('/teams')?'teams':pathname==='/'?'home':'detail')
   const motionTimer=useRef(null)
   const tabFor=nextHash=>{
     if(pathname.startsWith('/teams')) return 'teams'
-    if(pathname!=='/') return 'detail'
+    if(pathname!=='/') return document.querySelector('[data-app-section="culture"]')?'culture':'detail'
     if(nextHash==='#scores') return 'scores'
     if(nextHash==='#culture') return 'culture'
     return 'home'
   }
 
   const activate=nextHash=>{
+    const nextTab=tabFor(nextHash)
     setHash(nextHash)
-    document.documentElement.dataset.appTab=tabFor(nextHash)
+    setActiveTab(nextTab)
+    document.documentElement.dataset.appTab=nextTab
   }
 
   useEffect(()=>{
@@ -58,10 +61,10 @@ function MobileAppNav(){
   },[pathname])
 
   const items=[
-    {href:'/',label:'Home',active:pathname==='/'&&!hash},
-    {href:'/#scores',label:'Scores',hash:'#scores',active:pathname==='/'&&hash==='#scores'},
-    {href:'/teams',label:'Teams',active:pathname.startsWith('/teams')},
-    {href:'/#culture',label:'Culture',hash:'#culture',active:pathname==='/'&&hash==='#culture'},
+    {href:'/',label:'Home',active:activeTab==='home'},
+    {href:'/#scores',label:'Scores',hash:'#scores',active:activeTab==='scores'},
+    {href:'/teams',label:'Teams',active:activeTab==='teams'},
+    {href:'/#culture',label:'Culture',hash:'#culture',active:activeTab==='culture'},
   ]
 
   const activeIndex=Math.max(0,items.findIndex(item=>item.active))
@@ -102,7 +105,8 @@ function MobileAppNav(){
     document.getElementById(item.hash.slice(1))?.scrollIntoView({behavior:'auto',block:'start'})
   }
 
-  return <nav className={`appTabBar active-${activeIndex}`} aria-label="App navigation">
+  return <nav className="appTabBar" aria-label="App navigation">
+    <span className="appTabGlider" style={{transform:`translate3d(${activeIndex*100}%,0,0)`}} aria-hidden="true"/>
     {items.map((item,index)=><Link
       key={item.label}
       href={item.href}
