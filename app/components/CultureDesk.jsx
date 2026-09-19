@@ -25,6 +25,6 @@ export default function CultureDesk(){
   const [page,setPage]=useState(0)
   const pageCount=Math.ceil(stories.length/PAGE_SIZE)
   const visible=stories.slice(page*PAGE_SIZE,(page+1)*PAGE_SIZE)
-  const changePage=next=>{setPage(next);document.getElementById('culture')?.scrollIntoView({behavior:'smooth',block:'start'})}
+  const changePage=next=>{setPage(next);document.getElementById('culture')?.scrollIntoView({behavior:'auto',block:'start'})}
   return <section className="affairs" id="culture"><div className="sectionhead light affairsHead"><span>CULTURE DESK</span><h2>Matters of Culture</h2></div><div className="affairsIntro">Important to someone.</div><div className="grid3 darkgrid cultureGrid">{visible.map((story,index)=><Story story={story} key={`${page}-${index}`}/>)}</div>{pageCount>1&&<nav className="culturePagination" aria-label="Culture stories pagination"><button type="button" onClick={()=>changePage(page-1)} disabled={page===0}>← NEWER</button><span>PAGE {page+1} OF {pageCount}</span><button type="button" onClick={()=>changePage(page+1)} disabled={page===pageCount-1}>OLDER →</button></nav>}</section>
 }

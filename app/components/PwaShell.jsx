@@ -11,15 +11,27 @@ function MobileAppNav(){
   const [hash,setHash]=useState('')
 
   useEffect(()=>{
+    const scrollToLocation=()=>{
+      const nextHash=window.location.hash
+      setHash(nextHash)
+      window.requestAnimationFrame(()=>{
+        if(!nextHash){
+          window.scrollTo({top:0,behavior:'auto'})
+          return
+        }
+        document.getElementById(nextHash.slice(1))?.scrollIntoView({behavior:'auto',block:'start'})
+      })
+    }
     const sync=()=>setHash(window.location.hash)
     sync()
     window.addEventListener('hashchange',sync)
-    window.addEventListener('popstate',sync)
+    window.addEventListener('popstate',scrollToLocation)
+    if(pathname==='/') scrollToLocation()
     return()=>{
       window.removeEventListener('hashchange',sync)
-      window.removeEventListener('popstate',sync)
+      window.removeEventListener('popstate',scrollToLocation)
     }
-  },[])
+  },[pathname])
 
   const items=[
     {href:'/',label:'Home',active:pathname==='/'&&!hash},
@@ -29,17 +41,23 @@ function MobileAppNav(){
   ]
 
   const navigate=(event,item)=>{
-    if(pathname!=='/') return
+    if(pathname!=='/'){
+      if(item.href.startsWith('/#')||item.href==='/'){
+        event.preventDefault()
+        window.location.assign(item.href)
+      }
+      return
+    }
 
     event.preventDefault()
     if(!item.hash){
-      window.history.pushState(null,'','/')
+      if(window.location.hash) window.history.pushState(null,'','/')
       window.scrollTo({top:0,behavior:'auto'})
       setHash('')
       return
     }
 
-    window.history.pushState(null,'',item.hash)
+    if(window.location.hash!==item.hash) window.history.pushState(null,'',item.hash)
     document.getElementById(item.hash.slice(1))?.scrollIntoView({behavior:'auto',block:'start'})
     setHash(item.hash)
   }
