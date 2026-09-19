@@ -28,4 +28,6 @@ export const metadata={
 
 export const viewport={width:'device-width',initialScale:1,viewportFit:'cover',themeColor:'#11100e'}
 
-export default function RootLayout({children}){return <html lang="en"><body>{children}<PwaShell/></body></html>}
+const standaloneBoot=`try{if(matchMedia('(display-mode: standalone)').matches||navigator.standalone===true)document.documentElement.classList.add('standaloneApp')}catch(e){}`
+
+export default function RootLayout({children}){return <html lang="en"><head><script id="standalone-boot" dangerouslySetInnerHTML={{__html:standaloneBoot}}/></head><body>{children}<PwaShell/></body></html>}

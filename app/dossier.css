@@ -59,7 +59,7 @@
 .matchupTeam.active span{color:#bdb5a8}
 .matchupVs{display:flex;align-items:center;justify-content:center;border-inline:1px solid var(--ink);font:900 11px Arial,sans-serif;color:var(--red)}
 .rosterSection{padding:35px 0 42px;border-bottom:4px solid var(--ink)}
-.rosterHeader,.rosterRow{display:grid;grid-template-columns:68px minmax(210px,1fr) 55px 92px 48px 62px 52px;gap:12px;align-items:center}
+.rosterHeader,.rosterRow{display:grid;grid-template-columns:68px minmax(220px,1fr) 100px 52px 84px 84px;gap:12px;align-items:center}
 .rosterHeader{padding:9px 12px;background:var(--ink);color:var(--paper);font:900 8px Arial,sans-serif;letter-spacing:1.2px}
 .rosterHeader span:nth-last-child(-n+3){text-align:right}
 .rosterRow{padding:12px;border-bottom:1px solid var(--line);font-size:14px}
@@ -68,7 +68,7 @@
 .rosterRow>span:nth-child(2){display:flex;align-items:baseline;gap:8px;min-width:0}
 .rosterRow>span:nth-child(2) strong{font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .rosterRow em{font:900 8px Arial,sans-serif;color:var(--muted);font-style:normal}
-.rosterRow>span:nth-child(5){text-align:right;font:900 12px Arial,sans-serif}.rosterRow>strong{text-align:right;font:900 17px Arial,sans-serif}
+.rosterRow>span:nth-child(4){text-align:right;font:900 12px Arial,sans-serif}.rosterRow>strong{text-align:right;font:900 17px Arial,sans-serif}
 .statusFlag{color:var(--red);font:900 9px Arial,sans-serif;text-transform:uppercase}
 .transactionRow{display:grid;grid-template-columns:86px 1fr;padding:12px 0;border-bottom:1px solid var(--line);gap:3px 10px}
 .transactionRow small{font:900 8px Arial,sans-serif;color:var(--red);letter-spacing:.8px}
@@ -90,7 +90,9 @@
   .matchupBoard{grid-template-columns:1fr}
   .matchupVs{border-inline:0;border-block:1px solid var(--ink);padding:6px}
   .rosterHeader{display:none}
-  .rosterRow{grid-template-columns:54px minmax(0,1fr) 42px 46px 46px;gap:8px}
-  .rosterRow>span:nth-child(4),.rosterRow>span:nth-child(5){display:none}
+  .rosterRow{grid-template-columns:48px minmax(0,1fr) 58px 68px;gap:8px}
+  .rosterRow>span:nth-child(3),.rosterRow>span:nth-child(4){display:none}
   .rosterRow>span:nth-child(2){align-items:flex-start;flex-direction:column;gap:2px}
+  .rosterRow>strong{font-size:15px;display:flex;flex-direction:column;gap:2px}
+  .rosterRow>strong:before{content:attr(data-label);font:800 7px Arial,sans-serif;letter-spacing:.7px;color:var(--muted);white-space:nowrap}
 }

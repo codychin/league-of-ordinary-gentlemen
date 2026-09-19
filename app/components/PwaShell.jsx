@@ -1,8 +1,8 @@
 'use client'
 
 import Link from 'next/link'
-import {useEffect, useState} from 'react'
-import {usePathname} from 'next/navigation'
+import {useEffect, useRef, useState} from 'react'
+import {usePathname, useRouter} from 'next/navigation'
 
 const DISMISS_KEY='ordinary-brief-install-dismissed'
 
@@ -18,7 +18,9 @@ function TabIcon({name}){
 
 function MobileAppNav(){
   const pathname=usePathname()
+  const router=useRouter()
   const [hash,setHash]=useState('')
+  const motionTimer=useRef(null)
   const tabFor=nextHash=>{
     if(pathname.startsWith('/teams')) return 'teams'
     if(pathname!=='/') return 'detail'
@@ -62,18 +64,27 @@ function MobileAppNav(){
     {href:'/#culture',label:'Culture',hash:'#culture',active:pathname==='/'&&hash==='#culture'},
   ]
 
+  const activeIndex=Math.max(0,items.findIndex(item=>item.active))
+  const beginTransition=()=>{
+    window.clearTimeout(motionTimer.current)
+    document.documentElement.classList.remove('appTabAnimating')
+    window.requestAnimationFrame(()=>document.documentElement.classList.add('appTabAnimating'))
+    motionTimer.current=window.setTimeout(()=>document.documentElement.classList.remove('appTabAnimating'),260)
+  }
+
   const navigate=(event,item)=>{
+    beginTransition()
     if(item.href==='/teams'){
       event.preventDefault()
       if(pathname.startsWith('/teams')) window.scrollTo({top:0,behavior:'auto'})
-      else window.location.assign('/teams')
+      else router.push('/teams')
       return
     }
 
     if(pathname!=='/'){
       if(item.href.startsWith('/#')||item.href==='/'){
         event.preventDefault()
-        window.location.assign(item.href)
+        router.push(item.href)
       }
       return
     }
@@ -91,7 +102,7 @@ function MobileAppNav(){
     document.getElementById(item.hash.slice(1))?.scrollIntoView({behavior:'auto',block:'start'})
   }
 
-  return <nav className="appTabBar" aria-label="App navigation">
+  return <nav className={`appTabBar active-${activeIndex}`} aria-label="App navigation">
     {items.map((item,index)=><Link
       key={item.label}
       href={item.href}

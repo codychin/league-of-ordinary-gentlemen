@@ -42,8 +42,8 @@ export default async function Team({params}) {
 
       <section className="rosterSection">
         <div className="hubHead">ACTIVE ROSTER • WEEK {leagueSnapshot.week}</div>
-        <div className="rosterHeader"><span>SLOT</span><span>PLAYER</span><span>NFL</span><span>STATUS</span><span>STARTS</span><span>SEASON</span><span>W{leagueSnapshot.week}</span></div>
-        {ops.roster.map((p,i)=>{const reserve=p.slot==='Bench'||p.slot==='IR';return <div className={`rosterRow ${reserve?'reserve':''}`} key={p.id}><b>{p.slot}</b><span><strong>{p.name}</strong><em>{p.position}</em></span><span>{p.team}</span><span className={p.status?'statusFlag':''}>{p.status||'—'}</span><span>{p.starts}</span><strong>{Number(p.seasonPoints).toFixed(1)}</strong><strong>{Number(p.weekPoints).toFixed(1)}</strong></div>})}
+        <div className="rosterHeader"><span>SLOT</span><span>PLAYER</span><span>STATUS</span><span>STARTS</span><span>WEEK {leagueSnapshot.week} PTS</span><span>SEASON PTS</span></div>
+        {ops.roster.map((p,i)=>{const reserve=p.slot==='Bench'||p.slot==='IR';return <div className={`rosterRow ${reserve?'reserve':''}`} key={p.id}><b>{p.slot}</b><span><strong>{p.name}</strong><em>{p.position} • {p.team}</em></span><span className={p.status?'statusFlag':''}>{p.status||'—'}</span><span>{p.starts}</span><strong data-label={`W${leagueSnapshot.week} PTS`}>{Number(p.weekPoints).toFixed(1)}</strong><strong data-label="SEASON PTS">{Number(p.seasonPoints).toFixed(1)}</strong></div>})}
       </section>
 
       <section className="franchiseLead"><div><small>WEEK 1</small><h2>{t.week1}</h2><p>{t.note}</p></div><aside><small>ON FILE</small><p>{t.lore}</p></aside></section>
