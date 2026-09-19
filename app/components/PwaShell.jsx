@@ -90,8 +90,8 @@ function ArticleAlertSettings(){
   return <div className="notificationSetting" aria-live="polite">
     <div><b>Enable notifications</b>{showDetail&&<p>{message}</p>}</div>
     {state==='subscribed'
-      ?<button type="button" onClick={disable} aria-label="Turn off notifications" role="switch" aria-checked="true">ON</button>
-      :<button type="button" onClick={enable} aria-label="Turn on notifications" role="switch" aria-checked="false" disabled={!['available','error'].includes(state)}>{state==='working'?'…':'OFF'}</button>}
+      ?<button type="button" onClick={disable} aria-label="Turn off notifications" role="switch" aria-checked="true"><span/></button>
+      :<button type="button" onClick={enable} aria-label="Turn on notifications" role="switch" aria-checked="false" aria-busy={state==='working'} disabled={!['available','error'].includes(state)}><span/></button>}
   </div>
 }
 
