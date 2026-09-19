@@ -217,3 +217,8 @@
     padding-top:14px!important;
   }
 }
+
+@media(max-width:760px){
+  html.standaloneApp[data-app-tab='home'] .hero{padding-bottom:22px}
+  html.standaloneApp[data-app-tab='home'] .hero .read{margin-top:12px}
+}
