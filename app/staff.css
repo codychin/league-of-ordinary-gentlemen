@@ -53,3 +53,5 @@
   .staffProfile h2{font-size:30px}
   .staffPortrait figcaption{letter-spacing:.45px}
 }
+
+@media(max-width:760px){html.standaloneApp .staffPage{padding-top:calc(env(safe-area-inset-top) + 34px)}html.standaloneApp .directoryHead{padding-top:28px}}
