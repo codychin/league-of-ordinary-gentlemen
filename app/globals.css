@@ -81,3 +81,31 @@
   .upcomingGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .playerHeadlineMatchup .matchupSide b{font-size:24px}
 }
+
+
+/* Desktop score cards: top-aligned names and portraits clipped to CTA divider */
+@media(min-width:761px){
+  .playerHeadlineMatchup{--preview-h:34px}
+  .playerHeadlineMatchup .matchupEditorial{align-items:start!important}
+  .playerHeadlineMatchup .matchupSide{justify-content:flex-start!important}
+  .playerHeadlineMatchup .matchupSide b{margin:0;align-self:flex-start}
+  .playerHeadlineMatchup .matchupSide.right b{align-self:flex-end}
+  .playerHeadlineMatchup .matchupPortraits{
+    top:92px!important;
+    bottom:var(--preview-h)!important;
+    overflow:hidden;
+  }
+  .playerHeadlineMatchup .matchupPortraits img{bottom:0!important}
+  .playerHeadlineMatchup .matchupOpen{
+    position:absolute!important;
+    left:18px;
+    right:18px;
+    bottom:0;
+    min-height:var(--preview-h);
+    display:flex!important;
+    align-items:center;
+    justify-content:center;
+    padding:0!important;
+    background:var(--paper);
+  }
+}
