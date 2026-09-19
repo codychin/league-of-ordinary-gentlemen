@@ -1,4 +1,4 @@
-.appTabBar,.installPrompt,.pullRefresh,.articleAlerts,.appMoreSheet{display:none}
+.appTabBar,.installPrompt,.pullRefresh,.articleAlerts,.appMoreSheet,.appSectionHeader{display:none}
 .liveNumbers{display:flex;flex-direction:column;align-items:flex-end;line-height:1}.liveNumbers em{margin-top:3px;font:800 7px Arial,sans-serif;letter-spacing:.7px;color:var(--muted);font-style:normal;white-space:nowrap}
 
 .offlinePage{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;max-width:760px;padding:60px 28px}
@@ -83,7 +83,20 @@
   .notificationSetting button[aria-checked='true']{border-color:var(--red);background:var(--red)}
   .notificationSetting button[aria-checked='true'] span{background:var(--paper);transform:translateX(18px)}
   .notificationSetting button:disabled{opacity:.45}
-  html.standaloneApp[data-app-tab='home'] header{position:sticky;top:0;z-index:70;background:rgba(243,239,229,.94);border-bottom:1px solid rgba(17,16,14,.16);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+  html.standaloneApp .appSectionHeader{position:fixed;top:0;left:0;right:0;z-index:80;box-sizing:content-box;height:38px;padding:calc(env(safe-area-inset-top) + 3px) 58px 8px;display:flex;align-items:center;justify-content:center;background:var(--ink);color:var(--paper);border-bottom:1px solid #393630}
+  html.standaloneApp .appSectionHeader span{font:700 20px/1 Georgia,serif;letter-spacing:-.7px}
+  html.standaloneApp[data-app-tab='home'] .appSectionHeader span{font-size:0;width:126px;height:34px;position:relative}
+  html.standaloneApp[data-app-tab='home'] .appSectionHeader span:before{content:'The';position:absolute;right:calc(50% + 25px);top:50%;transform:translateY(-50%);font:700 20px/1 Georgia,serif;letter-spacing:-.7px;color:var(--paper)}
+  html.standaloneApp[data-app-tab='home'] .appSectionHeader span:after{content:'Brief';position:absolute;left:calc(50% - 17px);top:0;height:34px;display:flex;align-items:center;padding-left:42px;background:url('/icons/ordinary-brief-v3-192.png') left center/34px 34px no-repeat;font:700 20px/1 Georgia,serif;letter-spacing:-.7px;color:var(--paper);white-space:nowrap;filter:invert(1)}
+  html.standaloneApp .articleAlerts{top:calc(env(safe-area-inset-top) + 7px)!important}
+  html.standaloneApp[data-app-tab='home'] header{position:static;background:transparent;border:0}
+  html.standaloneApp[data-app-tab='home'] header .utility{display:none!important}
+  html.standaloneApp[data-app-tab='home'] main{padding-top:calc(env(safe-area-inset-top) + 57px)}
+  html.standaloneApp[data-app-tab='scores'] main{padding-top:calc(env(safe-area-inset-top) + 57px)}
+  html.standaloneApp[data-app-tab='teams'] main{padding-top:calc(env(safe-area-inset-top) + 57px)}
+  html.standaloneApp[data-app-tab='culture'] main:not(.articleMain){padding-top:calc(env(safe-area-inset-top) + 57px)}
+  html.standaloneApp[data-app-tab='detail'] .articleMain,html.standaloneApp[data-app-tab='culture'] .articleMain{padding-top:calc(env(safe-area-inset-top) + 76px)}
+
   html.standaloneApp[data-app-tab='home'] .utility{box-sizing:content-box;height:38px;display:flex;align-items:center;justify-content:center;padding:calc(env(safe-area-inset-top) + 3px) 54px 8px;text-align:center}
   html.standaloneApp[data-app-tab='home'] .utilityMain{position:relative;width:126px;height:34px;display:block;font-size:0;line-height:0;letter-spacing:0;color:transparent;overflow:visible}
   html.standaloneApp[data-app-tab='home'] .utilityMain:before{content:'The';position:absolute;right:calc(50% + 25px);top:50%;transform:translateY(-50%);font:700 20px/1 Georgia,serif;letter-spacing:-.7px;color:var(--ink)}
@@ -97,7 +110,7 @@
   html.standaloneApp[data-app-tab='home'] .hero .standfirst{font-size:16px;line-height:1.42}
   html.standaloneApp[data-app-tab='detail'] .articleMain,
   html.standaloneApp[data-app-tab='culture'] .articleMain{padding-top:calc(env(safe-area-inset-top) + 42px)}
-  html.standaloneApp[data-app-tab='scores'] .upcoming{padding:calc(env(safe-area-inset-top) + 12px) 0 24px!important;border-top:0!important}
+  html.standaloneApp[data-app-tab='scores'] .upcoming{padding:8px 0 24px!important;border-top:0!important}
   html.standaloneApp[data-app-tab='scores'] .scoreHero{margin:0 -22px 14px;padding:8px 22px 14px;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;border-bottom:4px solid var(--ink)}
   html.standaloneApp[data-app-tab='scores'] .scoreHero small{display:block;margin-bottom:3px;font:900 7px Arial,sans-serif;letter-spacing:1.4px;color:var(--red)}
   html.standaloneApp[data-app-tab='scores'] .scoreHero h2{margin:0;font:900 34px/.9 Georgia,serif;letter-spacing:-1.8px}
