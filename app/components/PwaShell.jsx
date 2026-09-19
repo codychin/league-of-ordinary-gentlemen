@@ -168,11 +168,12 @@ function MoreMenuIcon({name}){
 function MobileAppNav(){
   const pathname=usePathname()
   const router=useRouter()
-  const [activeTab,setActiveTab]=useState(pathname.startsWith('/teams')?'teams':pathname.startsWith('/matchups')?'scores':pathname==='/'?'home':'detail')
+  const [activeTab,setActiveTab]=useState(pathname.startsWith('/teams')?'teams':pathname.startsWith('/matchups')?'scores':['/staff','/archive','/corrections'].some(path=>pathname.startsWith(path))?'more':pathname==='/'?'home':'detail')
   const [moreOpen,setMoreOpen]=useState(false)
   const tabFor=nextHash=>{
     if(pathname.startsWith('/teams')) return 'teams'
     if(pathname.startsWith('/matchups')) return 'scores'
+    if(['/staff','/archive','/corrections'].some(path=>pathname.startsWith(path))) return 'more'
     if(pathname!=='/') return document.querySelector('[data-app-section="culture"]')?'culture':'detail'
     if(nextHash==='#scores') return 'scores'
     if(nextHash==='#culture') return 'culture'
@@ -212,6 +213,7 @@ function MobileAppNav(){
         let nextTab
         if(pathname.startsWith('/teams')) nextTab='teams'
         else if(pathname.startsWith('/matchups')) nextTab='scores'
+        else if(['/staff','/archive','/corrections'].some(path=>pathname.startsWith(path))) nextTab='more'
         else if(pathname!=='/') nextTab=document.querySelector('[data-app-section="culture"]')?'culture':'detail'
         else if(nextHash==='#scores') nextTab='scores'
         else if(nextHash==='#culture') nextTab='culture'
@@ -303,7 +305,8 @@ function MobileAppNav(){
     document.getElementById(item.hash.slice(1))?.scrollIntoView({behavior:'auto',block:'start'})
   }
 
-  const headerLabel=moreOpen?'More':pathname.startsWith('/matchups')?'Matchup':activeTab==='scores'?'Scores':activeTab==='teams'?'Teams':activeTab==='culture'?'Tha Culture':activeTab==='detail'?'The Brief':''
+  const overflowLabel=pathname.startsWith('/staff')?'Staff':pathname.startsWith('/archive')?'Archive':pathname.startsWith('/corrections')?'Corrections':'More'
+  const headerLabel=moreOpen?'More':pathname.startsWith('/matchups')?'Matchup':activeTab==='scores'?'Scores':activeTab==='teams'?'Teams':activeTab==='culture'?'Tha Culture':activeTab==='more'?overflowLabel:activeTab==='detail'?'The Brief':''
   return <>
     <div className="appSectionHeader" aria-hidden="true"><span>{headerLabel}</span></div>
     {moreOpen&&<aside className="appMoreSheet" aria-label="More and settings">
