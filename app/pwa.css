@@ -222,3 +222,24 @@
   html.standaloneApp[data-app-tab='home'] .hero{padding-bottom:22px}
   html.standaloneApp[data-app-tab='home'] .hero .read{margin-top:12px}
 }
+
+@media(max-width:760px){
+  /* Tighter dossier cards + remove iOS pressed-link ghosting while scrolling. */
+  html.standaloneApp[data-app-tab='teams'] .directory>a{
+    min-height:0;
+    padding-top:20px;
+    padding-bottom:16px;
+    -webkit-tap-highlight-color:transparent;
+    touch-action:manipulation;
+  }
+  html.standaloneApp[data-app-tab='teams'] .directory>a:active,
+  html.standaloneApp[data-app-tab='teams'] .directory>a:focus:not(:focus-visible){
+    background:transparent;
+    color:inherit;
+    outline:none;
+  }
+  html.standaloneApp[data-app-tab='teams'] .directory>a>span{
+    display:block;
+    margin-top:12px;
+  }
+}
