@@ -59,19 +59,22 @@
   .notificationList>a b{font:700 13px/1.2 Georgia,serif}
   .notificationList>a span,.notificationList p{font:11px/1.35 Arial,sans-serif;color:#c9c1b4}
   .notificationList p{margin:12px 0 0}
-  .appMoreSheet{position:fixed;left:auto;right:12px;bottom:calc(51px + max(3px,calc(env(safe-area-inset-bottom) - 8px)));z-index:89;display:block;width:min(300px,calc(100% - 24px));padding:18px;background:rgba(17,16,14,.96);color:var(--paper);border:1px solid #4b4841;border-radius:22px;box-shadow:0 14px 38px rgba(0,0,0,.34);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
-  .appMoreHead{position:relative;display:flex;flex-direction:column;padding-bottom:12px;border-bottom:1px solid #4b4841}
-  .appMoreHead small,.appSettings>small{font:900 7px Arial,sans-serif;letter-spacing:1.4px;color:var(--acid)}
+  .appMoreSheet{position:fixed;left:auto;right:12px;bottom:calc(51px + max(3px,calc(env(safe-area-inset-bottom) - 8px)));z-index:89;display:block;width:min(320px,calc(100% - 24px));padding:18px;background:rgba(243,239,229,.97);color:var(--ink);border:1px solid var(--ink);border-radius:18px;box-shadow:0 14px 38px rgba(17,16,14,.24);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px)}
+  .appMoreHead{position:relative;display:flex;flex-direction:column;padding-bottom:12px;border-bottom:3px double var(--ink)}
+  .appMoreHead small,.appSettings>small{font:900 7px Arial,sans-serif;letter-spacing:1.4px;color:var(--red)}
   .appMoreHead b{font-size:22px}
-  .appMoreHead button{position:absolute;top:-5px;right:-3px;border:0;background:transparent;color:var(--paper);font:25px/1 Arial,sans-serif}
-  .appMoreLinks{display:flex;flex-direction:column;align-items:flex-start;padding:10px 0;border-bottom:1px solid #4b4841}
-  .appMoreLinks a{display:inline-block;padding:6px 0;color:var(--paper);text-decoration:none;font:900 11px Arial,sans-serif;letter-spacing:.8px}
-  .appSettings{padding-top:14px}
+  .appMoreHead button{position:absolute;top:-5px;right:-3px;border:0;background:transparent;color:var(--ink);font:25px/1 Arial,sans-serif}
+  .appSettings{padding:14px 0;border-bottom:1px solid var(--line)}
+  .appMoreLinks{display:flex;flex-direction:column;align-items:stretch}
+  .appMoreLinks a{display:grid;grid-template-columns:28px 1fr;align-items:center;gap:10px;padding:11px 0;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);font:900 11px Arial,sans-serif;letter-spacing:.8px}
+  .appMoreLinks a:last-child{border-bottom:0;padding-bottom:0}
+  .appMoreIcon{width:28px;height:28px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;color:var(--red);background:rgba(255,255,255,.34)}
+  .appMoreIcon svg{width:16px;height:16px}
   .notificationSetting{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:15px;margin-top:8px}
   .notificationSetting div{display:flex;flex-direction:column;gap:3px}
   .notificationSetting b{font-size:14px}
-  .notificationSetting p{margin:0;font:11px/1.3 Arial,sans-serif;color:#c9c1b4}
-  .notificationSetting button{min-width:44px;border:1px solid var(--paper);border-radius:15px;background:transparent;color:var(--paper);padding:8px 9px;font:900 8px Arial,sans-serif;letter-spacing:.8px}
+  .notificationSetting p{margin:0;font:11px/1.3 Arial,sans-serif;color:var(--muted)}
+  .notificationSetting button{min-width:44px;border:1px solid var(--ink);border-radius:15px;background:transparent;color:var(--ink);padding:8px 9px;font:900 8px Arial,sans-serif;letter-spacing:.8px}
   .notificationSetting button:disabled{opacity:.45}
   html.standaloneApp .siteNav{display:none!important}
   html.standaloneApp[data-app-tab='detail'] .articleHeader,

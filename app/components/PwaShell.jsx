@@ -154,6 +154,15 @@ function TabIcon({name}){
   return <span className="appTabIcon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{paths[name]}</svg></span>
 }
 
+function MoreMenuIcon({name}){
+  const paths={
+    Archive:<><path d="M4 7h16v13H4z"/><path d="M3 4h18v3H3zM9 11h6"/></>,
+    Staff:<><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2"/><path d="M3.5 20c.3-4.2 2.2-6.2 5.5-6.2s5.2 2 5.5 6.2M15 14.2c3.4-.2 5.2 1.7 5.5 5.8"/></>,
+    Corrections:<><path d="M6 3h9l3 3v15H6z"/><path d="M14 3v4h4M9 12l2 2 4-4M9 18h6"/></>,
+  }
+  return <span className="appMoreIcon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">{paths[name]}</svg></span>
+}
+
 function MobileAppNav(){
   const pathname=usePathname()
   const router=useRouter()
@@ -242,12 +251,12 @@ function MobileAppNav(){
   return <>
     {moreOpen&&<aside className="appMoreSheet" aria-label="More and settings">
       <div className="appMoreHead"><small>THE BRIEF</small><b>More</b><button type="button" onClick={()=>setMoreOpen(false)} aria-label="Close more menu">×</button></div>
-      <div className="appMoreLinks">
-        <Link href="/archive">Archive</Link>
-        <Link href="/staff">Staff</Link>
-        <Link href="/corrections">Corrections</Link>
-      </div>
       <div className="appSettings"><small>SETTINGS</small><ArticleAlertSettings/></div>
+      <div className="appMoreLinks">
+        <Link href="/archive"><MoreMenuIcon name="Archive"/><span>Archive</span></Link>
+        <Link href="/staff"><MoreMenuIcon name="Staff"/><span>Staff</span></Link>
+        <Link href="/corrections"><MoreMenuIcon name="Corrections"/><span>Corrections</span></Link>
+      </div>
     </aside>}
     <nav className="appTabBar" data-active-tab={moreOpen?'more':activeTab==='detail'?'home':activeTab} aria-label="App navigation">
       <span className="appTabGlider" aria-hidden="true"/>
