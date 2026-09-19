@@ -84,8 +84,8 @@
   .notificationSetting button[aria-checked='true'] span{background:var(--paper);transform:translateX(18px)}
   .notificationSetting button:disabled{opacity:.45}
   html.standaloneApp[data-app-tab='home'] header{position:sticky;top:0;z-index:70;background:rgba(243,239,229,.94);border-bottom:1px solid rgba(17,16,14,.16);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
-  html.standaloneApp[data-app-tab='home'] .utility{height:calc(env(safe-area-inset-top) + 56px);display:flex;align-items:flex-end;justify-content:center;padding:0 54px 7px;text-align:center}
-  html.standaloneApp[data-app-tab='home'] .utilityMain{position:relative;width:42px;height:42px;display:block;font-size:0;letter-spacing:0;color:transparent;background:url('/icons/ordinary-brief-v3-192.png') center/42px 42px no-repeat}
+  html.standaloneApp[data-app-tab='home'] .utility{box-sizing:content-box;height:38px;display:flex;align-items:center;justify-content:center;padding:calc(env(safe-area-inset-top) + 3px) 54px 3px;text-align:center}
+  html.standaloneApp[data-app-tab='home'] .utilityMain{position:relative;width:34px;height:34px;display:block;font-size:0;letter-spacing:0;color:transparent;background:url('/icons/ordinary-brief-v3-192.png') center/34px 34px no-repeat}
   html.standaloneApp[data-app-tab='home'] .utilityMain:before{content:none}
   html.standaloneApp[data-app-tab='home'] .utilityMain i{display:none}
   html.standaloneApp[data-app-tab='home'] .mast{display:none}
