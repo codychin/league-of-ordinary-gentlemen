@@ -1,11 +1,11 @@
 .byline{display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px;margin-top:24px;font:900 9px Arial,sans-serif;letter-spacing:1.35px;color:var(--muted)}
 .bylineWriter{display:inline-flex;align-items:center;gap:9px;color:var(--ink);text-decoration:none}
-.bylineWriter img{width:42px;height:42px;object-fit:cover;object-position:center 20%;border:1px solid var(--ink);background:var(--ink)}
+.bylineWriter img{width:42px;height:42px;object-fit:cover;object-position:center 20%;border:1px solid var(--ink);border-radius:50%;background:var(--ink)}
 .bylineWriter span{display:flex;flex-direction:column;gap:3px;margin:0}
 .bylineWriter small{font:900 7px Arial,sans-serif;letter-spacing:1.4px;color:var(--red)}
 .bylineWriter strong{border-bottom:1px solid var(--red);line-height:1.2}
 .bylineWriter:hover strong{color:var(--red)}
-.byline em{font-style:normal;color:var(--red)}
+.byline em{align-self:flex-end;margin-bottom:4px;font:italic 12px/1.15 Georgia,serif;letter-spacing:0;color:var(--muted)}
 .byline time{margin-left:auto}
 .staffPage{max-width:1060px;padding-bottom:70px}
 .directoryHead{padding-bottom:38px}
@@ -30,7 +30,7 @@
 .staffProfile aside span{font-size:14px;line-height:1.45}
 @media(max-width:760px){
   .byline{align-items:flex-start}
-  .byline em{align-self:center;max-width:150px;line-height:1.35}
+  .byline em{align-self:flex-end;max-width:160px;margin-bottom:4px}
   .byline time{width:100%;margin:2px 0 0}
   .directoryHead{padding-bottom:28px}
   .staffCard{grid-template-columns:1fr;gap:18px;padding:28px 0}

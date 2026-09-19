@@ -36,7 +36,6 @@ function MobileAppNav(){
 
   const setVisualTab=nextTab=>{
     setActiveTab(nextTab)
-    document.documentElement.dataset.appTab=nextTab
   }
 
   useEffect(()=>{
@@ -99,7 +98,7 @@ function MobileAppNav(){
     document.getElementById(item.hash.slice(1))?.scrollIntoView({behavior:'auto',block:'start'})
   }
 
-  return <nav className="appTabBar" aria-label="App navigation">
+  return <nav className="appTabBar" data-active-tab={activeTab==='detail'?'home':activeTab} aria-label="App navigation">
     <span className="appTabGlider" aria-hidden="true"/>
     {items.map(item=><Link
       key={item.label}
