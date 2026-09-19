@@ -197,6 +197,8 @@ function MobileAppNav(){
   }
 
   useEffect(()=>{
+    router.prefetch('/')
+    router.prefetch('/teams')
     setMoreOpen(false)
     const preview=new URLSearchParams(window.location.search).get('app-preview')==='1'
     const standalone=preview||window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true
@@ -250,6 +252,12 @@ function MobileAppNav(){
     {href:'/teams',label:'Teams',tab:'teams',active:activeTab==='teams'},
     {href:'/#culture',label:'Culture',tab:'culture',hash:'#culture',active:activeTab==='culture'},
   ]
+
+  const primeTab=item=>{
+    setMoreOpen(false)
+    setActiveTab(item.tab)
+    document.documentElement.dataset.appTab=item.tab
+  }
 
   const navigate=(event,item)=>{
     setMoreOpen(false)
@@ -320,9 +328,11 @@ function MobileAppNav(){
       className={item.active?'active':''}
       aria-current={item.active?'page':undefined}
       aria-label={item.label}
+      onPointerDown={()=>primeTab(item)}
+      onTouchStart={()=>primeTab(item)}
       onClick={event=>navigate(event,item)}
       ><TabIcon name={item.label}/><span className="appTabLabel">{item.label}</span></Link>)}
-      <button className={moreOpen?'active':''} type="button" aria-label="More" aria-expanded={moreOpen} onClick={()=>setMoreOpen(value=>!value)}><TabIcon name="More"/><span className="appTabLabel">More</span></button>
+      <button className={moreOpen?'active':''} type="button" aria-label="More" aria-expanded={moreOpen} onPointerDown={()=>{setActiveTab('more');document.documentElement.dataset.appTab='more'}} onClick={()=>setMoreOpen(value=>!value)}><TabIcon name="More"/><span className="appTabLabel">More</span></button>
     </nav>
   </>
 }
