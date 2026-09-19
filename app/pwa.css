@@ -667,3 +667,10 @@
     height:116px!important;
   }
 }
+
+/* Desktop score-card portraits: pull inward to protect team-name space. */
+@media(min-width:761px){
+  .playerHeadlineMatchup .matchupPortraits .leftPlayer{left:12%!important}
+  .playerHeadlineMatchup .matchupPortraits .rightPlayer{right:12%!important}
+  .playerHeadlineMatchup .matchupPortraits img{width:27%!important}
+}
