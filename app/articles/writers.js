@@ -62,6 +62,7 @@ export const writers={
 }
 
 export const articleWriters={
+  'kraft-sheeran-roster-overhaul':'sorrell',
   'danir-emergency-jobs-program':'pike',
   'nigella-shake-n-baker':'kells',
   'sydney-sweeney-consensus':'kells',
