@@ -166,3 +166,12 @@
   .lineupPlayer span,.lineupPlayer.right span{position:relative;z-index:1}
   .lineupPlayer small,.lineupPlayer.right small{white-space:nowrap}
 }
+
+
+/* Pull point totals toward the center rail to free name width */
+@media(max-width:760px){
+  .lineupPlayer.left{grid-template-columns:34px minmax(0,1fr) 48px;padding-right:4px;column-gap:5px}
+  .lineupPlayer.right{grid-template-columns:48px minmax(0,1fr) 34px;padding-left:4px;column-gap:5px}
+  .lineupPlayer.left span{justify-self:end}
+  .lineupPlayer.right span{justify-self:start}
+}
