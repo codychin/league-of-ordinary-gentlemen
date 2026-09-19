@@ -217,3 +217,77 @@
   .matchupPage .matchupScoreboard .matchupSide b{grid-column:1!important;grid-row:3!important;align-self:center!important}
   .matchupPage .matchupScoreboard .matchupSide span{grid-column:1!important;grid-row:4!important}
 }
+
+/* Lock matchup hero to shared vertical tracks so both sides align regardless of name length. */
+.matchupLead{position:relative}
+.matchupLead>.matchupKicker{
+  margin:0 0 10px;
+  width:100%;
+  text-align:center;
+}
+.matchupScoreboard{grid-template-columns:minmax(0,1fr) 74px minmax(0,1fr)}
+.matchupScoreboard .matchupSide{
+  display:grid;
+  grid-template-columns:1fr;
+  grid-template-rows:18px 74px 34px 18px;
+  gap:4px;
+  align-items:start;
+  padding:16px 18px 14px;
+}
+.matchupScoreboard .matchupSide.right{justify-items:end}
+.matchupScoreboard .matchupSide small{
+  grid-row:1;
+  grid-column:1;
+  align-self:start;
+}
+.matchupScoreboard .matchupSide h1{
+  grid-row:2;
+  grid-column:1;
+  align-self:start;
+  margin:0;
+  font-size:30px;
+  line-height:.92;
+  letter-spacing:-1.35px;
+}
+.matchupScoreboard .matchupSide b{
+  grid-row:3;
+  grid-column:1;
+  align-self:start;
+  font:900 28px/1 Arial,sans-serif;
+}
+.matchupScoreboard .matchupSide span{
+  grid-row:4;
+  grid-column:1;
+  align-self:end;
+}
+.matchupScoreboard .matchupCenter{
+  justify-content:center;
+  gap:10px;
+}
+@media(max-width:760px){
+  .matchupLead{padding-top:14px}
+  .matchupLead>.matchupKicker{
+    position:static!important;
+    transform:none!important;
+    left:auto!important;
+    right:auto!important;
+    top:auto!important;
+    margin:0 0 10px!important;
+    width:100%!important;
+    text-align:center!important;
+    white-space:normal!important;
+  }
+  .matchupScoreboard{grid-template-columns:minmax(0,1fr) 54px minmax(0,1fr)}
+  .matchupScoreboard .matchupSide{
+    grid-template-rows:18px 86px 32px 20px;
+    padding:10px 12px 12px;
+  }
+  .matchupScoreboard .matchupSide h1{
+    font-size:25px;
+    line-height:.9;
+    letter-spacing:-1px;
+  }
+  .matchupScoreboard .matchupSide b{font-size:25px}
+  .matchupScoreboard .matchupSide span{font-size:7px}
+  .matchupScoreboard .matchupCenter span{font-size:11px}
+}
