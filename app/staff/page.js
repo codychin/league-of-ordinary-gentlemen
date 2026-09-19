@@ -2,4 +2,44 @@ import Link from 'next/link'
 import SiteNav from '../components/SiteNav'
 import {writers} from '../articles/writers'
 
-export default function Staff(){return <><header className="articleHeader"><Link href="/" className="miniMast">The Brief of Ordinary Gentleman</Link><SiteNav/></header><main className="staffPage"><section className="directoryHead"><div className="eyebrow">THE MASTHEAD • INSTITUTIONAL BIASES DISCLOSED</div><h1>The Newsroom</h1><p>Independent voices united by editorial standards, narrow grievances and continued access to the group chat.</p><div className="openMasthead"><b>THE MASTHEAD IS NOT CLOSED</b><span>Correspondents, specialists and guest columnists may appear whenever a story requires a new kind of professional defect.</span></div></section><div className="staffGrid">{Object.values(writers).map((writer,index)=><article id={writer.slug} className="staffCard" key={writer.slug}><small>{String(index+1).padStart(2,'0')} / {writer.title}</small><h2>{writer.name}</h2><p>{writer.bio}</p><dl><div><dt>METHOD</dt><dd>{writer.method}</dd></div><div><dt>ON THE PAGE</dt><dd>{writer.voice}</dd></div></dl><aside><b>DISCLOSED TENDENCY</b><span>{writer.tendency}</span></aside></article>)}</div><Link className="back" href="/">← RETURN TO THE FRONT PAGE</Link></main></>}
+export default function Staff(){
+  return <>
+    <header className="articleHeader">
+      <Link href="/" className="miniMast">The Brief of Ordinary Gentleman</Link>
+      <SiteNav/>
+    </header>
+    <main className="staffPage">
+      <section className="directoryHead">
+        <div className="eyebrow">THE MASTHEAD • INSTITUTIONAL BIASES DISCLOSED</div>
+        <h1>The Newsroom</h1>
+        <p>Independent voices united by editorial standards, narrow grievances and continued access to the group chat.</p>
+        <div className="openMasthead">
+          <b>THE MASTHEAD IS NOT CLOSED</b>
+          <span>Correspondents, specialists and guest columnists may appear whenever a story requires a new kind of professional defect.</span>
+        </div>
+      </section>
+      <div className="staffGrid">
+        {Object.values(writers).map((writer,index)=>
+          <article id={writer.slug} className="staffCard" key={writer.slug}>
+            <figure className="staffPortrait">
+              <img src={writer.image} alt={writer.imageAlt}/>
+              <figcaption>{String(index+1).padStart(2,'0')} / {writer.title}</figcaption>
+            </figure>
+            <div className="staffProfile">
+              <h2>{writer.name}</h2>
+              <p>{writer.bio}</p>
+              <dl>
+                <div><dt>METHOD</dt><dd>{writer.method}</dd></div>
+                <div><dt>ON THE PAGE</dt><dd>{writer.voice}</dd></div>
+                <div><dt>SIGNATURE</dt><dd>{writer.signature}</dd></div>
+              </dl>
+              <blockquote>{writer.sample}</blockquote>
+              <aside><b>DISCLOSED TENDENCY</b><span>{writer.tendency}</span></aside>
+            </div>
+          </article>
+        )}
+      </div>
+      <Link className="back" href="/">← RETURN TO THE FRONT PAGE</Link>
+    </main>
+  </>
+}

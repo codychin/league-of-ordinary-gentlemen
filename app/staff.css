@@ -3,21 +3,45 @@
 .byline a:hover{color:var(--red)}
 .byline em{font-style:normal;color:var(--red)}
 .byline span{margin-left:auto}
-.staffPage{max-width:1040px;padding-bottom:70px}
+.staffPage{max-width:1060px;padding-bottom:70px}
+.directoryHead{padding-bottom:38px}
+.directoryHead>p{max-width:700px}
 .openMasthead{margin-top:26px;max-width:720px;border-left:5px solid var(--red);padding:12px 16px;display:flex;flex-direction:column;gap:4px;background:rgba(17,16,14,.045)}
 .openMasthead b{font:900 9px Arial,sans-serif;letter-spacing:1.4px;color:var(--red)}
 .openMasthead span{font-size:14px;line-height:1.4}
-.staffGrid{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--ink)}
-.staffCard{padding:32px 36px 36px 0;border-bottom:1px solid var(--line)}
-.staffCard:nth-child(even){padding-left:36px;padding-right:0;border-left:1px solid var(--line)}
-.staffCard small,.staffCard aside b{font:900 8px Arial,sans-serif;letter-spacing:1.5px;color:var(--red);text-transform:uppercase}
-.staffCard h2{font-size:38px;line-height:1;margin:8px 0 16px;letter-spacing:-1.5px}
-.staffCard>p{font-size:17px;line-height:1.5;color:#454139}
-.staffCard dl{margin:22px 0 0;border-top:1px solid var(--line)}
-.staffCard dl>div{display:grid;grid-template-columns:86px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
-.staffCard dt{font:900 8px Arial,sans-serif;letter-spacing:1.2px;color:var(--red)}
-.staffCard dd{margin:0;font-size:13px;line-height:1.4;color:var(--muted)}
-.staffCard aside{margin-top:22px;padding:16px;background:var(--ink);color:var(--paper);display:flex;flex-direction:column;gap:7px}
-.staffCard aside b{color:var(--acid)}
-.staffCard aside span{font-size:14px;line-height:1.4}
-@media(max-width:760px){.byline{align-items:flex-start}.byline span{width:100%;margin:2px 0 0}.staffGrid{grid-template-columns:1fr}.staffCard,.staffCard:nth-child(even){padding:26px 0;border-left:0}.staffCard h2{font-size:34px}.staffCard dl>div{grid-template-columns:74px 1fr}}
+.staffGrid{border-top:3px solid var(--ink)}
+.staffCard{scroll-margin-top:24px;display:grid;grid-template-columns:minmax(240px,300px) minmax(0,1fr);gap:40px;padding:38px 0;border-bottom:1px solid var(--ink)}
+.staffPortrait{position:relative;align-self:start;margin:0;background:var(--ink);overflow:hidden}
+.staffPortrait img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 22%;filter:saturate(.88) contrast(1.03)}
+.staffPortrait figcaption{padding:11px 12px;background:var(--ink);color:var(--paper);font:900 8px/1.35 Arial,sans-serif;letter-spacing:1.35px;text-transform:uppercase}
+.staffProfile h2{font-size:48px;line-height:.95;margin:2px 0 18px;letter-spacing:-2px}
+.staffProfile>p{font-size:18px;line-height:1.52;color:#454139;margin:0}
+.staffProfile dl{margin:24px 0 0;border-top:1px solid var(--line)}
+.staffProfile dl>div{display:grid;grid-template-columns:94px 1fr;gap:14px;padding:13px 0;border-bottom:1px solid var(--line)}
+.staffProfile dt{font:900 8px Arial,sans-serif;letter-spacing:1.2px;color:var(--red)}
+.staffProfile dd{margin:0;font-size:14px;line-height:1.46;color:var(--muted)}
+.staffProfile blockquote{margin:22px 0 0;padding:0 0 0 18px;border-left:4px solid var(--red);font:italic 700 20px/1.35 Georgia,serif;color:var(--ink)}
+.staffProfile aside{margin-top:22px;padding:16px 18px;background:var(--ink);color:var(--paper);display:flex;flex-direction:column;gap:7px}
+.staffProfile aside b{font:900 8px Arial,sans-serif;letter-spacing:1.5px;color:var(--acid);text-transform:uppercase}
+.staffProfile aside span{font-size:14px;line-height:1.45}
+@media(max-width:760px){
+  .byline{align-items:flex-start}
+  .byline span{width:100%;margin:2px 0 0}
+  .directoryHead{padding-bottom:28px}
+  .staffCard{grid-template-columns:112px minmax(0,1fr);gap:18px;padding:28px 0}
+  .staffPortrait{grid-row:1}
+  .staffPortrait img{aspect-ratio:3/4}
+  .staffPortrait figcaption{padding:8px;font-size:7px;letter-spacing:.85px}
+  .staffProfile{display:contents}
+  .staffProfile h2{grid-column:2;grid-row:1;align-self:end;font-size:34px;letter-spacing:-1.4px;margin:0 0 4px}
+  .staffProfile>p,.staffProfile dl,.staffProfile blockquote,.staffProfile aside{grid-column:1/-1}
+  .staffProfile>p{font-size:16px;line-height:1.46}
+  .staffProfile dl>div{grid-template-columns:78px 1fr;gap:10px}
+  .staffProfile dd{font-size:13px}
+  .staffProfile blockquote{font-size:18px}
+}
+@media(max-width:520px){
+  .staffCard{grid-template-columns:92px minmax(0,1fr);gap:14px}
+  .staffProfile h2{font-size:30px}
+  .staffPortrait figcaption{letter-spacing:.45px}
+}
