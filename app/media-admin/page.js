@@ -32,7 +32,7 @@ export default function MediaAdmin(){
       const response=await fetch(`${PUSH_API}?action=send`,{
         method:'POST',
         headers:{'Content-Type':'application/json','x-brief-media-key':String(form.get('key')||'')},
-        body:JSON.stringify({articleId:form.get('articleId'),title:form.get('title'),body:form.get('body'),homepage:true}),
+        body:JSON.stringify({articleId:form.get('articleId'),title:form.get('title'),body:form.get('body'),image:form.get('image'),homepage:true}),
       })
       const result=await response.json().catch(()=>({error:'Alert failed'}))
       setAlertStatus(response.ok?`Sent to ${result.sent} subscriber${result.sent===1?'':'s'}${result.failed?`; ${result.failed} failed`:''}.`:`Error: ${result.error||response.status}`)
@@ -63,6 +63,7 @@ export default function MediaAdmin(){
       <label>Article slug<input name="articleId" placeholder="league-unbearable-tnf" pattern="[a-z0-9-]+" required style={fieldStyle}/></label>
       <label>Notification title<input name="title" maxLength={120} required style={fieldStyle}/></label>
       <label>Notification body<textarea name="body" maxLength={240} required style={{...fieldStyle,minHeight:90}}/></label>
+      <label>Rich image URL <small>(optional)</small><input name="image" type="url" placeholder="https://www.ordinarybrief.com/images/story.webp" style={fieldStyle}/></label>
       <button type="submit" disabled={sendingAlert} style={{padding:12,fontWeight:700}}>{sendingAlert?'Sending…':'Send article alert'}</button>
     </form>
     <p style={{marginTop:14}}>{alertStatus}</p>

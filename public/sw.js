@@ -1,4 +1,4 @@
-const VERSION='ordinary-brief-v4'
+const VERSION='ordinary-brief-v5'
 const STATIC_CACHE=`${VERSION}-static`
 const PAGE_CACHE=`${VERSION}-pages`
 const PRECACHE=[
@@ -61,6 +61,7 @@ self.addEventListener('push',event=>{
       body:payload.body||'A new article has been published.',
       icon:payload.icon||'/icons/ordinary-brief-v2-192.png',
       badge:payload.badge||'/icons/ordinary-brief-32.png',
+      ...(payload.image?{image:payload.image}:{}),
       tag:payload.tag||'ordinary-brief-article',
       data:{url:payload.url||'/'},
     }),

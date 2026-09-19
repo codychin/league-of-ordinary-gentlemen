@@ -78,6 +78,13 @@ Deno.serve(async(req)=>{
       const articleId=String(body?.articleId||'').toLowerCase().replace(/[^a-z0-9-]/g,'').slice(0,120)
       const title=String(body?.title||'').trim().slice(0,120)
       const message=String(body?.body||'').trim().slice(0,240)
+      const imageValue=String(body?.image||'').trim().slice(0,2048)
+      let image=''
+      if(imageValue){
+        const imageUrl=new URL(imageValue,'https://www.ordinarybrief.com')
+        if(imageUrl.protocol!=='https:') return response({error:'The notification image must use HTTPS'},400)
+        image=imageUrl.href
+      }
       if(!articleId||!title||!message) return response({error:'Article ID, title and body are required'},400)
       if(body?.homepage!==true) return response({error:'Push alerts are reserved for stories featured on the main page'},400)
       const url=`/articles/${articleId}`
@@ -86,15 +93,24 @@ Deno.serve(async(req)=>{
       const homepage=await homepageResponse.text()
       if(!homepage.includes(`href="${url}"`)) return response({error:'This story is not currently featured on the production homepage'},409)
 
-      const {data:prior}=await db.from('brief_push_deliveries').select('article_id').eq('article_id',articleId).maybeSingle()
-      if(prior) return response({error:'An alert was already sent for this article'},409)
-
       const [{data:config,error:configError},{data:subscriptions,error:subscriptionsError}]=await Promise.all([
         db.from('brief_push_config').select('public_key,private_key,subject').eq('id',1).single(),
         db.from('brief_push_subscriptions').select('endpoint,p256dh,auth'),
       ])
       if(configError) throw configError
       if(subscriptionsError) throw subscriptionsError
+
+      // Claim this article before sending so concurrent requests cannot notify twice.
+      const {error:claimError}=await db.from('brief_push_deliveries').insert({
+        article_id:articleId,
+        title,
+        body:message,
+        url,
+        sent_count:0,
+        failed_count:0,
+      })
+      if(claimError?.code==='23505') return response({error:'An alert was already sent for this article'},409)
+      if(claimError) throw claimError
 
       webpush.setVapidDetails(config.subject,config.public_key,config.private_key)
       const payload=JSON.stringify({
@@ -104,6 +120,7 @@ Deno.serve(async(req)=>{
         tag:`article-${articleId}`,
         icon:'/icons/ordinary-brief-v2-192.png',
         badge:'/icons/ordinary-brief-32.png',
+        ...(image?{image}:{}),
       })
       const results=await Promise.allSettled((subscriptions||[]).map(subscription=>
         webpush.sendNotification({
@@ -125,14 +142,10 @@ Deno.serve(async(req)=>{
       })
       if(expired.length) await db.from('brief_push_subscriptions').delete().in('endpoint',expired)
 
-      const {error:deliveryError}=await db.from('brief_push_deliveries').insert({
-        article_id:articleId,
-        title,
-        body:message,
-        url,
+      const {error:deliveryError}=await db.from('brief_push_deliveries').update({
         sent_count:sent,
         failed_count:failed,
-      })
+      }).eq('article_id',articleId)
       if(deliveryError) throw deliveryError
       return response({ok:true,sent,failed,expired:expired.length})
     }
