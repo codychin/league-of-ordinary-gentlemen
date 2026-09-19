@@ -10,6 +10,8 @@
 .previewAuthor{display:flex;align-items:center;gap:8px;width:max-content;margin:14px 0 3px;font:900 9px/1 Arial,sans-serif;letter-spacing:.75px;color:var(--ink)}
 .previewAuthor img{width:28px;height:28px;flex:0 0 28px;border:1px solid currentColor;border-radius:50%;object-fit:cover;object-position:center 20%;background:var(--ink)}
 .darkgrid .previewAuthor{color:var(--paper)}
+.heroStack{display:block}
+.heroStack .photoHero{min-height:0;aspect-ratio:16/9;margin:0 0 28px}
 .staffPage{max-width:1060px;padding-bottom:70px}
 .directoryHead{padding-bottom:38px}
 .directoryHead>p{max-width:700px}

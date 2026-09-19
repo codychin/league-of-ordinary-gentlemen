@@ -18,7 +18,7 @@ const stories=[
 ]
 
 function Story({story}){
-  const body=<><div className={`culturePhoto ${story.photoClass||''}`} style={story.image?{backgroundImage:`url('${story.image}')`}:undefined}/><div className="tag">{story.tag}</div><h3>{story.title}</h3><p>{story.dek}</p>{story.slug&&<PreviewAuthor slug={story.slug}/>} {story.read&&<div className="read">{story.read}</div>}</>
+  const body=<><div className={`culturePhoto ${story.photoClass||''}`} style={story.image?{backgroundImage:`url('${story.image}')`}:undefined}/><div className="tag">{story.tag}</div><h3>{story.title}</h3>{story.slug&&<PreviewAuthor slug={story.slug}/>}<p>{story.dek}</p>{story.read&&<div className="read">{story.read}</div>}</>
   return story.href?<Link href={story.href} className="card storylink">{body}</Link>:<article className="card">{body}</article>
 }
 
