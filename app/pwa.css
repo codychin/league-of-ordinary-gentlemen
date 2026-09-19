@@ -210,3 +210,10 @@
   html.standaloneApp[data-app-tab='scores'] .upcomingGrid article>i{margin:1px auto;padding:3px 9px;border:1px solid rgba(165,42,34,.35);border-radius:999px;color:var(--red);font-size:10px;letter-spacing:1.6px;background:rgba(165,42,34,.04)}
   html.standaloneApp[data-app-tab='scores'] .upcomingGrid .matchupOpen{margin-top:5px;padding-top:6px}
 }
+
+@media(max-width:760px){
+  html.standaloneApp[data-app-tab='detail'] .articleMain,
+  html.standaloneApp[data-app-tab='culture'] .articleMain{
+    padding-top:14px!important;
+  }
+}
