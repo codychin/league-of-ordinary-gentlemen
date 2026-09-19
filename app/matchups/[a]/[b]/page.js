@@ -17,7 +17,7 @@ const trendFor=player=>{
   const prior=Math.max(0,(Number(player.seasonPoints)||0)-current)
   const hotLine=player.position==='QB'?20:14
   const coldLine=player.position==='QB'?15:9
-  if(prior>=hotLine&&current>=hotLine) return {type:'hot',label:'HEATER',detail:`${fmt(prior)} → ${fmt(current)}`}
+  if(prior>=hotLine&&current>=hotLine) return {type:'hot',label:'🔥 HEATER',detail:`${fmt(prior)} → ${fmt(current)}`}
   if(current>0&&prior<coldLine&&current<coldLine) return {type:'cold',label:'COLD',detail:`${fmt(prior)} → ${fmt(current)}`}
   return null
 }
