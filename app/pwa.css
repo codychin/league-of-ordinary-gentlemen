@@ -89,6 +89,8 @@
   html.standaloneApp[data-app-tab='home'] .utilityMain:before{content:'The'}
   html.standaloneApp[data-app-tab='home'] .utilityMain:after{content:'Brief';display:flex;align-items:center;height:34px;padding-left:42px;background:url('/icons/ordinary-brief-v3-192.png') left center/34px 34px no-repeat}
   html.standaloneApp[data-app-tab='home'] .utilityMain i{display:none}
+  html.standaloneApp[data-app-tab='home'] .utilityMain{overflow:hidden;text-indent:-9999px}
+  html.standaloneApp[data-app-tab='home'] .utilityMain:before,html.standaloneApp[data-app-tab='home'] .utilityMain:after{text-indent:0}
   html.standaloneApp[data-app-tab='home'] .mast{display:none}
   html.standaloneApp[data-app-tab='home'] main{padding-top:0}
   html.standaloneApp[data-app-tab='home'] .hero{padding-top:18px}
