@@ -243,9 +243,9 @@ function MobileAppNav(){
     {moreOpen&&<aside className="appMoreSheet" aria-label="More and settings">
       <div className="appMoreHead"><small>THE BRIEF</small><b>More</b><button type="button" onClick={()=>setMoreOpen(false)} aria-label="Close more menu">×</button></div>
       <div className="appMoreLinks">
-        <Link href="/archive">Archive<span>Every filing, including the regrettable ones</span></Link>
-        <Link href="/staff">Staff<span>Meet the people responsible</span></Link>
-        <Link href="/corrections">Corrections<span>The permanent record objects</span></Link>
+        <Link href="/archive">Archive</Link>
+        <Link href="/staff">Staff</Link>
+        <Link href="/corrections">Corrections</Link>
       </div>
       <div className="appSettings"><small>SETTINGS</small><ArticleAlertSettings/></div>
     </aside>}
