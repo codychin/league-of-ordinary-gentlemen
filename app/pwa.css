@@ -623,3 +623,47 @@
     user-select:none;
   }
 }
+
+/* Desktop score-card cleanup: keep kicker inside card and pull names upward. */
+@media(min-width:761px){
+  .playerHeadlineMatchup{
+    min-height:218px!important;
+    padding:26px 18px 10px!important;
+  }
+  .playerHeadlineMatchup>.matchupKicker{
+    top:9px!important;
+    left:18px!important;
+    right:18px!important;
+    width:auto!important;
+    transform:none!important;
+    text-align:center!important;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .playerHeadlineMatchup .matchupEditorial{
+    min-height:154px!important;
+    padding-top:8px!important;
+    align-items:start!important;
+  }
+  .playerHeadlineMatchup .matchupSide b{
+    min-height:38px!important;
+    margin:0!important;
+    font-size:21px!important;
+    line-height:.96!important;
+  }
+  .playerHeadlineMatchup .matchupSide strong{
+    font-size:27px!important;
+  }
+  .playerHeadlineMatchup .matchupEditorial>i{
+    margin-top:34px!important;
+    font-size:24px!important;
+  }
+  .playerHeadlineMatchup .matchupPortraits{
+    top:76px!important;
+    bottom:34px!important;
+  }
+  .playerHeadlineMatchup .matchupPortraits img{
+    height:116px!important;
+  }
+}
