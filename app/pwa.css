@@ -97,7 +97,7 @@
   html.standaloneApp[data-app-tab='home'] .hero .standfirst{font-size:16px;line-height:1.42}
   html.standaloneApp[data-app-tab='detail'] .articleMain,
   html.standaloneApp[data-app-tab='culture'] .articleMain{padding-top:calc(env(safe-area-inset-top) + 42px)}
-  html.standaloneApp[data-app-tab='scores'] .upcoming{padding:env(safe-area-inset-top) 0 24px!important;border-top:0!important}
+  html.standaloneApp[data-app-tab='scores'] .upcoming{padding:calc(env(safe-area-inset-top) + 2px) 0 24px!important;border-top:0!important}
   html.standaloneApp[data-app-tab='scores'] .scoreHero{margin:0 -22px 14px;padding:8px 22px 14px;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;border-bottom:4px solid var(--ink)}
   html.standaloneApp[data-app-tab='scores'] .scoreHero small{display:block;margin-bottom:3px;font:900 7px Arial,sans-serif;letter-spacing:1.4px;color:var(--red)}
   html.standaloneApp[data-app-tab='scores'] .scoreHero h2{margin:0;font:900 34px/.9 Georgia,serif;letter-spacing:-1.8px}
@@ -129,7 +129,7 @@
   html.standaloneApp[data-app-tab='teams'] .articleHeader{display:none}
   html.standaloneApp[data-app-tab='scores'] main>*:not(.scoreSection):not(.upcoming),
   html.standaloneApp[data-app-tab='culture'] main:not(.articleMain)>*:not(.affairs){display:none}
-  html.standaloneApp[data-app-tab='scores'] main,
+  html.standaloneApp[data-app-tab='scores'] main{padding-top:0}
   html.standaloneApp[data-app-tab='teams'] main{padding-top:env(safe-area-inset-top)}
   html.standaloneApp[data-app-tab='culture'] main:not(.articleMain){max-width:none;padding:0}
   html.standaloneApp[data-app-tab='culture'] .affairs{min-height:calc(100svh - 40px - env(safe-area-inset-bottom));margin-top:0;padding-top:calc(22px + env(safe-area-inset-top))}
@@ -149,7 +149,7 @@
     html[data-app-tab='culture'] header{display:none}
     html[data-app-tab='scores'] main>*:not(.scoreSection):not(.upcoming),
     html[data-app-tab='culture'] main:not(.articleMain)>*:not(.affairs){display:none}
-    html[data-app-tab='scores'] main{padding-top:env(safe-area-inset-top)}
+    html[data-app-tab='scores'] main{padding-top:0}
     html[data-app-tab='culture'] main:not(.articleMain){max-width:none;padding:0}
     html[data-app-tab='teams'] .articleHeader{display:none}
     html[data-app-tab='teams'] main{padding-top:env(safe-area-inset-top)}
