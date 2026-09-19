@@ -291,3 +291,127 @@
   .matchupScoreboard .matchupSide span{font-size:7px}
   .matchupScoreboard .matchupCenter span{font-size:11px}
 }
+
+/* Matchup hero v2: isolated class names prevent Scores-page styles from leaking in. */
+.matchupHeroKicker{
+  width:100%;
+  margin:0 0 10px;
+  text-align:center;
+  font:900 8px/1 Arial,sans-serif;
+  letter-spacing:1.6px;
+  color:var(--red);
+}
+.matchupScoreboard{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 62px minmax(0,1fr);
+  align-items:stretch;
+}
+.matchupHeroSide{
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  grid-template-rows:20px 82px 34px 20px!important;
+  gap:4px!important;
+  align-items:start!important;
+  min-width:0;
+  padding:14px 16px 12px!important;
+  color:var(--ink);
+  text-decoration:none;
+}
+.matchupHeroSide.right{
+  justify-items:end;
+  text-align:right;
+}
+.matchupHeroSide small{
+  grid-row:1!important;
+  grid-column:1!important;
+  margin:0!important;
+  align-self:start!important;
+  font:900 8px/1 Arial,sans-serif!important;
+  letter-spacing:1px!important;
+  color:var(--muted)!important;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  max-width:100%;
+}
+.matchupHeroSide h1{
+  grid-row:2!important;
+  grid-column:1!important;
+  align-self:start!important;
+  width:100%;
+  margin:0!important;
+  font-size:30px!important;
+  line-height:.92!important;
+  letter-spacing:-1.35px!important;
+  overflow-wrap:normal;
+  word-break:normal;
+}
+.matchupHeroSide.right h1{text-align:right}
+.matchupHeroSide b{
+  grid-row:3!important;
+  grid-column:1!important;
+  align-self:start!important;
+  margin:0!important;
+  font:900 26px/1 Arial,sans-serif!important;
+}
+.matchupHeroSide span{
+  grid-row:4!important;
+  grid-column:1!important;
+  align-self:end!important;
+  margin:0!important;
+  font:900 8px/1 Arial,sans-serif!important;
+  letter-spacing:.9px!important;
+  color:var(--red)!important;
+  white-space:nowrap;
+}
+.matchupHeroCenter{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  border-inline:1px solid var(--ink);
+}
+.matchupHeroCenter span{
+  font:900 11px/1 Arial,sans-serif;
+  letter-spacing:1.4px;
+}
+.matchupHeroCenter small{
+  padding:5px 7px;
+  background:var(--red);
+  color:#fff;
+  font:900 7px/1 Arial,sans-serif;
+  letter-spacing:1px;
+}
+
+@media(max-width:760px){
+  .matchupPage{padding-top:12px!important}
+  .matchupLead{padding:0 0 20px}
+  .matchupHeroKicker{
+    position:static!important;
+    inset:auto!important;
+    transform:none!important;
+    display:block!important;
+    width:100%!important;
+    margin:0 0 10px!important;
+    text-align:center!important;
+    white-space:normal!important;
+  }
+  .matchupScoreboard{
+    grid-template-columns:minmax(0,1fr) 44px minmax(0,1fr)!important;
+  }
+  .matchupHeroSide{
+    grid-template-rows:18px 86px 31px 18px!important;
+    gap:3px!important;
+    padding:10px 10px 11px!important;
+  }
+  .matchupHeroSide h1{
+    font-size:24px!important;
+    line-height:.9!important;
+    letter-spacing:-1px!important;
+  }
+  .matchupHeroSide b{font-size:23px!important}
+  .matchupHeroSide span{font-size:7px!important;letter-spacing:.65px!important}
+  .matchupHeroCenter{gap:7px}
+  .matchupHeroCenter span{font-size:10px}
+}
