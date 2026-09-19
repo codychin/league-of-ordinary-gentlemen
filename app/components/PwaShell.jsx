@@ -215,9 +215,13 @@ function MobileAppNav(){
         else if(pathname.startsWith('/matchups')) nextTab='scores'
         else if(['/staff','/archive','/corrections'].some(path=>pathname.startsWith(path))) nextTab='more'
         else if(pathname!=='/') nextTab=document.querySelector('[data-app-section="culture"]')?'culture':'detail'
-        else if(nextHash==='#scores') nextTab='scores'
-        else if(nextHash==='#culture') nextTab='culture'
-        else nextTab=window.sessionStorage.getItem(APP_TAB_KEY)||'home'
+        else {
+          const requestedTab=new URLSearchParams(window.location.search).get('tab')
+          if(['home','scores','culture'].includes(requestedTab)) nextTab=requestedTab
+          else if(nextHash==='#scores') nextTab='scores'
+          else if(nextHash==='#culture') nextTab='culture'
+          else nextTab=window.sessionStorage.getItem(APP_TAB_KEY)||'home'
+        }
         if(!['home','scores','culture','teams','detail'].includes(nextTab)) nextTab='home'
         setActiveTab(nextTab)
         document.documentElement.dataset.appTab=nextTab
@@ -272,8 +276,10 @@ function MobileAppNav(){
         const standalone=document.documentElement.classList.contains('standaloneApp')
         if(standalone){
           window.sessionStorage.setItem(APP_TAB_KEY,item.tab)
-          const query=document.documentElement.classList.contains('appPreview')?'?app-preview=1':''
-          router.push('/'+query)
+          const params=new URLSearchParams()
+          params.set('tab',item.tab)
+          if(document.documentElement.classList.contains('appPreview')) params.set('app-preview','1')
+          router.push('/?'+params.toString())
         }else{
           router.push(item.href)
         }
