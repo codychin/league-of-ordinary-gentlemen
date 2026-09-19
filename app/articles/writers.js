@@ -44,6 +44,7 @@ export const writers={
 }
 
 export const articleWriters={
+  'danir-emergency-jobs-program':'voss',
   'nigella-shake-n-baker':'wren',
   'sydney-sweeney-consensus':'wren',
   'upper-east-side-froyo':'wren',
