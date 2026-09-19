@@ -605,3 +605,21 @@
     padding-top:0!important;
   }
 }
+
+@media(max-width:760px){
+  /* iOS can leave :hover painted after a scroll; never use hover as state on touch team cards. */
+  html.standaloneApp[data-app-tab='teams'] .directory>a,
+  html.standaloneApp[data-app-tab='teams'] .directory>a h2{
+    -webkit-tap-highlight-color:transparent;
+  }
+  html.standaloneApp[data-app-tab='teams'] .directory>a:hover h2,
+  html.standaloneApp[data-app-tab='teams'] .directory>a:active h2,
+  html.standaloneApp[data-app-tab='teams'] .directory>a:focus h2{
+    color:var(--ink)!important;
+    background:transparent!important;
+  }
+  html.standaloneApp[data-app-tab='teams'] .directory h2{
+    -webkit-user-select:none;
+    user-select:none;
+  }
+}
