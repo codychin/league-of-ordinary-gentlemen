@@ -1,4 +1,4 @@
-const VERSION='ordinary-brief-v2'
+const VERSION='ordinary-brief-v3'
 const STATIC_CACHE=`${VERSION}-static`
 const PAGE_CACHE=`${VERSION}-pages`
 const PRECACHE=[
@@ -50,4 +50,32 @@ self.addEventListener('fetch',event=>{
       })
     )
   }
+})
+
+self.addEventListener('push',event=>{
+  let payload={}
+  try{payload=event.data?.json()||{}}catch{payload={body:event.data?.text()||''}}
+  const title=payload.title||'The Brief of Ordinary Gentleman'
+  event.waitUntil(Promise.all([
+    self.registration.showNotification(title,{
+      body:payload.body||'A new article has been published.',
+      icon:payload.icon||'/icons/ordinary-brief-v2-192.png',
+      badge:payload.badge||'/icons/ordinary-brief-32.png',
+      tag:payload.tag||'ordinary-brief-article',
+      data:{url:payload.url||'/'},
+    }),
+    self.navigator?.setAppBadge?.(1),
+  ]))
+})
+
+self.addEventListener('notificationclick',event=>{
+  event.notification.close()
+  const target=new URL(event.notification.data?.url||'/',self.location.origin).href
+  event.waitUntil((async()=>{
+    await self.navigator?.clearAppBadge?.()
+    const windows=await self.clients.matchAll({type:'window',includeUncontrolled:true})
+    const existing=windows.find(client=>client.url===target)||windows[0]
+    if(existing){await existing.navigate(target);return existing.focus()}
+    return self.clients.openWindow(target)
+  })())
 })

@@ -5,6 +5,97 @@ import {useEffect, useRef, useState} from 'react'
 import {usePathname, useRouter} from 'next/navigation'
 
 const DISMISS_KEY='ordinary-brief-install-dismissed'
+const PUSH_API='https://dnzdbqycuuoonewcowis.supabase.co/functions/v1/brief-push'
+
+function urlBase64ToUint8Array(value){
+  const padding='='.repeat((4-value.length%4)%4)
+  const base64=(value+padding).replace(/-/g,'+').replace(/_/g,'/')
+  const raw=window.atob(base64)
+  return Uint8Array.from([...raw].map(character=>character.charCodeAt(0)))
+}
+
+function BellIcon(){
+  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9Z"/><path d="M10 21h4"/></svg>
+}
+
+function ArticleAlerts(){
+  const [open,setOpen]=useState(false)
+  const [state,setState]=useState('loading')
+  const [message,setMessage]=useState('Checking this device…')
+
+  useEffect(()=>{
+    let active=true
+    const check=async()=>{
+      const standalone=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true
+      if(!standalone){if(active){setState('install');setMessage('Install The Brief to receive iPhone alerts.')}return}
+      if(!('serviceWorker' in navigator)||!('PushManager' in window)||!('Notification' in window)){if(active){setState('unsupported');setMessage('Article alerts are not supported on this device.')}return}
+      if(Notification.permission==='denied'){if(active){setState('denied');setMessage('Notifications are blocked in your device settings.')}return}
+      try{
+        const registration=await navigator.serviceWorker.ready
+        const subscription=await registration.pushManager.getSubscription()
+        if(active){setState(subscription?'subscribed':'available');setMessage(subscription?'New article alerts are on.':'Get one alert when a new article is published.')}
+      }catch{
+        if(active){setState('error');setMessage('Article alerts could not be checked.')}
+      }
+    }
+    check()
+    return()=>{active=false}
+  },[])
+
+  const enable=async()=>{
+    setState('working')
+    setMessage('Turning on article alerts…')
+    try{
+      const permission=await Notification.requestPermission()
+      if(permission!=='granted'){
+        setState(permission==='denied'?'denied':'available')
+        setMessage(permission==='denied'?'Notifications are blocked in your device settings.':'Permission was not granted.')
+        return
+      }
+      const registration=await navigator.serviceWorker.ready
+      const keyResponse=await fetch(`${PUSH_API}?action=key`,{cache:'no-store'})
+      if(!keyResponse.ok) throw new Error('Public key unavailable')
+      const {publicKey}=await keyResponse.json()
+      const subscription=await registration.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:urlBase64ToUint8Array(publicKey)})
+      const saveResponse=await fetch(`${PUSH_API}?action=subscribe`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(subscription)})
+      if(!saveResponse.ok){await subscription.unsubscribe();throw new Error('Subscription could not be saved')}
+      setState('subscribed')
+      setMessage('New article alerts are on.')
+    }catch{
+      setState('error')
+      setMessage('Could not turn on alerts. Please try again.')
+    }
+  }
+
+  const disable=async()=>{
+    setState('working')
+    setMessage('Turning off article alerts…')
+    try{
+      const registration=await navigator.serviceWorker.ready
+      const subscription=await registration.pushManager.getSubscription()
+      if(subscription){
+        await fetch(`${PUSH_API}?action=subscribe`,{method:'DELETE',headers:{'Content-Type':'application/json'},body:JSON.stringify({endpoint:subscription.endpoint})})
+        await subscription.unsubscribe()
+      }
+      if('clearAppBadge' in navigator) await navigator.clearAppBadge()
+      setState('available')
+      setMessage('Get one alert when a new article is published.')
+    }catch{
+      setState('error')
+      setMessage('Could not update alerts. Please try again.')
+    }
+  }
+
+  return <div className={`articleAlerts ${open?'open':''}`}>
+    <button className="articleAlertBell" type="button" onClick={()=>setOpen(value=>!value)} aria-label="Article alert settings" aria-expanded={open}><BellIcon/><span className={state==='subscribed'?'enabled':''}/></button>
+    {open&&<aside className="articleAlertPanel" aria-live="polite">
+      <div><small>THE BRIEF • ALERTS</small><b>New article notifications</b><p>{message}</p></div>
+      {state==='subscribed'
+        ?<button type="button" onClick={disable}>TURN OFF</button>
+        :<button type="button" onClick={enable} disabled={!['available','error'].includes(state)}>{state==='working'?'WORKING…':'TURN ON'}</button>}
+    </aside>}
+  </div>
+}
 
 function TabIcon({name}){
   const paths={
@@ -236,5 +327,5 @@ export default function PwaShell(){
     }
   },[])
 
-  return <><PullToRefresh/><InstallPrompt/><MobileAppNav/></>
+  return <><PullToRefresh/><InstallPrompt/><ArticleAlerts/><MobileAppNav/></>
 }
