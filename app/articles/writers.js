@@ -62,6 +62,8 @@ export const writers={
 }
 
 export const articleWriters={
+  'hollis-kash-folder':'crane',
+  'dashiell-route-22-portfolio':'pike',
   'maude-sunday-board-week-2':'gannon',
   'kraft-sheeran-roster-overhaul':'sorrell',
   'danir-emergency-jobs-program':'pike',
