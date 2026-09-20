@@ -10,12 +10,11 @@ export default function Home(){return <><header><div className="utility"><span c
 <section className="morningBriefPreview sundayFront" aria-label="Sunday Morning Brief">
   <div className="morningBriefFlag"><span>THE SUNDAY MORNING BRIEF <i>LIVE</i></span><small>SEPTEMBER 20 • WEEK 2</small></div>
   <div className="sundayFrontGrid">
-    <Link href="/articles/league-unbearable-tnf" className="sundayFeature storylink">
-      <div className="sundayFeatureImage sundayActionHero"><img src="https://static.clubs.nfl.com/image/private/t_editorial_landscape_12_desktop/lions/njpa8b1s1hscatyopyxu" alt="NFL game action"/><div className="actionCaption">THURSDAY NIGHT • FINAL</div></div>
-      <div className="sundayFeatureCopy"><small>MAUDE GANNON • SUNDAY OPEN</small><h2>Josh Allen Put 45.22 on the Board Before Sunday Even Started.</h2><p>Thursday changed the shape of Week 2. The useful question now is which managers actually have to respond.</p><PreviewAuthor slug="league-unbearable-tnf"/><span>READ THE SUNDAY OPEN →</span></div>
+    <Link href="/articles/maude-sunday-board-week-2" className="sundayFeature storylink">
+      <div className="sundayFeatureImage sundayActionHero"><img src="https://images2.minutemediacdn.com/image/upload/c_crop,w_3000,h_3000,x_0,y_0/c_fill,w_1200,ar_16:9,f_auto,q_auto,g_auto/images/voltaxMediaLibrary/mmsport/kicks/01k4qfs4xvxp4qw5gqbn.jpg" alt="Caleb Williams in game action"/><div className="actionCaption">MAUDE'S SUNDAY BOARD • WEEK 2</div></div>
+      <div className="sundayFeatureCopy"><small>MAUDE GANNON • FOOTBALL</small><h2>Three Decisions That Will Look Obvious by 4:15.</h2><p>Every Sunday produces a few lineup calls everyone pretends were obvious afterward. These are the ones worth arguing about before we know the answer.</p><PreviewAuthor slug="maude-sunday-board-week-2"/><span>OPEN MAUDE'S BOARD →</span></div>
     </Link>
     <div className="sundaySide">
-      <Link href="/articles/maude-sunday-board-week-2" className="sundaySideStory storylink"><div className="sideImage athleteSide"><img src={playerHeadshot(featuredPlayer(leagueSnapshot.teams['all-ugly']))} alt="All Ugly featured player"/><b>FILM ROOM</b></div><small>MAUDE GANNON • FOOTBALL</small><h3>Three Sunday Decisions Worth Arguing About</h3><p>Usage, pressure and role — three places where the football is more interesting than the projection.</p><span>READ THE BOARD →</span></Link>
       <Link href="/articles/hollis-kash-folder" className="sundaySideStory storylink"><div className="sideImage sundaySecondaryAction"><img src="https://static.clubs.nfl.com/image/private/t_editorial_landscape_12_desktop/lions/njpa8b1s1hscatyopyxu" alt="NFL game action"/><b>MATCHUP FILE</b></div><small>HOLLIS CRANE • HOPKINS–ROYREK</small><h3>181.60 Is Now Admissible Evidence</h3><p>Hopkins Opus has the Week 1 high score. Royrek gets the first chance to make it old news.</p><span>READ THE MATCHUP FILE →</span></Link>
     </div>
   </div>
