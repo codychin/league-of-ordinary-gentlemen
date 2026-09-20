@@ -27,3 +27,20 @@
 }
 
 /* deployment trigger */
+
+
+/* Culture headline hard reset: explicit final rule for the dark Culture surface. */
+#culture.affairs .cultureGrid .card h3,
+#culture.affairs .cultureGrid a.card h3,
+html.standaloneApp[data-app-tab='culture'] #culture.affairs .cultureGrid .card h3,
+html.standaloneApp[data-app-tab='culture'] #culture.affairs .cultureGrid a.card h3{
+  color:#f3efe5!important;
+  -webkit-text-fill-color:#f3efe5!important;
+}
+@media (hover:none), (pointer:coarse){
+  #culture.affairs .cultureGrid a.card:active h3,
+  html.standaloneApp[data-app-tab='culture'] #culture.affairs .cultureGrid a.card:active h3{
+    color:#a52a22!important;
+    -webkit-text-fill-color:#a52a22!important;
+  }
+}
