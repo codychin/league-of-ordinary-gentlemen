@@ -15,12 +15,10 @@ const liveNow=()=>{
 }
 
 export default function SundayLiveDesk(){
-  const [isLive,setIsLive]=useState(false)
   const [posts,setPosts]=useState([])
   const [filter,setFilter]=useState('all')
   const [shown,setShown]=useState(6)
   useEffect(()=>{
-    setIsLive(liveNow())
     let active=true
     const load=()=>fetch(API+'?action=live',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(({posts=[]})=>{if(active)setPosts(posts)}).catch(()=>{})
     load()
@@ -39,7 +37,6 @@ export default function SundayLiveDesk(){
         <h2>{sundayDeskMeta.title}</h2>
         <p>{sundayDeskMeta.dek}</p>
       </div>
-      <span className={isLive?'deskStatus live':'deskStatus'}><i/>{isLive?'LIVE':'PREVIEW'}</span>
     </div>
     <div className="deskFilters" aria-label="Filter live desk by writer">
       <button className={filter==='all'?'active':''} onClick={()=>{setFilter('all');setShown(6)}}>ALL</button>
