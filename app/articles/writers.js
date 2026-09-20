@@ -7,7 +7,7 @@ export const writers={
     voice:'Composed, cosmopolitan and subtly mischievous. She grants nonsense the full dignity of serious international reporting until the absurdity becomes unavoidable, occasionally detouring into alarmingly specific post-modern hip-hop analysis.',
     signature:'Elegant scene-setting and disproportionate institutional language. Local inconveniences acquire stakeholders, competing factions and delicate negotiations.',
     tendency:'Considers Sherm an important barometer of New York civic life despite having no evidence that Sherm knows this; is equally capable of using a Migos deep cut as comparative anthropology.',
-    sample:'“By 10:40 a.m., the line had developed a governing structure.”',
+    sample:'“Culture is what people do when nobody has agreed on the rules yet. This is also, incidentally, why Culture II remains useful scholarship.”',
   },
   gannon:{
     slug:'maude-gannon',name:'Maude Gannon',title:'Football Strategy & Bad Process',
@@ -17,7 +17,7 @@ export const writers={
     voice:'Warm, conversational and surgically precise, with an unhealthy appetite for usage data, historical comps and obscure football evidence. When the numbers make a managerial decision indefensible, patience ends quickly.',
     signature:'Clear tactical explanation, an occasional esoteric football fact, then one sentence that makes the preceding excuse structurally impossible and may suggest the manager is a bot or has rocks for brains.',
     tendency:'Has not forgiven Danir for the Purdy–Monangai bench incident—not because it was disastrous, but because it was avoidable.',
-    sample:'“The decision was defensible. The explanation appears to have been assembled afterward.”',
+    sample:'“You can call it variance if you want. I’m going to call it starting the wrong fucking guy.”',
   },
   sorrell:{
     slug:'conrad-sorrell',name:'Conrad Sorrell',title:'Opinion, Power & American Arrangements',
@@ -27,7 +27,7 @@ export const writers={
     voice:'Polished, theatrical and reflexively contrarian, with a permanently loaded critique of power, race and institutional life. He is difficult to impress, culturally snobbish enough to make jazz a governance issue, and occasionally reaches the edge of quitting before remembering he enjoys the fight.',
     signature:'Elegant monologues, historical parallels and beautifully constructed rhetorical traps. The systemic observation arrives rarely, lands cleanly and disappears before the panel can interrupt.',
     tendency:'Treats every confident statement from Kash as both a public nuisance and essential programming.',
-    sample:'“The league assures us that every manager receives equal access to the waiver wire, which is the sort of sentence institutions produce shortly before discovering that access and power are different things.”',
+    sample:'“The league calls it free agency, which is adorable given that twelve mothafuckas own every available job.”',
   },
   crane:{
     slug:'hollis-crane',name:'Hollis Crane',title:'Investigations Editor & Sports Metaphysician',
@@ -37,7 +37,7 @@ export const writers={
     voice:'Feverish gonzo first-person narration that appears to disintegrate before reverse-entropying into clarity. Strange hours, strange rooms and chemical weather are treated as ordinary reporting conditions; the football story eventually becomes a lesson about pride, friendship, purpose or surviving a damaged world.',
     signature:'A strange opening image, escalating disorder, an unexpectedly profound turn and a clean final sentence that calls back to the beginning.',
     tendency:'Believes the phrase “it wasn’t that serious” has preceded every important league scandal.',
-    sample:'“By then the ice was gone. The screenshot remained.”',
+    sample:'“Entropy always wins eventually. Our job is to make the bastard work for it.”',
   },
   pike:{
     slug:'dashiell-pike',name:'Dashiell Pike',title:'Special Projects, Capital & Democracy',
