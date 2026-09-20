@@ -54,3 +54,24 @@ export async function POST(request){
   if(!res.ok) return Response.json({error:'Could not save reaction'},{status:502})
   return Response.json({ok:true})
 }
+
+
+export async function DELETE(request){
+  let body
+  try{body=await request.json()}catch{return Response.json({error:'Invalid request'},{status:400})}
+  const {slug,sessionId}=body||{}
+  if(typeof slug!=='string'||!slug||slug.length>160) return Response.json({error:'Invalid article slug'},{status:400})
+  if(typeof sessionId!=='string'||!/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(sessionId)){
+    return Response.json({error:'Invalid session'},{status:400})
+  }
+
+  const res=await fetch(`${SUPABASE_URL}/rest/v1/article_reactions?article_slug=eq.${encodeURIComponent(slug)}&session_id=eq.${encodeURIComponent(sessionId)}`,{
+    method:'DELETE',
+    headers:{
+      ...headers,
+      Prefer:'return=minimal',
+    },
+  })
+  if(!res.ok) return Response.json({error:'Could not remove reaction'},{status:502})
+  return Response.json({ok:true})
+}
