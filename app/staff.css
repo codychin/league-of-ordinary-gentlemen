@@ -68,3 +68,30 @@
   .bylineWriter img{width:38px;height:38px}
   .byline time{margin-left:auto;font-size:8px}
 }
+
+.articleReactions{max-width:680px;margin:34px auto 28px;padding:18px 0;border-top:4px solid var(--ink);border-bottom:1px solid var(--ink)}
+.reactionIntro{display:flex;align-items:baseline;gap:9px 12px;flex-wrap:wrap;margin-bottom:14px}
+.reactionIntro small{font:900 8px Arial,sans-serif;letter-spacing:1.5px;color:var(--red)}
+.reactionIntro b{font-size:22px}
+.reactionIntro span{margin-left:auto;font:italic 12px Georgia,serif;color:var(--muted)}
+.reactionButtons{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.reactionButtons button{appearance:none;-webkit-appearance:none;min-height:82px;border:1px solid var(--ink);background:transparent;color:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:9px;cursor:pointer}
+.reactionButtons button:hover,.reactionButtons button.selected{background:var(--ink);color:var(--paper)}
+.reactionButtons button.selected{box-shadow:inset 0 -4px 0 var(--red)}
+.reactionButtons button:disabled{cursor:default}
+.reactionIcon{font-size:26px;line-height:1}
+.reactionButtons button>b{font:900 8px Arial,sans-serif;letter-spacing:1.1px}
+.reactionButtons button>small{font:900 10px Arial,sans-serif;color:var(--red)}
+.reactionButtons button.selected>small,.reactionButtons button:hover>small{color:#e9b0ab}
+@media(max-width:760px){
+  .articleReactions{margin:26px auto 22px;padding-top:15px}
+  .reactionIntro{display:block;margin-bottom:12px}
+  .reactionIntro b{display:block;margin-top:4px;font-size:20px}
+  .reactionIntro span{display:block;margin-top:4px;font-size:11px}
+  .reactionButtons{gap:6px}
+  .reactionButtons button{min-height:74px;-webkit-tap-highlight-color:transparent}
+  .reactionButtons button:hover{background:transparent;color:var(--ink)}
+  .reactionButtons button:hover>small{color:var(--red)}
+  .reactionButtons button.selected{background:var(--ink);color:var(--paper)}
+  .reactionButtons button.selected>small{color:#e9b0ab}
+}
