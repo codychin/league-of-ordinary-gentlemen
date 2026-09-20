@@ -27,7 +27,7 @@ export const writers={
     voice:'Polished, theatrical and reflexively contrarian, with a permanently loaded critique of power, race and institutional life. He is difficult to impress, culturally snobbish enough to make jazz a governance issue, and occasionally reaches the edge of quitting before remembering he enjoys the fight.',
     signature:'Elegant monologues, historical parallels and beautifully constructed rhetorical traps. The systemic observation arrives rarely, lands cleanly and disappears before the panel can interrupt.',
     tendency:'Treats every confident statement from Kash as both a public nuisance and essential programming.',
-    sample:'“The league calls it free agency, which is adorable given that twelve mothafuckas own every available job.”',
+    sample:'“We keep calling it free agency because ‘mostly white men controlling the labor market from their phones’ apparently tested poorly.”',
   },
   crane:{
     slug:'hollis-crane',name:'Hollis Crane',title:'Investigations Editor & Sports Metaphysician',
