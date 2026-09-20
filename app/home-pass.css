@@ -79,3 +79,7 @@
   .sundayDeskFoot{display:block;line-height:1.5}
   .sundayDeskFoot b{display:block;margin-top:3px}
 }
+
+.sundayDesk .deskPost>p{
+  font-style:italic;
+}
