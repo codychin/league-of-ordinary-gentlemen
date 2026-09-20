@@ -19,14 +19,6 @@ export default function Home(){return <><header><div className="utility"><span c
       <Link href="/articles/hollis-kash-folder" className="sundaySideStory storylink"><div className="sideImage sundaySecondaryAction"><img src="https://static.clubs.nfl.com/image/private/t_editorial_landscape_12_desktop/lions/njpa8b1s1hscatyopyxu" alt="NFL game action"/><b>MATCHUP FILE</b></div><small>HOLLIS CRANE • HOPKINS–ROYREK</small><h3>181.60 Is Now Admissible Evidence</h3><p>Hopkins Opus has the Week 1 high score. Royrek gets the first chance to make it old news.</p><span>READ THE MATCHUP FILE →</span></Link>
     </div>
   </div>
-  <div className="sundayDesks">
-    <div className="desksLabel"><small>FROM THE DESKS</small><b>Three things the room is actually watching before kickoff.</b></div>
-    <div className="deskVoice"><img src={writers.sorrell.image} alt=""/><span><small>CONRAD SORRELL</small><b>Hopkins–Royrek: whether Week 1 was a warning or merely Kash acquiring new material.</b></span></div>
-    <div className="deskVoice"><img src={writers.march.image} alt=""/><span><small>SABINE MARCH</small><b>All Ugly–Lloyd: two strong Thursday starts and considerably less room for Sunday error.</b></span></div>
-    <div className="deskVoice"><img src={writers.kells.image} alt=""/><span><small>MARNIE KELLS</small><b>Culture desk remains closed until somebody earns the interruption.</b></span></div>
-  </div>
-  <div className="sundayUtility"><span><small>THURSDAY RECEIPT</small><b>Josh Allen • 45.22</b></span><span><small>EARLY EVIDENCE</small><b>Amon-Ra • 36.2</b></span><span><small>THURSDAY BOARD</small><b>James Cook • 27.0</b></span><span><small>NEXT</small><b>Live Desk • 12:30 PM</b></span></div>
-  <div className="morningBriefFooter"><b>THE BRIEF IS LIVE TODAY.</b><span>Stories now • dispatches when something actually happens</span></div>
   <SundayLiveDesk/>
 </section>
 <section className="hero heroStack" id="league"><Link className="hero-copy storylink" href="/articles/league-unbearable-tnf"><div className="eyebrow">THURSDAY NIGHT • FINAL</div><div className="photoHero tnfPhoto"><div><small>WEEK 2 OPENING STATEMENT</small><b>Josh Allen</b><strong>45.22</strong><span>FANTASY POINTS</span></div></div><h2>Josh Allen Scores Five Times. <em>CeeDeep Has Already Made Sunday Feel Procedural.</em></h2><PreviewAuthor slug="league-unbearable-tnf"/><p className="standfirst">Buffalo opened its new stadium with a 41–31 win. Allen supplied 45.22 fantasy points and turned Friday into an administrative exercise for DarkHorse Danir.</p><div className="read">READ THE DAMAGE REPORT →</div></Link></section>
