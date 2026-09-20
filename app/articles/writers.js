@@ -62,6 +62,7 @@ export const writers={
 }
 
 export const articleWriters={
+  'maude-sunday-board-week-2':'gannon',
   'kraft-sheeran-roster-overhaul':'sorrell',
   'danir-emergency-jobs-program':'pike',
   'nigella-shake-n-baker':'kells',
