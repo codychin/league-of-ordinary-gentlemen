@@ -18,6 +18,7 @@ export default function SundayLiveDesk(){
   const [isLive,setIsLive]=useState(false)
   const [posts,setPosts]=useState([])
   const [filter,setFilter]=useState('all')
+  const [shown,setShown]=useState(6)
   useEffect(()=>{
     setIsLive(liveNow())
     let active=true
@@ -28,6 +29,7 @@ export default function SundayLiveDesk(){
   },[])
   const normalized=posts.length?posts.map(p=>({...p,time:p.published_at?new Date(p.published_at).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',timeZone:'America/New_York'}):'',id:p.id})):fallbackPosts
   const visible=useMemo(()=>filter==='all'?normalized:normalized.filter(p=>p.writer===filter),[normalized,filter])
+  const displayed=visible.slice(0,shown)
   const activeWriters=[...new Set(normalized.map(p=>p.writer))]
 
   return <section className="sundayDesk section" id="live-desk" aria-label="Sunday Live Desk">
@@ -40,11 +42,11 @@ export default function SundayLiveDesk(){
       <span className={isLive?'deskStatus live':'deskStatus'}><i/>{isLive?'LIVE':'PREVIEW'}</span>
     </div>
     <div className="deskFilters" aria-label="Filter live desk by writer">
-      <button className={filter==='all'?'active':''} onClick={()=>setFilter('all')}>ALL</button>
-      {activeWriters.map(key=><button key={key} className={filter===key?'active':''} onClick={()=>setFilter(key)}>{writers[key]?.name.split(' ')[0]?.toUpperCase()}</button>)}
+      <button className={filter==='all'?'active':''} onClick={()=>{setFilter('all');setShown(6)}}>ALL</button>
+      {activeWriters.map(key=><button key={key} className={filter===key?'active':''} onClick={()=>{setFilter(key);setShown(6)}}>{writers[key]?.name.split(' ')[0]?.toUpperCase()}</button>)}
     </div>
     <div className="sundayDeskFeed">
-      {visible.map(post=>{
+      {displayed.map(post=>{
         const writer=writers[post.writer]
         if(!writer)return null
         return <article className="deskPost" key={post.id}>
@@ -57,6 +59,7 @@ export default function SundayLiveDesk(){
         </article>
       })}
     </div>
+    {shown<visible.length&&<div className="deskLoadMore"><button onClick={()=>setShown(n=>n+8)}>LOAD MORE</button><span>{Math.min(shown,visible.length)} OF {visible.length} UPDATES</span></div>}
     <div className="sundayDeskFoot"><span>{sundayDeskMeta.standby}</span><b>Posts roll into Monday Morning Autopsy →</b></div>
   </section>
 }
