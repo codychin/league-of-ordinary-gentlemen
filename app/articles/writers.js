@@ -47,7 +47,7 @@ export const writers={
     voice:'Witty, personal and meticulously structured, with first-generation Indian-American stand-up rhythm. He can move from a trade to macroeconomics to a 7-Eleven punchline, then derail the form with an onomatopoeia or suspiciously deep pop-culture reference.',
     signature:'The ridiculous question becomes a systems story; the systems story returns to one concrete league detail that makes the entire argument difficult to escape.',
     tendency:'Remains convinced Bartone’s drafting relationship with Max constitutes a shadow front office whose complete governance structure has not been disclosed.',
-    sample:'“The league calls it free agency, a phrase doing heroic work for a labor market in which twelve employers control every job.”',
+    sample:'“My family did not come to this country so I could become an expert in dynasty pick depreciation. And yet here we are, disappointing several generations with remarkable consistency.”',
   },
   kells:{
     slug:'marnie-kells',name:'Marnie Kells',title:'Culture & Sporting Life',
