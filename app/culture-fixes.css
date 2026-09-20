@@ -1,23 +1,27 @@
-/* Culture Desk is inverse: headlines are paper-white at rest.
-   Suppress sticky iOS hover/focus; show red only for the live press. */
-.affairs .storylink,
-.affairs .storylink:link,
-.affairs .storylink:visited{color:var(--paper)!important}
+/* Culture Desk uses an inverse canvas. Keep every card headline light in all
+   persistent link states; only the live pointer/touch press may turn red. */
+.affairs,
+.affairs .cultureGrid,
+.affairs .cultureGrid .card{color:var(--paper)}
 
-.affairs .storylink h2,
-.affairs .storylink h3,
-.affairs .storylink:link h2,
-.affairs .storylink:link h3,
-.affairs .storylink:visited h2,
-.affairs .storylink:visited h3,
-.affairs .storylink:hover h2,
-.affairs .storylink:hover h3,
-.affairs .storylink:focus h2,
-.affairs .storylink:focus h3{
+.affairs .cultureGrid h3,
+.affairs .cultureGrid a,
+.affairs .cultureGrid a:link,
+.affairs .cultureGrid a:visited,
+.affairs .cultureGrid a:hover,
+.affairs .cultureGrid a:focus,
+.affairs .cultureGrid a h3,
+.affairs .cultureGrid a:link h3,
+.affairs .cultureGrid a:visited h3,
+.affairs .cultureGrid a:hover h3,
+.affairs .cultureGrid a:focus h3{
   color:var(--paper)!important;
 }
 
-.affairs .storylink:active h2,
-.affairs .storylink:active h3{
-  color:var(--red)!important;
+@media (hover:hover) and (pointer:fine){
+  .affairs .cultureGrid a.storylink:hover h3{color:var(--red)!important}
+}
+
+@media (hover:none), (pointer:coarse){
+  .affairs .cultureGrid a.storylink:active h3{color:var(--red)!important}
 }
