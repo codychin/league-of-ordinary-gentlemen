@@ -415,3 +415,36 @@
   .matchupHeroCenter{gap:7px}
   .matchupHeroCenter span{font-size:10px}
 }
+
+
+/* Keep lineup point totals on one shared horizontal track even when badges/statuses appear. */
+.lineupPlayer{
+  grid-template-rows:minmax(28px,auto) auto auto;
+}
+.lineupPlayer small,.lineupPlayer b,.lineupPlayer span{
+  grid-row:1;
+}
+.lineupPlayer .trendBadge{
+  grid-row:2;
+}
+.lineupPlayer em{
+  grid-row:3;
+}
+@media(max-width:760px){
+  .lineupPlayer,.lineupPlayer.right{
+    grid-template-rows:minmax(32px,auto) auto auto!important;
+    align-content:center;
+  }
+  .lineupPlayer small,.lineupPlayer.right small,
+  .lineupPlayer b,.lineupPlayer.right b,
+  .lineupPlayer span,.lineupPlayer.right span{
+    grid-row:1!important;
+  }
+  .lineupPlayer .trendBadge,.lineupPlayer.right .trendBadge{
+    grid-row:2!important;
+    grid-column:1/-1!important;
+  }
+  .lineupPlayer em,.lineupPlayer.right em{
+    grid-row:3!important;
+  }
+}
