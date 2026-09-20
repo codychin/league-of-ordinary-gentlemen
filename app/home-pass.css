@@ -203,3 +203,13 @@
  .sundayDesks{margin-top:0!important;padding-top:0!important}
  .sundaySide+.sundayDesks{margin-top:0!important}
 }
+
+/* Sunday Live is one exposed feature, not a buried carousel */
+.sundayFront>.sundayDesk{margin:0;padding:24px 0 8px;border-top:5px solid var(--ink)}
+.sundayFront>.sundayDesk .sundayDeskHead{margin-bottom:10px}
+@media(max-width:760px){
+ .sundayFront>.sundayDesk{padding:18px 0 4px!important;margin:0!important}
+ .sundayFront>.sundayDesk .sundayDeskFeed{display:block!important;overflow:visible!important;white-space:normal!important}
+ .sundayFront>.sundayDesk .deskPost{width:auto!important;min-width:0!important;margin:0!important;padding:15px 0!important;border-right:0!important;border-bottom:1px solid var(--line)!important}
+ .sundayFront>.sundayDesk .deskFilters{overflow-x:auto}
+}
