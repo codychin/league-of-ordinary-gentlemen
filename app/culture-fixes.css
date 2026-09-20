@@ -25,3 +25,5 @@
 @media (hover:none), (pointer:coarse){
   .affairs .cultureGrid a.storylink:active h3{color:var(--red)!important}
 }
+
+/* deployment trigger */
