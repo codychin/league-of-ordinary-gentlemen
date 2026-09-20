@@ -725,3 +725,29 @@
     color:var(--red)!important;
   }
 }
+
+
+/* Preserve intentional inverse (light-on-dark) story headlines.
+   The touch-state guard above should stop sticky red, not flatten Culture Desk typography. */
+@media (hover:none), (pointer:coarse){
+  .affairs a.storylink h1,
+  .affairs a.storylink h2,
+  .affairs a.storylink h3,
+  .affairs a.storylink h4,
+  .affairs a.storylink:hover h1,
+  .affairs a.storylink:hover h2,
+  .affairs a.storylink:hover h3,
+  .affairs a.storylink:hover h4,
+  .affairs a.storylink:focus h1,
+  .affairs a.storylink:focus h2,
+  .affairs a.storylink:focus h3,
+  .affairs a.storylink:focus h4{
+    color:var(--paper)!important;
+  }
+  .affairs a.storylink:active h1,
+  .affairs a.storylink:active h2,
+  .affairs a.storylink:active h3,
+  .affairs a.storylink:active h4{
+    color:var(--red)!important;
+  }
+}
