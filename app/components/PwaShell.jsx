@@ -170,6 +170,7 @@ function MobileAppNav(){
   const router=useRouter()
   const [activeTab,setActiveTab]=useState(pathname.startsWith('/teams')?'teams':pathname.startsWith('/matchups')?'scores':['/staff','/archive','/corrections'].some(path=>pathname.startsWith(path))?'more':pathname==='/'?'home':'detail')
   const [moreOpen,setMoreOpen]=useState(false)
+  const [sundayLive,setSundayLive]=useState(false)
   const tabFor=nextHash=>{
     if(pathname.startsWith('/teams')) return 'teams'
     if(pathname.startsWith('/matchups')) return 'scores'
@@ -198,6 +199,7 @@ function MobileAppNav(){
   }
 
   useEffect(()=>{
+    try{const parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());const get=t=>parts.find(p=>p.type===t)?.value;setSundayLive(get('weekday')==='Sun'&&(Number(get('hour'))>12||(Number(get('hour'))===12&&Number(get('minute'))>=30)))}catch{}
     router.prefetch('/')
     router.prefetch('/teams')
     setMoreOpen(false)
@@ -256,7 +258,7 @@ function MobileAppNav(){
   },[pathname])
 
   const items=[
-    {href:'/',label:'Home',tab:'home',active:activeTab==='home'||activeTab==='detail'},
+    {href:sundayLive?'/#live-desk':'/',label:sundayLive?'Live':'Home',icon:'Home',tab:'home',hash:sundayLive?'#live-desk':undefined,active:activeTab==='home'||activeTab==='detail'},
     {href:'/#scores',label:'Scores',tab:'scores',hash:'#scores',active:activeTab==='scores'},
     {href:'/teams',label:'Teams',tab:'teams',active:activeTab==='teams'},
     {href:'/#culture',label:'Culture',tab:'culture',hash:'#culture',active:activeTab==='culture'},
@@ -346,7 +348,7 @@ function MobileAppNav(){
       aria-current={item.active?'page':undefined}
       aria-label={item.label}
       onClick={event=>navigate(event,item)}
-      ><TabIcon name={item.label}/><span className="appTabLabel">{item.label}</span></Link>)}
+      ><TabIcon name={item.icon||item.label}/><span className="appTabLabel">{item.label}</span></Link>)}
       <button className={moreOpen?'active':''} type="button" aria-label="More" aria-expanded={moreOpen} onClick={()=>setMoreOpen(value=>!value)}><TabIcon name="More"/><span className="appTabLabel">More</span></button>
     </nav>
   </>
