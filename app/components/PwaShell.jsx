@@ -213,6 +213,7 @@ function MobileAppNav(){
         let nextTab
         if(pathname.startsWith('/teams')) nextTab='teams'
         else if(pathname.startsWith('/matchups')) nextTab='scores'
+        else if(pathname.startsWith('/staff')&&window.location.hash) nextTab='detail'
         else if(['/staff','/archive','/corrections'].some(path=>pathname.startsWith(path))) nextTab='more'
         else if(pathname!=='/') nextTab=document.querySelector('[data-app-section="culture"]')?'culture':'detail'
         else {
@@ -222,15 +223,17 @@ function MobileAppNav(){
           else if(nextHash==='#culture') nextTab='culture'
           else nextTab=window.sessionStorage.getItem(APP_TAB_KEY)||'home'
         }
-        if(!['home','scores','culture','teams','detail'].includes(nextTab)) nextTab='home'
+        if(!['home','scores','culture','teams','more','detail'].includes(nextTab)) nextTab='home'
         setActiveTab(nextTab)
         document.documentElement.dataset.appTab=nextTab
         if(pathname==='/'&&['home','scores','culture'].includes(nextTab)) window.sessionStorage.setItem(APP_TAB_KEY,nextTab)
-        if(nextHash){
+        if(nextHash&&pathname!=='/staff'){
           const clean=window.location.pathname+window.location.search
           window.history.replaceState(null,'',clean)
         }
-        resetAppScroll()
+        if(pathname==='/staff'&&nextHash){
+          window.requestAnimationFrame(()=>document.getElementById(nextHash.slice(1))?.scrollIntoView({behavior:'auto',block:'start'}))
+        }else resetAppScroll()
         return
       }
       activate(nextHash)
