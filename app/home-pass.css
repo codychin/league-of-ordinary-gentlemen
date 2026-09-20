@@ -213,3 +213,6 @@
  .sundayFront>.sundayDesk .deskPost{width:auto!important;min-width:0!important;margin:0!important;padding:15px 0!important;border-right:0!important;border-bottom:1px solid var(--line)!important}
  .sundayFront>.sundayDesk .deskFilters{overflow-x:auto}
 }
+
+/* Sunday Live Desk dispatch voice */
+.sundayDesk .deskPostBody p{font-style:italic}
