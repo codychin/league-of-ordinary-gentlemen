@@ -41,3 +41,41 @@
 @media(max-width:760px){
   .decisionPhoto{height:150px;margin-bottom:14px}
 }
+
+.sundayDesk{margin-top:36px;padding-top:24px!important;border-top:6px solid var(--ink)}
+.sundayDeskHead{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:22px;align-items:start;margin-bottom:18px}
+.sundayDeskHead>div>small{display:block;margin-bottom:6px;font:900 8px Arial,sans-serif;letter-spacing:1.5px;color:var(--red)}
+.sundayDeskHead h2{margin:0;font-size:44px;line-height:.92;letter-spacing:-2px}
+.sundayDeskHead p{max-width:720px;margin:10px 0 0;font-size:15px;line-height:1.45;color:var(--muted)}
+.deskStatus{display:inline-flex;align-items:center;gap:7px;margin-top:2px;padding:7px 9px;border:1px solid var(--ink);font:900 8px Arial,sans-serif;letter-spacing:1.2px}
+.deskStatus i{width:7px;height:7px;border-radius:50%;background:var(--muted)}
+.deskStatus.live{border-color:var(--red);color:var(--red)}
+.deskStatus.live i{background:var(--red);box-shadow:0 0 0 4px rgba(165,42,34,.11)}
+.sundayDeskFeed{border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.deskPost{display:grid;grid-template-columns:205px 110px minmax(0,1fr);gap:18px;align-items:start;padding:18px 0;border-bottom:1px solid var(--line)}
+.deskPost:last-child{border-bottom:0}
+.deskWriter{display:flex;align-items:center;gap:10px;color:inherit;text-decoration:none;min-width:0}
+.deskWriter img{width:42px;height:42px;border-radius:50%;border:1px solid var(--ink);object-fit:cover;object-position:center 20%;background:var(--ink)}
+.deskWriter span{display:flex;flex-direction:column;gap:3px;min-width:0}
+.deskWriter b{font:700 13px/1 Arial,sans-serif;white-space:nowrap}
+.deskWriter small{font:900 7px/1.25 Arial,sans-serif;letter-spacing:.9px;color:var(--red)}
+.deskPostMeta{display:flex;flex-direction:column;gap:5px;padding-top:4px}
+.deskPostMeta span{font:900 8px Arial,sans-serif;letter-spacing:1px;color:var(--muted)}
+.deskPostMeta em{font:900 7px Arial,sans-serif;letter-spacing:1.1px;color:var(--red);font-style:normal}
+.deskPost p{margin:0;font-size:17px;line-height:1.46}
+.sundayDeskFoot{display:flex;justify-content:space-between;gap:20px;padding-top:12px;font:900 7px Arial,sans-serif;letter-spacing:1px;color:var(--muted)}
+.sundayDeskFoot b{color:var(--red)}
+@media(max-width:760px){
+  .sundayDesk{margin-top:24px;padding-top:18px!important}
+  .sundayDeskHead{grid-template-columns:minmax(0,1fr) auto;gap:10px;margin-bottom:14px}
+  .sundayDeskHead h2{font-size:36px;letter-spacing:-1.5px}
+  .sundayDeskHead p{font-size:14px;line-height:1.42}
+  .deskStatus{padding:6px 7px;font-size:7px}
+  .deskPost{grid-template-columns:minmax(0,1fr) auto;gap:8px 12px;padding:16px 0}
+  .deskWriter{grid-column:1}
+  .deskWriter img{width:38px;height:38px}
+  .deskPostMeta{grid-column:2;grid-row:1;text-align:right;align-items:flex-end}
+  .deskPost p{grid-column:1/-1;font-size:16px;line-height:1.45}
+  .sundayDeskFoot{display:block;line-height:1.5}
+  .sundayDeskFoot b{display:block;margin-top:3px}
+}
