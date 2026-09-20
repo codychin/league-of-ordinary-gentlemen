@@ -80,6 +80,10 @@ export const articleWriters={
   'hopkins-opus-statement':'sorrell',
   'all-ugly-process':'gannon',
   'sources-familiar':'sorrell',
+  'marnie-colorado-content-football':'kells',
+  'marnie-cruise-swift-football':'kells',
+  'marnie-tilly-cantonese':'kells',
+  'hollis-uprights-reality':'crane',
 }
 
 export const writerFor=slug=>writers[articleWriters[slug]]||writers.crane
