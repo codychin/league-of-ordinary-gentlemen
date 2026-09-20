@@ -10,13 +10,20 @@ export default function Home(){return <><header><div className="utility"><span c
 <section className="morningBriefPreview" aria-label="Sunday Morning Brief">
   <div className="morningBriefFlag"><span>THE SUNDAY MORNING BRIEF</span><small>WEEK 2 • SUNDAY, SEPTEMBER 20</small></div>
   <div className="morningBriefLead">
-    <div><span className="morningBriefEdition">THE MATCHUP FILE • FAMILY BUSINESS</span><h2>All Ugly and Lloyd Meet Again. Unfortunately, This Time the Family Has Evidence.</h2><p>One week into the season, the league's most useful relationships are already becoming liabilities. Sunday begins with old history, new screenshots and several organizations insisting none of this is personal.</p></div>
+    <div className="morningBriefLeadVisual">
+      <div className="morningBriefMatchupArt" aria-hidden="true">
+        <div className="briefPlayer briefPlayerLeft"><img src={playerHeadshot(featuredPlayer(leagueSnapshot.teams['all-ugly']))} alt=""/><span>ALL UGLY</span></div>
+        <div className="briefVersus"><small>WEEK 2</small><b>VS</b><span>FAMILY BUSINESS</span></div>
+        <div className="briefPlayer briefPlayerRight"><img src={playerHeadshot(featuredPlayer(leagueSnapshot.teams['lloyd-rings']))} alt=""/><span>LLOYD</span></div>
+      </div>
+      <span className="morningBriefEdition">THE MATCHUP FILE • FAMILY BUSINESS</span><h2>All Ugly and Lloyd Meet Again. Unfortunately, This Time the Family Has Evidence.</h2><p>One week into the season, the league's most useful relationships are already becoming liabilities. Sunday begins with old history, new screenshots and several organizations insisting none of this is personal.</p>
+    </div>
     <aside><small>FIRST KICK</small><b>1:00</b><span>PM ET</span></aside>
   </div>
   <div className="morningBriefGrid">
-    <Link href="/articles/maude-sunday-board-week-2" className="morningBriefItem storylink"><small>MAUDE GANNON • FOOTBALL</small><b>Three decisions I would actually care about</b><p>Forget the injury crawl. Maude isolates the usage, matchup and lineup choices where the football says something different from the room. If somebody ignores the evidence because a projection moved two points, she reserves the right to call him a bitch.</p><span>MAUDE'S SUNDAY BOARD →</span></Link>
-    <article><small>HOLLIS CRANE • INVESTIGATIONS</small><b>The man at the end of the bar had a folder with Kash's name on it.</b><p>I was three drinks into a place near LaGuardia where the television had been showing the same weather map for forty minutes when a stranger slid a screenshot across the bar. By the time I looked up, he was gone. Hopkins Opus plays Royrek on Sunday. I have learned not to call these things coincidences.</p><span>OPEN THE FILE →</span></article>
-    <article><small>DASHIELL PIKE • CAPITAL</small><b>James Cook scored 27 points. Route 22 would still like to discuss portfolio construction.</b><p>At some point an organization has to stop optimizing the asset base and play football. Sunday offers a useful test of whether Route 22 recognizes that point or has converted roster management into a permanent theory of government.</p><span>FOLLOW THE MONEY →</span></article>
+    <Link href="/articles/maude-sunday-board-week-2" className="morningBriefItem storylink"><div className="briefWriterVisual"><img src={writers.gannon.image} alt={writers.gannon.imageAlt}/><em>FILM ROOM</em></div><small>MAUDE GANNON • FOOTBALL</small><b>Three decisions I would actually care about</b><p>Forget the injury crawl. Maude isolates the usage, matchup and lineup choices where the football says something different from the room.</p><span>READ MAUDE'S BOARD →</span></Link>
+    <Link href="/articles/hollis-kash-folder" className="morningBriefItem storylink"><div className="briefWriterVisual"><img src={writers.crane.image} alt={writers.crane.imageAlt}/><em>EVIDENCE LOCKER</em></div><small>HOLLIS CRANE • INVESTIGATIONS</small><b>The man at the end of the bar had a folder with Kash's name on it.</b><p>Three drinks, one airport bar, a stranger with a screenshot and Hopkins–Royrek waiting on Sunday.</p><span>OPEN HOLLIS'S FILE →</span></Link>
+    <Link href="/articles/dashiell-route-22-portfolio" className="morningBriefItem storylink"><div className="briefWriterVisual"><img src={writers.pike.image} alt={writers.pike.imageAlt}/><em>CAPITAL DESK</em></div><small>DASHIELL PIKE • CAPITAL</small><b>James Cook scored 27 points. Route 22 would still like to discuss portfolio construction.</b><p>A 1–0 franchise discovers that winning does not cure the urge to restructure the company.</p><span>FOLLOW THE MONEY →</span></Link>
   </div>
   <div className="morningBriefRoundtable">
     <small>WHAT THE NEWSROOM IS WATCHING</small>
