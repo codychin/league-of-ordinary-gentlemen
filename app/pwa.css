@@ -699,3 +699,29 @@
     margin-top:30px!important;
   }
 }
+
+
+/* Touch-state guard: linked titles must never inherit sticky iOS hover/focus red.
+   Red is allowed only during the actual press. */
+@media (hover:none), (pointer:coarse){
+  a.storylink h1,a.storylink h2,a.storylink h3,a.storylink h4,
+  a.matchupLink h1,a.matchupLink h2,a.matchupLink h3,a.matchupLink h4,
+  .directory>a h2,
+  .coverage>a b{
+    color:var(--ink)!important;
+  }
+  a.storylink:hover h1,a.storylink:hover h2,a.storylink:hover h3,a.storylink:hover h4,
+  a.storylink:focus h1,a.storylink:focus h2,a.storylink:focus h3,a.storylink:focus h4,
+  a.matchupLink:hover h1,a.matchupLink:hover h2,a.matchupLink:hover h3,a.matchupLink:hover h4,
+  a.matchupLink:focus h1,a.matchupLink:focus h2,a.matchupLink:focus h3,a.matchupLink:focus h4,
+  .directory>a:hover h2,.directory>a:focus h2,
+  .coverage>a:hover b,.coverage>a:focus b{
+    color:var(--ink)!important;
+  }
+  a.storylink:active h1,a.storylink:active h2,a.storylink:active h3,a.storylink:active h4,
+  a.matchupLink:active h1,a.matchupLink:active h2,a.matchupLink:active h3,a.matchupLink:active h4,
+  .directory>a:active h2,
+  .coverage>a:active b{
+    color:var(--red)!important;
+  }
+}
