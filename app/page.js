@@ -7,31 +7,34 @@ const playerHeadshot=player=>`https://a.espncdn.com/i/headshots/nfl/players/full
 const schefter=[['SEP 17','🚨 BREAKING: Mr Hopkins Opus has added WR Demarcus Robinson for $0 and released RB George Holani, per the ESPN transaction record. The Holani era lasted approximately one business day.','31','84','917','61K'],['SEP 17','🚨 WAIVER: DarkHorse Danir has acquired RB Rachaad White for $2 and dropped WR Malik Washington. White joins a bench currently operating under independent oversight.','44','103','1.2K','77K'],['SEP 16','🚨 BREAKING: All Ugly is adding RB Demond Claiborne for $0, per league sources. The move comes with Jordan Mason on IR and carries what one executive described as “limited financial downside.”','22','68','743','52K'],['SEP 16','🚨 BREAKING: Route 22 remains active on the trade market, sources tell The Brief. Choe and Gerstone have sent multiple proposals since Monday; at least three teams have already declined. The phones remain open.','91','214','2.1K','198K']];
 const MEDIA='https://dnzdbqycuuoonewcowis.supabase.co/storage/v1/object/public/brief-media';
 export default function Home(){return <><header><div className="utility"><span className="utilityMain">JOURNALISM WITHOUT PURPOSE <i>•</i> WRITTEN BY ROBOTS</span></div><div className="mast"><h1>The Brief of Ordinary Gentleman</h1><div className="dek">Fantasy football, personal grievances, forensic accounting and other matters of irrelevance.</div></div><SiteNav/></header><main>
-<section className="morningBriefPreview" aria-label="Sunday Morning Brief">
-  <div className="morningBriefFlag"><span>THE SUNDAY MORNING BRIEF</span><small>WEEK 2 • SUNDAY, SEPTEMBER 20</small></div>
-  <div className="morningBriefLead">
-    <div className="morningBriefLeadVisual">
-      <div className="morningBriefMatchupArt" aria-hidden="true">
-        <div className="briefPlayer briefPlayerLeft"><img src={playerHeadshot(featuredPlayer(leagueSnapshot.teams['all-ugly']))} alt=""/><span>ALL UGLY</span></div>
-        <div className="briefVersus"><small>WEEK 2</small><b>VS</b><span>FAMILY BUSINESS</span></div>
-        <div className="briefPlayer briefPlayerRight"><img src={playerHeadshot(featuredPlayer(leagueSnapshot.teams['lloyd-rings']))} alt=""/><span>LLOYD</span></div>
-      </div>
-      <span className="morningBriefEdition">THE MATCHUP FILE • FAMILY BUSINESS</span><h2>All Ugly and Lloyd Meet Again. Unfortunately, This Time the Family Has Evidence.</h2><p>One week into the season, the league's most useful relationships are already becoming liabilities. Sunday begins with old history, new screenshots and several organizations insisting none of this is personal.</p>
+<section className="sundayCommand" aria-label="Sunday Morning Brief">
+  <div className="sundayCommandTop"><span>THE SUNDAY MORNING BRIEF</span><small>WEEK 2 • SUNDAY, SEPTEMBER 20 • NEWSROOM LIVE</small></div>
+  <div className="sundayCommandHero">
+    <div className="sundayCommandPlayers" aria-hidden="true">
+      {currentMatchups.slice(0,3).map(([a,b],i)=>{const ap=featuredPlayer(a),bp=featuredPlayer(b);return <div className={"commandPair pair"+i} key={a.teamName+b.teamName}><img src={playerHeadshot(ap)} alt=""/><img src={playerHeadshot(bp)} alt=""/></div>})}
     </div>
-    <aside><small>FIRST KICK</small><b>1:00</b><span>PM ET</span></aside>
+    <div className="sundayCommandShade"/>
+    <div className="sundayCommandCopy"><small>SUNDAY IS LIVE</small><h2>Six Games. Twelve Bad Ideas. We’re Here All Day.</h2><p>The newsroom is awake. Lineups are still defensible. Screenshots are already being preserved.</p></div>
+    <div className="sundayClock"><small>FIRST KICK</small><b>1:00</b><span>PM ET</span></div>
   </div>
-  <div className="morningBriefGrid">
-    <Link href="/articles/maude-sunday-board-week-2" className="morningBriefItem storylink"><div className="briefWriterVisual"><img src={writers.gannon.image} alt={writers.gannon.imageAlt}/><em>FILM ROOM</em></div><small>MAUDE GANNON • FOOTBALL</small><b>Three decisions I would actually care about</b><p>Forget the injury crawl. Maude isolates the usage, matchup and lineup choices where the football says something different from the room.</p><span>READ MAUDE'S BOARD →</span></Link>
-    <Link href="/articles/hollis-kash-folder" className="morningBriefItem storylink"><div className="briefWriterVisual"><img src={writers.crane.image} alt={writers.crane.imageAlt}/><em>EVIDENCE LOCKER</em></div><small>HOLLIS CRANE • INVESTIGATIONS</small><b>The man at the end of the bar had a folder with Kash's name on it.</b><p>Three drinks, one airport bar, a stranger with a screenshot and Hopkins–Royrek waiting on Sunday.</p><span>OPEN HOLLIS'S FILE →</span></Link>
-    <Link href="/articles/dashiell-route-22-portfolio" className="morningBriefItem storylink"><div className="briefWriterVisual"><img src={writers.pike.image} alt={writers.pike.imageAlt}/><em>CAPITAL DESK</em></div><small>DASHIELL PIKE • CAPITAL</small><b>James Cook scored 27 points. Route 22 would still like to discuss portfolio construction.</b><p>A 1–0 franchise discovers that winning does not cure the urge to restructure the company.</p><span>FOLLOW THE MONEY →</span></Link>
+  <div className="sundayTicker">
+    <span><small>THURSDAY DAMAGE</small><b>Josh Allen • 45.22</b></span>
+    <span><small>BIGGEST OPENING SHOT</small><b>All Ugly • Amon-Ra 36.2</b></span>
+    <span><small>ROUTE 22</small><b>James Cook 27.0 • phones remain open</b></span>
+    <span><small>NEWSROOM</small><b>Live Desk opens 12:30 PM</b></span>
   </div>
-  <div className="morningBriefRoundtable">
-    <small>WHAT THE NEWSROOM IS WATCHING</small>
-    <div><b>MAUDE / ALL UGLY</b><span>The exact lineup choice that could turn “process” into another Monday press conference.</span></div>
-    <div><b>CONRAD / HOPKINS–ROYREK</b><span>Kash's latest evidence, and the institutional machinery required to make everyone else look at it.</span></div>
-    <div><b>MARNIE / CULTURE</b><span>Reserved for an actual cultural event worth interrupting football for. No quota, no filler.</span></div>
+  <div className="newsroomRollcall">
+    <div className="rollcallIntro"><small>THE NEWSROOM</small><b>What everyone is staring at</b><p>Six writers. No requirement that any of them behave normally.</p></div>
+    <Link href="/articles/maude-sunday-board-week-2" className="rollcallWriter"><img src={writers.gannon.image} alt={writers.gannon.imageAlt}/><span><small>MAUDE GANNON</small><b>“I care about the decisions where the football and the projection disagree.”</b><em>OPEN THE BOARD →</em></span></Link>
+    <Link href="/articles/hollis-kash-folder" className="rollcallWriter"><img src={writers.crane.image} alt={writers.crane.imageAlt}/><span><small>HOLLIS CRANE</small><b>“A man near LaGuardia had a folder with Kash’s name on it. I bought another drink.”</b><em>OPEN THE FILE →</em></span></Link>
+    <Link href="/articles/dashiell-route-22-portfolio" className="rollcallWriter"><img src={writers.pike.image} alt={writers.pike.imageAlt}/><span><small>DASHIELL PIKE</small><b>“Route 22 is profitable and has therefore announced a strategic review.”</b><em>FOLLOW THE MONEY →</em></span></Link>
+    <Link href="/staff#conrad-sorrell" className="rollcallWriter"><img src={writers.sorrell.image} alt={writers.sorrell.imageAlt}/><span><small>CONRAD SORRELL</small><b>“By 1:17 somebody will call a fantasy-football decision an institution. I intend to find out who benefits.”</b><em>FROM THE OPINION DESK →</em></span></Link>
   </div>
-  <div className="morningBriefFooter"><b>THE NEWSROOM IS AWAKE.</b><span>Live Desk begins 12:30 PM • Roundtable push at 1:00 PM</span></div>
+  <div className="sundayMatchupRail">
+    <div className="railHead"><small>TODAY’S BOARD</small><b>Six games, currently innocent</b></div>
+    <div className="railGames">{currentMatchups.map(([a,b,note],i)=>{const ap=featuredPlayer(a),bp=featuredPlayer(b);return <Link href={`/matchups/${matchupPairs[i][0]}/${matchupPairs[i][1]}`} className="railGame" key={i}><div><img src={playerHeadshot(ap)} alt=""/><img src={playerHeadshot(bp)} alt=""/></div><small>{note||'WEEK 2'}</small><b>{a.teamName} <i>vs</i> {b.teamName}</b><span>PREVIEW →</span></Link>})}</div>
+  </div>
+  <div className="sundayCommandFoot"><b>THE BRIEF IS LIVE ALL DAY.</b><span>Pregame → Live Desk → Late Window → Monday Autopsy</span></div>
 </section>
 <section className="hero heroStack" id="league"><Link className="hero-copy storylink" href="/articles/league-unbearable-tnf"><div className="eyebrow">THURSDAY NIGHT • FINAL</div><div className="photoHero tnfPhoto"><div><small>WEEK 2 OPENING STATEMENT</small><b>Josh Allen</b><strong>45.22</strong><span>FANTASY POINTS</span></div></div><h2>Josh Allen Scores Five Times. <em>CeeDeep Has Already Made Sunday Feel Procedural.</em></h2><PreviewAuthor slug="league-unbearable-tnf"/><p className="standfirst">Buffalo opened its new stadium with a 41–31 win. Allen supplied 45.22 fantasy points and turned Friday into an administrative exercise for DarkHorse Danir.</p><div className="read">READ THE DAMAGE REPORT →</div></Link></section>
 <section className="grid3"><Link href="/articles/stone-unc-denial" className="card storylink"><div className="photoStrip uncPhoto"><span>CHAPEL HILL / INDEPENDENT REVIEW</span></div><div className="tag">INSTITUTIONAL CRISIS</div><h3>Stone Denies UNC Scandal Ties Despite Triple Legacy; Choe Admits “Limited Advisory Role”</h3><PreviewAuthor slug="stone-unc-denial"/><p>UNC closed its football investigation. Stone produced a suspiciously complete denial. Choe has declined to deny exactly enough.</p><div className="read">REVIEW THE FINDINGS →</div></Link><Link href="/articles/danir-emergency-jobs-program" className="card storylink"><div className="photoStrip danirJobsPhoto"><span>DARKHORSE DANIR / WORKFORCE DEVELOPMENT</span></div><div className="tag">TRANSACTIONS & LABOR</div><h3>DarkHorse Danir Announces Emergency Jobs Program for Underemployed Wide Receivers</h3><PreviewAuthor slug="danir-emergency-jobs-program"/><p>Nailor. Saylors. Washington. Wicks. White. One failed Vele claim. September employment remains strong.</p><div className="read">VISIT THE EMPLOYMENT OFFICE →</div></Link><Link href="/articles/danir-bench-crime" className="card storylink"><div className="photoStrip purdyPhoto"><span>PURDY + MONANGAI / 52.0 BENCH POINTS</span></div><div className="tag">LINEUP CRIMES UNIT</div><h3>Danir Left a Functional Quarterback and 29.4-Point Running Back on the Bench</h3><PreviewAuthor slug="danir-bench-crime"/><p>Bo Nix scored 4.74. Brock Purdy scored 22.6. Kyle Monangai scored 29.4. The prosecution would like to rest.</p><div className="read">REVIEW THE CRIME SCENE →</div></Link></section>
