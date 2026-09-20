@@ -62,6 +62,8 @@ export const writers={
 }
 
 export const articleWriters={
+  'sabine-all-ugly-lloyd':'march',
+  'conrad-danir-ceedeep-hole':'sorrell',
   'hollis-kash-folder':'crane',
   'dashiell-route-22-portfolio':'pike',
   'maude-sunday-board-week-2':'gannon',

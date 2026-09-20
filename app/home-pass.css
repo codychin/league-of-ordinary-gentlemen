@@ -216,3 +216,13 @@
 
 /* Sunday Live Desk dispatch voice */
 .sundayDesk .deskPostBody p{font-style:italic}
+
+/* Sunday stories 2–4: real article carousel, compact and fully tappable */
+.sundayStoryCarousel{display:grid;grid-template-rows:repeat(3,auto)}
+@media(max-width:760px){
+ .sundayStoryCarousel{display:flex!important;overflow-x:auto!important;gap:12px!important;scroll-snap-type:x mandatory;padding:14px 16px 16px;margin:0 -16px!important;border-top:1px solid var(--ink);-webkit-overflow-scrolling:touch}
+ .sundayStoryCarousel .sundaySideStory{flex:0 0 78vw!important;min-width:0!important;padding:0 12px 12px 0!important;border-right:1px solid var(--line)!important;scroll-snap-align:start}
+ .sundayStoryCarousel .sundaySideStory:last-child{border-right:0!important}
+ .sundayStoryCarousel .sideImage{height:150px!important}
+ .sundayStoryCarousel .sundaySideStory p{display:block!important}
+}
