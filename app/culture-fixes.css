@@ -1,9 +1,23 @@
-/* Culture headlines remain white in every interaction state. */
+/* Culture Desk is inverse: headlines are paper-white at rest.
+   Suppress sticky iOS hover/focus; show red only for the live press. */
+.affairs .storylink,
+.affairs .storylink:link,
+.affairs .storylink:visited{color:var(--paper)!important}
+
 .affairs .storylink h2,
 .affairs .storylink h3,
+.affairs .storylink:link h2,
+.affairs .storylink:link h3,
+.affairs .storylink:visited h2,
+.affairs .storylink:visited h3,
 .affairs .storylink:hover h2,
 .affairs .storylink:hover h3,
+.affairs .storylink:focus h2,
+.affairs .storylink:focus h3{
+  color:var(--paper)!important;
+}
+
 .affairs .storylink:active h2,
-.affairs .storylink:active h3,
-.affairs .storylink:visited h2,
-.affairs .storylink:visited h3{color:inherit}
+.affairs .storylink:active h3{
+  color:var(--red)!important;
+}
