@@ -5,7 +5,6 @@ import {writers} from '../articles/writers'
 export default function Staff(){
   return <>
     <header className="articleHeader">
-      <Link href="/" className="miniMast">The Brief of Ordinary Gentleman</Link>
       <SiteNav/>
     </header>
     <main className="staffPage">
