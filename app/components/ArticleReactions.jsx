@@ -34,30 +34,35 @@ export default function ArticleReactions({slug}){
   const react=async reaction=>{
     if(saving) return
     const previous=selected
+    const removing=previous===reaction
+    const nextSelected=removing?null:reaction
     setSaving(true)
-    setSelected(reaction)
+    setSelected(nextSelected)
     setCounts(current=>{
       const next={...current}
-      if(previous&&previous!==reaction) next[previous]=Math.max(0,(next[previous]||0)-1)
-      if(previous!==reaction) next[reaction]=(next[reaction]||0)+1
+      if(previous) next[previous]=Math.max(0,(next[previous]||0)-1)
+      if(nextSelected) next[nextSelected]=(next[nextSelected]||0)+1
       return next
     })
-    window.localStorage.setItem(`ordinary-brief-reaction:${slug}`,reaction)
+    if(nextSelected) window.localStorage.setItem(`ordinary-brief-reaction:${slug}`,nextSelected)
+    else window.localStorage.removeItem(`ordinary-brief-reaction:${slug}`)
 
     try{
+      const sessionId=getSession()
       const res=await fetch('/api/article-reactions',{
-        method:'POST',
+        method:removing?'DELETE':'POST',
         headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({slug,reaction,sessionId:getSession()}),
+        body:JSON.stringify(removing?{slug,sessionId}:{slug,reaction,sessionId}),
       })
       if(!res.ok) throw new Error('save failed')
     }catch{
       setSelected(previous)
-      window.localStorage[previous?'setItem':'removeItem'](`ordinary-brief-reaction:${slug}`,previous||'')
+      if(previous) window.localStorage.setItem(`ordinary-brief-reaction:${slug}`,previous)
+      else window.localStorage.removeItem(`ordinary-brief-reaction:${slug}`)
       setCounts(current=>{
         const next={...current}
-        if(previous!==reaction) next[reaction]=Math.max(0,(next[reaction]||0)-1)
-        if(previous&&previous!==reaction) next[previous]=(next[previous]||0)+1
+        if(nextSelected) next[nextSelected]=Math.max(0,(next[nextSelected]||0)-1)
+        if(previous) next[previous]=(next[previous]||0)+1
         return next
       })
     }finally{
