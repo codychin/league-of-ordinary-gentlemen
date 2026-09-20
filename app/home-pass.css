@@ -188,3 +188,18 @@
 .athleteFeature{background:linear-gradient(135deg,#d9d1c4,#b8ad9d)}.athleteFeature>img{position:absolute;width:auto;height:103%;max-width:72%;object-fit:contain;object-position:center bottom;bottom:-2%;left:-5%;filter:saturate(.86) contrast(1.06)}.athleteFeature>img.featureOpponent{left:auto;right:-7%;height:88%;opacity:.72;transform:scaleX(-1)}.athleteFeature:before{content:'';position:absolute;z-index:1;inset:0;background:linear-gradient(90deg,transparent 35%,rgba(22,20,17,.12) 100%)}.athleteFeature .evidenceStamp{z-index:3}
 .athleteSide{background:linear-gradient(135deg,#ddd5c9,#bcb1a1)}.athleteSide img{width:100%;height:115%;object-fit:contain;object-position:center bottom;filter:saturate(.88) contrast(1.06)}
 @media(max-width:760px){.athleteFeature>img{height:104%;max-width:75%}.athleteFeature>img.featureOpponent{height:88%;right:-10%}}
+
+/* Launch hotfix: real editorial photography, compact mobile rhythm, whole-card taps */
+.sundayActionHero{background:#171613;min-height:430px}.sundayActionHero>img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-width:none!important;object-fit:cover!important;object-position:center 42%!important;filter:saturate(.9) contrast(1.05)!important;transform:none!important;opacity:1!important}
+.sundayActionHero:after{content:'';position:absolute;inset:55% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.55))}
+.actionCaption{position:absolute;z-index:3;left:14px;bottom:14px;background:var(--ink);color:#fff;padding:7px 9px;font:900 7px Arial,sans-serif;letter-spacing:1.2px}
+.sundaySecondaryAction img{object-fit:cover!important;height:100%!important}
+.sundayFeature,.sundaySideStory{position:relative;z-index:2;cursor:pointer;pointer-events:auto!important;-webkit-tap-highlight-color:rgba(165,42,34,.12)}
+@media(max-width:760px){
+ .sundayActionHero{min-height:255px!important}
+ .sundaySide{grid-template-rows:auto!important;align-items:start!important}
+ .sundaySideStory{min-height:0!important;height:auto!important}
+ .sundayFrontGrid{padding-bottom:0!important}
+ .sundayDesks{margin-top:0!important;padding-top:0!important}
+ .sundaySide+.sundayDesks{margin-top:0!important}
+}
