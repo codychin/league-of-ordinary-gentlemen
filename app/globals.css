@@ -109,3 +109,14 @@
     background:var(--paper);
   }
 }
+
+
+/* Sunday Live Desk high-volume feed */
+.sundayDeskFeed{border-top:3px solid var(--ink)}
+.deskPost{padding:18px 0;border-bottom:1px solid var(--line)}
+.deskPostBody p{margin:6px 0 0;line-height:1.45;font-style:italic}
+.deskLoadMore{display:flex;align-items:center;justify-content:center;gap:14px;padding:22px 0 8px}
+.deskLoadMore button{border:1px solid var(--ink);background:var(--ink);color:var(--paper);padding:11px 20px;font:900 9px Arial,sans-serif;letter-spacing:1.5px;cursor:pointer}
+.deskLoadMore button:hover{background:var(--red);border-color:var(--red)}
+.deskLoadMore span{font:800 8px Arial,sans-serif;letter-spacing:1.2px;color:var(--muted)}
+@media(max-width:760px){.deskLoadMore{padding-top:18px}.deskLoadMore button{min-width:132px}}
