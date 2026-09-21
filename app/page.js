@@ -11,7 +11,7 @@ export default function Home(){return <><header><div className="utility"><span c
   <div className="morningBriefFlag"><span>THE MONDAY MORNING BRIEF <i>MONDAY NIGHT PENDING</i></span><small>SEPTEMBER 21 • WEEK 2</small></div>
   <div className="sundayFrontGrid">
     <Link href="/articles/maude-monday-night-survival-board" className="sundayFeature storylink">
-      <div className="sundayFeatureImage sundayActionHero"><img src="/api/monday-survival-board" alt="The Brief Monday Night survival board showing four fantasy teams and the points they need from Giants-Rams"/><div className="actionCaption">MAUDE GANNON • MONDAY MORNING</div></div>
+      <div className="sundayFeatureImage sundayActionHero"><img src="https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/rams/ulwf2ffxcrk6vzylcauq.jpg" alt="Matthew Stafford of the Los Angeles Rams during Week 1 against the San Francisco 49ers"/><div className="actionCaption">MAUDE GANNON • MONDAY MORNING</div></div>
       <div className="sundayFeatureCopy"><small>MAUDE GANNON • SURVIVAL BOARD</small><h2>Four Paths Through Monday Night, Some Considerably Less Legal Than Others</h2><p>Skatt needs 37.46. Route 22 needs 30.94. Danir needs 39.44. Hopkins is mostly here to watch someone else suffer.</p><PreviewAuthor slug="maude-monday-night-survival-board"/><span>READ THE SURVIVAL BOARD →</span></div>
     </Link>
     <div className="sundaySide sundayStoryCarousel" aria-label="Sunday night supporting stories">
