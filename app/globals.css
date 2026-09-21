@@ -123,3 +123,102 @@
 
 .articleImageInline{height:min(52vw,520px);min-height:260px;background-size:cover;background-position:center;display:block}
 @media(max-width:760px){.articleImageInline{height:56vw;min-height:220px}}
+
+
+/* Mobile web score cards: keep team text, portraits and CTA in separate vertical zones */
+@media(max-width:760px){
+  .upcomingGrid{gap:12px}
+  .playerHeadlineMatchup{
+    position:relative;
+    overflow:hidden;
+    min-height:240px!important;
+    padding:30px 14px 36px!important;
+    display:block!important;
+  }
+  .playerHeadlineMatchup>.matchupKicker{
+    position:absolute;
+    top:10px;
+    left:14px;
+    right:14px;
+    text-align:center;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .playerHeadlineMatchup .matchupEditorial{
+    position:relative;
+    z-index:3;
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) 34px minmax(0,1fr)!important;
+    gap:6px!important;
+    align-items:start!important;
+    min-height:92px;
+  }
+  .playerHeadlineMatchup .matchupSide{
+    display:flex!important;
+    flex-direction:column;
+    gap:2px;
+    min-width:0;
+  }
+  .playerHeadlineMatchup .matchupSide.left{align-items:flex-start;text-align:left}
+  .playerHeadlineMatchup .matchupSide.right{align-items:flex-end;text-align:right}
+  .playerHeadlineMatchup .matchupSide b{
+    width:100%;
+    min-height:34px;
+    font:700 17px/1 Georgia,serif;
+    letter-spacing:-.4px;
+  }
+  .playerHeadlineMatchup .matchupSide strong{font:900 27px/.95 Arial,sans-serif}
+  .playerHeadlineMatchup .matchupSide em{
+    font:800 7px Arial,sans-serif;
+    letter-spacing:.4px;
+    color:var(--muted);
+    font-style:normal;
+    white-space:nowrap;
+  }
+  .playerHeadlineMatchup .matchupEditorial>i{
+    margin-top:30px;
+    text-align:center;
+    color:var(--red);
+    font:900 20px/1 Georgia,serif;
+    font-style:normal;
+  }
+  .playerHeadlineMatchup .matchupPortraits{
+    position:absolute;
+    left:0;
+    right:0;
+    top:112px;
+    bottom:36px;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:1;
+  }
+  .playerHeadlineMatchup .matchupPortraits img{
+    position:absolute;
+    bottom:0;
+    width:40%;
+    height:100px;
+    object-fit:contain;
+    object-position:center bottom;
+    filter:grayscale(1) contrast(1.08);
+    opacity:.9;
+  }
+  .playerHeadlineMatchup .matchupPortraits .leftPlayer{left:1%}
+  .playerHeadlineMatchup .matchupPortraits .rightPlayer{right:1%;transform:scaleX(-1)}
+  .playerHeadlineMatchup .matchupPlayers{display:none}
+  .playerHeadlineMatchup .matchupOpen{
+    position:absolute!important;
+    left:14px;
+    right:14px;
+    bottom:0;
+    min-height:36px;
+    z-index:4;
+    display:flex!important;
+    align-items:center;
+    justify-content:center;
+    padding:0!important;
+    border-top:1px solid rgba(17,16,14,.14);
+    background:var(--paper);
+    text-align:center;
+  }
+}
