@@ -35,7 +35,7 @@ export default function Home(){return <><header><div className="utility"><span c
 </section>
 <section className="hero heroStack" aria-label="Featured Conrad Sorrell column">
   <Link className="hero-copy storylink" href="/articles/conrad-caleb-williams-survived">
-    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.10)),url('/images/conrad/caleb-williams-survived.jpg')",backgroundPosition:"center 36%"}}>
+    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.10)),url('/api/caleb-williams-image')",backgroundPosition:"center 36%"}}>
       <div><small>CONRAD SORRELL • OPINION & POWER</small><b>THE DRAMATIC INJURY INDEX</b></div>
     </div>
     <div className="eyebrow">COLUMN • POWER & AMERICAN ARRANGEMENTS</div>
