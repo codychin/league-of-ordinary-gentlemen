@@ -47,9 +47,9 @@ html.standaloneApp[data-app-tab='culture'] #culture.affairs .cultureGrid a.card 
 
 
 /* Sabine portrait crop: keep face/head fully in frame on Culture and article surfaces. */
-.sabineCulturePhoto{background-position:center 10%!important}
-.sabineArticleImage{object-position:center 10%!important}
+.sabineCulturePhoto{background-position:center top!important}
+.sabineArticleImage{object-position:center top!important}
 @media(max-width:760px){
-  .sabineCulturePhoto{background-position:center 8%!important}
-  .sabineArticleImage{object-position:center 8%!important}
+  .sabineCulturePhoto{background-position:center top!important}
+  .sabineArticleImage{object-position:center top!important}
 }
