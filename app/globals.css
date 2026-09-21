@@ -120,3 +120,6 @@
 .deskLoadMore button:hover{background:var(--red);border-color:var(--red)}
 .deskLoadMore span{font:800 8px Arial,sans-serif;letter-spacing:1.2px;color:var(--muted)}
 @media(max-width:760px){.deskLoadMore{padding-top:18px}.deskLoadMore button{min-width:132px}}
+
+.articleImageInline{height:min(52vw,520px);min-height:260px;background-size:cover;background-position:center;display:block}
+@media(max-width:760px){.articleImageInline{height:56vw;min-height:220px}}
