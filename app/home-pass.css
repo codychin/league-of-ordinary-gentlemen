@@ -226,3 +226,40 @@
  .sundayStoryCarousel .sideImage{height:150px!important}
  .sundayStoryCarousel .sundaySideStory p{display:block!important}
 }
+
+
+/* Monday header hardening: keep the edition band readable at every width */
+.morningBriefFlag{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:16px;
+  align-items:center;
+  min-width:0;
+}
+.morningBriefFlag span{
+  min-width:0;
+  white-space:normal;
+  overflow:visible;
+  line-height:1.25;
+}
+.morningBriefFlag small{
+  white-space:nowrap;
+  max-width:none;
+}
+@media(max-width:760px){
+  .morningBriefFlag{
+    grid-template-columns:minmax(0,1fr) auto;
+    gap:8px;
+    align-items:center;
+    padding:8px 0;
+  }
+  .morningBriefFlag span{
+    font-size:7.5px;
+    letter-spacing:1.2px;
+  }
+  .morningBriefFlag small{
+    font-size:6.5px;
+    line-height:1.2;
+    text-align:right;
+  }
+}
