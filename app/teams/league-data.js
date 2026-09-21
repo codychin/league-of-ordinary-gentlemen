@@ -1,5 +1,5 @@
 export const leagueSnapshot = {
-  "updatedAt": "SEPTEMBER 20, 2026 • 9:18 PM ET",
+  "updatedAt": "SEPTEMBER 20, 2026 • 11:18 PM ET",
   "week": 2,
   "teams": {
     "kupp-doubs": {
@@ -269,10 +269,10 @@ export const leagueSnapshot = {
       "matchup": {
         "opponent": "CeeDeep Shaheeded Rivalry",
         "opponentSlug": "ceedeep",
-        "score": 118.88,
-        "opponentScore": 170.72,
-        "projection": "151.7",
-        "opponentProjection": "169.5"
+        "score": 122.78,
+        "opponentScore": 162.22,
+        "projection": "147.9",
+        "opponentProjection": "162.2"
       },
       "roster": [
         {
@@ -786,10 +786,10 @@ export const leagueSnapshot = {
       "matchup": {
         "opponent": "Shake 'N Baker",
         "opponentSlug": "shake-baker",
-        "score": 86.25,
-        "opponentScore": 119.69,
-        "projection": "122.1",
-        "opponentProjection": "126.8"
+        "score": 95.45,
+        "opponentScore": 131.69,
+        "projection": "115.0",
+        "opponentProjection": "131.7"
       },
       "roster": [
         {
@@ -1558,9 +1558,9 @@ export const leagueSnapshot = {
       "matchup": {
         "opponent": "Royrek Tishmeshulam",
         "opponentSlug": "royrek",
-        "score": 82.1,
+        "score": 123.9,
         "opponentScore": 63.7,
-        "projection": "129.8",
+        "projection": "143.8",
         "opponentProjection": "79.7"
       },
       "roster": [
@@ -1808,10 +1808,10 @@ export const leagueSnapshot = {
       "matchup": {
         "opponent": "The Route 22 Clubhouse",
         "opponentSlug": "route-22",
-        "score": 119.69,
-        "opponentScore": 86.25,
-        "projection": "126.8",
-        "opponentProjection": "122.1"
+        "score": 131.69,
+        "opponentScore": 95.45,
+        "projection": "131.7",
+        "opponentProjection": "115.0"
       },
       "roster": [
         {
@@ -2299,9 +2299,9 @@ export const leagueSnapshot = {
         "opponent": "Mr Hopkins Opus",
         "opponentSlug": "hopkins-opus",
         "score": 63.7,
-        "opponentScore": 82.1,
+        "opponentScore": 123.9,
         "projection": "79.7",
-        "opponentProjection": "129.8"
+        "opponentProjection": "143.8"
       },
       "roster": [
         {
@@ -2799,10 +2799,10 @@ export const leagueSnapshot = {
       "matchup": {
         "opponent": "DarkHorse Danir",
         "opponentSlug": "danir",
-        "score": 170.72,
-        "opponentScore": 118.88,
-        "projection": "169.5",
-        "opponentProjection": "151.7"
+        "score": 162.22,
+        "opponentScore": 122.78,
+        "projection": "162.2",
+        "opponentProjection": "147.9"
       },
       "roster": [
         {
