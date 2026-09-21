@@ -415,3 +415,52 @@
     min-height:560px;
   }
 }
+
+
+/* Desktop Monday front: full-width lead with three-story rail beneath */
+@media(min-width:761px){
+  .morningBriefPreview.sundayFront .sundayFrontGrid{
+    display:block;
+  }
+  .morningBriefPreview.sundayFront .sundayFeature{
+    display:grid;
+    grid-template-columns:minmax(0,1.15fr) minmax(360px,.85fr);
+    align-items:stretch;
+    border-right:0;
+    border-bottom:1px solid var(--ink);
+  }
+  .morningBriefPreview.sundayFront .sundayFeatureImage{
+    height:520px;
+    min-height:520px;
+  }
+  .morningBriefPreview.sundayFront .sundayFeatureCopy{
+    min-height:520px;
+    justify-content:center;
+    padding:34px 34px 34px 38px;
+  }
+  .morningBriefPreview.sundayFront .sundaySide{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    grid-template-rows:none;
+    border-top:0;
+  }
+  .morningBriefPreview.sundayFront .sundaySideStory{
+    padding:22px 22px 24px;
+    border-bottom:0;
+    border-right:1px solid var(--line);
+  }
+  .morningBriefPreview.sundayFront .sundaySideStory:first-child{
+    padding-left:0;
+  }
+  .morningBriefPreview.sundayFront .sundaySideStory:last-child{
+    padding-right:0;
+    border-right:0;
+  }
+  .morningBriefPreview.sundayFront .sideImage{
+    height:170px;
+  }
+  .morningBriefPreview.sundayFront .sundaySideStory h3{
+    font-size:24px;
+    line-height:1.02;
+  }
+}
