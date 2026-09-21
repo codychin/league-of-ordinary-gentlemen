@@ -306,3 +306,94 @@
     min-height:245px!important;
   }
 }
+
+
+/* Restrained homepage story-image overlays */
+.photoHero>div{
+  display:flex!important;
+  flex-direction:column;
+  align-items:flex-start!important;
+  justify-content:flex-end;
+  gap:4px!important;
+  width:auto!important;
+  max-width:min(72%,520px);
+  padding:9px 11px;
+  background:rgba(17,16,14,.72);
+  backdrop-filter:blur(2px);
+}
+.photoHero small,
+.photoHero b,
+.actionCaption small,
+.actionCaption b,
+.sideImage small,
+.sideImage b{
+  color:#fff;
+  font-family:Arial,sans-serif;
+  text-transform:uppercase;
+}
+.photoHero small,
+.actionCaption small,
+.sideImage small{
+  display:block;
+  font-size:7px!important;
+  line-height:1.2;
+  font-weight:900;
+  letter-spacing:1.25px!important;
+  opacity:.82;
+}
+.photoHero b,
+.actionCaption b,
+.sideImage b{
+  display:block;
+  font-size:11px!important;
+  line-height:1.12;
+  font-weight:900!important;
+  letter-spacing:1.05px!important;
+  margin:0!important;
+}
+.photoHero strong,
+.photoHero>div>span{
+  display:none!important;
+}
+.actionCaption{
+  display:flex!important;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:4px;
+  left:12px!important;
+  right:auto!important;
+  bottom:12px!important;
+  padding:8px 10px!important;
+  background:rgba(17,16,14,.72)!important;
+  max-width:72%;
+}
+.sideImage small{
+  position:absolute;
+  z-index:3;
+  left:8px;
+  bottom:30px;
+  padding:0;
+  background:transparent;
+}
+.sideImage b{
+  position:absolute;
+  z-index:3;
+  left:8px;
+  bottom:8px;
+  padding:0!important;
+  background:transparent!important;
+}
+.sideImage:after{
+  content:'';
+  position:absolute;
+  inset:50% 0 0;
+  background:linear-gradient(transparent,rgba(0,0,0,.72));
+  pointer-events:none;
+}
+.sideImage small,.sideImage b{position:absolute;z-index:4}
+@media(max-width:760px){
+  .photoHero>div{max-width:82%;padding:8px 9px}
+  .photoHero b,.actionCaption b,.sideImage b{font-size:10px!important}
+  .photoHero small,.actionCaption small,.sideImage small{font-size:6.5px!important}
+  .actionCaption{max-width:82%}
+}
