@@ -21,6 +21,18 @@ export default function Home(){return <><header><div className="utility"><span c
     </div>
   </div>
 </section>
+<section className="hero heroStack" aria-label="Featured culture column">
+  <Link className="hero-copy storylink" href="/articles/marnie-manifest-destiny-wembley">
+    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.52),rgba(0,0,0,.06)),url('https://i.guim.co.uk/img/media/207bbaba9e6c039a17a05147f2ecc136c6a2a859/0_0_5605_3819/master/5605.jpg?crop=none&dpr=1&s=none&width=1200')",backgroundPosition:"center 42%"}}>
+      <div><small>MARNIE KELLS • CULTURE</small><b>UNION JACK CLASSIC</b><strong>15K</strong><span>AMERICANS ARRIVED</span></div>
+    </div>
+    <div className="eyebrow">MATTERS OF CULTURE • AMERICAN EXPORTS</div>
+    <h2>Manifest Destiny Has Reached <em>the Jubilee Line.</em></h2>
+    <PreviewAuthor slug="marnie-manifest-destiny-wembley"/>
+    <p className="standfirst">America sent 15,000 fans, marching bands, cheerleaders, an electric-guitar anthem and a fake Britain to Britain. Wembley never had a chance.</p>
+    <div className="read">READ MARNIE KELLS →</div>
+  </Link>
+</section>
 <section className="hero heroStack hollisSecondScoreboardFeature" aria-label="Featured investigation">
   <Link className="hero-copy storylink" href="/articles/hollis-one-second">
     <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.50),rgba(0,0,0,.08)),url('/api/hollis-one-second-image')",backgroundPosition:"center center"}}>
