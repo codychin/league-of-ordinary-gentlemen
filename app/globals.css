@@ -222,3 +222,6 @@
     text-align:center;
   }
 }
+
+.articleBody .articleSectionHead{font:900 11px Arial,sans-serif;letter-spacing:2.1px;color:var(--red);margin:42px 0 14px;padding-top:18px;border-top:1px solid var(--line)}
+.articleBreather{height:42px}
