@@ -44,3 +44,12 @@ html.standaloneApp[data-app-tab='culture'] #culture.affairs .cultureGrid a.card 
     -webkit-text-fill-color:#a52a22!important;
   }
 }
+
+
+/* Sabine portrait crop: keep face/head fully in frame on Culture and article surfaces. */
+.sabineCulturePhoto{background-position:center 10%!important}
+.sabineArticleImage{object-position:center 10%!important}
+@media(max-width:760px){
+  .sabineCulturePhoto{background-position:center 8%!important}
+  .sabineArticleImage{object-position:center 8%!important}
+}
