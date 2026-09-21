@@ -1,4 +1,4 @@
-const SOURCE='https://static.www.nfl.com/image/private/t_editorial_landscape_12_desktop/league/oiwkpvy5tqpzqrbpw9qk'
+const SOURCE='https://commons.wikimedia.org/wiki/Special:Redirect/file/NFL%20on%20Regent%20Street%2C%20London%2C%20cropped.jpg'
 
 export const runtime='nodejs'
 export const dynamic='force-dynamic'
