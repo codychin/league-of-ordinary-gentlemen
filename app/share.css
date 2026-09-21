@@ -1,11 +1,18 @@
-.articleShareRow{display:flex;align-items:center;gap:10px;margin:16px 0 4px}
-.articleShare{appearance:none;border:1px solid var(--ink);background:transparent;color:var(--ink);padding:9px 12px;font:900 9px/1 Arial,sans-serif;letter-spacing:1.35px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:background .15s ease,color .15s ease}
+.articleShareRow{display:flex;align-items:center;gap:10px;margin:16px 0 4px;min-height:36px}
+.articleShare{appearance:none;-webkit-appearance:none;border:1px solid var(--ink);background:var(--paper);color:var(--ink);padding:0;min-height:36px;cursor:pointer;display:inline-flex;align-items:stretch;font:900 9px/1 Arial,sans-serif;letter-spacing:1.35px;transition:background .15s ease,color .15s ease,border-color .15s ease;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+.articleShareMark{width:36px;display:grid;place-items:center;border-right:1px solid var(--ink);flex:0 0 36px}
+.articleShareIcon{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:square;stroke-linejoin:miter;display:block}
+.articleShareLabel{display:flex;align-items:center;padding:0 12px;opacity:1;visibility:visible;color:inherit;line-height:1;min-width:max-content}
 .articleShare:hover,.articleShare:focus-visible{background:var(--ink);color:var(--paper);outline:none}
-.articleShare span{font-size:15px;line-height:.7}
-.articleShareStatus{font:800 8px/1 Arial,sans-serif;letter-spacing:1.2px;color:var(--red)}
+.articleShare:hover .articleShareMark,.articleShare:focus-visible .articleShareMark{border-right-color:var(--paper)}
+.articleShare:active{transform:translateY(1px)}
+.articleShare[aria-busy="true"] .articleShareLabel{opacity:1;visibility:visible}
+.articleShareStatus{display:inline-block;min-width:78px;font:800 8px/1 Arial,sans-serif;letter-spacing:1.2px;color:var(--red)}
 @media(max-width:760px){
-  .articleShareRow{margin-top:14px}
-  .articleShare{min-height:38px;padding:10px 13px}
+  .articleShareRow{margin-top:14px;min-height:40px}
+  .articleShare{min-height:40px}
+  .articleShareMark{width:40px;flex-basis:40px}
+  .articleShareLabel{padding:0 13px}
 }
-html.standaloneApp .articleShare{border-radius:999px;padding:10px 14px;background:rgba(255,255,255,.35)}
-html.standaloneApp .articleShare:active{transform:scale(.98)}
+html.standaloneApp .articleShare{border-radius:0;background:rgba(255,255,255,.32)}
+html.standaloneApp .articleShare:hover,html.standaloneApp .articleShare:focus-visible{background:var(--ink);color:var(--paper)}
