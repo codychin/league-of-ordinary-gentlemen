@@ -62,6 +62,7 @@ export const writers={
 }
 
 export const articleWriters={
+  'dashiell-favorite-team-asset-class':'pike',
   'maude-route-22-trade-review':'gannon',
   'conrad-york-wrong-160':'sorrell',
   'conrad-caleb-williams-survived':'sorrell',
