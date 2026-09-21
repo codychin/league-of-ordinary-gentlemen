@@ -62,6 +62,7 @@ export const writers={
 }
 
 export const articleWriters={
+  'sabine-chest-speculation-statement':'march',
   'hollis-body-keeps-score':'crane',
   'maude-jayden-daniels-elbow':'gannon',
   'sabine-all-ugly-lloyd':'march',
