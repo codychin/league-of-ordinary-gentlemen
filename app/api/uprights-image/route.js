@@ -1,4 +1,4 @@
-const SOURCE='https://static.clubs.nfl.com/image/private/t_editorial_landscape_12_desktop/patriots/nqhne57rv5nnboinmypz'
+const SOURCE='https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/f_auto/patriots/nqhne57rv5nnboinmypz.jpg'
 
 export const runtime='nodejs'
 export const dynamic='force-dynamic'
