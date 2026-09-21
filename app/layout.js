@@ -10,6 +10,7 @@ import './matchups.css'
 import './pwa.css'
 import './staff.css'
 import './culture-fixes.css'
+import './share.css'
 import PwaShell from './components/PwaShell'
 
 export const metadata={
