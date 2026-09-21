@@ -62,6 +62,7 @@ export const writers={
 }
 
 export const articleWriters={
+  'maude-jayden-daniels-elbow':'gannon',
   'sabine-all-ugly-lloyd':'march',
   'conrad-danir-ceedeep-hole':'sorrell',
   'conrad-kupp-kraft-keenan':'sorrell',
