@@ -23,7 +23,7 @@ export default function Home(){return <><header><div className="utility"><span c
 </section>
 <section className="hero heroStack" aria-label="Featured Conrad Sorrell column">
   <Link className="hero-copy storylink" href="/articles/conrad-york-wrong-160">
-    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.10)),url('https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/49ers/kxhb6nxq8q5lhj7xoaso.jpg')",backgroundPosition:"center 34%"}}>
+    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.10)),url('/api/jed-york-image')",backgroundPosition:"center 34%"}}>
       <div><small>CONRAD SORRELL • OPINION & POWER</small><b>THE CONDUCT POLICY</b><strong>$160</strong><span>PERSONAL SCANDAL / $9.8M INSTITUTIONAL POWER</span></div>
     </div>
     <div className="eyebrow">COLUMN • POWER & AMERICAN ARRANGEMENTS</div>
