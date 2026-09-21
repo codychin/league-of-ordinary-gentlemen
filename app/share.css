@@ -1,0 +1,11 @@
+.articleShareRow{display:flex;align-items:center;gap:10px;margin:16px 0 4px}
+.articleShare{appearance:none;border:1px solid var(--ink);background:transparent;color:var(--ink);padding:9px 12px;font:900 9px/1 Arial,sans-serif;letter-spacing:1.35px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:background .15s ease,color .15s ease}
+.articleShare:hover,.articleShare:focus-visible{background:var(--ink);color:var(--paper);outline:none}
+.articleShare span{font-size:15px;line-height:.7}
+.articleShareStatus{font:800 8px/1 Arial,sans-serif;letter-spacing:1.2px;color:var(--red)}
+@media(max-width:760px){
+  .articleShareRow{margin-top:14px}
+  .articleShare{min-height:38px;padding:10px 13px}
+}
+html.standaloneApp .articleShare{border-radius:999px;padding:10px 14px;background:rgba(255,255,255,.35)}
+html.standaloneApp .articleShare:active{transform:scale(.98)}
