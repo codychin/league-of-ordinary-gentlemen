@@ -89,6 +89,7 @@ export const articleWriters={
   'marnie-colorado-content-football':'kells',
   'marnie-cruise-swift-football':'kells',
   'marnie-tilly-cantonese':'kells',
+  'marnie-manifest-destiny-wembley':'kells',
   'hollis-uprights-reality':'crane',
 }
 
