@@ -397,3 +397,21 @@
   .photoHero small,.actionCaption small,.sideImage small{font-size:6.5px!important}
   .actionCaption{max-width:82%}
 }
+
+
+/* Desktop Monday lead: prevent supporting-story row height from stretching hero art/copy */
+@media(min-width:761px){
+  .morningBriefPreview.sundayFront .sundayFeature{
+    align-items:start;
+  }
+  .morningBriefPreview.sundayFront .sundayFeatureImage{
+    height:560px;
+    min-height:560px;
+    align-self:start;
+  }
+  .morningBriefPreview.sundayFront .sundayFeatureCopy{
+    justify-content:flex-start;
+    align-self:start;
+    min-height:560px;
+  }
+}
