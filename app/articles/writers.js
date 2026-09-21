@@ -64,6 +64,7 @@ export const writers={
 export const articleWriters={
   'maude-route-22-trade-review':'gannon',
   'conrad-york-wrong-160':'sorrell',
+  'conrad-caleb-williams-survived':'sorrell',
   'maude-monday-night-survival-board':'gannon',
   'sabine-chest-statement':'march',
   'hollis-body-keeps-score':'crane',
