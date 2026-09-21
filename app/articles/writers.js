@@ -62,6 +62,7 @@ export const writers={
 }
 
 export const articleWriters={
+  'conrad-york-wrong-160':'sorrell',
   'maude-monday-night-survival-board':'gannon',
   'sabine-chest-statement':'march',
   'hollis-body-keeps-score':'crane',
