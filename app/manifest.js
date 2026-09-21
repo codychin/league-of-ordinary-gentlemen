@@ -9,6 +9,7 @@ export default function manifest() {
     start_url: '/',
     scope: '/',
     display: 'standalone',
+    launch_handler: { client_mode: 'navigate-existing' },
     orientation: 'portrait-primary',
     background_color: '#f3efe5',
     theme_color: '#11100e',
