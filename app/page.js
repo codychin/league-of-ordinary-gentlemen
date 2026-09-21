@@ -21,6 +21,18 @@ export default function Home(){return <><header><div className="utility"><span c
     </div>
   </div>
 </section>
+<section className="hero heroStack" aria-label="Maude Gannon trade review">
+  <Link className="hero-copy storylink" href="/articles/maude-route-22-trade-review">
+    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.18),rgba(0,0,0,.02)),url('/images/editorial/route22-trade-review.png')",backgroundPosition:"center center"}}>
+      <div><small>MAUDE GANNON • FOOTBALL</small><b>TRADE REVIEW</b></div>
+    </div>
+    <div className="eyebrow">FOOTBALL DESK • TRADE REVIEW</div>
+    <h2>Route 22 Bought Brock Bowers. <em>Shake ’N Baker Bought 44.7 Points.</em></h2>
+    <PreviewAuthor slug="maude-route-22-trade-review"/>
+    <p className="standfirst">Gerstone says the trade already looks bad. The scoreboard agrees rather aggressively. The process requires a little more patience.</p>
+    <div className="read">READ MAUDE GANNON →</div>
+  </Link>
+</section>
 <section className="hero heroStack" aria-label="Featured Conrad Sorrell column">
   <Link className="hero-copy storylink" href="/articles/conrad-york-wrong-160">
     <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.10)),url('/api/jed-york-image')",backgroundPosition:"center 34%"}}>
