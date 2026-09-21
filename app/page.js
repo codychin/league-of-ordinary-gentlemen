@@ -21,6 +21,18 @@ export default function Home(){return <><header><div className="utility"><span c
     </div>
   </div>
 </section>
+<section className="hero heroStack" aria-label="Featured Conrad Sorrell column">
+  <Link className="hero-copy storylink" href="/articles/conrad-york-wrong-160">
+    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.10)),url('https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/49ers/kxhb6nxq8q5lhj7xoaso.jpg')",backgroundPosition:"center 34%"}}>
+      <div><small>CONRAD SORRELL • OPINION & POWER</small><b>THE CONDUCT POLICY</b><strong>$160</strong><span>PERSONAL SCANDAL / $9.8M INSTITUTIONAL POWER</span></div>
+    </div>
+    <div className="eyebrow">COLUMN • POWER & AMERICAN ARRANGEMENTS</div>
+    <h2>The NFL Is About to Punish Jed York <em>for the Wrong $160.</em></h2>
+    <PreviewAuthor slug="conrad-york-wrong-160"/>
+    <p className="standfirst">The 49ers owner may face discipline over an Ohio prostitution sting. The nearly $10 million his organization has poured into elections around its publicly owned stadium tells us considerably more about how power actually works.</p>
+    <div className="read">READ CONRAD SORRELL →</div>
+  </Link>
+</section>
 <section className="hero heroStack" aria-label="Featured culture column">
   <Link className="hero-copy storylink" href="/articles/marnie-manifest-destiny-wembley">
     <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.52),rgba(0,0,0,.06)),url('https://i.guim.co.uk/img/media/207bbaba9e6c039a17a05147f2ecc136c6a2a859/0_0_5605_3819/master/5605.jpg?crop=none&dpr=1&s=none&width=1200')",backgroundPosition:"center 42%"}}>
