@@ -62,6 +62,7 @@ export const writers={
 }
 
 export const articleWriters={
+  'maude-monday-night-survival-board':'gannon',
   'sabine-chest-statement':'march',
   'hollis-body-keeps-score':'crane',
   'maude-jayden-daniels-elbow':'gannon',
