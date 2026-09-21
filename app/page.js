@@ -34,14 +34,14 @@ export default function Home(){return <><header><div className="utility"><span c
   </Link>
 </section>
 <section className="hero heroStack" aria-label="Featured Conrad Sorrell column">
-  <Link className="hero-copy storylink" href="/articles/conrad-york-wrong-160">
-    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.10)),url('/api/jed-york-image')",backgroundPosition:"center 34%"}}>
-      <div><small>CONRAD SORRELL • OPINION & POWER</small><b>THE CONDUCT POLICY</b></div>
+  <Link className="hero-copy storylink" href="/articles/conrad-caleb-williams-survived">
+    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.10)),url('/images/conrad/caleb-williams-survived.jpg')",backgroundPosition:"center 36%"}}>
+      <div><small>CONRAD SORRELL • OPINION & POWER</small><b>THE DRAMATIC INJURY INDEX</b></div>
     </div>
     <div className="eyebrow">COLUMN • POWER & AMERICAN ARRANGEMENTS</div>
-    <h2>The NFL Is About to Punish Jed York <em>for the Wrong $160.</em></h2>
-    <PreviewAuthor slug="conrad-york-wrong-160"/>
-    <p className="standfirst">The 49ers owner may face discipline over an Ohio prostitution sting. The nearly $10 million his organization has poured into elections around its publicly owned stadium tells us considerably more about how power actually works.</p>
+    <h2>Caleb Williams <em>Survived.</em></h2>
+    <PreviewAuthor slug="conrad-caleb-williams-survived"/>
+    <p className="standfirst">Chicago’s quarterback left Soldier Field like a wounded general. By Monday, the Bears had not even ruled him out for next week.</p>
     <div className="read">READ CONRAD SORRELL →</div>
   </Link>
 </section>
