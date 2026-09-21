@@ -16,3 +16,20 @@
 }
 html.standaloneApp .articleShare{border-radius:0;background:rgba(255,255,255,.32)}
 html.standaloneApp .articleShare:hover,html.standaloneApp .articleShare:focus-visible{background:var(--ink);color:var(--paper)}
+
+.articleBylineShare{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:24px}
+.articleBylineShare .byline{margin-top:0;flex:1;min-width:0}
+.articleBylineShare .articleShareRow{margin:0;flex:0 0 auto}
+.articleBylineShare .articleShareStatus{position:absolute;right:0;top:calc(100% + 6px);text-align:right}
+.articleBylineShare .articleShareRow{position:relative}
+@media(max-width:760px){
+  .articleBylineShare{gap:8px;margin-top:18px}
+  .articleBylineShare .byline{flex-wrap:nowrap;gap:8px}
+  .articleBylineShare .byline time{display:none}
+  .articleBylineShare .bylineWriter img{width:36px;height:36px}
+  .articleBylineShare .bylineWriter strong{font-size:12px}
+  .articleBylineShare .bylineWriter em{font-size:7px;max-width:150px}
+  .articleBylineShare .articleShareLabel{padding:0 10px}
+  .articleBylineShare .articleShareMark{width:36px;flex-basis:36px}
+  .articleBylineShare .articleShare{min-height:36px}
+}
