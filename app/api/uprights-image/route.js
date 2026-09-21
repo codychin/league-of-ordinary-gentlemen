@@ -1,4 +1,4 @@
-const SOURCE='https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/f_auto/patriots/nqhne57rv5nnboinmypz.jpg'
+const SOURCE='https://s.yimg.com/ny/api/res/1.2/03JJNvZ3csQhU0MktFNg1w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTY2MjtjZj13ZWJw/https%3A/media.zenfs.com/en/new_england_patriots_wire_usa_today_sports_articles_330/f2034ddb14412bf1943591586d544711'
 
 export const runtime='nodejs'
 export const dynamic='force-dynamic'
