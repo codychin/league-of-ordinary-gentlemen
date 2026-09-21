@@ -96,3 +96,4 @@ export const articleWriters={
 }
 
 export const writerFor=slug=>writers[articleWriters[slug]]||writers.crane
+
