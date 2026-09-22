@@ -1,4 +1,11 @@
 export const writers={
+  newsroom:{
+    slug:'newsroom',name:'The Brief Newsroom',title:'Editorial Desk',
+    image:'/images/staff/maude-gannon.webp',imageAlt:'The Brief newsroom',
+    bio:'Fallback editorial byline used only when a story has not yet been assigned to a staff writer.',
+    method:'Flags attribution gaps instead of silently crediting the wrong writer.',
+    voice:'Neutral newsroom copy.',signature:'No false bylines.',tendency:'Should almost never appear.',sample:'“Writer assignment pending.”',
+  },
   march:{
     slug:'sabine-march',name:'Sabine March',title:'International & Public Life',
     image:'/images/staff/sabine-march.webp',imageAlt:'Sabine March, international and public life correspondent',
@@ -104,6 +111,6 @@ export const writerFor=slug=>{
   const prefix=String(slug||'').split('-')[0]
   const inferred=prefixWriters[prefix]
   if(inferred&&writers[inferred]) return writers[inferred]
-  throw new Error(`No writer mapping for article slug: ${slug}`)
+  return writers.newsroom
 }
 
