@@ -58,20 +58,32 @@ export default function Home(){return <><header><div className="utility"><span c
     <div className="read">READ MARNIE KELLS →</div>
   </Link>
 </section>
-<section className="hero heroStack hollisSecondScoreboardFeature" aria-label="Featured investigation">
-  <Link className="hero-copy storylink" href="/articles/hollis-one-second">
-    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.50),rgba(0,0,0,.08)),url('/api/hollis-one-second-image')",backgroundPosition:"center center"}}>
-      <div><small>HOLLIS CRANE • INVESTIGATIONS</small><b>THE SECOND SCOREBOARD</b></div>
-    </div>
-    <div className="eyebrow">INVESTIGATIONS • THE SECOND SCOREBOARD</div>
-    <h2>The Most Important Second <em>That Didn’t Matter.</em></h2>
+<section className="grid3" id="league">
+  <Link href="/articles/stone-unc-denial" className="card storylink">
+    <div className="photoStrip uncPhoto"><span>CHAPEL HILL / INDEPENDENT REVIEW</span></div>
+    <div className="tag">INSTITUTIONAL CRISIS</div>
+    <h3>Stone Denies UNC Scandal Ties Despite Triple Legacy; Choe Admits “Limited Advisory Role”</h3>
+    <PreviewAuthor slug="stone-unc-denial"/>
+    <p>UNC closed its football investigation. Stone produced a suspiciously complete denial. Choe has declined to deny exactly enough.</p>
+    <div className="read">REVIEW THE FINDINGS →</div>
+  </Link>
+  <Link href="/articles/hollis-one-second" className="card storylink">
+    <div className="photoStrip" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.35),rgba(0,0,0,.04)),url('/api/hollis-one-second-image')",backgroundPosition:"center center"}}><span>HOLLIS CRANE / THE SECOND SCOREBOARD</span></div>
+    <div className="tag">INVESTIGATIONS</div>
+    <h3>The Most Important Second That Didn’t Matter</h3>
     <PreviewAuthor slug="hollis-one-second"/>
-    <p className="standfirst">The game was over. Replay recovered one second. Vanderbilt still won. The point after changed who got paid.</p>
+    <p>The game was over. Replay recovered one second. Vanderbilt still won. The point after changed who got paid.</p>
     <div className="read">READ THE INVESTIGATION →</div>
   </Link>
+  <Link href="/articles/sabine-chest-statement" className="card storylink">
+    <div className="photoStrip" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.35),rgba(0,0,0,.04)),url('/api/sabine-march.jpg')",backgroundPosition:"center 20%"}}><span>SABINE MARCH / PUBLIC LIFE</span></div>
+    <div className="tag">A BRIEF STATEMENT</div>
+    <h3>A Brief Statement Regarding Ongoing Chest Speculation</h3>
+    <PreviewAuthor slug="sabine-chest-statement"/>
+    <p>Sabine declines to provide measurements, commission an independent review, or deny the central allegation.</p>
+    <div className="read">READ THE STATEMENT →</div>
+  </Link>
 </section>
-<section className="hero heroStack" id="league"><Link className="hero-copy storylink" href="/articles/sabine-chest-statement"><div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.38),rgba(0,0,0,.06)),url('/api/sabine-march.jpg')",backgroundPosition:"center 20%"}}><div><small>SABINE MARCH • PUBLIC LIFE</small><b>A BRIEF STATEMENT</b></div></div><div className="eyebrow">MATTERS OF CULTURE • PUBLIC LIFE</div><h2>A Brief Statement Regarding <em>Ongoing Chest Speculation.</em></h2><PreviewAuthor slug="sabine-chest-statement"/><p className="standfirst">Sabine declines to provide measurements, commission an independent review, or deny the central allegation.</p><div className="read">READ THE STATEMENT →</div></Link></section>
-<section className="grid3"><Link href="/articles/stone-unc-denial" className="card storylink"><div className="photoStrip uncPhoto"><span>CHAPEL HILL / INDEPENDENT REVIEW</span></div><div className="tag">INSTITUTIONAL CRISIS</div><h3>Stone Denies UNC Scandal Ties Despite Triple Legacy; Choe Admits “Limited Advisory Role”</h3><PreviewAuthor slug="stone-unc-denial"/><p>UNC closed its football investigation. Stone produced a suspiciously complete denial. Choe has declined to deny exactly enough.</p><div className="read">REVIEW THE FINDINGS →</div></Link><Link href="/articles/danir-emergency-jobs-program" className="card storylink"><div className="photoStrip danirJobsPhoto"><span>DARKHORSE DANIR / WORKFORCE DEVELOPMENT</span></div><div className="tag">TRANSACTIONS & LABOR</div><h3>DarkHorse Danir Announces Emergency Jobs Program for Underemployed Wide Receivers</h3><PreviewAuthor slug="danir-emergency-jobs-program"/><p>Nailor. Saylors. Washington. Wicks. White. One failed Vele claim. September employment remains strong.</p><div className="read">VISIT THE EMPLOYMENT OFFICE →</div></Link><Link href="/articles/danir-bench-crime" className="card storylink"><div className="photoStrip purdyPhoto"><span>PURDY + MONANGAI / 52.0 BENCH POINTS</span></div><div className="tag">LINEUP CRIMES UNIT</div><h3>Danir Left a Functional Quarterback and 29.4-Point Running Back on the Bench</h3><PreviewAuthor slug="danir-bench-crime"/><p>Bo Nix scored 4.74. Brock Purdy scored 22.6. Kyle Monangai scored 29.4. The prosecution would like to rest.</p><div className="read">REVIEW THE CRIME SCENE →</div></Link></section>
 <section className="section autopsySection">
   <div className="autopsyHeader">
     <div><small>THE NEWSROOM • WEEK 2 POSTMORTEM</small><h2>Week 2 Autopsy</h2></div>
