@@ -27,7 +27,7 @@ export const leagueSnapshot = {
           "slot": "RB",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 15.8,
+          "seasonPoints": 40.4,
           "starts": 2
         },
         {
@@ -49,7 +49,7 @@ export const leagueSnapshot = {
           "slot": "RB",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 24.4,
+          "seasonPoints": 34.6,
           "starts": 2
         },
         {
@@ -82,7 +82,7 @@ export const leagueSnapshot = {
           "slot": "FLEX",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 12.3,
+          "seasonPoints": 22.1,
           "starts": 2
         },
         {
@@ -104,7 +104,7 @@ export const leagueSnapshot = {
           "slot": "QB",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 12.76,
+          "seasonPoints": 20.44,
           "starts": 2
         },
         {
@@ -115,7 +115,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 3.5,
+          "seasonPoints": 7,
           "starts": 0
         },
         {
@@ -126,7 +126,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 0,
+          "seasonPoints": 18.5,
           "starts": 1
         },
         {
@@ -137,7 +137,7 @@ export const leagueSnapshot = {
           "slot": "WR",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 37.8,
+          "seasonPoints": 55.4,
           "starts": 1
         },
         {
@@ -148,7 +148,7 @@ export const leagueSnapshot = {
           "slot": "TE",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 28.8,
+          "seasonPoints": 36.1,
           "starts": 2
         },
         {
@@ -159,7 +159,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 13.4,
+          "seasonPoints": 25,
           "starts": 0
         },
         {
@@ -181,7 +181,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 0,
+          "seasonPoints": 12.4,
           "starts": 0
         },
         {
@@ -192,7 +192,7 @@ export const leagueSnapshot = {
           "slot": "D/ST",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 0,
+          "seasonPoints": 12,
           "starts": 1
         },
         {
@@ -203,7 +203,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 0,
+          "seasonPoints": 0.5,
           "starts": 0
         }
       ],
@@ -222,18 +222,18 @@ export const leagueSnapshot = {
       "season": {
         "completedGames": 2,
         "ppg": 121.82,
-        "pfRank": 7,
-        "paRank": 9,
+        "pfRank": 11,
+        "paRank": 11,
         "projectedRank": 3,
-        "startedPoints": 154.46,
-        "benchPoints": 73.34,
+        "startedPoints": 243.64,
+        "benchPoints": 119.84,
         "positionTotals": {
-          "QB": 12.76,
-          "RB": 40.2,
-          "WR": 32.6,
-          "TE": 28.8,
-          "FLEX": 26.1,
-          "D/ST": 0,
+          "RB": 75,
+          "WR": 50.2,
+          "FLEX": 35.9,
+          "QB": 20.44,
+          "D/ST": 12,
+          "TE": 36.1,
           "K": 14
         },
         "weekly": [
@@ -294,7 +294,7 @@ export const leagueSnapshot = {
           "slot": "WR",
           "status": "Questionable",
           "weekPoints": 0,
-          "seasonPoints": 13.9,
+          "seasonPoints": 14,
           "starts": 2
         },
         {
@@ -305,7 +305,7 @@ export const leagueSnapshot = {
           "slot": "RB",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 26,
+          "seasonPoints": 40.8,
           "starts": 2
         },
         {
@@ -316,7 +316,7 @@ export const leagueSnapshot = {
           "slot": "FLEX",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 12.3,
+          "seasonPoints": 26.8,
           "starts": 2
         },
         {
@@ -327,7 +327,7 @@ export const leagueSnapshot = {
           "slot": "TE",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 9.3,
+          "seasonPoints": 22.8,
           "starts": 2
         },
         {
@@ -338,7 +338,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 2.6,
+          "seasonPoints": 9.1,
           "starts": 2
         },
         {
@@ -360,7 +360,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 2.7,
+          "seasonPoints": 4.2,
           "starts": 0
         },
         {
@@ -371,7 +371,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 29.4,
+          "seasonPoints": 37.2,
           "starts": 0
         },
         {
@@ -382,7 +382,7 @@ export const leagueSnapshot = {
           "slot": "WR",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 5.2,
+          "seasonPoints": 18.4,
           "starts": 0
         },
         {
@@ -404,7 +404,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 4.74,
+          "seasonPoints": 20.36,
           "starts": 1
         },
         {
@@ -415,7 +415,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 2,
+          "seasonPoints": 13,
           "starts": 2
         },
         {
@@ -426,7 +426,7 @@ export const leagueSnapshot = {
           "slot": "QB",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 22.6,
+          "seasonPoints": 52.38,
           "starts": 1
         },
         {
@@ -437,7 +437,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 0,
+          "seasonPoints": 4.75,
           "starts": 2
         },
         {
@@ -448,7 +448,7 @@ export const leagueSnapshot = {
           "slot": "FLEX",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 0,
+          "seasonPoints": 13.4,
           "starts": 0
         },
         {
@@ -459,7 +459,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 0,
+          "seasonPoints": 19.9,
           "starts": 0
         }
       ],
@@ -488,19 +488,19 @@ export const leagueSnapshot = {
       "season": {
         "completedGames": 2,
         "ppg": 123.88,
-        "pfRank": 11,
+        "pfRank": 9,
         "paRank": 1,
         "projectedRank": 11,
-        "startedPoints": 145.04,
-        "benchPoints": 69.1,
+        "startedPoints": 247.77,
+        "benchPoints": 126.82,
         "positionTotals": {
-          "QB": 4.74,
-          "RB": 90.4,
-          "WR": 23.7,
-          "TE": 9.3,
-          "FLEX": 14.9,
-          "D/ST": 2,
-          "K": 0
+          "RB": 105.2,
+          "WR": 30.3,
+          "FLEX": 37.2,
+          "TE": 22.8,
+          "QB": 34.52,
+          "D/ST": 13,
+          "K": 4.75
         },
         "weekly": [
           {
@@ -549,7 +549,7 @@ export const leagueSnapshot = {
           "slot": "RB",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 8.5,
+          "seasonPoints": 27.3,
           "starts": 2
         },
         {
@@ -571,7 +571,7 @@ export const leagueSnapshot = {
           "slot": "WR",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 9.3,
+          "seasonPoints": 40.5,
           "starts": 2
         },
         {
@@ -582,7 +582,7 @@ export const leagueSnapshot = {
           "slot": "TE",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 1,
+          "seasonPoints": 1.3,
           "starts": 2
         },
         {
@@ -593,7 +593,7 @@ export const leagueSnapshot = {
           "slot": "RB",
           "status": "Questionable",
           "weekPoints": 0,
-          "seasonPoints": 9.8,
+          "seasonPoints": 17.1,
           "starts": 2
         },
         {
@@ -604,7 +604,7 @@ export const leagueSnapshot = {
           "slot": "FLEX",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 36.7,
+          "seasonPoints": 51.8,
           "starts": 2
         },
         {
@@ -615,7 +615,7 @@ export const leagueSnapshot = {
           "slot": "FLEX",
           "status": "Doubtful",
           "weekPoints": 0,
-          "seasonPoints": 6.6,
+          "seasonPoints": 10.2,
           "starts": 2
         },
         {
@@ -626,7 +626,7 @@ export const leagueSnapshot = {
           "slot": "QB",
           "status": "Doubtful",
           "weekPoints": 0,
-          "seasonPoints": 39.26,
+          "seasonPoints": 46.48,
           "starts": 2
         },
         {
@@ -637,7 +637,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 7.15,
+          "seasonPoints": 16.2,
           "starts": 0
         },
         {
@@ -648,7 +648,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 5.5,
+          "seasonPoints": 10,
           "starts": 0
         },
         {
@@ -659,7 +659,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 2.9,
+          "seasonPoints": 17.5,
           "starts": 0
         },
         {
@@ -670,7 +670,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 1.25,
+          "seasonPoints": 3.65,
           "starts": 0
         },
         {
@@ -692,7 +692,7 @@ export const leagueSnapshot = {
           "slot": "D/ST",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": -1,
+          "seasonPoints": 1,
           "starts": 2
         },
         {
@@ -703,7 +703,7 @@ export const leagueSnapshot = {
           "slot": "K",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 13,
+          "seasonPoints": 19.5,
           "starts": 2
         },
         {
@@ -714,7 +714,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 0,
+          "seasonPoints": 2.2,
           "starts": 0
         },
         {
@@ -725,7 +725,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 0,
+          "seasonPoints": 13.68,
           "starts": 0
         }
       ],
@@ -739,19 +739,19 @@ export const leagueSnapshot = {
       "season": {
         "completedGames": 2,
         "ppg": 140.54,
-        "pfRank": 4,
+        "pfRank": 6,
         "paRank": 3,
         "projectedRank": 12,
-        "startedPoints": 189.06,
-        "benchPoints": 20.9,
+        "startedPoints": 281.08,
+        "benchPoints": 67.33,
         "positionTotals": {
-          "QB": 39.26,
-          "RB": 18.3,
-          "WR": 75.2,
-          "TE": 1,
-          "FLEX": 43.3,
-          "D/ST": -1,
-          "K": 13
+          "RB": 44.4,
+          "WR": 106.4,
+          "TE": 1.3,
+          "FLEX": 62,
+          "QB": 46.48,
+          "D/ST": 1,
+          "K": 19.5
         },
         "weekly": [
           {
@@ -811,7 +811,7 @@ export const leagueSnapshot = {
           "slot": "RB",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 39,
+          "seasonPoints": 52.9,
           "starts": 2
         },
         {
@@ -822,7 +822,7 @@ export const leagueSnapshot = {
           "slot": "WR",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 10.9,
+          "seasonPoints": 24.2,
           "starts": 2
         },
         {
@@ -833,7 +833,7 @@ export const leagueSnapshot = {
           "slot": "WR",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 9.5,
+          "seasonPoints": 27.6,
           "starts": 2
         },
         {
@@ -844,7 +844,7 @@ export const leagueSnapshot = {
           "slot": "FLEX",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 8.2,
+          "seasonPoints": 15,
           "starts": 2
         },
         {
@@ -855,7 +855,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 5.3,
+          "seasonPoints": 4.3,
           "starts": 1
         },
         {
@@ -866,7 +866,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 2.3,
+          "seasonPoints": 8.25,
           "starts": 0
         },
         {
@@ -877,7 +877,7 @@ export const leagueSnapshot = {
           "slot": "FLEX",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 5.8,
+          "seasonPoints": 20.3,
           "starts": 0
         },
         {
@@ -888,7 +888,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 3.3,
+          "seasonPoints": 33.68,
           "starts": 2
         },
         {
@@ -899,7 +899,7 @@ export const leagueSnapshot = {
           "slot": "D/ST",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 22,
+          "seasonPoints": 31.5,
           "starts": 2
         },
         {
@@ -910,7 +910,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 12.5,
+          "seasonPoints": 15.2,
           "starts": 1
         },
         {
@@ -921,7 +921,7 @@ export const leagueSnapshot = {
           "slot": "QB",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 26.6,
+          "seasonPoints": 50.88,
           "starts": 0
         },
         {
@@ -932,7 +932,7 @@ export const leagueSnapshot = {
           "slot": "K",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 8,
+          "seasonPoints": 26.25,
           "starts": 2
         },
         {
@@ -954,7 +954,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 0,
+          "seasonPoints": 7.95,
           "starts": 0
         },
         {
@@ -965,7 +965,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "Questionable",
           "weekPoints": 0,
-          "seasonPoints": 0,
+          "seasonPoints": 13.3,
           "starts": 0
         },
         {
@@ -1005,19 +1005,19 @@ export const leagueSnapshot = {
       "season": {
         "completedGames": 2,
         "ppg": 143.42,
-        "pfRank": 6,
-        "paRank": 10,
+        "pfRank": 5,
+        "paRank": 8,
         "projectedRank": 6,
-        "startedPoints": 174.9,
-        "benchPoints": 55.1,
+        "startedPoints": 286.83,
+        "benchPoints": 116.58,
         "positionTotals": {
-          "QB": 3.3,
-          "RB": 78.2,
-          "WR": 20.4,
-          "TE": 11.1,
-          "FLEX": 31.9,
-          "D/ST": 22,
-          "K": 8
+          "RB": 92.1,
+          "WR": 51.8,
+          "FLEX": 37.7,
+          "TE": 13.8,
+          "QB": 33.68,
+          "D/ST": 31.5,
+          "K": 26.25
         },
         "weekly": [
           {
@@ -1066,7 +1066,7 @@ export const leagueSnapshot = {
           "slot": "WR",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 4.2,
+          "seasonPoints": 31.7,
           "starts": 2
         },
         {
@@ -1077,7 +1077,7 @@ export const leagueSnapshot = {
           "slot": "RB",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 15.6,
+          "seasonPoints": 33.5,
           "starts": 2
         },
         {
@@ -1088,7 +1088,7 @@ export const leagueSnapshot = {
           "slot": "TE",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 25.5,
+          "seasonPoints": 42.6,
           "starts": 2
         },
         {
@@ -1099,7 +1099,7 @@ export const leagueSnapshot = {
           "slot": "RB",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 16.9,
+          "seasonPoints": 26.6,
           "starts": 2
         },
         {
@@ -1110,7 +1110,7 @@ export const leagueSnapshot = {
           "slot": "WR",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 0.2,
+          "seasonPoints": 25,
           "starts": 2
         },
         {
@@ -1121,7 +1121,7 @@ export const leagueSnapshot = {
           "slot": "QB",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 28.42,
+          "seasonPoints": 46.08,
           "starts": 2
         },
         {
@@ -1132,7 +1132,7 @@ export const leagueSnapshot = {
           "slot": "FLEX",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 6.8,
+          "seasonPoints": 11.5,
           "starts": 2
         },
         {
@@ -1143,7 +1143,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "Doubtful",
           "weekPoints": 0,
-          "seasonPoints": 9.1,
+          "seasonPoints": 10.2,
           "starts": 1
         },
         {
@@ -1154,7 +1154,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "Questionable",
           "weekPoints": 0,
-          "seasonPoints": 3.4,
+          "seasonPoints": 9,
           "starts": 0
         },
         {
@@ -1176,7 +1176,7 @@ export const leagueSnapshot = {
           "slot": "FLEX",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 20.6,
+          "seasonPoints": 28.95,
           "starts": 1
         },
         {
@@ -1187,7 +1187,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 15.9,
+          "seasonPoints": 40.4,
           "starts": 0
         },
         {
@@ -1209,7 +1209,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 7.5,
+          "seasonPoints": 34,
           "starts": 0
         },
         {
@@ -1220,7 +1220,7 @@ export const leagueSnapshot = {
           "slot": "K",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 8.5,
+          "seasonPoints": 19.5,
           "starts": 2
         },
         {
@@ -1231,7 +1231,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 2.1,
+          "seasonPoints": 7.8,
           "starts": 0
         },
         {
@@ -1242,7 +1242,7 @@ export const leagueSnapshot = {
           "slot": "D/ST",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 0,
+          "seasonPoints": 1.5,
           "starts": 1
         }
       ],
@@ -1266,19 +1266,19 @@ export const leagueSnapshot = {
       "season": {
         "completedGames": 2,
         "ppg": 135.72,
-        "pfRank": 9,
-        "paRank": 7,
+        "pfRank": 7,
+        "paRank": 4,
         "projectedRank": 9,
-        "startedPoints": 131.22,
-        "benchPoints": 52.1,
+        "startedPoints": 271.43,
+        "benchPoints": 115.5,
         "positionTotals": {
-          "QB": 28.42,
-          "RB": 32.5,
-          "WR": 4.4,
-          "TE": 25.5,
-          "FLEX": 15.9,
-          "D/ST": 16,
-          "K": 8.5
+          "WR": 56.7,
+          "RB": 60.1,
+          "TE": 42.6,
+          "QB": 46.08,
+          "FLEX": 28.95,
+          "K": 19.5,
+          "D/ST": 17.5
         },
         "weekly": [
           {
@@ -1327,7 +1327,7 @@ export const leagueSnapshot = {
           "slot": "WR",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 32.2,
+          "seasonPoints": 80.7,
           "starts": 2
         },
         {
@@ -1338,7 +1338,7 @@ export const leagueSnapshot = {
           "slot": "WR",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 4.6,
+          "seasonPoints": 13.85,
           "starts": 2
         },
         {
@@ -1349,7 +1349,7 @@ export const leagueSnapshot = {
           "slot": "FLEX",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 29.2,
+          "seasonPoints": 52.8,
           "starts": 2
         },
         {
@@ -1360,7 +1360,7 @@ export const leagueSnapshot = {
           "slot": "RB",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 7.2,
+          "seasonPoints": 19.2,
           "starts": 2
         },
         {
@@ -1371,7 +1371,7 @@ export const leagueSnapshot = {
           "slot": "RB",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 29.9,
+          "seasonPoints": 33.9,
           "starts": 2
         },
         {
@@ -1382,7 +1382,7 @@ export const leagueSnapshot = {
           "slot": "QB",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 9.52,
+          "seasonPoints": 18.94,
           "starts": 2
         },
         {
@@ -1393,7 +1393,7 @@ export const leagueSnapshot = {
           "slot": "FLEX",
           "status": "Questionable",
           "weekPoints": 0,
-          "seasonPoints": 17.9,
+          "seasonPoints": 27.3,
           "starts": 2
         },
         {
@@ -1404,7 +1404,7 @@ export const leagueSnapshot = {
           "slot": "TE",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 3.1,
+          "seasonPoints": 14.5,
           "starts": 2
         },
         {
@@ -1415,7 +1415,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 7.8,
+          "seasonPoints": 8.7,
           "starts": 0
         },
         {
@@ -1426,7 +1426,7 @@ export const leagueSnapshot = {
           "slot": "K",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": -1.5,
+          "seasonPoints": 19,
           "starts": 2
         },
         {
@@ -1437,7 +1437,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 0,
+          "seasonPoints": -1,
           "starts": 0
         },
         {
@@ -1448,7 +1448,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 8.14,
+          "seasonPoints": 18.84,
           "starts": 0
         },
         {
@@ -1459,7 +1459,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 15.1,
+          "seasonPoints": 22,
           "starts": 0
         },
         {
@@ -1470,7 +1470,7 @@ export const leagueSnapshot = {
           "slot": "D/ST",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 7.5,
+          "seasonPoints": 9.5,
           "starts": 2
         },
         {
@@ -1481,7 +1481,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 0.5,
+          "seasonPoints": 5.5,
           "starts": 0
         },
         {
@@ -1492,7 +1492,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 5.4,
+          "seasonPoints": 8.4,
           "starts": 0
         }
       ],
@@ -1511,19 +1511,19 @@ export const leagueSnapshot = {
       "season": {
         "completedGames": 2,
         "ppg": 144.84,
-        "pfRank": 8,
+        "pfRank": 4,
         "paRank": 2,
         "projectedRank": 4,
-        "startedPoints": 139.62,
-        "benchPoints": 36.94,
+        "startedPoints": 289.69,
+        "benchPoints": 62.44,
         "positionTotals": {
-          "QB": 9.52,
-          "RB": 37.1,
-          "WR": 36.8,
-          "TE": 3.1,
-          "FLEX": 47.1,
-          "D/ST": 7.5,
-          "K": -1.5
+          "WR": 94.55,
+          "FLEX": 80.1,
+          "RB": 53.1,
+          "QB": 18.94,
+          "TE": 14.5,
+          "K": 19,
+          "D/ST": 9.5
         },
         "weekly": [
           {
@@ -1572,7 +1572,7 @@ export const leagueSnapshot = {
           "slot": "RB",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 26,
+          "seasonPoints": 56.6,
           "starts": 2
         },
         {
@@ -1583,7 +1583,7 @@ export const leagueSnapshot = {
           "slot": "RB",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 44.4,
+          "seasonPoints": 74.6,
           "starts": 2
         },
         {
@@ -1594,7 +1594,7 @@ export const leagueSnapshot = {
           "slot": "WR",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 4.8,
+          "seasonPoints": 15.8,
           "starts": 2
         },
         {
@@ -1605,7 +1605,7 @@ export const leagueSnapshot = {
           "slot": "WR",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 18.2,
+          "seasonPoints": 23.7,
           "starts": 2
         },
         {
@@ -1616,7 +1616,7 @@ export const leagueSnapshot = {
           "slot": "FLEX",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 20.1,
+          "seasonPoints": 33.8,
           "starts": 2
         },
         {
@@ -1627,7 +1627,7 @@ export const leagueSnapshot = {
           "slot": "FLEX",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 4.1,
+          "seasonPoints": 12,
           "starts": 2
         },
         {
@@ -1649,7 +1649,7 @@ export const leagueSnapshot = {
           "slot": "QB",
           "status": "Doubtful",
           "weekPoints": 0,
-          "seasonPoints": 28.7,
+          "seasonPoints": 28.5,
           "starts": 2
         },
         {
@@ -1660,7 +1660,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 7.6,
+          "seasonPoints": 16.9,
           "starts": 0
         },
         {
@@ -1671,7 +1671,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": -1,
+          "seasonPoints": 12.6,
           "starts": 0
         },
         {
@@ -1682,7 +1682,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 1.6,
+          "seasonPoints": 22.9,
           "starts": 0
         },
         {
@@ -1693,7 +1693,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 6,
+          "seasonPoints": 14,
           "starts": 0
         },
         {
@@ -1704,7 +1704,7 @@ export const leagueSnapshot = {
           "slot": "D/ST",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 15,
+          "seasonPoints": 29,
           "starts": 2
         },
         {
@@ -1715,7 +1715,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 23.36,
+          "seasonPoints": 55.54,
           "starts": 0
         },
         {
@@ -1726,7 +1726,7 @@ export const leagueSnapshot = {
           "slot": "K",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 9.5,
+          "seasonPoints": 14,
           "starts": 2
         }
       ],
@@ -1751,18 +1751,18 @@ export const leagueSnapshot = {
         "completedGames": 2,
         "ppg": 157.5,
         "pfRank": 1,
-        "paRank": 11,
+        "paRank": 10,
         "projectedRank": 1,
-        "startedPoints": 197.8,
-        "benchPoints": 41.16,
+        "startedPoints": 315,
+        "benchPoints": 132.94,
         "positionTotals": {
-          "QB": 28.7,
-          "RB": 70.4,
-          "WR": 23,
+          "RB": 131.2,
+          "WR": 39.5,
+          "FLEX": 45.8,
           "TE": 27,
-          "FLEX": 24.2,
-          "D/ST": 15,
-          "K": 9.5
+          "QB": 28.5,
+          "D/ST": 29,
+          "K": 14
         },
         "weekly": [
           {
@@ -1811,7 +1811,7 @@ export const leagueSnapshot = {
           "slot": "RB",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 32.4,
+          "seasonPoints": 44.1,
           "starts": 2
         },
         {
@@ -1822,7 +1822,7 @@ export const leagueSnapshot = {
           "slot": "WR",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 14.9,
+          "seasonPoints": 30.6,
           "starts": 2
         },
         {
@@ -1833,7 +1833,7 @@ export const leagueSnapshot = {
           "slot": "WR",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 9.9,
+          "seasonPoints": 25.4,
           "starts": 2
         },
         {
@@ -1844,7 +1844,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "Doubtful",
           "weekPoints": 0,
-          "seasonPoints": 17.16,
+          "seasonPoints": 31.6,
           "starts": 1
         },
         {
@@ -1855,7 +1855,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": -1,
+          "seasonPoints": 1.25,
           "starts": 2
         },
         {
@@ -1866,7 +1866,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "Questionable",
           "weekPoints": 0,
-          "seasonPoints": 5.9,
+          "seasonPoints": 12,
           "starts": 2
         },
         {
@@ -1877,7 +1877,7 @@ export const leagueSnapshot = {
           "slot": "FLEX",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 14.5,
+          "seasonPoints": 35.2,
           "starts": 2
         },
         {
@@ -1888,7 +1888,7 @@ export const leagueSnapshot = {
           "slot": "D/ST",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": -3.5,
+          "seasonPoints": 3,
           "starts": 2
         },
         {
@@ -1899,7 +1899,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 13.3,
+          "seasonPoints": 16.1,
           "starts": 2
         },
         {
@@ -1910,7 +1910,7 @@ export const leagueSnapshot = {
           "slot": "K",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 8,
+          "seasonPoints": 16,
           "starts": 2
         },
         {
@@ -1921,7 +1921,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 11.7,
+          "seasonPoints": 15.1,
           "starts": 0
         },
         {
@@ -1932,7 +1932,7 @@ export const leagueSnapshot = {
           "slot": "QB",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 11.14,
+          "seasonPoints": 22.72,
           "starts": 1
         },
         {
@@ -1943,7 +1943,7 @@ export const leagueSnapshot = {
           "slot": "FLEX",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 5.7,
+          "seasonPoints": 34.6,
           "starts": 0
         },
         {
@@ -1954,7 +1954,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 0,
+          "seasonPoints": 9.1,
           "starts": 0
         },
         {
@@ -1965,7 +1965,7 @@ export const leagueSnapshot = {
           "slot": "RB",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 0,
+          "seasonPoints": 40.3,
           "starts": 0
         },
         {
@@ -1976,7 +1976,7 @@ export const leagueSnapshot = {
           "slot": "TE",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 0,
+          "seasonPoints": 39.2,
           "starts": 0
         }
       ],
@@ -1984,19 +1984,19 @@ export const leagueSnapshot = {
       "season": {
         "completedGames": 2,
         "ppg": 122.52,
-        "pfRank": 12,
+        "pfRank": 10,
         "paRank": 5,
         "projectedRank": 7,
-        "startedPoints": 105.54,
-        "benchPoints": 39.06,
+        "startedPoints": 245.03,
+        "benchPoints": 100.94,
         "positionTotals": {
-          "QB": 11.14,
-          "RB": 38.3,
-          "WR": 24.8,
-          "TE": -1,
-          "FLEX": 27.8,
-          "D/ST": -3.5,
-          "K": 8
+          "RB": 66.6,
+          "WR": 56,
+          "TE": 27.1,
+          "FLEX": 50.75,
+          "D/ST": 3,
+          "K": 16,
+          "QB": 25.58
         },
         "weekly": [
           {
@@ -2067,7 +2067,7 @@ export const leagueSnapshot = {
           "slot": "RB",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 15.1,
+          "seasonPoints": 22.5,
           "starts": 2
         },
         {
@@ -2078,7 +2078,7 @@ export const leagueSnapshot = {
           "slot": "RB",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 38.2,
+          "seasonPoints": 51.7,
           "starts": 2
         },
         {
@@ -2089,7 +2089,7 @@ export const leagueSnapshot = {
           "slot": "FLEX",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 10.6,
+          "seasonPoints": 15.8,
           "starts": 2
         },
         {
@@ -2100,7 +2100,7 @@ export const leagueSnapshot = {
           "slot": "QB",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 15.66,
+          "seasonPoints": 32.94,
           "starts": 2
         },
         {
@@ -2111,7 +2111,7 @@ export const leagueSnapshot = {
           "slot": "TE",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 8.5,
+          "seasonPoints": 13,
           "starts": 2
         },
         {
@@ -2122,7 +2122,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 5.4,
+          "seasonPoints": 17.8,
           "starts": 1
         },
         {
@@ -2133,7 +2133,7 @@ export const leagueSnapshot = {
           "slot": "WR",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 7.4,
+          "seasonPoints": 15.3,
           "starts": 2
         },
         {
@@ -2144,7 +2144,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": -0.25,
+          "seasonPoints": 16.55,
           "starts": 0
         },
         {
@@ -2166,7 +2166,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 3.9,
+          "seasonPoints": 4.8,
           "starts": 0
         },
         {
@@ -2177,7 +2177,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 2.5,
+          "seasonPoints": 1.5,
           "starts": 0
         },
         {
@@ -2188,7 +2188,7 @@ export const leagueSnapshot = {
           "slot": "D/ST",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 4,
+          "seasonPoints": 10,
           "starts": 2
         },
         {
@@ -2199,7 +2199,7 @@ export const leagueSnapshot = {
           "slot": "K",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 16.5,
+          "seasonPoints": 21,
           "starts": 2
         },
         {
@@ -2210,7 +2210,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 10.4,
+          "seasonPoints": 14.6,
           "starts": 0
         },
         {
@@ -2221,7 +2221,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 0,
+          "seasonPoints": 4.4,
           "starts": 0
         }
       ],
@@ -2240,19 +2240,19 @@ export const leagueSnapshot = {
       "season": {
         "completedGames": 2,
         "ppg": 121.82,
-        "pfRank": 5,
+        "pfRank": 12,
         "paRank": 12,
         "projectedRank": 10,
-        "startedPoints": 148.16,
-        "benchPoints": 27.85,
+        "startedPoints": 243.64,
+        "benchPoints": 36.35,
         "positionTotals": {
-          "QB": 15.66,
-          "RB": 53.3,
-          "WR": 32.2,
-          "TE": 8.5,
-          "FLEX": 18,
-          "D/ST": 4,
-          "K": 16.5
+          "WR": 45.3,
+          "RB": 83.6,
+          "FLEX": 37.8,
+          "QB": 32.94,
+          "TE": 13,
+          "D/ST": 10,
+          "K": 21
         },
         "weekly": [
           {
@@ -2301,7 +2301,7 @@ export const leagueSnapshot = {
           "slot": "WR",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 32.2,
+          "seasonPoints": 41.7,
           "starts": 2
         },
         {
@@ -2312,7 +2312,7 @@ export const leagueSnapshot = {
           "slot": "RB",
           "status": "Questionable",
           "weekPoints": 0,
-          "seasonPoints": 11.5,
+          "seasonPoints": 15.9,
           "starts": 2
         },
         {
@@ -2323,7 +2323,7 @@ export const leagueSnapshot = {
           "slot": "WR",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 4.6,
+          "seasonPoints": 47.6,
           "starts": 2
         },
         {
@@ -2334,7 +2334,7 @@ export const leagueSnapshot = {
           "slot": "QB",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 30.66,
+          "seasonPoints": 44.86,
           "starts": 2
         },
         {
@@ -2345,7 +2345,7 @@ export const leagueSnapshot = {
           "slot": "RB",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 15.3,
+          "seasonPoints": 20.5,
           "starts": 2
         },
         {
@@ -2356,7 +2356,7 @@ export const leagueSnapshot = {
           "slot": "TE",
           "status": "Doubtful",
           "weekPoints": 0,
-          "seasonPoints": 27.7,
+          "seasonPoints": 30.1,
           "starts": 2
         },
         {
@@ -2367,7 +2367,7 @@ export const leagueSnapshot = {
           "slot": "FLEX",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 9,
+          "seasonPoints": 14.7,
           "starts": 2
         },
         {
@@ -2378,7 +2378,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 14.5,
+          "seasonPoints": 25.3,
           "starts": 0
         },
         {
@@ -2389,7 +2389,7 @@ export const leagueSnapshot = {
           "slot": "FLEX",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 12.2,
+          "seasonPoints": 29,
           "starts": 2
         },
         {
@@ -2400,7 +2400,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 1,
+          "seasonPoints": 6.1,
           "starts": 0
         },
         {
@@ -2411,7 +2411,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 3.7,
+          "seasonPoints": 12.4,
           "starts": 0
         },
         {
@@ -2422,7 +2422,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 9.9,
+          "seasonPoints": 19.8,
           "starts": 0
         },
         {
@@ -2433,7 +2433,7 @@ export const leagueSnapshot = {
           "slot": "K",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 9.75,
+          "seasonPoints": 15.75,
           "starts": 2
         },
         {
@@ -2455,7 +2455,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": -1,
+          "seasonPoints": 3.5,
           "starts": 0
         },
         {
@@ -2466,7 +2466,7 @@ export const leagueSnapshot = {
           "slot": "D/ST",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 0,
+          "seasonPoints": -0.5,
           "starts": 1
         }
       ],
@@ -2480,19 +2480,19 @@ export const leagueSnapshot = {
       "season": {
         "completedGames": 2,
         "ppg": 133.81,
-        "pfRank": 3,
-        "paRank": 4,
+        "pfRank": 8,
+        "paRank": 6,
         "projectedRank": 8,
-        "startedPoints": 160.91,
-        "benchPoints": 28.92,
+        "startedPoints": 267.61,
+        "benchPoints": 67.92,
         "positionTotals": {
-          "QB": 30.66,
-          "RB": 26.8,
-          "WR": 36.8,
-          "TE": 27.7,
-          "FLEX": 21.2,
-          "D/ST": 8,
-          "K": 9.75
+          "WR": 89.3,
+          "RB": 36.4,
+          "QB": 44.86,
+          "TE": 30.1,
+          "FLEX": 43.7,
+          "K": 15.75,
+          "D/ST": 7.5
         },
         "weekly": [
           {
@@ -2541,7 +2541,7 @@ export const leagueSnapshot = {
           "slot": "RB",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 21.4,
+          "seasonPoints": 35.6,
           "starts": 2
         },
         {
@@ -2552,7 +2552,7 @@ export const leagueSnapshot = {
           "slot": "RB",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 41.7,
+          "seasonPoints": 60,
           "starts": 2
         },
         {
@@ -2574,7 +2574,7 @@ export const leagueSnapshot = {
           "slot": "WR",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 10.3,
+          "seasonPoints": 19.7,
           "starts": 2
         },
         {
@@ -2585,7 +2585,7 @@ export const leagueSnapshot = {
           "slot": "FLEX",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 20.3,
+          "seasonPoints": 37.1,
           "starts": 2
         },
         {
@@ -2596,7 +2596,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 4,
+          "seasonPoints": 14.2,
           "starts": 2
         },
         {
@@ -2607,7 +2607,7 @@ export const leagueSnapshot = {
           "slot": "QB",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 13.6,
+          "seasonPoints": 44.76,
           "starts": 2
         },
         {
@@ -2618,7 +2618,7 @@ export const leagueSnapshot = {
           "slot": "FLEX",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 11.6,
+          "seasonPoints": 14.4,
           "starts": 0
         },
         {
@@ -2629,7 +2629,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 13.2,
+          "seasonPoints": 19.2,
           "starts": 0
         },
         {
@@ -2662,7 +2662,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 5.8,
+          "seasonPoints": 7.8,
           "starts": 0
         },
         {
@@ -2673,7 +2673,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 27.3,
+          "seasonPoints": 32.66,
           "starts": 0
         },
         {
@@ -2684,7 +2684,7 @@ export const leagueSnapshot = {
           "slot": "K",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 1,
+          "seasonPoints": 1.5,
           "starts": 2
         },
         {
@@ -2695,7 +2695,7 @@ export const leagueSnapshot = {
           "slot": "D/ST",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 1,
+          "seasonPoints": 14.5,
           "starts": 2
         },
         {
@@ -2706,7 +2706,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "Questionable",
           "weekPoints": 0,
-          "seasonPoints": 0,
+          "seasonPoints": 2.9,
           "starts": 0
         },
         {
@@ -2717,7 +2717,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "Out",
           "weekPoints": 0,
-          "seasonPoints": 0,
+          "seasonPoints": 0.9,
           "starts": 0
         }
       ],
@@ -2742,18 +2742,18 @@ export const leagueSnapshot = {
         "completedGames": 2,
         "ppg": 154.93,
         "pfRank": 2,
-        "paRank": 8,
+        "paRank": 9,
         "projectedRank": 2,
-        "startedPoints": 189.8,
-        "benchPoints": 80.1,
+        "startedPoints": 309.86,
+        "benchPoints": 94.06,
         "positionTotals": {
-          "QB": 13.6,
-          "RB": 63.1,
-          "WR": 42.3,
+          "RB": 95.6,
+          "WR": 68.5,
+          "FLEX": 40.5,
+          "QB": 44.76,
           "TE": 44.5,
-          "FLEX": 24.3,
-          "D/ST": 1,
-          "K": 1
+          "K": 1.5,
+          "D/ST": 14.5
         },
         "weekly": [
           {
@@ -2802,7 +2802,7 @@ export const leagueSnapshot = {
           "slot": "RB",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 10.7,
+          "seasonPoints": 24,
           "starts": 2
         },
         {
@@ -2813,7 +2813,7 @@ export const leagueSnapshot = {
           "slot": "WR",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 14.5,
+          "seasonPoints": 52.8,
           "starts": 2
         },
         {
@@ -2835,7 +2835,7 @@ export const leagueSnapshot = {
           "slot": "RB",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 14.7,
+          "seasonPoints": 23.6,
           "starts": 2
         },
         {
@@ -2846,7 +2846,7 @@ export const leagueSnapshot = {
           "slot": "WR",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 2.4,
+          "seasonPoints": 8.4,
           "starts": 2
         },
         {
@@ -2857,7 +2857,7 @@ export const leagueSnapshot = {
           "slot": "FLEX",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 0,
+          "seasonPoints": 16.2,
           "starts": 0
         },
         {
@@ -2868,7 +2868,7 @@ export const leagueSnapshot = {
           "slot": "TE",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 4.7,
+          "seasonPoints": 23.7,
           "starts": 0
         },
         {
@@ -2879,7 +2879,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 8,
+          "seasonPoints": 14,
           "starts": 1
         },
         {
@@ -2890,7 +2890,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "Questionable",
           "weekPoints": 0,
-          "seasonPoints": 4,
+          "seasonPoints": 6.4,
           "starts": 0
         },
         {
@@ -2923,7 +2923,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 4.65,
+          "seasonPoints": 14.4,
           "starts": 2
         },
         {
@@ -2945,7 +2945,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 1.05,
+          "seasonPoints": 6.2,
           "starts": 0
         },
         {
@@ -2956,7 +2956,7 @@ export const leagueSnapshot = {
           "slot": "D/ST",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 16.5,
+          "seasonPoints": 17,
           "starts": 2
         },
         {
@@ -2967,7 +2967,7 @@ export const leagueSnapshot = {
           "slot": "K",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 12.5,
+          "seasonPoints": 18.5,
           "starts": 2
         },
         {
@@ -2978,7 +2978,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 4.6,
+          "seasonPoints": 13.1,
           "starts": 2
         }
       ],
@@ -2992,19 +2992,19 @@ export const leagueSnapshot = {
       "season": {
         "completedGames": 2,
         "ppg": 145.51,
-        "pfRank": 10,
-        "paRank": 6,
+        "pfRank": 3,
+        "paRank": 7,
         "projectedRank": 5,
-        "startedPoints": 182.83,
-        "benchPoints": 30.15,
+        "startedPoints": 291.03,
+        "benchPoints": 61.95,
         "positionTotals": {
+          "RB": 47.6,
+          "WR": 61.2,
           "QB": 86.48,
-          "RB": 25.4,
-          "WR": 16.9,
-          "TE": 4.6,
-          "FLEX": 20.45,
-          "D/ST": 16.5,
-          "K": 12.5
+          "FLEX": 36.65,
+          "D/ST": 17,
+          "K": 18.5,
+          "TE": 23.6
         },
         "weekly": [
           {
