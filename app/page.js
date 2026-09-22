@@ -73,50 +73,51 @@ export default function Home(){return <><header><div className="utility"><span c
 <section className="grid3"><Link href="/articles/stone-unc-denial" className="card storylink"><div className="photoStrip uncPhoto"><span>CHAPEL HILL / INDEPENDENT REVIEW</span></div><div className="tag">INSTITUTIONAL CRISIS</div><h3>Stone Denies UNC Scandal Ties Despite Triple Legacy; Choe Admits “Limited Advisory Role”</h3><PreviewAuthor slug="stone-unc-denial"/><p>UNC closed its football investigation. Stone produced a suspiciously complete denial. Choe has declined to deny exactly enough.</p><div className="read">REVIEW THE FINDINGS →</div></Link><Link href="/articles/danir-emergency-jobs-program" className="card storylink"><div className="photoStrip danirJobsPhoto"><span>DARKHORSE DANIR / WORKFORCE DEVELOPMENT</span></div><div className="tag">TRANSACTIONS & LABOR</div><h3>DarkHorse Danir Announces Emergency Jobs Program for Underemployed Wide Receivers</h3><PreviewAuthor slug="danir-emergency-jobs-program"/><p>Nailor. Saylors. Washington. Wicks. White. One failed Vele claim. September employment remains strong.</p><div className="read">VISIT THE EMPLOYMENT OFFICE →</div></Link><Link href="/articles/danir-bench-crime" className="card storylink"><div className="photoStrip purdyPhoto"><span>PURDY + MONANGAI / 52.0 BENCH POINTS</span></div><div className="tag">LINEUP CRIMES UNIT</div><h3>Danir Left a Functional Quarterback and 29.4-Point Running Back on the Bench</h3><PreviewAuthor slug="danir-bench-crime"/><p>Bo Nix scored 4.74. Brock Purdy scored 22.6. Kyle Monangai scored 29.4. The prosecution would like to rest.</p><div className="read">REVIEW THE CRIME SCENE →</div></Link></section>
 <section className="section autopsySection">
   <div className="autopsyHeader">
-    <div><small>THE NEWSROOM • LAST WEEK’S FILE</small><h2>Last Week’s Autopsy</h2></div>
-    <span>WEEK 1 ARCHIVE / WEEK 2 AUTOPSY AFTER MONDAY NIGHT</span>
+    <div><small>THE NEWSROOM • WEEK 2 POSTMORTEM</small><h2>Week 2 Autopsy</h2></div>
+    <span>FINAL SCORES / BAD PROCESS / DIVINE INTERVENTION</span>
   </div>
 
   <div className="autopsyLead">
     <div className="autopsyByline"><img src={writers.gannon.image} alt={writers.gannon.imageAlt}/><span><small>MAUDE GANNON • FOOTBALL STRATEGY</small><b>The actual football finding</b></span></div>
-    <h3>The running backs did not merely decide Week 1. They made most of the managerial analysis decorative.</h3>
-    <p>Walker 44.4. Derrick Henry 41.7. Ashton Jeanty 39.0. D'Andre Swift 38.2. Four managers received a full lineup's worth of emotional security from one roster spot. Three won. The useful lesson is not “draft running backs.” It is that when one position hands you a 40-point event, the rest of your process mostly gets to avoid cross-examination.</p>
+    <h3>Route 22 finally got the Stafford game it paid for and still lost by 0.56.</h3>
+    <p>Matthew Stafford gave the Clubhouse 30.38 on Monday night, almost exactly the rescue operation the roster needed after Week 1. It still was not enough. Marvin Harrison Jr. scored minus-1, Kenyon Sadiq gave them 2.7, Rome Odunze 6.8, and Shake ’N Baker escaped 139.49–138.93. The lesson is not that Stafford failed. The lesson is that one correct decision cannot always refinance eight smaller problems.</p>
+    <strong>0.56 • MARGIN OF DEATH</strong>
   </div>
 
   <div className="autopsyNewsroom">
     <article>
       <div className="autopsyByline"><img src={writers.crane.image} alt={writers.crane.imageAlt}/><span><small>HOLLIS CRANE • INVESTIGATIONS</small><b>The evidence locker</b></span></div>
-      <h3>Danir’s bench is now a crime scene with excellent lighting.</h3>
-      <p>Purdy and Monangai combined for 52 unused points. It did not cost Danir a 60-point loss, which is almost worse. Nothing was stolen. Nothing changed the verdict. We are simply left with the photograph.</p>
-      <strong>52.0 • UNDEPLOYED</strong>
+      <h3>Shake ’N Baker won while 28.9 points sat quietly on the bench.</h3>
+      <p>Tre Tucker scored 28.9. Kyle Pitts occupied a FLEX spot and scored 2.25. Shake won anyway, by fifty-six hundredths of a point. Usually a bad lineup decision leaves a body. This one left fingerprints, motive and no victim.</p>
+      <strong>28.9 • UNUSED / 0.56 • SURVIVED</strong>
     </article>
 
     <article>
       <div className="autopsyByline"><img src={writers.sorrell.image} alt={writers.sorrell.imageAlt}/><span><small>CONRAD SORRELL • OPINION & POWER</small><b>The winner's privilege</b></span></div>
-      <h3>Roy Bird benched 37.8 points and was rewarded with the right to call it depth.</h3>
-      <p>Winning is the great laundering mechanism of fantasy football. Lose with Coker on the bench and the decision becomes malpractice. Win anyway and suddenly the organization possesses “strategic reserves.” Institutions are remarkable that way.</p>
-      <strong>37.8 • RETROACTIVE GENIUS</strong>
+      <h3>Kupp Kupp Doubs is 2–0 and would like you to stop asking how.</h3>
+      <p>Kupp scored 100.48, beat Kraft by five, and now sits undefeated with 243.64 total points — fewer than several teams below it and exactly the same total as the 1–1 team it just beat. This is what institutions call legitimacy once the paperwork is complete.</p>
+      <strong>2–0 • PLEASE RESPECT THE RECORD</strong>
     </article>
 
     <article>
       <div className="autopsyByline"><img src={writers.pike.image} alt={writers.pike.imageAlt}/><span><small>DASHIELL PIKE • CAPITAL & DEMOCRACY</small><b>The market signal</b></span></div>
-      <h3>All Ugly generated 152.86 points and immediately founded a statistics department.</h3>
-      <p>Caleb Williams and Christian Watson produced 75.96 together. The team still lost. By midnight, Expected Wins had become essential infrastructure. This is how new institutions are born: first the market fails you, then you invent a metric explaining why.</p>
-      <strong>75.96 • TWO PLAYERS, ZERO RELIEF</strong>
+      <h3>All Ugly is 0–2 with 281.08 points. Kupp is 2–0 with 243.64. Markets remain efficient.</h3>
+      <p>All Ugly has outscored Kupp by 37.44 points through two weeks and trails it by two full games in the standings. There are sophisticated explanations involving schedule variance. There is also the simpler explanation: sometimes your portfolio is good and the counterparty still wires the money to someone else.</p>
+      <strong>+37.44 POINTS • −2 WINS</strong>
     </article>
 
     <article>
       <div className="autopsyByline"><img src={writers.march.image} alt={writers.march.imageAlt}/><span><small>SABINE MARCH • PUBLIC LIFE</small><b>The diplomatic cable</b></span></div>
-      <h3>The Katz family office emerged from Week 1 with the calm of a government that has already counted the votes.</h3>
-      <p>Henry and Flowers supplied 73.7 points, Lloyd remained largely ceremonial, and the brothers advanced without any visible constitutional crisis. In a league built on public grievance, quiet family governance is beginning to look almost provocative.</p>
-      <strong>73.7 • FAMILY OFFICE OUTPUT</strong>
+      <h3>Mr Hopkins Opus benched Patrick Mahomes, started Jaxson Dart, and somehow strengthened its position.</h3>
+      <p>Dart left with a knee injury and scored minus-0.2. Mahomes scored 32.18 from the bench. Jonathan Taylor and Kenneth Walker then supplied 60.8 points between them, and Hopkins won by 26.7. It is difficult to project calm more effectively than surviving the sort of quarterback decision that normally requires a statement.</p>
+      <strong>−0.2 QB • 26.7-POINT WIN</strong>
     </article>
 
     <article>
       <div className="autopsyByline"><img src={writers.kells.image} alt={writers.kells.imageAlt}/><span><small>MARNIE KELLS • CULTURE & SPORTING LIFE</small><b>The vibe report</b></span></div>
-      <h3>Kash scored 181.60, which is less a fantasy total than a content strategy.</h3>
-      <p>The performance was excellent. More importantly, it created months of reusable material for Kash to deploy in conversations that have nothing to do with Week 1. Some people win games. Some people acquire intellectual property.</p>
-      <strong>181.60 • NOW A PERSONAL BRAND</strong>
+      <h3>CeeDeep got 83.52 points from two human beings and made the rest of the lineup decorative.</h3>
+      <p>Josh Allen scored 45.22. CeeDee Lamb scored 38.3. Together they outscored entire fantasy lineups people have started with sincerity. CeeDeep finished at 161.22 and Danir spent the afternoon participating in what was technically still a matchup.</p>
+      <strong>83.52 • TWO-MAN GOVERNMENT</strong>
     </article>
   </div>
 </section>
