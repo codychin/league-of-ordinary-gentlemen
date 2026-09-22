@@ -62,6 +62,7 @@ export const writers={
 }
 
 export const articleWriters={
+  'maude-rams-without-puka':'gannon',
   'dashiell-favorite-team-asset-class':'pike',
   'maude-route-22-trade-review':'gannon',
   'conrad-york-wrong-160':'sorrell',
@@ -96,5 +97,13 @@ export const articleWriters={
   'hollis-uprights-reality':'crane',
 }
 
-export const writerFor=slug=>writers[articleWriters[slug]]||writers.crane
+const prefixWriters={maude:'gannon',hollis:'crane',conrad:'sorrell',dashiell:'pike',sabine:'march',marnie:'kells'}
+export const writerFor=slug=>{
+  const explicit=articleWriters[slug]
+  if(explicit&&writers[explicit]) return writers[explicit]
+  const prefix=String(slug||'').split('-')[0]
+  const inferred=prefixWriters[prefix]
+  if(inferred&&writers[inferred]) return writers[inferred]
+  throw new Error(`No writer mapping for article slug: ${slug}`)
+}
 
