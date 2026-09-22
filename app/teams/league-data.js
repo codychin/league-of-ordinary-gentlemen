@@ -248,10 +248,19 @@ export const leagueSnapshot = {
           },
           {
             "week": 2,
-            "status": "LIVE",
+            "status": "FINAL",
             "opponent": "For the Love of the Kraft",
             "opponentSlug": "kraft",
-            "score": 11.3,
+            "score": 100.48,
+            "opponentScore": 95.48,
+            "result": "W"
+          },
+          {
+            "week": 3,
+            "status": "LIVE",
+            "opponent": "The Route 22 Clubhouse",
+            "opponentSlug": "route-22",
+            "score": 0,
             "opponentScore": 0,
             "result": "—"
           }
@@ -514,11 +523,20 @@ export const leagueSnapshot = {
           },
           {
             "week": 2,
-            "status": "LIVE",
+            "status": "FINAL",
             "opponent": "CeeDeep Shaheeded Rivalry",
             "opponentSlug": "ceedeep",
-            "score": 23.9,
-            "opponentScore": 53.02,
+            "score": 126.63,
+            "opponentScore": 161.22,
+            "result": "L"
+          },
+          {
+            "week": 3,
+            "status": "LIVE",
+            "opponent": "Shake 'N Baker",
+            "opponentSlug": "shake-baker",
+            "score": 0,
+            "opponentScore": 0,
             "result": "—"
           }
         ]
@@ -765,11 +783,20 @@ export const leagueSnapshot = {
           },
           {
             "week": 2,
-            "status": "LIVE",
+            "status": "FINAL",
             "opponent": "Lloyd of the Rings",
             "opponentSlug": "lloyd-rings",
-            "score": 36.2,
-            "opponentScore": 23.5,
+            "score": 128.22,
+            "opponentScore": 143.56,
+            "result": "L"
+          },
+          {
+            "week": 3,
+            "status": "LIVE",
+            "opponent": "Pollard Greens",
+            "opponentSlug": "pollard-greens",
+            "score": 0,
+            "opponentScore": 0,
             "result": "—"
           }
         ]
@@ -1031,10 +1058,19 @@ export const leagueSnapshot = {
           },
           {
             "week": 2,
-            "status": "LIVE",
+            "status": "FINAL",
             "opponent": "Shake 'N Baker",
             "opponentSlug": "shake-baker",
-            "score": 27,
+            "score": 138.93,
+            "opponentScore": 139.49,
+            "result": "L"
+          },
+          {
+            "week": 3,
+            "status": "LIVE",
+            "opponent": "Kupp Kupp Doubs",
+            "opponentSlug": "kupp-doubs",
+            "score": 0,
             "opponentScore": 0,
             "result": "—"
           }
@@ -1292,9 +1328,18 @@ export const leagueSnapshot = {
           },
           {
             "week": 2,
-            "status": "LIVE",
+            "status": "FINAL",
             "opponent": "Pollard Greens",
             "opponentSlug": "pollard-greens",
+            "score": 140.21,
+            "opponentScore": 150.07,
+            "result": "L"
+          },
+          {
+            "week": 3,
+            "status": "LIVE",
+            "opponent": "For the Love of the Kraft",
+            "opponentSlug": "kraft",
             "score": 0,
             "opponentScore": 0,
             "result": "—"
@@ -1537,9 +1582,18 @@ export const leagueSnapshot = {
           },
           {
             "week": 2,
-            "status": "LIVE",
+            "status": "FINAL",
             "opponent": "I'm a Skatt man",
             "opponentSlug": "skatt",
+            "score": 150.07,
+            "opponentScore": 140.21,
+            "result": "W"
+          },
+          {
+            "week": 3,
+            "status": "LIVE",
+            "opponent": "The All Ugly Team",
+            "opponentSlug": "all-ugly",
             "score": 0,
             "opponentScore": 0,
             "result": "—"
@@ -1776,10 +1830,19 @@ export const leagueSnapshot = {
           },
           {
             "week": 2,
-            "status": "LIVE",
+            "status": "FINAL",
             "opponent": "Royrek Tishmeshulam",
             "opponentSlug": "royrek",
-            "score": 16.2,
+            "score": 133.4,
+            "opponentScore": 106.7,
+            "result": "W"
+          },
+          {
+            "week": 3,
+            "status": "LIVE",
+            "opponent": "Lloyd of the Rings",
+            "opponentSlug": "lloyd-rings",
+            "score": 0,
             "opponentScore": 0,
             "result": "—"
           }
@@ -2010,11 +2073,20 @@ export const leagueSnapshot = {
           },
           {
             "week": 2,
-            "status": "LIVE",
+            "status": "FINAL",
             "opponent": "The Route 22 Clubhouse",
             "opponentSlug": "route-22",
+            "score": 139.49,
+            "opponentScore": 138.93,
+            "result": "W"
+          },
+          {
+            "week": 3,
+            "status": "LIVE",
+            "opponent": "DarkHorse Danir",
+            "opponentSlug": "danir",
             "score": 0,
-            "opponentScore": 27,
+            "opponentScore": 0,
             "result": "—"
           }
         ]
@@ -2266,11 +2338,20 @@ export const leagueSnapshot = {
           },
           {
             "week": 2,
-            "status": "LIVE",
+            "status": "FINAL",
             "opponent": "Kupp Kupp Doubs",
             "opponentSlug": "kupp-doubs",
+            "score": 95.48,
+            "opponentScore": 100.48,
+            "result": "L"
+          },
+          {
+            "week": 3,
+            "status": "LIVE",
+            "opponent": "I'm a Skatt man",
+            "opponentSlug": "skatt",
             "score": 0,
-            "opponentScore": 11.3,
+            "opponentScore": 0,
             "result": "—"
           }
         ]
@@ -2506,11 +2587,20 @@ export const leagueSnapshot = {
           },
           {
             "week": 2,
-            "status": "LIVE",
+            "status": "FINAL",
             "opponent": "Mr Hopkins Opus",
             "opponentSlug": "hopkins-opus",
+            "score": 106.7,
+            "opponentScore": 133.4,
+            "result": "L"
+          },
+          {
+            "week": 3,
+            "status": "LIVE",
+            "opponent": "CeeDeep Shaheeded Rivalry",
+            "opponentSlug": "ceedeep",
             "score": 0,
-            "opponentScore": 16.2,
+            "opponentScore": 0,
             "result": "—"
           }
         ]
@@ -2767,11 +2857,20 @@ export const leagueSnapshot = {
           },
           {
             "week": 2,
-            "status": "LIVE",
+            "status": "FINAL",
             "opponent": "The All Ugly Team",
             "opponentSlug": "all-ugly",
-            "score": 23.5,
-            "opponentScore": 36.2,
+            "score": 143.56,
+            "opponentScore": 128.22,
+            "result": "W"
+          },
+          {
+            "week": 3,
+            "status": "LIVE",
+            "opponent": "Mr Hopkins Opus",
+            "opponentSlug": "hopkins-opus",
+            "score": 0,
+            "opponentScore": 0,
             "result": "—"
           }
         ]
@@ -3018,11 +3117,20 @@ export const leagueSnapshot = {
           },
           {
             "week": 2,
-            "status": "LIVE",
+            "status": "FINAL",
             "opponent": "DarkHorse Danir",
             "opponentSlug": "danir",
-            "score": 53.02,
-            "opponentScore": 23.9,
+            "score": 161.22,
+            "opponentScore": 126.63,
+            "result": "W"
+          },
+          {
+            "week": 3,
+            "status": "LIVE",
+            "opponent": "Royrek Tishmeshulam",
+            "opponentSlug": "royrek",
+            "score": 0,
+            "opponentScore": 0,
             "result": "—"
           }
         ]
