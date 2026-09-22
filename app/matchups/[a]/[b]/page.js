@@ -24,35 +24,35 @@ const trendFor=player=>{
 
 const previewKey=(a,b)=>[a,b].sort().join(':')
 const matchupPreviews={
-  'pollard-greens:skatt':{
+  'kraft:skatt':{
     writer:'kells',
-    title:'This Game Has Too Many Personal Brands and Not Enough Stability',
-    body:"Pollard Greens brings Big Citrus, Earthsherm Jam and a receiver room that already looks like it has a publicist. I’m a Skatt Man counters with Yonjuries, The Count and enough medical ambiguity to support a docuseries. The matchup itself is competitive. The surrounding mythology is doing considerably more work."
+    title:'The Injury Report Has Become the Actual Matchup',
+    body:"Skatt is 0–2 despite scoring 271.43 and finally gets the matchup the projection model has been begging for: Kraft enters with Puka Nacua and Nico Collins both listed out and a projection under 95. The joke, naturally, is that the franchise called Yonjuries is currently the healthier government. If Yon loses this one, The Count may need to begin counting something other than aliases."
   },
-  'kraft:kupp-doubs':{
-    writer:'march',
-    title:'A Quiet Bilateral Summit Between Two Functional Governments',
-    body:"For the Love of the Kraft and Kupp Kupp Doubs arrive without a constitutional crisis, which in this league qualifies as a diplomatic breakthrough. Tish has spent the opening weeks practicing quiet competence. Roy Bird has kept an emergency stockpile of bench points. The question is whether restraint can survive four quarters of fantasy football without producing an incident."
-  },
-  'all-ugly:lloyd-rings':{
+  'all-ugly:pollard-greens':{
     writer:'gannon',
-    title:'The Process Game',
-    body:"All Ugly’s Week 1 loss was the kind of result that makes process people unbearable because the process was, irritatingly, mostly fine. Lloyd of the Rings is the opposite problem: a family office getting enormous production from veteran stars and daring you to call it unsustainable. This one is less about who drafted the prettier roster than who gets the correct decisions from the players they already have."
+    title:'The 0–2 Team That Scores vs. the 1–1 Team That Gets Scored On',
+    body:"All Ugly has 281.08 points and no wins. Pollard Greens has 289.69 points and has already allowed 306.51. That makes this less a matchup than a controlled experiment in whether underlying scoring eventually defeats schedule violence. The complication is health: Caleb Williams and Jonathan Brooks are doubtful, Jadarian Price is questionable, and JSN is coming off 48.5. Process has asked for a fair trial and immediately received this."
   },
-  'route-22:shake-baker':{
+  'kupp-doubs:route-22':{
     writer:'pike',
-    title:'One Team Wants Every Asset. The Other Has Six Names.',
-    body:"Route 22 treats roster construction like a permanently open capital market. Shake ’N Baker treats identity like a holding company. Choe and Gerstone will spend the week evaluating everybody else’s assets while Seth Waldenberg’s alias complex attempts to establish which executive is actually responsible for the lineup. Somewhere underneath all of that, there is a very real football game."
+    title:'Undefeated Balance Sheet Meets Permanently Open Trading Desk',
+    body:"Kupp Kupp Doubs is 2–0 with 243.64 points, which is the fantasy equivalent of posting modest revenue and an immaculate share price. Route 22 has scored 43.19 more points, is 1–1, and lost last week by 0.56 despite finally getting the Stafford game it wanted. Roy Bird has discovered the value of outcomes. Choe and Gerstone remain committed to activity. Markets will now decide which ideology is more annoying."
   },
-  'hopkins-opus:royrek':{
+  'hopkins-opus:lloyd-rings':{
     writer:'sorrell',
-    title:'Power, Confidence and the League’s Two Most Convenient Institutions',
-    body:"Kash enters with the most valuable political asset in fantasy football: a recent overwhelming victory and the willingness to mention it. Royrek enters with a different kind of institutional advantage, one in which the owner of record and the draft authority have never been forced into a particularly uncomfortable public accounting. Both teams are talented. More importantly, both organizations understand narrative control."
+    title:'Somebody’s Undefeated Record Has to Become Less Impressive',
+    body:"This is the first matchup of the season that deserves actual heavyweight language. Hopkins is 2–0 with a league-best 315.00 points. Lloyd is 2–0 with 309.86. Both have won twice without needing philosophical explanations. Kash has the louder institution; the Katz family office has the quieter one. Zay Flowers being out tilts the personnel question, but the larger pleasure is simpler: one of the two cleanest records in the league is finally going to acquire a blemish, unless fantasy football finds an even stupider outcome."
   },
-  'ceedeep:danir':{
+  'danir:shake-baker':{
     writer:'crane',
-    title:'The Quarterback Had Already Done His Part',
-    body:"By the time I got to this file, Josh Allen had already scored enough points to make Sunday feel optional and Danir had already spent two weeks collecting evidence that the correct lineup exists somewhere nearby, usually on the bench. The numbers say CeeDeep has the edge. The history says Danir is fully capable of turning a reasonable football decision into a three-day inquiry."
+    title:'Two Crime Scenes, One Win Available',
+    body:"Danir corrected the Week 1 bench fiasco and was rewarded by drawing 161.22 from CeeDeep. Shake ’N Baker left Tre Tucker’s 28.9 on the bench and won by 0.56 anyway. So naturally they meet now. One organization is discovering that improved process does not guarantee mercy; the other is discovering that terrible process occasionally receives witness protection. I don’t know which lesson is worse."
+  },
+  'ceedeep:royrek':{
+    writer:'march',
+    title:'A Matchup for People Who Prefer Their Stars Very Visible',
+    body:"CeeDeep arrives after Josh Allen and CeeDee Lamb produced 83.52 points between them. Royrek counters with Lamar Jackson, Justin Jefferson and a Davante Adams performance that briefly made the rest of Week 2 irrelevant. Neither roster is subtle. The social question is which side gets to spend Sunday acting as though this was all inevitable."
   },
 }
 
