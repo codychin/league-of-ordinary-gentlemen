@@ -224,4 +224,4 @@
 }
 
 .articleBody .articleSectionHead{font:900 11px Arial,sans-serif;letter-spacing:2.1px;color:var(--red);margin:42px 0 14px;padding-top:18px;border-top:1px solid var(--line)}
-.articleBreather{height:0;max-width:680px;margin:36px auto 32px;border-top:1px solid var(--line)}
+.articleBreather{height:1px;background:#b21f24;margin:46px 0 42px;border:0;opacity:.95}
