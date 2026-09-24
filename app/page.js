@@ -22,6 +22,18 @@ export default function Home(){return <><header><div className="utility"><span c
     </div>
   </div>
 </section>
+<section className="hero heroStack" aria-label="Featured Hollis Crane investigation">
+  <Link className="hero-copy storylink" href="/articles/hollis-arch-manning-compression">
+    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.06)),url('/api/hollis-arch-compression')",backgroundPosition:"center 42%"}}>
+      <div><small>HOLLIS CRANE • INVESTIGATIONS</small><b>THE COMPRESSION FILE</b></div>
+    </div>
+    <div className="eyebrow">INVESTIGATIONS • TELEMETRY & PERSONHOOD</div>
+    <h2>The Real-Time Compression of <em>Arch Manning.</em></h2>
+    <PreviewAuthor slug="hollis-arch-manning-compression"/>
+    <p className="standfirst">The mathematical cost of being America’s most observable quarterback.</p>
+    <div className="read">READ HOLLIS CRANE →</div>
+  </Link>
+</section>
 <section className="hero heroStack" aria-label="Maude Gannon trade review">
   <Link className="hero-copy storylink" href="/articles/maude-route-22-trade-review">
     <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.18),rgba(0,0,0,.02)),url('https://www.yardbarker.com/media/1/1/11bdd4f6952b60f036a6619af62017e5be097cc9/thumb_16x9/las-vegas-raiders-tight-end-brock-bowers-89.jpg')",backgroundPosition:"center center"}}>
