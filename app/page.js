@@ -24,7 +24,7 @@ export default function Home(){return <><header><div className="utility"><span c
 </section>
 <section className="hero heroStack" aria-label="Featured Hollis Crane investigation">
   <Link className="hero-copy storylink" href="/articles/hollis-arch-manning-compression">
-    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.06)),url('/arch-manning-compression.jpg')",backgroundPosition:"center 42%"}}>
+    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.06)),url('https://s.yimg.com/ny/api/res/1.2/Vbuyg8QkSULurKjvrvHr4Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTUzOTtjZj13ZWJw/https%3A/media.zenfs.com/en/the_sporting_news_articles_584/c0ab54164d2f1b58b21e67d439324445')",backgroundPosition:"center 42%"}}>
       <div><small>HOLLIS CRANE • INVESTIGATIONS</small><b>THE COMPRESSION FILE</b></div>
     </div>
     <div className="eyebrow">INVESTIGATIONS • TELEMETRY & PERSONHOOD</div>
