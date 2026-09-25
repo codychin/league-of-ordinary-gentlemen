@@ -759,3 +759,30 @@
     color:var(--red)!important;
   }
 }
+
+
+/* Final PWA matchup portrait correction: no forehead clipping, tighter vertical rhythm */
+@media(max-width:760px){
+  html.standaloneApp[data-app-tab='scores'] .playerHeadlineMatchup{
+    min-height:210px!important;
+  }
+  html.standaloneApp[data-app-tab='scores'] .playerHeadlineMatchup .matchupEditorial{
+    min-height:104px!important;
+  }
+  html.standaloneApp[data-app-tab='scores'] .playerHeadlineMatchup .matchupPortraits{
+    top:76px!important;
+    bottom:29px!important;
+    overflow:visible!important;
+  }
+  html.standaloneApp[data-app-tab='scores'] .playerHeadlineMatchup .matchupPortraits img{
+    height:106px!important;
+    bottom:0!important;
+    object-position:center bottom!important;
+  }
+  html.standaloneApp[data-app-tab='scores'] .playerHeadlineMatchup .matchupSide em{
+    position:relative!important;
+    z-index:5!important;
+    background:var(--paper)!important;
+    padding:0 2px!important;
+  }
+}
