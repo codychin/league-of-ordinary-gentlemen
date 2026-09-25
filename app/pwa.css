@@ -583,11 +583,11 @@
 
 @media(max-width:760px){
   html.standaloneApp[data-app-tab='scores'] .playerHeadlineMatchup{
-    min-height:224px!important;
+    min-height:218px!important;
     padding-top:20px!important;
   }
   html.standaloneApp[data-app-tab='scores'] .matchupEditorial{
-    min-height:116px!important;
+    min-height:108px!important;
   }
   html.standaloneApp[data-app-tab='scores'] .matchupSide strong{
     font-size:24px!important;
@@ -597,19 +597,19 @@
     position:relative;
     z-index:4;
     background:var(--paper);
-    padding-top:2px;
+    padding-top:0;
   }
   html.standaloneApp[data-app-tab='scores'] .matchupPortraits{
-    top:90px!important;
+    top:80px!important;
     bottom:29px!important;
   }
   html.standaloneApp[data-app-tab='scores'] .matchupPortraits img{
-    height:108px!important;
-    bottom:-4px!important;
-    object-position:center 70%!important;
+    height:112px!important;
+    bottom:-6px!important;
+    object-position:center 72%!important;
   }
   html.standaloneApp[data-app-tab='scores'] .matchupEditorial>i{
-    margin-top:26px!important;
+    margin-top:24px!important;
     padding-top:0!important;
   }
 }
