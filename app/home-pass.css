@@ -464,3 +464,11 @@
     line-height:1.02;
   }
 }
+
+
+/* Desktop: Culture already supplies the dark section break; don't double it with Week 3. */
+@media(min-width:761px){
+  .affairs + .upcoming{
+    border-top:0!important;
+  }
+}
