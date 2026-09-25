@@ -583,22 +583,28 @@
 
 @media(max-width:760px){
   html.standaloneApp[data-app-tab='scores'] .playerHeadlineMatchup{
-    min-height:184px!important;
+    min-height:210px!important;
     padding-top:20px!important;
   }
   html.standaloneApp[data-app-tab='scores'] .matchupEditorial{
-    min-height:114px!important;
+    min-height:116px!important;
   }
   html.standaloneApp[data-app-tab='scores'] .matchupSide strong{
     font-size:24px!important;
     letter-spacing:-.8px!important;
   }
+  html.standaloneApp[data-app-tab='scores'] .matchupSide em{
+    position:relative;
+    z-index:4;
+    background:var(--paper);
+    padding-top:2px;
+  }
   html.standaloneApp[data-app-tab='scores'] .matchupPortraits{
-    top:57px!important;
+    top:96px!important;
     bottom:29px!important;
   }
   html.standaloneApp[data-app-tab='scores'] .matchupPortraits img{
-    height:98px!important;
+    height:96px!important;
   }
   html.standaloneApp[data-app-tab='scores'] .matchupEditorial>i{
     margin-top:26px!important;
