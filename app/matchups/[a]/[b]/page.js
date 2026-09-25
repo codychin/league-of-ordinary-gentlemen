@@ -9,7 +9,10 @@ const fmt=value=>{
   if(!Number.isFinite(n)) return '—'
   return n.toFixed(2).replace(/\.00$/,'').replace(/(\.\d)0$/,'$1')
 }
-const activeRoster=team=>team.roster.filter(player=>player.slot!=='Bench'&&player.slot!=='IR')
+const SLOT_ORDER={QB:0,RB:1,WR:2,TE:3,FLEX:4,'D/ST':5,K:6}
+const activeRoster=team=>team.roster
+  .filter(player=>player.slot!=='Bench'&&player.slot!=='IR')
+  .sort((a,b)=>(SLOT_ORDER[a.slot]??99)-(SLOT_ORDER[b.slot]??99))
 const profileFor=id=>teams.find(team=>team.id===id)
 const trendFor=player=>{
   if(!player||player.slot==='D/ST'||player.slot==='K') return null
