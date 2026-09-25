@@ -1,5 +1,5 @@
 export const leagueSnapshot = {
-  "updatedAt": "SEPTEMBER 25, 2026 • WEEK 3 LIVE PLAYER TOTALS",
+  "updatedAt": "SEPTEMBER 25, 2026 • WEEK 3 LIVE ROSTERS & PLAYER TOTALS",
   "week": 3,
   "teams": {
     "kupp-doubs": {
@@ -163,17 +163,6 @@ export const leagueSnapshot = {
           "starts": 0
         },
         {
-          "id": "4689936",
-          "name": "Jake Bates",
-          "position": "K",
-          "team": "DET",
-          "slot": "K",
-          "status": "",
-          "weekPoints": 0,
-          "seasonPoints": 14,
-          "starts": 2
-        },
-        {
           "id": "4569559",
           "name": "Devaughn Vele",
           "position": "WR",
@@ -204,6 +193,17 @@ export const leagueSnapshot = {
           "status": "",
           "weekPoints": 0,
           "seasonPoints": 0.5,
+          "starts": 0
+        },
+        {
+          "id": "3051909",
+          "name": "Daniel Carlson",
+          "position": "K",
+          "team": "NO",
+          "slot": "K",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 0,
           "starts": 0
         }
       ],
@@ -417,17 +417,6 @@ export const leagueSnapshot = {
           "starts": 1
         },
         {
-          "id": "-16007",
-          "name": "Broncos D/ST",
-          "position": "D/ST",
-          "team": "DEN",
-          "slot": "Bench",
-          "status": "",
-          "weekPoints": 0,
-          "seasonPoints": 13,
-          "starts": 2
-        },
-        {
           "id": "4361741",
           "name": "Brock Purdy",
           "position": "QB",
@@ -437,17 +426,6 @@ export const leagueSnapshot = {
           "weekPoints": 0,
           "seasonPoints": 52.38,
           "starts": 1
-        },
-        {
-          "id": "4574716",
-          "name": "Harrison Mevis",
-          "position": "K",
-          "team": "LAR",
-          "slot": "Bench",
-          "status": "",
-          "weekPoints": 0,
-          "seasonPoints": 4.75,
-          "starts": 2
         },
         {
           "id": "4428850",
@@ -469,6 +447,28 @@ export const leagueSnapshot = {
           "status": "",
           "weekPoints": 0,
           "seasonPoints": 19.9,
+          "starts": 0
+        },
+        {
+          "id": "-16016",
+          "name": "Vikings D/ST",
+          "position": "D/ST",
+          "team": "MIN",
+          "slot": "D/ST",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
+        },
+        {
+          "id": "4360234",
+          "name": "Evan McPherson",
+          "position": "K",
+          "team": "CIN",
+          "slot": "K",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 0,
           "starts": 0
         }
       ],
@@ -703,17 +703,6 @@ export const leagueSnapshot = {
           "starts": 0
         },
         {
-          "id": "-16024",
-          "name": "Chargers D/ST",
-          "position": "D/ST",
-          "team": "LAC",
-          "slot": "D/ST",
-          "status": "",
-          "weekPoints": 0,
-          "seasonPoints": 1,
-          "starts": 2
-        },
-        {
           "id": "4686361",
           "name": "Cam Little",
           "position": "K",
@@ -736,14 +725,25 @@ export const leagueSnapshot = {
           "starts": 0
         },
         {
-          "id": "4242512",
-          "name": "Malik Willis",
+          "id": "3046779",
+          "name": "Jared Goff",
           "position": "QB",
-          "team": "MIA",
-          "slot": "Bench",
+          "team": "DET",
+          "slot": "QB",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 13.68,
+          "seasonPoints": 0,
+          "starts": 0
+        },
+        {
+          "id": "-16029",
+          "name": "Panthers D/ST",
+          "position": "D/ST",
+          "team": "CAR",
+          "slot": "D/ST",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 0,
           "starts": 0
         }
       ],
@@ -930,17 +930,6 @@ export const leagueSnapshot = {
           "starts": 2
         },
         {
-          "id": "5083315",
-          "name": "Kenyon Sadiq",
-          "position": "TE",
-          "team": "NYJ",
-          "slot": "Bench",
-          "status": "",
-          "weekPoints": 0,
-          "seasonPoints": 15.2,
-          "starts": 1
-        },
-        {
           "id": "4360689",
           "name": "Tyler Shough",
           "position": "QB",
@@ -1002,6 +991,17 @@ export const leagueSnapshot = {
           "team": "LV",
           "slot": "TE",
           "status": "Out",
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
+        },
+        {
+          "id": "3117256",
+          "name": "Dalton Schultz",
+          "position": "TE",
+          "team": "HOU",
+          "slot": "Bench",
+          "status": "",
           "weekPoints": 0,
           "seasonPoints": 0,
           "starts": 0
@@ -1271,15 +1271,15 @@ export const leagueSnapshot = {
           "starts": 0
         },
         {
-          "id": "-16027",
-          "name": "Buccaneers D/ST",
+          "id": "-16004",
+          "name": "Bengals D/ST",
           "position": "D/ST",
-          "team": "TB",
+          "team": "CIN",
           "slot": "D/ST",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 1.5,
-          "starts": 1
+          "seasonPoints": 0,
+          "starts": 0
         }
       ],
       "moves": [
@@ -1486,17 +1486,6 @@ export const leagueSnapshot = {
           "starts": 0
         },
         {
-          "id": "3917792",
-          "name": "Daniel Jones",
-          "position": "QB",
-          "team": "IND",
-          "slot": "Bench",
-          "status": "",
-          "weekPoints": 0,
-          "seasonPoints": 18.84,
-          "starts": 0
-        },
-        {
           "id": "4036133",
           "name": "T.J. Hockenson",
           "position": "TE",
@@ -1530,14 +1519,25 @@ export const leagueSnapshot = {
           "starts": 0
         },
         {
-          "id": "4038441",
-          "name": "Justice Hill",
-          "position": "RB",
-          "team": "BAL",
+          "id": "4036378",
+          "name": "Jordan Love",
+          "position": "QB",
+          "team": "GB",
           "slot": "Bench",
           "status": "",
+          "weekPoints": 19.58,
+          "seasonPoints": 0,
+          "starts": 0
+        },
+        {
+          "id": "-16008",
+          "name": "Lions D/ST",
+          "position": "D/ST",
+          "team": "DET",
+          "slot": "D/ST",
+          "status": "",
           "weekPoints": 0,
-          "seasonPoints": 8.4,
+          "seasonPoints": 0,
           "starts": 0
         }
       ],
@@ -1773,15 +1773,37 @@ export const leagueSnapshot = {
           "starts": 0
         },
         {
-          "id": "17372",
-          "name": "Chris Boswell",
+          "id": "4360939",
+          "name": "Rashod Bateman",
+          "position": "WR",
+          "team": "BAL",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
+        },
+        {
+          "id": "4241983",
+          "name": "Cody White",
+          "position": "—",
+          "team": null,
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
+        },
+        {
+          "id": "4869461",
+          "name": "Trey Smack",
           "position": "K",
-          "team": "PIT",
+          "team": "GB",
           "slot": "K",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 14,
-          "starts": 2
+          "seasonPoints": 0,
+          "starts": 0
         }
       ],
       "moves": [
@@ -2286,14 +2308,14 @@ export const leagueSnapshot = {
           "starts": 0
         },
         {
-          "id": "5081432",
-          "name": "Antonio Williams",
+          "id": "4597500",
+          "name": "Adonai Mitchell",
           "position": "WR",
-          "team": "WSH",
-          "slot": "Bench",
+          "team": "NYJ",
+          "slot": "WR",
           "status": "",
           "weekPoints": 0,
-          "seasonPoints": 4.4,
+          "seasonPoints": 0,
           "starts": 0
         }
       ],
@@ -2767,17 +2789,6 @@ export const leagueSnapshot = {
           "starts": 0
         },
         {
-          "id": "4362081",
-          "name": "Cameron Dicker",
-          "position": "K",
-          "team": "LAC",
-          "slot": "K",
-          "status": "",
-          "weekPoints": 0,
-          "seasonPoints": 1.5,
-          "starts": 2
-        },
-        {
           "id": "-16009",
           "name": "Packers D/ST",
           "position": "D/ST",
@@ -2800,14 +2811,25 @@ export const leagueSnapshot = {
           "starts": 0
         },
         {
-          "id": "3123076",
-          "name": "David Njoku",
-          "position": "TE",
-          "team": "LAC",
+          "id": "4887558",
+          "name": "Emanuel Wilson",
+          "position": "RB",
+          "team": "SEA",
           "slot": "Bench",
-          "status": "Out",
+          "status": "",
           "weekPoints": 0,
-          "seasonPoints": 0.9,
+          "seasonPoints": 0,
+          "starts": 0
+        },
+        {
+          "id": "3150744",
+          "name": "Chase McLaughlin",
+          "position": "K",
+          "team": "TB",
+          "slot": "K",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 0,
           "starts": 0
         }
       ],
