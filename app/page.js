@@ -88,14 +88,6 @@ export default function Home(){return <><header><div className="utility"><span c
     <p>The game was over. Replay recovered one second. Vanderbilt still won. The point after changed who got paid.</p>
     <div className="read">READ THE INVESTIGATION →</div>
   </Link>
-  <Link href="/articles/sabine-chest-statement" className="card storylink">
-    <div className="photoStrip" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.35),rgba(0,0,0,.04)),url('/api/sabine-march.jpg')",backgroundPosition:"center 20%"}}><span>SABINE MARCH / PUBLIC LIFE</span></div>
-    <div className="tag">A BRIEF STATEMENT</div>
-    <h3>A Brief Statement Regarding Ongoing Chest Speculation</h3>
-    <PreviewAuthor slug="sabine-chest-statement"/>
-    <p>Sabine declines to provide measurements, commission an independent review, or deny the central allegation.</p>
-    <div className="read">READ THE STATEMENT →</div>
-  </Link>
 </section>
 <section className="section autopsySection">
   <div className="autopsyHeader">
