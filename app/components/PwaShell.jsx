@@ -306,8 +306,11 @@ function MobileAppNav(){
     if(standalone){
       setVisualTab(item.tab)
       window.sessionStorage.setItem(APP_TAB_KEY,item.tab)
-      const clean=window.location.pathname+window.location.search
-      if(window.location.hash) window.history.replaceState(null,'',clean)
+      const params=new URLSearchParams(window.location.search)
+      params.set('tab',item.tab)
+      if(document.documentElement.classList.contains('appPreview')) params.set('app-preview','1')
+      else params.delete('app-preview')
+      window.history.replaceState(window.history.state,'','/?'+params.toString())
       setActiveTab(item.tab)
       document.documentElement.dataset.appTab=item.tab
       resetAppScroll()
