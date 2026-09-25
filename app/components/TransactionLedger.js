@@ -21,6 +21,7 @@ const tx=[
 ['SEP 23','Lloyd','WAIVER','Emanuel Wilson / David Njoku • $19'],
 ['SEP 23','Lloyd','FAILED BID','Rashod Bateman / David Njoku • $16'],
 ['SEP 23','Lloyd','FAILED BID','Adonai Mitchell / David Njoku • $12']
+]
 
 function Rows({rows}){return <div className="transactionRows">{rows.map((t,i)=><div className="txRow" key={`${t[0]}-${t[1]}-${i}`}><small>{t[0]}</small><b>{t[1]}</b><span>{t[3]}</span><em>{t[2]}</em></div>)}</div>}
 export default function TransactionLedger(){return <div className="transactionLedger"><h3>The Full Wire</h3><Rows rows={tx.slice(0,8)}/><details className="moreTransactions"><summary>LOAD MORE TRANSACTIONS</summary><Rows rows={tx.slice(8)}/></details><div className="ledgerNote">22 WEEK 3 ACTIONS • ESPN TRANSACTION RECORD • UPDATED SEP 25</div></div>}
