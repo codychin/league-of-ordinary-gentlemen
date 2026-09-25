@@ -228,7 +228,7 @@ function MobileAppNav(){
         if(!['home','scores','culture','teams','more','detail'].includes(nextTab)) nextTab='home'
         setActiveTab(nextTab)
         document.documentElement.dataset.appTab=nextTab
-        if(pathname==='/'&&['home','scores','culture'].includes(nextTab)) window.sessionStorage.setItem(APP_TAB_KEY,nextTab)
+        if((pathname==='/'&&['home','scores','culture'].includes(nextTab))||nextTab==='culture') window.sessionStorage.setItem(APP_TAB_KEY,nextTab)
         if(nextHash&&pathname!=='/staff'){
           const clean=window.location.pathname+window.location.search
           window.history.replaceState(null,'',clean)
