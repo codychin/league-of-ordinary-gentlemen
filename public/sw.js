@@ -1,4 +1,4 @@
-const VERSION='ordinary-brief-v12'
+const VERSION='ordinary-brief-v13'
 const STATIC_CACHE=`${VERSION}-static`
 const PAGE_CACHE=`${VERSION}-pages`
 const PRECACHE=[
