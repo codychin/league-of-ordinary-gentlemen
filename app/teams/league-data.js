@@ -1,5 +1,5 @@
 export const leagueSnapshot = {
-  "updatedAt": "SEPTEMBER 22, 2026 • 1:15 PM ET",
+  "updatedAt": "SEPTEMBER 25, 2026 • WEEK 3 LIVE",
   "week": 3,
   "teams": {
     "kupp-doubs": {
@@ -15,8 +15,8 @@ export const leagueSnapshot = {
         "opponentSlug": "route-22",
         "score": 0,
         "opponentScore": 0,
-        "projection": "143.7",
-        "opponentProjection": "128.6"
+        "projection": "146.1",
+        "opponentProjection": "142.7"
       },
       "roster": [
         {
@@ -279,9 +279,9 @@ export const leagueSnapshot = {
         "opponent": "Shake 'N Baker",
         "opponentSlug": "shake-baker",
         "score": 0,
-        "opponentScore": 0,
-        "projection": "132.5",
-        "opponentProjection": "135.3"
+        "opponentScore": 42.2,
+        "projection": "148.9",
+        "opponentProjection": "155.1"
       },
       "roster": [
         {
@@ -553,10 +553,10 @@ export const leagueSnapshot = {
       "matchup": {
         "opponent": "Pollard Greens",
         "opponentSlug": "pollard-greens",
-        "score": 0,
-        "opponentScore": 0,
-        "projection": "105.6",
-        "opponentProjection": "145.2"
+        "score": 21.6,
+        "opponentScore": 31.9,
+        "projection": "145.2",
+        "opponentProjection": "163.7"
       },
       "roster": [
         {
@@ -815,8 +815,8 @@ export const leagueSnapshot = {
         "opponentSlug": "kupp-doubs",
         "score": 0,
         "opponentScore": 0,
-        "projection": "128.6",
-        "opponentProjection": "143.7"
+        "projection": "142.7",
+        "opponentProjection": "146.1"
       },
       "roster": [
         {
@@ -1089,9 +1089,9 @@ export const leagueSnapshot = {
         "opponent": "For the Love of the Kraft",
         "opponentSlug": "kraft",
         "score": 0,
-        "opponentScore": 0,
-        "projection": "144.1",
-        "opponentProjection": "94.7"
+        "opponentScore": 5.6,
+        "projection": "144.3",
+        "opponentProjection": "112.9"
       },
       "roster": [
         {
@@ -1358,10 +1358,10 @@ export const leagueSnapshot = {
       "matchup": {
         "opponent": "The All Ugly Team",
         "opponentSlug": "all-ugly",
-        "score": 0,
-        "opponentScore": 0,
-        "projection": "145.2",
-        "opponentProjection": "105.6"
+        "score": 31.9,
+        "opponentScore": 21.6,
+        "projection": "163.7",
+        "opponentProjection": "145.2"
       },
       "roster": [
         {
@@ -1613,9 +1613,9 @@ export const leagueSnapshot = {
         "opponent": "Lloyd of the Rings",
         "opponentSlug": "lloyd-rings",
         "score": 0,
-        "opponentScore": 0,
-        "projection": "137.1",
-        "opponentProjection": "127.2"
+        "opponentScore": -5.5,
+        "projection": "149.3",
+        "opponentProjection": "130.6"
       },
       "roster": [
         {
@@ -1860,10 +1860,10 @@ export const leagueSnapshot = {
       "matchup": {
         "opponent": "DarkHorse Danir",
         "opponentSlug": "danir",
-        "score": 0,
+        "score": 42.2,
         "opponentScore": 0,
-        "projection": "135.3",
-        "opponentProjection": "132.5"
+        "projection": "155.1",
+        "opponentProjection": "148.9"
       },
       "roster": [
         {
@@ -2103,10 +2103,10 @@ export const leagueSnapshot = {
       "matchup": {
         "opponent": "I'm a Skatt man",
         "opponentSlug": "skatt",
-        "score": 0,
+        "score": 5.6,
         "opponentScore": 0,
-        "projection": "94.7",
-        "opponentProjection": "144.1"
+        "projection": "112.9",
+        "opponentProjection": "144.3"
       },
       "roster": [
         {
@@ -2368,10 +2368,10 @@ export const leagueSnapshot = {
       "matchup": {
         "opponent": "CeeDeep Shaheeded Rivalry",
         "opponentSlug": "ceedeep",
-        "score": 0,
+        "score": 7.5,
         "opponentScore": 0,
-        "projection": "132.1",
-        "opponentProjection": "145.8"
+        "projection": "148.9",
+        "opponentProjection": "149.9"
       },
       "roster": [
         {
@@ -2617,10 +2617,10 @@ export const leagueSnapshot = {
       "matchup": {
         "opponent": "Mr Hopkins Opus",
         "opponentSlug": "hopkins-opus",
-        "score": 0,
+        "score": -5.5,
         "opponentScore": 0,
-        "projection": "127.2",
-        "opponentProjection": "137.1"
+        "projection": "130.6",
+        "opponentProjection": "149.3"
       },
       "roster": [
         {
@@ -2888,9 +2888,9 @@ export const leagueSnapshot = {
         "opponent": "Royrek Tishmeshulam",
         "opponentSlug": "royrek",
         "score": 0,
-        "opponentScore": 0,
-        "projection": "145.8",
-        "opponentProjection": "132.1"
+        "opponentScore": 7.5,
+        "projection": "149.9",
+        "opponentProjection": "148.9"
       },
       "roster": [
         {
