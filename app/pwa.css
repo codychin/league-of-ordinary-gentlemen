@@ -583,7 +583,7 @@
 
 @media(max-width:760px){
   html.standaloneApp[data-app-tab='scores'] .playerHeadlineMatchup{
-    min-height:210px!important;
+    min-height:224px!important;
     padding-top:20px!important;
   }
   html.standaloneApp[data-app-tab='scores'] .matchupEditorial{
@@ -600,11 +600,13 @@
     padding-top:2px;
   }
   html.standaloneApp[data-app-tab='scores'] .matchupPortraits{
-    top:96px!important;
+    top:90px!important;
     bottom:29px!important;
   }
   html.standaloneApp[data-app-tab='scores'] .matchupPortraits img{
-    height:96px!important;
+    height:108px!important;
+    bottom:-4px!important;
+    object-position:center 70%!important;
   }
   html.standaloneApp[data-app-tab='scores'] .matchupEditorial>i{
     margin-top:26px!important;
