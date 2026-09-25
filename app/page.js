@@ -12,7 +12,7 @@ export default function Home(){return <><header><div className="utility"><span c
   <div className="morningBriefFlag"><span>THE FRIDAY MORNING BRIEF</span><small>SEPTEMBER 25 • WEEK 3</small></div>
   <div className="sundayFrontGrid">
     <Link href="/articles/maude-jordan-love-alibis" className="sundayFeature storylink">
-      <div className="sundayFeatureImage sundayActionHero"><img src="https://static.clubs.nfl.com/image/upload/t_editorial_landscape_mobile/t_lazy/f_png/packers/tmuowzeswy4qijgfvyxh.png" alt="Jordan Love during Packers-Falcons at Lambeau Field"/><div className="actionCaption"><small>MAUDE GANNON • FOOTBALL</small><b>QUARTERBACK FILE</b></div></div>
+      <div className="sundayFeatureImage sundayActionHero"><img src="https://a.espncdn.com/i/headshots/nfl/players/full/4036378.png" alt="Jordan Love during Packers-Falcons at Lambeau Field"/><div className="actionCaption"><small>MAUDE GANNON • FOOTBALL</small><b>QUARTERBACK FILE</b></div></div>
       <div className="sundayFeatureCopy"><small>MAUDE GANNON • FILM & ANALYTICS</small><h2>Jordan Love Is Running Out of Alibis</h2><p>The 312 yards look respectable. The 53 attempts required to get them do not.</p><PreviewAuthor slug="maude-jordan-love-alibis"/><span>READ THE HEADLINE PIECE →</span></div>
     </Link>
     <div className="sundaySide sundayStoryCarousel" aria-label="Sunday night supporting stories">
