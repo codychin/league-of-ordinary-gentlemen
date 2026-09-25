@@ -18,7 +18,7 @@ export default function Staff(){
         </div>
       </section>
       <div className="staffGrid">
-        {Object.values(writers).map((writer,index)=>
+        {Object.values(writers).filter(writer=>writer.slug!=='newsroom').map((writer,index)=>
           <article id={writer.slug} className="staffCard" key={writer.slug}>
             <figure className="staffPortrait">
               <img src={writer.image} alt={writer.imageAlt}/>
