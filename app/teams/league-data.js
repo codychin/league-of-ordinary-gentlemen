@@ -1,5 +1,5 @@
 export const leagueSnapshot = {
-  "updatedAt": "SEPTEMBER 25, 2026 • WEEK 3 LIVE",
+  "updatedAt": "SEPTEMBER 25, 2026 • WEEK 3 LIVE PLAYER TOTALS",
   "week": 3,
   "teams": {
     "kupp-doubs": {
@@ -536,7 +536,7 @@ export const leagueSnapshot = {
             "opponent": "Shake 'N Baker",
             "opponentSlug": "shake-baker",
             "score": 0,
-            "opponentScore": 0,
+            "opponentScore": 42.2,
             "result": "—"
           }
         ]
@@ -586,7 +586,7 @@ export const leagueSnapshot = {
           "name": "DeVonta Smith",
           "position": "WR",
           "team": "PHI",
-          "slot": "WR",
+          "slot": "FLEX",
           "status": "",
           "weekPoints": 0,
           "seasonPoints": 40.5,
@@ -608,7 +608,7 @@ export const leagueSnapshot = {
           "name": "Jadarian Price",
           "position": "RB",
           "team": "SEA",
-          "slot": "RB",
+          "slot": "FLEX",
           "status": "Questionable",
           "weekPoints": 0,
           "seasonPoints": 17.1,
@@ -619,9 +619,9 @@ export const leagueSnapshot = {
           "name": "Christian Watson",
           "position": "WR",
           "team": "GB",
-          "slot": "FLEX",
+          "slot": "WR",
           "status": "",
-          "weekPoints": 0,
+          "weekPoints": 21.6,
           "seasonPoints": 51.8,
           "starts": 2
         },
@@ -630,7 +630,7 @@ export const leagueSnapshot = {
           "name": "Jonathon Brooks",
           "position": "RB",
           "team": "CAR",
-          "slot": "FLEX",
+          "slot": "Bench",
           "status": "Doubtful",
           "weekPoints": 0,
           "seasonPoints": 10.2,
@@ -641,7 +641,7 @@ export const leagueSnapshot = {
           "name": "Caleb Williams",
           "position": "QB",
           "team": "CHI",
-          "slot": "QB",
+          "slot": "Bench",
           "status": "Doubtful",
           "weekPoints": 0,
           "seasonPoints": 46.48,
@@ -652,7 +652,7 @@ export const leagueSnapshot = {
           "name": "Woody Marks",
           "position": "RB",
           "team": "HOU",
-          "slot": "Bench",
+          "slot": "RB",
           "status": "",
           "weekPoints": 0,
           "seasonPoints": 16.2,
@@ -687,7 +687,7 @@ export const leagueSnapshot = {
           "team": "ATL",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0,
+          "weekPoints": 3.2,
           "seasonPoints": 3.65,
           "starts": 0
         },
@@ -795,8 +795,8 @@ export const leagueSnapshot = {
             "status": "LIVE",
             "opponent": "Pollard Greens",
             "opponentSlug": "pollard-greens",
-            "score": 0,
-            "opponentScore": 0,
+            "score": 21.6,
+            "opponentScore": 31.9,
             "result": "—"
           }
         ]
@@ -991,7 +991,7 @@ export const leagueSnapshot = {
           "team": "ATL",
           "slot": "Bench",
           "status": "Questionable",
-          "weekPoints": 0,
+          "weekPoints": 14.5,
           "seasonPoints": 13.3,
           "starts": 0
         },
@@ -1165,7 +1165,7 @@ export const leagueSnapshot = {
           "name": "Carnell Tate",
           "position": "WR",
           "team": "TEN",
-          "slot": "FLEX",
+          "slot": "Bench",
           "status": "",
           "weekPoints": 0,
           "seasonPoints": 11.5,
@@ -1220,7 +1220,7 @@ export const leagueSnapshot = {
           "name": "Denzel Boston",
           "position": "WR",
           "team": "CLE",
-          "slot": "Bench",
+          "slot": "FLEX",
           "status": "",
           "weekPoints": 0,
           "seasonPoints": 40.4,
@@ -1341,7 +1341,7 @@ export const leagueSnapshot = {
             "opponent": "For the Love of the Kraft",
             "opponentSlug": "kraft",
             "score": 0,
-            "opponentScore": 0,
+            "opponentScore": 5.6,
             "result": "—"
           }
         ]
@@ -1382,7 +1382,7 @@ export const leagueSnapshot = {
           "team": "ATL",
           "slot": "WR",
           "status": "",
-          "weekPoints": 0,
+          "weekPoints": 31.900000000000002,
           "seasonPoints": 13.85,
           "starts": 2
         },
@@ -1512,7 +1512,7 @@ export const leagueSnapshot = {
           "name": "Ravens D/ST",
           "position": "D/ST",
           "team": "BAL",
-          "slot": "D/ST",
+          "slot": "Bench",
           "status": "",
           "weekPoints": 0,
           "seasonPoints": 9.5,
@@ -1525,7 +1525,7 @@ export const leagueSnapshot = {
           "team": "GB",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0,
+          "weekPoints": 2,
           "seasonPoints": 5.5,
           "starts": 0
         },
@@ -1594,8 +1594,8 @@ export const leagueSnapshot = {
             "status": "LIVE",
             "opponent": "The All Ugly Team",
             "opponentSlug": "all-ugly",
-            "score": 0,
-            "opponentScore": 0,
+            "score": 31.9,
+            "opponentScore": 21.6,
             "result": "—"
           }
         ]
@@ -1700,7 +1700,7 @@ export const leagueSnapshot = {
           "name": "Jaxson Dart",
           "position": "QB",
           "team": "NYG",
-          "slot": "QB",
+          "slot": "IR",
           "status": "Doubtful",
           "weekPoints": 0,
           "seasonPoints": 28.5,
@@ -1766,7 +1766,7 @@ export const leagueSnapshot = {
           "name": "Patrick Mahomes",
           "position": "QB",
           "team": "KC",
-          "slot": "Bench",
+          "slot": "QB",
           "status": "",
           "weekPoints": 0,
           "seasonPoints": 55.54,
@@ -1843,7 +1843,7 @@ export const leagueSnapshot = {
             "opponent": "Lloyd of the Rings",
             "opponentSlug": "lloyd-rings",
             "score": 0,
-            "opponentScore": 0,
+            "opponentScore": -5.5,
             "result": "—"
           }
         ]
@@ -1873,7 +1873,7 @@ export const leagueSnapshot = {
           "team": "ATL",
           "slot": "RB",
           "status": "",
-          "weekPoints": 0,
+          "weekPoints": 42.199999999999996,
           "seasonPoints": 44.1,
           "starts": 2
         },
@@ -1917,7 +1917,7 @@ export const leagueSnapshot = {
           "team": "ATL",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0,
+          "weekPoints": 2.5,
           "seasonPoints": 1.25,
           "starts": 2
         },
@@ -2085,7 +2085,7 @@ export const leagueSnapshot = {
             "status": "LIVE",
             "opponent": "DarkHorse Danir",
             "opponentSlug": "danir",
-            "score": 0,
+            "score": 42.2,
             "opponentScore": 0,
             "result": "—"
           }
@@ -2114,7 +2114,7 @@ export const leagueSnapshot = {
           "name": "Puka Nacua",
           "position": "WR",
           "team": "LAR",
-          "slot": "FLEX",
+          "slot": "Bench",
           "status": "Out",
           "weekPoints": 0,
           "seasonPoints": 11.9,
@@ -2125,7 +2125,7 @@ export const leagueSnapshot = {
           "name": "Nico Collins",
           "position": "WR",
           "team": "HOU",
-          "slot": "WR",
+          "slot": "Bench",
           "status": "Out",
           "weekPoints": 0,
           "seasonPoints": 20.3,
@@ -2182,7 +2182,7 @@ export const leagueSnapshot = {
           "team": "GB",
           "slot": "TE",
           "status": "",
-          "weekPoints": 0,
+          "weekPoints": 5.6,
           "seasonPoints": 13,
           "starts": 2
         },
@@ -2191,7 +2191,7 @@ export const leagueSnapshot = {
           "name": "Blake Corum",
           "position": "RB",
           "team": "LAR",
-          "slot": "Bench",
+          "slot": "FLEX",
           "status": "",
           "weekPoints": 0,
           "seasonPoints": 17.8,
@@ -2350,7 +2350,7 @@ export const leagueSnapshot = {
             "status": "LIVE",
             "opponent": "I'm a Skatt man",
             "opponentSlug": "skatt",
-            "score": 0,
+            "score": 5.6,
             "opponentScore": 0,
             "result": "—"
           }
@@ -2434,7 +2434,7 @@ export const leagueSnapshot = {
           "name": "Dallas Goedert",
           "position": "TE",
           "team": "PHI",
-          "slot": "TE",
+          "slot": "Bench",
           "status": "Doubtful",
           "weekPoints": 0,
           "seasonPoints": 30.1,
@@ -2458,7 +2458,7 @@ export const leagueSnapshot = {
           "team": "GB",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0,
+          "weekPoints": 22,
           "seasonPoints": 25.3,
           "starts": 0
         },
@@ -2500,7 +2500,7 @@ export const leagueSnapshot = {
           "name": "Mark Andrews",
           "position": "TE",
           "team": "BAL",
-          "slot": "Bench",
+          "slot": "TE",
           "status": "",
           "weekPoints": 0,
           "seasonPoints": 19.8,
@@ -2546,7 +2546,7 @@ export const leagueSnapshot = {
           "team": "ATL",
           "slot": "D/ST",
           "status": "",
-          "weekPoints": 0,
+          "weekPoints": 7.5,
           "seasonPoints": -0.5,
           "starts": 1
         }
@@ -2599,7 +2599,7 @@ export const leagueSnapshot = {
             "status": "LIVE",
             "opponent": "CeeDeep Shaheeded Rivalry",
             "opponentSlug": "ceedeep",
-            "score": 0,
+            "score": 7.5,
             "opponentScore": 0,
             "result": "—"
           }
@@ -2650,7 +2650,7 @@ export const leagueSnapshot = {
           "name": "Zay Flowers",
           "position": "WR",
           "team": "BAL",
-          "slot": "WR",
+          "slot": "FLEX",
           "status": "Out",
           "weekPoints": 0,
           "seasonPoints": 32,
@@ -2672,7 +2672,7 @@ export const leagueSnapshot = {
           "name": "Parker Washington",
           "position": "WR",
           "team": "JAX",
-          "slot": "FLEX",
+          "slot": "WR",
           "status": "",
           "weekPoints": 0,
           "seasonPoints": 37.1,
@@ -2685,7 +2685,7 @@ export const leagueSnapshot = {
           "team": "GB",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0,
+          "weekPoints": 3.2,
           "seasonPoints": 14.2,
           "starts": 2
         },
@@ -2784,7 +2784,7 @@ export const leagueSnapshot = {
           "team": "GB",
           "slot": "D/ST",
           "status": "",
-          "weekPoints": 0,
+          "weekPoints": -5.5,
           "seasonPoints": 14.5,
           "starts": 2
         },
@@ -2869,7 +2869,7 @@ export const leagueSnapshot = {
             "status": "LIVE",
             "opponent": "Mr Hopkins Opus",
             "opponentSlug": "hopkins-opus",
-            "score": 0,
+            "score": -5.5,
             "opponentScore": 0,
             "result": "—"
           }
@@ -3008,7 +3008,7 @@ export const leagueSnapshot = {
           "name": "Khalil Shakir",
           "position": "WR",
           "team": "BUF",
-          "slot": "FLEX",
+          "slot": "Bench",
           "status": "",
           "weekPoints": 0,
           "seasonPoints": 17.8,
@@ -3019,7 +3019,7 @@ export const leagueSnapshot = {
           "name": "Rashid Shaheed",
           "position": "WR",
           "team": "SEA",
-          "slot": "Bench",
+          "slot": "FLEX",
           "status": "",
           "weekPoints": 0,
           "seasonPoints": 14.4,
@@ -3130,7 +3130,7 @@ export const leagueSnapshot = {
             "opponent": "Royrek Tishmeshulam",
             "opponentSlug": "royrek",
             "score": 0,
-            "opponentScore": 0,
+            "opponentScore": 7.5,
             "result": "—"
           }
         ]
