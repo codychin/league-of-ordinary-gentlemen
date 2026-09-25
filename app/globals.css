@@ -91,7 +91,7 @@
   .playerHeadlineMatchup .matchupSide b{margin:0;align-self:flex-start}
   .playerHeadlineMatchup .matchupSide.right b{align-self:flex-end}
   .playerHeadlineMatchup .matchupPortraits{
-    top:92px!important;
+    top:104px!important;
     bottom:var(--preview-h)!important;
     overflow:hidden;
   }
