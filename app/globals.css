@@ -230,10 +230,10 @@
 /* PWA Week 3 matchup cards: reserve a clean text lane above portraits */
 @media(max-width:760px){
   html.standaloneApp[data-app-tab='scores'] .playerHeadlineMatchup{
-    min-height:190px!important;
+    min-height:244px!important;
   }
   html.standaloneApp[data-app-tab='scores'] .playerHeadlineMatchup .matchupEditorial{
-    min-height:118px!important;
+    min-height:116px!important;
     position:relative!important;
     z-index:3!important;
   }
@@ -244,11 +244,11 @@
     padding-top:2px!important;
   }
   html.standaloneApp[data-app-tab='scores'] .playerHeadlineMatchup .matchupPortraits{
-    top:136px!important;
+    top:132px!important;
     bottom:36px!important;
     z-index:1!important;
   }
   html.standaloneApp[data-app-tab='scores'] .playerHeadlineMatchup .matchupPortraits img{
-    height:82px!important;
+    height:74px!important;
   }
 }
