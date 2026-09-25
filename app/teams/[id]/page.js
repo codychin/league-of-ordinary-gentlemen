@@ -8,6 +8,7 @@ export default async function Team({params}) {
   const t=teams.find(x=>x.id===id)
   if(!t) return <main>Team not found.</main>
   const ops=leagueSnapshot.teams[id]
+  const rosterBySeason=[...ops.roster].sort((a,b)=>(Number(b.seasonPoints)||0)-(Number(a.seasonPoints)||0))
   const maxPositionPoints=Math.max(...Object.values(ops.season.positionTotals),1)
 
   return <>
@@ -43,7 +44,7 @@ export default async function Team({params}) {
       <section className="rosterSection">
         <div className="hubHead">ACTIVE ROSTER • WEEK {leagueSnapshot.week}</div>
         <div className="rosterHeader"><span>SLOT</span><span>PLAYER</span><span>STATUS</span><span>STARTS</span><span>WEEK {leagueSnapshot.week} PTS</span><span>SEASON PTS</span></div>
-        {ops.roster.map((p,i)=>{const reserve=p.slot==='Bench'||p.slot==='IR';return <div className={`rosterRow ${reserve?'reserve':''}`} key={p.id}><b>{p.slot}</b><span><strong>{p.name}</strong><em>{p.position} • {p.team}</em></span><span className={p.status?'statusFlag':''}>{p.status||'—'}</span><span>{p.starts}</span><strong data-label={`W${leagueSnapshot.week} PTS`}>{Number(p.weekPoints).toFixed(1)}</strong><strong data-label="SEASON PTS">{Number(p.seasonPoints).toFixed(1)}</strong></div>})}
+        {rosterBySeason.map((p,i)=>{const reserve=p.slot==='Bench'||p.slot==='IR';return <div className={`rosterRow ${reserve?'reserve':''}`} key={p.id}><b>{p.slot}</b><span><strong>{p.name}</strong><em>{p.position} • {p.team}</em></span><span className={p.status?'statusFlag':''}>{p.status||'—'}</span><span>{p.starts}</span><strong data-label={`W${leagueSnapshot.week} PTS`}>{Number(p.weekPoints).toFixed(1)}</strong><strong data-label="SEASON PTS">{Number(p.seasonPoints).toFixed(1)}</strong></div>})}
       </section>
 
       <section className="franchiseLead"><div><small>LATEST RESULT</small><h2>{t.week1}</h2><p>{t.note}</p></div><aside><small>ON FILE</small><p>{t.lore}</p></aside></section>
