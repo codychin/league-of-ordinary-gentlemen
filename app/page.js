@@ -88,13 +88,13 @@ export default function Home(){return <><header><div className="utility"><span c
     <p>The game was over. Replay recovered one second. Vanderbilt still won. The point after changed who got paid.</p>
     <div className="read">READ THE INVESTIGATION →</div>
   </Link>
-  <Link href="/articles/sabine-michigan-money-privilege-impatience" className="card storylink">
-    <div className="photoStrip" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.30),rgba(0,0,0,.03)),url('/api/jolin-ellison-image')",backgroundPosition:"center 42%"}}><span>SABINE MARCH / MONEY & INSTITUTIONS</span></div>
-    <div className="tag">INSTITUTIONAL POWER</div>
-    <h3>Michigan, Money and the Privilege of Impatience</h3>
-    <PreviewAuthor slug="sabine-michigan-money-privilege-impatience"/>
-    <p>Jolin Ellison represents a new kind of college-football power broker. The uncomfortable question is whether institutions need people like her.</p>
-    <div className="read">READ THE DISPATCH →</div>
+  <Link href="/articles/marnie-jumbotron-juilliard" className="card storylink">
+    <div className="photoStrip" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.30),rgba(0,0,0,.03)),url('/api/preston-powe-image')",backgroundPosition:"center 40%"}}><span>MARNIE KELLS / FAME & ATTENTION</span></div>
+    <div className="tag">MATTERS OF CULTURE</div>
+    <h3>The Jumbotron Is the New Juilliard</h3>
+    <PreviewAuthor slug="marnie-jumbotron-juilliard"/>
+    <p>The audition has escaped the casting room and entered the arena of popular response.</p>
+    <div className="read">READ MARNIE →</div>
   </Link>
 </section>
 <section className="section autopsySection">
