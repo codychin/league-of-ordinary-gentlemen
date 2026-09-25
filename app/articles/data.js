@@ -1,5 +1,5 @@
 export const articles = {
-'maude-jordan-love-alibis':{week:3,image:'https://static.clubs.nfl.com/image/upload/t_editorial_landscape_mobile/t_lazy/f_png/packers/tmuowzeswy4qijgfvyxh.png',imageAlt:'Jordan Love during the Packers-Falcons Thursday night game at Lambeau Field',section:'FOOTBALL DESK • QUARTERBACK FILE',title:'Jordan Love Is Running Out of Alibis',dek:'The 312 yards look respectable. The 53 attempts required to get them do not.',date:'SEPTEMBER 25, 2026',body:[
+'maude-jordan-love-alibis':{week:3,image:'https://a.espncdn.com/i/headshots/nfl/players/full/4036378.png',imageAlt:'Jordan Love during the Packers-Falcons Thursday night game at Lambeau Field',section:'FOOTBALL DESK • QUARTERBACK FILE',title:'Jordan Love Is Running Out of Alibis',dek:'The 312 yards look respectable. The 53 attempts required to get them do not.',date:'SEPTEMBER 25, 2026',body:[
 "Jordan Love threw for 312 yards Thursday night.",
 "He was bad.",
 "Those two things are not in conflict. In fact, that contradiction is becoming the entire Jordan Love experience.",
