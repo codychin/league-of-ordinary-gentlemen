@@ -117,12 +117,28 @@ export default function ReelsShelf({reels=[]}){
       }}>
       <button className={styles.close} onClick={()=>setActive(null)} aria-label="Close video">×</button>
       <div className={styles.stage}>
-        {nextReel&&<video ref={preloadRef} className={styles.preloadVideo} src={`/reels/${nextReel.id}.mp4?v=8`} preload="auto" playsInline muted aria-hidden="true"/>}
+        {nextReel&&<video
+          key={nextReel.id}
+          ref={preloadRef}
+          className={`${styles.video} ${styles.nextVideo}`}
+          src={`/reels/${nextReel.id}.mp4?v=9`}
+          preload="auto"
+          playsInline
+          muted
+          disablePictureInPicture
+          aria-hidden="true"
+          onLoadedData={e=>{
+            const v=e.currentTarget;
+            v.muted=true;
+            const p=v.play();
+            if(p?.then)p.then(()=>{v.pause();try{v.currentTime=.01}catch{}}).catch(()=>{});
+          }}
+        />}
         <video
           key={reel.id}
           ref={videoRef}
           className={styles.video}
-          src={`/reels/${reel.id}.mp4?v=8`}
+          src={`/reels/${reel.id}.mp4?v=9`}
           autoPlay
           muted={muted}
           playsInline
