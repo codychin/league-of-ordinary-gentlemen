@@ -12,6 +12,7 @@ export default function ReelsShelf({reels=[]}){
   const [ios,setIos]=useState(false);
   const [muted,setMuted]=useState(true);
   const touchStart=useRef(null);
+  const videoRef=useRef(null);
 
   useEffect(()=>{
     const ua=navigator.userAgent||'';
@@ -44,6 +45,25 @@ export default function ReelsShelf({reels=[]}){
     window.addEventListener('keydown',onKey);
     return()=>window.removeEventListener('keydown',onKey);
   },[active,reels.length]);
+
+  useEffect(()=>{
+    if(active===null)return;
+    const video=videoRef.current;
+    if(!video)return;
+    video.muted=muted;
+    video.defaultMuted=muted;
+    const tryPlay=()=>{
+      const promise=video.play();
+      if(promise?.catch)promise.catch(()=>{});
+    };
+    tryPlay();
+    video.addEventListener('loadedmetadata',tryPlay);
+    video.addEventListener('canplay',tryPlay);
+    return()=>{
+      video.removeEventListener('loadedmetadata',tryPlay);
+      video.removeEventListener('canplay',tryPlay);
+    };
+  },[active,muted]);
 
   const move=dir=>setActive(i=>(i+dir+reels.length)%reels.length);
   const reel=active===null?null:reels[active];
@@ -79,7 +99,7 @@ export default function ReelsShelf({reels=[]}){
       }}>
       <button className={styles.close} onClick={()=>setActive(null)} aria-label="Close video">×</button>
       <div className={styles.stage}>
-        <video key={reel.id} className={styles.video} src={`/reels/${reel.id}.mp4?v=3`} autoPlay muted={muted} playsInline preload="auto" disablePictureInPicture/>
+        <video ref={videoRef} key={reel.id} className={styles.video} src={`/reels/${reel.id}.mp4?v=4`} autoPlay muted={muted} playsInline preload="auto" disablePictureInPicture onLoadedData={()=>videoRef.current?.play().catch(()=>{})}/>
         <button className={styles.soundToggle} onClick={e=>{e.stopPropagation();setMuted(v=>!v)}} aria-label={muted?'Turn sound on':'Mute'}>{muted?'SOUND ON':'MUTE'}</button>
         <button className={`${styles.tapZone} ${styles.tapPrev}`} onClick={()=>move(-1)} aria-label="Previous reel"/>
         <button className={`${styles.tapZone} ${styles.tapNext}`} onClick={()=>move(1)} aria-label="Next reel"/>
