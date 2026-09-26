@@ -27,13 +27,22 @@ export default function ReelsShelf({reels=[]}){
 
   useEffect(()=>{
     if(!reels.length)return;
-    const link=document.createElement('link');
-    link.rel='preload';
-    link.as='video';
-    link.type='video/mp4';
-    link.href=`/reels/${reels[0].id}.mp4?v=13`;
-    document.head.appendChild(link);
-    return()=>link.remove();
+    const controller=new AbortController();
+    const warm=async()=>{
+      for(const reel of reels){
+        if(controller.signal.aborted)break;
+        try{
+          const res=await fetch(`/reels/${reel.id}.mp4?v=14`,{
+            headers:{Range:'bytes=0-2097151'},
+            cache:'force-cache',
+            signal:controller.signal
+          });
+          await res.arrayBuffer();
+        }catch{}
+      }
+    };
+    warm();
+    return()=>controller.abort();
   },[reels]);
 
   useEffect(()=>{
@@ -147,7 +156,7 @@ export default function ReelsShelf({reels=[]}){
           key={nextReel.id}
           ref={preloadRef}
           className={`${styles.video} ${styles.nextVideo}`}
-          src={`/reels/${nextReel.id}.mp4?v=13`}
+          src={`/reels/${nextReel.id}.mp4?v=14`}
           preload="auto"
           playsInline
           muted
@@ -164,7 +173,7 @@ export default function ReelsShelf({reels=[]}){
           key={reel.id}
           ref={videoRef}
           className={styles.video}
-          src={`/reels/${reel.id}.mp4?v=13`}
+          src={`/reels/${reel.id}.mp4?v=14`}
           autoPlay
           muted={muted}
           playsInline
