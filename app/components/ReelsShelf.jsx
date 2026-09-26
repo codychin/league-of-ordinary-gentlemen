@@ -14,7 +14,7 @@ export default function ReelsShelf({reels=[]}){
 
   useEffect(()=>{
     const ua=navigator.userAgent||'';
-    setIos(/iPad|iPhone|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1));
+    setIos(/iPad|iPhone|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1)||window.matchMedia('(display-mode: standalone)').matches);
     try{setViewed(JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}'))}catch{}
   },[]);
 
@@ -77,17 +77,13 @@ export default function ReelsShelf({reels=[]}){
         touchStart.current=null;
       }}>
       <button className={styles.close} onClick={()=>setActive(null)} aria-label="Close video">×</button>
-      <div className={styles.stage} onClick={e=>{
-        const rect=e.currentTarget.getBoundingClientRect();
-        const x=e.clientX-rect.left;
-        if(x>rect.width*.58){move(1);return}
-        if(x<rect.width*.22){move(-1);return}
-        setShowMeta(true);
-      }}>
+      <div className={styles.stage}>
         {ios
-          ? <><img className={styles.gifVideo} src={`https://resource2.heygen.ai/video/${reel.id}/gif.gif`} alt=""/><video key={reel.videoUrl} className={styles.audioTrack} src={reel.videoUrl} autoPlay playsInline controls preload="metadata"/></>
+          ? <><img key={reel.id} className={styles.gifVideo} src={`https://resource2.heygen.ai/video/${reel.id}/gif.gif`} alt="" draggable="false"/><audio key={reel.videoUrl} className={styles.audioTrack} src={reel.videoUrl} autoPlay controls preload="auto"/></>
           : <video key={reel.videoUrl} className={styles.video} src={reel.videoUrl} autoPlay playsInline controls preload="metadata"/>
         }
+        <button className={`${styles.tapZone} ${styles.tapPrev}`} onClick={()=>move(-1)} aria-label="Previous reel"/>
+        <button className={`${styles.tapZone} ${styles.tapNext}`} onClick={()=>move(1)} aria-label="Next reel"/>
         <div className={`${styles.meta} ${showMeta?styles.metaOn:''}`}>
           <small>WEEK 3 • FIELD DISPATCH</small>
           <b>{reel.matchup}</b>
