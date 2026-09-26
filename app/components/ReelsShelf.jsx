@@ -103,6 +103,9 @@ export default function ReelsShelf({reels=[]}){
       };
       console.info('[reel-media]',payload);
       window.sessionStorage.setItem('brief-last-reel-media-event',JSON.stringify({...payload,at:Date.now()}));
+      if(['waiting','stalled','error','playing'].includes(type)){
+        fetch('/api/reel-diagnostics',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),keepalive:true}).catch(()=>{});
+      }
     }catch{}
   };
 
