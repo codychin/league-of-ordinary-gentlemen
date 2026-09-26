@@ -16,6 +16,7 @@ export default function ReelsShelf({reels=[]}){
   const touchStart=useRef(null);
   const videoRef=useRef(null);
   const preloadRef=useRef(null);
+  const recoveryRef=useRef(null);
 
   useEffect(()=>{
     const ua=navigator.userAgent||'';
@@ -23,6 +24,17 @@ export default function ReelsShelf({reels=[]}){
     setIos(/iPad|iPhone|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1)||appMode);
     try{setViewed(JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}'))}catch{}
   },[]);
+
+  useEffect(()=>{
+    if(!reels.length)return;
+    const link=document.createElement('link');
+    link.rel='preload';
+    link.as='video';
+    link.type='video/mp4';
+    link.href=`/reels/${reels[0].id}.mp4?v=13`;
+    document.head.appendChild(link);
+    return()=>link.remove();
+  },[reels]);
 
   useEffect(()=>{
     if(active===null||!reels.length)return;
@@ -70,6 +82,18 @@ export default function ReelsShelf({reels=[]}){
     };
   },[active,muted]);
 
+  const scheduleRecovery=video=>{
+    clearTimeout(recoveryRef.current);
+    recoveryRef.current=setTimeout(()=>{
+      if(!video||video.ended)return;
+      if(video.readyState>=2&&video.paused){
+        video.play().catch(()=>{});
+        return;
+      }
+      if(video.readyState>=2&&!video.paused)return;
+    },350);
+  };
+
   const move=dir=>{
     setProgress(0);
     setActive(i=>(i+dir+reels.length)%reels.length);
@@ -85,6 +109,8 @@ export default function ReelsShelf({reels=[]}){
       video.play().catch(()=>{});
     });
   };
+  useEffect(()=>()=>clearTimeout(recoveryRef.current),[]);
+
   const reel=active===null?null:reels[active];
   const nextReel=active===null||!reels.length?null:reels[(active+1)%reels.length];
 
@@ -121,7 +147,7 @@ export default function ReelsShelf({reels=[]}){
           key={nextReel.id}
           ref={preloadRef}
           className={`${styles.video} ${styles.nextVideo}`}
-          src={`/reels/${nextReel.id}.mp4?v=9`}
+          src={`/reels/${nextReel.id}.mp4?v=13`}
           preload="auto"
           playsInline
           muted
@@ -138,13 +164,16 @@ export default function ReelsShelf({reels=[]}){
           key={reel.id}
           ref={videoRef}
           className={styles.video}
-          src={`/reels/${reel.id}.mp4?v=9`}
+          src={`/reels/${reel.id}.mp4?v=13`}
           autoPlay
           muted={muted}
           playsInline
           preload="auto"
           disablePictureInPicture
           onLoadedData={()=>videoRef.current?.play().catch(()=>{})}
+          onWaiting={e=>scheduleRecovery(e.currentTarget)}
+          onStalled={e=>scheduleRecovery(e.currentTarget)}
+          onPlaying={()=>clearTimeout(recoveryRef.current)}
           onTimeUpdate={e=>{const v=e.currentTarget;setProgress(v.duration?Math.min(1,v.currentTime/v.duration):0)}}
           onEnded={()=>move(1)}
         />
