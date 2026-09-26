@@ -94,17 +94,15 @@ export default function ReelsShelf({reels=[]}){
       <span>6 MATCHUPS • 6 CORRESPONDENTS</span>
     </div>
     <div className={styles.rail}>
-      {reels.map((r,i)=><button className={styles.story} key={r.id} onClick={()=>openReel(i)} aria-label={`Watch ${r.matchup} dispatch by ${r.correspondent}`}>
-        <span className={`${styles.ring} ${viewed[r.id]?styles.seen:styles.unseen}`}>
-          <span className={styles.thumb}>
-            <span className={styles.playerLeft}><img src={r.leftImage} alt=""/></span>
-            <span className={styles.playerRight}><img src={r.rightImage} alt=""/></span>
-            <span className={styles.vs}>VS</span>
-            <img className={styles.avatar} src={r.avatar} alt=""/>
-          </span>
+      {reels.map((r,i)=><button className={`${styles.story} ${viewed[r.id]?styles.seen:styles.unseen}`} key={r.id} onClick={()=>openReel(i)} aria-label={`Watch ${r.matchup} dispatch by ${r.correspondent}`}>
+        <span className={styles.thumb}>
+          <span className={styles.playerLeft}><img src={r.leftImage} alt=""/></span>
+          <span className={styles.playerRight}><img src={r.rightImage} alt=""/></span>
+          <span className={styles.cardShade}/>
+          <span className={styles.vs}>VS</span>
+          <img className={styles.avatar} src={r.avatar} alt=""/>
+          <span className={styles.storyCopy}><b>{r.short}</b><small>{r.correspondent.split(' ')[0]}</small></span>
         </span>
-        <b>{r.short}</b>
-        <small>{r.correspondent.split(' ')[0]}</small>
       </button>)}
     </div>
 
@@ -129,9 +127,10 @@ export default function ReelsShelf({reels=[]}){
           preload="auto"
           disablePictureInPicture
           onLoadedData={()=>{setSwitching(false);videoRef.current?.play().catch(()=>{})}}
-          onTimeUpdate={e=>{const v=e.currentTarget;setProgress(v.duration?Math.min(1,v.currentTime/v.duration):0)}}
+          onTimeUpdate={e=>{const v=e.currentTarget;setProgress(v.duration?Math.min(1,v.currentTime/v.duration):0);if(v.duration&&v.duration-v.currentTime<.16&&!switching)setSwitching(true)}}
           onEnded={()=>move(1)}
         />
+        <div className={`${styles.transitionCurtain} ${switching?styles.transitionCurtainOn:''}`}/>
         <button className={styles.soundToggle} onClick={e=>{e.stopPropagation();setMuted(v=>!v)}} aria-label={muted?'Turn sound on':'Mute'}>
           {muted
             ?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6.8 8.4H3.5v7.2h3.3L11 19z"/><path d="m15.5 9.5 5 5m0-5-5 5"/></svg>
