@@ -33,6 +33,18 @@ export default function ReelsShelf({reels=[]}){
 
   useEffect(()=>{
     if(!reels.length)return;
+    const params=new URLSearchParams(window.location.search);
+    const requested=Number(params.get('reel'));
+    if(!Number.isFinite(requested)||requested<1||requested>reels.length)return;
+    setMuted(true);
+    setActive(requested-1);
+    params.delete('reel');
+    const query=params.toString();
+    window.history.replaceState(window.history.state,'',window.location.pathname+(query?'?'+query:'')+window.location.hash);
+  },[reels]);
+
+  useEffect(()=>{
+    if(!reels.length)return;
     const controller=new AbortController();
     const warm=async()=>{
       for(const r of reels){
