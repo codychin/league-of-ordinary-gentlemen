@@ -4,15 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/prepare-reels.js && next build",
+    "build": "next build",
     "start": "next start"
   },
   "dependencies": {
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "sharp": "latest",
-    "ffmpeg-static": "^5.2.0"
+    "sharp": "latest"
   },
   "devDependencies": {}
 }
