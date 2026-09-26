@@ -57,3 +57,13 @@
   .close{background:rgba(0,0,0,.42)}
   .progress{width:calc(100vw - 28px)}
 }
+
+
+:global(body.reelsOpen) header,
+:global(body.reelsOpen) nav,
+:global(body.reelsOpen) .siteNav,
+:global(body.reelsOpen) .bottomNav,
+:global(body.reelsOpen) .pwaBottomNav{
+  visibility:hidden!important;
+  pointer-events:none!important;
+}
