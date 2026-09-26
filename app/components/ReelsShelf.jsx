@@ -10,42 +10,19 @@ export default function ReelsShelf({reels=[]}){
   const [active,setActive]=useState(null);
   const [viewed,setViewed]=useState({});
   const [showMeta,setShowMeta]=useState(true);
+  const [ios,setIos]=useState(false);
   const [muted,setMuted]=useState(false);
   const [progress,setProgress]=useState(0);
   const touchStart=useRef(null);
   const videoRef=useRef(null);
   const preloadRef=useRef(null);
-  const firstWarmRef=useRef(null);
 
   useEffect(()=>{
+    const ua=navigator.userAgent||'';
+    const appMode=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true;
+    setIos(/iPad|iPhone|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1)||appMode);
     try{setViewed(JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}'))}catch{}
   },[]);
-
-  useEffect(()=>{
-    if(!reels.length)return;
-    let warm=null;
-    const start=()=>{
-      warm=document.createElement('video');
-      warm.preload='auto';
-      warm.muted=true;
-      warm.playsInline=true;
-      warm.src=`/reels/${reels[0].id}.mp4?v=12`;
-      warm.style.position='fixed';
-      warm.style.width='1px';
-      warm.style.height='1px';
-      warm.style.opacity='0.001';
-      warm.style.pointerEvents='none';
-      warm.style.left='-9999px';
-      document.body.appendChild(warm);
-      firstWarmRef.current=warm;
-      warm.load();
-    };
-    const idle=window.requestIdleCallback?window.requestIdleCallback(start,{timeout:1200}):window.setTimeout(start,700);
-    return()=>{
-      if(window.cancelIdleCallback&&typeof idle==='number')window.cancelIdleCallback(idle);else clearTimeout(idle);
-      if(warm){try{warm.pause()}catch{};warm.remove();if(firstWarmRef.current===warm)firstWarmRef.current=null}
-    };
-  },[reels]);
 
   useEffect(()=>{
     if(active===null||!reels.length)return;
@@ -93,25 +70,6 @@ export default function ReelsShelf({reels=[]}){
     };
   },[active,muted]);
 
-  const reportMediaEvent=(type,video)=>{
-    try{
-      const payload={
-        type,
-        reel:reel?.id||null,
-        t:Number(video.currentTime||0).toFixed(2),
-        duration:Number(video.duration||0).toFixed(2),
-        readyState:video.readyState,
-        networkState:video.networkState,
-        paused:video.paused
-      };
-      console.info('[reel-media]',payload);
-      window.sessionStorage.setItem('brief-last-reel-media-event',JSON.stringify({...payload,at:Date.now()}));
-      if(['waiting','stalled','error','playing'].includes(type)){
-        fetch('/api/reel-diagnostics',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),keepalive:true}).catch(()=>{});
-      }
-    }catch{}
-  };
-
   const move=dir=>{
     setProgress(0);
     setActive(i=>(i+dir+reels.length)%reels.length);
@@ -138,11 +96,11 @@ export default function ReelsShelf({reels=[]}){
     <div className={styles.rail}>
       {reels.map((r,i)=><button className={`${styles.story} ${viewed[r.id]?styles.seen:styles.unseen}`} key={r.id} onClick={()=>openReel(i)} aria-label={`Watch ${r.matchup} dispatch by ${r.correspondent}`}>
         <span className={styles.thumb}>
-          <span className={styles.playerLeft}><img src={r.leftImage} alt="" loading={i<4?'eager':'lazy'} decoding="async"/></span>
-          <span className={styles.playerRight}><img src={r.rightImage} alt="" loading={i<4?'eager':'lazy'} decoding="async"/></span>
+          <span className={styles.playerLeft}><img src={r.leftImage} alt=""/></span>
+          <span className={styles.playerRight}><img src={r.rightImage} alt=""/></span>
           <span className={styles.cardShade}/>
           <span className={styles.vs}>VS</span>
-          <img className={styles.avatar} src={r.avatar} alt="" loading={i<4?'eager':'lazy'} decoding="async"/>
+          <img className={styles.avatar} src={r.avatar} alt=""/>
           <span className={styles.storyCopy}><b>{r.short}</b><small>{r.correspondent.split(' ')[0]}</small></span>
         </span>
       </button>)}
@@ -163,7 +121,7 @@ export default function ReelsShelf({reels=[]}){
           key={nextReel.id}
           ref={preloadRef}
           className={`${styles.video} ${styles.nextVideo}`}
-          src={`/reels/${nextReel.id}.mp4?v=12`}
+          src={`/reels/${nextReel.id}.mp4?v=9`}
           preload="auto"
           playsInline
           muted
@@ -180,19 +138,13 @@ export default function ReelsShelf({reels=[]}){
           key={reel.id}
           ref={videoRef}
           className={styles.video}
-          src={`/reels/${reel.id}.mp4?v=12`}
+          src={`/reels/${reel.id}.mp4?v=9`}
           autoPlay
           muted={muted}
           playsInline
           preload="auto"
           disablePictureInPicture
-          onLoadedData={e=>{reportMediaEvent('loadeddata',e.currentTarget);videoRef.current?.play().catch(()=>{})}}
-          onCanPlay={e=>reportMediaEvent('canplay',e.currentTarget)}
-          onPlaying={e=>reportMediaEvent('playing',e.currentTarget)}
-          onWaiting={e=>reportMediaEvent('waiting',e.currentTarget)}
-          onStalled={e=>reportMediaEvent('stalled',e.currentTarget)}
-          onSuspend={e=>reportMediaEvent('suspend',e.currentTarget)}
-          onError={e=>reportMediaEvent('error',e.currentTarget)}
+          onLoadedData={()=>videoRef.current?.play().catch(()=>{})}
           onTimeUpdate={e=>{const v=e.currentTarget;setProgress(v.duration?Math.min(1,v.currentTime/v.duration):0)}}
           onEnded={()=>move(1)}
         />
