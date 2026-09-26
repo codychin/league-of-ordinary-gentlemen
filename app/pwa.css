@@ -788,16 +788,3 @@
   }
 }
 
-
-.notificationActions{display:flex;align-items:center;gap:10px}
-.notificationTest{
-  border:1px solid rgba(17,16,14,.22);
-  background:transparent;
-  padding:7px 9px;
-  font:700 9px/1 system-ui,sans-serif;
-  letter-spacing:.08em;
-  color:inherit;
-  border-radius:999px;
-  white-space:nowrap;
-}
-.notificationTest:disabled{opacity:.45}
