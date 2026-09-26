@@ -12,7 +12,6 @@ export default function ReelsShelf({reels=[]}){
   const [viewed,setViewed]=useState({});
   const [showMeta,setShowMeta]=useState(true);
   const [ios,setIos]=useState(false);
-  const [standalone,setStandalone]=useState(false);
   const [muted,setMuted]=useState(false);
   const touchStart=useRef(null);
   const videoRef=useRef(null);
@@ -20,7 +19,6 @@ export default function ReelsShelf({reels=[]}){
   useEffect(()=>{
     const ua=navigator.userAgent||'';
     const appMode=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true;
-    setStandalone(appMode);
     setIos(/iPad|iPhone|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1)||appMode);
     try{setViewed(JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}'))}catch{}
   },[]);
@@ -115,7 +113,7 @@ export default function ReelsShelf({reels=[]}){
       }}>
       <button className={styles.close} onClick={()=>setOpen(false)} aria-label="Close video">×</button>
       <div className={styles.stage}>
-        <video ref={videoRef} className={styles.video} src={standalone?`/api/reel-video/${reel.id}?v=5`:`/reels/${reel.id}.mp4?v=5`} autoPlay muted={muted} playsInline preload="auto" disablePictureInPicture onLoadedData={()=>videoRef.current?.play().catch(()=>{})} onEnded={()=>move(1)}/>
+        <video ref={videoRef} className={styles.video} src={`/reels/${reel.id}.mp4?v=6`} autoPlay muted={muted} playsInline preload="auto" disablePictureInPicture onLoadedData={()=>videoRef.current?.play().catch(()=>{})} onEnded={()=>move(1)}/>
         <button className={styles.soundToggle} onClick={e=>{e.stopPropagation();setMuted(v=>!v)}} aria-label={muted?'Turn sound on':'Mute'}>{muted?'SOUND ON':'MUTE'}</button>
         <button className={`${styles.tapZone} ${styles.tapPrev}`} onClick={()=>move(-1)} aria-label="Previous reel"/>
         <button className={`${styles.tapZone} ${styles.tapNext}`} onClick={()=>move(1)} aria-label="Next reel"/>
