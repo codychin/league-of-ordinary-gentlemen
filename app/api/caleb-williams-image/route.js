@@ -1,7 +1,7 @@
 const SOURCE='https://wp.clutchpoints.com/wp-content/uploads/2026/09/Caleb-Williams-sits-with-a-towel-over-his-head-as-he-is-carted-off-against-the-Minnesota-Vikings.jpg?w=1600'
 
 export const runtime='nodejs'
-export const dynamic='force-dynamic'
+export const revalidate=604800
 
 export async function GET(){
   try{
