@@ -15,6 +15,7 @@ export default function ReelsShelf({reels=[]}){
   const [progress,setProgress]=useState(0);
   const touchStart=useRef(null);
   const videoRef=useRef(null);
+  const preloadRef=useRef(null);
 
   useEffect(()=>{
     const ua=navigator.userAgent||'';
@@ -85,6 +86,7 @@ export default function ReelsShelf({reels=[]}){
     });
   };
   const reel=active===null?null:reels[active];
+  const nextReel=active===null||!reels.length?null:reels[(active+1)%reels.length];
 
   return <section className={styles.wrap} aria-label="Week 3 video dispatches">
     <div className={styles.head}>
@@ -115,11 +117,12 @@ export default function ReelsShelf({reels=[]}){
       }}>
       <button className={styles.close} onClick={()=>setActive(null)} aria-label="Close video">×</button>
       <div className={styles.stage}>
+        {nextReel&&<video ref={preloadRef} className={styles.preloadVideo} src={`/reels/${nextReel.id}.mp4?v=8`} preload="auto" playsInline muted aria-hidden="true"/>}
         <video
           key={reel.id}
           ref={videoRef}
           className={styles.video}
-          src={`/reels/${reel.id}.mp4?v=7`}
+          src={`/reels/${reel.id}.mp4?v=8`}
           autoPlay
           muted={muted}
           playsInline
