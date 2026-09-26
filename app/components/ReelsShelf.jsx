@@ -15,7 +15,6 @@ export default function ReelsShelf({reels=[]}){
   const [muted,setMuted]=useState(false);
   const touchStart=useRef(null);
   const videoRef=useRef(null);
-  const videoRef=useRef(null);
 
   useEffect(()=>{
     const ua=navigator.userAgent||'';
@@ -115,7 +114,7 @@ export default function ReelsShelf({reels=[]}){
       }}>
       <button className={styles.close} onClick={()=>setActive(null)} aria-label="Close video">×</button>
       <div className={styles.stage}>
-        <video ref={videoRef} key={reel.id} className={styles.video} src={`/reels/${reel.id}.mp4?v=4`} autoPlay muted={muted} playsInline preload="auto" disablePictureInPicture onLoadedData={()=>videoRef.current?.play().catch(()=>{})}/>
+        <video ref={videoRef} className={styles.video} src={standalone?`/api/reel-video/${reel.id}?v=5`:`/reels/${reel.id}.mp4?v=5`} autoPlay muted={muted} playsInline preload="auto" disablePictureInPicture onLoadedData={()=>videoRef.current?.play().catch(()=>{})} onEnded={()=>move(1)}/>
         <button className={styles.soundToggle} onClick={e=>{e.stopPropagation();setMuted(v=>!v)}} aria-label={muted?'Turn sound on':'Mute'}>{muted?'SOUND ON':'MUTE'}</button>
         <button className={`${styles.tapZone} ${styles.tapPrev}`} onClick={()=>move(-1)} aria-label="Previous reel"/>
         <button className={`${styles.tapZone} ${styles.tapNext}`} onClick={()=>move(1)} aria-label="Next reel"/>
