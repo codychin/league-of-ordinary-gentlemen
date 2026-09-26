@@ -23,6 +23,7 @@ function BellIcon(){
 function ArticleAlertSettings(){
   const [state,setState]=useState('loading')
   const [message,setMessage]=useState('Checking this device…')
+  const [testing,setTesting]=useState(false)
   const showDetail=['install','unsupported','denied','error'].includes(state)
 
   useEffect(()=>{
@@ -88,11 +89,34 @@ function ArticleAlertSettings(){
     }
   }
 
+  const sendTest=async()=>{
+    setTesting(true)
+    try{
+      const registration=await navigator.serviceWorker.ready
+      const subscription=await registration.pushManager.getSubscription()
+      if(!subscription) throw new Error('No active subscription')
+      const testResponse=await fetch(`${PUSH_API}?action=test-self`,{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify(subscription)
+      })
+      if(!testResponse.ok) throw new Error('Test push failed')
+      setMessage('Test alert sent to this device.')
+    }catch{
+      setMessage('Could not send the test alert.')
+    }finally{
+      setTesting(false)
+    }
+  }
+
   return <div className="notificationSetting" aria-live="polite">
     <div><b>Enable notifications</b>{showDetail&&<p>{message}</p>}</div>
-    {state==='subscribed'
-      ?<button type="button" onClick={disable} aria-label="Turn off notifications" role="switch" aria-checked="true"><span/></button>
-      :<button type="button" onClick={enable} aria-label="Turn on notifications" role="switch" aria-checked="false" aria-busy={state==='working'} disabled={!['available','error'].includes(state)}><span/></button>}
+    <div className="notificationActions">
+      {state==='subscribed'&&<button className="notificationTest" type="button" onClick={sendTest} disabled={testing}>{testing?'SENDING…':'SEND TEST ALERT'}</button>}
+      {state==='subscribed'
+        ?<button type="button" onClick={disable} aria-label="Turn off notifications" role="switch" aria-checked="true"><span/></button>
+        :<button type="button" onClick={enable} aria-label="Turn on notifications" role="switch" aria-checked="false" aria-busy={state==='working'} disabled={!['available','error'].includes(state)}><span/></button>}
+    </div>
   </div>
 }
 
