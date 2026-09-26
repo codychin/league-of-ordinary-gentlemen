@@ -9,7 +9,8 @@ export default function ReelsShelf({reels=[]}){
   const [active,setActive]=useState(null);
   const [viewed,setViewed]=useState({});
   const [showMeta,setShowMeta]=useState(true);
-  const [ios,setIos]=useState(false);\n  const [muted,setMuted]=useState(true);
+  const [ios,setIos]=useState(false);
+  const [muted,setMuted]=useState(true);
   const touchStart=useRef(null);
 
   useEffect(()=>{
