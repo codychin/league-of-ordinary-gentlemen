@@ -23,7 +23,7 @@ async function main(){
     const src=path.join(tmp,id+'.mp4');
     fs.writeFileSync(src,Buffer.from(await res.arrayBuffer()));
     const dest=path.join(out,id+'.mp4');
-    const p=spawnSync(ffmpeg,['-y','-i',src,'-c:v','libx264','-profile:v','high','-level','4.0','-pix_fmt','yuv420p','-preset','fast','-crf','20','-movflags','+faststart','-c:a','aac','-b:a','160k','-ar','48000',dest],{stdio:'inherit'});
+    const p=spawnSync(ffmpeg,['-y','-i',src,'-fflags','+genpts','-i',src,'-vf','scale=1080:1920:force_original_aspect_ratio=decrease,pad=1080:1920:(ow-iw)/2:(oh-ih)/2,fps=30','-c:v','libx264','-profile:v','main','-level:v','3.1','-pix_fmt','yuv420p','-preset','fast','-crf','21','-maxrate','5000k','-bufsize','10000k','-movflags','+faststart','-c:a','aac','-profile:a','aac_low','-b:a','128k','-ar','44100','-ac','2','-shortest',dest],{stdio:'inherit'});
     if(p.status!==0)throw new Error('ffmpeg failed '+id);
     const stat=fs.statSync(dest);
     if(stat.size<100000)throw new Error('normalized reel unexpectedly small '+id);
