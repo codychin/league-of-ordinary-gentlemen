@@ -78,7 +78,7 @@ export default function ReelsShelf({reels=[]}){
       }}>
       <button className={styles.close} onClick={()=>setActive(null)} aria-label="Close video">×</button>
       <div className={styles.stage}>
-        <video key={reel.id} className={styles.video} src={`/api/reel-video/${reel.id}`} autoPlay playsInline controls preload="auto"/>
+        <video key={reel.id} className={styles.video} src={`/reels/${reel.id}.mp4`} autoPlay playsInline controls preload="auto"/>
         <button className={`${styles.tapZone} ${styles.tapPrev}`} onClick={()=>move(-1)} aria-label="Previous reel"/>
         <button className={`${styles.tapZone} ${styles.tapNext}`} onClick={()=>move(1)} aria-label="Next reel"/>
         <div className={`${styles.meta} ${showMeta?styles.metaOn:''}`}>
