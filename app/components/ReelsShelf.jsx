@@ -1,6 +1,7 @@
 'use client';
 
 import {useEffect,useRef,useState} from 'react';
+import {flushSync} from 'react-dom';
 import styles from './ReelsShelf.module.css';
 
 const STORAGE_KEY='brief-week3-reels-viewed-v1';
@@ -10,13 +11,17 @@ export default function ReelsShelf({reels=[]}){
   const [viewed,setViewed]=useState({});
   const [showMeta,setShowMeta]=useState(true);
   const [ios,setIos]=useState(false);
-  const [muted,setMuted]=useState(true);
+  const [standalone,setStandalone]=useState(false);
+  const [muted,setMuted]=useState(false);
   const touchStart=useRef(null);
+  const videoRef=useRef(null);
   const videoRef=useRef(null);
 
   useEffect(()=>{
     const ua=navigator.userAgent||'';
-    setIos(/iPad|iPhone|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1)||window.matchMedia('(display-mode: standalone)').matches);
+    const appMode=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true;
+    setStandalone(appMode);
+    setIos(/iPad|iPhone|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1)||appMode);
     try{setViewed(JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}'))}catch{}
   },[]);
 
@@ -66,6 +71,17 @@ export default function ReelsShelf({reels=[]}){
   },[active,muted]);
 
   const move=dir=>setActive(i=>(i+dir+reels.length)%reels.length);
+  const openReel=i=>{
+    flushSync(()=>{setActive(i);setMuted(false)});
+    const video=videoRef.current;
+    if(!video)return;
+    video.muted=false;
+    video.play().catch(()=>{
+      video.muted=true;
+      setMuted(true);
+      video.play().catch(()=>{});
+    });
+  };
   const reel=active===null?null:reels[active];
 
   return <section className={styles.wrap} aria-label="Week 3 video dispatches">
@@ -74,7 +90,7 @@ export default function ReelsShelf({reels=[]}){
       <span>6 MATCHUPS • 6 CORRESPONDENTS</span>
     </div>
     <div className={styles.rail}>
-      {reels.map((r,i)=><button className={styles.story} key={r.id} onClick={()=>setActive(i)} aria-label={`Watch ${r.matchup} dispatch by ${r.correspondent}`}>
+      {reels.map((r,i)=><button className={styles.story} key={r.id} onClick={()=>openReel(i)} aria-label={`Watch ${r.matchup} dispatch by ${r.correspondent}`}>
         <span className={`${styles.ring} ${viewed[r.id]?styles.seen:styles.unseen}`}>
           <span className={styles.thumb}>
             <span className={styles.playerLeft}><img src={r.leftImage} alt=""/></span>
