@@ -1,4 +1,4 @@
-const VERSION='ordinary-brief-v14'
+const VERSION='ordinary-brief-v15'
 const STATIC_CACHE=`${VERSION}-static`
 const PAGE_CACHE=`${VERSION}-pages`
 const PRECACHE=[
@@ -39,7 +39,21 @@ self.addEventListener('fetch',event=>{
     return
   }
 
-  if(['style','script','font','image'].includes(request.destination)){
+  if(request.destination==='video'||url.pathname.startsWith('/reels/')) return
+
+  if(['style','script'].includes(request.destination)){
+    event.respondWith(
+      fetch(request)
+        .then(response=>{
+          if(response.ok) caches.open(STATIC_CACHE).then(cache=>cache.put(request,response.clone()))
+          return response
+        })
+        .catch(()=>caches.match(request))
+    )
+    return
+  }
+
+  if(['font','image'].includes(request.destination)){
     event.respondWith(
       caches.match(request).then(cached=>{
         const fresh=fetch(request).then(response=>{
