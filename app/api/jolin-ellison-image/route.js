@@ -1,7 +1,7 @@
 const SOURCE='https://images2.minutemediacdn.com/image/upload/c_crop%2Cx_0%2Cy_122%2Cw_2400%2Ch_1350/c_fill%2Cw_720%2Car_16%3A9%2Cf_auto%2Cq_auto%2Cg_auto/images/ImagnImages/mmsport/the_athlete_lifestyle_on_si/01jdr344hprcxjfynev6.jpg'
 
 export const runtime='nodejs'
-export const dynamic='force-dynamic'
+export const revalidate=604800
 
 export async function GET(){
   try{
