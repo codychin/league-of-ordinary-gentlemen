@@ -1,7 +1,7 @@
 const SOURCE='https://s.hdnux.com/photos/01/67/12/02/31236276/3/rawImage.jpg'
 
 export const runtime='nodejs'
-export const dynamic='force-dynamic'
+export const revalidate=604800
 
 export async function GET(){
   try{
