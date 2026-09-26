@@ -34,10 +34,20 @@ export default function Home(){return <><header><div className="utility"><span c
 <section className="morningBriefPreview sundayFront" aria-label="Sunday Morning Brief">
   <div className="morningBriefFlag"><span>THE SUNDAY MORNING BRIEF</span><small>SEPTEMBER 27 • WEEK 3</small></div>
   <div className="sundayFrontGrid">
-    <Link href="/articles/sabine-sunday-maracana" className="sundayFeature storylink">
-      <div className="sundayFeatureImage sundayActionHero"><img loading="eager" decoding="async" src="https://commons.wikimedia.org/wiki/Special:FilePath/Maracan%C3%A3%20stadium.jpg" alt="Interior of the Maracanã stadium in Rio de Janeiro"/><div className="actionCaption"><small>SABINE MARCH • RIO DE JANEIRO</small><b>SUNDAY DISPATCH</b></div></div>
-      <div className="sundayFeatureCopy"><small>SABINE MARCH • SOCIETY & SPECIAL CORRESPONDENCE</small><h2>Sunday at the Maracanã</h2><p>Everybody wants the stadium. The grass has begun to object.</p><PreviewAuthor slug="sabine-sunday-maracana"/><span>READ THE DISPATCH →</span></div>
-    </Link>
+    <article className="sundayFeature sabinePackage">
+      <Link href="/articles/sabine-sunday-maracana" className="sundayFeatureImage sundayActionHero storylink"><img loading="eager" decoding="async" src="https://commons.wikimedia.org/wiki/Special:FilePath/Maracan%C3%A3%20stadium.jpg" alt="Interior of the Maracanã stadium in Rio de Janeiro"/><div className="actionCaption"><small>SABINE MARCH • RIO DE JANEIRO</small><b>SUNDAY DISPATCH</b></div></Link>
+      <div className="sundayFeatureCopy">
+        <div className="sabinePackageIntro"><small>SABINE MARCH • SOCIETY & SPECIAL CORRESPONDENCE</small><Link href="/articles/sabine-sunday-maracana" className="sabinePackageTitle storylink"><h2>Sunday at the Maracanã</h2></Link><p>Everybody wants the stadium. The grass has begun to object.</p><PreviewAuthor slug="sabine-sunday-maracana"/></div>
+        <div className="sabineInlineVideo">
+          <div className="sabineVideoLabel"><small>VIDEO DISPATCH • RIO DE JANEIRO</small><span>0:28</span></div>
+          <div className="sabineVideoBody">
+            <video controls playsInline preload="metadata" poster="https://cdn.openart.ai/openart/thumbnail/production/2026-09/create-video/TLTpmJfydK54x1UaTK6G/cgt-20260927072638-56wll_1790465571680_924949be.webp" src="https://cdn.openart.ai/openart-ai/production/2026-09/create-video/TLTpmJfydK54x1UaTK6G/cgt-20260927072638-56wll_1790465560812_7dd1af7e.mp4"/>
+            <p>The NFL came to make Rio part of its calendar. For one weekend, it is simply part of Rio’s.</p>
+          </div>
+        </div>
+        <Link href="/articles/sabine-sunday-maracana" className="sabinePackageCta">READ THE DISPATCH →</Link>
+      </div>
+    </article>
     <div className="sundaySide sundayStoryCarousel" aria-label="Sunday night supporting stories">
       <Link href="/articles/maude-jordan-love-alibis" className="sundaySideStory storylink"><div className="sideImage sundaySecondaryAction"><img loading="lazy" decoding="async" src="https://a.espncdn.com/i/headshots/nfl/players/full/4036378.png" alt="Jordan Love"/><small>MAUDE GANNON • FOOTBALL</small><b>QUARTERBACK FILE</b></div><small>MAUDE GANNON • FILM & ANALYTICS</small><h3>Jordan Love Is Running Out of Alibis</h3><p>The 312 yards look respectable. The 53 attempts required to get them do not.</p><span>READ →</span></Link>
       <Link href="/articles/dashiell-favorite-team-asset-class" className="sundaySideStory storylink"><div className="sideImage sundaySecondaryAction"><img loading="lazy" decoding="async" src="/api/dashiell-london-fans-image" alt="NFL fans gathered in London"/><small>DASHIELL PIKE • CAPITAL & FANDOM</small><b>THE ASSET CLASS</b></div><small>DASHIELL PIKE • CAPITAL & FANDOM</small><h3>When Your Favorite Team Became an Asset Class</h3><p>Sports spent a century as an exception to economic pragmatism. The mean is reverting.</p><span>READ →</span></Link>
