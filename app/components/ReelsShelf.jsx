@@ -16,7 +16,6 @@ export default function ReelsShelf({reels=[]}){
   const touchStart=useRef(null);
   const videoRef=useRef(null);
   const preloadRef=useRef(null);
-  const prevloadRef=useRef(null);
 
   useEffect(()=>{
     const ua=navigator.userAgent||'';
@@ -88,7 +87,6 @@ export default function ReelsShelf({reels=[]}){
   };
   const reel=active===null?null:reels[active];
   const nextReel=active===null||!reels.length?null:reels[(active+1)%reels.length];
-  const prevReel=active===null||!reels.length?null:reels[(active-1+reels.length)%reels.length];
 
   return <section className={styles.wrap} aria-label="Week 3 video dispatches">
     <div className={styles.head}>
@@ -119,28 +117,11 @@ export default function ReelsShelf({reels=[]}){
       }}>
       <button className={styles.close} onClick={()=>setActive(null)} aria-label="Close video">×</button>
       <div className={styles.stage}>
-        {prevReel&&<video
-          key={`prev-${prevReel.id}`}
-          ref={prevloadRef}
-          className={`${styles.video} ${styles.bufferVideo}`}
-          src={`/reels/${prevReel.id}.mp4?v=10`}
-          preload="auto"
-          playsInline
-          muted
-          disablePictureInPicture
-          aria-hidden="true"
-          onLoadedData={e=>{
-            const v=e.currentTarget;
-            v.muted=true;
-            const p=v.play();
-            if(p?.then)p.then(()=>{v.pause();try{v.currentTime=.01}catch{}}).catch(()=>{});
-          }}
-        />}
         {nextReel&&<video
           key={nextReel.id}
           ref={preloadRef}
-          className={`${styles.video} ${styles.bufferVideo}`}
-          src={`/reels/${nextReel.id}.mp4?v=10`}
+          className={`${styles.video} ${styles.nextVideo}`}
+          src={`/reels/${nextReel.id}.mp4?v=11`}
           preload="auto"
           playsInline
           muted
@@ -157,7 +138,7 @@ export default function ReelsShelf({reels=[]}){
           key={`active-${reel.id}`}
           ref={videoRef}
           className={styles.video}
-          src={`/reels/${reel.id}.mp4?v=10`}
+          src={`/reels/${reel.id}.mp4?v=11`}
           autoPlay
           muted={muted}
           playsInline
