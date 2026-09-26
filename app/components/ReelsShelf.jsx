@@ -9,7 +9,7 @@ export default function ReelsShelf({reels=[]}){
   const [active,setActive]=useState(null);
   const [viewed,setViewed]=useState({});
   const [showMeta,setShowMeta]=useState(true);
-  const [ios,setIos]=useState(false);
+  const [ios,setIos]=useState(false);\n  const [muted,setMuted]=useState(true);
   const touchStart=useRef(null);
 
   useEffect(()=>{
@@ -78,7 +78,8 @@ export default function ReelsShelf({reels=[]}){
       }}>
       <button className={styles.close} onClick={()=>setActive(null)} aria-label="Close video">×</button>
       <div className={styles.stage}>
-        <video key={reel.id} className={styles.video} src={`/reels/${reel.id}.mp4`} autoPlay playsInline controls preload="auto"/>
+        <video key={reel.id} className={styles.video} src={`/reels/${reel.id}.mp4?v=3`} autoPlay muted={muted} playsInline preload="auto" disablePictureInPicture/>
+        <button className={styles.soundToggle} onClick={e=>{e.stopPropagation();setMuted(v=>!v)}} aria-label={muted?'Turn sound on':'Mute'}>{muted?'SOUND ON':'MUTE'}</button>
         <button className={`${styles.tapZone} ${styles.tapPrev}`} onClick={()=>move(-1)} aria-label="Previous reel"/>
         <button className={`${styles.tapZone} ${styles.tapNext}`} onClick={()=>move(1)} aria-label="Next reel"/>
         <div className={`${styles.meta} ${showMeta?styles.metaOn:''}`}>
