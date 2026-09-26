@@ -13,7 +13,6 @@ export default function ReelsShelf({reels=[]}){
   const [ios,setIos]=useState(false);
   const [muted,setMuted]=useState(false);
   const [progress,setProgress]=useState(0);
-  const [switching,setSwitching]=useState(false);
   const touchStart=useRef(null);
   const videoRef=useRef(null);
 
@@ -71,7 +70,6 @@ export default function ReelsShelf({reels=[]}){
   },[active,muted]);
 
   const move=dir=>{
-    setSwitching(true);
     setProgress(0);
     setActive(i=>(i+dir+reels.length)%reels.length);
   };
@@ -119,18 +117,17 @@ export default function ReelsShelf({reels=[]}){
       <div className={styles.stage}>
         <video
           ref={videoRef}
-          className={`${styles.video} ${switching?styles.switching:''}`}
+          className={styles.video}
           src={`/reels/${reel.id}.mp4?v=7`}
           autoPlay
           muted={muted}
           playsInline
           preload="auto"
           disablePictureInPicture
-          onLoadedData={()=>{setSwitching(false);videoRef.current?.play().catch(()=>{})}}
-          onTimeUpdate={e=>{const v=e.currentTarget;setProgress(v.duration?Math.min(1,v.currentTime/v.duration):0);if(v.duration&&v.duration-v.currentTime<.16&&!switching)setSwitching(true)}}
+          onLoadedData={()=>videoRef.current?.play().catch(()=>{})}
+          onTimeUpdate={e=>{const v=e.currentTarget;setProgress(v.duration?Math.min(1,v.currentTime/v.duration):0)}}
           onEnded={()=>move(1)}
         />
-        <div className={`${styles.transitionCurtain} ${switching?styles.transitionCurtainOn:''}`}/>
         <button className={styles.soundToggle} onClick={e=>{e.stopPropagation();setMuted(v=>!v)}} aria-label={muted?'Turn sound on':'Mute'}>
           {muted
             ?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6.8 8.4H3.5v7.2h3.3L11 19z"/><path d="m15.5 9.5 5 5m0-5-5 5"/></svg>
