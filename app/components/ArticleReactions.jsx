@@ -5,7 +5,7 @@ import {useEffect,useState} from 'react'
 const options=[
   {key:'up',icon:'👍',label:'GOOD'},
   {key:'wtf',icon:'🤷',label:'WTF'},
-  {key:'middle',icon:'🖕',label:'NOPE'},
+  {key:'middle',icon:'🙅‍♂️',label:'NOPE'},
 ]
 
 const getSession=()=>{
