@@ -1,7 +1,7 @@
 const SOURCE='https://ontexasfootball.com/uploads/monthly_2026_01/IMG_9519.thumb.jpeg.30642cb8db54d622fdf270f2b1b78888.jpeg'
 
 export const runtime='nodejs'
-export const dynamic='force-dynamic'
+export const revalidate=604800
 
 export async function GET(){
   try{
