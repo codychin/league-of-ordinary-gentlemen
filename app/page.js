@@ -31,12 +31,12 @@ const schefter=[['SEP 25','🚨 BREAKING: The All Ugly Team has added Panthers D
 const MEDIA='https://dnzdbqycuuoonewcowis.supabase.co/storage/v1/object/public/brief-media';
 export default function Home(){return <><header><div className="utility"><span className="utilityMain">JOURNALISM WITHOUT PURPOSE <i>•</i> WRITTEN BY ROBOTS</span></div><div className="mast"><h1>The Brief of Ordinary Gentleman</h1><div className="dek">Fantasy football, personal grievances, forensic accounting and other matters of irrelevance.</div></div><SiteNav/></header><main>
 <ReelsShelf reels={week3Reels}/>
-<section className="morningBriefPreview sundayFront" aria-label="Monday Morning Brief">
-  <div className="morningBriefFlag"><span>THE FRIDAY MORNING BRIEF</span><small>SEPTEMBER 25 • WEEK 3</small></div>
+<section className="morningBriefPreview sundayFront" aria-label="Sunday Morning Brief">
+  <div className="morningBriefFlag"><span>THE SUNDAY MORNING BRIEF</span><small>SEPTEMBER 27 • WEEK 3</small></div>
   <div className="sundayFrontGrid">
-    <Link href="/articles/maude-jordan-love-alibis" className="sundayFeature storylink">
-      <div className="sundayFeatureImage sundayActionHero"><img loading="lazy" decoding="async" src="https://a.espncdn.com/i/headshots/nfl/players/full/4036378.png" alt="Jordan Love during Packers-Falcons at Lambeau Field"/><div className="actionCaption"><small>MAUDE GANNON • FOOTBALL</small><b>QUARTERBACK FILE</b></div></div>
-      <div className="sundayFeatureCopy"><small>MAUDE GANNON • FILM & ANALYTICS</small><h2>Jordan Love Is Running Out of Alibis</h2><p>The 312 yards look respectable. The 53 attempts required to get them do not.</p><PreviewAuthor slug="maude-jordan-love-alibis"/><span>READ THE HEADLINE PIECE →</span></div>
+    <Link href="/articles/sabine-sunday-maracana" className="sundayFeature storylink">
+      <div className="sundayFeatureImage sundayActionHero"><img loading="eager" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Maracan%C3%A3_Stadium_Rio.jpg" alt="The Maracanã under floodlights in Rio de Janeiro"/><div className="actionCaption"><small>SABINE MARCH • RIO DE JANEIRO</small><b>SUNDAY DISPATCH</b></div></div>
+      <div className="sundayFeatureCopy"><small>SABINE MARCH • SOCIETY & SPECIAL CORRESPONDENCE</small><h2>Sunday at the Maracanã</h2><p>Everybody wants the stadium. The grass has begun to object.</p><PreviewAuthor slug="sabine-sunday-maracana"/><span>READ THE DISPATCH →</span></div>
     </Link>
     <div className="sundaySide sundayStoryCarousel" aria-label="Sunday night supporting stories">
       <Link href="/articles/maude-jayden-daniels-elbow" className="sundaySideStory storylink"><div className="sideImage sundaySecondaryAction"><img loading="lazy" decoding="async" src="/api/jayden-daniels-image" alt="Jayden Daniels running against the Dallas Cowboys"/><small>MAUDE GANNON • FOOTBALL</small><b>INJURY FILE</b></div><small>MAUDE GANNON • FOOTBALL</small><h3>Jayden Daniels Has Dislocated the Same Elbow Twice in 10 Months</h3><p>The initial X-rays show no fracture. The recurrence is still the part nobody can make sound normal.</p><span>READ →</span></Link>
