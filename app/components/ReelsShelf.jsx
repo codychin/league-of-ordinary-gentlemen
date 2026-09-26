@@ -116,6 +116,7 @@ export default function ReelsShelf({reels=[]}){
       <button className={styles.close} onClick={()=>setActive(null)} aria-label="Close video">×</button>
       <div className={styles.stage}>
         <video
+          key={reel.id}
           ref={videoRef}
           className={styles.video}
           src={`/reels/${reel.id}.mp4?v=7`}
