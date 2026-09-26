@@ -8,7 +8,7 @@ const STORAGE_KEY='brief-week3-reels-viewed-v1';
 export default function ReelsShelf({reels=[]}){
   const [active,setActive]=useState(null);
   const [viewed,setViewed]=useState({});
-  const [showMeta,setShowMeta]=useState(true);
+  const [showMeta,setShowMeta]=useState(true);\n  const [ios,setIos]=useState(false);
   const touchStart=useRef(null);
 
   useEffect(()=>{
@@ -74,7 +74,7 @@ export default function ReelsShelf({reels=[]}){
       }}>
       <button className={styles.close} onClick={()=>setActive(null)} aria-label="Close video">×</button>
       <div className={styles.stage} onClick={()=>setShowMeta(true)}>
-        <video key={reel.videoUrl} className={styles.video} src={reel.videoUrl} autoPlay playsInline controls preload="metadata"/>
+        {ios?<><img className={styles.gifVideo} src={`https://resource2.heygen.ai/video/${reel.id}/gif.gif`} alt=""/><video key={reel.videoUrl} className={styles.audioTrack} src={reel.videoUrl} autoPlay playsInline controls preload="metadata"/></>:<video key={reel.videoUrl} className={styles.video} src={reel.videoUrl} autoPlay playsInline controls preload="metadata"/>}
         <div className={`${styles.meta} ${showMeta?styles.metaOn:''}`}>
           <small>WEEK 3 • FIELD DISPATCH</small>
           <b>{reel.matchup}</b>
