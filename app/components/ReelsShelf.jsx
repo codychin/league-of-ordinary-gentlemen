@@ -28,7 +28,8 @@ export default function ReelsShelf({reels=[]}){
     const t=setTimeout(()=>setShowMeta(false),2800);
     const old=document.body.style.overflow;
     document.body.style.overflow='hidden';
-    return()=>{clearTimeout(t);document.body.style.overflow=old};
+    document.body.classList.add('reelsOpen');
+    return()=>{clearTimeout(t);document.body.style.overflow=old;document.body.classList.remove('reelsOpen')};
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[active]);
 
@@ -76,7 +77,13 @@ export default function ReelsShelf({reels=[]}){
         touchStart.current=null;
       }}>
       <button className={styles.close} onClick={()=>setActive(null)} aria-label="Close video">×</button>
-      <div className={styles.stage} onClick={()=>setShowMeta(true)}>
+      <div className={styles.stage} onClick={e=>{
+        const rect=e.currentTarget.getBoundingClientRect();
+        const x=e.clientX-rect.left;
+        if(x>rect.width*.58){move(1);return}
+        if(x<rect.width*.22){move(-1);return}
+        setShowMeta(true);
+      }}>
         {ios
           ? <><img className={styles.gifVideo} src={`https://resource2.heygen.ai/video/${reel.id}/gif.gif`} alt=""/><video key={reel.videoUrl} className={styles.audioTrack} src={reel.videoUrl} autoPlay playsInline controls preload="metadata"/></>
           : <video key={reel.videoUrl} className={styles.video} src={reel.videoUrl} autoPlay playsInline controls preload="metadata"/>
@@ -86,8 +93,7 @@ export default function ReelsShelf({reels=[]}){
           <b>{reel.matchup}</b>
           <span>{reel.correspondent}</span>
         </div>
-        <button className={`${styles.nav} ${styles.prev}`} onClick={e=>{e.stopPropagation();move(-1)}} aria-label="Previous reel">‹</button>
-        <button className={`${styles.nav} ${styles.next}`} onClick={e=>{e.stopPropagation();move(1)}} aria-label="Next reel">›</button>
+        
       </div>
       <div className={styles.progress}>{reels.map((r,i)=><span key={r.id} className={i===active?styles.current:(viewed[r.id]?styles.done:'')}/>)}</div>
     </div>}
