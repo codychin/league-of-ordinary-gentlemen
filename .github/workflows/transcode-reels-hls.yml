@@ -1,0 +1,62 @@
+name: Transcode reels to HLS
+
+on:
+  push:
+    paths:
+      - '.github/workflows/transcode-reels-hls.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  transcode:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Build HLS renditions and posters
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf public/reels-hls
+          mkdir -p public/reels-hls
+
+          for src in public/reels/*.mp4; do
+            id="$(basename "$src" .mp4)"
+            out="public/reels-hls/$id"
+            mkdir -p "$out"
+
+            ffmpeg -y -ss 0.05 -i "$src" -frames:v 1 -vf "scale='min(720,iw)':-2" -q:v 3 "$out/poster.jpg"
+
+            ffmpeg -y -i "$src" \
+              -vf "scale='min(720,iw)':-2:force_original_aspect_ratio=decrease" \
+              -c:v libx264 -preset medium -profile:v high -level 4.0 \
+              -b:v 2200k -maxrate 2600k -bufsize 4400k \
+              -g 60 -keyint_min 60 -sc_threshold 0 \
+              -c:a aac -b:a 128k -ar 48000 \
+              -hls_time 2 -hls_playlist_type vod \
+              -hls_segment_type fmp4 \
+              -hls_fmp4_init_filename init.mp4 \
+              -hls_segment_filename "$out/seg_%03d.m4s" \
+              "$out/index.m3u8"
+          done
+
+      - name: Commit generated media
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/reels-hls
+          if git diff --cached --quiet; then
+            echo "No media changes"
+            exit 0
+          fi
+          git commit -m "Generate HLS reel renditions"
+          git push
