@@ -16,6 +16,7 @@ export default function ReelsShelf({reels=[]}){
   const touchStart=useRef(null);
   const videoRef=useRef(null);
   const preloadRef=useRef(null);
+  const firstWarmRef=useRef(null);
 
   useEffect(()=>{
     const ua=navigator.userAgent||'';
@@ -23,6 +24,25 @@ export default function ReelsShelf({reels=[]}){
     setIos(/iPad|iPhone|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1)||appMode);
     try{setViewed(JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}'))}catch{}
   },[]);
+
+  useEffect(()=>{
+    if(!reels.length)return;
+    const warm=document.createElement('video');
+    warm.preload='auto';
+    warm.muted=true;
+    warm.playsInline=true;
+    warm.src=`/reels/${reels[0].id}.mp4?v=12`;
+    warm.style.position='fixed';
+    warm.style.width='1px';
+    warm.style.height='1px';
+    warm.style.opacity='0.001';
+    warm.style.pointerEvents='none';
+    warm.style.left='-9999px';
+    document.body.appendChild(warm);
+    firstWarmRef.current=warm;
+    warm.load();
+    return()=>{try{warm.pause()}catch{};warm.remove();if(firstWarmRef.current===warm)firstWarmRef.current=null};
+  },[reels]);
 
   useEffect(()=>{
     if(active===null||!reels.length)return;
@@ -69,6 +89,22 @@ export default function ReelsShelf({reels=[]}){
       video.removeEventListener('canplay',tryPlay);
     };
   },[active,muted]);
+
+  const reportMediaEvent=(type,video)=>{
+    try{
+      const payload={
+        type,
+        reel:reel?.id||null,
+        t:Number(video.currentTime||0).toFixed(2),
+        duration:Number(video.duration||0).toFixed(2),
+        readyState:video.readyState,
+        networkState:video.networkState,
+        paused:video.paused
+      };
+      console.info('[reel-media]',payload);
+      window.sessionStorage.setItem('brief-last-reel-media-event',JSON.stringify({...payload,at:Date.now()}));
+    }catch{}
+  };
 
   const move=dir=>{
     setProgress(0);
@@ -121,7 +157,7 @@ export default function ReelsShelf({reels=[]}){
           key={nextReel.id}
           ref={preloadRef}
           className={`${styles.video} ${styles.nextVideo}`}
-          src={`/reels/${nextReel.id}.mp4?v=9`}
+          src={`/reels/${nextReel.id}.mp4?v=12`}
           preload="auto"
           playsInline
           muted
@@ -138,13 +174,19 @@ export default function ReelsShelf({reels=[]}){
           key={reel.id}
           ref={videoRef}
           className={styles.video}
-          src={`/reels/${reel.id}.mp4?v=9`}
+          src={`/reels/${reel.id}.mp4?v=12`}
           autoPlay
           muted={muted}
           playsInline
           preload="auto"
           disablePictureInPicture
-          onLoadedData={()=>videoRef.current?.play().catch(()=>{})}
+          onLoadedData={e=>{reportMediaEvent('loadeddata',e.currentTarget);videoRef.current?.play().catch(()=>{})}}
+          onCanPlay={e=>reportMediaEvent('canplay',e.currentTarget)}
+          onPlaying={e=>reportMediaEvent('playing',e.currentTarget)}
+          onWaiting={e=>reportMediaEvent('waiting',e.currentTarget)}
+          onStalled={e=>reportMediaEvent('stalled',e.currentTarget)}
+          onSuspend={e=>reportMediaEvent('suspend',e.currentTarget)}
+          onError={e=>reportMediaEvent('error',e.currentTarget)}
           onTimeUpdate={e=>{const v=e.currentTarget;setProgress(v.duration?Math.min(1,v.currentTime/v.duration):0)}}
           onEnded={()=>move(1)}
         />
