@@ -1,7 +1,7 @@
 const SOURCE='https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/commanders/ndk0t8ptjomvclq61jzx'
 
 export const runtime='nodejs'
-export const dynamic='force-dynamic'
+export const revalidate=604800
 
 export async function GET(){
   try{
