@@ -23,8 +23,8 @@
 
 .viewer{position:fixed;z-index:9999;inset:0;background:rgba(8,8,8,.96);display:grid;place-items:center;padding:max(12px,env(safe-area-inset-top)) 12px max(12px,env(safe-area-inset-bottom))}
 .stage{position:relative;height:min(92vh,900px);aspect-ratio:9/16;max-width:calc(100vw - 24px);background:#000;overflow:hidden;border-radius:8px;box-shadow:0 30px 90px rgba(0,0,0,.55)}
-.video{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;background:#000;pointer-events:none;transform:translateZ(0);-webkit-transform:translateZ(0);backface-visibility:hidden;-webkit-backface-visibility:hidden;will-change:transform}
-.soundToggle{position:absolute;z-index:9;right:14px;top:14px;border:1px solid rgba(255,255,255,.55);background:rgba(0,0,0,.48);color:#fff;border-radius:99px;padding:8px 10px;font:900 8px/1 Arial,sans-serif;letter-spacing:1px;cursor:pointer}
+.video{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;background:#000;pointer-events:none;transform:translateZ(0);-webkit-transform:translateZ(0);backface-visibility:hidden;-webkit-backface-visibility:hidden;will-change:transform;opacity:1;transition:opacity .12s linear}.switching{opacity:0}
+.soundToggle{position:absolute;z-index:9;right:16px;bottom:max(18px,calc(env(safe-area-inset-bottom) + 14px));width:42px;height:42px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.55);background:rgba(0,0,0,.48);color:#fff;border-radius:50%;padding:0;cursor:pointer}.soundToggle svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .gifVideo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#111;display:block;z-index:1;pointer-events:none}
 .audioTrack{position:absolute;left:12px;right:12px;bottom:8px;width:calc(100% - 24px);height:34px;z-index:8;opacity:.92}
 .tapZone{position:absolute;z-index:7;top:0;bottom:52px;border:0;background:transparent;padding:0;appearance:none;-webkit-tap-highlight-color:transparent}
@@ -39,9 +39,9 @@
 .nav{position:absolute;z-index:4;top:0;bottom:0;width:22%;border:0;background:transparent;color:transparent;cursor:pointer}
 .prev{left:0}.next{right:0}
 .progress{position:fixed;z-index:10002;top:max(8px,env(safe-area-inset-top));left:50%;transform:translateX(-50%);display:flex;width:min(420px,70vw);gap:4px}
-.progress span{height:2px;flex:1;background:rgba(255,255,255,.28);border-radius:9px}
-.progress .done{background:rgba(255,255,255,.58)}
-.progress .current{background:#fff}
+.progress span{position:relative;height:2px;flex:1;background:rgba(255,255,255,.28);border-radius:9px;overflow:hidden}.progress span i{position:absolute;inset:0 auto 0 0;display:block;background:#fff;border-radius:inherit;transition:width .08s linear}
+.progress .done{background:rgba(255,255,255,.28)}
+.progress .current{background:rgba(255,255,255,.28)}
 
 @media(max-width:760px){
   .wrap{margin:10px -16px 24px;padding:14px 0 16px}
