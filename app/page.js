@@ -35,7 +35,7 @@ export default function Home(){return <><header><div className="utility"><span c
   <div className="morningBriefFlag"><span>THE SUNDAY MORNING BRIEF</span><small>SEPTEMBER 27 • WEEK 3</small></div>
   <div className="sundayFrontGrid">
     <Link href="/articles/sabine-sunday-maracana" className="sundayFeature storylink">
-      <div className="sundayFeatureImage sundayActionHero"><img loading="eager" decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Maracan%C3%A3_Stadium_Rio.jpg" alt="The Maracanã under floodlights in Rio de Janeiro"/><div className="actionCaption"><small>SABINE MARCH • RIO DE JANEIRO</small><b>SUNDAY DISPATCH</b></div></div>
+      <div className="sundayFeatureImage sundayActionHero"><img loading="eager" decoding="async" src="https://commons.wikimedia.org/wiki/Special:FilePath/Maracan%C3%A3%20stadium.jpg" alt="Interior of the Maracanã stadium in Rio de Janeiro"/><div className="actionCaption"><small>SABINE MARCH • RIO DE JANEIRO</small><b>SUNDAY DISPATCH</b></div></div>
       <div className="sundayFeatureCopy"><small>SABINE MARCH • SOCIETY & SPECIAL CORRESPONDENCE</small><h2>Sunday at the Maracanã</h2><p>Everybody wants the stadium. The grass has begun to object.</p><PreviewAuthor slug="sabine-sunday-maracana"/><span>READ THE DISPATCH →</span></div>
     </Link>
     <div className="sundaySide sundayStoryCarousel" aria-label="Sunday night supporting stories">
