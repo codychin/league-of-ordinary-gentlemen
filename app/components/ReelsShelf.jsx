@@ -13,6 +13,8 @@ export default function ReelsShelf({reels=[]}){
   const [ios,setIos]=useState(false);
   const [muted,setMuted]=useState(false);
   const [progress,setProgress]=useState(0);
+  const [nativeHls,setNativeHls]=useState(false);
+  const [hasStarted,setHasStarted]=useState(false);
   const touchStart=useRef(null);
   const videoRef=useRef(null);
   const preloadRef=useRef(null);
@@ -23,28 +25,32 @@ export default function ReelsShelf({reels=[]}){
     const appMode=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true;
     setIos(/iPad|iPhone|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1)||appMode);
     try{setViewed(JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}'))}catch{}
+    try{
+      const probe=document.createElement('video');
+      setNativeHls(Boolean(probe.canPlayType('application/vnd.apple.mpegurl')||probe.canPlayType('application/x-mpegURL')));
+    }catch{}
   },[]);
 
   useEffect(()=>{
     if(!reels.length)return;
     const controller=new AbortController();
     const warm=async()=>{
-      for(const reel of reels){
+      for(const r of reels){
         if(controller.signal.aborted)break;
         try{
-          const res=await fetch(`/reels/${reel.id}.mp4?v=14`,{
-            headers:{Range:'bytes=0-2097151'},
-            cache:'force-cache',
-            signal:controller.signal
-          });
-          await res.arrayBuffer();
+          const base=`/reels-hls/${r.id}`;
+          await Promise.all([
+            fetch(`${base}/index.m3u8`,{cache:'force-cache',signal:controller.signal}),
+            fetch(`${base}/init.mp4`,{cache:'force-cache',signal:controller.signal}),
+            fetch(`${base}/seg_000.m4s`,{cache:'force-cache',signal:controller.signal}),
+            fetch(`${base}/poster.jpg`,{cache:'force-cache',signal:controller.signal})
+          ]);
         }catch{}
       }
     };
     warm();
     return()=>controller.abort();
   },[reels]);
-
   useEffect(()=>{
     if(active===null||!reels.length)return;
     const reel=reels[active];
@@ -53,6 +59,7 @@ export default function ReelsShelf({reels=[]}){
     try{localStorage.setItem(STORAGE_KEY,JSON.stringify(next))}catch{}
     setShowMeta(true);
     setProgress(0);
+    setHasStarted(false);
     const t=setTimeout(()=>setShowMeta(false),2800);
     const old=document.body.style.overflow;
     document.body.style.overflow='hidden';
@@ -122,6 +129,8 @@ export default function ReelsShelf({reels=[]}){
 
   const reel=active===null?null:reels[active];
   const nextReel=active===null||!reels.length?null:reels[(active+1)%reels.length];
+  const mediaSrc=r=>nativeHls?`/reels-hls/${r.id}/index.m3u8`:`/reels/${r.id}.mp4?v=14`;
+  const posterSrc=r=>`/reels-hls/${r.id}/poster.jpg`;
 
   return <section className={styles.wrap} aria-label="Week 3 video dispatches">
     <div className={styles.head}>
@@ -156,7 +165,7 @@ export default function ReelsShelf({reels=[]}){
           key={nextReel.id}
           ref={preloadRef}
           className={`${styles.video} ${styles.nextVideo}`}
-          src={`/reels/${nextReel.id}.mp4?v=14`}
+          src={mediaSrc(nextReel)}
           preload="auto"
           playsInline
           muted
@@ -173,8 +182,9 @@ export default function ReelsShelf({reels=[]}){
           key={reel.id}
           ref={videoRef}
           className={styles.video}
-          src={`/reels/${reel.id}.mp4?v=14`}
+          src={mediaSrc(reel)}
           autoPlay
+          poster={posterSrc(reel)}
           muted={muted}
           playsInline
           preload="auto"
@@ -182,10 +192,11 @@ export default function ReelsShelf({reels=[]}){
           onLoadedData={()=>videoRef.current?.play().catch(()=>{})}
           onWaiting={e=>scheduleRecovery(e.currentTarget)}
           onStalled={e=>scheduleRecovery(e.currentTarget)}
-          onPlaying={()=>clearTimeout(recoveryRef.current)}
+          onPlaying={()=>{clearTimeout(recoveryRef.current);setHasStarted(true)}}
           onTimeUpdate={e=>{const v=e.currentTarget;setProgress(v.duration?Math.min(1,v.currentTime/v.duration):0)}}
           onEnded={()=>move(1)}
         />
+        {!hasStarted&&<img className={styles.posterCover} src={posterSrc(reel)} alt="" aria-hidden="true"/>}
         <button className={styles.soundToggle} onClick={e=>{e.stopPropagation();setMuted(v=>!v)}} aria-label={muted?'Turn sound on':'Mute'}>
           {muted
             ?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6.8 8.4H3.5v7.2h3.3L11 19z"/><path d="m15.5 9.5 5 5m0-5-5 5"/></svg>
