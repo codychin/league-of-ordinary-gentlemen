@@ -12,6 +12,8 @@ export default function ReelsShelf({reels=[]}){
   const [showMeta,setShowMeta]=useState(true);
   const [ios,setIos]=useState(false);
   const [muted,setMuted]=useState(false);
+  const [progress,setProgress]=useState(0);
+  const [switching,setSwitching]=useState(false);
   const touchStart=useRef(null);
   const videoRef=useRef(null);
 
@@ -29,6 +31,7 @@ export default function ReelsShelf({reels=[]}){
     setViewed(next);
     try{localStorage.setItem(STORAGE_KEY,JSON.stringify(next))}catch{}
     setShowMeta(true);
+    setProgress(0);
     const t=setTimeout(()=>setShowMeta(false),2800);
     const old=document.body.style.overflow;
     document.body.style.overflow='hidden';
@@ -67,7 +70,11 @@ export default function ReelsShelf({reels=[]}){
     };
   },[active,muted]);
 
-  const move=dir=>setActive(i=>(i+dir+reels.length)%reels.length);
+  const move=dir=>{
+    setSwitching(true);
+    setProgress(0);
+    setActive(i=>(i+dir+reels.length)%reels.length);
+  };
   const openReel=i=>{
     flushSync(()=>{setActive(i);setMuted(false)});
     const video=videoRef.current;
@@ -112,8 +119,24 @@ export default function ReelsShelf({reels=[]}){
       }}>
       <button className={styles.close} onClick={()=>setActive(null)} aria-label="Close video">×</button>
       <div className={styles.stage}>
-        <video ref={videoRef} className={styles.video} src={`/reels/${reel.id}.mp4?v=6`} autoPlay muted={muted} playsInline preload="auto" disablePictureInPicture onLoadedData={()=>videoRef.current?.play().catch(()=>{})} onEnded={()=>move(1)}/>
-        <button className={styles.soundToggle} onClick={e=>{e.stopPropagation();setMuted(v=>!v)}} aria-label={muted?'Turn sound on':'Mute'}>{muted?'SOUND ON':'MUTE'}</button>
+        <video
+          ref={videoRef}
+          className={`${styles.video} ${switching?styles.switching:''}`}
+          src={`/reels/${reel.id}.mp4?v=7`}
+          autoPlay
+          muted={muted}
+          playsInline
+          preload="auto"
+          disablePictureInPicture
+          onLoadedData={()=>{setSwitching(false);videoRef.current?.play().catch(()=>{})}}
+          onTimeUpdate={e=>{const v=e.currentTarget;setProgress(v.duration?Math.min(1,v.currentTime/v.duration):0)}}
+          onEnded={()=>move(1)}
+        />
+        <button className={styles.soundToggle} onClick={e=>{e.stopPropagation();setMuted(v=>!v)}} aria-label={muted?'Turn sound on':'Mute'}>
+          {muted
+            ?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6.8 8.4H3.5v7.2h3.3L11 19z"/><path d="m15.5 9.5 5 5m0-5-5 5"/></svg>
+            :<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6.8 8.4H3.5v7.2h3.3L11 19z"/><path d="M15 9.2c1.1.8 1.8 1.7 1.8 2.8s-.7 2-1.8 2.8"/><path d="M17.8 6.8c2 1.4 3.2 3.1 3.2 5.2s-1.2 3.8-3.2 5.2"/></svg>}
+        </button>
         <button className={`${styles.tapZone} ${styles.tapPrev}`} onClick={()=>move(-1)} aria-label="Previous reel"/>
         <button className={`${styles.tapZone} ${styles.tapNext}`} onClick={()=>move(1)} aria-label="Next reel"/>
         <div className={`${styles.meta} ${showMeta?styles.metaOn:''}`}>
@@ -123,7 +146,7 @@ export default function ReelsShelf({reels=[]}){
         </div>
         
       </div>
-      <div className={styles.progress}>{reels.map((r,i)=><span key={r.id} className={i===active?styles.current:(viewed[r.id]?styles.done:'')}/>)}</div>
+      <div className={styles.progress}>{reels.map((r,i)=><span key={r.id} className={i<active?styles.done:(i===active?styles.current:'')}><i style={i<active?{width:'100%'}:i===active?{width:`${progress*100}%`}:{width:'0%'}}/></span>)}</div>
     </div>}
   </section>
 }
