@@ -121,7 +121,7 @@ export default function ReelsShelf({reels=[]}){
           key={nextReel.id}
           ref={preloadRef}
           className={`${styles.video} ${styles.nextVideo}`}
-          src={`/reels/${nextReel.id}.mp4?v=11`}
+          src={`/reels/${nextReel.id}.mp4?v=9`}
           preload="auto"
           playsInline
           muted
@@ -135,10 +135,10 @@ export default function ReelsShelf({reels=[]}){
           }}
         />}
         <video
-          key={`active-${reel.id}`}
+          key={reel.id}
           ref={videoRef}
           className={styles.video}
-          src={`/reels/${reel.id}.mp4?v=11`}
+          src={`/reels/${reel.id}.mp4?v=9`}
           autoPlay
           muted={muted}
           playsInline
