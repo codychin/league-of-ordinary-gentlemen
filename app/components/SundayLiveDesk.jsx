@@ -18,7 +18,7 @@ export default function SundayLiveDesk(){
   const [posts,setPosts]=useState([])
   const [filter,setFilter]=useState('all')
   const [page,setPage]=useState(1)
-  const pageSize=8
+  const pageSize=5
   const [isLive,setIsLive]=useState(()=>liveNow())
   useEffect(()=>{
     const check=()=>setIsLive(liveNow())
