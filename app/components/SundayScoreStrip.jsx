@@ -28,6 +28,7 @@ const num=n=>Number(n||0).toFixed(1)
 
 export default function SundayScoreStrip(){
   const [data,setData]=useState(INITIAL)
+  const [freshness,setFreshness]=useState({stale:true,updatedAt:null})
   const [on,setOn]=useState(()=>sundayWindow())
   useEffect(()=>{
     const tick=()=>setOn(sundayWindow())
@@ -38,7 +39,7 @@ export default function SundayScoreStrip(){
   useEffect(()=>{
     if(!on)return
     let alive=true
-    const load=()=>fetch('/api/live-scores',{cache:'no-store'}).then(r=>r.json()).then(d=>{if(alive)setData(d)}).catch(()=>{})
+    const load=()=>fetch('/api/live-scores',{cache:'no-store'}).then(r=>r.json()).then(d=>{if(!alive)return;if(d?.matchups?.length)setData(d);setFreshness({stale:Boolean(d?.stale),updatedAt:d?.updatedAt||null})}).catch(()=>setFreshness(x=>({...x,stale:true})))
     load()
     const timer=window.setInterval(load,30000)
     return()=>{alive=false;window.clearInterval(timer)}
@@ -49,7 +50,7 @@ export default function SundayScoreStrip(){
   return <section className="sundayLiveStrip" aria-label="Week 3 live scoreboard">
     <div className="sundayLiveStripHead">
       <div><span className="livePulse"/><b>SUNDAY LIVE</b><small>WEEK {data?.week||3}</small></div>
-      <div className="liveStripMeta"><span>{slate}</span><small>{data?.source==='espn'?'ESPN SCORE FEED':'ESPN SNAPSHOT'}</small><Link href="#live-desk">NEWSROOM ↓</Link></div>
+      <div className="liveStripMeta"><span>{slate}</span><small className={freshness.stale?'scoreStale':''}>{freshness.stale?'SCORES DELAYED':data?.source==='espn'?'LIVE SCORE FEED':'VERIFIED SNAPSHOT'}{freshness.updatedAt?` • ${new Date(freshness.updatedAt).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',timeZone:'America/New_York'})}`:''}</small><Link href="#live-desk">NEWSROOM ↓</Link></div>
     </div>
     <div className="liveScoreRail">
       {games.map((g,i)=>{
