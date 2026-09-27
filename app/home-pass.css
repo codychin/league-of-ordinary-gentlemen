@@ -474,36 +474,40 @@
 }
 
 
-/* Sabine Maracana package — video lives inside the lead story */
+/* Sabine Maracana package — video is a constituent reporting element */
 .sabinePackageTitle{display:block}
 .sabinePackageTitle h2{color:inherit}
 .sabinePackageIntro>small{font:900 7px Arial,sans-serif;letter-spacing:1.25px;color:var(--red)}
-.sabineInlineVideo{border-top:1px solid var(--line);padding-top:14px}
-.sabineVideoLabel{display:flex;justify-content:space-between;gap:14px;align-items:center;margin-bottom:10px}
+.sabineInlineVideo{border-top:1px solid var(--line);padding-top:13px}
+.sabineVideoLabel{display:flex;justify-content:space-between;gap:14px;align-items:center;margin-bottom:8px}
 .sabineVideoLabel small{font:900 7px Arial,sans-serif;letter-spacing:1.25px;color:var(--red)}
-.sabineVideoLabel span{font:900 7px Arial,sans-serif;letter-spacing:1px;color:var(--muted)}
-.sabineVideoBody{display:flex;justify-content:center;align-items:center}
-.sabineVideoBody video{display:block;width:188px;aspect-ratio:9/16;object-fit:cover;background:#111;border:0}
+.sabineVideoLabel>span{font:900 7px Arial,sans-serif;letter-spacing:1px;color:var(--muted)}
+.sabineMobileLabel{display:none}
+.sabineVideoBody{width:100%;overflow:hidden;background:#111;aspect-ratio:16/9}
+.sabineVideoBody video{display:block;width:100%;height:100%;object-fit:cover;object-position:center 45%;background:#111;border:0}
 .sabinePackageCta{display:inline-block;color:var(--ink);text-decoration:none;font:900 7px Arial,sans-serif;letter-spacing:1px;margin-top:0}
 .sabinePackageCta:hover{color:var(--red)}
 
 @media(min-width:761px){
   .morningBriefPreview.sundayFront .sabinePackage .sundayFeatureCopy{
     min-height:520px;
-    justify-content:center;
-    gap:15px;
-    padding-top:30px;
-    padding-bottom:30px;
+    justify-content:flex-start;
+    gap:12px;
+    padding-top:26px;
+    padding-bottom:24px;
   }
   .sabinePackageIntro{margin:0}
-  .sabineInlineVideo{margin-top:0}
+  .sabineInlineVideo{margin-top:2px}
 }
 
 @media(max-width:760px){
-  .sabinePackage .sundayFeatureCopy{padding-bottom:16px}
-  .sabinePackageIntro{padding-bottom:12px}
-  .sabineInlineVideo{padding-top:11px}
-  .sabineVideoLabel{margin-bottom:8px}
-  .sabineVideoBody video{width:132px;max-height:235px}
-  .sabinePackageCta{display:block;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .sabinePackage .sundayFeatureCopy{padding-bottom:15px}
+  .sabinePackageIntro{padding-bottom:10px}
+  .sabineInlineVideo{padding-top:10px}
+  .sabineVideoLabel{margin-bottom:7px}
+  .sabineDesktopLabel{display:none}
+  .sabineMobileLabel{display:inline}
+  .sabineVideoBody{aspect-ratio:16/9}
+  .sabineVideoBody video{width:100%;height:100%;max-height:none}
+  .sabinePackageCta{display:block;margin-top:10px;padding-top:0;border-top:0}
 }
