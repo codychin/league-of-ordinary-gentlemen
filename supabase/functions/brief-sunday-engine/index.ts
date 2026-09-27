@@ -73,6 +73,7 @@ async function generateAndPublish(d:any,games:any[],prevGames:any[],now:Date){
  for(const item of ordered){
   const storyKey=keyOf(item);if(seen.has(storyKey)){rejected.push({title:item.title,reason:'story-already-covered'});continue}
   const post=assignStory(item,games,recent||[]);if(!post){rejected.push({title:item.title,reason:'assignment'});continue}
+  if(post.writer==='gannon'){rejected.push({title:item.title,reason:'maude-requires-analytics'});continue}
   if(!publishable(post)){rejected.push({title:item.title,reason:'quality-gate',writer:post.writer});continue}
   if(redundant(post,[...(recent||[]),...memory])){rejected.push({title:item.title,reason:'editorial-memory',writer:post.writer});continue}
   const recentWriter=(recent||[]).slice(0,6).filter((p:any)=>p.writer===post.writer).length;if(recentWriter>=3){rejected.push({title:item.title,reason:'writer-concentration',writer:post.writer});continue}
