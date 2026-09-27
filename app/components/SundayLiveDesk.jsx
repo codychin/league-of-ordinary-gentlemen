@@ -29,7 +29,7 @@ export default function SundayLiveDesk(){
   useEffect(()=>{
     if(!isLive)return
     let active=true
-    const load=()=>fetch(API+'?action=live',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(({posts=[]})=>{if(active)setPosts(posts)}).catch(()=>{})
+    const load=()=>fetch(API+'?action=live&_='+Date.now(),{cache:'no-store',headers:{'Cache-Control':'no-cache','Pragma':'no-cache'}}).then(r=>r.ok?r.json():Promise.reject()).then(({posts=[]})=>{if(active)setPosts([...posts].sort((a,b)=>new Date(b.sort_time||b.published_at||0)-new Date(a.sort_time||a.published_at||0)))}).catch(()=>{})
     load()
     const timer=window.setInterval(load,20000)
     return()=>{active=false;window.clearInterval(timer)}
