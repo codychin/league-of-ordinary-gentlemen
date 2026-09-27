@@ -39,7 +39,7 @@ export default function AlsoShelf({videos=[]}){
         <span className={styles.thumb}>
           <img src={v.poster} alt="" loading="lazy" decoding="async"/>
           <span className={styles.shade}/>
-          <span className={styles.play}>▶</span>
+          <span className={styles.play} aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8.5 5.5v13l10-6.5z"/></svg></span>
         </span>
         <span className={styles.copy}><b>{v.correspondent}</b><small>{v.title}</small></span>
       </button>)}
