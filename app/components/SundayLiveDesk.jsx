@@ -18,7 +18,7 @@ export default function SundayLiveDesk(){
   const [posts,setPosts]=useState([])
   const [filter,setFilter]=useState('all')
   const [shown,setShown]=useState(4)
-  const [isLive,setIsLive]=useState(false)
+  const [isLive,setIsLive]=useState(()=>liveNow())
   useEffect(()=>{
     const check=()=>setIsLive(liveNow())
     check()
@@ -47,6 +47,7 @@ export default function SundayLiveDesk(){
         <h2>{sundayDeskMeta.title}</h2>
         <p>{sundayDeskMeta.dek}</p>
       </div>
+      <div className="deskStatus live"><i/> LIVE NOW</div>
     </div>
     <div className="deskFilters" aria-label="Filter live desk by writer">
       <button className={filter==='all'?'active':''} onClick={()=>{setFilter('all');setShown(6)}}>ALL</button>
