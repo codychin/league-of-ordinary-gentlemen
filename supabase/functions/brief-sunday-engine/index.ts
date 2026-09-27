@@ -1,4 +1,4 @@
-import {rank} from './editorial.ts'
+import {rank,redundant} from './editorial.ts'
 import {publishable} from './quality.ts'
 import {recentMemory,remember} from './memory.ts'
 import {createClient} from 'https://esm.sh/@supabase/supabase-js@2'
@@ -73,6 +73,8 @@ async function generateAndPublish(d:any,games:any[],prevGames:any[],now:Date){
  for(const item of ordered){
   const storyKey=keyOf(item);if(seen.has(storyKey)){rejected.push({title:item.title,reason:'story-already-covered'});continue}
   const post=assignStory(item,games,recent||[]);if(!post){rejected.push({title:item.title,reason:'assignment'});continue}
+  if(!publishable(post)){rejected.push({title:item.title,reason:'quality-gate',writer:post.writer});continue}
+  if(redundant(post,[...(recent||[]),...memory])){rejected.push({title:item.title,reason:'editorial-memory',writer:post.writer});continue}
   const recentWriter=(recent||[]).slice(0,6).filter((p:any)=>p.writer===post.writer).length;if(recentWriter>=3){rejected.push({title:item.title,reason:'writer-concentration',writer:post.writer});continue}
   const fingerprint=(post.subject+' '+post.text).toLowerCase(),a=new Set(fingerprint.split(/\W+/).filter((w:string)=>w.length>4))
   const dup=(recent||[]).slice(0,25).some((p:any)=>{const b=new Set(((p.subject||'')+' '+(p.text||'')).toLowerCase().split(/\W+/).filter((w:string)=>w.length>4));const overlap=[...a].filter(x=>b.has(x)).length;return overlap/Math.max(1,Math.min(a.size,b.size))>.72})
