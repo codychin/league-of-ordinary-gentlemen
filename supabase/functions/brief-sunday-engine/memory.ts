@@ -1,0 +1,3 @@
+import {premiseKey,type Candidate} from './editorial.ts'
+export async function recentMemory(db:any){const {data}=await db.from('brief_editorial_memory').select('writer,premise_key,thesis,created_at,source_post_id').order('created_at',{ascending:false}).limit(100);return data||[]}
+export async function remember(db:any,c:Candidate,postId?:number){const premise_key=c.premise_key||premiseKey(c);await db.from('brief_editorial_memory').upsert({writer:c.writer,premise_key,thesis:c.subject,evidence:c.evidence||{},source_post_id:postId||null,outcome:'published'},{onConflict:'writer,premise_key'});return premise_key}
