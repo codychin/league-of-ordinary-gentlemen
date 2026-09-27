@@ -6,3 +6,19 @@
 .weekScoreLabel small{font:900 11px Arial,sans-serif;letter-spacing:2px;color:var(--red)}
 .weekScoreLabel b{font:900 28px/1 Arial,sans-serif;letter-spacing:-1.2px;color:var(--ink)}
 @media(max-width:760px){.weekScoreLabel small{font-size:9px}.weekScoreLabel b{font-size:25px}}
+
+.weekScoreBrand{display:flex;align-items:center;gap:20px}
+.weekScoreEdition{display:flex;flex-direction:column;gap:3px;padding-left:18px;border-left:1px solid var(--line)}
+.weekScoreEdition strong{font:700 14px Georgia,serif;letter-spacing:2px;color:var(--ink)}
+.weekScoreEdition small{font:900 8px Arial,sans-serif;letter-spacing:2.5px;color:var(--muted)}
+.weekScoreLabel small{font-size:10px;color:var(--muted)}
+.weekScoreLabel b{font-size:46px;color:var(--red);letter-spacing:-2px}
+.sundayLiveStripHead{align-items:center;padding-top:20px;padding-bottom:18px}
+@media(max-width:760px){
+ .weekScoreBrand{gap:12px}
+ .weekScoreEdition{padding-left:12px}
+ .weekScoreEdition strong{font-size:11px}
+ .weekScoreEdition small{font-size:7px}
+ .weekScoreLabel b{font-size:40px}
+ .sundayLiveStripHead{padding-top:16px;padding-bottom:14px}
+}
