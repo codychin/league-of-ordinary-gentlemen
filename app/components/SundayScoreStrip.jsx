@@ -3,6 +3,15 @@
 import {useEffect,useMemo,useState} from 'react'
 import Link from 'next/link'
 
+const INITIAL={source:'baseline',week:3,matchups:[
+  {home:{name:'For the Love of the Kraft',score:5.6,projection:115.7},away:{name:"I'm a Skatt man",score:0,projection:144.4}},
+  {home:{name:'Pollard Greens',score:31.9,projection:163.6},away:{name:'The All Ugly Team',score:21.6,projection:145.3}},
+  {home:{name:'Kupp Kupp Doubs',score:0,projection:146.7},away:{name:'The Route 22 Clubhouse',score:0,projection:142.7}},
+  {home:{name:'Lloyd of the Rings',score:-5.5,projection:124.7},away:{name:'Mr Hopkins Opus',score:0,projection:145.6}},
+  {home:{name:"Shake 'N Baker",score:42.2,projection:156.8},away:{name:'DarkHorse Danir',score:0,projection:149.0}},
+  {home:{name:'Royrek Tishmeshulam',score:7.5,projection:147.5},away:{name:'CeeDeep Shaheeded Rivalry',score:0,projection:149.8}}
+]}
+
 const nyParts=()=>{
   const parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date())
   const get=t=>parts.find(p=>p.type===t)?.value
@@ -18,7 +27,7 @@ const phase=()=>{
 const num=n=>Number(n||0).toFixed(1)
 
 export default function SundayScoreStrip(){
-  const [data,setData]=useState(null)
+  const [data,setData]=useState(INITIAL)
   const [on,setOn]=useState(()=>sundayWindow())
   useEffect(()=>{
     const tick=()=>setOn(sundayWindow())
@@ -40,11 +49,11 @@ export default function SundayScoreStrip(){
   return <section className="sundayLiveStrip" aria-label="Week 3 live scoreboard">
     <div className="sundayLiveStripHead">
       <div><span className="livePulse"/><b>SUNDAY LIVE</b><small>WEEK {data?.week||3}</small></div>
-      <div className="liveStripMeta"><span>{slate}</span><small>{data?.source==='espn'?'ESPN SCORE FEED':'SCORE FEED CONNECTING'}</small><Link href="#live-desk">NEWSROOM ↓</Link></div>
+      <div className="liveStripMeta"><span>{slate}</span><small>{data?.source==='espn'?'ESPN SCORE FEED':'ESPN SNAPSHOT'}</small><Link href="#live-desk">NEWSROOM ↓</Link></div>
     </div>
     <div className="liveScoreRail">
       {games.map((g,i)=>{
-        const status=g.winner&&g.winner!=='UNDECIDED'?'FINAL':slate
+        const status=g.winner&&g.winner!=='UNDECIDED'?'FINAL':(data?.source==='espn'?slate:(slate==='PREGAME'?'PREGAME':'SNAPSHOT'))
         return <article className="liveScoreCard" key={g.id||i}>
           <div className="liveScoreStatus">{status}</div>
           <div className="liveScoreTeam"><span>{g.home?.name}</span><b>{num(g.home?.score)}</b></div>
