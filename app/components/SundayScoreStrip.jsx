@@ -49,7 +49,7 @@ export default function SundayScoreStrip(){
   if(!on)return null
   return <section className="sundayLiveStrip" aria-label="Week 3 live scoreboard">
     <div className="sundayLiveStripHead">
-      <div className="weekScoreLabel"><small>WEEK</small><b>{data?.week||3}</b></div>
+      <div className="weekScoreBrand"><div className="weekScoreLabel"><small>WEEK</small><b>{data?.week||3}</b></div><div className="weekScoreEdition"><strong>THE BRIEF</strong><small>NFL SUNDAY</small></div></div>
       <div className="liveStripMeta"><span>{slate}</span><small className={freshness.stale?'scoreStale':''}>{freshness.stale?'SCORES DELAYED':data?.source==='espn'?'LIVE SCORE FEED':'VERIFIED SNAPSHOT'}{freshness.updatedAt?` • ${new Date(freshness.updatedAt).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',timeZone:'America/New_York'})}`:''}</small><Link href="#live-desk">NEWSROOM ↓</Link></div>
     </div>
     <div className="liveScoreRail">
