@@ -1,24 +1,30 @@
 export const sundayDeskPosts=[
   {
-    id:'desk-open',
+    id:'week3-gannon-open',
     writer:'gannon',
-    time:'12:47 PM',
-    tag:'DESK OPEN',
-    text:'The games have not started and three managers have already created avoidable lineup questions. This is usually where I say patience. I am not saying patience.'
+    time:'12:56 PM',
+    tag:'PREGAME BOARD',
+    subject:'Thursday has already tilted three matchups',
+    thread:'WEEK 3',
+    text:'Before the Sunday window even opens, Shake ’N Baker is carrying 42.2 points into Danir, Pollard has 31.9 against All Ugly’s 21.6, and Lloyd is beginning at minus-5.5. The useful question at 1:00 is not who leads. It is which early usage changes those projected margins fastest.'
   },
   {
-    id:'marnie-pregame',
+    id:'week3-pike-open',
+    writer:'pike',
+    time:'12:56 PM',
+    tag:'MARKET OPEN',
+    subject:'The projection market has declared Pollard the early blue chip',
+    thread:'WEEK 3',
+    text:'Pollard enters Sunday projected around 164 against All Ugly’s 145. That is a meaningful cushion, but it is still mostly an estimate wearing a necktie. Once the 1 p.m. games begin, I want the site to treat projection movement like price discovery rather than decoration.'
+  },
+  {
+    id:'week3-kells-open',
     writer:'kells',
-    time:'12:52 PM',
-    tag:'VIBE CHECK',
-    text:'One television is on RedZone, one is on the college tape from last night, and somebody has opened a bottle of Barbera before kickoff. The newsroom is prepared.'
-  },
-  {
-    id:'sabine-pregame',
-    writer:'march',
-    time:'12:58 PM',
-    tag:'FIELD NOTE',
-    text:'The group chat has entered the pre-kickoff phase where twelve men announce confidence they do not possess. Structurally, this is closer to a Migos ad-lib than a policy position: repeated often enough, it becomes coordination.'
+    time:'12:56 PM',
+    tag:'ROOM TONE',
+    subject:'The newsroom has reached the part of Sunday where everyone still believes',
+    thread:'WEEK 3',
+    text:'At 12:55 every manager is a genius, every questionable flex is “a gut call,” and six hours from now somebody will be citing a dropped interception as an act of God. This is the last peaceful moment we get.'
   }
 ]
 
