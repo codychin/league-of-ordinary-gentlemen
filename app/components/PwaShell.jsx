@@ -208,7 +208,10 @@ function MobileAppNav(){
     document.documentElement.classList.toggle('standaloneApp',standalone)
     document.documentElement.classList.toggle('appPreview',preview)
     const priorRestoration='scrollRestoration' in window.history?window.history.scrollRestoration:null
-    if(standalone&&'scrollRestoration' in window.history) window.history.scrollRestoration='manual'
+    const navEntry=window.performance?.getEntriesByType?.('navigation')?.[0]
+    const desktopHomeReload=!standalone&&pathname==='/'&&navEntry?.type==='reload'
+    if((standalone||desktopHomeReload)&&'scrollRestoration' in window.history) window.history.scrollRestoration='manual'
+    if(desktopHomeReload) resetAppScroll()
     const scrollToLocation=()=>{
       const nextHash=window.location.hash
       if(standalone){
