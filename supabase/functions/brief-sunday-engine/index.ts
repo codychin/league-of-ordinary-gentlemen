@@ -1,3 +1,4 @@
+import {leagueObservations} from './league.ts'
 import {rank,redundant} from './editorial.ts'
 import {publishable} from './quality.ts'
 import {recentMemory,remember} from './memory.ts'
@@ -66,7 +67,8 @@ async function generateAndPublish(d:any,games:any[],prevGames:any[],now:Date){
  const memory=await recentMemory(d)
  const seen=new Set((recent||[]).map((p:any)=>p.story_key).filter(Boolean))
  const analytics=await maudeAnalytics()
- for(const post of rank(analytics,[...(recent||[]),...memory])){if(seen.has(post.story_key)||!publishable(post))continue;const {data:created,error}=await d.from('brief_live_desk_posts').insert({...post,status:'live',published_at:now.toISOString(),sort_time:now.toISOString()}).select('id').single();if(error)throw error;await remember(d,post,created?.id);console.log(JSON.stringify({event:'published-analytics',storyKey:post.story_key,subject:post.subject,writer:post.writer}));return true}
+ const leagueCandidates=leagueObservations(games,prevGames)
+ for(const post of rank([...leagueCandidates,...analytics],[...(recent||[]),...memory])){if(seen.has(post.story_key)||!publishable(post))continue;const {data:created,error}=await d.from('brief_live_desk_posts').insert({...post,status:'live',published_at:now.toISOString(),sort_time:now.toISOString()}).select('id').single();if(error)throw error;await remember(d,post,created?.id);console.log(JSON.stringify({event:'published-analytics',storyKey:post.story_key,subject:post.subject,writer:post.writer}));return true}
  const wire=await externalWire()
  const offset=Math.floor(now.getTime()/300000)%Math.max(1,wire.length),ordered=wire.length?[...wire.slice(offset),...wire.slice(0,offset)]:wire
  let rejected:any[]=[]
