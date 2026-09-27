@@ -41,3 +41,5 @@
  .liveStripMeta{align-self:center!important;max-width:180px!important;gap:4px 7px!important;line-height:1.1!important}
  .liveScoreRail{margin-top:0!important}
 }
+
+.deskSourceLink{display:inline-block;margin-top:9px;color:var(--red);text-decoration:none;border-bottom:1px solid currentColor;font:900 7px Arial,sans-serif;letter-spacing:1.1px}
