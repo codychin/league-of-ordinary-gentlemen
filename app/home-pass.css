@@ -514,7 +514,7 @@
 
 
 /* Sunday live takeover */
-.sundayLiveStrip{margin:0 0 0;padding:12px 0 14px;border-top:8px solid var(--ink);border-bottom:2px solid var(--ink)}
+.sundayLiveStrip{margin:18px 0 0;padding:12px 0 14px;border-top:8px solid var(--ink);border-bottom:2px solid var(--ink)}
 .sundayLiveStripHead{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:10px;font-family:Arial,sans-serif}
 .sundayLiveStripHead>div:first-child{display:flex;align-items:center;gap:9px}
 .sundayLiveStripHead b{font-size:13px;letter-spacing:1.8px}
@@ -532,9 +532,9 @@
 .liveScoreTeam b{font:900 16px Arial,sans-serif}
 .liveScoreProj{display:flex;justify-content:space-between;gap:8px;margin-top:6px;padding-top:5px;border-top:1px solid var(--line);font:800 6px Arial,sans-serif;letter-spacing:.5px;color:var(--muted)}
 .sundayLiveStrip+.sundayDesk{margin-top:0;border-top:0;padding-top:15px!important;border-bottom:1px solid var(--ink);padding-bottom:18px!important}
-.sundayLiveStrip+.sundayDesk .sundayDeskFeed{max-height:470px;overflow:hidden}
+.sundayLiveStrip+.sundayDesk .sundayDeskFeed{max-height:none;overflow:visible}
 @media(max-width:760px){
-  .sundayLiveStrip{padding-top:9px}
+  .sundayLiveStrip{margin-top:14px;padding-top:9px}
   .sundayLiveStripHead{align-items:flex-start}
   .liveStripMeta{flex-wrap:wrap;justify-content:flex-end;gap:5px 8px;max-width:150px}
   .liveScoreRail{display:flex}
