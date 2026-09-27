@@ -33,7 +33,7 @@ export default function AlsoShelf({videos=[]}){
   const item=active===null?null:videos[active];
 
   return <section className={styles.wrap} aria-label="Also, from The Brief">
-    <div className={styles.head}><h2>ALSO…</h2></div>
+    <div className={styles.head}><h2>also…</h2></div>
     <div className={styles.rail}>
       {videos.map((v,i)=><button type="button" className={styles.card} key={v.id} onClick={()=>open(i)} aria-label={`Watch ${v.title} by ${v.correspondent}`}>
         <span className={styles.thumb}>
