@@ -5,7 +5,8 @@ import styles from './AlsoShelf.module.css';
 
 export default function AlsoShelf({videos=[]}){
   const [active,setActive]=useState(null);
-  const [muted,setMuted]=useState(false);\n  const [progress,setProgress]=useState(0);
+  const [muted,setMuted]=useState(false);
+  const [progress,setProgress]=useState(0);
   const videoRef=useRef(null);
   const touchStart=useRef(null);
 
