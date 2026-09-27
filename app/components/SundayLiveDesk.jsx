@@ -33,7 +33,9 @@ export default function SundayLiveDesk(){
     const timer=window.setInterval(load,20000)
     return()=>{active=false;window.clearInterval(timer)}
   },[isLive])
-  const normalized=posts.length?posts.map(p=>({...p,time:p.published_at?new Date(p.published_at).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',timeZone:'America/New_York'}):'',id:p.id})):fallbackPosts
+  const todayNY=new Date().toLocaleDateString('en-US',{timeZone:'America/New_York'})
+  const todaysPosts=posts.filter(p=>p.published_at&&new Date(p.published_at).toLocaleDateString('en-US',{timeZone:'America/New_York'})===todayNY)
+  const normalized=todaysPosts.length?todaysPosts.map(p=>({...p,time:p.published_at?new Date(p.published_at).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',timeZone:'America/New_York'}):'',id:p.id})):fallbackPosts
   const visible=useMemo(()=>filter==='all'?normalized:normalized.filter(p=>p.writer===filter),[normalized,filter])
   const displayed=visible.slice(0,shown)
   const activeWriters=[...new Set(normalized.map(p=>p.writer))]
