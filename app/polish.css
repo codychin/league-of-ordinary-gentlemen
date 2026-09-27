@@ -22,3 +22,10 @@
  .weekScoreLabel b{font-size:40px}
  .sundayLiveStripHead{padding-top:16px;padding-bottom:14px}
 }
+
+/* Compact Week 3 score-strip lockup */
+.sundayLiveStripHead{min-height:0!important;padding-top:10px!important;padding-bottom:10px!important}
+@media(max-width:760px){
+ .sundayLiveStripHead{min-height:0!important;padding-top:8px!important;padding-bottom:8px!important}
+ .weekScoreBrand{min-height:0}
+}
