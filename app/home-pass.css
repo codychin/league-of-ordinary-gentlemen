@@ -542,3 +542,24 @@
   .sundayLiveStrip+.sundayDesk .sundayDeskHead h2{font-size:31px}
   .sundayLiveStrip+.sundayDesk .sundayDeskHead p{font-size:13px}
 }
+
+
+/* Compact Sunday Live Desk identity — derived from The Brief masthead */
+.sundayDeskBrand{display:grid;grid-template-columns:minmax(36px,1fr) auto minmax(36px,1fr);gap:22px;align-items:center;padding:10px 0 12px;text-align:center}
+.sundayDeskBrandLine{height:1px;background:var(--ink);opacity:.72}
+.sundayDeskBrandLockup{min-width:0}
+.sundayDeskParent{display:block;margin-bottom:2px;color:var(--ink);font:700 12px Georgia,serif;letter-spacing:.2px}
+.sundayDeskParent b{display:inline-grid;place-items:center;width:15px;height:18px;margin:0 3px;background:var(--paper);color:var(--red);border-radius:0 0 8px 8px;font:900 12px/1 Georgia,serif;transform:translateY(2px)}
+.sundayDeskBrand h2{margin:0;color:var(--ink);font:700 30px/.94 Georgia,serif;letter-spacing:-1.4px}
+.sundayDeskBrand h2 em{color:var(--red);font-style:normal}
+.sundayDeskBrand p{margin:5px 0 0;color:var(--ink);font:900 6px Arial,sans-serif;letter-spacing:2.2px}
+.sundayDeskBrand+.sundayDeskHead{margin-top:3px;padding-top:10px;border-top:1px solid var(--line)}
+.sundayDeskBrand+.sundayDeskHead h2{display:none}
+@media(max-width:760px){
+  .sundayDeskBrand{grid-template-columns:26px minmax(0,1fr) 26px;gap:10px;padding:7px 0 9px}
+  .sundayDeskParent{font-size:10px}
+  .sundayDeskParent b{width:13px;height:16px;font-size:10px}
+  .sundayDeskBrand h2{font-size:23px;letter-spacing:-1px;white-space:nowrap}
+  .sundayDeskBrand p{margin-top:4px;font-size:5.5px;letter-spacing:1.6px}
+  .sundayDeskBrand+.sundayDeskHead{padding-top:8px}
+}
