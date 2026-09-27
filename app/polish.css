@@ -29,3 +29,15 @@
  .sundayLiveStripHead{min-height:0!important;padding-top:8px!important;padding-bottom:8px!important}
  .weekScoreBrand{min-height:0}
 }
+
+/* Mobile live-score header: override legacy first-child rule that reflows after hydration */
+@media(max-width:760px){
+ .sundayLiveStrip{margin-top:8px!important;padding-top:7px!important;padding-bottom:8px!important}
+ .sundayLiveStripHead{display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;align-items:center!important;gap:10px!important;margin-bottom:7px!important;padding:0!important}
+ .sundayLiveStripHead>div:first-child.weekScoreBrand{display:flex!important;align-items:center!important;gap:11px!important}
+ .weekScoreLabel{display:flex!important;align-items:baseline!important;gap:6px!important}
+ .weekScoreLabel b{font:900 36px/1 Arial,sans-serif!important}
+ .weekScoreEdition{padding-left:11px!important;gap:2px!important}
+ .liveStripMeta{align-self:center!important;max-width:180px!important;gap:4px 7px!important;line-height:1.1!important}
+ .liveScoreRail{margin-top:0!important}
+}
