@@ -17,7 +17,8 @@ const liveNow=()=>{
 export default function SundayLiveDesk(){
   const [posts,setPosts]=useState([])
   const [filter,setFilter]=useState('all')
-  const [shown,setShown]=useState(8)
+  const [page,setPage]=useState(1)
+  const pageSize=8
   const [isLive,setIsLive]=useState(()=>liveNow())
   useEffect(()=>{
     const check=()=>setIsLive(liveNow())
@@ -37,7 +38,9 @@ export default function SundayLiveDesk(){
   const todaysPosts=posts.filter(p=>p.published_at&&new Date(p.published_at).toLocaleDateString('en-US',{timeZone:'America/New_York'})===todayNY)
   const normalized=todaysPosts.length?todaysPosts.map(p=>({...p,time:p.published_at?new Date(p.published_at).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',timeZone:'America/New_York'}):'',id:p.id})):fallbackPosts
   const visible=useMemo(()=>filter==='all'?normalized:normalized.filter(p=>p.writer===filter),[normalized,filter])
-  const displayed=visible.slice(0,shown)
+  const pageCount=Math.max(1,Math.ceil(visible.length/pageSize))
+  const currentPage=Math.min(page,pageCount)
+  const displayed=visible.slice((currentPage-1)*pageSize,currentPage*pageSize)
   const activeWriters=[...new Set(normalized.map(p=>p.writer))]
 
   if(!isLive)return null
@@ -57,8 +60,8 @@ export default function SundayLiveDesk(){
       <div className="deskStatus live"><i/> LIVE NOW</div>
     </div>
     <div className="deskFilters" aria-label="Filter live desk by writer">
-      <button className={filter==='all'?'active':''} onClick={()=>{setFilter('all');setShown(8)}}>ALL</button>
-      {activeWriters.map(key=><button key={key} className={filter===key?'active':''} onClick={()=>{setFilter(key);setShown(8)}}>{writers[key]?.name.split(' ')[0]?.toUpperCase()}</button>)}
+      <button className={filter==='all'?'active':''} onClick={()=>{setFilter('all');setPage(1)}}>ALL</button>
+      {activeWriters.map(key=><button key={key} className={filter===key?'active':''} onClick={()=>{setFilter(key);setPage(1)}}>{writers[key]?.name.split(' ')[0]?.toUpperCase()}</button>)}
     </div>
     <div className="sundayDeskFeed">
       {displayed.map(post=>{
@@ -74,7 +77,11 @@ export default function SundayLiveDesk(){
         </article>
       })}
     </div>
-    {shown<visible.length&&<div className="deskLoadMore"><button onClick={()=>setShown(n=>n+10)}>LOAD MORE</button><span>{Math.min(shown,visible.length)} OF {visible.length} UPDATES</span></div>}
+    {pageCount>1&&<nav className="deskPagination" aria-label="Live desk pages">
+      <button disabled={currentPage===1} onClick={()=>setPage(p=>Math.max(1,p-1))}>← NEWER</button>
+      <span>PAGE {currentPage} OF {pageCount}</span>
+      <button disabled={currentPage===pageCount} onClick={()=>setPage(p=>Math.min(pageCount,p+1))}>OLDER →</button>
+    </nav>}
     <div className="sundayDeskFoot"><span>{sundayDeskMeta.standby}</span><b>Posts roll into Monday Morning Autopsy →</b></div>
   </section>
 }
