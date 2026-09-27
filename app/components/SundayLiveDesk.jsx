@@ -43,10 +43,18 @@ export default function SundayLiveDesk(){
   if(!isLive)return null
 
   return <section className="sundayDesk section" id="live-desk" aria-label="Sunday Live Desk">
+    <div className="sundayDeskBrand" aria-label="The Brief Sunday Live Desk">
+      <span className="sundayDeskBrandLine"/>
+      <div className="sundayDeskBrandLockup">
+        <small className="sundayDeskParent">The <b aria-hidden="true">J</b> Brief</small>
+        <h2>SUNDAY <em>LIVE</em> DESK</h2>
+        <p>GAMES. PEOPLE. PERSPECTIVE.</p>
+      </div>
+      <span className="sundayDeskBrandLine"/>
+    </div>
     <div className="sundayDeskHead">
       <div>
         <small>THE NEWSROOM • LIVE WIRE</small>
-        <h2>{sundayDeskMeta.title}</h2>
         <p>{sundayDeskMeta.dek}</p>
       </div>
       <div className="deskStatus live"><i/> LIVE NOW</div>
