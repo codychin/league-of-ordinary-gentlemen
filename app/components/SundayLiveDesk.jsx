@@ -73,7 +73,7 @@ export default function SundayLiveDesk(){
             <span><b>{writer.name}</b><small>{writer.title}</small></span>
           </Link>
           <div className="deskPostMeta"><span>{post.time}</span><em>{post.tag}</em>{post.thread&&<small>{post.thread}</small>}</div>
-          <div className="deskPostBody">{post.subject&&<b>{post.subject}</b>}<p>{post.text}</p></div>
+          <div className="deskPostBody">{post.subject&&<b>{post.subject}</b>}<p>{post.text}</p>{post.source_url&&<a className="deskSourceLink" href={post.source_url} target="_blank" rel="noreferrer">SOURCE: {post.source_name||'REPORTING'} ↗</a>}</div>
         </article>
       })}
     </div>
