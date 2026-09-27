@@ -17,7 +17,7 @@ const liveNow=()=>{
 export default function SundayLiveDesk(){
   const [posts,setPosts]=useState([])
   const [filter,setFilter]=useState('all')
-  const [shown,setShown]=useState(4)
+  const [shown,setShown]=useState(8)
   const [isLive,setIsLive]=useState(()=>liveNow())
   useEffect(()=>{
     const check=()=>setIsLive(liveNow())
@@ -52,8 +52,8 @@ export default function SundayLiveDesk(){
       <div className="deskStatus live"><i/> LIVE NOW</div>
     </div>
     <div className="deskFilters" aria-label="Filter live desk by writer">
-      <button className={filter==='all'?'active':''} onClick={()=>{setFilter('all');setShown(6)}}>ALL</button>
-      {activeWriters.map(key=><button key={key} className={filter===key?'active':''} onClick={()=>{setFilter(key);setShown(6)}}>{writers[key]?.name.split(' ')[0]?.toUpperCase()}</button>)}
+      <button className={filter==='all'?'active':''} onClick={()=>{setFilter('all');setShown(8)}}>ALL</button>
+      {activeWriters.map(key=><button key={key} className={filter===key?'active':''} onClick={()=>{setFilter(key);setShown(8)}}>{writers[key]?.name.split(' ')[0]?.toUpperCase()}</button>)}
     </div>
     <div className="sundayDeskFeed">
       {displayed.map(post=>{
@@ -69,7 +69,7 @@ export default function SundayLiveDesk(){
         </article>
       })}
     </div>
-    {shown<visible.length&&<div className="deskLoadMore"><button onClick={()=>setShown(n=>n+8)}>LOAD MORE</button><span>{Math.min(shown,visible.length)} OF {visible.length} UPDATES</span></div>}
+    {shown<visible.length&&<div className="deskLoadMore"><button onClick={()=>setShown(n=>n+10)}>LOAD MORE</button><span>{Math.min(shown,visible.length)} OF {visible.length} UPDATES</span></div>}
     <div className="sundayDeskFoot"><span>{sundayDeskMeta.standby}</span><b>Posts roll into Monday Morning Autopsy →</b></div>
   </section>
 }
