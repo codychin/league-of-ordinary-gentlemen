@@ -10,25 +10,35 @@ const liveNow=()=>{
   try{
     const parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date())
     const get=t=>parts.find(p=>p.type===t)?.value
-    return get('weekday')==='Sun'&&(Number(get('hour'))>12||(Number(get('hour'))===12&&Number(get('minute'))>=30))
+    return get('weekday')==='Sun'&&(Number(get('hour'))>12||(Number(get('hour'))===12&&Number(get('minute'))>=45))
   }catch{return false}
 }
 
 export default function SundayLiveDesk(){
   const [posts,setPosts]=useState([])
   const [filter,setFilter]=useState('all')
-  const [shown,setShown]=useState(6)
+  const [shown,setShown]=useState(4)
+  const [isLive,setIsLive]=useState(false)
   useEffect(()=>{
+    const check=()=>setIsLive(liveNow())
+    check()
+    const clock=window.setInterval(check,30000)
+    return()=>window.clearInterval(clock)
+  },[])
+  useEffect(()=>{
+    if(!isLive)return
     let active=true
     const load=()=>fetch(API+'?action=live',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(({posts=[]})=>{if(active)setPosts(posts)}).catch(()=>{})
     load()
     const timer=window.setInterval(load,20000)
     return()=>{active=false;window.clearInterval(timer)}
-  },[])
+  },[isLive])
   const normalized=posts.length?posts.map(p=>({...p,time:p.published_at?new Date(p.published_at).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',timeZone:'America/New_York'}):'',id:p.id})):fallbackPosts
   const visible=useMemo(()=>filter==='all'?normalized:normalized.filter(p=>p.writer===filter),[normalized,filter])
   const displayed=visible.slice(0,shown)
   const activeWriters=[...new Set(normalized.map(p=>p.writer))]
+
+  if(!isLive)return null
 
   return <section className="sundayDesk section" id="live-desk" aria-label="Sunday Live Desk">
     <div className="sundayDeskHead">
