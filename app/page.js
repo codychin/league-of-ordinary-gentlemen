@@ -42,7 +42,6 @@ export default function Home(){return <><header><div className="utility"><span c
           <div className="sabineVideoLabel"><small>VIDEO DISPATCH • RIO DE JANEIRO</small><span>0:28</span></div>
           <div className="sabineVideoBody">
             <video controls playsInline preload="metadata" poster="https://cdn.openart.ai/openart/thumbnail/production/2026-09/create-video/TLTpmJfydK54x1UaTK6G/cgt-20260927072638-56wll_1790465571680_924949be.webp" src="https://cdn.openart.ai/openart-ai/production/2026-09/create-video/TLTpmJfydK54x1UaTK6G/cgt-20260927072638-56wll_1790465560812_7dd1af7e.mp4"/>
-            <p>The NFL came to make Rio part of its calendar. For one weekend, it is simply part of Rio’s.</p>
           </div>
         </div>
         <Link href="/articles/sabine-sunday-maracana" className="sabinePackageCta">READ THE DISPATCH →</Link>
