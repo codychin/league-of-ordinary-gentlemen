@@ -575,3 +575,8 @@
 .marnieRetailPackage{margin-bottom:0!important;padding-bottom:0!important;border-bottom:0!important}
 .marnieRetailPackage + .morningBriefPreview.sundayFront{margin-top:0!important;border-top:0!important;padding-top:18px!important}
 .marnieRetailPackage + .morningBriefPreview.sundayFront .morningBriefFlag{border-top:1px solid var(--ink)!important}
+
+/* Marnie vertical master: preserve the actual 9:16 composition inside the wide editorial module. */
+.marnieRetailPackage .sabineVideoBody{aspect-ratio:16/9;background:#111;display:flex;justify-content:center;align-items:center;overflow:hidden}
+.marnieRetailPackage .sabineVideoBody video{position:static!important;width:auto!important;height:100%!important;max-width:100%!important;object-fit:contain!important;object-position:center center!important;transform:none!important;background:#111}
+@media(max-width:760px){.marnieRetailPackage .sabineVideoBody{aspect-ratio:16/9}.marnieRetailPackage .sabineVideoBody video{width:auto!important;height:100%!important;object-fit:contain!important}}
