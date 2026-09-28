@@ -597,16 +597,3 @@
 .marnieVideoAmbient{display:none!important}
 .marnieRetailPackage .marnieVideoBody video{position:absolute!important;left:50%!important;top:47%!important;width:52%!important;height:auto!important;max-width:none!important;max-height:none!important;object-fit:fill!important;transform:translate(-50%,-50%) scale(1.22)!important;transform-origin:center 38%!important}
 @media(max-width:760px){.marnieRetailPackage .marnieVideoBody video{left:50%!important;top:46%!important;width:54%!important;height:auto!important;transform:translate(-50%,-50%) scale(1.22)!important;transform-origin:center 36%!important}}
-
-/* Shared editorial video player — Maracana is the interaction gold standard. */
-.editorialVideo{position:relative;width:100%;height:100%;overflow:hidden;background:#111;cursor:pointer}
-.editorialVideo>video{display:block;width:100%;height:100%;object-fit:cover;object-position:center 45%;background:#111;border:0}
-.editorialVideoPlay{position:absolute;z-index:4;left:50%;top:50%;transform:translate(-50%,-50%);display:grid;place-items:center;width:44px;height:44px;border:1px solid rgba(255,255,255,.78);border-radius:50%;background:rgba(0,0,0,.32);color:#fff;cursor:pointer;transition:opacity .15s ease,background .15s ease}
-.editorialVideoPlay svg{width:21px;height:21px;fill:currentColor;transform:translateX(1px)}
-.editorialVideoPlay.isPlaying{opacity:0}.editorialVideo:hover .editorialVideoPlay.isPlaying,.editorialVideo:focus-within .editorialVideoPlay.isPlaying{opacity:.72}
-.editorialPauseIcon{display:flex;gap:4px}.editorialPauseIcon i{display:block;width:4px;height:16px;background:#fff}
-.editorialVideoProgress{position:absolute;z-index:4;left:0;right:0;bottom:0;height:2px;background:rgba(255,255,255,.28);pointer-events:none}.editorialVideoProgress i{display:block;height:100%;background:#fff;transition:width .08s linear}
-/* Preserve the tuned Marnie crop inside the shared player. */
-.marnieRetailPackage .marnieVideoBody .editorialVideo{position:absolute!important;left:50%!important;top:46%!important;width:54%!important;height:122%!important;transform:translate(-50%,-50%)!important;overflow:hidden}
-.marnieRetailPackage .marnieVideoBody .editorialVideo>video{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;object-fit:cover!important;object-position:center 38%!important;transform:none!important}
-@media(min-width:761px){.marnieRetailPackage .marnieVideoBody .editorialVideo{top:47%!important;width:52%!important;height:122%!important}.marnieRetailPackage .marnieVideoBody .editorialVideo>video{object-position:center 40%!important}}
