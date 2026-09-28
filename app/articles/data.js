@@ -1,4 +1,31 @@
 export const articles = {
+'marnie-paying-retail':{"week":3,"image":"https://a.espncdn.com/i/headshots/nfl/players/full/4429795.png","imageAlt":"Jahmyr Gibbs, Detroit Lions running back","section":"MATTERS OF CULTURE • FANTASY & CONSUMPTION","title":"The First Two Picks Have Seized the Means of Production","dek":"Fantasy football spent an entire summer deciding between Jahmyr Gibbs and Bijan Robinson. This week, they ended up on opposite sides of the same matchup.","date":"SEPTEMBER 27, 2026","body":[
+"Fantasy football is an industry built around the flattering suggestion that you are making decisions.",
+"For months, we rank. We tier. We mock. We debate roster construction and positional scarcity and whether the second-round receiver with a new offensive coordinator represents value. By August, otherwise employable adults can explain why picking fourth is structurally different from picking fifth.",
+"Then the season starts and somebody gives Jahmyr Gibbs the football.",
+"This summer, the first decision in fantasy drafts was treated with the solemnity of a papal conclave. Gibbs or Bijan Robinson. Bijan or Gibbs. There were arguments about offensive lines, receiving volume, touchdown regression, coaching philosophy and the metaphysical consequences of selecting a running back first overall in the year 2026.",
+"Our league resolved the question by taking them one and two.",
+"And this week, for the first time, the argument became a matchup.",
+"Shake ’N Baker had Bijan. DarkHorse Danir had Gibbs.",
+"Bijan went first. On Thursday night, he dropped 42 fantasy points and spent the next three days sitting on Shake’s scoreboard like an invoice.",
+"That is the particularly cruel thing about an elite first-round pick. You can spend an entire offseason trying to find an edge and then watch the person who paid full price receive exactly what was advertised.",
+"Fantasy players are trained to hate retail. Value is the religion. You want the player two rounds after consensus. You want the rookie before the breakout, the backup before the injury, the receiver whose route participation tells you something the box score has not yet learned. Anybody can draft the obvious superstar. The point is to be smarter than the obvious superstar.",
+"Then Sunday arrived.",
+"Gibbs answered with 164 yards and three touchdowns.",
+"The two players selected first and second in our draft had now spent the same fantasy matchup making every clever thing we did afterward feel slightly ornamental.",
+"There is something almost offensive about this. Fantasy football offers the illusion that enough information can turn uncertainty into control. We study camp reports and target shares and offensive-line continuity because occasionally it works. Finding value is real. Process matters. The market is wrong all the time.",
+"But there is another kind of intelligence in recognizing when the market is right.",
+"Sometimes the expensive thing is expensive because everybody knows it is excellent.",
+"We tend to treat the top of a fantasy draft as the boring part. There is no discovery in selecting Gibbs or Bijan. No sleeper badge. No victory lap available in October because you identified the player every person in the room already wanted.",
+"What you receive instead is a different luxury: the possibility that the obvious answer was obvious for a reason.",
+"This week, the league’s two most expensive assets did not merely justify their prices. They turned the matchup between Shake and Danir into a demonstration of what those prices were buying.",
+"All summer, we treated Gibbs versus Bijan as a choice.",
+"For one week, it became something better: evidence that sometimes the smartest person in the room is the one who stops trying to outsmart the room.",
+"Sometimes you pay retail for the best players in fantasy.",
+"This week, retail delivered."
+],"receipt":"PICKS 1 & 2 • 42 ON THURSDAY • 164 YARDS • 3 TOUCHDOWNS • RETAIL DELIVERED"},
+
+
 'dashiell-man-city-infrastructure':{"week":3,"image":"https://www.mancity.com/meta/media/q1clnnhi/winreport.png?width=1536","imageAlt":"Erling Haaland celebrates Manchester City's derby victory at Old Trafford with teammates","section":"FRONT OFFICE • CAPITAL & INFRASTRUCTURE","title":"Manchester City Is What Happens When a Football Club Becomes Infrastructure","dek":"The Premier League thought it was regulating a football team. Abu Dhabi was building an economic system.","date":"SEPTEMBER 26, 2026","body":[
 "The strangest part of Manchester City’s financial scandal is that the Premier League may have spent the better part of a decade trying to regulate the wrong thing.",
 "Not the wrong club. The wrong noun.",
