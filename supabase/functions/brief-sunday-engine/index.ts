@@ -141,13 +141,14 @@ Deno.serve(async req=>{
   return json({ok:true,source:'espn',week:period,matchups:games})
  }catch(e){
   const error=String((e as Error).message||e)
-  const {data:snap}=await d.from('brief_live_score_state').select('*').order('captured_at',{ascending:false}).limit(1).maybeSingle()
+  const {data:snaps}=await d.from('brief_live_score_state').select('*').order('captured_at',{ascending:false}).limit(2)
+  const snap=snaps?.[0],previousSnap=snaps?.[1]
   if(snap?.payload?.matchups?.length){
     const now=new Date(),ny=Number(new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',hour:'2-digit',hour12:false}).format(now))
     const {data:last}=await d.from('brief_live_desk_posts').select('published_at').eq('status','live').order('published_at',{ascending:false}).limit(1).maybeSingle()
     const mins=last?.published_at?(Date.now()-new Date(last.published_at).getTime())/60000:99
     if(ny>=13&&ny<24&&mins>=3){
-      if(!(await publishCandidate(d,now))) await generateAndPublish(d,snap.payload.matchups,[],now)
+      if(!(await publishCandidate(d,now))) await generateAndPublish(d,snap.payload.matchups,previousSnap?.payload?.matchups||[],now)
     }
     return json({ok:true,source:'verified-snapshot',stale:true,error,matchups:snap.payload.matchups})
   }
