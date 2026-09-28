@@ -570,3 +570,8 @@
 .deskPagination button:disabled{opacity:.25;cursor:default}
 .deskPagination span{font:900 7px Arial,sans-serif;letter-spacing:1px;color:var(--muted)}
 @media(max-width:760px){.deskPagination{padding-top:12px}.deskPagination button{font-size:7px}.deskPagination span{font-size:6.5px}}
+
+/* Stack Sunday editorial packages without redundant divider bands */
+.marnieRetailPackage{margin-bottom:0!important;padding-bottom:0!important;border-bottom:0!important}
+.marnieRetailPackage + .morningBriefPreview.sundayFront{margin-top:0!important;border-top:0!important;padding-top:18px!important}
+.marnieRetailPackage + .morningBriefPreview.sundayFront .morningBriefFlag{border-top:1px solid var(--ink)!important}
