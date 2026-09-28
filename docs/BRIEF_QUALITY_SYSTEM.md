@@ -69,4 +69,4 @@ Track:
 Graduation path: SUPERVISED -> SHADOW AUTONOMY -> AUTONOMOUS.
 
 ## Editorial inline video standard
-Article/homepage correspondent packages use one shared inline-video presentation. New correspondent videos must inherit the Sabine/Maracana container and control policy rather than introducing browser-specific player UX. Inline players use playsInline, suppress fullscreen/remote-playback/download/PiP controls where the browser honors controlsList, and keep duration in the package label. Source-specific framing may be adjusted with scoped CSS, but player behavior is shared.
+The proven Sabine/Maracana homepage video implementation is canonical. Reuse its native inline video markup and surrounding package structure exactly before applying only source-specific framing CSS. Do not replace it with a new custom player or alter Sabine while adapting another correspondent. Sabine/Maracana is the regression fixture: changes to editorial video must preserve its behavior exactly.
