@@ -579,3 +579,15 @@
 /* Marnie uses the exact Maracana video element/player. Crop the 9:16 source with object-fit only so native controls remain intact. */
 .marnieRetailPackage .marnieVideoBody video{width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;object-fit:cover!important;object-position:center 42%!important;transform:none!important;position:static!important}
 @media(max-width:760px){.marnieRetailPackage .marnieVideoBody video{width:100%!important;height:100%!important;object-fit:cover!important;object-position:center 40%!important;transform:none!important;position:static!important}}
+
+
+/* Marnie Sunday Night Read: align the desktop story column to the top of the hero. */
+@media(min-width:761px){
+  .marnieRetailPackage .sabinePackage .sundayFeatureCopy{
+    justify-content:flex-start!important;
+    align-self:start;
+    min-height:520px;
+    padding-top:26px;
+  }
+  .marnieRetailPackage .sabinePackageIntro{margin:0!important}
+}
