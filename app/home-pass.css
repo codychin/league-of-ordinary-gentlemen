@@ -585,3 +585,9 @@
 .marnieRetailPackage .sabineVideoBody{position:relative;overflow:hidden;background:#111}
 .marnieRetailPackage .sabineVideoBody video{position:absolute!important;left:50%!important;top:50%!important;width:44%!important;height:auto!important;max-width:none!important;max-height:none!important;object-fit:fill!important;object-position:center!important;transform:translate(-50%,-50%) scale(1.18)!important;transform-origin:center 42%!important;background:#111}
 @media(max-width:760px){.marnieRetailPackage .sabineVideoBody video{width:48%!important;height:auto!important;transform:translate(-50%,-50%) scale(1.18)!important}}
+
+/* Ambient side fill for vertical Marnie master inside wide editorial module */
+.marnieVideoBody{isolation:isolate;background:#111!important}
+.marnieVideoAmbient{position:absolute;z-index:0;inset:-12%;width:124%;height:124%;object-fit:cover;filter:blur(24px) brightness(.48) saturate(.78);transform:scale(1.06);opacity:.9;pointer-events:none}
+.marnieRetailPackage .marnieVideoBody video{z-index:1!important}
+@media(max-width:760px){.marnieVideoAmbient{filter:blur(20px) brightness(.5) saturate(.8)}}
