@@ -48,7 +48,7 @@ export default function Home(){const sundayLive=isSundayLiveWindow();return <><h
   <div className="morningBriefFlag"><span>THE SUNDAY NIGHT READ</span><small>SEPTEMBER 27 • WEEK 3</small></div>
   <div className="sundayFrontGrid">
     <article className="sundayFeature sabinePackage">
-      <Link href="/articles/marnie-paying-retail" className="sundayFeatureImage sundayActionHero storylink"><img loading="eager" decoding="async" src="https://a.espncdn.com/i/headshots/nfl/players/full/4429795.png" alt="Jahmyr Gibbs, Detroit Lions running back"/><div className="actionCaption"><small>MARNIE KELLS • CULTURE</small><b>PAYING RETAIL</b></div></Link>
+      <Link href="/articles/marnie-paying-retail" className="sundayFeatureImage sundayActionHero storylink"><img loading="eager" decoding="async" src="https://a57.foxnews.com/static.foxnews.com/foxnews.com/content/uploads/2024/09/1200/675/beada7fa-Jahmyr-Gibbs.jpg?tl=1&ve=1" alt="Jahmyr Gibbs, Detroit Lions running back"/><div className="actionCaption"><small>MARNIE KELLS • CULTURE</small><b>PAYING RETAIL</b></div></Link>
       <div className="sundayFeatureCopy">
         <div className="sabinePackageIntro"><small>MARNIE KELLS • CULTURE & SPORTING LIFE</small><Link href="/articles/marnie-paying-retail" className="sabinePackageTitle storylink"><h2>The First Two Picks Have Seized the Means of Production</h2></Link><p>Fantasy football spent an entire summer deciding between Jahmyr Gibbs and Bijan Robinson. This week, they ended up on opposite sides of the same matchup.</p><PreviewAuthor slug="marnie-paying-retail"/></div>
         <div className="sabineInlineVideo">
