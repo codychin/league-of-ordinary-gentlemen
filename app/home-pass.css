@@ -591,3 +591,37 @@
   }
   .marnieRetailPackage .sabinePackageIntro{margin:0!important}
 }
+
+
+/* Canonical premium article + video package.
+   Sabine/Maracana is the reference geometry: hero and complete editorial rail share one bottom edge. */
+@media(min-width:761px){
+  .morningBriefPreview.sundayFront .sundayFeature.sabinePackage{
+    align-items:stretch!important;
+  }
+  .morningBriefPreview.sundayFront .sundayFeature.sabinePackage>.sundayFeatureImage{
+    height:auto!important;
+    min-height:520px!important;
+    align-self:stretch!important;
+  }
+  .morningBriefPreview.sundayFront .sundayFeature.sabinePackage>.sundayFeatureCopy{
+    min-height:520px!important;
+    height:100%!important;
+    align-self:stretch!important;
+    display:flex!important;
+    flex-direction:column!important;
+    justify-content:flex-start!important;
+    padding:26px 34px 24px 38px!important;
+  }
+  .morningBriefPreview.sundayFront .sundayFeature.sabinePackage .sabinePackageIntro{
+    flex:0 0 auto;
+  }
+  .morningBriefPreview.sundayFront .sundayFeature.sabinePackage .sabineInlineVideo{
+    margin-top:auto!important;
+    flex:0 0 auto;
+  }
+  .morningBriefPreview.sundayFront .sundayFeature.sabinePackage .sabinePackageCta{
+    flex:0 0 auto;
+    margin-top:10px;
+  }
+}
