@@ -580,3 +580,8 @@
 .marnieRetailPackage .sabineVideoBody{aspect-ratio:16/9;background:#111;display:flex;justify-content:center;align-items:center;overflow:hidden}
 .marnieRetailPackage .sabineVideoBody video{position:static!important;width:auto!important;height:100%!important;max-width:100%!important;object-fit:contain!important;object-position:center center!important;transform:none!important;background:#111}
 @media(max-width:760px){.marnieRetailPackage .sabineVideoBody{aspect-ratio:16/9}.marnieRetailPackage .sabineVideoBody video{width:auto!important;height:100%!important;object-fit:contain!important}}
+
+/* Marnie package: editorial crop between full contain and Sabine's aggressive 16:9 cover. */
+.marnieRetailPackage .sabineVideoBody{position:relative;overflow:hidden;background:#111}
+.marnieRetailPackage .sabineVideoBody video{position:absolute!important;left:50%!important;top:50%!important;width:44%!important;height:auto!important;max-width:none!important;max-height:none!important;object-fit:fill!important;object-position:center!important;transform:translate(-50%,-50%) scale(1.18)!important;transform-origin:center 42%!important;background:#111}
+@media(max-width:760px){.marnieRetailPackage .sabineVideoBody video{width:48%!important;height:auto!important;transform:translate(-50%,-50%) scale(1.18)!important}}
