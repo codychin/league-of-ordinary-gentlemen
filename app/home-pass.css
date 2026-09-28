@@ -591,3 +591,9 @@
 .marnieVideoAmbient{position:absolute;z-index:0;inset:-12%;width:124%;height:124%;object-fit:cover;filter:blur(24px) brightness(.48) saturate(.78);transform:scale(1.06);opacity:.9;pointer-events:none}
 .marnieRetailPackage .marnieVideoBody video{z-index:1!important}
 @media(max-width:760px){.marnieVideoAmbient{filter:blur(20px) brightness(.5) saturate(.8)}}
+
+/* Final Marnie editorial crop: slightly tighter and higher than balanced pass, no ambient fill. */
+.marnieVideoBody{background:#111!important}
+.marnieVideoAmbient{display:none!important}
+.marnieRetailPackage .marnieVideoBody video{position:absolute!important;left:50%!important;top:47%!important;width:52%!important;height:auto!important;max-width:none!important;max-height:none!important;object-fit:fill!important;transform:translate(-50%,-50%) scale(1.22)!important;transform-origin:center 38%!important}
+@media(max-width:760px){.marnieRetailPackage .marnieVideoBody video{left:50%!important;top:46%!important;width:54%!important;height:auto!important;transform:translate(-50%,-50%) scale(1.22)!important;transform-origin:center 36%!important}}
