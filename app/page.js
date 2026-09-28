@@ -53,7 +53,8 @@ export default function Home(){const sundayLive=isSundayLiveWindow();return <><h
         <div className="sabinePackageIntro"><small>MARNIE KELLS • CULTURE & SPORTING LIFE</small><Link href="/articles/marnie-paying-retail" className="sabinePackageTitle storylink"><h2>The First Two Picks Have Seized the Means of Production</h2></Link><p>Fantasy football spent an entire summer deciding between Jahmyr Gibbs and Bijan Robinson. This week, they ended up on opposite sides of the same matchup.</p><PreviewAuthor slug="marnie-paying-retail"/></div>
         <div className="sabineInlineVideo">
           <div className="sabineVideoLabel"><small><span className="sabineDesktopLabel">MARNIE KELLS • POSTGAME</span><span className="sabineMobileLabel">POSTGAME</span></small><span>0:28</span></div>
-          <div className="sabineVideoBody">
+          <div className="sabineVideoBody marnieVideoBody">
+            <img className="marnieVideoAmbient" src="https://cdn.openart.ai/openart/thumbnail/production/2026-09/create-video/TLTpmJfydK54x1UaTK6G/cgt-20260928120020-5moxt_1790568399524_39328b88.webp" alt="" aria-hidden="true"/>
             <video controls playsInline preload="metadata" poster="https://cdn.openart.ai/openart/thumbnail/production/2026-09/create-video/TLTpmJfydK54x1UaTK6G/cgt-20260928120020-5moxt_1790568399524_39328b88.webp" src="https://cdn.openart.ai/openart-ai/production/2026-09/create-video/TLTpmJfydK54x1UaTK6G/cgt-20260928120020-5moxt_1790568388622_2d51bdf0.mp4"/>
           </div>
         </div>
