@@ -51,6 +51,12 @@ export default function Home(){const sundayLive=isSundayLiveWindow();return <><h
       <Link href="/articles/marnie-paying-retail" className="sundayFeatureImage sundayActionHero storylink"><img loading="eager" decoding="async" src="https://a.espncdn.com/i/headshots/nfl/players/full/4429795.png" alt="Jahmyr Gibbs, Detroit Lions running back"/><div className="actionCaption"><small>MARNIE KELLS • CULTURE</small><b>PAYING RETAIL</b></div></Link>
       <div className="sundayFeatureCopy">
         <div className="sabinePackageIntro"><small>MARNIE KELLS • CULTURE & SPORTING LIFE</small><Link href="/articles/marnie-paying-retail" className="sabinePackageTitle storylink"><h2>The First Two Picks Have Seized the Means of Production</h2></Link><p>Fantasy football spent an entire summer deciding between Jahmyr Gibbs and Bijan Robinson. This week, they ended up on opposite sides of the same matchup.</p><PreviewAuthor slug="marnie-paying-retail"/></div>
+        <div className="sabineInlineVideo">
+          <div className="sabineVideoLabel"><small><span className="sabineDesktopLabel">MARNIE KELLS • POSTGAME</span><span className="sabineMobileLabel">POSTGAME</span></small><span>0:28</span></div>
+          <div className="sabineVideoBody">
+            <video controls playsInline preload="metadata" poster="https://cdn.openart.ai/openart/thumbnail/production/2026-09/create-video/TLTpmJfydK54x1UaTK6G/cgt-20260928120020-5moxt_1790568399524_39328b88.webp" src="https://cdn.openart.ai/openart-ai/production/2026-09/create-video/TLTpmJfydK54x1UaTK6G/cgt-20260928120020-5moxt_1790568388622_2d51bdf0.mp4"/>
+          </div>
+        </div>
         <Link href="/articles/marnie-paying-retail" className="sabinePackageCta">READ MARNIE →</Link>
       </div>
     </article>
