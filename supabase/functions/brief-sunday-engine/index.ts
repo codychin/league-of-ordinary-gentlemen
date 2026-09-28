@@ -73,7 +73,10 @@ async function generateAndPublish(d:any,games:any[],prevGames:any[],now:Date){
  const packet=buildPacket({league:games,nfl:[...leagueCandidates,...analytics],memory,recent:recent||[],lore:['The Brief covers this fantasy league as a living social world. Running jokes and prior claims should only be used when the evidence earns the callback.']})
  const {data:openRun}=await d.from('brief_editorial_runs').select('id').in('status',['queued','pitched','selected','written']).limit(1).maybeSingle()
  if(!openRun){await d.from('brief_editorial_runs').insert({status:'queued',packet})}
- for(const post of rank([...leagueCandidates,...analytics],[...(recent||[]),...memory])){if(seen.has(post.story_key)||!publishable(post))continue;const {data:created,error}=await d.from('brief_live_desk_posts').insert({...post,status:'live',published_at:now.toISOString(),sort_time:now.toISOString()}).select('id').single();if(error)throw error;await remember(d,post,created?.id);console.log(JSON.stringify({event:'published-analytics',storyKey:post.story_key,subject:post.subject,writer:post.writer}));return true}
+ return false
+}
+
+async function legacyGenerateDisabled(){
  const wire=await externalWire()
  const offset=Math.floor(now.getTime()/300000)%Math.max(1,wire.length),ordered=wire.length?[...wire.slice(offset),...wire.slice(0,offset)]:wire
  let rejected:any[]=[]
