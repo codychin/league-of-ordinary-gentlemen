@@ -576,7 +576,6 @@
 .marnieRetailPackage + .morningBriefPreview.sundayFront{margin-top:0!important;border-top:0!important;padding-top:18px!important}
 .marnieRetailPackage + .morningBriefPreview.sundayFront .morningBriefFlag{border-top:1px solid var(--ink)!important}
 
-/* Marnie: inherit Maracana package/player exactly; only compensate for the 9:16 source crop. */
-.marnieRetailPackage .marnieVideoBody{position:relative;display:block;aspect-ratio:16/9;overflow:hidden;background:#111}
-.marnieRetailPackage .marnieVideoBody video{position:absolute!important;left:50%!important;top:47%!important;width:64%!important;height:auto!important;max-width:none!important;max-height:none!important;object-fit:fill!important;object-position:center!important;transform:translate(-50%,-50%)!important;background:#111;border:0}
-@media(max-width:760px){.marnieRetailPackage .marnieVideoBody video{left:50%!important;top:46%!important;width:66%!important;height:auto!important;transform:translate(-50%,-50%)!important}}
+/* Marnie uses the exact Maracana video element/player. Crop the 9:16 source with object-fit only so native controls remain intact. */
+.marnieRetailPackage .marnieVideoBody video{width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;object-fit:cover!important;object-position:center 42%!important;transform:none!important;position:static!important}
+@media(max-width:760px){.marnieRetailPackage .marnieVideoBody video{width:100%!important;height:100%!important;object-fit:cover!important;object-position:center 40%!important;transform:none!important;position:static!important}}
