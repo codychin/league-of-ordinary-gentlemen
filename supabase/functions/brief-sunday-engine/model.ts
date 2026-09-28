@@ -1,7 +1,7 @@
 const OPENAI_URL='https://api.openai.com/v1/responses'
 async function callModel(input:any,instructions:string){
  const key=Deno.env.get('OPENAI_API_KEY');if(!key)throw new Error('OPENAI_API_KEY missing')
- const r=await fetch(OPENAI_URL,{method:'POST',headers:{Authorization:'Bearer '+key,'Content-Type':'application/json'},body:JSON.stringify({model:'gpt-5.6-sol',instructions,input:JSON.stringify(input),text:{format:{type:'json_object'}},max_output_tokens:3500})})
+ const r=await fetch(OPENAI_URL,{method:'POST',headers:{Authorization:'Bearer '+key,'Content-Type':'application/json'},body:JSON.stringify({model:'gpt-5.6-sol',instructions,input:'Return valid JSON only. INPUT:\n'+JSON.stringify(input),text:{format:{type:'json_object'}},max_output_tokens:3500})})
  const raw=await r.json();if(!r.ok)throw new Error('OpenAI '+r.status+': '+String(raw?.error?.message||'request failed'))
  const txt=raw?.output?.flatMap((x:any)=>x.content||[]).find((x:any)=>x.type==='output_text')?.text
  if(!txt)throw new Error('OpenAI returned no output_text');return JSON.parse(txt)
