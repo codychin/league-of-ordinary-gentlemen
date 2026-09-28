@@ -70,7 +70,7 @@ async function generateAndPublish(d:any,games:any[],prevGames:any[],now:Date){
  const seen=new Set((recent||[]).map((p:any)=>p.story_key).filter(Boolean))
  const analytics=await maudeAnalytics()
  const leagueCandidates=leagueObservations(games)
- const packet=buildPacket({league:games,nfl:[...leagueCandidates,...analytics],memory,recent:recent||[],lore:['The Brief covers this fantasy league as a living social world. Running jokes and prior claims should only be used when the evidence earns the callback.']})
+ const wire=await externalWire();const packet=buildPacket({league:games,nfl:[...wire,...leagueCandidates,...analytics],memory,recent:recent||[],lore:['The Brief covers this fantasy league as a living social world. Running jokes and prior claims should only be used when the evidence earns the callback.']})
  const {data:openRun}=await d.from('brief_editorial_runs').select('id').in('status',['queued','pitched','selected','written']).limit(1).maybeSingle()
  if(!openRun){await d.from('brief_editorial_runs').insert({status:'queued',packet})}
  return false
