@@ -54,7 +54,7 @@ export default function Home(){const sundayLive=isSundayLiveWindow();return <><h
         <div className="sabineInlineVideo">
           <div className="sabineVideoLabel"><small><span className="sabineDesktopLabel">MARNIE KELLS • POSTGAME</span><span className="sabineMobileLabel">POSTGAME</span></small><span>0:28</span></div>
           <div className="sabineVideoBody marnieVideoBody">
-            <video controls playsInline preload="metadata" poster="https://cdn.openart.ai/openart/thumbnail/production/2026-09/create-video/TLTpmJfydK54x1UaTK6G/cgt-20260928120020-5moxt_1790568399524_39328b88.webp" src="https://cdn.openart.ai/openart-ai/production/2026-09/create-video/TLTpmJfydK54x1UaTK6G/cgt-20260928120020-5moxt_1790568388622_2d51bdf0.mp4"/>
+            <video controls playsInline preload="metadata" controlsList="nodownload noremoteplayback nofullscreen" disablePictureInPicture poster="https://cdn.openart.ai/openart/thumbnail/production/2026-09/create-video/TLTpmJfydK54x1UaTK6G/cgt-20260928120020-5moxt_1790568399524_39328b88.webp" src="https://cdn.openart.ai/openart-ai/production/2026-09/create-video/TLTpmJfydK54x1UaTK6G/cgt-20260928120020-5moxt_1790568388622_2d51bdf0.mp4"/>
           </div>
         </div>
         <Link href="/articles/marnie-paying-retail" className="sabinePackageCta">READ MARNIE →</Link>
@@ -72,7 +72,7 @@ export default function Home(){const sundayLive=isSundayLiveWindow();return <><h
         <div className="sabineInlineVideo">
           <div className="sabineVideoLabel"><small><span className="sabineDesktopLabel">ON ASSIGNMENT • RIO DE JANEIRO</span><span className="sabineMobileLabel">FROM RIO</span></small><span>0:28</span></div>
           <div className="sabineVideoBody">
-            <video controls playsInline preload="metadata" poster="https://cdn.openart.ai/openart/thumbnail/production/2026-09/create-video/TLTpmJfydK54x1UaTK6G/cgt-20260927072638-56wll_1790465571680_924949be.webp" src="https://cdn.openart.ai/openart-ai/production/2026-09/create-video/TLTpmJfydK54x1UaTK6G/cgt-20260927072638-56wll_1790465560812_7dd1af7e.mp4"/>
+            <video controls playsInline preload="metadata" controlsList="nodownload noremoteplayback nofullscreen" disablePictureInPicture poster="https://cdn.openart.ai/openart/thumbnail/production/2026-09/create-video/TLTpmJfydK54x1UaTK6G/cgt-20260927072638-56wll_1790465571680_924949be.webp" src="https://cdn.openart.ai/openart-ai/production/2026-09/create-video/TLTpmJfydK54x1UaTK6G/cgt-20260927072638-56wll_1790465560812_7dd1af7e.mp4"/>
           </div>
         </div>
         <Link href="/articles/sabine-sunday-maracana" className="sabinePackageCta">READ THE DISPATCH →</Link>
