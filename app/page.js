@@ -86,6 +86,18 @@ export default function Home(){const sundayLive=isSundayLiveWindow();return <><h
   </div>
 </section>
 {!sundayLive&&<SundayLiveDesk/>}
+<section className="hero heroStack" aria-label="Marnie Kells culture column">
+  <Link className="hero-copy storylink" href="/articles/marnie-nine-new-york">
+    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.48),rgba(0,0,0,.03)),url('https://cdn.openart.ai/openart-uploads/production/attachment-transfers/1955deff40294a5cc75da7978d01e752a1fcedd5f184899724d12d11e56adf23.png')",backgroundPosition:"center 42%"}}>
+      <div><small>MARNIE KELLS • CULTURE</small><b>NINE IN NEW YORK</b></div>
+    </div>
+    <div className="eyebrow">MATTERS OF CULTURE • MEMES & QUARTERBACKS</div>
+    <h2>Nine Enters the World’s Most Dangerous <em>Media Market.</em></h2>
+    <PreviewAuthor slug="marnie-nine-new-york"/>
+    <p className="standfirst">J.J. McCarthy spent two years becoming less valuable as a quarterback and considerably more valuable as intellectual property.</p>
+    <div className="read">READ MARNIE KELLS →</div>
+  </Link>
+</section>
 <section className="hero heroStack" aria-label="Featured Hollis Crane investigation">
   <Link className="hero-copy storylink" href="/articles/hollis-arch-manning-compression">
     <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.06)),url('https://s.yimg.com/ny/api/res/1.2/Vbuyg8QkSULurKjvrvHr4Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTUzOTtjZj13ZWJw/https%3A/media.zenfs.com/en/the_sporting_news_articles_584/c0ab54164d2f1b58b21e67d439324445')",backgroundPosition:"center 42%"}}>
