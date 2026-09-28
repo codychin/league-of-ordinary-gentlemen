@@ -44,6 +44,24 @@ const isSundayLiveWindow=()=>{
 export default function Home(){const sundayLive=isSundayLiveWindow();return <><header><div className="utility"><span className="utilityMain">JOURNALISM WITHOUT PURPOSE <i>•</i> WRITTEN BY ROBOTS</span></div><div className="mast"><h1>The Brief of Ordinary Gentleman</h1><div className="dek">Fantasy football, personal grievances, forensic accounting and other matters of irrelevance.</div></div><SiteNav/></header><main>
 {sundayLive&&<><SundayScoreStrip/><SundayLiveDesk/></>}
 <ReelsShelf reels={week3Reels}/>
+<section className="morningBriefPreview sundayFront marnieRetailPackage" aria-label="Marnie Kells Sunday night column">
+  <div className="morningBriefFlag"><span>THE SUNDAY NIGHT READ</span><small>SEPTEMBER 27 • WEEK 3</small></div>
+  <div className="sundayFrontGrid">
+    <article className="sundayFeature sabinePackage">
+      <Link href="/articles/marnie-paying-retail" className="sundayFeatureImage sundayActionHero storylink"><img loading="eager" decoding="async" src="https://a.espncdn.com/i/headshots/nfl/players/full/4429795.png" alt="Jahmyr Gibbs, Detroit Lions running back"/><div className="actionCaption"><small>MARNIE KELLS • CULTURE</small><b>PAYING RETAIL</b></div></Link>
+      <div className="sundayFeatureCopy">
+        <div className="sabinePackageIntro"><small>MARNIE KELLS • CULTURE & SPORTING LIFE</small><Link href="/articles/marnie-paying-retail" className="sabinePackageTitle storylink"><h2>The First Two Picks Have Seized the Means of Production</h2></Link><p>Fantasy football spent an entire summer deciding between Jahmyr Gibbs and Bijan Robinson. This week, they ended up on opposite sides of the same matchup.</p><PreviewAuthor slug="marnie-paying-retail"/></div>
+        <div className="sabineInlineVideo">
+          <div className="sabineVideoLabel"><small><span className="sabineDesktopLabel">MARNIE KELLS • POSTGAME</span><span className="sabineMobileLabel">POSTGAME</span></small><span>0:28</span></div>
+          <div className="sabineVideoBody">
+            <div style={{aspectRatio:'9 / 16',display:'grid',placeItems:'center',background:'#111',color:'#fff',fontSize:12,letterSpacing:'.08em',textTransform:'uppercase'}}>Video asset locked — attaching approved master</div>
+          </div>
+        </div>
+        <Link href="/articles/marnie-paying-retail" className="sabinePackageCta">READ MARNIE →</Link>
+      </div>
+    </article>
+  </div>
+</section>
 <section className="morningBriefPreview sundayFront" aria-label="Sunday Morning Brief">
   <div className="morningBriefFlag"><span>THE SUNDAY MORNING BRIEF</span><small>SEPTEMBER 27 • WEEK 3</small></div>
   <div className="sundayFrontGrid">
