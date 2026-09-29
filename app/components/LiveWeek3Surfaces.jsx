@@ -13,7 +13,7 @@ const slugMap={
   "Royrek Tishmeshulam":"royrek","CeeDeep Shaheeded Rivalry":"ceedeep"
 };
 
-export default function LiveWeek3Surfaces({matchupPairs=[],teamVisuals={}}){
+export default function LiveWeek3Surfaces({matchupPairs=[],teamVisuals={},finalWeek=false}){
   const [data,setData]=useState(null);
   useEffect(()=>{
     let alive=true;
@@ -23,7 +23,7 @@ export default function LiveWeek3Surfaces({matchupPairs=[],teamVisuals={}}){
     return()=>{alive=false;window.clearInterval(timer)};
   },[]);
   const games=useMemo(()=>data?.matchups||[],[data]);
-  if(!games.length)return null;
+  if(!games.length||finalWeek)return null;
 
   return <>
     <section className="section upcoming" id="week3">
