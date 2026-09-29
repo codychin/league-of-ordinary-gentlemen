@@ -16,12 +16,12 @@ const liveMatchups=[
 const featuredPlayer=team=>team.roster.filter(p=>!['Bench','IR','K','D/ST'].includes(p.slot)&&!['K','D/ST'].includes(p.position)).sort((a,b)=>b.seasonPoints-a.seasonPoints)[0]
 const playerHeadshot=player=>`https://a.espncdn.com/i/headshots/nfl/players/full/${player.id}.png`
 const week3Reels=[
-  ['royrek','ceedeep','ROY · CEE','Royrek Tishmeshulam vs. CeeDeep Shaheeded Rivalry','Sabine March',writers.march.image,'392481b81c933a1c16c0681d80094e25'],
-  ['pollard-greens','all-ugly','POLL · UGLY','Pollard Greens vs. The All Ugly Team','Maude Gannon',writers.gannon.image,'cd532bffc3dce227f11f04663439e4d9'],
-  ['kupp-doubs','route-22','KUPP · R22','Kupp Kupp Doubs vs. The Route 22 Clubhouse','Dashiell Pike',writers.pike.image,'e3c3146fd8882061f97aadb30cd1c551'],
-  ['lloyd-rings','hopkins-opus','LLOYD · HOP','Lloyd of the Rings vs. Mr Hopkins Opus','Conrad Sorrell',writers.sorrell.image,'aaa2bdbd267cdf52f10bf4332c20c24d'],
-  ['shake-baker','danir','SHAKE · DANIR','Shake ’N Baker vs. DarkHorse Danir','Hollis Crane',writers.crane.image,'ca91cf52b9bfd5ea053d97c8f660cdcb'],
-  ['kraft','skatt','KRAFT · SKATT','For the Love of the Kraft vs. I’m a Skatt man','Marnie Kells',writers.kells.image,'65a14e3f3970c6406712a99e31827fd6']
+  ['royrek','ceedeep','ROY · CEE','Royrek Tishmeshulam vs. CeeDeep Shaheeded Rivalry','Sabine March',writers.march.image,'38c3af817e17134c29be012a859195b4'],
+  ['pollard-greens','all-ugly','POLL · UGLY','Pollard Greens vs. The All Ugly Team','Maude Gannon',writers.gannon.image,'a582e7339a5b83ef20e1f1ee886b404b'],
+  ['kupp-doubs','route-22','KUPP · R22','Kupp Kupp Doubs vs. The Route 22 Clubhouse','Dashiell Pike',writers.pike.image,'999f35329e9d35dd3656143a52cb8c3e'],
+  ['lloyd-rings','hopkins-opus','LLOYD · HOP','Lloyd of the Rings vs. Mr Hopkins Opus','Conrad Sorrell',writers.sorrell.image,'f898d39457eef2ca7fe46e65c9db9c78'],
+  ['shake-baker','danir','SHAKE · DANIR','Shake ’N Baker vs. DarkHorse Danir','Hollis Crane',writers.crane.image,'5b9851d3dc6a4589cc9d6c8b229753ca'],
+  ['kraft','skatt','KRAFT · SKATT','For the Love of the Kraft vs. I’m a Skatt man','Marnie Kells',writers.kells.image,'35dba1a859bd687042b2da3fcf345239']
 ].map(([left,right,short,matchup,correspondent,avatar,id])=>{
   const lp=featuredPlayer(leagueSnapshot.teams[left]);
   const rp=featuredPlayer(leagueSnapshot.teams[right]);
