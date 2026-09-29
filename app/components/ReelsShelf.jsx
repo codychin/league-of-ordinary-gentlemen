@@ -4,13 +4,12 @@ import {useEffect,useRef,useState} from 'react';
 import {flushSync} from 'react-dom';
 import styles from './ReelsShelf.module.css';
 
-const STORAGE_KEY='brief-week3-reels-viewed-v1';
+const STORAGE_KEY='brief-week3-roundup-viewed-v1';
 
 export default function ReelsShelf({reels=[]}){
   const [active,setActive]=useState(null);
   const [viewed,setViewed]=useState({});
   const [showMeta,setShowMeta]=useState(true);
-  const [ios,setIos]=useState(false);
   const [muted,setMuted]=useState(false);
   const [progress,setProgress]=useState(0);
   const [nativeHls,setNativeHls]=useState(false);
@@ -21,9 +20,6 @@ export default function ReelsShelf({reels=[]}){
   const recoveryRef=useRef(null);
 
   useEffect(()=>{
-    const ua=navigator.userAgent||'';
-    const appMode=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true;
-    setIos(/iPad|iPhone|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1)||appMode);
     try{setViewed(JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}'))}catch{}
     try{
       const probe=document.createElement('video');
@@ -63,6 +59,7 @@ export default function ReelsShelf({reels=[]}){
     warm();
     return()=>controller.abort();
   },[reels]);
+
   useEffect(()=>{
     if(active===null||!reels.length)return;
     const reel=reels[active];
@@ -114,43 +111,33 @@ export default function ReelsShelf({reels=[]}){
     clearTimeout(recoveryRef.current);
     recoveryRef.current=setTimeout(()=>{
       if(!video||video.ended)return;
-      if(video.readyState>=2&&video.paused){
-        video.play().catch(()=>{});
-        return;
-      }
+      if(video.readyState>=2&&video.paused){video.play().catch(()=>{});return;}
       if(video.readyState>=2&&!video.paused)return;
     },350);
   };
 
-  const move=dir=>{
-    setProgress(0);
-    setActive(i=>(i+dir+reels.length)%reels.length);
-  };
+  const move=dir=>{setProgress(0);setActive(i=>(i+dir+reels.length)%reels.length);};
   const openReel=i=>{
     flushSync(()=>{setActive(i);setMuted(false)});
     const video=videoRef.current;
     if(!video)return;
     video.muted=false;
-    video.play().catch(()=>{
-      video.muted=true;
-      setMuted(true);
-      video.play().catch(()=>{});
-    });
+    video.play().catch(()=>{video.muted=true;setMuted(true);video.play().catch(()=>{})});
   };
   useEffect(()=>()=>clearTimeout(recoveryRef.current),[]);
 
   const reel=active===null?null:reels[active];
   const nextReel=active===null||!reels.length?null:reels[(active+1)%reels.length];
-  const mediaSrc=r=>nativeHls?`/reels-hls/${r.id}/index.m3u8`:`/reels/${r.id}.mp4?v=14`;
+  const mediaSrc=r=>nativeHls?`/reels-hls/${r.id}/index.m3u8`:`/reels/${r.id}.mp4?v=15`;
   const posterSrc=r=>`/reels-hls/${r.id}/poster.jpg`;
 
-  return <section className={styles.wrap} aria-label="Week 3 video dispatches">
+  return <section className={styles.wrap} aria-label="Week 3 roundup videos">
     <div className={styles.head}>
-      <div><small>THE BRIEF • FIELD DISPATCHES</small><h2>Week 3, on assignment.</h2></div>
+      <div><small>THE BRIEF • WEEK 3</small><h2>Week 3, roundup.</h2></div>
       <span>6 MATCHUPS • 6 CORRESPONDENTS</span>
     </div>
     <div className={styles.rail}>
-      {reels.map((r,i)=><button className={`${styles.story} ${viewed[r.id]?styles.seen:styles.unseen}`} key={r.id} onClick={()=>openReel(i)} aria-label={`Watch ${r.matchup} dispatch by ${r.correspondent}`}>
+      {reels.map((r,i)=><button className={`${styles.story} ${viewed[r.id]?styles.seen:styles.unseen}`} key={r.id} onClick={()=>openReel(i)} aria-label={`Watch ${r.matchup} recap by ${r.correspondent}`}>
         <span className={styles.thumb}>
           <span className={styles.playerLeft}><img src={r.leftImage} alt=""/></span>
           <span className={styles.playerRight}><img src={r.rightImage} alt=""/></span>
@@ -163,65 +150,24 @@ export default function ReelsShelf({reels=[]}){
     </div>
 
     {reel&&<div className={styles.viewer}
-      role="dialog" aria-modal="true" aria-label={`${reel.matchup} video dispatch`}
+      role="dialog" aria-modal="true" aria-label={`${reel.matchup} video recap`}
       onTouchStart={e=>{touchStart.current=e.touches[0].clientX}}
-      onTouchEnd={e=>{
-        if(touchStart.current===null)return;
-        const d=e.changedTouches[0].clientX-touchStart.current;
-        if(Math.abs(d)>55)move(d<0?1:-1);
-        touchStart.current=null;
-      }}>
+      onTouchEnd={e=>{if(touchStart.current===null)return;const d=e.changedTouches[0].clientX-touchStart.current;if(Math.abs(d)>55)move(d<0?1:-1);touchStart.current=null;}}>
       <button className={styles.close} onClick={()=>setActive(null)} aria-label="Close video">×</button>
       <div className={styles.stage}>
-        {nextReel&&<video
-          key={nextReel.id}
-          ref={preloadRef}
-          className={`${styles.video} ${styles.nextVideo}`}
-          src={mediaSrc(nextReel)}
-          preload="auto"
-          playsInline
-          muted
-          disablePictureInPicture
-          aria-hidden="true"
-          onLoadedData={e=>{
-            const v=e.currentTarget;
-            v.muted=true;
-            const p=v.play();
-            if(p?.then)p.then(()=>{v.pause();try{v.currentTime=.01}catch{}}).catch(()=>{});
-          }}
-        />}
-        <video
-          key={reel.id}
-          ref={videoRef}
-          className={styles.video}
-          src={mediaSrc(reel)}
-          autoPlay
-          poster={posterSrc(reel)}
-          muted={muted}
-          playsInline
-          preload="auto"
-          disablePictureInPicture
-          onLoadedData={()=>videoRef.current?.play().catch(()=>{})}
-          onWaiting={e=>scheduleRecovery(e.currentTarget)}
-          onStalled={e=>scheduleRecovery(e.currentTarget)}
-          onPlaying={()=>{clearTimeout(recoveryRef.current);setHasStarted(true)}}
-          onTimeUpdate={e=>{const v=e.currentTarget;setProgress(v.duration?Math.min(1,v.currentTime/v.duration):0)}}
-          onEnded={()=>move(1)}
-        />
+        {nextReel&&<video key={nextReel.id} ref={preloadRef} className={`${styles.video} ${styles.nextVideo}`} src={mediaSrc(nextReel)} preload="auto" playsInline muted disablePictureInPicture aria-hidden="true" onLoadedData={e=>{const v=e.currentTarget;v.muted=true;const p=v.play();if(p?.then)p.then(()=>{v.pause();try{v.currentTime=.01}catch{}}).catch(()=>{})}}/>}
+        <video key={reel.id} ref={videoRef} className={styles.video} src={mediaSrc(reel)} autoPlay poster={posterSrc(reel)} muted={muted} playsInline preload="auto" disablePictureInPicture onLoadedData={()=>videoRef.current?.play().catch(()=>{})} onWaiting={e=>scheduleRecovery(e.currentTarget)} onStalled={e=>scheduleRecovery(e.currentTarget)} onPlaying={()=>{clearTimeout(recoveryRef.current);setHasStarted(true)}} onTimeUpdate={e=>{const v=e.currentTarget;setProgress(v.duration?Math.min(1,v.currentTime/v.duration):0)}} onEnded={()=>move(1)}/>
         {!hasStarted&&<img className={styles.posterCover} src={posterSrc(reel)} alt="" aria-hidden="true"/>}
         <button className={styles.soundToggle} onClick={e=>{e.stopPropagation();setMuted(v=>!v)}} aria-label={muted?'Turn sound on':'Mute'}>
-          {muted
-            ?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6.8 8.4H3.5v7.2h3.3L11 19z"/><path d="m15.5 9.5 5 5m0-5-5 5"/></svg>
-            :<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6.8 8.4H3.5v7.2h3.3L11 19z"/><path d="M15 9.2c1.1.8 1.8 1.7 1.8 2.8s-.7 2-1.8 2.8"/><path d="M17.8 6.8c2 1.4 3.2 3.1 3.2 5.2s-1.2 3.8-3.2 5.2"/></svg>}
+          {muted?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6.8 8.4H3.5v7.2h3.3L11 19z"/><path d="m15.5 9.5 5 5m0-5-5 5"/></svg>:<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6.8 8.4H3.5v7.2h3.3L11 19z"/><path d="M15 9.2c1.1.8 1.8 1.7 1.8 2.8s-.7 2-1.8 2.8"/><path d="M17.8 6.8c2 1.4 3.2 3.1 3.2 5.2s-1.2 3.8-3.2 5.2"/></svg>}
         </button>
         <button className={`${styles.tapZone} ${styles.tapPrev}`} onClick={()=>move(-1)} aria-label="Previous reel"/>
         <button className={`${styles.tapZone} ${styles.tapNext}`} onClick={()=>move(1)} aria-label="Next reel"/>
         <div className={`${styles.meta} ${showMeta?styles.metaOn:''}`}>
-          <small>WEEK 3 • FIELD DISPATCH</small>
+          <small>WEEK 3 • ROUNDUP</small>
           <b>{reel.matchup}</b>
           <span>{reel.correspondent}</span>
         </div>
-        
       </div>
       <div className={styles.progress}>{reels.map((r,i)=><span key={r.id} className={i<active?styles.done:(i===active?styles.current:'')}><i style={i<active?{width:'100%'}:i===active?{width:`${progress*100}%`}:{width:'0%'}}/></span>)}</div>
     </div>}
