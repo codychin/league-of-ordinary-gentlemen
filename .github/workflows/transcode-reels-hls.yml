@@ -60,4 +60,5 @@ jobs:
             exit 0
           fi
           git commit -m "Generate HLS reel renditions"
-          git push
+          git pull --rebase origin main
+          git push origin HEAD:main
