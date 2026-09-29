@@ -1,22 +1,22 @@
 export const leagueSnapshot = {
-  "updatedAt": "SEPTEMBER 25, 2026 • WEEK 3 LIVE ROSTERS & PLAYER TOTALS",
+  "updatedAt": "SEPTEMBER 29, 2026 • WEEK 3 FINAL",
   "week": 3,
   "teams": {
     "kupp-doubs": {
       "teamId": 1,
       "teamName": "Kupp Kupp Doubs",
-      "record": "2-0",
-      "seed": 3,
-      "pointsFor": 243.64,
-      "pointsAgainst": 226.7,
-      "projectedRank": 3,
+      "record": "2-1",
+      "seed": 6,
+      "pointsFor": 357.08,
+      "pointsAgainst": 364.6,
+      "projectedRank": 5,
       "matchup": {
         "opponent": "The Route 22 Clubhouse",
         "opponentSlug": "route-22",
-        "score": 0,
-        "opponentScore": 0,
-        "projection": "146.1",
-        "opponentProjection": "142.7"
+        "score": 113.44,
+        "opponentScore": 137.9,
+        "projection": "113.44",
+        "opponentProjection": "137.9"
       },
       "roster": [
         {
@@ -220,12 +220,12 @@ export const leagueSnapshot = {
         }
       ],
       "season": {
-        "completedGames": 2,
-        "ppg": 121.82,
+        "completedGames": 3,
+        "ppg": 119.03,
         "pfRank": 11,
         "paRank": 11,
-        "projectedRank": 3,
-        "startedPoints": 243.64,
+        "projectedRank": 5,
+        "startedPoints": 357.08,
         "benchPoints": 119.84,
         "positionTotals": {
           "RB": 75,
@@ -257,12 +257,12 @@ export const leagueSnapshot = {
           },
           {
             "week": 3,
-            "status": "LIVE",
+            "status": "FINAL",
             "opponent": "The Route 22 Clubhouse",
             "opponentSlug": "route-22",
-            "score": 0,
-            "opponentScore": 0,
-            "result": "—"
+            "score": 113.44,
+            "opponentScore": 137.9,
+            "result": "L"
           }
         ]
       }
@@ -270,18 +270,18 @@ export const leagueSnapshot = {
     "danir": {
       "teamId": 2,
       "teamName": "DarkHorse Danir",
-      "record": "0-2",
-      "seed": 12,
-      "pointsFor": 247.77,
-      "pointsAgainst": 342.82,
-      "projectedRank": 11,
+      "record": "1-2",
+      "seed": 7,
+      "pointsFor": 433.25,
+      "pointsAgainst": 510.6,
+      "projectedRank": 8,
       "matchup": {
         "opponent": "Shake 'N Baker",
         "opponentSlug": "shake-baker",
-        "score": 0,
-        "opponentScore": 42.2,
-        "projection": "148.9",
-        "opponentProjection": "155.1"
+        "score": 185.48,
+        "opponentScore": 167.78,
+        "projection": "185.48",
+        "opponentProjection": "167.78"
       },
       "roster": [
         {
@@ -495,12 +495,12 @@ export const leagueSnapshot = {
         }
       ],
       "season": {
-        "completedGames": 2,
-        "ppg": 123.88,
+        "completedGames": 3,
+        "ppg": 144.42,
         "pfRank": 9,
         "paRank": 1,
-        "projectedRank": 11,
-        "startedPoints": 247.77,
+        "projectedRank": 8,
+        "startedPoints": 433.25,
         "benchPoints": 126.82,
         "positionTotals": {
           "RB": 105.2,
@@ -532,12 +532,12 @@ export const leagueSnapshot = {
           },
           {
             "week": 3,
-            "status": "LIVE",
+            "status": "FINAL",
             "opponent": "Shake 'N Baker",
             "opponentSlug": "shake-baker",
-            "score": 0,
-            "opponentScore": 42.2,
-            "result": "—"
+            "score": 185.48,
+            "opponentScore": 167.78,
+            "result": "W"
           }
         ]
       }
@@ -545,18 +545,18 @@ export const leagueSnapshot = {
     "all-ugly": {
       "teamId": 3,
       "teamName": "The All Ugly Team",
-      "record": "0-2",
-      "seed": 10,
-      "pointsFor": 281.08,
-      "pointsAgainst": 304.47,
+      "record": "0-3",
+      "seed": 12,
+      "pointsFor": 383.34,
+      "pointsAgainst": 471.69,
       "projectedRank": 12,
       "matchup": {
         "opponent": "Pollard Greens",
         "opponentSlug": "pollard-greens",
-        "score": 21.6,
-        "opponentScore": 31.9,
-        "projection": "145.2",
-        "opponentProjection": "163.7"
+        "score": 102.26,
+        "opponentScore": 167.22,
+        "projection": "102.26",
+        "opponentProjection": "167.22"
       },
       "roster": [
         {
@@ -755,12 +755,12 @@ export const leagueSnapshot = {
         }
       ],
       "season": {
-        "completedGames": 2,
-        "ppg": 140.54,
+        "completedGames": 3,
+        "ppg": 127.78,
         "pfRank": 6,
         "paRank": 3,
         "projectedRank": 12,
-        "startedPoints": 281.08,
+        "startedPoints": 383.34,
         "benchPoints": 67.33,
         "positionTotals": {
           "RB": 44.4,
@@ -792,12 +792,12 @@ export const leagueSnapshot = {
           },
           {
             "week": 3,
-            "status": "LIVE",
+            "status": "FINAL",
             "opponent": "Pollard Greens",
             "opponentSlug": "pollard-greens",
-            "score": 21.6,
-            "opponentScore": 31.9,
-            "result": "—"
+            "score": 102.26,
+            "opponentScore": 167.22,
+            "result": "L"
           }
         ]
       }
@@ -805,18 +805,18 @@ export const leagueSnapshot = {
     "route-22": {
       "teamId": 4,
       "teamName": "The Route 22 Clubhouse",
-      "record": "1-1",
-      "seed": 6,
-      "pointsFor": 286.83,
-      "pointsAgainst": 269.3,
-      "projectedRank": 6,
+      "record": "2-1",
+      "seed": 3,
+      "pointsFor": 424.73,
+      "pointsAgainst": 382.74,
+      "projectedRank": 4,
       "matchup": {
         "opponent": "Kupp Kupp Doubs",
         "opponentSlug": "kupp-doubs",
-        "score": 0,
-        "opponentScore": 0,
-        "projection": "142.7",
-        "opponentProjection": "146.1"
+        "score": 137.9,
+        "opponentScore": 113.44,
+        "projection": "137.9",
+        "opponentProjection": "113.44"
       },
       "roster": [
         {
@@ -1030,12 +1030,12 @@ export const leagueSnapshot = {
         }
       ],
       "season": {
-        "completedGames": 2,
-        "ppg": 143.42,
+        "completedGames": 3,
+        "ppg": 141.58,
         "pfRank": 5,
         "paRank": 8,
-        "projectedRank": 6,
-        "startedPoints": 286.83,
+        "projectedRank": 4,
+        "startedPoints": 424.73,
         "benchPoints": 116.58,
         "positionTotals": {
           "RB": 92.1,
@@ -1067,12 +1067,12 @@ export const leagueSnapshot = {
           },
           {
             "week": 3,
-            "status": "LIVE",
+            "status": "FINAL",
             "opponent": "Kupp Kupp Doubs",
             "opponentSlug": "kupp-doubs",
-            "score": 0,
-            "opponentScore": 0,
-            "result": "—"
+            "score": 137.9,
+            "opponentScore": 113.44,
+            "result": "W"
           }
         ]
       }
@@ -1080,18 +1080,18 @@ export const leagueSnapshot = {
     "skatt": {
       "teamId": 5,
       "teamName": "I'm a Skatt man",
-      "record": "0-2",
-      "seed": 11,
-      "pointsFor": 271.43,
-      "pointsAgainst": 293.23,
-      "projectedRank": 9,
+      "record": "1-2",
+      "seed": 8,
+      "pointsFor": 418,
+      "pointsAgainst": 410.21,
+      "projectedRank": 7,
       "matchup": {
         "opponent": "For the Love of the Kraft",
         "opponentSlug": "kraft",
-        "score": 0,
-        "opponentScore": 5.6,
-        "projection": "144.3",
-        "opponentProjection": "112.9"
+        "score": 146.57,
+        "opponentScore": 116.98,
+        "projection": "146.57",
+        "opponentProjection": "116.98"
       },
       "roster": [
         {
@@ -1300,12 +1300,12 @@ export const leagueSnapshot = {
         }
       ],
       "season": {
-        "completedGames": 2,
-        "ppg": 135.72,
+        "completedGames": 3,
+        "ppg": 139.33,
         "pfRank": 7,
         "paRank": 4,
-        "projectedRank": 9,
-        "startedPoints": 271.43,
+        "projectedRank": 7,
+        "startedPoints": 418,
         "benchPoints": 115.5,
         "positionTotals": {
           "WR": 56.7,
@@ -1337,12 +1337,12 @@ export const leagueSnapshot = {
           },
           {
             "week": 3,
-            "status": "LIVE",
+            "status": "FINAL",
             "opponent": "For the Love of the Kraft",
             "opponentSlug": "kraft",
-            "score": 0,
-            "opponentScore": 5.6,
-            "result": "—"
+            "score": 146.57,
+            "opponentScore": 116.98,
+            "result": "W"
           }
         ]
       }
@@ -1350,18 +1350,18 @@ export const leagueSnapshot = {
     "pollard-greens": {
       "teamId": 6,
       "teamName": "Pollard Greens",
-      "record": "1-1",
-      "seed": 5,
-      "pointsFor": 289.69,
-      "pointsAgainst": 306.51,
-      "projectedRank": 4,
+      "record": "2-1",
+      "seed": 2,
+      "pointsFor": 456.91,
+      "pointsAgainst": 408.77,
+      "projectedRank": 3,
       "matchup": {
         "opponent": "The All Ugly Team",
         "opponentSlug": "all-ugly",
-        "score": 31.9,
-        "opponentScore": 21.6,
-        "projection": "163.7",
-        "opponentProjection": "145.2"
+        "score": 167.22,
+        "opponentScore": 102.26,
+        "projection": "167.22",
+        "opponentProjection": "102.26"
       },
       "roster": [
         {
@@ -1554,12 +1554,12 @@ export const leagueSnapshot = {
         }
       ],
       "season": {
-        "completedGames": 2,
-        "ppg": 144.84,
+        "completedGames": 3,
+        "ppg": 152.3,
         "pfRank": 4,
         "paRank": 2,
-        "projectedRank": 4,
-        "startedPoints": 289.69,
+        "projectedRank": 3,
+        "startedPoints": 456.91,
         "benchPoints": 62.44,
         "positionTotals": {
           "WR": 94.55,
@@ -1591,12 +1591,12 @@ export const leagueSnapshot = {
           },
           {
             "week": 3,
-            "status": "LIVE",
+            "status": "FINAL",
             "opponent": "The All Ugly Team",
             "opponentSlug": "all-ugly",
-            "score": 31.9,
-            "opponentScore": 21.6,
-            "result": "—"
+            "score": 167.22,
+            "opponentScore": 102.26,
+            "result": "W"
           }
         ]
       }
@@ -1604,18 +1604,18 @@ export const leagueSnapshot = {
     "hopkins-opus": {
       "teamId": 7,
       "teamName": "Mr Hopkins Opus",
-      "record": "2-0",
-      "seed": 1,
-      "pointsFor": 315,
-      "pointsAgainst": 227.84,
-      "projectedRank": 1,
+      "record": "2-1",
+      "seed": 4,
+      "pointsFor": 417.84,
+      "pointsAgainst": 348.48,
+      "projectedRank": 2,
       "matchup": {
         "opponent": "Lloyd of the Rings",
         "opponentSlug": "lloyd-rings",
-        "score": 0,
-        "opponentScore": -5.5,
-        "projection": "149.3",
-        "opponentProjection": "130.6"
+        "score": 102.84,
+        "opponentScore": 120.64,
+        "projection": "102.84",
+        "opponentProjection": "120.64"
       },
       "roster": [
         {
@@ -1824,12 +1824,12 @@ export const leagueSnapshot = {
         }
       ],
       "season": {
-        "completedGames": 2,
-        "ppg": 157.5,
+        "completedGames": 3,
+        "ppg": 139.28,
         "pfRank": 1,
         "paRank": 10,
-        "projectedRank": 1,
-        "startedPoints": 315,
+        "projectedRank": 2,
+        "startedPoints": 417.84,
         "benchPoints": 132.94,
         "positionTotals": {
           "RB": 131.2,
@@ -1861,12 +1861,12 @@ export const leagueSnapshot = {
           },
           {
             "week": 3,
-            "status": "LIVE",
+            "status": "FINAL",
             "opponent": "Lloyd of the Rings",
             "opponentSlug": "lloyd-rings",
-            "score": 0,
-            "opponentScore": -5.5,
-            "result": "—"
+            "score": 102.84,
+            "opponentScore": 120.64,
+            "result": "L"
           }
         ]
       }
@@ -1874,18 +1874,18 @@ export const leagueSnapshot = {
     "shake-baker": {
       "teamId": 8,
       "teamName": "Shake 'N Baker",
-      "record": "1-1",
-      "seed": 8,
-      "pointsFor": 245.03,
-      "pointsAgainst": 287.09,
-      "projectedRank": 7,
+      "record": "1-2",
+      "seed": 9,
+      "pointsFor": 412.81,
+      "pointsAgainst": 472.57,
+      "projectedRank": 10,
       "matchup": {
         "opponent": "DarkHorse Danir",
         "opponentSlug": "danir",
-        "score": 42.2,
-        "opponentScore": 0,
-        "projection": "155.1",
-        "opponentProjection": "148.9"
+        "score": 167.78,
+        "opponentScore": 185.48,
+        "projection": "167.78",
+        "opponentProjection": "185.48"
       },
       "roster": [
         {
@@ -2067,12 +2067,12 @@ export const leagueSnapshot = {
       ],
       "moves": [],
       "season": {
-        "completedGames": 2,
-        "ppg": 122.52,
+        "completedGames": 3,
+        "ppg": 137.6,
         "pfRank": 10,
         "paRank": 5,
-        "projectedRank": 7,
-        "startedPoints": 245.03,
+        "projectedRank": 10,
+        "startedPoints": 412.81,
         "benchPoints": 100.94,
         "positionTotals": {
           "RB": 66.6,
@@ -2104,12 +2104,12 @@ export const leagueSnapshot = {
           },
           {
             "week": 3,
-            "status": "LIVE",
+            "status": "FINAL",
             "opponent": "DarkHorse Danir",
             "opponentSlug": "danir",
-            "score": 42.2,
-            "opponentScore": 0,
-            "result": "—"
+            "score": 167.78,
+            "opponentScore": 185.48,
+            "result": "L"
           }
         ]
       }
@@ -2117,18 +2117,18 @@ export const leagueSnapshot = {
     "kraft": {
       "teamId": 9,
       "teamName": "For the Love of the Kraft",
-      "record": "1-1",
-      "seed": 9,
-      "pointsFor": 243.64,
-      "pointsAgainst": 206.02,
-      "projectedRank": 10,
+      "record": "1-2",
+      "seed": 11,
+      "pointsFor": 360.62,
+      "pointsAgainst": 352.59,
+      "projectedRank": 11,
       "matchup": {
         "opponent": "I'm a Skatt man",
         "opponentSlug": "skatt",
-        "score": 5.6,
-        "opponentScore": 0,
-        "projection": "112.9",
-        "opponentProjection": "144.3"
+        "score": 116.98,
+        "opponentScore": 146.57,
+        "projection": "116.98",
+        "opponentProjection": "146.57"
       },
       "roster": [
         {
@@ -2332,12 +2332,12 @@ export const leagueSnapshot = {
         }
       ],
       "season": {
-        "completedGames": 2,
-        "ppg": 121.82,
+        "completedGames": 3,
+        "ppg": 120.21,
         "pfRank": 12,
         "paRank": 12,
-        "projectedRank": 10,
-        "startedPoints": 243.64,
+        "projectedRank": 11,
+        "startedPoints": 360.62,
         "benchPoints": 36.35,
         "positionTotals": {
           "WR": 45.3,
@@ -2369,12 +2369,12 @@ export const leagueSnapshot = {
           },
           {
             "week": 3,
-            "status": "LIVE",
+            "status": "FINAL",
             "opponent": "I'm a Skatt man",
             "opponentSlug": "skatt",
-            "score": 5.6,
-            "opponentScore": 0,
-            "result": "—"
+            "score": 116.98,
+            "opponentScore": 146.57,
+            "result": "L"
           }
         ]
       }
@@ -2382,18 +2382,18 @@ export const leagueSnapshot = {
     "royrek": {
       "teamId": 10,
       "teamName": "Royrek Tishmeshulam",
-      "record": "1-1",
-      "seed": 7,
-      "pointsFor": 267.61,
-      "pointsAgainst": 286.26,
-      "projectedRank": 8,
+      "record": "1-2",
+      "seed": 10,
+      "pointsFor": 381.45,
+      "pointsAgainst": 408.02,
+      "projectedRank": 9,
       "matchup": {
         "opponent": "CeeDeep Shaheeded Rivalry",
         "opponentSlug": "ceedeep",
-        "score": 7.5,
-        "opponentScore": 0,
-        "projection": "148.9",
-        "opponentProjection": "149.9"
+        "score": 113.84,
+        "opponentScore": 121.76,
+        "projection": "113.84",
+        "opponentProjection": "121.76"
       },
       "roster": [
         {
@@ -2581,12 +2581,12 @@ export const leagueSnapshot = {
         }
       ],
       "season": {
-        "completedGames": 2,
-        "ppg": 133.81,
+        "completedGames": 3,
+        "ppg": 127.15,
         "pfRank": 8,
         "paRank": 6,
-        "projectedRank": 8,
-        "startedPoints": 267.61,
+        "projectedRank": 9,
+        "startedPoints": 381.45,
         "benchPoints": 67.92,
         "positionTotals": {
           "WR": 89.3,
@@ -2618,12 +2618,12 @@ export const leagueSnapshot = {
           },
           {
             "week": 3,
-            "status": "LIVE",
+            "status": "FINAL",
             "opponent": "CeeDeep Shaheeded Rivalry",
             "opponentSlug": "ceedeep",
-            "score": 7.5,
-            "opponentScore": 0,
-            "result": "—"
+            "score": 113.84,
+            "opponentScore": 121.76,
+            "result": "L"
           }
         ]
       }
@@ -2631,18 +2631,18 @@ export const leagueSnapshot = {
     "lloyd-rings": {
       "teamId": 11,
       "teamName": "Lloyd of the Rings",
-      "record": "2-0",
-      "seed": 2,
-      "pointsFor": 309.86,
-      "pointsAgainst": 267.84,
-      "projectedRank": 2,
+      "record": "3-0",
+      "seed": 1,
+      "pointsFor": 430.5,
+      "pointsAgainst": 370.68,
+      "projectedRank": 1,
       "matchup": {
         "opponent": "Mr Hopkins Opus",
         "opponentSlug": "hopkins-opus",
-        "score": -5.5,
-        "opponentScore": 0,
-        "projection": "130.6",
-        "opponentProjection": "149.3"
+        "score": 120.64,
+        "opponentScore": 102.84,
+        "projection": "120.64",
+        "opponentProjection": "102.84"
       },
       "roster": [
         {
@@ -2851,12 +2851,12 @@ export const leagueSnapshot = {
         }
       ],
       "season": {
-        "completedGames": 2,
-        "ppg": 154.93,
+        "completedGames": 3,
+        "ppg": 143.5,
         "pfRank": 2,
         "paRank": 9,
-        "projectedRank": 2,
-        "startedPoints": 309.86,
+        "projectedRank": 1,
+        "startedPoints": 430.5,
         "benchPoints": 94.06,
         "positionTotals": {
           "RB": 95.6,
@@ -2888,12 +2888,12 @@ export const leagueSnapshot = {
           },
           {
             "week": 3,
-            "status": "LIVE",
+            "status": "FINAL",
             "opponent": "Mr Hopkins Opus",
             "opponentSlug": "hopkins-opus",
-            "score": -5.5,
-            "opponentScore": 0,
-            "result": "—"
+            "score": 120.64,
+            "opponentScore": 102.84,
+            "result": "W"
           }
         ]
       }
@@ -2901,18 +2901,18 @@ export const leagueSnapshot = {
     "ceedeep": {
       "teamId": 12,
       "teamName": "CeeDeep Shaheeded Rivalry",
-      "record": "1-1",
-      "seed": 4,
-      "pointsFor": 291.03,
-      "pointsAgainst": 274.53,
-      "projectedRank": 5,
+      "record": "2-1",
+      "seed": 5,
+      "pointsFor": 412.79,
+      "pointsAgainst": 388.37,
+      "projectedRank": 6,
       "matchup": {
         "opponent": "Royrek Tishmeshulam",
         "opponentSlug": "royrek",
-        "score": 0,
-        "opponentScore": 7.5,
-        "projection": "149.9",
-        "opponentProjection": "148.9"
+        "score": 121.76,
+        "opponentScore": 113.84,
+        "projection": "121.76",
+        "opponentProjection": "113.84"
       },
       "roster": [
         {
@@ -3111,12 +3111,12 @@ export const leagueSnapshot = {
         }
       ],
       "season": {
-        "completedGames": 2,
-        "ppg": 145.51,
+        "completedGames": 3,
+        "ppg": 137.6,
         "pfRank": 3,
         "paRank": 7,
-        "projectedRank": 5,
-        "startedPoints": 291.03,
+        "projectedRank": 6,
+        "startedPoints": 412.79,
         "benchPoints": 61.95,
         "positionTotals": {
           "RB": 47.6,
@@ -3148,15 +3148,15 @@ export const leagueSnapshot = {
           },
           {
             "week": 3,
-            "status": "LIVE",
+            "status": "FINAL",
             "opponent": "Royrek Tishmeshulam",
             "opponentSlug": "royrek",
-            "score": 0,
-            "opponentScore": 7.5,
-            "result": "—"
+            "score": 121.76,
+            "opponentScore": 113.84,
+            "result": "W"
           }
         ]
       }
     }
   }
-}
+};
