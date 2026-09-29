@@ -2,7 +2,7 @@ export const dynamic='force-dynamic'
 
 const SCORES='https://dnzdbqycuuoonewcowis.supabase.co/functions/v1/brief-sunday-engine?action=scores'
 const TICK='https://dnzdbqycuuoonewcowis.supabase.co/functions/v1/brief-sunday-engine?action=tick'
-const MAX_AGE_SECONDS=180
+const MAX_AGE_SECONDS=60
 
 const readScores=async()=>{
   const response=await fetch(SCORES,{cache:'no-store',headers:{Accept:'application/json'}})
