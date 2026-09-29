@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/transcode-reels-hls.yml'
+      - 'public/reels/**'
   workflow_dispatch:
 
 permissions:
