@@ -17,9 +17,10 @@ const nyParts=()=>{
   const get=t=>parts.find(p=>p.type===t)?.value
   return {day:get('weekday'),hour:Number(get('hour')),minute:Number(get('minute'))}
 }
-const sundayWindow=()=>nyParts().day==='Sun'
+const sundayWindow=()=>['Sun','Mon'].includes(nyParts().day)
 const phase=()=>{
   const {day,hour}=nyParts()
+  if(day==='Mon')return 'FINAL'
   if(day!=='Sun')return 'OFF'
   if(hour<13)return 'PREGAME'
   return 'LIVE'
@@ -41,7 +42,7 @@ export default function SundayScoreStrip(){
     let alive=true
     const load=()=>fetch('/api/live-scores',{cache:'no-store'}).then(r=>r.json()).then(d=>{if(!alive)return;if(d?.matchups?.length)setData(d);setFreshness({stale:Boolean(d?.stale),updatedAt:d?.updatedAt||null})}).catch(()=>setFreshness(x=>({...x,stale:true})))
     load()
-    const timer=window.setInterval(load,30000)
+    const timer=window.setInterval(load,15000)
     return()=>{alive=false;window.clearInterval(timer)}
   },[on])
   const slate=phase()
