@@ -2,6 +2,7 @@
 
 import {useEffect,useMemo,useState} from 'react';
 import Link from 'next/link';
+import ResilientImage from './ResilientImage';
 
 const num=n=>Number(n||0).toFixed(1);
 const slugMap={
@@ -32,7 +33,7 @@ export default function LiveWeek3Surfaces({matchupPairs=[],teamVisuals={}}){
         const note=matchupPairs.find(x=>(x[0]===left&&x[1]===right)||(x[0]===right&&x[1]===left))?.[2]||'WEEK 3';
         return <Link className="matchupLink" href={left&&right?`/matchups/${left}/${right}`:'#scores'} key={g.id||i}><article className="playerHeadlineMatchup">
           <small className="matchupKicker">{note}</small>
-          <div className="matchupPortraits" aria-hidden="true"><img className="leftPlayer" src={teamVisuals[left]?.image||''} alt=""/><img className="rightPlayer" src={teamVisuals[right]?.image||''} alt=""/></div>
+          <div className="matchupPortraits" aria-hidden="true"><ResilientImage className="leftPlayer" src={teamVisuals[left]?.image||''} alt={teamVisuals[left]?.player||'Player'}/><ResilientImage className="rightPlayer" src={teamVisuals[right]?.image||''} alt={teamVisuals[right]?.player||'Player'}/></div>
           <div className="matchupEditorial"><div className="matchupSide left"><b>{g.home?.name}</b><strong>{num(g.home?.score)}</strong><em>{num(g.home?.projection)} PROJECTED</em></div><i>VS</i><div className="matchupSide right"><b>{g.away?.name}</b><strong>{num(g.away?.score)}</strong><em>{num(g.away?.projection)} PROJECTED</em></div></div>
           <div className="matchupPlayers"><span>{teamVisuals[left]?.player||''}</span><span>{teamVisuals[right]?.player||''}</span></div><span className="matchupOpen">OPEN MATCHUP →</span>
         </article></Link>
