@@ -6,7 +6,7 @@ import styles from './ReelsShelf.module.css';
 
 const STORAGE_KEY='brief-week3-roundup-viewed-v1';
 
-export default function ReelsShelf({reels=[]}){
+export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1'}){
   const [active,setActive]=useState(null);
   const [viewed,setViewed]=useState({});
   const [showMeta,setShowMeta]=useState(true);
@@ -14,6 +14,7 @@ export default function ReelsShelf({reels=[]}){
   const [progress,setProgress]=useState(0);
   const [nativeHls,setNativeHls]=useState(false);
   const [hasStarted,setHasStarted]=useState(false);
+  const [releaseReady,setReleaseReady]=useState(false);
   const touchStart=useRef(null);
   const videoRef=useRef(null);
   const preloadRef=useRef(null);
@@ -37,11 +38,26 @@ export default function ReelsShelf({reels=[]}){
     params.delete('reel');
     const query=params.toString();
     window.history.replaceState(window.history.state,'',window.location.pathname+(query?'?'+query:'')+window.location.hash);
-  },[reels]);
+  },[reels,releaseId]);
 
   useEffect(()=>{
     if(!reels.length)return;
     const controller=new AbortController();
+    const verify=async()=>{
+      try{
+        const checks=await Promise.all(reels.map(async r=>{
+          const base=`/reels-hls/${r.id}`;
+          const [manifest,poster,segment]=await Promise.all([
+            fetch(`${base}/index.m3u8`,{cache:'no-store',signal:controller.signal}),
+            fetch(`${base}/poster.jpg`,{cache:'no-store',signal:controller.signal}),
+            fetch(`${base}/seg_000.m4s`,{cache:'no-store',signal:controller.signal})
+          ]);
+          return manifest.ok&&poster.ok&&segment.ok;
+        }));
+        if(!controller.signal.aborted)setReleaseReady(checks.every(Boolean));
+      }catch{if(!controller.signal.aborted)setReleaseReady(false)}
+    };
+    verify();
     const warm=async()=>{
       for(const r of reels){
         if(controller.signal.aborted)break;
@@ -130,6 +146,8 @@ export default function ReelsShelf({reels=[]}){
   const nextReel=active===null||!reels.length?null:reels[(active+1)%reels.length];
   const mediaSrc=r=>nativeHls?`/reels-hls/${r.id}/index.m3u8`:`/reels/${r.id}.mp4?v=15`;
   const posterSrc=r=>`/reels-hls/${r.id}/poster.jpg`;
+
+  if(!releaseReady)return null;
 
   return <section className={styles.wrap} aria-label="Week 3 roundup videos">
     <div className={styles.head}>
