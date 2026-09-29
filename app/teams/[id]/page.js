@@ -33,7 +33,7 @@ export default async function Team({params}) {
       </section>
 
       <section className="liveOperations">
-        <div className="operationsHead"><div><small>FOOTBALL OPERATIONS • LIVE SNAPSHOT</small><h2>Week {leagueSnapshot.week}</h2></div><span>{leagueSnapshot.updatedAt}</span></div>
+        <div className="operationsHead"><div><small>FOOTBALL OPERATIONS • WEEK 3 FINAL</small><h2>Week {leagueSnapshot.week}</h2></div><span>{leagueSnapshot.updatedAt}</span></div>
         <div className="matchupBoard">
           <div className="matchupTeam active"><small>{t.team}</small><b>{ops.matchup.score}</b><span>PROJECTED {ops.matchup.projection}</span></div>
           <div className="matchupVs">VS</div>
@@ -71,7 +71,7 @@ export default async function Team({params}) {
 
       <aside className="dossierReceipt"><small>THE RECEIPTS</small><b>{t.receipt}</b><span>Filed permanently. Revisit at your own risk.</span></aside>
 
-      <div className="hubGrid"><section><div className="hubHead">TWO-WEEK / LEADING RETURNS</div>{t.stars.map((x,i)=><div className="ledgerRow" key={i}><b>{String(i+1).padStart(2,'0')}</b><span>{x}</span></div>)}</section><section><div className="hubHead">RECENT TRANSACTIONS</div>{ops.moves.length?ops.moves.map((x,i)=><div className="transactionRow" key={`${x.date}-${i}`}><small>{x.date}</small><b>{x.label}</b><span>{x.detail}</span></div>):<p className="quiet">No recent transaction activity on file.</p>}</section></div>
+      <div className="hubGrid"><section><div className="hubHead">SEASON / LEADING RETURNS</div>{t.stars.map((x,i)=><div className="ledgerRow" key={i}><b>{String(i+1).padStart(2,'0')}</b><span>{x}</span></div>)}</section><section><div className="hubHead">RECENT TRANSACTIONS</div>{ops.moves.length?ops.moves.map((x,i)=><div className="transactionRow" key={`${x.date}-${i}`}><small>{x.date}</small><b>{x.label}</b><span>{x.detail}</span></div>):<p className="quiet">No recent transaction activity on file.</p>}</section></div>
       <section className="mythology"><div className="hubHead">FRANCHISE MYTHOLOGY</div><div className="mythGrid">{t.mythology.map((x,i)=>{const [head,...rest]=x.split(' — ');return <article key={i}><small>FILE {String(i+1).padStart(2,'0')}</small><h3>{head}</h3><p>{rest.join(' — ')}</p></article>})}</div></section>
       <section className="coverage"><div className="hubHead">RECENT COVERAGE</div>{t.coverage.length?t.coverage.map(([slug,title])=><Link href={`/articles/${slug}`} key={slug}><span>THE BRIEF</span><b>{title}</b><em>READ →</em></Link>):<p className="quiet">No dedicated coverage yet. This should not be interpreted as institutional approval.</p>}</section>
       <div className="teamFoot"><span>Team names change. The file does not.</span><Link href="/teams" className="back">← ALL FRANCHISES</Link></div>
