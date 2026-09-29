@@ -12,7 +12,7 @@ const slugMap={
   "Royrek Tishmeshulam":"royrek","CeeDeep Shaheeded Rivalry":"ceedeep"
 };
 
-export default function LiveWeek3Surfaces({matchupPairs=[]}){
+export default function LiveWeek3Surfaces({matchupPairs=[],teamVisuals={}}){
   const [data,setData]=useState(null);
   useEffect(()=>{
     let alive=true;
@@ -32,8 +32,9 @@ export default function LiveWeek3Surfaces({matchupPairs=[]}){
         const note=matchupPairs.find(x=>(x[0]===left&&x[1]===right)||(x[0]===right&&x[1]===left))?.[2]||'WEEK 3';
         return <Link className="matchupLink" href={left&&right?`/matchups/${left}/${right}`:'#scores'} key={g.id||i}><article className="playerHeadlineMatchup">
           <small className="matchupKicker">{note}</small>
+          <div className="matchupPortraits" aria-hidden="true"><img className="leftPlayer" src={teamVisuals[left]?.image||''} alt=""/><img className="rightPlayer" src={teamVisuals[right]?.image||''} alt=""/></div>
           <div className="matchupEditorial"><div className="matchupSide left"><b>{g.home?.name}</b><strong>{num(g.home?.score)}</strong><em>{num(g.home?.projection)} PROJECTED</em></div><i>VS</i><div className="matchupSide right"><b>{g.away?.name}</b><strong>{num(g.away?.score)}</strong><em>{num(g.away?.projection)} PROJECTED</em></div></div>
-          <span className="matchupOpen">OPEN MATCHUP →</span>
+          <div className="matchupPlayers"><span>{teamVisuals[left]?.player||''}</span><span>{teamVisuals[right]?.player||''}</span></div><span className="matchupOpen">OPEN MATCHUP →</span>
         </article></Link>
       })}</div>
     </section>
