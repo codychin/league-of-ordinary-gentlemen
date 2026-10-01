@@ -274,13 +274,17 @@ function MobileAppNav(){
 
   const navigate=(event,item)=>{
     setMoreOpen(false)
+    const standalone=document.documentElement.classList.contains('standaloneApp')
+
+    // On ordinary mobile web, let Link/native hash navigation handle anchors and routes.
+    // Custom tab-state routing is only for the installed app shell.
+    if(!standalone) return
 
     if(item.href===teamsPath){
       event.preventDefault()
       if(isEditionTeams){
         resetAppScroll()
       }else{
-        const standalone=document.documentElement.classList.contains('standaloneApp')
         if(standalone){
           window.scrollTo({top:0,left:0,behavior:'auto'})
           router.push(teamsPath,{scroll:false})
@@ -294,7 +298,6 @@ function MobileAppNav(){
     if(!isEditionHome){
       if(item.href.startsWith(homePath+'#')||item.href===homePath){
         event.preventDefault()
-        const standalone=document.documentElement.classList.contains('standaloneApp')
         if(standalone){
           window.sessionStorage.setItem(APP_TAB_KEY,item.tab)
           const params=new URLSearchParams()
@@ -310,7 +313,6 @@ function MobileAppNav(){
     }
 
     event.preventDefault()
-    const standalone=document.documentElement.classList.contains('standaloneApp')
     if(standalone){
       setVisualTab(item.tab)
       window.sessionStorage.setItem(APP_TAB_KEY,item.tab)
