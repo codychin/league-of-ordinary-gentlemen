@@ -14,12 +14,15 @@ export default function EditionLeagueSurfaces({edition}){
   const userTeam=standings.find(t=>t.teamId==='10');
 
   return <>
-    <section className="section" id="league">
-      <div className="sectionhead"><div><small className="deskLabel">THE LOCAL BUREAU</small><h2>Sunday Crew</h2></div><span>YAHOO • WEEK {edition.league?.settings?.currentWeek||4} • LIVE TENANT</span></div>
-      <div className="grid3">
-        <article className="card"><div className="tag">TABLE LEADER</div><h3>{leader?.name||'—'}</h3><p>{leader?(leader.wins+'-'+leader.losses+' with '+pts(leader.pointsFor)+' points for.'):'Standings unavailable.'}</p></article>
-        <article className="card"><div className="tag">POINTS LEADER</div><h3>{pointsLeader?.name||'—'}</h3><p>{pointsLeader?(pts(pointsLeader.pointsFor)+' points despite a '+pointsLeader.wins+'-'+pointsLeader.losses+' record.'):'Points unavailable.'}</p></article>
-        <article className="card"><div className="tag">CHANE GANG</div><h3>{userTeam?(userTeam.wins+'-'+userTeam.losses):'—'}</h3><p>{userTeam?(pts(userTeam.pointsFor)+' PF • '+pts(userTeam.pointsAgainst)+' PA • $'+money(userTeam.faabBalance)+' FAAB remaining.'):'Team state unavailable.'}</p></article>
+    <section className="section autopsySection" id="league">
+      <div className="autopsyHeader">
+        <div><small>THE NEWSROOM • SUNDAY CREW ARCHIVE</small><h2>Week 3 Autopsy</h2></div>
+        <span>BACKFILL IN PROGRESS</span>
+      </div>
+      <div className="autopsyLead">
+        <h3>The archive stops before the newsroom arrived.</h3>
+        <p>Sunday Crew’s Yahoo record is connected and current, but we have not reconstructed a Week 3 editorial autopsy yet. Until we do, this edition will leave the space explicit rather than substitute reporting from another league.</p>
+        <strong>NO CROSS-LEAGUE FILLER</strong>
       </div>
     </section>
 
