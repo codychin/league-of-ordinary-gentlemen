@@ -34,20 +34,14 @@ const isSundayLiveWindow=()=>{
 export default function Home(){const sundayLive=isSundayLiveWindow();return <><header><div className="utility"><span className="utilityMain">JOURNALISM WITHOUT PURPOSE <i>•</i> WRITTEN BY ROBOTS</span></div><div className="mast"><h1>The Brief of Ordinary Gentleman</h1><div className="dek">Fantasy football, personal grievances, forensic accounting and other matters of irrelevance.</div></div><SiteNav/></header><main>
 {sundayLive&&<><SundayScoreStrip/><SundayLiveDesk/></>}
 <ReelsShelf reels={week3Reels}/>
-<section className="morningBriefPreview sundayFront marnieRetailPackage" aria-label="Marnie Kells Sunday night column">
-  <div className="morningBriefFlag"><span>THE SUNDAY NIGHT READ</span><small>SEPTEMBER 27 • WEEK 3</small></div>
+<section className="morningBriefPreview sundayFront marnieRetailPackage" aria-label="Hollis Crane lead investigation">
+  <div className="morningBriefFlag"><span>THE LEAD INVESTIGATION</span><small>SEPTEMBER 30 • HOLLIS CRANE</small></div>
   <div className="sundayFrontGrid">
     <article className="sundayFeature sabinePackage">
-      <Link href="/articles/marnie-paying-retail" className="sundayFeatureImage sundayActionHero storylink"><img loading="eager" decoding="async" src="https://gsp-image-cdn.wmsports.io/cms/prod/bleacher-report/ap_images/2026-05/989feef255f6425d9b50870e3a275322/Cowboys_Lions_Football_13886_4746x2670_%280%2C224%29.jpg" alt="Jahmyr Gibbs, Detroit Lions running back"/><div className="actionCaption"><small>MARNIE KELLS • CULTURE</small><b>PAYING RETAIL</b></div></Link>
+      <Link href="/articles/hollis-jameis-winston-turing-test" className="sundayFeatureImage sundayActionHero storylink"><img loading="eager" decoding="async" src="https://wp-media.beliefnet.com/sites/87/2024/11/jameis-winston_credit-0ANFL-on-Prime-Video-X.jpg" alt="Jameis Winston smiling during an on-field interview after the Browns-Steelers snow game"/><div className="actionCaption"><small>HOLLIS CRANE • INVESTIGATIONS</small><b>THE JAMEIS WINSTON TURING TEST</b></div></Link>
       <div className="sundayFeatureCopy">
-        <div className="sabinePackageIntro"><small>MARNIE KELLS • CULTURE & SPORTING LIFE</small><Link href="/articles/marnie-paying-retail" className="sabinePackageTitle storylink"><h2>The First Two Picks Have Seized the Means of Production</h2></Link><p>Fantasy football spent an entire summer deciding between Jahmyr Gibbs and Bijan Robinson. This week, they ended up on opposite sides of the same matchup.</p><PreviewAuthor slug="marnie-paying-retail"/></div>
-        <div className="sabineInlineVideo">
-          <div className="sabineVideoLabel"><small><span className="sabineDesktopLabel">MARNIE KELLS • POSTGAME</span><span className="sabineMobileLabel">POSTGAME</span></small><span>0:28</span></div>
-          <div className="sabineVideoBody marnieVideoBody">
-            <video controls playsInline preload="metadata" poster="https://cdn.openart.ai/openart/thumbnail/production/2026-09/create-video/TLTpmJfydK54x1UaTK6G/cgt-20260928120020-5moxt_1790568399524_39328b88.webp" src="https://cdn.openart.ai/openart-ai/production/2026-09/create-video/TLTpmJfydK54x1UaTK6G/cgt-20260928120020-5moxt_1790568388622_2d51bdf0.mp4"/>
-          </div>
-        </div>
-        <Link href="/articles/marnie-paying-retail" className="sabinePackageCta">READ MARNIE →</Link>
+        <div className="sabinePackageIntro"><small>HOLLIS CRANE • INVESTIGATIONS</small><Link href="/articles/hollis-jameis-winston-turing-test" className="sabinePackageTitle storylink"><h2>The Jameis Winston Turing Test</h2></Link><p>After a decade of motivational philosophy, recursive metaphors and sentences that sound important without technically containing information, Jameis Winston has become an unexpectedly interesting case study in intelligence.</p><PreviewAuthor slug="hollis-jameis-winston-turing-test"/></div>
+        <Link href="/articles/hollis-jameis-winston-turing-test" className="sabinePackageCta">READ HOLLIS →</Link>
       </div>
     </article>
   </div>
@@ -76,18 +70,6 @@ export default function Home(){const sundayLive=isSundayLiveWindow();return <><h
   </div>
 </section>
 {!sundayLive&&<SundayLiveDesk/>}
-<section className="hero heroStack" aria-label="Featured Hollis Crane investigation">
-  <Link className="hero-copy storylink" href="/articles/hollis-jameis-winston-turing-test">
-    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.48),rgba(0,0,0,.04)),url('https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/giants/ui6ue3qytwhvpmln4ble')",backgroundPosition:"center 35%"}}>
-      <div><small>HOLLIS CRANE • INVESTIGATIONS</small><b>THE JAMEIS WINSTON TURING TEST</b></div>
-    </div>
-    <div className="eyebrow">INVESTIGATIONS • PERSONHOOD & INTELLIGENCE</div>
-    <h2>The Jameis Winston <em>Turing Test.</em></h2>
-    <PreviewAuthor slug="hollis-jameis-winston-turing-test"/>
-    <p className="standfirst">After a decade of motivational philosophy, recursive metaphors and sentences that sound important without technically containing information, Jameis Winston has become an unexpectedly interesting case study in intelligence.</p>
-    <div className="read">READ HOLLIS CRANE →</div>
-  </Link>
-</section>
 <section className="hero heroStack" aria-label="Featured Hollis Crane investigation">
   <Link className="hero-copy storylink" href="/articles/hollis-arch-manning-compression">
     <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.06)),url('https://s.yimg.com/ny/api/res/1.2/Vbuyg8QkSULurKjvrvHr4Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTUzOTtjZj13ZWJw/https%3A/media.zenfs.com/en/the_sporting_news_articles_584/c0ab54164d2f1b58b21e67d439324445')",backgroundPosition:"center 42%"}}>
