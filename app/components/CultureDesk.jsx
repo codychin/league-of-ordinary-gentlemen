@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import {useState} from 'react'
 import PreviewAuthor from './PreviewAuthor'
+import {isGlobalArticle} from '../../lib/editorial-scope'
 
 const PAGE_SIZE=5
 const MEDIA='https://dnzdbqycuuoonewcowis.supabase.co/storage/v1/object/public/brief-media'
@@ -32,8 +33,7 @@ function Story({story}){
 
 export default function CultureDesk({globalOnly=false}){
   const [page,setPage]=useState(0)
-  const localSlugs=new Set(['kraft-sheeran-roster-overhaul','nigella-shake-n-baker','sydney-sweeney-consensus','upper-east-side-froyo'])
-  const scopedStories=globalOnly?stories.filter(story=>story.slug&&!localSlugs.has(story.slug)):stories
+  const scopedStories=globalOnly?stories.filter(story=>story.slug&&isGlobalArticle(story.slug)):stories
   const pageCount=Math.ceil(scopedStories.length/PAGE_SIZE)
   const visible=scopedStories.slice(page*PAGE_SIZE,(page+1)*PAGE_SIZE)
   const changePage=next=>{setPage(next);document.getElementById('culture')?.scrollIntoView({behavior:'auto',block:'start'})}
