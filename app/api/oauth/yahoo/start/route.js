@@ -1,6 +1,6 @@
 import {NextResponse} from 'next/server';
 import crypto from 'node:crypto';
-import {yahooAuthorizationUrl,yahooConfigured} from '../../../../lib/providers/yahoo';
+import {yahooAuthorizationUrl,yahooConfigured} from '../../../../../lib/providers/yahoo';
 
 export const runtime='nodejs';
 
