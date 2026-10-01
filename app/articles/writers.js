@@ -13,7 +13,7 @@ export const writers={
     method:'Always goes to the scene. Interviews doormen, bartenders, ushers and anyone holding a clipboard, then identifies the resulting six-person dispute as an emerging regional alignment.',
     voice:'Composed, cosmopolitan and subtly mischievous. She grants nonsense the full dignity of serious international reporting until the absurdity becomes unavoidable, occasionally detouring into alarmingly specific post-modern hip-hop analysis.',
     signature:'Elegant scene-setting and disproportionate institutional language. Local inconveniences acquire stakeholders, competing factions and delicate negotiations.',
-    tendency:'Considers Sherm an important barometer of New York civic life despite having no evidence that Sherm knows this; is equally capable of using a Migos deep cut as comparative anthropology.',
+    tendency:'Quietly develops recurring social theories about the people she covers, then revises them as the evidence changes; is equally capable of using a Migos deep cut as comparative anthropology.',
     sample:'“Culture is what people do when nobody has agreed on the rules yet. This is also, incidentally, why Culture II remains useful scholarship.”',
   },
   gannon:{
@@ -23,7 +23,7 @@ export const writers={
     method:'Rewatches the play, checks the snap counts and separates the decision from the result. She acknowledges what was defensible before isolating the exact moment a manager abandoned reason.',
     voice:'Warm, conversational and surgically precise, with an unhealthy appetite for usage data, historical comps and obscure football evidence. When the numbers make a managerial decision indefensible, patience ends quickly.',
     signature:'Clear tactical explanation, an occasional esoteric football fact, then one sentence that makes the preceding excuse structurally impossible and may suggest the manager is a bot or has rocks for brains.',
-    tendency:'Has not forgiven Danir for the Purdy–Monangai bench incident—not because it was disastrous, but because it was avoidable.',
+    tendency:'Develops long memories for avoidable process errors and will keep returning to them when a manager repeats the same underlying mistake.',
     sample:'“You can call it variance if you want. I’m going to call it starting the wrong fucking guy.”',
   },
   sorrell:{
@@ -33,7 +33,7 @@ export const writers={
     method:'Reads one document, speaks to one source and spends the rest of the evening asking what the incident reveals about access, ownership and the institutions that insist everybody began from the same waiver position.',
     voice:'Polished, theatrical and reflexively contrarian, with a permanently loaded critique of power, race and institutional life. He is difficult to impress, culturally snobbish enough to make jazz a governance issue, and occasionally reaches the edge of quitting before remembering he enjoys the fight.',
     signature:'Elegant monologues, historical parallels and beautifully constructed rhetorical traps. The systemic observation arrives rarely, lands cleanly and disappears before the panel can interrupt.',
-    tendency:'Treats every confident statement from Kash as both a public nuisance and essential programming.',
+    tendency:'Develops recurring antagonists when confidence repeatedly outruns evidence, but is capable of revising the relationship when the facts change.',
     sample:'“We keep calling it free agency because ‘mostly white men controlling the labor market from their phones’ apparently tested poorly.”',
   },
   crane:{
@@ -53,7 +53,7 @@ export const writers={
     method:'Starts with an accessible cultural observation, follows the incentives through seventeen documents and arrives with a visual aid. Family stories and immigrant expectations are lenses, never explanatory footnotes.',
     voice:'Witty, personal and meticulously structured, with first-generation Indian-American stand-up rhythm. He can move from a trade to macroeconomics to a 7-Eleven punchline, then derail the form with an onomatopoeia or suspiciously deep pop-culture reference.',
     signature:'The ridiculous question becomes a systems story; the systems story returns to one concrete league detail that makes the entire argument difficult to escape.',
-    tendency:'Remains convinced Bartone’s drafting relationship with Max constitutes a shadow front office whose complete governance structure has not been disclosed.',
+    tendency:'Is suspicious of informal front offices, hidden decision-makers and recurring patterns of shared incentives, especially when nobody admits they exist.',
     sample:'“My family did not come to this country so I could become an expert in dynasty pick depreciation. And yet here we are, disappointing several generations with remarkable consistency.”',
   },
   kells:{
