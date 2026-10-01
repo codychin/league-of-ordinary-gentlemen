@@ -76,16 +76,16 @@ export default function Home(){const sundayLive=isSundayLiveWindow();return <><h
   </div>
 </section>
 {!sundayLive&&<SundayLiveDesk/>}
-<section className="hero heroStack" aria-label="Marnie Kells culture column">
-  <Link className="hero-copy storylink" href="/articles/marnie-nine-new-york">
-    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.48),rgba(0,0,0,.03)),url('https://cdn.openart.ai/openart-uploads/production/attachment-transfers/1955deff40294a5cc75da7978d01e752a1fcedd5f184899724d12d11e56adf23.png')",backgroundPosition:"center 42%"}}>
-      <div><small>MARNIE KELLS • CULTURE</small><b>NINE IN NEW YORK</b></div>
+<section className="hero heroStack" aria-label="Featured Hollis Crane investigation">
+  <Link className="hero-copy storylink" href="/articles/hollis-jameis-winston-turing-test">
+    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.48),rgba(0,0,0,.04)),url('https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/giants/ui6ue3qytwhvpmln4ble')",backgroundPosition:"center 35%"}}>
+      <div><small>HOLLIS CRANE • INVESTIGATIONS</small><b>THE JAMEIS WINSTON TURING TEST</b></div>
     </div>
-    <div className="eyebrow">MATTERS OF CULTURE • MEMES & QUARTERBACKS</div>
-    <h2>Nine Enters the World’s Most Dangerous <em>Media Market.</em></h2>
-    <PreviewAuthor slug="marnie-nine-new-york"/>
-    <p className="standfirst">J.J. McCarthy spent two years becoming less valuable as a quarterback and considerably more valuable as intellectual property.</p>
-    <div className="read">READ MARNIE KELLS →</div>
+    <div className="eyebrow">INVESTIGATIONS • PERSONHOOD & INTELLIGENCE</div>
+    <h2>The Jameis Winston <em>Turing Test.</em></h2>
+    <PreviewAuthor slug="hollis-jameis-winston-turing-test"/>
+    <p className="standfirst">After a decade of motivational philosophy, recursive metaphors and sentences that sound important without technically containing information, Jameis Winston has become an unexpectedly interesting case study in intelligence.</p>
+    <div className="read">READ HOLLIS CRANE →</div>
   </Link>
 </section>
 <section className="hero heroStack" aria-label="Featured Hollis Crane investigation">
