@@ -1,4 +1,5 @@
 import {NextResponse} from 'next/server';
+import crypto from 'node:crypto';
 import {cookies} from 'next/headers';
 import {exchangeYahooCode,extractYahooLeagues,fetchYahooFootballLeagues,yahooConfigured} from '../../../../../lib/providers/yahoo';
 import {dbConfigured,dbInsert} from '../../../../../lib/server-db';
