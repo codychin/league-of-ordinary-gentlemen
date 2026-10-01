@@ -18,7 +18,7 @@ export default async function SundayCrewPage(){
     <main>
       <SharedEditorialFront/>
       <EditionLeagueSurfaces edition={edition}/>
-      <CultureDesk/>
+      <CultureDesk globalOnly/>
     </main>
     <footer><b>The Brief of Ordinary Gentleman</b><span>Sunday Crew bureau • shared newsroom, local grievances.</span></footer>
   </>;
