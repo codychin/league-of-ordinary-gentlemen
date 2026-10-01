@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import EditionSiteNav from '../../../components/EditionSiteNav';
 import {notFound} from 'next/navigation';
 import {getEditionData} from '../../../../lib/edition-data';
 
@@ -29,7 +30,7 @@ export default async function SundayCrewTeam({params}){
   });
 
   return <>
-    <header className="articleHeader"><Link href="/sunday-crew" className="miniMast">The Brief of Ordinary Gentleman</Link></header>
+    <header className="articleHeader"><Link href="/sunday-crew" className="miniMast">The Brief of Ordinary Gentleman</Link><EditionSiteNav root="/sunday-crew"/></header>
     <main className="teamPage">
       <div className="eyebrow">FRANCHISE FILE • 2026</div>
       <h1>{roster.teamName}</h1>
