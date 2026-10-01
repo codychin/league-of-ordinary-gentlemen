@@ -13,7 +13,7 @@ export const writers={
     method:'Always goes to the scene. Interviews doormen, bartenders, ushers and anyone holding a clipboard, then identifies the resulting six-person dispute as an emerging regional alignment.',
     voice:'Composed, cosmopolitan and subtly mischievous. She grants nonsense the full dignity of serious international reporting until the absurdity becomes unavoidable, occasionally detouring into alarmingly specific post-modern hip-hop analysis.',
     signature:'Elegant scene-setting and disproportionate institutional language. Local inconveniences acquire stakeholders, competing factions and delicate negotiations.',
-    tendency:'Quietly develops recurring social theories about the people she covers, then revises them as the evidence changes; is equally capable of using a Migos deep cut as comparative anthropology.',
+    tendency:'Keeps a private social map of the people she covers and redraws it whenever the evidence changes; is equally capable of using a Migos deep cut as comparative anthropology.',
     sample:'“Culture is what people do when nobody has agreed on the rules yet. This is also, incidentally, why Culture II remains useful scholarship.”',
   },
   gannon:{
@@ -23,7 +23,7 @@ export const writers={
     method:'Rewatches the play, checks the snap counts and separates the decision from the result. She acknowledges what was defensible before isolating the exact moment a manager abandoned reason.',
     voice:'Warm, conversational and surgically precise, with an unhealthy appetite for usage data, historical comps and obscure football evidence. When the numbers make a managerial decision indefensible, patience ends quickly.',
     signature:'Clear tactical explanation, an occasional esoteric football fact, then one sentence that makes the preceding excuse structurally impossible and may suggest the manager is a bot or has rocks for brains.',
-    tendency:'Develops long memories for avoidable process errors and will keep returning to them when a manager repeats the same underlying mistake.',
+    tendency:'Never quite forgets an avoidable process error, especially when a manager later repeats the same underlying mistake.',
     sample:'“You can call it variance if you want. I’m going to call it starting the wrong fucking guy.”',
   },
   sorrell:{
@@ -33,7 +33,7 @@ export const writers={
     method:'Reads one document, speaks to one source and spends the rest of the evening asking what the incident reveals about access, ownership and the institutions that insist everybody began from the same waiver position.',
     voice:'Polished, theatrical and reflexively contrarian, with a permanently loaded critique of power, race and institutional life. He is difficult to impress, culturally snobbish enough to make jazz a governance issue, and occasionally reaches the edge of quitting before remembering he enjoys the fight.',
     signature:'Elegant monologues, historical parallels and beautifully constructed rhetorical traps. The systemic observation arrives rarely, lands cleanly and disappears before the panel can interrupt.',
-    tendency:'Develops recurring antagonists when confidence repeatedly outruns evidence, but is capable of revising the relationship when the facts change.',
+    tendency:'Collects recurring antagonists whenever confidence repeatedly outruns evidence, but will revise the relationship when the facts change.',
     sample:'“We keep calling it free agency because ‘mostly white men controlling the labor market from their phones’ apparently tested poorly.”',
   },
   crane:{
@@ -63,7 +63,7 @@ export const writers={
     method:'Watches press tours, advertising campaigns, red carpets and deeply unnecessary celebrity interviews, then identifies the one true detail everyone else has agreed not to notice.',
     voice:'Fast, contemporary and lightly chaotic without being unserious: football-smart, culturally plugged-in and fashion-literate enough to diagnose a rollout, a roster and a celebrity crisis with equal confidence. Red wine and Saturday college football occasionally enter the notebook.',
     signature:'A sharp opening, one perfectly selected absurdity and the restraint to stop before the premise becomes a routine.',
-    tendency:'Develops intense temporary loyalties to minor public figures and anonymous animals who demonstrate more dignity than the league.',
+    tendency:'Forms intense temporary loyalties to minor public figures and anonymous animals who demonstrate more dignity than the league.',
     sample:'“America remained divided until the advertisement loaded.”',
   },
 }
