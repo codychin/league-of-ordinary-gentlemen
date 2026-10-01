@@ -30,10 +30,12 @@ function Story({story}){
   return story.href?<Link href={story.href} className="card storylink">{body}</Link>:<article className="card">{body}</article>
 }
 
-export default function CultureDesk(){
+export default function CultureDesk({globalOnly=false}){
   const [page,setPage]=useState(0)
-  const pageCount=Math.ceil(stories.length/PAGE_SIZE)
-  const visible=stories.slice(page*PAGE_SIZE,(page+1)*PAGE_SIZE)
+  const localSlugs=new Set(['kraft-sheeran-roster-overhaul','nigella-shake-n-baker','sydney-sweeney-consensus','upper-east-side-froyo'])
+  const scopedStories=globalOnly?stories.filter(story=>story.slug&&!localSlugs.has(story.slug)):stories
+  const pageCount=Math.ceil(scopedStories.length/PAGE_SIZE)
+  const visible=scopedStories.slice(page*PAGE_SIZE,(page+1)*PAGE_SIZE)
   const changePage=next=>{setPage(next);document.getElementById('culture')?.scrollIntoView({behavior:'auto',block:'start'})}
   return <section className="affairs" id="culture"><div className="sectionhead light affairsHead"><span>CULTURE DESK</span><h2>Matters of Culture</h2></div><div className="affairsIntro">Important to someone.</div><div className="grid3 darkgrid cultureGrid">{visible.map((story,index)=><Story story={story} key={`${page}-${index}`}/>)}</div>{pageCount>1&&<nav className="culturePagination" aria-label="Culture stories pagination"><button type="button" onClick={()=>changePage(page-1)} disabled={page===0}>← NEWER</button><span>PAGE {page+1} OF {pageCount}</span><button type="button" onClick={()=>changePage(page+1)} disabled={page===pageCount-1}>OLDER →</button></nav>}</section>
 }
