@@ -50,18 +50,6 @@ export default function SharedEditorialFront(){
     <div className="read">READ HOLLIS CRANE →</div>
   </Link>
 </section>
-<section className="hero heroStack" aria-label="Maude Gannon trade review">
-  <Link className="hero-copy storylink" href="/articles/maude-route-22-trade-review">
-    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.18),rgba(0,0,0,.02)),url('https://www.yardbarker.com/media/1/1/11bdd4f6952b60f036a6619af62017e5be097cc9/thumb_16x9/las-vegas-raiders-tight-end-brock-bowers-89.jpg')",backgroundPosition:"center center"}}>
-      <div><small>MAUDE GANNON • FOOTBALL</small><b>TRADE REVIEW</b></div>
-    </div>
-    <div className="eyebrow">FOOTBALL DESK • TRADE REVIEW</div>
-    <h2>Route 22 Bought Brock Bowers. <em>Shake ’N Baker Bought 44.7 Points.</em></h2>
-    <PreviewAuthor slug="maude-route-22-trade-review"/>
-    <p className="standfirst">Gerstone says the trade already looks bad. The scoreboard agrees rather aggressively. The process requires a little more patience.</p>
-    <div className="read">READ MAUDE GANNON →</div>
-  </Link>
-</section>
 <section className="hero heroStack" aria-label="Featured Conrad Sorrell column">
   <Link className="hero-copy storylink" href="/articles/conrad-caleb-williams-survived">
     <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.10)),url('/api/caleb-williams-image')",backgroundPosition:"center 36%"}}>
