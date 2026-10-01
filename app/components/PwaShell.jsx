@@ -168,14 +168,19 @@ function MoreMenuIcon({name}){
 function MobileAppNav(){
   const pathname=usePathname()
   const router=useRouter()
-  const [activeTab,setActiveTab]=useState(pathname.startsWith('/teams')?'teams':pathname.startsWith('/matchups')?'scores':['/staff','/archive','/corrections'].some(path=>pathname.startsWith(path))?'more':pathname==='/'?'home':'detail')
+  const editionRoot=pathname.startsWith('/sunday-crew')?'/sunday-crew':''
+  const homePath=editionRoot||'/'
+  const teamsPath=editionRoot?editionRoot+'/teams':'/teams'
+  const isEditionHome=pathname===homePath
+  const isEditionTeams=pathname.startsWith(teamsPath)
+  const [activeTab,setActiveTab]=useState(isEditionTeams?'teams':pathname.startsWith('/matchups')?'scores':['/staff','/archive','/corrections'].some(path=>pathname.startsWith(path))?'more':isEditionHome?'home':'detail')
   const [moreOpen,setMoreOpen]=useState(false)
   const [sundayLive,setSundayLive]=useState(false)
   const tabFor=nextHash=>{
-    if(pathname.startsWith('/teams')) return 'teams'
+    if(isEditionTeams) return 'teams'
     if(pathname.startsWith('/matchups')) return 'scores'
     if(['/staff','/archive','/corrections'].some(path=>pathname.startsWith(path))) return 'more'
-    if(pathname!=='/') return document.querySelector('[data-app-section="culture"]')?'culture':'detail'
+    if(!isEditionHome) return document.querySelector('[data-app-section="culture"]')?'culture':'detail'
     if(nextHash==='#scores') return 'scores'
     if(nextHash==='#culture') return 'culture'
     return 'home'
@@ -200,8 +205,8 @@ function MobileAppNav(){
 
   useEffect(()=>{
     try{const parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());const get=t=>parts.find(p=>p.type===t)?.value;setSundayLive(get('weekday')==='Sun'&&(Number(get('hour'))>12||(Number(get('hour'))===12&&Number(get('minute'))>=30)))}catch{}
-    router.prefetch('/')
-    router.prefetch('/teams')
+    router.prefetch(homePath)
+    router.prefetch(teamsPath)
     setMoreOpen(false)
     const preview=new URLSearchParams(window.location.search).get('app-preview')==='1'
     const standalone=preview||window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true
@@ -216,11 +221,11 @@ function MobileAppNav(){
       const nextHash=window.location.hash
       if(standalone){
         let nextTab
-        if(pathname.startsWith('/teams')) nextTab='teams'
+        if(isEditionTeams) nextTab='teams'
         else if(pathname.startsWith('/matchups')) nextTab='scores'
         else if(pathname.startsWith('/staff')&&window.location.hash) nextTab='detail'
         else if(['/staff','/archive','/corrections'].some(path=>pathname.startsWith(path))) nextTab='more'
-        else if(pathname!=='/') nextTab=document.querySelector('[data-app-section="culture"]')?'culture':'detail'
+        else if(!isEditionHome) nextTab=document.querySelector('[data-app-section="culture"]')?'culture':'detail'
         else {
           const requestedTab=new URLSearchParams(window.location.search).get('tab')
           if(['home','scores','culture'].includes(requestedTab)) nextTab=requestedTab
@@ -231,7 +236,7 @@ function MobileAppNav(){
         if(!['home','scores','culture','teams','more','detail'].includes(nextTab)) nextTab='home'
         setActiveTab(nextTab)
         document.documentElement.dataset.appTab=nextTab
-        if((pathname==='/'&&['home','scores','culture'].includes(nextTab))||nextTab==='culture') window.sessionStorage.setItem(APP_TAB_KEY,nextTab)
+        if((isEditionHome&&['home','scores','culture'].includes(nextTab))||nextTab==='culture') window.sessionStorage.setItem(APP_TAB_KEY,nextTab)
         if(nextHash&&pathname!=='/staff'){
           const clean=window.location.pathname+window.location.search
           window.history.replaceState(null,'',clean)
@@ -261,33 +266,33 @@ function MobileAppNav(){
   },[pathname])
 
   const items=[
-    {href:sundayLive?'/#live-desk':'/',label:sundayLive?'Live':'Home',icon:'Home',tab:'home',hash:sundayLive?'#live-desk':undefined,active:activeTab==='home'||activeTab==='detail'},
-    {href:'/#scores',label:'Scores',tab:'scores',hash:'#scores',active:activeTab==='scores'},
-    {href:'/teams',label:'Teams',tab:'teams',active:activeTab==='teams'},
-    {href:'/#culture',label:'Culture',tab:'culture',hash:'#culture',active:activeTab==='culture'},
+    {href:editionRoot?homePath:(sundayLive?'/#live-desk':'/'),label:editionRoot?'Home':(sundayLive?'Live':'Home'),icon:'Home',tab:'home',hash:editionRoot?undefined:(sundayLive?'#live-desk':undefined),active:activeTab==='home'||activeTab==='detail'},
+    {href:homePath+'#scores',label:'Scores',tab:'scores',hash:'#scores',active:activeTab==='scores'},
+    {href:teamsPath,label:'Teams',tab:'teams',active:activeTab==='teams'},
+    {href:homePath+'#culture',label:'Culture',tab:'culture',hash:'#culture',active:activeTab==='culture'},
   ]
 
   const navigate=(event,item)=>{
     setMoreOpen(false)
 
-    if(item.href==='/teams'){
+    if(item.href===teamsPath){
       event.preventDefault()
-      if(pathname.startsWith('/teams')){
+      if(isEditionTeams){
         resetAppScroll()
       }else{
         const standalone=document.documentElement.classList.contains('standaloneApp')
         if(standalone){
           window.scrollTo({top:0,left:0,behavior:'auto'})
-          router.push('/teams',{scroll:false})
+          router.push(teamsPath,{scroll:false})
         }else{
-          router.push('/teams')
+          router.push(teamsPath)
         }
       }
       return
     }
 
-    if(pathname!=='/'){
-      if(item.href.startsWith('/#')||item.href==='/'){
+    if(!isEditionHome){
+      if(item.href.startsWith(homePath+'#')||item.href===homePath){
         event.preventDefault()
         const standalone=document.documentElement.classList.contains('standaloneApp')
         if(standalone){
@@ -296,7 +301,7 @@ function MobileAppNav(){
           params.set('tab',item.tab)
           if(document.documentElement.classList.contains('appPreview')) params.set('app-preview','1')
           window.scrollTo({top:0,left:0,behavior:'auto'})
-          router.push('/?'+params.toString(),{scroll:false})
+          router.push(homePath+'?'+params.toString(),{scroll:false})
         }else{
           router.push(item.href)
         }
@@ -313,7 +318,7 @@ function MobileAppNav(){
       params.set('tab',item.tab)
       if(document.documentElement.classList.contains('appPreview')) params.set('app-preview','1')
       else params.delete('app-preview')
-      window.history.replaceState(window.history.state,'','/?'+params.toString())
+      window.history.replaceState(window.history.state,'',homePath+'?'+params.toString())
       setActiveTab(item.tab)
       document.documentElement.dataset.appTab=item.tab
       resetAppScroll()
@@ -321,7 +326,7 @@ function MobileAppNav(){
     }
 
     if(!item.hash){
-      if(window.location.hash) window.history.pushState(null,'','/')
+      if(window.location.hash) window.history.pushState(null,'',homePath)
       activate('')
       resetAppScroll()
       return
