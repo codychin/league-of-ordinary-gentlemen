@@ -400,3 +400,66 @@
     padding-top:0!important;
   }
 }
+
+
+/* Sunday Crew home matchup cards: explicit vertical tracks so text and portraits never overlap. */
+@media(max-width:760px){
+  .editionUpcomingGrid .playerHeadlineMatchup{
+    min-height:258px!important;
+    padding:30px 14px 38px!important;
+    overflow:hidden!important;
+  }
+  .editionUpcomingGrid .playerHeadlineMatchup .matchupEditorial{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) 42px minmax(0,1fr)!important;
+    align-items:start!important;
+    min-height:128px!important;
+    padding-top:12px!important;
+    gap:6px!important;
+  }
+  .editionUpcomingGrid .playerHeadlineMatchup .matchupSide{
+    display:grid!important;
+    grid-template-rows:minmax(58px,auto) 36px 14px!important;
+    align-content:start!important;
+    gap:2px!important;
+  }
+  .editionUpcomingGrid .playerHeadlineMatchup .matchupSide.left{justify-items:start!important;text-align:left!important}
+  .editionUpcomingGrid .playerHeadlineMatchup .matchupSide.right{justify-items:end!important;text-align:right!important}
+  .editionUpcomingGrid .playerHeadlineMatchup .matchupSide b{
+    min-height:58px!important;
+    margin:0!important;
+    align-self:start!important;
+    font-size:20px!important;
+    line-height:.92!important;
+  }
+  .editionUpcomingGrid .playerHeadlineMatchup .matchupSide strong{
+    align-self:start!important;
+    font-size:29px!important;
+    line-height:1!important;
+  }
+  .editionUpcomingGrid .playerHeadlineMatchup .matchupSide em{
+    align-self:start!important;
+    position:relative!important;
+    z-index:4!important;
+    white-space:nowrap!important;
+    background:var(--paper)!important;
+    padding:1px 2px!important;
+  }
+  .editionUpcomingGrid .playerHeadlineMatchup .matchupEditorial>i{
+    margin-top:76px!important;
+    align-self:start!important;
+  }
+  .editionUpcomingGrid .playerHeadlineMatchup .matchupPortraits{
+    top:158px!important;
+    bottom:38px!important;
+    z-index:1!important;
+  }
+  .editionUpcomingGrid .playerHeadlineMatchup .matchupPortraits img{
+    bottom:0!important;
+    width:40%!important;
+    height:100px!important;
+  }
+  .editionUpcomingGrid .playerHeadlineMatchup .matchupOpen{
+    min-height:38px!important;
+  }
+}
