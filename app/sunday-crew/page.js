@@ -14,7 +14,7 @@ export default async function SundayCrewPage(){
   const rosters=edition?.snapshots?.rosters?.data?.data||[];
   const rosterByName=Object.fromEntries(rosters.map(t=>[t.teamName,t]));
   const featured=name=>rosterByName[name]?.players?.find(p=>!['BN','IR'].includes(p.selectedPosition)&&p.position!=='K'&&p.position!=='DEF')||rosterByName[name]?.players?.[0];
-  const headshot=p=>p?.playerId?`https://s.yimg.com/iu/api/res/1.2/8vXwQ1X9B3JzXzRkC4YgJQ--~C/YXBwaWQ9eXZpZGVvO2ZpPWZpbGw7aD0zMDA7cT04MDt3PTMwMA--/https://s.yimg.com/cv/apiv2/default/nfl/20250904/${p.playerId}.png`:'';
+  const headshot=p=>p?.playerId?`https://a.espncdn.com/i/headshots/nfl/players/full/${p.playerId}.png`:'';
   const reels=[
     {id:'35be59702c0c7cca379ab5ca64c28788',short:'ZAYWATCH · DITKA',matchup:'ZAYWATCH vs. Forte inch Ditka',correspondent:'Hollis Crane',avatar:writers.crane.image},
     {id:'8710323881d0b2cb1ec55d3cd8137629',short:'STROKE · ALLENTOWN',matchup:'A Stroke of Bad Luck vs. It’s always sunny in ALLENtown',correspondent:'Maude Gannon',avatar:writers.gannon.image},
