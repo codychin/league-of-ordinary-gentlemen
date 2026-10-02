@@ -2,7 +2,7 @@
 
 import {useEffect,useMemo,useState} from 'react';
 import Link from 'next/link';
-import ResilientImage from './ResilientImage';
+import MatchupCardGrid from './MatchupCardGrid';
 
 const num=n=>Number(n||0).toFixed(1);
 const slugMap={
@@ -28,16 +28,11 @@ export default function LiveWeek3Surfaces({matchupPairs=[],teamVisuals={},finalW
   return <>
     <section className="section upcoming" id="week4">
       <div className="scoreHero"><div><small>THE BRIEF • WEEK 4</small><h2>Week 4</h2></div><span>LIVE SCORE ENGINE • AUTO-REFRESH</span></div>
-      <div className="upcomingGrid">{games.map((g,i)=>{
+      <MatchupCardGrid cards={games.map((g,i)=>{
         const left=slugMap[g.home?.name],right=slugMap[g.away?.name];
         const note=matchupPairs.find(x=>(x[0]===left&&x[1]===right)||(x[0]===right&&x[1]===left))?.[2]||'WEEK 4';
-        return <Link className="matchupLink" href={left&&right?`/matchups/${left}/${right}`:'#scores'} key={g.id||i}><article className="playerHeadlineMatchup">
-          <small className="matchupKicker">{note}</small>
-          <div className="matchupPortraits" aria-hidden="true"><ResilientImage className="leftPlayer" src={teamVisuals[left]?.image||''} alt={teamVisuals[left]?.player||'Player'}/><ResilientImage className="rightPlayer" src={teamVisuals[right]?.image||''} alt={teamVisuals[right]?.player||'Player'}/></div>
-          <div className="matchupEditorial"><div className="matchupSide left"><b>{g.home?.name}</b><strong>{num(g.home?.score)}</strong><em>{num(g.home?.projection)} PROJECTED</em></div><i>VS</i><div className="matchupSide right"><b>{g.away?.name}</b><strong>{num(g.away?.score)}</strong><em>{num(g.away?.projection)} PROJECTED</em></div></div>
-          <div className="matchupPlayers"><span>{teamVisuals[left]?.player||''}</span><span>{teamVisuals[right]?.player||''}</span></div><span className="matchupOpen">OPEN MATCHUP →</span>
-        </article></Link>
-      })}</div>
+        return {id:g.id||i,href:left&&right?`/matchups/${left}/${right}`:'#week4',kicker:note,leftName:g.home?.name,leftScore:num(g.home?.score),leftProjection:num(g.home?.projection),leftImage:teamVisuals[left]?.image||'',rightName:g.away?.name,rightScore:num(g.away?.score),rightProjection:num(g.away?.projection),rightImage:teamVisuals[right]?.image||''};
+      })}/>
     </section>
     <section className="section scoreSection" id="scores">
       <div className="sectionhead"><div><small className="deskLabel">THE BRIEF • SCOREBOARD</small><h2>Week 4</h2></div><span>{data?.stale?'SCORES DELAYED':'LIVE ENGINE'}{data?.updatedAt?` • UPDATED ${new Date(data.updatedAt).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',timeZone:'America/New_York'})}`:''}</span></div>
