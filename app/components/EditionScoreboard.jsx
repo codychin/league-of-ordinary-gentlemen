@@ -1,13 +1,19 @@
+import ResilientImage from './ResilientImage';
 const score=n=>Number(n||0).toFixed(2);
 
-export default function EditionScoreboard({matchups=[],week=4}){
+export default function EditionScoreboard({matchups=[],week=4,rosters=[]}){
+  const rosterByKey=Object.fromEntries(rosters.map(t=>[t.teamKey,t]));
+  const featured=key=>rosterByKey[key]?.players?.find(p=>!['BN','IR'].includes(p.selectedPosition)&&p.position!=='K'&&p.position!=='DEF')||rosterByKey[key]?.players?.[0];
+  const headshot=p=>p?.playerId?`https://s.yimg.com/iu/api/res/1.2/8vXwQ1X9B3JzXzRkC4YgJQ--~C/YXBwaWQ9eXZpZGVvO2ZpPWZpbGw7aD0zMDA7cT04MDt3PTMwMA--/https://s.yimg.com/cv/apiv2/default/nfl/20250904/${p.playerId}.png`:'';
   const allFinal=matchups.length>0&&matchups.every(g=>g.winner&&g.winner!=='UNDECIDED');
   return <section className="section scoreSection" id="scores">
     <div className="sectionhead"><div><small className="deskLabel">THE BRIEF • SCOREBOARD</small><h2>Week {week} {allFinal?'Final':'Live'}</h2></div><span>{allFinal?'FINAL SCORES • WEEK '+week+' IN THE BOOKS':'LATEST VERIFIED SCORES'}</span></div>
     <div className="scores">{matchups.map((g,i)=>{
       const hs=Number(g.home?.points||0),as=Number(g.away?.points||0),final=Boolean(g.winner&&g.winner!=='UNDECIDED');
       const awayLead=as>hs;
+      const hp=featured(g.home?.teamKey),ap=featured(g.away?.teamKey);
       return <div className={'match '+(final?'notable':'')} key={g.matchupId||i}>
+        <div className="editionMatchupPortraits" aria-hidden="true">{hp&&<ResilientImage src={headshot(hp)} alt=""/>}{ap&&<ResilientImage src={headshot(ap)} alt=""/>}</div>
         {final&&<small className="scoreNote">FINAL</small>}
         <div><b>{g.home?.teamName}</b><strong>{score(hs)}</strong></div>
         <div><span className={awayLead?'scoreWinner':''}>{g.away?.teamName}</span><strong>{score(as)}</strong></div>
