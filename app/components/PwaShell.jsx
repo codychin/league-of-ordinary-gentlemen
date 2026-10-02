@@ -173,12 +173,12 @@ function MobileAppNav(){
   const teamsPath=editionRoot?editionRoot+'/teams':'/teams'
   const isEditionHome=pathname===homePath
   const isEditionTeams=pathname.startsWith(teamsPath)
-  const [activeTab,setActiveTab]=useState(isEditionTeams?'teams':pathname.startsWith('/matchups')?'scores':['/staff','/archive','/corrections'].some(path=>pathname.startsWith(path))?'more':isEditionHome?'home':'detail')
+  const [activeTab,setActiveTab]=useState(isEditionTeams?'teams':pathname.includes('/matchups/')?'scores':['/staff','/archive','/corrections'].some(path=>pathname.startsWith(path))?'more':isEditionHome?'home':'detail')
   const [moreOpen,setMoreOpen]=useState(false)
   const [sundayLive,setSundayLive]=useState(false)
   const tabFor=nextHash=>{
     if(isEditionTeams) return 'teams'
-    if(pathname.startsWith('/matchups')) return 'scores'
+    if(pathname.includes('/matchups/')) return 'scores'
     if(['/staff','/archive','/corrections'].some(path=>pathname.startsWith(path))) return 'more'
     if(!isEditionHome) return document.querySelector('[data-app-section="culture"]')?'culture':'detail'
     if(nextHash==='#scores') return 'scores'
@@ -222,7 +222,7 @@ function MobileAppNav(){
       if(standalone){
         let nextTab
         if(isEditionTeams) nextTab='teams'
-        else if(pathname.startsWith('/matchups')) nextTab='scores'
+        else if(pathname.includes('/matchups/')) nextTab='scores'
         else if(pathname.startsWith('/staff')&&window.location.hash) nextTab='detail'
         else if(['/staff','/archive','/corrections'].some(path=>pathname.startsWith(path))) nextTab='more'
         else if(!isEditionHome) nextTab=document.querySelector('[data-app-section="culture"]')?'culture':'detail'
@@ -340,7 +340,7 @@ function MobileAppNav(){
   }
 
   const overflowLabel=pathname.startsWith('/staff')?'Staff':pathname.startsWith('/archive')?'Archive':pathname.startsWith('/corrections')?'Corrections':'More'
-  const headerLabel=moreOpen?'More':pathname.startsWith('/matchups')?'Matchup':activeTab==='scores'?'Scores':activeTab==='teams'?'Teams':activeTab==='culture'?'Tha Culture':activeTab==='more'?overflowLabel:activeTab==='detail'?'The Brief':''
+  const headerLabel=moreOpen?'More':pathname.includes('/matchups/')?'Matchup':activeTab==='scores'?'Scores':activeTab==='teams'?'Teams':activeTab==='culture'?'Tha Culture':activeTab==='more'?overflowLabel:activeTab==='detail'?'The Brief':''
   return <>
     <div className="appSectionHeader" aria-hidden="true"><span>{headerLabel}</span></div>
     {moreOpen&&<aside className="appMoreSheet" aria-label="More and settings">
