@@ -32,12 +32,6 @@ test('Sunday Crew release has six unique approved reels with complete packaged a
 });
 
 
-test('mobile web nav handles Home and Scores explicitly instead of falling through to stale client state',()=>{
-  const shell=read('app/components/PwaShell.jsx');
-  assert.match(shell,/if\(!standalone\)\{/);
-  assert.match(shell,/window\.history\.replaceState\(window\.history\.state,'',homePath\)/);
-  assert.match(shell,/document\.getElementById\(item\.hash\.slice\(1\)\)\?\.scrollIntoView/);
-});
 
 test('Sunday Crew scoreboard uses the stable edition score grid and not experimental upcoming-grid markup',()=>{
   const board=read('app/components/EditionScoreboard.jsx');
@@ -46,4 +40,11 @@ test('Sunday Crew scoreboard uses the stable edition score grid and not experime
   assert.match(board,/editionCardPortraits/);
   assert.equal(board.includes('editionUpcomingGrid'),false);
   assert.equal(board.includes('editionCardContent'),false);
+});
+
+test('mobile web nav is visible and uses native links',()=>{
+  const shell=read('app/components/PwaShell.jsx');
+  const css=read('app/pwa.css');
+  assert.match(shell,/if\(!standalone\) return/);
+  assert.match(css,/\.appTabBar\{[\s\S]*display:grid!important;[\s\S]*visibility:visible!important;/);
 });
