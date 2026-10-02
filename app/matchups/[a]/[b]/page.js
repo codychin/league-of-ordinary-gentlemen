@@ -61,10 +61,33 @@ const matchupPreviews={
 
 export default async function MatchupPreview({params}){
   const {a,b}=await params
-  const left=leagueSnapshot.teams[a]
-  const right=leagueSnapshot.teams[b]
+  let left=leagueSnapshot.teams[a]
+  let right=leagueSnapshot.teams[b]
+  let liveWeek=4
+  let liveUpdatedAt=null
   const leftProfile=profileFor(a)
   const rightProfile=profileFor(b)
+
+  try{
+    const [detailRes,scoreRes]=await Promise.all([
+      fetch('https://dnzdbqycuuoonewcowis.supabase.co/functions/v1/brief-sunday-engine?action=details',{cache:'no-store'}),
+      fetch('https://dnzdbqycuuoonewcowis.supabase.co/functions/v1/brief-sunday-engine?action=scores',{cache:'no-store'})
+    ])
+    const detail=await detailRes.json(),scores=await scoreRes.json()
+    liveWeek=Number(detail?.week||scores?.week||4)
+    liveUpdatedAt=detail?.updatedAt||scores?.updatedAt||null
+    const scoreGames=scores?.matchups||[]
+    const merge=(fallback)=>{
+      const liveTeam=(detail?.teams||[]).find(t=>t.name===fallback.teamName)
+      if(!liveTeam)return fallback
+      const game=scoreGames.find(g=>g.home?.name===fallback.teamName||g.away?.name===fallback.teamName)
+      const side=game?.home?.name===fallback.teamName?game.home:game?.away
+      const opp=game?.home?.name===fallback.teamName?game.away:game?.home
+      const oldById=new Map(fallback.roster.map(p=>[String(p.id),p]))
+      return {...fallback,matchup:{...fallback.matchup,score:side?.score??0,projection:String(side?.projection??fallback.matchup.projection),opponentScore:opp?.score??0,opponentProjection:String(opp?.projection??fallback.matchup.opponentProjection)},roster:(liveTeam.roster||[]).map(p=>{const old=oldById.get(String(p.id))||{};return {...old,id:p.id,name:p.name,slot:p.slot,weekPoints:Number(p.weekPoints||0),status:old.status||''}})}
+    }
+    left=merge(left);right=merge(right)
+  }catch{}
 
   if(!left||!right||!leftProfile||!rightProfile){
     return <main className="matchupPage"><h1>Matchup not found.</h1><Link href="/#scores">Return to scores</Link></main>
@@ -88,7 +111,7 @@ export default async function MatchupPreview({params}){
     <header className="articleHeader"><Link href="/" className="miniMast">The Brief of Ordinary Gentleman</Link><SiteNav/></header>
     <main className="matchupPage">
       <section className="matchupLead">
-        <div className="matchupHeroKicker">WEEK {leagueSnapshot.week} • GAME PREVIEW</div>
+        <div className="matchupHeroKicker">WEEK {liveWeek} • GAME PREVIEW</div>
         <div className="matchupScoreboard">
           <Link href={`/teams/${a}`} className="matchupHeroSide">
             <small>{leftProfile.owners}</small>
@@ -104,7 +127,7 @@ export default async function MatchupPreview({params}){
             <span>PROJECTED {right.matchup.projection}</span>
           </Link>
         </div>
-        <div className="matchupUpdated">LIVE SNAPSHOT • {leagueSnapshot.updatedAt}</div>
+        <div className="matchupUpdated">LIVE SNAPSHOT • {liveUpdatedAt?new Date(liveUpdatedAt).toLocaleString('en-US',{timeZone:'America/New_York',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'}):leagueSnapshot.updatedAt}</div>
       </section>
 
       <section className="matchupColumn">
@@ -155,7 +178,7 @@ export default async function MatchupPreview({params}){
         <div><small>INSTITUTIONAL POSTURE</small><b>{leftProfile.posture}</b></div>
         <div><small>INSTITUTIONAL POSTURE</small><b>{rightProfile.posture}</b></div>
       </section>
-      <Link className="matchupBack" href="/#scores">← ALL WEEK {leagueSnapshot.week} MATCHUPS</Link>
+      <Link className="matchupBack" href="/#scores">← ALL WEEK {liveWeek} MATCHUPS</Link>
     </main>
   </>
 }
