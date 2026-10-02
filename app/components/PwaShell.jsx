@@ -202,6 +202,13 @@ function MobileAppNav(){
     window.requestAnimationFrame(()=>window.requestAnimationFrame(doReset))
     window.setTimeout(doReset,80)
   }
+  const scrollSection=id=>{
+    const el=document.getElementById(id)
+    if(!el)return
+    const top=el.getBoundingClientRect().top+window.scrollY
+    window.scrollTo({top,left:0,behavior:'auto'})
+    window.requestAnimationFrame(()=>window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY,left:0,behavior:'auto'}))
+  }
 
   useEffect(()=>{
     try{const parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());const get=t=>parts.find(p=>p.type===t)?.value;setSundayLive(get('weekday')==='Sun'&&(Number(get('hour'))>12||(Number(get('hour'))===12&&Number(get('minute'))>=30)))}catch{}
@@ -294,7 +301,7 @@ function MobileAppNav(){
         resetAppScroll()
       }else if(item.hash){
         window.history.replaceState(window.history.state,'',homePath+item.hash)
-        window.requestAnimationFrame(()=>document.getElementById(item.hash.slice(1))?.scrollIntoView({behavior:'auto',block:'start'}))
+        window.requestAnimationFrame(()=>scrollSection(item.hash.slice(1)))
       }else{
         window.location.assign(item.href)
       }
@@ -355,7 +362,7 @@ function MobileAppNav(){
 
     if(window.location.hash!==item.hash) window.history.pushState(null,'',item.hash)
     activate(item.hash)
-    document.getElementById(item.hash.slice(1))?.scrollIntoView({behavior:'auto',block:'start'})
+    scrollSection(item.hash.slice(1))
   }
 
   const overflowLabel=pathname.startsWith('/staff')?'Staff':pathname.startsWith('/archive')?'Archive':pathname.startsWith('/corrections')?'Corrections':'More'
