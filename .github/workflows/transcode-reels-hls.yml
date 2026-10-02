@@ -5,6 +5,7 @@ on:
     paths:
       - '.github/workflows/transcode-reels-hls.yml'
       - 'public/reels/**'
+      - '!public/reels-hls/**'
   workflow_dispatch:
 
 permissions:
