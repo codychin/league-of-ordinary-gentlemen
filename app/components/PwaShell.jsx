@@ -196,18 +196,10 @@ function MobileAppNav(){
     setActiveTab(nextTab)
   }
 
-  const resetAppScroll=()=>{
-    const doReset=()=>window.scrollTo({top:0,left:0,behavior:'auto'})
-    doReset()
-    window.requestAnimationFrame(()=>window.requestAnimationFrame(doReset))
-    window.setTimeout(doReset,80)
-  }
+  const resetAppScroll=()=>window.scrollTo({top:0,left:0,behavior:'auto'})
   const scrollSection=id=>{
     const el=document.getElementById(id)
-    if(!el)return
-    const top=el.getBoundingClientRect().top+window.scrollY
-    window.scrollTo({top,left:0,behavior:'auto'})
-    window.requestAnimationFrame(()=>window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY,left:0,behavior:'auto'}))
+    if(el) el.scrollIntoView({behavior:'auto',block:'start'})
   }
 
   useEffect(()=>{
@@ -342,14 +334,17 @@ function MobileAppNav(){
     if(standalone){
       setVisualTab(item.tab)
       window.sessionStorage.setItem(APP_TAB_KEY,item.tab)
-      const params=new URLSearchParams(window.location.search)
-      params.set('tab',item.tab)
-      if(document.documentElement.classList.contains('appPreview')) params.set('app-preview','1')
-      else params.delete('app-preview')
-      window.history.replaceState(window.history.state,'',homePath+'?'+params.toString())
       setActiveTab(item.tab)
       document.documentElement.dataset.appTab=item.tab
-      resetAppScroll()
+      if(item.tab==='home'){
+        window.history.replaceState(window.history.state,'',homePath)
+        resetAppScroll()
+      }else if(item.hash){
+        window.history.replaceState(window.history.state,'',homePath+item.hash)
+        scrollSection(item.hash.slice(1))
+      }else{
+        router.push(item.href)
+      }
       return
     }
 
