@@ -295,3 +295,18 @@
 .editionScoreMatch .editionMatchupPortraits img:first-child{left:2%}
 .editionScoreMatch .editionMatchupPortraits img:last-child{right:2%;transform:scaleX(-1)}
 @media(max-width:700px){.editionScoreMatch{min-height:136px}.editionScoreMatch .editionMatchupPortraits img{height:100px;width:42%}}
+
+
+/* Keep edition score rows at the original compact rhythm; portraits are decoration only. */
+.editionScoreMatch{min-height:0!important;padding:16px!important}
+.editionScoreMatch.notable{padding-top:35px!important}
+.editionScoreMatch .editionMatchupPortraits{inset:0 72px 0 42%!important}
+.editionScoreMatch .editionMatchupPortraits img{bottom:-18px!important;width:76px!important;height:76px!important;max-height:76px!important;opacity:.12!important}
+.editionScoreMatch .editionMatchupPortraits img:first-child{left:0!important}
+.editionScoreMatch .editionMatchupPortraits img:last-child{right:0!important}
+@media(max-width:700px){
+  .editionScoreMatch{min-height:0!important;padding:13px 16px!important}
+  .editionScoreMatch.notable{padding-top:30px!important}
+  .editionScoreMatch .editionMatchupPortraits{inset:0 68px 0 38%!important}
+  .editionScoreMatch .editionMatchupPortraits img{width:68px!important;height:68px!important;max-height:68px!important;bottom:-15px!important;opacity:.12!important}
+}
