@@ -48,3 +48,9 @@ test('mobile web nav is visible and uses native links',()=>{
   assert.match(shell,/if\(!standalone\) return/);
   assert.match(css,/\.appTabBar\{[\s\S]*display:grid!important;[\s\S]*visibility:visible!important;/);
 });
+
+
+test('Sunday Crew scoreboard preserves PWA score-section contract',()=>{
+  const editionScore=read('app/components/EditionScoreboard.jsx');
+  assert.match(editionScore,/className="section scoreSection editionScoreSection" id="scores"/);
+});
