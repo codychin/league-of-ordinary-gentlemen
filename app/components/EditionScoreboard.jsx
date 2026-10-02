@@ -20,9 +20,9 @@ export default function EditionScoreboard({matchups=[],week=4,rosters=[],headsho
           {ap&&<ResilientImage className="editionRightPlayer" src={headshot(ap)} alt=""/>}
         </div>
         <div className="editionCardContent">
-          <div className="editionCardSide left"><b>{g.home?.teamName}</b><strong>{score(hs)}</strong><em>{score(g.home?.projectedPoints)} PROJECTED</em></div>
+          <div className="editionCardSide editionCardSideLeft"><b>{g.home?.teamName}</b><strong>{score(hs)}</strong><em>{score(g.home?.projectedPoints)} PROJECTED</em></div>
           <i>VS</i>
-          <div className="editionCardSide right"><b>{g.away?.teamName}</b><strong>{score(as)}</strong><em>{score(g.away?.projectedPoints)} PROJECTED</em></div>
+          <div className="editionCardSide editionCardSideRight"><b>{g.away?.teamName}</b><strong>{score(as)}</strong><em>{score(g.away?.projectedPoints)} PROJECTED</em></div>
         </div>
         <div className="editionMatchupPlayers"><span>{hp?.name||''}</span><span>{ap?.name||''}</span></div>
         <span className="editionMatchupOpen">OPEN MATCHUP →</span>
