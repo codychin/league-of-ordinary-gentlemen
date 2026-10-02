@@ -12,8 +12,8 @@ export default function MatchupCardGrid({cards=[]}){
         <div className="briefMatchupSide briefMatchupRight"><b>{c.rightName}</b><em>{c.rightProjection} PROJECTED</em></div>
       </div>
       <div className="briefMatchupPortraits" aria-hidden="true">
-        {c.leftImage&&<ResilientImage className="briefMatchupLeftPlayer" src={c.leftImage} alt=""/>}
-        {c.rightImage&&<ResilientImage className="briefMatchupRightPlayer" src={c.rightImage} alt=""/>}
+        {c.leftImage&&<ResilientImage loading="lazy" decoding="async" className="briefMatchupLeftPlayer" src={c.leftImage} alt=""/>}
+        {c.rightImage&&<ResilientImage loading="lazy" decoding="async" className="briefMatchupRightPlayer" src={c.rightImage} alt=""/>}
       </div>
       <span className="briefMatchupOpen">OPEN MATCHUP →</span>
     </article>

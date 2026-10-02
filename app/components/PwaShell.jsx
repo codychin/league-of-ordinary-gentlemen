@@ -6,7 +6,6 @@ import {usePathname, useRouter} from 'next/navigation'
 
 const DISMISS_KEY='ordinary-brief-install-dismissed'
 const NOTIFICATION_SEEN_KEY='ordinary-brief-last-notification'
-const APP_TAB_KEY='ordinary-brief-active-tab'
 const PUSH_API='https://dnzdbqycuuoonewcowis.supabase.co/functions/v1/brief-push'
 
 function urlBase64ToUint8Array(value){
@@ -176,30 +175,45 @@ function MobileAppNav(){
   const [activeTab,setActiveTab]=useState(isEditionTeams?'teams':pathname.includes('/matchups/')?'scores':['/staff','/archive','/corrections'].some(path=>pathname.startsWith(path))?'more':isEditionHome?'home':'detail')
   const [moreOpen,setMoreOpen]=useState(false)
   const [sundayLive,setSundayLive]=useState(false)
-  const tabFor=nextHash=>{
+  const pendingScroll=useRef(null)
+  const tabFor=hash=>{
     if(isEditionTeams) return 'teams'
     if(pathname.includes('/matchups/')) return 'scores'
-    if(['/staff','/archive','/corrections'].some(path=>pathname.startsWith(path))) return 'more'
+    if(['/staff','/archive','/corrections','/sunday-crew/newsroom'].some(path=>pathname.startsWith(path))) return 'more'
     if(!isEditionHome) return document.querySelector('[data-app-section="culture"]')?'culture':'detail'
-    if(nextHash==='#scores'||nextHash==='#week4') return 'scores'
-    if(nextHash==='#culture') return 'culture'
-    return 'home'
+    if(hash==='#scores'||hash==='#week4'||hash==='#current-scores'||hash==='#scores-week3') return 'scores'
+    return hash==='#culture'?'culture':'home'
   }
-
-  const activate=nextHash=>{
-    const nextTab=tabFor(nextHash)
+  const resetAppScroll=()=>window.scrollTo({top:0,left:0,behavior:'instant'})
+  const scrollSection=id=>{
+    pendingScroll.current?.()
+    const targetId=id==='week4'?'scores':id
+    const scroll=()=>{
+      const el=document.getElementById(targetId)
+      if(!el)return false
+      el.scrollIntoView({behavior:'instant',block:'start'})
+      return true
+    }
+    if(scroll())return
+    // Scores may arrive after hydration. Cancel this wait on the next tap/route.
+    const observer=new MutationObserver(()=>{if(scroll())cancel()})
+    const timer=window.setTimeout(()=>cancel(),10000)
+    const cancel=()=>{observer.disconnect();window.clearTimeout(timer);pendingScroll.current=null}
+    pendingScroll.current=cancel
+    observer.observe(document.body,{childList:true,subtree:true})
+  }
+  const activate=hash=>{
+    const nextTab=tabFor(hash)
     setActiveTab(nextTab)
     document.documentElement.dataset.appTab=nextTab
-  }
-
-  const setVisualTab=nextTab=>{
-    setActiveTab(nextTab)
-  }
-
-  const resetAppScroll=()=>window.scrollTo({top:0,left:0,behavior:'auto'})
-  const scrollSection=id=>{
-    const el=document.getElementById(id)
-    if(el) el.scrollIntoView({behavior:'auto',block:'start'})
+    document.querySelectorAll('.siteNav a').forEach(link=>{
+      const url=new URL(link.href,window.location.origin)
+      const current=url.pathname===pathname&&url.hash===hash
+      link.classList.toggle('active',current)
+      if(current)link.setAttribute('aria-current',hash?'location':'page')
+      else link.removeAttribute('aria-current')
+    })
+    return nextTab
   }
 
   useEffect(()=>{
@@ -211,153 +225,67 @@ function MobileAppNav(){
     const standalone=preview||window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true
     document.documentElement.classList.toggle('standaloneApp',standalone)
     document.documentElement.classList.toggle('appPreview',preview)
-    const priorRestoration='scrollRestoration' in window.history?window.history.scrollRestoration:null
-    const navEntry=window.performance?.getEntriesByType?.('navigation')?.[0]
-    const desktopHomeReload=!standalone&&pathname==='/'&&navEntry?.type==='reload'
-    if((standalone||desktopHomeReload)&&'scrollRestoration' in window.history) window.history.scrollRestoration='manual'
-    if(desktopHomeReload) resetAppScroll()
+    const priorRestoration=window.history.scrollRestoration
+    window.history.scrollRestoration='manual'
     const scrollToLocation=()=>{
-      const nextHash=window.location.hash
-      if(standalone){
-        let nextTab
-        if(isEditionTeams) nextTab='teams'
-        else if(pathname.includes('/matchups/')) nextTab='scores'
-        else if(pathname.startsWith('/staff')&&window.location.hash) nextTab='detail'
-        else if(['/staff','/archive','/corrections'].some(path=>pathname.startsWith(path))) nextTab='more'
-        else if(!isEditionHome) nextTab=document.querySelector('[data-app-section="culture"]')?'culture':'detail'
-        else {
-          const requestedTab=new URLSearchParams(window.location.search).get('tab')
-          if(['home','scores','culture'].includes(requestedTab)) nextTab=requestedTab
-          else if(nextHash==='#scores') nextTab='scores'
-          else if(nextHash==='#culture') nextTab='culture'
-          else nextTab=window.sessionStorage.getItem(APP_TAB_KEY)||'home'
-        }
-        if(!['home','scores','culture','teams','more','detail'].includes(nextTab)) nextTab='home'
-        setActiveTab(nextTab)
-        document.documentElement.dataset.appTab=nextTab
-        if((isEditionHome&&['home','scores','culture'].includes(nextTab))||nextTab==='culture') window.sessionStorage.setItem(APP_TAB_KEY,nextTab)
-        if(nextHash&&pathname!=='/staff'){
-          const clean=window.location.pathname+window.location.search
-          window.history.replaceState(null,'',clean)
-        }
-        if(pathname==='/staff'&&nextHash){
-          window.requestAnimationFrame(()=>document.getElementById(nextHash.slice(1))?.scrollIntoView({behavior:'auto',block:'start'}))
-        }else resetAppScroll()
-        return
-      }
-      activate(nextHash)
-      window.requestAnimationFrame(()=>{
-        if(!nextHash){
-          window.scrollTo({top:0,behavior:'auto'})
-          return
-        }
-        document.getElementById(nextHash.slice(1))?.scrollIntoView({behavior:'auto',block:'start'})
-      })
+      pendingScroll.current?.()
+      const queryTab=new URLSearchParams(window.location.search).get('tab')
+      const hash=window.location.hash||(isEditionHome&&['scores','culture'].includes(queryTab)?'#'+queryTab:'')
+      activate(hash)
+      if(standalone&&isEditionHome)resetAppScroll()
+      else if(hash)scrollSection(hash.slice(1))
+      else resetAppScroll()
     }
     scrollToLocation()
+    const onNavClick=event=>{
+      if(event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return
+      const link=event.target.closest?.('.siteNav a')
+      if(!link||link.target==='_blank')return
+      const url=new URL(link.href,window.location.origin)
+      if(url.origin!==window.location.origin||url.pathname!==homePath)return
+      event.preventDefault()
+      if(!isEditionHome){router.push(url.pathname+url.search+url.hash,{scroll:false});return}
+      pendingScroll.current?.()
+      window.history.pushState(window.history.state,'',url.pathname+url.search+url.hash)
+      activate(url.hash)
+      if(standalone||!url.hash)resetAppScroll()
+      else scrollSection(url.hash.slice(1))
+    }
+    document.addEventListener('click',onNavClick,true)
     window.addEventListener('hashchange',scrollToLocation)
     window.addEventListener('popstate',scrollToLocation)
     return()=>{
+      pendingScroll.current?.()
+      document.removeEventListener('click',onNavClick,true)
       window.removeEventListener('hashchange',scrollToLocation)
       window.removeEventListener('popstate',scrollToLocation)
-      if(priorRestoration!==null&&'scrollRestoration' in window.history) window.history.scrollRestoration=priorRestoration
+      window.history.scrollRestoration=priorRestoration
     }
   },[pathname])
 
   const items=[
     {href:editionRoot?homePath:(sundayLive?'/#live-desk':'/'),label:editionRoot?'Home':(sundayLive?'Live':'Home'),icon:'Home',tab:'home',hash:editionRoot?undefined:(sundayLive?'#live-desk':undefined),active:activeTab==='home'||activeTab==='detail'},
-    {href:homePath+(editionRoot?'#scores':'#week4'),label:'Scores',tab:'scores',hash:editionRoot?'#scores':'#week4',active:activeTab==='scores'},
+    {href:homePath+'#scores',label:'Scores',tab:'scores',hash:'#scores',active:activeTab==='scores'},
     {href:teamsPath,label:'Teams',tab:'teams',active:activeTab==='teams'},
     {href:homePath+'#culture',label:'Culture',tab:'culture',hash:'#culture',active:activeTab==='culture'},
   ]
-
   const navigate=(event,item)=>{
-    setMoreOpen(false)
-    const standalone=document.documentElement.classList.contains('standaloneApp')
-
-    // Mobile web: keep tab state and scroll target synchronized explicitly.
-    // Same-page anchors update state + scroll; detail pages use real navigation.
-    if(!standalone){
-      if(!isEditionHome){
-        if(item.href===homePath||item.href.startsWith(homePath+'#')){
-          event.preventDefault()
-          window.location.assign(item.href)
-        }
-        return
-      }
-      event.preventDefault()
-      setActiveTab(item.tab)
-      document.documentElement.dataset.appTab=item.tab
-      if(item.tab==='home'){
-        window.history.replaceState(window.history.state,'',homePath)
-        resetAppScroll()
-      }else if(item.hash){
-        window.history.replaceState(window.history.state,'',homePath+item.hash)
-        window.requestAnimationFrame(()=>scrollSection(item.hash.slice(1)))
-      }else{
-        window.location.assign(item.href)
-      }
-      return
-    }
-
-    if(item.href===teamsPath){
-      event.preventDefault()
-      if(isEditionTeams){
-        resetAppScroll()
-      }else{
-        if(standalone){
-          window.scrollTo({top:0,left:0,behavior:'auto'})
-          router.push(teamsPath,{scroll:false})
-        }else{
-          router.push(teamsPath)
-        }
-      }
-      return
-    }
-
-    if(!isEditionHome){
-      if(item.href.startsWith(homePath+'#')||item.href===homePath){
-        event.preventDefault()
-        window.sessionStorage.setItem(APP_TAB_KEY,item.tab)
-        const params=new URLSearchParams()
-        params.set('tab',item.tab)
-        if(document.documentElement.classList.contains('appPreview')) params.set('app-preview','1')
-        const target=homePath+'?'+params.toString()
-        // Detail -> edition navigation must be a real document navigation.
-        // This avoids stale App Router state trapping taps on matchup pages.
-        window.location.assign(target)
-      }
-      return
-    }
-
+    if(event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return
     event.preventDefault()
-    if(standalone){
-      setVisualTab(item.tab)
-      window.sessionStorage.setItem(APP_TAB_KEY,item.tab)
-      setActiveTab(item.tab)
-      document.documentElement.dataset.appTab=item.tab
-      if(item.tab==='home'){
-        window.history.replaceState(window.history.state,'',homePath)
-        resetAppScroll()
-      }else if(item.hash){
-        window.history.replaceState(window.history.state,'',homePath+item.hash)
-        scrollSection(item.hash.slice(1))
-      }else{
-        router.push(item.href)
-      }
+    setMoreOpen(false)
+    pendingScroll.current?.()
+    setActiveTab(item.tab)
+    if(item.tab==='teams'){
+      if(isEditionTeams)resetAppScroll()
+      else router.push(teamsPath)
       return
     }
-
-    if(!item.hash){
-      if(window.location.hash) window.history.pushState(null,'',homePath)
-      activate('')
-      resetAppScroll()
-      return
-    }
-
-    if(window.location.hash!==item.hash) window.history.pushState(null,'',item.hash)
-    activate(item.hash)
-    scrollSection(item.hash.slice(1))
+    if(!isEditionHome){router.push(item.href,{scroll:false});return}
+    window.history.pushState(window.history.state,'',item.href)
+    activate(item.hash||'')
+    const standalone=document.documentElement.classList.contains('standaloneApp')
+    if(standalone||!item.hash)resetAppScroll()
+    else scrollSection(item.hash.slice(1))
   }
 
   const overflowLabel=pathname.startsWith('/staff')?'Staff':pathname.startsWith('/archive')?'Archive':pathname.startsWith('/corrections')?'Corrections':'More'

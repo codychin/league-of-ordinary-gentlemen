@@ -35,9 +35,10 @@ test('Sunday Crew release has six unique approved reels with complete packaged a
 
 test('Sunday Crew scoreboard uses the stable edition score grid and not experimental upcoming-grid markup',()=>{
   const board=read('app/components/EditionScoreboard.jsx');
-  assert.match(board,/editionScoreGrid/);
-  assert.match(board,/editionCardTeams/);
-  assert.match(board,/editionCardPortraits/);
+  assert.match(board,/<MatchupCardGrid cards=\{cards\}/);
+  const grid=read('app/components/MatchupCardGrid.jsx');
+  assert.match(grid,/briefMatchupTeams/);
+  assert.match(grid,/briefMatchupPortraits/);
   assert.equal(board.includes('editionUpcomingGrid'),false);
   assert.equal(board.includes('editionCardContent'),false);
 });

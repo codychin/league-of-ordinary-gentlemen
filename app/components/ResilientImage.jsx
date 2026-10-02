@@ -1,6 +1,6 @@
 'use client'
 
-import {useState} from 'react'
+import {useEffect,useState} from 'react'
 
 const withRetryToken=(src,attempt)=>{
   if(!attempt||!src||src.startsWith('data:')) return src
@@ -11,6 +11,7 @@ const withRetryToken=(src,attempt)=>{
 export default function ResilientImage({src,alt='',className='',...props}){
   const [attempt,setAttempt]=useState(0)
   const [failed,setFailed]=useState(false)
+  useEffect(()=>{setAttempt(0);setFailed(false)},[src])
   const onError=()=>{
     if(attempt<2){
       setAttempt(n=>n+1)
@@ -22,5 +23,5 @@ export default function ResilientImage({src,alt='',className='',...props}){
     }catch{}
   }
   if(failed) return <div className={`${className} resilientImageFallback`} role="img" aria-label={alt}><span>THE BRIEF</span></div>
-  return <img {...props} className={className} src={withRetryToken(src,attempt)} alt={alt} onError={onError}/>
+  return <img className={className} loading="lazy" decoding="async" {...props} src={withRetryToken(src,attempt)} alt={alt} onError={onError}/>
 }

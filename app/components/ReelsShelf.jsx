@@ -3,6 +3,7 @@
 import {useEffect,useRef,useState} from 'react';
 import {flushSync} from 'react-dom';
 import styles from './ReelsShelf.module.css';
+import ResilientImage from './ResilientImage';
 
 export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1',storageKey='brief-week3-roundup-viewed-v1',weekLabel='THE BRIEF • WEEK 3',title='Week 3, roundup.',modeLabel='WEEK 3 • ROUNDUP'}){
   const [active,setActive]=useState(null);
@@ -46,9 +47,9 @@ export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1',storag
         const checks=await Promise.all(reels.map(async r=>{
           const base=`/reels-hls/${r.id}`;
           const [manifest,poster,segment]=await Promise.all([
-            fetch(`${base}/index.m3u8`,{cache:'no-store',signal:controller.signal}),
-            fetch(`${base}/poster.jpg`,{cache:'no-store',signal:controller.signal}),
-            fetch(`${base}/seg_000.m4s`,{cache:'no-store',signal:controller.signal})
+            fetch(`${base}/index.m3u8`,{method:'HEAD',cache:'force-cache',signal:controller.signal}),
+            fetch(`${base}/poster.jpg`,{method:'HEAD',cache:'force-cache',signal:controller.signal}),
+            fetch(`${base}/seg_000.m4s`,{method:'HEAD',cache:'force-cache',signal:controller.signal})
           ]);
           return manifest.ok&&poster.ok&&segment.ok;
         }));
@@ -56,21 +57,6 @@ export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1',storag
       }catch{if(!controller.signal.aborted)setReleaseReady(false)}
     };
     verify();
-    const warm=async()=>{
-      for(const r of reels){
-        if(controller.signal.aborted)break;
-        try{
-          const base=`/reels-hls/${r.id}`;
-          await Promise.all([
-            fetch(`${base}/index.m3u8`,{cache:'force-cache',signal:controller.signal}),
-            fetch(`${base}/init.mp4`,{cache:'force-cache',signal:controller.signal}),
-            fetch(`${base}/seg_000.m4s`,{cache:'force-cache',signal:controller.signal}),
-            fetch(`${base}/poster.jpg`,{cache:'force-cache',signal:controller.signal})
-          ]);
-        }catch{}
-      }
-    };
-    warm();
     return()=>controller.abort();
   },[reels]);
 
@@ -155,11 +141,11 @@ export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1',storag
     <div className={styles.rail}>
       {reels.map((r,i)=><button className={`${styles.story} ${viewed[r.id]?styles.seen:styles.unseen}`} key={r.id} onClick={()=>openReel(i)} aria-label={`Watch ${r.matchup} recap by ${r.correspondent}`}>
         <span className={styles.thumb}>
-          {r.leftImage&&<span className={styles.playerLeft}><img src={r.leftImage} alt=""/></span>}
-          {r.rightImage&&<span className={styles.playerRight}><img src={r.rightImage} alt=""/></span>}
+          {r.leftImage&&<span className={styles.playerLeft}><ResilientImage loading="lazy" decoding="async" src={r.leftImage} alt=""/></span>}
+          {r.rightImage&&<span className={styles.playerRight}><ResilientImage loading="lazy" decoding="async" src={r.rightImage} alt=""/></span>}
           <span className={styles.cardShade}/>
           <span className={styles.vs}>VS</span>
-          <img className={styles.avatar} src={r.avatar} alt=""/>
+          <ResilientImage loading="lazy" decoding="async" className={styles.avatar} src={r.avatar} alt=""/>
           <span className={styles.storyCopy}><b>{r.short}</b><small>{r.correspondent.split(' ')[0]}</small></span>
         </span>
       </button>)}

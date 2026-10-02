@@ -1,4 +1,4 @@
-const VERSION='ordinary-brief-v17'
+const VERSION='ordinary-brief-v18'
 const STATIC_CACHE=`${VERSION}-static`
 const PAGE_CACHE=`${VERSION}-pages`
 const PRECACHE=[
@@ -31,7 +31,7 @@ self.addEventListener('fetch',event=>{
     event.respondWith(
       fetch(request)
         .then(response=>{
-          if(response.ok) caches.open(PAGE_CACHE).then(cache=>cache.put(request,response.clone()))
+          if(response.ok){const copy=response.clone();event.waitUntil(caches.open(PAGE_CACHE).then(cache=>cache.put(request,copy)))}
           return response
         })
         .catch(async()=>await caches.match(request)||await caches.match('/offline'))
@@ -41,15 +41,13 @@ self.addEventListener('fetch',event=>{
 
   if(request.destination==='video'||url.pathname.startsWith('/reels/')) return
 
-  if(['style','script'].includes(request.destination)){
-    event.respondWith(
-      fetch(request)
-        .then(response=>{
-          if(response.ok) caches.open(STATIC_CACHE).then(cache=>cache.put(request,response.clone()))
-          return response
-        })
-        .catch(()=>caches.match(request))
-    )
+  // Content-hashed Next assets are immutable. Reuse them instantly offline/online.
+  // Keep RSC responses and non-hashed scripts out of the page cache.
+  if(['style','script'].includes(request.destination)&&url.pathname.startsWith('/_next/static/')){
+    event.respondWith(caches.match(request).then(cached=>cached||fetch(request).then(response=>{
+      if(response.ok){const copy=response.clone();event.waitUntil(caches.open(STATIC_CACHE).then(cache=>cache.put(request,copy)))}
+      return response
+    })))
     return
   }
 
@@ -57,7 +55,7 @@ self.addEventListener('fetch',event=>{
     event.respondWith(
       caches.match(request).then(cached=>{
         const fresh=fetch(request).then(response=>{
-          if(response.ok) caches.open(STATIC_CACHE).then(cache=>cache.put(request,response.clone()))
+          if(response.ok){const copy=response.clone();event.waitUntil(caches.open(STATIC_CACHE).then(cache=>cache.put(request,copy)))}
           return response
         }).catch(()=>cached)
         return cached||fresh
