@@ -30,3 +30,20 @@ test('Sunday Crew release has six unique approved reels with complete packaged a
     for(const f of ['index.m3u8','poster.jpg','seg_000.m4s']) assert.ok(exists('public/reels-hls/'+id+'/'+f),id+' '+f+' missing');
   }
 });
+
+
+test('mobile web nav handles Home and Scores explicitly instead of falling through to stale client state',()=>{
+  const shell=read('app/components/PwaShell.jsx');
+  assert.match(shell,/if\(!standalone\)\{/);
+  assert.match(shell,/window\.history\.replaceState\(window\.history\.state,'',homePath\)/);
+  assert.match(shell,/document\.getElementById\(item\.hash\.slice\(1\)\)\?\.scrollIntoView/);
+});
+
+test('Sunday Crew scoreboard uses the stable edition score grid and not experimental upcoming-grid markup',()=>{
+  const board=read('app/components/EditionScoreboard.jsx');
+  assert.match(board,/editionScoreGrid/);
+  assert.match(board,/editionCardTeams/);
+  assert.match(board,/editionCardPortraits/);
+  assert.equal(board.includes('editionUpcomingGrid'),false);
+  assert.equal(board.includes('editionCardContent'),false);
+});
