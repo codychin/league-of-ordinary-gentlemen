@@ -4,9 +4,7 @@ import {useEffect,useRef,useState} from 'react';
 import {flushSync} from 'react-dom';
 import styles from './ReelsShelf.module.css';
 
-const STORAGE_KEY='brief-week3-roundup-viewed-v1';
-
-export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1'}){
+export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1',storageKey='brief-week3-roundup-viewed-v1',weekLabel='THE BRIEF • WEEK 3',title='Week 3, roundup.',modeLabel='WEEK 3 • ROUNDUP'}){
   const [active,setActive]=useState(null);
   const [viewed,setViewed]=useState({});
   const [showMeta,setShowMeta]=useState(true);
@@ -21,7 +19,7 @@ export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1'}){
   const recoveryRef=useRef(null);
 
   useEffect(()=>{
-    try{setViewed(JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}'))}catch{}
+    try{setViewed(JSON.parse(localStorage.getItem(storageKey)||'{}'))}catch{}
     try{
       const probe=document.createElement('video');
       setNativeHls(Boolean(probe.canPlayType('application/vnd.apple.mpegurl')||probe.canPlayType('application/x-mpegURL')));
@@ -81,7 +79,7 @@ export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1'}){
     const reel=reels[active];
     const next={...viewed,[reel.id]:true};
     setViewed(next);
-    try{localStorage.setItem(STORAGE_KEY,JSON.stringify(next))}catch{}
+    try{localStorage.setItem(storageKey,JSON.stringify(next))}catch{}
     setShowMeta(true);
     setProgress(0);
     setHasStarted(false);
@@ -149,16 +147,16 @@ export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1'}){
 
   if(!releaseReady)return null;
 
-  return <section className={styles.wrap} aria-label="Week 3 roundup videos">
+  return <section className={styles.wrap} aria-label={`${title} videos`}>
     <div className={styles.head}>
-      <div><small>THE BRIEF • WEEK 3</small><h2>Week 3, roundup.</h2></div>
+      <div><small>{weekLabel}</small><h2>{title}</h2></div>
       <span>6 MATCHUPS • 6 CORRESPONDENTS</span>
     </div>
     <div className={styles.rail}>
       {reels.map((r,i)=><button className={`${styles.story} ${viewed[r.id]?styles.seen:styles.unseen}`} key={r.id} onClick={()=>openReel(i)} aria-label={`Watch ${r.matchup} recap by ${r.correspondent}`}>
         <span className={styles.thumb}>
-          <span className={styles.playerLeft}><img src={r.leftImage} alt=""/></span>
-          <span className={styles.playerRight}><img src={r.rightImage} alt=""/></span>
+          {r.leftImage&&<span className={styles.playerLeft}><img src={r.leftImage} alt=""/></span>}
+          {r.rightImage&&<span className={styles.playerRight}><img src={r.rightImage} alt=""/></span>}
           <span className={styles.cardShade}/>
           <span className={styles.vs}>VS</span>
           <img className={styles.avatar} src={r.avatar} alt=""/>
@@ -182,7 +180,7 @@ export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1'}){
         <button className={`${styles.tapZone} ${styles.tapPrev}`} onClick={()=>move(-1)} aria-label="Previous reel"/>
         <button className={`${styles.tapZone} ${styles.tapNext}`} onClick={()=>move(1)} aria-label="Next reel"/>
         <div className={`${styles.meta} ${showMeta?styles.metaOn:''}`}>
-          <small>WEEK 3 • ROUNDUP</small>
+          <small>{modeLabel}</small>
           <b>{reel.matchup}</b>
           <span>{reel.correspondent}</span>
         </div>
