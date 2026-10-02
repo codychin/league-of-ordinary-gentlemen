@@ -276,9 +276,30 @@ function MobileAppNav(){
     setMoreOpen(false)
     const standalone=document.documentElement.classList.contains('standaloneApp')
 
-    // Ordinary mobile web uses the browser's real links. Do not intercept them.
-    // The custom tab router is reserved for the installed PWA only.
-    if(!standalone) return
+    // Mobile web: keep tab state and scroll target synchronized explicitly.
+    // Same-page anchors update state + scroll; detail pages use real navigation.
+    if(!standalone){
+      if(!isEditionHome){
+        if(item.href===homePath||item.href.startsWith(homePath+'#')){
+          event.preventDefault()
+          window.location.assign(item.href)
+        }
+        return
+      }
+      event.preventDefault()
+      setActiveTab(item.tab)
+      document.documentElement.dataset.appTab=item.tab
+      if(item.tab==='home'){
+        window.history.replaceState(window.history.state,'',homePath)
+        resetAppScroll()
+      }else if(item.hash){
+        window.history.replaceState(window.history.state,'',homePath+item.hash)
+        window.requestAnimationFrame(()=>document.getElementById(item.hash.slice(1))?.scrollIntoView({behavior:'auto',block:'start'}))
+      }else{
+        window.location.assign(item.href)
+      }
+      return
+    }
 
     if(item.href===teamsPath){
       event.preventDefault()
