@@ -463,3 +463,65 @@
     min-height:38px!important;
   }
 }
+
+
+/* Edition cards v2 — self-contained layout; no matchupEditorial/matchupSide inheritance. */
+.editionUpcomingGrid .playerHeadlineMatchup{
+  min-height:230px!important;
+  padding:30px 16px 38px!important;
+}
+.editionCardContent{
+  position:relative;
+  z-index:3;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 42px minmax(0,1fr);
+  gap:8px;
+  align-items:start;
+  height:112px;
+}
+.editionCardSide{
+  display:grid;
+  grid-template-rows:48px 34px 16px;
+  gap:2px;
+  min-width:0;
+  align-content:start;
+}
+.editionCardSide.right{text-align:right;justify-items:end}
+.editionCardSide b{
+  margin:0;
+  width:100%;
+  font:700 21px/.95 Georgia,serif;
+  letter-spacing:-.55px;
+  overflow-wrap:normal;
+  word-break:normal;
+}
+.editionCardSide strong{font:900 29px/1 Arial,sans-serif}
+.editionCardSide em{font:800 7px/1 Arial,sans-serif;letter-spacing:.5px;color:var(--muted);font-style:normal;white-space:nowrap}
+.editionCardContent>i{align-self:start;margin-top:58px;text-align:center;color:var(--red);font:900 23px/1 Georgia,serif;font-style:normal}
+.editionUpcomingGrid .playerHeadlineMatchup .matchupPortraits{
+  top:136px!important;
+  bottom:38px!important;
+  z-index:1!important;
+}
+.editionUpcomingGrid .playerHeadlineMatchup .matchupPortraits img{
+  width:38%!important;
+  height:84px!important;
+  bottom:0!important;
+}
+@media(max-width:760px){
+  .editionUpcomingGrid .playerHeadlineMatchup{
+    min-height:230px!important;
+    padding:30px 14px 38px!important;
+  }
+  .editionCardContent{
+    grid-template-columns:minmax(0,1fr) 38px minmax(0,1fr);
+    gap:6px;
+    height:108px;
+  }
+  .editionCardSide{grid-template-rows:48px 32px 14px;gap:2px}
+  .editionCardSide b{font-size:19px;line-height:.94}
+  .editionCardSide strong{font-size:28px}
+  .editionCardContent>i{margin-top:57px;font-size:21px}
+  .editionUpcomingGrid .playerHeadlineMatchup .matchupPortraits{top:134px!important;bottom:38px!important}
+  .editionUpcomingGrid .playerHeadlineMatchup .matchupPortraits img{height:82px!important}
+}
