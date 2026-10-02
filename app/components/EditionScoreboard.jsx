@@ -21,4 +21,3 @@ export default function EditionScoreboard({matchups=[],week=4,rosters=[],headsho
     <MatchupCardGrid cards={cards}/>
   </section>;
 }
-}
