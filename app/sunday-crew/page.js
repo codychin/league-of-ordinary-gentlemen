@@ -20,8 +20,8 @@ export default async function SundayCrewPage(){
     {id:'8710323881d0b2cb1ec55d3cd8137629',leftKey:'470.l.197826.t.2',rightKey:'470.l.197826.t.6',short:'STROKE · ALLENTOWN',matchup:'A Stroke of Bad Luck vs. It’s always sunny in ALLENtown',correspondent:'Maude Gannon',avatar:writers.gannon.image},
     {id:'4847ba749e3df2950b2c8c9d8a11308b',leftKey:'470.l.197826.t.10',rightKey:'470.l.197826.t.3',short:'CHANE · RHAMONDRE',matchup:'CHANE GANG vs. Rhamondre — A Cautionary Tale',correspondent:'Sabine March',avatar:writers.march.image},
     {id:'2aabd81db067067020c873233c783454',leftKey:'470.l.197826.t.4',rightKey:'470.l.197826.t.12',short:'CROATIA · RBS',matchup:'Croatian Sensation vs. RBs are Overrated',correspondent:'Dashiell Pike',avatar:writers.pike.image},
-    {id:'9250b953a32bbb06884b73f46ca43abe',leftKey:'470.l.197826.t.7',rightKey:'470.l.197826.t.9',short:'J BIRD · SCRUMP',matchup:'J Bird vs. Scrump',correspondent:'Conrad Sorrell',avatar:writers.sorrell.image},
-    {id:'934492ccc99c967bc89ba70313047cdd',leftKey:'470.l.197826.t.8',rightKey:'470.l.197826.t.11',short:'WAKE · COOKIES',matchup:'Wake Me Up On September 1st vs. Tolbert’s Cookies',correspondent:'Marnie Kells',avatar:writers.kells.image},
+    {id:'ffc21da84192b47902925f46c3635b04',leftKey:'470.l.197826.t.7',rightKey:'470.l.197826.t.9',short:'J BIRD · SCRUMP',matchup:'J Bird vs. Scrump',correspondent:'Conrad Sorrell',avatar:writers.sorrell.image},
+    {id:'abc29d09e4dffce0486b7a92608e2414',leftKey:'470.l.197826.t.8',rightKey:'470.l.197826.t.11',short:'WAKE · COOKIES',matchup:'Wake Me Up On September 1st vs. Tolbert’s Cookies',correspondent:'Marnie Kells',avatar:writers.kells.image},
   ].map(r=>{const a=rosters.find(t=>t.teamKey===r.leftKey)?.teamName,b=rosters.find(t=>t.teamKey===r.rightKey)?.teamName;return {...r,leftImage:headshot(featured(a)),rightImage:headshot(featured(b))}});
   return <>
     <header>
