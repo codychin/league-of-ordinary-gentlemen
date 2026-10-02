@@ -1,17 +1,9 @@
 import {createClient} from 'https://esm.sh/@supabase/supabase-js@2'
-import {researchConnections,editorialMeeting,selectPitch,writePost} from './model.ts'
-import {publishable} from './quality.ts'
-import {redundant} from './editorial.ts'
-import {recentMemory,remember} from './memory.ts'
+import * as models from './model.ts'
+import {advanceRun} from './workflow.ts'
 const db=()=>createClient(Deno.env.get('SUPABASE_URL')!,Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!)
 const json=(x:any,s=200)=>Response.json(x,{status:s,headers:{'Access-Control-Allow-Origin':'*'}})
-Deno.serve(async req=>{const d=db();try{
- const {data:run}=await d.from('brief_editorial_runs').select('*').in('status',['queued','pitched','selected','written']).order('created_at',{ascending:true}).limit(1).maybeSingle()
- if(!run)return json({ok:true,idle:true})
- await d.from('brief_editorial_runs').update({attempts:(run.attempts||0)+1,updated_at:new Date().toISOString()}).eq('id',run.id)
- if(run.status==='queued'){const research=await researchConnections(run.packet);const x=await editorialMeeting(run.packet,research?.connections||[]);await d.from('brief_editorial_runs').update({status:'pitched',pitches:{...x,research},updated_at:new Date().toISOString(),error:null}).eq('id',run.id);return json({ok:true,id:run.id,status:'pitched'})}
- if(run.status==='pitched'){const pitches=run.pitches?.pitches||[];const x=await selectPitch(run.packet,pitches);await d.from('brief_editorial_runs').update({status:x?.publish?'selected':'complete',decision:x,updated_at:new Date().toISOString(),error:null}).eq('id',run.id);return json({ok:true,id:run.id,status:x?.publish?'selected':'complete'})}
- if(run.status==='selected'){const pitches=run.pitches?.pitches||[],pitch=pitches.find((p:any)=>p.id===run.decision?.pitch_id);if(!pitch)throw new Error('selected pitch missing');const x=await writePost(run.packet,pitch);await d.from('brief_editorial_runs').update({status:'written',draft:{...x,evidence:{pitch,editor_reason:run.decision?.reason}},updated_at:new Date().toISOString(),error:null}).eq('id',run.id);return json({ok:true,id:run.id,status:'written'})}
- if(run.status==='written'){const post=run.draft,{data:recent}=await d.from('brief_live_desk_posts').select('subject,text,writer,tag,published_at,story_key').eq('status','live').order('sort_time',{ascending:false}).limit(100),memory=await recentMemory(d);if(!publishable(post)||redundant(post,[...(recent||[]),...memory])){await d.from('brief_editorial_runs').update({status:'rejected',error:'final quality or memory gate',updated_at:new Date().toISOString()}).eq('id',run.id);return json({ok:true,id:run.id,status:'rejected'})}const story_key='model-run:'+run.id,{data:created,error}=await d.from('brief_live_desk_posts').insert({writer:post.writer,tag:post.tag,subject:post.subject,text:post.text,thread:post.thread||'LIVE DESK',story_key,status:'live',published_at:new Date().toISOString(),sort_time:new Date().toISOString()}).select('id').single();if(error)throw error;await remember(d,{...post,story_key},created?.id);await d.from('brief_editorial_runs').update({status:'published',updated_at:new Date().toISOString(),error:null}).eq('id',run.id);return json({ok:true,id:run.id,status:'published',post_id:created?.id})}
- return json({ok:true,id:run.id,status:run.status})
-}catch(e){return json({ok:false,error:String((e as Error)?.message||e)},500)}})
+Deno.serve(async req=>{
+ try { return json(await advanceRun(db(),models)) }
+ catch(e) { return json({ok:false,error:String((e as Error)?.message||e)},500) }
+})
