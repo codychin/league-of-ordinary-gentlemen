@@ -16,6 +16,18 @@ export default function SharedEditorialFront(){
     </article>
   </div>
 </section>
+<section className="hero heroStack" aria-label="Featured Hollis Crane investigation">
+  <Link className="hero-copy storylink" href="/articles/hollis-jameis-winston-turing-test">
+    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.08)),url('/images/editorial/jameis-winston.webp')",backgroundPosition:"center 34%"}}>
+      <div><small>HOLLIS CRANE • INVESTIGATIONS</small><b>THE JAMEIS WINSTON TURING TEST</b></div>
+    </div>
+    <div className="eyebrow">INVESTIGATIONS • PERSONHOOD & INTELLIGENCE</div>
+    <h2>The Jameis Winston <em>Turing Test.</em></h2>
+    <PreviewAuthor slug="hollis-jameis-winston-turing-test"/>
+    <p className="standfirst">After a decade of motivational philosophy, recursive metaphors and sentences that sound important without technically containing information, Jameis Winston has become an unexpectedly interesting case study in intelligence.</p>
+    <div className="read">READ HOLLIS CRANE →</div>
+  </Link>
+</section>
 <section className="morningBriefPreview sundayFront" aria-label="Sunday Morning Brief">
   <div className="morningBriefFlag"><span>THE SUNDAY MORNING BRIEF</span><small>SEPTEMBER 27 • WEEK 3</small></div>
   <div className="sundayFrontGrid">
