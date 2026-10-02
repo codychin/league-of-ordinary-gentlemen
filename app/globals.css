@@ -771,3 +771,14 @@
   .briefMatchupOpen{height:34px!important}
   #week4,#scores,#culture{scroll-margin-top:0!important}
 }
+
+
+/* Shared matchup portrait scale: slightly larger on both LOOG + Sunday Crew, geometry unchanged. */
+@media(max-width:760px){
+  .briefMatchupPortraits{top:106px!important}
+  .briefMatchupPortraits img{
+    width:46%!important;
+    height:88px!important;
+    max-height:88px!important;
+  }
+}
