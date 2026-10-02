@@ -16,7 +16,7 @@ export default function EditionScoreboard({matchups=[],week=4,rosters=[],headsho
     const hp=featured(g.home?.teamKey),ap=featured(g.away?.teamKey);
     return {id:g.matchupId||i,href:`${root}/matchups/${g.home?.teamId}/${g.away?.teamId}`,kicker:`WEEK ${week} • OPEN MATCHUP`,leftName:g.home?.teamName,leftScore:score(g.home?.points),leftProjection:projected(g.home?.projectedPoints),leftImage:image(hp),rightName:g.away?.teamName,rightScore:score(g.away?.points),rightProjection:projected(g.away?.projectedPoints),rightImage:image(ap)};
   });
-  return <section className="section editionScoreSection" id="scores">
+  return <section className="section scoreSection editionScoreSection" id="scores">
     <div className="sectionhead"><div><small className="deskLabel">THE BRIEF • SCOREBOARD</small><h2>Week {week} {allFinal?'Final':'Live'}</h2></div><span>{allFinal?'FINAL SCORES • WEEK '+week+' IN THE BOOKS':'LATEST VERIFIED SCORES'}</span></div>
     <MatchupCardGrid cards={cards}/>
   </section>;
