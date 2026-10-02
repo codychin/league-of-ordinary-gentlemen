@@ -27,7 +27,7 @@ export default async function SundayCrewPage(){
     <header>
       <div className="utility"><span className="utilityMain">SUNDAY CREW EDITION <i>•</i> JOURNALISM WITHOUT PURPOSE</span></div>
       <div className="mast"><h1>{edition.tenant.publication_name}</h1><div className="dek">Fantasy football, personal grievances, forensic accounting and other matters of irrelevance.</div></div>
-      <nav className="siteNav"><Link href="/sunday-crew">HOME</Link><Link href="/sunday-crew#league">THE LEAGUE</Link><Link href="/sunday-crew#standings">STANDINGS</Link><Link href="/sunday-crew#transactions">THE WIRE</Link><Link href="/sunday-crew#scores">SCORES</Link><Link href="/staff">MASTHEAD</Link></nav>
+      <nav className="siteNav"><Link href="/sunday-crew">HOME</Link><Link href="/sunday-crew#league">THE LEAGUE</Link><Link href="/sunday-crew#standings">STANDINGS</Link><Link href="/sunday-crew#transactions">THE WIRE</Link><Link href="/sunday-crew#scores">SCORES</Link><Link href="/sunday-crew/newsroom">MASTHEAD</Link></nav>
     </header>
     <main>
       <ReelsShelf reels={reels} releaseId="sunday-crew-week4-preview-v1" storageKey="brief-sunday-crew-week4-preview-viewed-v1" weekLabel="THE BRIEF • SUNDAY CREW • WEEK 4" title="Week 4 previews." modeLabel="SUNDAY CREW • WEEK 4 • PREVIEW"/>

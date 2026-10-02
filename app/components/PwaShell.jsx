@@ -361,7 +361,7 @@ function MobileAppNav(){
     {moreOpen&&<aside className="appMoreSheet" aria-label="More and settings">
       <div className="appMoreHead"><small>THE BRIEF</small><b>More</b><button type="button" onClick={()=>setMoreOpen(false)} aria-label="Close more menu">×</button></div>
       {!editionRoot&&<div className="appSettings"><small>SETTINGS</small><ArticleAlertSettings/></div>}
-      <div className="appMoreLinks">{editionRoot?<Link href="/sunday-crew#newsroom"><MoreMenuIcon name="Staff"/><span>Sunday Crew newsroom</span></Link>:<>
+      <div className="appMoreLinks">{editionRoot?<Link href="/sunday-crew/newsroom" onClick={()=>setMoreOpen(false)}><MoreMenuIcon name="Staff"/><span>Sunday Crew newsroom</span></Link>:<>
         <Link href="/archive"><MoreMenuIcon name="Archive"/><span>Archive</span></Link>
         <Link href="/staff"><MoreMenuIcon name="Staff"/><span>Staff</span></Link>
         <Link href="/corrections"><MoreMenuIcon name="Corrections"/><span>Corrections</span></Link></>}
