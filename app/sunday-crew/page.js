@@ -2,19 +2,19 @@ import Link from 'next/link';
 import SharedEditorialFront from '../components/SharedEditorialFront';
 import EditionLeagueSurfaces from '../components/EditionLeagueSurfaces';
 import CultureDesk from '../components/CultureDesk';
-import {getEditionData,getEditionArticles} from '../../lib/edition-data';
+import {getEditionData,getEditionArticles,getNflHeadshotsByYahooId} from '../../lib/edition-data';
 import ReelsShelf from '../components/ReelsShelf';
 import {writers} from '../articles/writers';
 
 export const dynamic='force-dynamic';
 
 export default async function SundayCrewPage(){
-  const [edition,localArticles]=await Promise.all([getEditionData('sunday-crew'),getEditionArticles('sunday-crew')]);
+  const [edition,localArticles,headshots]=await Promise.all([getEditionData('sunday-crew'),getEditionArticles('sunday-crew'),getNflHeadshotsByYahooId()]);
   if(!edition?.league) return <main><h1>Sunday Crew edition unavailable</h1></main>;
   const rosters=edition?.snapshots?.rosters?.data?.data||[];
   const rosterByName=Object.fromEntries(rosters.map(t=>[t.teamName,t]));
   const featured=name=>rosterByName[name]?.players?.find(p=>!['BN','IR'].includes(p.selectedPosition)&&p.position!=='K'&&p.position!=='DEF')||rosterByName[name]?.players?.[0];
-  const headshot=p=>p?.playerId?`https://a.espncdn.com/i/headshots/nfl/players/full/${p.playerId}.png`:'';
+  const headshot=p=>p?.playerId?(headshots[String(p.playerId)]||''):'';
   const reels=[
     {id:'35be59702c0c7cca379ab5ca64c28788',short:'ZAYWATCH · DITKA',matchup:'ZAYWATCH vs. Forte inch Ditka',correspondent:'Hollis Crane',avatar:writers.crane.image},
     {id:'8710323881d0b2cb1ec55d3cd8137629',short:'STROKE · ALLENTOWN',matchup:'A Stroke of Bad Luck vs. It’s always sunny in ALLENtown',correspondent:'Maude Gannon',avatar:writers.gannon.image},
