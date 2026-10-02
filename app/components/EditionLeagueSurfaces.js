@@ -27,7 +27,7 @@ export default function EditionLeagueSurfaces({edition}){
       </div>
     </section>
 
-    <EditionScoreboard matchups={matchups} week={edition.league?.settings?.currentWeek||4}/>
+    <EditionScoreboard matchups={matchups} rosters={rosters} week={edition.league?.settings?.currentWeek||4}/>
 
     <section className="section standingsWrap" id="standings"><div className="sectionhead"><div><small className="deskLabel">THE TABLE</small><h2>Standings</h2></div><span>THROUGH WEEK 3</span></div><table className="standingsTable"><thead><tr><th>#</th><th>FRANCHISE</th><th>W-L</th><th>PF</th><th>PA</th><th>FAAB</th></tr></thead><tbody>{standings.map(t=><tr key={t.teamKey}><td>{t.rank}</td><td>{t.name}</td><td>{t.wins}-{t.losses}</td><td>{pts(t.pointsFor)}</td><td>{pts(t.pointsAgainst)}</td><td>{'$'+money(t.faabBalance)}</td></tr>)}</tbody></table></section>
 
