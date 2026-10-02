@@ -3,7 +3,7 @@ const score=n=>Number(n||0).toFixed(2);
 
 export default function EditionScoreboard({matchups=[],week=4,rosters=[],headshots={}}){
   const rosterByKey=Object.fromEntries(rosters.map(t=>[t.teamKey,t]));
-  const featured=key=>rosterByKey[key]?.players?.find(p=>!['BN','IR'].includes(p.selectedPosition)&&p.position!=='K'&&p.position!=='DEF')||rosterByKey[key]?.players?.[0];
+  const featured=key=>rosterByKey[key]?.players?.find(p=>!['BN','IR'].includes(p.selectedPosition)&&p.position!=='K'&&p.position!=='DEF'&&headshots[String(p.playerId)])||rosterByKey[key]?.players?.find(p=>headshots[String(p.playerId)])||null;
   const headshot=p=>p?.playerId?(headshots[String(p.playerId)]||''):'';
   const allFinal=matchups.length>0&&matchups.every(g=>g.winner&&g.winner!=='UNDECIDED');
   return <section className="section scoreSection" id="scores">
