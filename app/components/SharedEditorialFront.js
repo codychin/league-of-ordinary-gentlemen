@@ -8,9 +8,9 @@ export default function SharedEditorialFront(){
   <div className="morningBriefFlag"><span>THE LEAD COLUMN</span><small>OCTOBER 2 • CONRAD SORRELL</small></div>
   <div className="sundayFrontGrid">
     <article className="sundayFeature sabinePackage">
-      <Link href="/articles/conrad-deshaun-watson-cleveland-hope" className="sundayFeatureImage sundayActionHero storylink"><ResilientImage loading="eager" decoding="async" src="https://img.ksl.com/slc/3198/319896/31989626.jpg?filter=kslv2%2Fresponsive_story_lg&v=1787444404" alt="Deshaun Watson speaks after Cleveland's preseason game against Buffalo"/><div className="actionCaption"><small>CONRAD SORRELL • COLUMN</small><b>CLEVELAND, WATSON, AND HOPE</b></div></Link>
+      <Link href="/articles/conrad-deshaun-watson-cleveland-hope" className="sundayFeatureImage sundayActionHero storylink"><ResilientImage loading="eager" decoding="async" src="https://img.ksl.com/slc/3198/319896/31989626.jpg?filter=kslv2%2Fresponsive_story_lg&v=1787444404" alt="Deshaun Watson speaks after Cleveland's preseason game against Buffalo"/><div className="actionCaption"><small>CONRAD SORRELL • COLUMN</small><b>GROPER CLEVELAND IS 3–1</b></div></Link>
       <div className="sundayFeatureCopy">
-        <div className="sabinePackageIntro"><small>CONRAD SORRELL • COLUMN</small><Link href="/articles/conrad-deshaun-watson-cleveland-hope" className="sabinePackageTitle storylink"><h2>Cleveland Waited Decades for a Quarterback Worth Believing In. Of Course It’s Deshaun Watson.</h2></Link><p>A column on Browns fandom, quarterback play, and the moral tension created by winning.</p><PreviewAuthor slug="conrad-deshaun-watson-cleveland-hope"/></div>
+        <div className="sabinePackageIntro"><small>CONRAD SORRELL • COLUMN</small><Link href="/articles/conrad-deshaun-watson-cleveland-hope" className="sabinePackageTitle storylink"><h2>Groper Cleveland Is 3–1</h2></Link><p>A column on Browns fandom, quarterback play, and the moral tension created by winning.</p><PreviewAuthor slug="conrad-deshaun-watson-cleveland-hope"/></div>
         <Link href="/articles/conrad-deshaun-watson-cleveland-hope" className="sabinePackageCta">READ CONRAD →</Link>
       </div>
     </article>
