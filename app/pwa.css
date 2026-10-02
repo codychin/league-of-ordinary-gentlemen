@@ -814,3 +814,15 @@
     right:12px;
   }
 }
+
+
+/* Mobile web navigation contract: always visible. PWA-only behavior is handled in JS, not visibility CSS. */
+@media(max-width:760px){
+  .appTabBar{
+    display:grid!important;
+    visibility:visible!important;
+    opacity:1!important;
+    pointer-events:auto!important;
+    z-index:999!important;
+  }
+}
