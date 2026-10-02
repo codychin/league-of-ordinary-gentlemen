@@ -298,16 +298,14 @@ function MobileAppNav(){
     if(!isEditionHome){
       if(item.href.startsWith(homePath+'#')||item.href===homePath){
         event.preventDefault()
-        if(standalone){
-          window.sessionStorage.setItem(APP_TAB_KEY,item.tab)
-          const params=new URLSearchParams()
-          params.set('tab',item.tab)
-          if(document.documentElement.classList.contains('appPreview')) params.set('app-preview','1')
-          window.scrollTo({top:0,left:0,behavior:'auto'})
-          router.push(homePath+'?'+params.toString(),{scroll:false})
-        }else{
-          router.push(item.href)
-        }
+        window.sessionStorage.setItem(APP_TAB_KEY,item.tab)
+        const params=new URLSearchParams()
+        params.set('tab',item.tab)
+        if(document.documentElement.classList.contains('appPreview')) params.set('app-preview','1')
+        const target=homePath+'?'+params.toString()
+        // Detail -> edition navigation must be a real document navigation.
+        // This avoids stale App Router state trapping taps on matchup pages.
+        window.location.assign(target)
       }
       return
     }
