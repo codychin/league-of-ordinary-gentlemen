@@ -27,10 +27,10 @@ export default function LiveWeek3Surfaces({matchupPairs=[],teamVisuals={},finalW
 
   return <>
     <section className="section upcoming" id="week4">
-      <div className="scoreHero"><div><small>THE BRIEF • WEEK 3</small><h2>Week 4</h2></div><span>LIVE SCORE ENGINE • AUTO-REFRESH</span></div>
+      <div className="scoreHero"><div><small>THE BRIEF • WEEK 4</small><h2>Week 4</h2></div><span>LIVE SCORE ENGINE • AUTO-REFRESH</span></div>
       <div className="upcomingGrid">{games.map((g,i)=>{
         const left=slugMap[g.home?.name],right=slugMap[g.away?.name];
-        const note=matchupPairs.find(x=>(x[0]===left&&x[1]===right)||(x[0]===right&&x[1]===left))?.[2]||'WEEK 3';
+        const note=matchupPairs.find(x=>(x[0]===left&&x[1]===right)||(x[0]===right&&x[1]===left))?.[2]||'WEEK 4';
         return <Link className="matchupLink" href={left&&right?`/matchups/${left}/${right}`:'#scores'} key={g.id||i}><article className="playerHeadlineMatchup">
           <small className="matchupKicker">{note}</small>
           <div className="matchupPortraits" aria-hidden="true"><ResilientImage className="leftPlayer" src={teamVisuals[left]?.image||''} alt={teamVisuals[left]?.player||'Player'}/><ResilientImage className="rightPlayer" src={teamVisuals[right]?.image||''} alt={teamVisuals[right]?.player||'Player'}/></div>
