@@ -276,26 +276,9 @@ function MobileAppNav(){
     setMoreOpen(false)
     const standalone=document.documentElement.classList.contains('standaloneApp')
 
-    // Mobile web gets deterministic navigation too; do not rely on stale hashes or Next Link state.
-    if(!standalone){
-      event.preventDefault()
-      if(item.href===teamsPath){window.location.assign(teamsPath);return}
-      if(!isEditionHome){window.location.assign(item.href);return}
-      setActiveTab(item.tab)
-      document.documentElement.dataset.appTab=item.tab
-      if(item.tab==='home'){
-        window.history.replaceState(window.history.state,'',homePath)
-        resetAppScroll()
-        return
-      }
-      if(item.hash){
-        window.history.replaceState(window.history.state,'',homePath+item.hash)
-        document.getElementById(item.hash.slice(1))?.scrollIntoView({behavior:'auto',block:'start'})
-        return
-      }
-      window.location.assign(item.href)
-      return
-    }
+    // Ordinary mobile web uses the browser's real links. Do not intercept them.
+    // The custom tab router is reserved for the installed PWA only.
+    if(!standalone) return
 
     if(item.href===teamsPath){
       event.preventDefault()
