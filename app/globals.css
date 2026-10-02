@@ -648,3 +648,20 @@
   .briefMatchupOpen{height:32px}
   #week4,#scores{scroll-margin-top:0!important}
 }
+
+
+/* Shared matchup card compact mobile geometry — no text/image overlap. */
+@media(max-width:760px){
+  .briefMatchupGrid{gap:10px!important}
+  .briefMatchupCard{height:204px!important;padding:32px 14px 30px!important}
+  .briefMatchupKicker{top:12px!important}
+  .briefMatchupTeams{height:80px!important;grid-template-columns:minmax(0,1fr) 34px minmax(0,1fr)!important;gap:5px!important}
+  .briefMatchupSide{grid-template-rows:38px 26px 12px!important;gap:2px!important}
+  .briefMatchupSide b{font-size:18px!important;line-height:.92!important}
+  .briefMatchupSide strong{font-size:25px!important;line-height:1!important}
+  .briefMatchupSide em{font-size:7px!important;line-height:1!important}
+  .briefMatchupTeams>i{margin-top:44px!important;font-size:19px!important}
+  .briefMatchupPortraits{top:114px!important;bottom:30px!important}
+  .briefMatchupPortraits img{height:60px!important;width:38%!important}
+  .briefMatchupOpen{height:30px!important}
+}
