@@ -371,3 +371,32 @@
   .editionScoreMatch .editionHomePortrait{left:31%!important}
   .editionScoreMatch .editionAwayPortrait{right:7%!important}
 }
+
+
+/* Sunday Crew uses the shared matchup-card composition without the old mobile PWA over-spacing. */
+.editionUpcomingGrid .playerHeadlineMatchup{min-height:220px}
+@media(max-width:760px){
+  .editionUpcomingGrid{gap:12px}
+  .editionUpcomingGrid .playerHeadlineMatchup{
+    min-height:214px!important;
+    padding:30px 14px 36px!important;
+  }
+  .editionUpcomingGrid .playerHeadlineMatchup .matchupEditorial{min-height:102px!important}
+  .editionUpcomingGrid .playerHeadlineMatchup .matchupPortraits{
+    top:116px!important;
+    bottom:36px!important;
+  }
+  .editionUpcomingGrid .playerHeadlineMatchup .matchupPortraits img{
+    height:92px!important;
+    width:38%!important;
+  }
+  .editionUpcomingGrid .playerHeadlineMatchup .matchupSide b{
+    font-size:21px!important;
+    line-height:.95!important;
+  }
+  .editionUpcomingGrid .playerHeadlineMatchup .matchupSide strong{font-size:29px!important}
+  .editionUpcomingGrid .playerHeadlineMatchup .matchupSide em{
+    background:transparent!important;
+    padding-top:0!important;
+  }
+}
