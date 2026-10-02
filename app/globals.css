@@ -556,3 +556,57 @@
   .editionMatchupPortraits{top:132px;bottom:38px}
   .editionMatchupPortraits img{height:80px;width:38%}
 }
+
+
+/* Edition card final specificity: no generic .left/.right classes. */
+.editionUpcomingGrid .editionMatchupCard{
+  height:226px!important;
+  min-height:226px!important;
+  padding:34px 14px 38px!important;
+}
+.editionUpcomingGrid .editionCardContent{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) 36px minmax(0,1fr)!important;
+  grid-template-rows:96px!important;
+  gap:6px!important;
+  height:96px!important;
+  align-items:start!important;
+}
+.editionUpcomingGrid .editionCardSide{
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  grid-template-rows:46px 30px 14px!important;
+  gap:2px!important;
+  align-content:start!important;
+  align-items:start!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:0!important;
+  position:static!important;
+  transform:none!important;
+}
+.editionUpcomingGrid .editionCardSideLeft{text-align:left!important;justify-items:start!important}
+.editionUpcomingGrid .editionCardSideRight{text-align:right!important;justify-items:end!important}
+.editionUpcomingGrid .editionCardSide b{
+  grid-row:1!important;position:static!important;margin:0!important;padding:0!important;
+  width:100%!important;min-height:0!important;font:700 19px/.94 Georgia,serif!important;
+}
+.editionUpcomingGrid .editionCardSide strong{
+  grid-row:2!important;position:static!important;margin:0!important;padding:0!important;
+  font:900 27px/1 Arial,sans-serif!important;
+}
+.editionUpcomingGrid .editionCardSide em{
+  grid-row:3!important;position:static!important;margin:0!important;padding:0!important;
+  background:transparent!important;font:800 7px/1 Arial,sans-serif!important;letter-spacing:.5px!important;
+}
+.editionUpcomingGrid .editionCardContent>i{
+  position:static!important;align-self:start!important;margin:54px 0 0!important;padding:0!important;
+  transform:none!important;text-align:center!important;font:900 20px/1 Georgia,serif!important;
+}
+.editionUpcomingGrid .editionMatchupPortraits{
+  position:absolute!important;left:14px!important;right:14px!important;top:130px!important;bottom:38px!important;
+  margin:0!important;padding:0!important;transform:none!important;
+}
+.editionUpcomingGrid .editionMatchupPortraits img{
+  position:absolute!important;bottom:0!important;width:38%!important;height:78px!important;margin:0!important;
+}
