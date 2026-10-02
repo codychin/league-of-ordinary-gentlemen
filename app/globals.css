@@ -355,3 +355,19 @@
   .editionCardPortraits{top:96px;bottom:25px}
   .editionCardPortraits img{height:112px;width:42%}
 }
+
+
+/* Sunday Crew scoreboard final mobile composition: two fixed portrait lanes, text untouched. */
+.editionScoreMatch{min-height:112px!important;padding:16px!important}
+.editionScoreRow{min-height:38px;align-items:center}
+.editionScoreMatch .editionMatchupPortraits{position:absolute!important;inset:0!important;display:block!important;overflow:hidden!important;z-index:0!important}
+.editionScoreMatch .editionMatchupPortraits img{position:absolute!important;bottom:-12px!important;width:104px!important;height:104px!important;max-height:none!important;object-fit:contain!important;opacity:.13!important}
+.editionScoreMatch .editionHomePortrait{left:34%!important;right:auto!important;transform:none!important}
+.editionScoreMatch .editionAwayPortrait{right:9%!important;left:auto!important;transform:scaleX(-1)!important}
+.editionScoreRow{padding-right:0!important}
+@media(max-width:700px){
+  .editionScoreMatch{min-height:112px!important;padding:14px 16px!important}
+  .editionScoreMatch .editionMatchupPortraits img{width:96px!important;height:96px!important;bottom:-10px!important}
+  .editionScoreMatch .editionHomePortrait{left:31%!important}
+  .editionScoreMatch .editionAwayPortrait{right:7%!important}
+}
