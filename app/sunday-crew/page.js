@@ -16,13 +16,13 @@ export default async function SundayCrewPage(){
   const featured=name=>rosterByName[name]?.players?.find(p=>!['BN','IR'].includes(p.selectedPosition)&&p.position!=='K'&&p.position!=='DEF')||rosterByName[name]?.players?.[0];
   const headshot=p=>p?.playerId?(headshots[String(p.playerId)]||''):'';
   const reels=[
-    {id:'35be59702c0c7cca379ab5ca64c28788',short:'ZAYWATCH · DITKA',matchup:'ZAYWATCH vs. Forte inch Ditka',correspondent:'Hollis Crane',avatar:writers.crane.image},
-    {id:'8710323881d0b2cb1ec55d3cd8137629',short:'STROKE · ALLENTOWN',matchup:'A Stroke of Bad Luck vs. It’s always sunny in ALLENtown',correspondent:'Maude Gannon',avatar:writers.gannon.image},
-    {id:'4847ba749e3df2950b2c8c9d8a11308b',short:'CHANE · RHAMONDRE',matchup:'CHANE GANG vs. Rhamondre — A Cautionary Tale',correspondent:'Sabine March',avatar:writers.march.image},
-    {id:'2aabd81db067067020c873233c783454',short:'CROATIA · RBS',matchup:'Croatian Sensation vs. RBs are Overrated',correspondent:'Dashiell Pike',avatar:writers.pike.image},
-    {id:'9250b953a32bbb06884b73f46ca43abe',short:'J BIRD · SCRUMP',matchup:'J Bird vs. Scrump',correspondent:'Conrad Sorrell',avatar:writers.sorrell.image},
-    {id:'934492ccc99c967bc89ba70313047cdd',short:'WAKE · COOKIES',matchup:'Wake Me Up On September 1st vs. Tolbert’s Cookies',correspondent:'Marnie Kells',avatar:writers.kells.image},
-  ].map(r=>{const [a,b]=r.matchup.split(/ vs\. /i);return {...r,leftImage:headshot(featured(a)),rightImage:headshot(featured(b))}});
+    {id:'35be59702c0c7cca379ab5ca64c28788',leftKey:'470.l.197826.t.1',rightKey:'470.l.197826.t.5',short:'ZAYWATCH · DITKA',matchup:'ZAYWATCH vs. Forte inch Ditka',correspondent:'Hollis Crane',avatar:writers.crane.image},
+    {id:'8710323881d0b2cb1ec55d3cd8137629',leftKey:'470.l.197826.t.2',rightKey:'470.l.197826.t.6',short:'STROKE · ALLENTOWN',matchup:'A Stroke of Bad Luck vs. It’s always sunny in ALLENtown',correspondent:'Maude Gannon',avatar:writers.gannon.image},
+    {id:'4847ba749e3df2950b2c8c9d8a11308b',leftKey:'470.l.197826.t.10',rightKey:'470.l.197826.t.3',short:'CHANE · RHAMONDRE',matchup:'CHANE GANG vs. Rhamondre — A Cautionary Tale',correspondent:'Sabine March',avatar:writers.march.image},
+    {id:'2aabd81db067067020c873233c783454',leftKey:'470.l.197826.t.4',rightKey:'470.l.197826.t.12',short:'CROATIA · RBS',matchup:'Croatian Sensation vs. RBs are Overrated',correspondent:'Dashiell Pike',avatar:writers.pike.image},
+    {id:'9250b953a32bbb06884b73f46ca43abe',leftKey:'470.l.197826.t.7',rightKey:'470.l.197826.t.9',short:'J BIRD · SCRUMP',matchup:'J Bird vs. Scrump',correspondent:'Conrad Sorrell',avatar:writers.sorrell.image},
+    {id:'934492ccc99c967bc89ba70313047cdd',leftKey:'470.l.197826.t.8',rightKey:'470.l.197826.t.11',short:'WAKE · COOKIES',matchup:'Wake Me Up On September 1st vs. Tolbert’s Cookies',correspondent:'Marnie Kells',avatar:writers.kells.image},
+  ].map(r=>{const a=rosters.find(t=>t.teamKey===r.leftKey)?.teamName,b=rosters.find(t=>t.teamKey===r.rightKey)?.teamName;return {...r,leftImage:headshot(featured(a)),rightImage:headshot(featured(b))}});
   return <>
     <header>
       <div className="utility"><span className="utilityMain">SUNDAY CREW EDITION <i>•</i> JOURNALISM WITHOUT PURPOSE</span></div>
