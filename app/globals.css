@@ -281,3 +281,17 @@
   position:relative;
   z-index:2;
 }
+
+
+/* Provider-neutral edition scoreboard. Deliberately does not inherit .match rules. */
+.editionScoreMatch{position:relative;min-height:154px;padding:16px;overflow:hidden;border-bottom:1px solid var(--line);border-right:1px solid var(--line);background:var(--paper)}
+.editionScoreMatch.notable{padding-top:35px}
+.editionScoreRow{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;padding:4px 0}
+.editionScoreRow:first-of-type{font-weight:bold}
+.editionScoreRow strong{font-family:Arial,sans-serif}
+.editionScoreMatch .scoreNote{position:relative;z-index:3}
+.editionScoreMatch .editionMatchupPortraits{position:absolute;inset:0;display:block!important;padding:0!important;pointer-events:none;overflow:hidden;z-index:0}
+.editionScoreMatch .editionMatchupPortraits img{position:absolute;bottom:-10px;width:40%;height:118px;object-fit:contain;object-position:center bottom;filter:grayscale(1) contrast(1.06);opacity:.18}
+.editionScoreMatch .editionMatchupPortraits img:first-child{left:2%}
+.editionScoreMatch .editionMatchupPortraits img:last-child{right:2%;transform:scaleX(-1)}
+@media(max-width:700px){.editionScoreMatch{min-height:136px}.editionScoreMatch .editionMatchupPortraits img{height:100px;width:42%}}
