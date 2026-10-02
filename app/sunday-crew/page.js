@@ -13,7 +13,7 @@ export default async function SundayCrewPage(){
   if(!edition?.league) return <main><h1>Sunday Crew edition unavailable</h1></main>;
   const rosters=edition?.snapshots?.rosters?.data?.data||[];
   const rosterByName=Object.fromEntries(rosters.map(t=>[t.teamName,t]));
-  const featured=name=>rosterByName[name]?.players?.find(p=>!['BN','IR'].includes(p.selectedPosition)&&p.position!=='K'&&p.position!=='DEF')||rosterByName[name]?.players?.[0];
+  const featured=name=>rosterByName[name]?.players?.find(p=>!['BN','IR'].includes(p.selectedPosition)&&p.position!=='K'&&p.position!=='DEF'&&headshots[String(p.playerId)])||rosterByName[name]?.players?.find(p=>headshots[String(p.playerId)])||null;
   const headshot=p=>p?.playerId?(headshots[String(p.playerId)]||''):'';
   const reels=[
     {id:'35be59702c0c7cca379ab5ca64c28788',leftKey:'470.l.197826.t.1',rightKey:'470.l.197826.t.5',short:'ZAYWATCH · DITKA',matchup:'ZAYWATCH vs. Forte inch Ditka',correspondent:'Hollis Crane',avatar:writers.crane.image},
