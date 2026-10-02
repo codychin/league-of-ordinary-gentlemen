@@ -665,3 +665,61 @@
   .briefMatchupPortraits img{height:60px!important;width:38%!important}
   .briefMatchupOpen{height:30px!important}
 }
+
+
+/* Shared matchup card v4: preview = names, projections, large portraits. Live score stays in scoreboard/detail. */
+@media(max-width:760px){
+  .briefMatchupGrid{gap:10px!important}
+  .briefMatchupCard{
+    height:196px!important;
+    min-height:196px!important;
+    padding:34px 14px 30px!important;
+  }
+  .briefMatchupKicker{top:12px!important}
+  .briefMatchupTeams{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) 34px minmax(0,1fr)!important;
+    gap:6px!important;
+    height:62px!important;
+    align-items:start!important;
+  }
+  .briefMatchupSide{
+    display:grid!important;
+    grid-template-rows:42px 14px!important;
+    gap:3px!important;
+    align-content:start!important;
+    min-width:0!important;
+  }
+  .briefMatchupSide b{
+    grid-row:1!important;
+    margin:0!important;
+    font:700 19px/.94 Georgia,serif!important;
+    letter-spacing:-.4px!important;
+  }
+  .briefMatchupSide em{
+    grid-row:2!important;
+    margin:0!important;
+    font:800 7px/1 Arial,sans-serif!important;
+    letter-spacing:.45px!important;
+    white-space:nowrap!important;
+  }
+  .briefMatchupTeams>i{
+    margin:23px 0 0!important;
+    align-self:start!important;
+    font-size:19px!important;
+  }
+  .briefMatchupPortraits{
+    top:91px!important;
+    bottom:30px!important;
+    left:14px!important;
+    right:14px!important;
+  }
+  .briefMatchupPortraits img{
+    bottom:0!important;
+    width:43%!important;
+    height:105px!important;
+    max-height:105px!important;
+  }
+  .briefMatchupOpen{height:30px!important}
+  #week4,#scores{scroll-margin-top:0!important}
+}
