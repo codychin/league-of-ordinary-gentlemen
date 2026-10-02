@@ -723,3 +723,51 @@
   .briefMatchupOpen{height:30px!important}
   #week4,#scores{scroll-margin-top:0!important}
 }
+
+
+/* Shared matchup card v5 — reserve full text lane, then full portrait lane. */
+@media(max-width:760px){
+  .briefMatchupCard{
+    height:226px!important;
+    min-height:226px!important;
+    padding:34px 14px 34px!important;
+  }
+  .briefMatchupTeams{
+    height:78px!important;
+    grid-template-columns:minmax(0,1fr) 34px minmax(0,1fr)!important;
+    gap:6px!important;
+  }
+  .briefMatchupSide{
+    grid-template-rows:60px 14px!important;
+    gap:3px!important;
+  }
+  .briefMatchupSide b{
+    align-self:start!important;
+    font:700 19px/.93 Georgia,serif!important;
+    overflow:visible!important;
+  }
+  .briefMatchupSide em{
+    align-self:start!important;
+    font:800 7px/1 Arial,sans-serif!important;
+    white-space:nowrap!important;
+  }
+  .briefMatchupTeams>i{
+    margin:29px 0 0!important;
+    align-self:start!important;
+  }
+  .briefMatchupPortraits{
+    top:116px!important;
+    bottom:34px!important;
+    overflow:hidden!important;
+  }
+  .briefMatchupPortraits img{
+    width:43%!important;
+    height:76px!important;
+    max-height:76px!important;
+    bottom:0!important;
+    object-fit:contain!important;
+    object-position:center bottom!important;
+  }
+  .briefMatchupOpen{height:34px!important}
+  #week4,#scores,#culture{scroll-margin-top:0!important}
+}
