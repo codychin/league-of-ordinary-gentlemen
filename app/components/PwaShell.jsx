@@ -181,7 +181,7 @@ function MobileAppNav(){
     if(pathname.includes('/matchups/')) return 'scores'
     if(['/staff','/archive','/corrections'].some(path=>pathname.startsWith(path))) return 'more'
     if(!isEditionHome) return document.querySelector('[data-app-section="culture"]')?'culture':'detail'
-    if(nextHash==='#scores') return 'scores'
+    if(nextHash==='#scores'||nextHash==='#week4') return 'scores'
     if(nextHash==='#culture') return 'culture'
     return 'home'
   }
@@ -267,7 +267,7 @@ function MobileAppNav(){
 
   const items=[
     {href:editionRoot?homePath:(sundayLive?'/#live-desk':'/'),label:editionRoot?'Home':(sundayLive?'Live':'Home'),icon:'Home',tab:'home',hash:editionRoot?undefined:(sundayLive?'#live-desk':undefined),active:activeTab==='home'||activeTab==='detail'},
-    {href:homePath+'#scores',label:'Scores',tab:'scores',hash:'#scores',active:activeTab==='scores'},
+    {href:homePath+(editionRoot?'#scores':'#week4'),label:'Scores',tab:'scores',hash:editionRoot?'#scores':'#week4',active:activeTab==='scores'},
     {href:teamsPath,label:'Teams',tab:'teams',active:activeTab==='teams'},
     {href:homePath+'#culture',label:'Culture',tab:'culture',hash:'#culture',active:activeTab==='culture'},
   ]
