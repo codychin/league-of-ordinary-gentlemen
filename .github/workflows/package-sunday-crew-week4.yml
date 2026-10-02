@@ -1,0 +1,53 @@
+name: Package Sunday Crew Week 4 reels
+on:
+  push:
+    paths: ['.github/workflows/package-sunday-crew-week4.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - name: Download, normalize, and package approved reels
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p public/reels public/reels-hls
+          transcode() {
+            id="$1"; url="$2"; tmp="/tmp/$id.mp4"; out="public/reels-hls/$id"
+            curl -fL --retry 3 --retry-delay 2 "$url" -o "$tmp"
+            ffmpeg -y -i "$tmp" -map_metadata -1 -vf "scale='min(1080,iw)':-2:force_original_aspect_ratio=decrease" -c:v libx264 -preset medium -crf 20 -pix_fmt yuv420p -c:a aac -b:a 160k -ar 48000 -movflags +faststart "public/reels/$id.mp4"
+            rm -rf "$out"; mkdir -p "$out"
+            ffmpeg -y -ss 0.05 -i "public/reels/$id.mp4" -frames:v 1 -vf "scale='min(720,iw)':-2" -q:v 3 "$out/poster.jpg"
+            ffmpeg -y -i "public/reels/$id.mp4" -vf "scale='min(720,iw)':-2:force_original_aspect_ratio=decrease" -c:v libx264 -preset medium -profile:v high -level 4.0 -b:v 2200k -maxrate 2600k -bufsize 4400k -g 60 -keyint_min 60 -sc_threshold 0 -c:a aac -b:a 128k -ar 48000 -hls_time 2 -hls_playlist_type vod -hls_segment_type fmp4 -hls_fmp4_init_filename init.mp4 -hls_segment_filename "$out/seg_%03d.m4s" "$out/index.m3u8"
+          }
+          transcode "35be59702c0c7cca379ab5ca64c28788" 'https://files2.heygen.ai/aws_pacific/avatar_tmp/88574ea85d0040b2a2836001c97400ea/35be59702c0c7cca379ab5ca64c28788.mp4?Expires=1791509310&Signature=Xr2z7YKreFASD4shS~JTvImF5iBqzY9Vu2PtcpiqHr4X78YozlDTgKE7cDeGm29Hj5CYMw1txAvAWwgfzqcRkCrMv0M-i9UKrLXBvkXs90V6kH~ixbK44k4M15R1aeTRIL-eYEvvJoTYDzaq3UlQGDZFILEeg6AfB43WXuOK3EXQlftZMoFSv9C4qj-vFRT1e-dvAgMWdcga16CItIzxYXU5bESPDvtH6aadmMmxgLm91sB~FwrV67nwIRQU8EotiHCxKv5iWg4wv0JsJ5Ea5DwM9tznyui0KWX8IwB224RCcMWhLZGPjebCGU1sVmzu5LdRJQO2zB3PuMOulId8aw__&Key-Pair-Id=K38HBHX5LX3X2H'
+          transcode "8710323881d0b2cb1ec55d3cd8137629" 'https://files2.heygen.ai/aws_pacific/avatar_tmp/88574ea85d0040b2a2836001c97400ea/8710323881d0b2cb1ec55d3cd8137629.mp4?Expires=1791508559&Signature=L5tDFXGp8yAVCkYTcZSqDN47IJSYfzb87icbHbFJ-GL9q-nm92eAJHAkPy1pUX~ZNo27JLsVNfTNTDuFNphrqEl1GEhYagTIc1I5Zm5A5IyC8ehBDHUhShMG3e6NjriWNsjjdJnwdUowcsOFNOzQioNbW-A3iB8SDwQcaBxt6opg4Zweab39mv9pZPqTrS7y2agP2pRDSEk4JvrE2M4p4q7u-KiWeM0kN5KHyJiLkawupwaPi0Sj2TjQnw7qi6xiFdfe~waV5-7ON7Aqw9sHt2ZxckjrSIOiPqGc1DxTrqJghW1I0wWFhBD4S1AMaVQqelqHDYqxwbVuW8chhq3iAA__&Key-Pair-Id=K38HBHX5LX3X2H'
+          transcode "4847ba749e3df2950b2c8c9d8a11308b" 'https://files2.heygen.ai/aws_pacific/avatar_tmp/88574ea85d0040b2a2836001c97400ea/4847ba749e3df2950b2c8c9d8a11308b.mp4?Expires=1791509347&Signature=IZm6fq6btY9ArLJASmh1IjQ9xVYlm0hSZKgskEM95oFNyQl~PsGMEBYfrnYxC~XeXBBpf1LKUAjR8yFkIpLyj35Y8xOp5UnIvOcEIiZuOqzS7uANhY0g9Tl4mr5mym1KBpYrm5ul8jy4frY7D00YLAZfEYcQ2oYFKQE4RF6Q5v56ULP8GlkivPS1c2DvYAsG9GVGF~IEz4oftChViSi4kqYeBxB8sNJktuYGgbc7XZulPS8~EPuAq5F9KmyuIDSPi~w75II823In12r2jN7t7KSmBh8MrImPfmitHqfjoefNGGZH01zcy8GUkcRtQMX~hTVf0byT6c4WSiY21cvJYg__&Key-Pair-Id=K38HBHX5LX3X2H'
+          transcode "2aabd81db067067020c873233c783454" 'https://files2.heygen.ai/aws_pacific/avatar_tmp/88574ea85d0040b2a2836001c97400ea/2aabd81db067067020c873233c783454.mp4?Expires=1791509353&Signature=GaHGcAaNUQm-r0GbkKVT6zvV2qvxt-rTNGAiBT-5BaBhub0MS8JqsJ0fwN9ZqFO7XV7aTJjn-6Zjxo3JJKR4Hp2WaDUFe8~PBq4WyqPwIy~xlyCBM~f4aj9NdfMoYfBZnwpSeNOn2it0U4VtftRUdDwN~6mf5jmIeLh~ENepOIzuq11P8cNFY68xy3JSTaWA60O2CpdUMPG79W2zm00Ca3Nmwf4ho668HcOAPNi1WEApAk8piQVLK~TC~spyqQYYkJG~0V6hpTzeq3bFGCAndc7KPaPE2MyhKgDOO~WEhpDak7WINlhDn1V2yLhVT08U1F7i3AnH0Jwh6he7eX-e4g__&Key-Pair-Id=K38HBHX5LX3X2H'
+          transcode "9250b953a32bbb06884b73f46ca43abe" 'https://files2.heygen.ai/aws_pacific/avatar_tmp/88574ea85d0040b2a2836001c97400ea/9250b953a32bbb06884b73f46ca43abe.mp4?Expires=1791509701&Signature=jccHz4z-xZmSy4aKAFkcktNLoT5j2YTE7ACqbVPQ5EajtdWcBCddzM00aNyDiR-mV2jYBmzggrfEGtwY4aT41EJiIn-V0unmYPTs5ucIurQ4jg~oU7Cwnf6vNd0nC8p4P6seLHBBT5aoRWARqsI1LGV1hzwebvI8NDAG9wZgdFGZ-lC0HUeTTxibbsLBSA-rUriY9E3Qqa5CO2dO2iMtZVuhdHvTxSRpAR4K7GtJo39CWmRqmi-A-mnkH-bjA7hLPTtg4seqiDITKnYEvxq6x-gO5vFXZnwPikYWgbn-JsbtuIEGOR3diW--rMhowVeuAyomaZw9VStwSe0~8YPj2g__&Key-Pair-Id=K38HBHX5LX3X2H'
+          transcode "934492ccc99c967bc89ba70313047cdd" 'https://files2.heygen.ai/aws_pacific/avatar_tmp/88574ea85d0040b2a2836001c97400ea/934492ccc99c967bc89ba70313047cdd.mp4?Expires=1791509729&Signature=BFF1QZ0KYEDNXQVu6udvzjPKzFuyWvkzGoJemxOi7AhOrphtyWN3MJakWxDydW1kAly0OaOsmCKmIOsWLjtdRJnBmNpTbjY5qoxoOvQ0UJ-eJEWj2adKC9i1BZSG77d6RYKUAY96Ms5dB5nICvHeqTb6HhMbIQ4DnkSfCbJtP~vuJsNlfsrFyi7nz9Aodr~bY7YsxnRKkQW9LoiGkyxH2R5wTu6Z17SpHbSQHk9UVqMloZXJEobnuQVAh95EohxlQeZg9YeT0NLGEp3gMHggrOb4P8-BM8lf6mEQNnstV1GhTmuWDQIXUkdE5VK0qhK1Urp-DdMS0j7J3~FSI7GV1A__&Key-Pair-Id=K38HBHX5LX3X2H'
+      - name: Validate all six before commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          for id in 35be59702c0c7cca379ab5ca64c28788 8710323881d0b2cb1ec55d3cd8137629 4847ba749e3df2950b2c8c9d8a11308b 2aabd81db067067020c873233c783454 9250b953a32bbb06884b73f46ca43abe 934492ccc99c967bc89ba70313047cdd; do
+            test -s "public/reels/$id.mp4"
+            test -s "public/reels-hls/$id/index.m3u8"
+            test -s "public/reels-hls/$id/poster.jpg"
+            test -s "public/reels-hls/$id/seg_000.m4s"
+          done
+      - name: Commit complete candidate assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/reels public/reels-hls
+          git commit -m "Package Sunday Crew Week 4 preview reels"
+          git pull --rebase origin main
+          git push origin HEAD:main
