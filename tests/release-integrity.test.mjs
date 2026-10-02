@@ -3,44 +3,30 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 
 const read=p=>fs.readFileSync(new URL('../'+p,import.meta.url),'utf8');
+const exists=p=>fs.existsSync(new URL('../'+p,import.meta.url));
 const page=read('app/page.js');
 const reels=read('app/components/ReelsShelf.jsx');
 const scores=read('app/components/LiveWeek3Surfaces.jsx');
+const sunday=read('app/sunday-crew/page.js');
 
-test('production JSX never contains escaped newline artifacts',()=>{
-  assert.equal(page.includes('\\n{'),false,'literal \\n leaked into page JSX');
+test('production JSX never contains escaped newline artifacts',()=>assert.equal(page.includes('\\n{'),false));
+test('current matchup surface is not deliberately suppressed',()=>assert.equal(page.includes('<LiveWeek3Surfaces finalWeek={true}'),false));
+test('reels require all delivery assets before display',()=>{
+  assert.match(reels,/checks\.every\(Boolean\)/); assert.match(reels,/if\(!releaseReady\)return null/);
+  for(const x of ['index.m3u8','poster.jpg','seg_000.m4s']) assert.ok(reels.includes(x));
 });
-
-test('current matchup surface is not deliberately suppressed',()=>{
-  assert.equal(page.includes('<LiveWeek3Surfaces finalWeek={true}'),false,'live/current matchup surface is hidden');
+test('view state is supplied per release rather than hard-coded globally',()=>{
+  assert.match(reels,/storageKey=/); assert.match(reels,/releaseId=/);
+  assert.match(sunday,/sunday-crew-week4-preview-v1/); assert.match(sunday,/brief-sunday-crew-week4-preview-viewed-v1/);
 });
-
-test('reels fail closed until every delivery asset is ready',()=>{
-  assert.match(reels,/checks\.every\(Boolean\)/);
-  assert.match(reels,/if\(!releaseReady\)return null/);
-  assert.match(reels,/index\.m3u8/);
-  assert.match(reels,/poster\.jpg/);
-  assert.match(reels,/seg_000\.m4s/);
+test('Week 4 score surface has no stale Week 3 labels',()=>{
+  assert.match(scores,/THE BRIEF • WEEK 4/); assert.match(scores,/<h2>Week 4<\/h2>/); assert.equal(scores.includes('THE BRIEF • WEEK 3'),false);
 });
-
-test('reel view state is namespaced to the release',()=>{
-  const storage=reels.match(/const STORAGE_KEY='([^']+)'/)?.[1];
-  const release=reels.match(/releaseId='([^']+)'/)?.[1];
-  assert.ok(storage&&release);
-  assert.ok(storage.includes('week4')&&release.includes('week4'));
-});
-
-test('score surface labels and data period cannot silently disagree',()=>{
-  assert.match(scores,/THE BRIEF • WEEK 4/);
-  assert.match(scores,/<h2>Week 4<\/h2>/);
-  assert.equal(scores.includes('THE BRIEF • WEEK 3'),false);
-});
-
-test('Week 4 release has exactly six unique reel ids and six matchup pairs',()=>{
-  const block=page.slice(page.indexOf('const week4Reels=['),page.indexOf('].map(',page.indexOf('const week4Reels=[')));
-  const ids=[...block.matchAll(/'([a-f0-9]{32})'/g)].map(m=>m[1]);
-  assert.equal(ids.length,6);
-  assert.equal(new Set(ids).size,6);
-  const pairs=page.match(/const matchupPairs=\[(.*?)\]\n/s)?.[1]||'';
-  assert.equal((pairs.match(/\['/g)||[]).length,6);
+test('Sunday Crew release has six unique approved reels with complete packaged assets',()=>{
+  const ids=[...sunday.matchAll(/id:'([a-f0-9]{32})'/g)].map(m=>m[1]);
+  assert.equal(ids.length,6); assert.equal(new Set(ids).size,6);
+  for(const id of ids){
+    assert.ok(exists('public/reels/'+id+'.mp4'),id+' mp4 missing');
+    for(const f of ['index.m3u8','poster.jpg','seg_000.m4s']) assert.ok(exists('public/reels-hls/'+id+'/'+f),id+' '+f+' missing');
+  }
 });
