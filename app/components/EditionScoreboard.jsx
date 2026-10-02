@@ -12,11 +12,11 @@ export default function EditionScoreboard({matchups=[],week=4,rosters=[],headsho
       const hs=Number(g.home?.points||0),as=Number(g.away?.points||0),final=Boolean(g.winner&&g.winner!=='UNDECIDED');
       const awayLead=as>hs;
       const hp=featured(g.home?.teamKey),ap=featured(g.away?.teamKey);
-      return <div className={'match '+(final?'notable':'')} key={g.matchupId||i}>
+      return <div className={'editionScoreMatch '+(final?'notable':'')} key={g.matchupId||i}>
         <div className="editionMatchupPortraits" aria-hidden="true">{hp&&<ResilientImage src={headshot(hp)} alt=""/>}{ap&&<ResilientImage src={headshot(ap)} alt=""/>}</div>
         {final&&<small className="scoreNote">FINAL</small>}
-        <div><b>{g.home?.teamName}</b><strong>{score(hs)}</strong></div>
-        <div><span className={awayLead?'scoreWinner':''}>{g.away?.teamName}</span><strong>{score(as)}</strong></div>
+        <div className="editionScoreRow"><b>{g.home?.teamName}</b><strong>{score(hs)}</strong></div>
+        <div className="editionScoreRow"><span className={awayLead?'scoreWinner':''}>{g.away?.teamName}</span><strong>{score(as)}</strong></div>
       </div>
     })}</div>
   </section>;
