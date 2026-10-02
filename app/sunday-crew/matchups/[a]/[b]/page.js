@@ -43,14 +43,16 @@ export default async function SundayCrewMatchup({params}){
         <article><b>{standing(a)?.wins}-{standing(a)?.losses} / {standing(b)?.wins}-{standing(b)?.losses}</b><span>RECORDS</span></article>
         <article><b>{L.filter(p=>p.status).length+R.filter(p=>p.status).length}</b><span>STARTER STATUS FLAGS</span></article>
       </div></section>
-      <section className="matchupLineups"><div className="matchupSectionHead"><small>STARTING LINEUPS</small><h2>Position by position</h2></div>
-        <div className="lineupRows">{rows.map(([l,r],i)=><div className="lineupRow" key={i}>
-          <div>{l&&<><b>{l.selectedPosition}</b><span>{l.name}</span><strong>{fmt(l.points)}</strong></>}</div>
-          <i>VS</i>
-          <div>{r&&<><b>{r.selectedPosition}</b><span>{r.name}</span><strong>{fmt(r.points)}</strong></>}</div>
+      <section className="lineupPreview">
+        <div className="matchupSectionHead"><div><small>STARTING LINEUPS</small><h2>Position by position</h2></div></div>
+        <div className="lineupTeams"><span>{left.teamName}</span><span>{right.teamName}</span></div>
+        <div>{rows.map(([l,r],i)=><div className="lineupRow" key={i}>
+          <div className="lineupPlayer left">{l&&<><small>{l.selectedPosition}</small><b>{l.name}</b><span>{fmt(l.points)}</span>{l.status&&<em>{l.status}</em>}</>}</div>
+          <div className="lineupVs">VS</div>
+          <div className="lineupPlayer right">{r&&<><small>{r.selectedPosition}</small><b>{r.name}</b><span>{fmt(r.points)}</span>{r.status&&<em>{r.status}</em>}</>}</div>
         </div>)}</div>
       </section>
-      <Link className="back" href="/sunday-crew#scores">← ALL WEEK {week} MATCHUPS</Link>
+      <Link className="matchupBack" href="/sunday-crew#scores">← ALL WEEK {week} MATCHUPS</Link>
     </main>
   </>;
 }
