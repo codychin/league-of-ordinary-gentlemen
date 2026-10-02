@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import ResilientImage from './ResilientImage';
+import MatchupCardGrid from './MatchupCardGrid';
 
 const score=n=>Number(n||0).toFixed(2);
 const projected=n=>Number(n||0).toFixed(1);
@@ -13,26 +12,13 @@ export default function EditionScoreboard({matchups=[],week=4,rosters=[],headsho
       ||ps.find(p=>headshots[String(p.playerId)])||null;
   };
   const image=p=>p?.playerId?(headshots[String(p.playerId)]||''):'';
+  const cards=matchups.map((g,i)=>{
+    const hp=featured(g.home?.teamKey),ap=featured(g.away?.teamKey);
+    return {id:g.matchupId||i,href:`${root}/matchups/${g.home?.teamId}/${g.away?.teamId}`,kicker:`WEEK ${week} • OPEN MATCHUP`,leftName:g.home?.teamName,leftScore:score(g.home?.points),leftProjection:projected(g.home?.projectedPoints),leftImage:image(hp),rightName:g.away?.teamName,rightScore:score(g.away?.points),rightProjection:projected(g.away?.projectedPoints),rightImage:image(ap)};
+  });
   return <section className="section editionScoreSection" id="scores">
     <div className="sectionhead"><div><small className="deskLabel">THE BRIEF • SCOREBOARD</small><h2>Week {week} {allFinal?'Final':'Live'}</h2></div><span>{allFinal?'FINAL SCORES • WEEK '+week+' IN THE BOOKS':'LATEST VERIFIED SCORES'}</span></div>
-    <div className="editionScoreGrid">{matchups.map((g,i)=>{
-      const hs=Number(g.home?.points||0),as=Number(g.away?.points||0),final=Boolean(g.winner&&g.winner!=='UNDECIDED');
-      const hp=featured(g.home?.teamKey),ap=featured(g.away?.teamKey),hi=image(hp),ai=image(ap);
-      const href=`${root}/matchups/${g.home?.teamId}/${g.away?.teamId}`;
-      return <Link className="editionScoreCardLink" href={href} key={g.matchupId||i}><article className={'editionMatchupCard '+(final?'notable':'')}>
-        {final&&<small className="scoreNote">FINAL</small>}
-        <div className="editionCardPortraits" aria-hidden="true">
-          {hi&&<ResilientImage className="editionLeftPlayer" src={hi} alt=""/>}
-          {ai&&<ResilientImage className="editionRightPlayer" src={ai} alt=""/>}
-        </div>
-        <div className="editionCardTeams">
-          <div className="editionCardSide left"><b>{g.home?.teamName}</b><strong>{score(hs)}</strong><em>{projected(g.home?.projectedPoints)} PROJECTED</em></div>
-          <i>VS</i>
-          <div className="editionCardSide right"><b>{g.away?.teamName}</b><strong>{score(as)}</strong><em>{projected(g.away?.projectedPoints)} PROJECTED</em></div>
-        </div>
-        <div className="editionCardPlayers"><span>{hp?.name||''}</span><span>{ap?.name||''}</span></div>
-        <span className="editionCardOpen">OPEN MATCHUP →</span>
-      </article></Link>
-    })}</div>
+    <MatchupCardGrid cards={cards}/>
   </section>;
+}
 }
