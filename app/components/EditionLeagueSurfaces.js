@@ -3,7 +3,7 @@ import SchefterTransactionFeed from './SchefterTransactionFeed';
 const money=n=>Number(n??0).toFixed(0);
 const pts=n=>Number(n??0).toFixed(2);
 
-export default function EditionLeagueSurfaces({edition}){
+export default function EditionLeagueSurfaces({edition,headshots={}}){
   const s=edition?.snapshots||{};
   const standings=s.standings?.data?.data?.standings||[];
   const matchups=s.matchups?.data?.data?.matchups||[];
@@ -27,7 +27,7 @@ export default function EditionLeagueSurfaces({edition}){
       </div>
     </section>
 
-    <EditionScoreboard matchups={matchups} rosters={rosters} week={edition.league?.settings?.currentWeek||4}/>
+    <EditionScoreboard matchups={matchups} rosters={rosters} headshots={headshots} week={edition.league?.settings?.currentWeek||4}/>
 
     <section className="section standingsWrap" id="standings"><div className="sectionhead"><div><small className="deskLabel">THE TABLE</small><h2>Standings</h2></div><span>THROUGH WEEK 3</span></div><table className="standingsTable"><thead><tr><th>#</th><th>FRANCHISE</th><th>W-L</th><th>PF</th><th>PA</th><th>FAAB</th></tr></thead><tbody>{standings.map(t=><tr key={t.teamKey}><td>{t.rank}</td><td>{t.name}</td><td>{t.wins}-{t.losses}</td><td>{pts(t.pointsFor)}</td><td>{pts(t.pointsAgainst)}</td><td>{'$'+money(t.faabBalance)}</td></tr>)}</tbody></table></section>
 
