@@ -276,9 +276,26 @@ function MobileAppNav(){
     setMoreOpen(false)
     const standalone=document.documentElement.classList.contains('standaloneApp')
 
-    // On ordinary mobile web, let Link/native hash navigation handle anchors and routes.
-    // Custom tab-state routing is only for the installed app shell.
-    if(!standalone) return
+    // Mobile web gets deterministic navigation too; do not rely on stale hashes or Next Link state.
+    if(!standalone){
+      event.preventDefault()
+      if(item.href===teamsPath){window.location.assign(teamsPath);return}
+      if(!isEditionHome){window.location.assign(item.href);return}
+      setActiveTab(item.tab)
+      document.documentElement.dataset.appTab=item.tab
+      if(item.tab==='home'){
+        window.history.replaceState(window.history.state,'',homePath)
+        resetAppScroll()
+        return
+      }
+      if(item.hash){
+        window.history.replaceState(window.history.state,'',homePath+item.hash)
+        document.getElementById(item.hash.slice(1))?.scrollIntoView({behavior:'auto',block:'start'})
+        return
+      }
+      window.location.assign(item.href)
+      return
+    }
 
     if(item.href===teamsPath){
       event.preventDefault()
