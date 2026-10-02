@@ -617,3 +617,34 @@
 .editionScoreCardLink .editionMatchupCard{height:100%}
 .editionCardOpen{position:absolute;z-index:5;left:14px;right:14px;bottom:0;height:28px;display:flex;align-items:center;justify-content:center;border-top:1px solid rgba(17,16,14,.14);background:var(--paper);font:900 8px/1 Arial,sans-serif;letter-spacing:1px;color:var(--red)}
 .editionScoreGrid .editionCardPlayers{bottom:32px}
+
+
+/* Shared matchup cards — one geometry for every league/provider. */
+.briefMatchupGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.briefMatchupLink{display:block;min-width:0;color:inherit;text-decoration:none}
+.briefMatchupCard{position:relative;box-sizing:border-box;height:224px;padding:38px 16px 34px;border:1px solid var(--ink);overflow:hidden;background:var(--paper)}
+.briefMatchupKicker{position:absolute;top:14px;left:12px;right:12px;text-align:center;font:900 8px/1 Arial,sans-serif;letter-spacing:1.25px;color:var(--red);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.briefMatchupTeams{position:relative;z-index:3;display:grid;grid-template-columns:minmax(0,1fr) 38px minmax(0,1fr);gap:6px;height:92px;align-items:start}
+.briefMatchupSide{display:grid;grid-template-rows:44px 29px 13px;gap:2px;min-width:0;align-content:start;text-align:left}
+.briefMatchupRight{text-align:right;justify-items:end}
+.briefMatchupSide b{width:100%;margin:0;font:700 20px/.94 Georgia,serif;letter-spacing:-.45px;overflow-wrap:normal;word-break:normal}
+.briefMatchupSide strong{font:900 27px/1 Arial,sans-serif}
+.briefMatchupSide em{font:800 7px/1 Arial,sans-serif;letter-spacing:.45px;color:var(--muted);font-style:normal;white-space:nowrap}
+.briefMatchupTeams>i{margin-top:51px;text-align:center;color:var(--red);font:900 20px/1 Georgia,serif;font-style:normal}
+.briefMatchupPortraits{position:absolute;z-index:1;left:14px;right:14px;top:126px;bottom:34px;overflow:hidden;pointer-events:none}
+.briefMatchupPortraits img{position:absolute;bottom:0;width:39%;height:82px;object-fit:contain;object-position:center bottom;filter:grayscale(1) contrast(1.08);opacity:.9}
+.briefMatchupLeftPlayer{left:2%}.briefMatchupRightPlayer{right:2%;transform:scaleX(-1)}
+.briefMatchupOpen{position:absolute;z-index:4;left:14px;right:14px;bottom:0;height:34px;display:flex;align-items:center;justify-content:center;border-top:1px solid rgba(17,16,14,.16);background:var(--paper);font:900 8px/1 Arial,sans-serif;letter-spacing:1px;color:var(--red)}
+@media(max-width:760px){
+  .briefMatchupGrid{grid-template-columns:1fr;gap:12px}
+  .briefMatchupCard{height:214px;padding:36px 14px 32px}
+  .briefMatchupTeams{grid-template-columns:minmax(0,1fr) 34px minmax(0,1fr);gap:5px;height:88px}
+  .briefMatchupSide{grid-template-rows:42px 28px 12px}
+  .briefMatchupSide b{font-size:18px;line-height:.94}
+  .briefMatchupSide strong{font-size:26px}
+  .briefMatchupTeams>i{margin-top:49px;font-size:19px}
+  .briefMatchupPortraits{top:120px;bottom:32px}
+  .briefMatchupPortraits img{height:76px;width:39%}
+  .briefMatchupOpen{height:32px}
+  #week4,#scores{scroll-margin-top:0!important}
+}
