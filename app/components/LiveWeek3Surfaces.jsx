@@ -26,8 +26,8 @@ export default function LiveWeek3Surfaces({matchupPairs=[],teamVisuals={},finalW
   if(!games.length||finalWeek)return null;
 
   return <>
-    <section className="section upcoming" id="week3">
-      <div className="scoreHero"><div><small>THE BRIEF • WEEK 3</small><h2>Week 3</h2></div><span>LIVE SCORE ENGINE • AUTO-REFRESH</span></div>
+    <section className="section upcoming" id="week4">
+      <div className="scoreHero"><div><small>THE BRIEF • WEEK 3</small><h2>Week 4</h2></div><span>LIVE SCORE ENGINE • AUTO-REFRESH</span></div>
       <div className="upcomingGrid">{games.map((g,i)=>{
         const left=slugMap[g.home?.name],right=slugMap[g.away?.name];
         const note=matchupPairs.find(x=>(x[0]===left&&x[1]===right)||(x[0]===right&&x[1]===left))?.[2]||'WEEK 3';
@@ -40,7 +40,7 @@ export default function LiveWeek3Surfaces({matchupPairs=[],teamVisuals={},finalW
       })}</div>
     </section>
     <section className="section scoreSection" id="scores">
-      <div className="sectionhead"><div><small className="deskLabel">THE BRIEF • SCOREBOARD</small><h2>Week 3</h2></div><span>{data?.stale?'SCORES DELAYED':'LIVE ENGINE'}{data?.updatedAt?` • UPDATED ${new Date(data.updatedAt).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',timeZone:'America/New_York'})}`:''}</span></div>
+      <div className="sectionhead"><div><small className="deskLabel">THE BRIEF • SCOREBOARD</small><h2>Week 4</h2></div><span>{data?.stale?'SCORES DELAYED':'LIVE ENGINE'}{data?.updatedAt?` • UPDATED ${new Date(data.updatedAt).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',timeZone:'America/New_York'})}`:''}</span></div>
       <div className="scores">{games.map((g,i)=><div className="match" key={g.id||i}><div><b>{g.home?.name}</b><strong>{num(g.home?.score)}</strong></div><div><span>{g.away?.name}</span><strong>{num(g.away?.score)}</strong></div></div>)}</div>
     </section>
   </>;
