@@ -4,9 +4,9 @@ import {useEffect,useRef,useState} from 'react';
 import {flushSync} from 'react-dom';
 import styles from './ReelsShelf.module.css';
 
-const STORAGE_KEY='brief-week4-preview-viewed-v1';
+const STORAGE_KEY='brief-week3-roundup-viewed-v1';
 
-export default function ReelsShelf({reels=[],releaseId='week4-preview-v1'}){
+export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1'}){
   const [active,setActive]=useState(null);
   const [viewed,setViewed]=useState({});
   const [showMeta,setShowMeta]=useState(true);
@@ -149,9 +149,9 @@ export default function ReelsShelf({reels=[],releaseId='week4-preview-v1'}){
 
   if(!releaseReady)return null;
 
-  return <section className={styles.wrap} aria-label="Week 4 preview videos">
+  return <section className={styles.wrap} aria-label="Week 3 roundup videos">
     <div className={styles.head}>
-      <div><small>THE BRIEF • WEEK 4</small><h2>Week 4 previews.</h2></div>
+      <div><small>THE BRIEF • WEEK 3</small><h2>Week 3, roundup.</h2></div>
       <span>6 MATCHUPS • 6 CORRESPONDENTS</span>
     </div>
     <div className={styles.rail}>
@@ -182,7 +182,7 @@ export default function ReelsShelf({reels=[],releaseId='week4-preview-v1'}){
         <button className={`${styles.tapZone} ${styles.tapPrev}`} onClick={()=>move(-1)} aria-label="Previous reel"/>
         <button className={`${styles.tapZone} ${styles.tapNext}`} onClick={()=>move(1)} aria-label="Next reel"/>
         <div className={`${styles.meta} ${showMeta?styles.metaOn:''}`}>
-          <small>WEEK 4 • PREVIEW</small>
+          <small>WEEK 3 • ROUNDUP</small>
           <b>{reel.matchup}</b>
           <span>{reel.correspondent}</span>
         </div>
