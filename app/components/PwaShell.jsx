@@ -345,11 +345,11 @@ function MobileAppNav(){
     <div className="appSectionHeader" aria-hidden="true"><span>{headerLabel}</span></div>
     {moreOpen&&<aside className="appMoreSheet" aria-label="More and settings">
       <div className="appMoreHead"><small>THE BRIEF</small><b>More</b><button type="button" onClick={()=>setMoreOpen(false)} aria-label="Close more menu">×</button></div>
-      <div className="appSettings"><small>SETTINGS</small><ArticleAlertSettings/></div>
-      <div className="appMoreLinks">
+      {!editionRoot&&<div className="appSettings"><small>SETTINGS</small><ArticleAlertSettings/></div>}
+      <div className="appMoreLinks">{editionRoot?<Link href="/sunday-crew#newsroom"><MoreMenuIcon name="Staff"/><span>Sunday Crew newsroom</span></Link>:<>
         <Link href="/archive"><MoreMenuIcon name="Archive"/><span>Archive</span></Link>
         <Link href="/staff"><MoreMenuIcon name="Staff"/><span>Staff</span></Link>
-        <Link href="/corrections"><MoreMenuIcon name="Corrections"/><span>Corrections</span></Link>
+        <Link href="/corrections"><MoreMenuIcon name="Corrections"/><span>Corrections</span></Link></>}
       </div>
     </aside>}
     <nav className="appTabBar" data-active-tab={moreOpen?'more':activeTab==='detail'?'home':activeTab} aria-label="App navigation">
@@ -430,7 +430,10 @@ function PullToRefresh(){
   return <div className="pullRefresh" ref={indicatorRef} aria-hidden="true"><span/><b/></div>
 }
 
-function InstallPrompt(){
+function InstallPrompt({sundayCrew=false}){
+  const dismissKey=sundayCrew?'sunday-crew-install-dismissed':DISMISS_KEY
+  const appName=sundayCrew?'Sunday Crew':'The Brief'
+  const installUrl=sundayCrew?'ordinarybrief.com/sunday-crew':'ordinarybrief.com'
   const [installEvent,setInstallEvent]=useState(null)
   const [show,setShow]=useState(false)
   const [expanded,setExpanded]=useState(false)
@@ -445,7 +448,7 @@ function InstallPrompt(){
     setIsIOS(ios)
     setIsSafari(safari)
 
-    const dismissed=window.localStorage.getItem(DISMISS_KEY)==='true'
+    const dismissed=window.localStorage.getItem(dismissKey)==='true'
     if(!standalone&&mobile&&!dismissed&&ios) setShow(true)
 
     const captureInstall=(event)=>{
@@ -458,7 +461,7 @@ function InstallPrompt(){
   },[])
 
   const dismiss=()=>{
-    window.localStorage.setItem(DISMISS_KEY,'true')
+    window.localStorage.setItem(dismissKey,'true')
     setShow(false)
   }
 
@@ -475,17 +478,17 @@ function InstallPrompt(){
 
   if(!show) return null
 
-  return <aside className={`installPrompt ${expanded?'expanded':''}`} aria-label="Download the Ordinary Brief app">
+  return <aside className={`installPrompt ${expanded?'expanded':''}`} aria-label={`Install ${appName}`}>
     <button className="installDismiss" type="button" onClick={dismiss} aria-label="Dismiss app download message">×</button>
-    <div className="installMark">OB</div>
+    <div className="installMark">{sundayCrew?'SC':'OB'}</div>
     <div className="installCopy">
-      <b>Download the Ordinary Brief app</b>
-      <span>Faster access, push alerts, and journalism without purpose — now with an icon.</span>
+      <b>{sundayCrew?'Install Sunday Crew':'Download the Ordinary Brief app'}</b>
+      <span>{sundayCrew?'Your league, scores and stories — straight from your home screen.':'Faster access, push alerts, and journalism without purpose — now with an icon.'}</span>
       {expanded&&<div className="installSteps">{isIOS
         ? isSafari
-          ? <><span><i>1</i>Tap the <strong>Share</strong> button in Safari.</span><span><i>2</i>Choose <strong>Add to Home Screen</strong>.</span><span><i>3</i>Tap <strong>Add</strong>. The Brief will appear with your apps.</span></>
-          : <><span><i>1</i>Open <strong>ordinarybrief.com</strong> in Safari.</span><span><i>2</i>Tap <strong>Share</strong>, then <strong>Add to Home Screen</strong>.</span><span><i>3</i>Tap <strong>Add</strong>. You're in.</span></>
-        : <span>Use your browser's <strong>Install app</strong> option to add The Brief.</span>}</div>}
+          ? <><span><i>1</i>Tap the <strong>Share</strong> button in Safari.</span><span><i>2</i>Choose <strong>Add to Home Screen</strong>.</span><span><i>3</i>Tap <strong>Add</strong>. {appName} will appear with your apps.</span></>
+          : <><span><i>1</i>Open <strong>{installUrl}</strong> in Safari.</span><span><i>2</i>Tap <strong>Share</strong>, then <strong>Add to Home Screen</strong>.</span><span><i>3</i>Tap <strong>Add</strong>. You're in.</span></>
+        : <span>Use your browser's <strong>Install app</strong> option to add {appName}.</span>}</div>}
     </div>
     <button className="installAction" type="button" onClick={install}>{installEvent?'DOWNLOAD APP':expanded?'CLOSE':'DOWNLOAD APP'}</button>
   </aside>
@@ -500,5 +503,5 @@ export default function PwaShell(){
   },[])
 
   if(pathname.startsWith('/manage'))return null
-  return <><PullToRefresh/><InstallPrompt/><NotificationCenter/><MobileAppNav/></>
+  return <><PullToRefresh/><InstallPrompt key={pathname.startsWith('/sunday-crew')?'sunday-crew':'brief'} sundayCrew={pathname.startsWith('/sunday-crew')}/>{!pathname.startsWith('/sunday-crew')&&<NotificationCenter/>}<MobileAppNav/></>
 }
