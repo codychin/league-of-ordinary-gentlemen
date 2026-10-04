@@ -4,6 +4,15 @@ import ResilientImage from './ResilientImage';
 
 export default function SharedEditorialFront(){
   return <>
+<section className="hero heroStack" aria-label="Marnie Kells on Tee Higgins">
+  <Link className="hero-copy storylink" href="/articles/marnie-tee-higgins-ankles">
+    <div className="eyebrow">MATTERS OF CULTURE • IN MEMORIAM • OCTOBER 4</div>
+    <h2>Tee Higgins’ Ankles Have Asked to Be Buried Separately</h2>
+    <PreviewAuthor slug="marnie-tee-higgins-ankles"/>
+    <p className="standfirst">The family is contesting Travis Hunter’s appointment as executor.</p>
+    <div className="read">READ MARNIE • WATCH THE EVIDENCE</div>
+  </Link>
+</section>
 <aside aria-label="Breaking news" style={{borderTop:'4px solid #a32626',borderBottom:'1px solid currentColor',padding:'16px 0',marginBottom:24}}>
   <div className="eyebrow" style={{color:'#a32626'}}>BREAKING NEWS • GLOBAL UPDATE</div>
   <a href="https://x.com/ab84/status/2105831116464886238" target="_blank" rel="noopener noreferrer" className="storylink"><h2 style={{fontSize:'clamp(22px, 3.5vw, 34px)',lineHeight:1.15,margin:'8px 0'}}>Antonio Brown Bombs Hospital in Mike Tomlin’s Minecraft City</h2></a>
