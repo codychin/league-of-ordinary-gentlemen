@@ -1,3 +1,4 @@
+import {nflEvidence} from './evidence.ts'
 import {editorialContract,draftProblems,validReview,reviewedForPublication,MAX_REVISIONS} from './contract.ts'
 import {publishable} from './quality.ts'
 import {redundant} from './editorial.ts'
@@ -11,14 +12,18 @@ export async function advanceRun(d:any,models:any) {
   const {error}=await d.from('brief_editorial_runs').update({...values,updated_at:new Date().toISOString()}).eq('id',run.id)
   if(error) throw error
  }
+ if((run.attempts||0)>=16||(run.created_at&&Date.now()-new Date(run.created_at).getTime()>25*60*1000)){
+  await save({status:'rejected',error:'Expired evidence or retry limit reached'});return {ok:true,id:run.id,status:'rejected'}
+ }
  // Pin once before any model call. Existing jobs retain their exact instructions.
  if(!run.packet?.editorial_contract) {
   await save({packet:{...run.packet,editorial_contract:editorialContract()}})
   return {ok:true,id:run.id,status:run.status,contract_pinned:true}
  }
- const packet=run.packet,contract=packet.editorial_contract
+ let packet=run.packet;const contract=packet.editorial_contract
  await save({attempts:(run.attempts||0)+1})
  if(run.status==='queued') {
+  if(!packet.nfl?.details?.length){packet={...packet,nfl:await nflEvidence()};await save({packet})}
   const research=await models.researchConnections(packet)
   const x=await models.editorialMeeting(packet,research?.connections||[])
   if(!Array.isArray(x?.pitches)||x.pitches.length>3) throw new Error('Invalid pitch count')
@@ -33,7 +38,7 @@ export async function advanceRun(d:any,models:any) {
   return {ok:true,id:run.id,status:x.publish?'selected':'complete'}
  }
  const pitch=(run.pitches?.pitches||[]).find((p:any)=>p.id===run.decision?.pitch_id)
- if(!pitch) throw new Error('Selected pitch missing')
+ if(!pitch){await save({status:'rejected',error:'Selected pitch missing'});return {ok:true,id:run.id,status:'rejected'}}
  if(run.status==='selected') {
   const x=await models.writePost(packet,pitch),problems=draftProblems(x,pitch)
   if(problems.length) throw new Error(problems.join('; '))

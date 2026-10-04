@@ -1,3 +1,4 @@
+import {nflEvidence} from './evidence.ts'
 import {advanceRun} from './workflow.ts'
 import {editorialContract} from './contract.ts'
 
@@ -32,21 +33,6 @@ export function editionContext(edition:any,now=Date.now()){
  }
  local.rules='This edition is Sunday Crew only. Historical standings are dated background, not live results. Missing current rosters, scores and transactions are UNKNOWN. Never claim current ownership, starters, scores or matchups without current evidence. Do not borrow LOOG identities or jokes.'
  return local
-}
-async function nflEvidence(){
- const r=await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard',{headers:{'Accept':'application/json','User-Agent':'Mozilla/5.0'},signal:AbortSignal.timeout(12000)})
- if(!r.ok)throw new Error('NFL reporting unavailable: '+r.status)
- const board=await r.json(),events=board.events||[]
- const result=events.map((e:any)=>({id:e.id,name:e.name,date:e.date,status:e.status,competitions:e.competitions,links:e.links}))
- // Include actual box scores for analytical posts, not invented advanced metrics.
- const active=events.filter((e:any)=>['in','post'].includes(e.status?.type?.state)).slice(0,12)
- const summaries=await Promise.allSettled(active.map(async(e:any)=>{
-  const response=await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event='+e.id,{signal:AbortSignal.timeout(10000)})
-  if(!response.ok)return null
-  const s=await response.json()
-  return {event:e.id,boxscore:s.boxscore,scoringPlays:s.scoringPlays,news:s.news,source:'ESPN',source_url:'https://www.espn.com/nfl/game/_/gameId/'+e.id}
- }))
- return {as_of:new Date().toISOString(),scoreboard:result,details:summaries.flatMap(x=>x.status==='fulfilled'&&x.value?[x.value]:[])}
 }
 export async function advanceEdition(db:any,models:any,slug='sunday-crew'){
  if(!deskOpen())return {ok:true,edition:slug,closed:true}

@@ -121,6 +121,11 @@ async function publishCandidate(d:any,now:Date){
 Deno.serve(async req=>{
  const d=db(),url=new URL(req.url),action=url.searchParams.get('action')||'scores'
  if(req.method==='OPTIONS')return new Response('ok',{headers:{'Access-Control-Allow-Origin':'*'}})
+ if(action==='details'){
+  const {data}=await d.from('brief_live_detail_state').select('*').order('captured_at',{ascending:false}).limit(1).maybeSingle()
+  if(!data)return json({ok:false,error:'No detail snapshot'},503)
+  return json({ok:true,source:data.source,week:data.week,updatedAt:data.captured_at,...data.payload})
+ }
  if(action==='scores'){
   const {data}=await d.from('brief_live_score_state').select('*').order('captured_at',{ascending:false}).limit(1).maybeSingle()
   if(!data)return json({ok:false,error:'No score snapshot'},503)
@@ -128,16 +133,18 @@ Deno.serve(async req=>{
  }
  if(action!=='tick')return json({error:'not found'},404)
  try{
-  const api=`https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/${SEASON}/segments/0/leagues/${LEAGUE}?view=mMatchup&view=mMatchupScore&view=mTeam`
+  const api=`https://lm-api-reads.fantasy.espn.com/apis/v3/games/ffl/seasons/${SEASON}/segments/0/leagues/${LEAGUE}?view=mMatchup&view=mMatchupScore&view=mTeam&view=mRoster`
   const r=await fetch(api,{headers:{Accept:'application/json'}})
   if(!r.ok)throw new Error('ESPN '+r.status)
   const raw=await r.json(),period=Number(raw?.scoringPeriodId||raw?.status?.currentMatchupPeriod||3)
   const names=new Map((raw?.teams||[]).map((t:any)=>[Number(t.id),t.location&&t.nickname?`${t.location} ${t.nickname}`:t.name||t.abbrev]))
   const side=(x:any)=>{const id=Number(x?.teamId),live=x?.pointsByScoringPeriod?.[period];return{id,name:names.get(id)||`Team ${id}`,score:Number.isFinite(Number(live))?Number(live):Number(x?.totalPoints||0),projection:Number(x?.totalProjectedPoints||0)}}
   const games=(raw?.schedule||[]).filter((m:any)=>Number(m.matchupPeriodId)===period).map((m:any)=>({id:m.id,winner:m.winner||'UNDECIDED',home:side(m.home),away:side(m.away)}))
+  const teams=(raw?.teams||[]).map((t:any)=>({id:Number(t.id),name:names.get(Number(t.id))||t.name||t.abbrev,roster:(t?.roster?.entries||[]).map((e:any)=>{const p=e?.playerPoolEntry?.player||{};const ps=p?.stats||[];const wk=ps.find((s:any)=>Number(s.scoringPeriodId)===period&&Number(s.statSourceId)===0)||ps.find((s:any)=>Number(s.scoringPeriodId)===period);return {id:String(p.id||''),name:p.fullName||p.name||'Unknown',slotId:Number(e.lineupSlotId),status:p.injuryStatus||'',weekPoints:Number(wk?.appliedTotal||0),seasonPoints:Number((ps.find((s:any)=>Number(s.statSourceId)===0&&Number(s.scoringPeriodId)===0)||{}).appliedTotal||0)}}) }))
   if(!games.length)throw new Error('No matchups')
   const {data:prev}=await d.from('brief_live_score_state').select('*').order('captured_at',{ascending:false}).limit(1).maybeSingle()
   await d.from('brief_live_score_state').insert({source:'espn',week:period,payload:{matchups:games}})
+  await d.from('brief_live_detail_state').insert({source:'espn',week:period,payload:{matchups:games,teams}})
   const now=new Date(),ny=Number(new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',hour:'2-digit',hour12:false}).format(now))
   if(ny>=13&&ny<24){
     const {data:last}=await d.from('brief_live_desk_posts').select('published_at').eq('status','live').order('published_at',{ascending:false}).limit(1).maybeSingle()
@@ -156,7 +163,7 @@ Deno.serve(async req=>{
     const {data:last}=await d.from('brief_live_desk_posts').select('published_at').eq('status','live').order('published_at',{ascending:false}).limit(1).maybeSingle()
     const mins=last?.published_at?(Date.now()-new Date(last.published_at).getTime())/60000:99
     if(ny>=13&&ny<24&&mins>=3){
-      if(!(await publishCandidate(d,now))) await generateAndPublish(d,snap.payload.matchups,previousSnap?.payload?.matchups||[],now)
+      if(!(await publishCandidate(d,now))) await generateAndPublish(d,Date.now()-new Date(snap.captured_at).getTime()<900000?snap.payload.matchups:[],[],now)
     }
     return json({ok:true,source:'verified-snapshot',stale:true,error,matchups:snap.payload.matchups})
   }

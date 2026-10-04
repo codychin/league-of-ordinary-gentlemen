@@ -117,3 +117,17 @@ test('all six desk profiles and no-quota policy are retained',()=>{
  assert.match(contractInstructions(c),/at most three/)
  assert.match(c.desks.crane,/Let the material determine structure/)
 })
+
+test('a malformed selected pitch is retired rather than blocking every later job',async()=>{
+ const f=fixture();f.state.run.decision.pitch_id='missing'
+ const result=await advanceRun(f.db,f.models)
+ assert.equal(result.status,'rejected');assert.equal(f.state.run.error,'Selected pitch missing')
+ assert.deepEqual(f.calls,[])
+})
+test('expired jobs and exhausted retries are retired without model spending',async()=>{
+ for(const patch of [{created_at:'2026-09-01T00:00:00Z'},{attempts:16}]){
+  const f=fixture();Object.assign(f.state.run,patch)
+  assert.equal((await advanceRun(f.db,f.models)).status,'rejected')
+  assert.deepEqual(f.calls,[])
+ }
+})
