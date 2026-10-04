@@ -1,3 +1,4 @@
+import {deskAssignment} from './assignment.ts'
 import {nflEvidence} from './evidence.ts'
 import {editorialContract,draftProblems,validReview,reviewedForPublication,MAX_REVISIONS} from './contract.ts'
 import {publishable} from './quality.ts'
@@ -23,7 +24,10 @@ export async function advanceRun(d:any,models:any) {
  let packet=run.packet;const contract=packet.editorial_contract
  await save({attempts:(run.attempts||0)+1})
  if(run.status==='queued') {
-  if(!packet.nfl?.details?.length){packet={...packet,nfl:await nflEvidence()};await save({packet})}
+  if(!packet.nfl?.details?.length){packet={...packet,reporting:Array.isArray(packet.nfl)?packet.nfl:packet.reporting,nfl:await nflEvidence()}}
+  const {data:bylines,error:bylineError}=await d.from('brief_live_desk_posts').select('writer,subject,published_at').eq('status','live').order('sort_time',{ascending:false}).limit(6)
+  if(bylineError)throw bylineError
+  packet={...packet,assignment:deskAssignment(bylines||[])};await save({packet})
   const research=await models.researchConnections(packet)
   const x=await models.editorialMeeting(packet,research?.connections||[])
   if(!Array.isArray(x?.pitches)||x.pitches.length>3) throw new Error('Invalid pitch count')
@@ -31,9 +35,10 @@ export async function advanceRun(d:any,models:any) {
   return {ok:true,id:run.id,status:'pitched'}
  }
  if(run.status==='pitched') {
-  const x=await models.selectPitch(packet,run.pitches?.pitches||[])
+  const eligible=(run.pitches?.pitches||[]).filter((p:any)=>!packet.assignment?.cooling_desks?.includes(p.writer))
+  const x=await models.selectPitch(packet,eligible)
   if(typeof x?.publish!=='boolean') throw new Error('Invalid editorial decision')
-  if(x.publish && !(run.pitches?.pitches||[]).some((p:any)=>p.id===x.pitch_id)) throw new Error('Selected pitch missing')
+  if(x.publish && !eligible.some((p:any)=>p.id===x.pitch_id)) throw new Error('Selected pitch missing')
   await save({status:x.publish?'selected':'complete',decision:x,error:null})
   return {ok:true,id:run.id,status:x.publish?'selected':'complete'}
  }

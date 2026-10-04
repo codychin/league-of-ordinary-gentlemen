@@ -131,3 +131,33 @@ test('expired jobs and exhausted retries are retired without model spending',asy
   assert.deepEqual(f.calls,[])
  }
 })
+
+test('batch publishes through independent review without cron gaps',async()=>{
+ const {advanceBatch}=await import('../supabase/functions/brief-editorial-worker/cadence.ts')
+ const f=fixture();const result=await advanceBatch(f.db,f.models)
+ assert.equal(result.status,'published');assert.deepEqual(f.calls,['write','review']);assert.equal(f.state.posts.length,1)
+})
+test('batch still rejects a draft that cannot pass revision',async()=>{
+ const {advanceBatch}=await import('../supabase/functions/brief-editorial-worker/cadence.ts')
+ const f=fixture();f.models.reviewPost=async()=>({verdict:'revise',reason:'Unsupported conclusion',issues:['Remove the claim']})
+ const result=await advanceBatch(f.db,f.models)
+ assert.equal(result.status,'rejected');assert.equal(f.state.posts.length,0)
+})
+test('assignment cools consecutive bylines without pretending other voices are interchangeable',async()=>{
+ const {deskAssignment}=await import('../supabase/functions/brief-editorial-worker/assignment.ts')
+ const assignment=deskAssignment([{writer:'gannon'},{writer:'gannon'},{writer:'pike'}])
+ assert.deepEqual(assignment.cooling_desks,['gannon']);assert.equal(assignment.priority_desks.includes('gannon'),false)
+ assert.equal(assignment.priority_desks[0],'crane')
+})
+test('model packet preserves box score labels, facts and sources and deduplicates syndicated news',async()=>{
+ const {modelEvidence}=await import('../supabase/functions/brief-editorial-worker/compact.ts')
+ const article={id:1,headline:'Verified headline',description:'Verified detail',published:'2026-10-04'}
+ const game={event:'1',source_url:'https://example.com/1',news:{articles:[article]},boxscore:{players:[{team:{displayName:'Team A',logo:'discard'},statistics:[{name:'passing',labels:['YDS'],descriptions:['Yards'],athletes:[{athlete:{id:'2',displayName:'Player A',headshot:'discard'},stats:['123']}]}]}]}}
+ const input={packet:{nfl:{as_of:'2026-10-04',scoreboard:[],details:[game,{...game,event:'2'}]}}}
+ const out=modelEvidence(input)
+ assert.equal(out.packet.nfl.reporting.length,1)
+ assert.equal(out.packet.nfl.details[0].source_url,game.source_url)
+ assert.deepEqual(out.packet.nfl.details[0].boxscore.players[0].statistics[0].athletes[0],{athlete:{id:'2',displayName:'Player A'},stats:['123']})
+ assert.equal(JSON.stringify(out).includes('discard'),false)
+ assert.equal(game.boxscore.players[0].team.logo,'discard')
+})
