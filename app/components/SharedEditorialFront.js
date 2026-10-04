@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import ArticleClip from './ArticleClip';
 import PreviewAuthor from './PreviewAuthor';
 import ResilientImage from './ResilientImage';
 
@@ -10,8 +11,9 @@ export default function SharedEditorialFront(){
     <h2>Tee Higgins’ Ankles Have Asked to Be Buried Separately</h2>
     <PreviewAuthor slug="marnie-tee-higgins-ankles"/>
     <p className="standfirst">The family is contesting Travis Hunter’s appointment as executor.</p>
-    <div className="read">READ MARNIE • WATCH THE EVIDENCE</div>
+    <div className="read">READ MARNIE</div>
   </Link>
+  <ArticleClip tweetId="2106801789630919072" url="https://x.com/fballforeverhq/status/2106801789630919072" caption="The following footage has been admitted into evidence over the family’s objections."/>
 </section>
 <aside aria-label="Breaking news" style={{borderTop:'4px solid #a32626',borderBottom:'1px solid currentColor',padding:'16px 0',marginBottom:24}}>
   <div className="eyebrow" style={{color:'#a32626'}}>BREAKING NEWS • GLOBAL UPDATE</div>
