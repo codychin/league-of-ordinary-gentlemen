@@ -4,6 +4,7 @@ import EditionLeagueSurfaces from '../components/EditionLeagueSurfaces';
 import CultureDesk from '../components/CultureDesk';
 import {getEditionData,getEditionArticles,getNflHeadshotsByYahooId} from '../../lib/edition-data';
 import ReelsShelf from '../components/ReelsShelf';
+import SundayLiveDesk from '../components/SundayLiveDesk';
 import {writers} from '../articles/writers';
 
 export const dynamic='force-dynamic';
@@ -27,9 +28,10 @@ export default async function SundayCrewPage(){
     <header>
       <div className="utility"><span className="utilityMain">SUNDAY CREW EDITION <i>•</i> JOURNALISM WITHOUT PURPOSE</span></div>
       <div className="mast"><h1>{edition.tenant.publication_name}</h1><div className="dek">Fantasy football, personal grievances, forensic accounting and other matters of irrelevance.</div></div>
-      <nav className="siteNav"><Link href="/sunday-crew">HOME</Link><Link href="/sunday-crew#league">THE LEAGUE</Link><Link href="/sunday-crew#standings">STANDINGS</Link><Link href="/sunday-crew#transactions">THE WIRE</Link><Link href="/sunday-crew#scores">SCORES</Link><Link href="/sunday-crew/newsroom">MASTHEAD</Link></nav>
+      <nav className="siteNav"><Link href="/sunday-crew">HOME</Link><Link href="/sunday-crew#live-desk">LIVE DESK</Link><Link href="/sunday-crew#league">THE LEAGUE</Link><Link href="/sunday-crew#standings">STANDINGS</Link><Link href="/sunday-crew#transactions">THE WIRE</Link><Link href="/sunday-crew#scores">SCORES</Link><Link href="/sunday-crew/newsroom">MASTHEAD</Link></nav>
     </header>
     <main>
+      <SundayLiveDesk editionSlug="sunday-crew" editionLabel="SUNDAY CREW" staffPath="/sunday-crew/newsroom"/>
       <ReelsShelf reels={reels} releaseId="sunday-crew-week4-preview-v1" storageKey="brief-sunday-crew-week4-preview-viewed-v1" weekLabel="THE BRIEF • SUNDAY CREW • WEEK 4" title="Week 4 previews." modeLabel="SUNDAY CREW • WEEK 4 • PREVIEW"/>
       <SharedEditorialFront/>
       {localArticles.length>0&&<section style={{padding:'28px 0',borderTop:'2px solid #11100e'}}><div style={{fontSize:11,fontWeight:800,letterSpacing:2,color:'#b21f24'}}>FROM THE SUNDAY CREW BUREAU</div><div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(240px,1fr))',gap:24,marginTop:20}}>{localArticles.map(article=><article key={article.id}><Link href={'/sunday-crew/articles/'+article.slug} style={{color:'#11100e',textDecoration:'none'}}><h2 style={{fontFamily:'Georgia,serif',fontSize:28,lineHeight:1.1}}>{article.title}</h2><p style={{fontSize:14,lineHeight:1.5}}>{article.dek}</p></Link></article>)}</div></section>}

@@ -14,12 +14,13 @@ const liveNow=()=>{
   }catch{return false}
 }
 
-export default function SundayLiveDesk(){
+export default function SundayLiveDesk({editionSlug=null,editionLabel='THE NEWSROOM',staffPath='/staff'}){
   const [posts,setPosts]=useState([])
   const [filter,setFilter]=useState('all')
   const [page,setPage]=useState(1)
   const pageSize=5
-  const [isLive,setIsLive]=useState(()=>liveNow())
+  const [isLive,setIsLive]=useState(false)
+  const [loadState,setLoadState]=useState('loading')
   useEffect(()=>{
     const check=()=>setIsLive(liveNow())
     check()
@@ -29,14 +30,14 @@ export default function SundayLiveDesk(){
   useEffect(()=>{
     if(!isLive)return
     let active=true
-    const load=()=>fetch(API+'?action=live&_='+Date.now(),{cache:'no-store',headers:{'Cache-Control':'no-cache','Pragma':'no-cache'}}).then(r=>r.ok?r.json():Promise.reject()).then(({posts=[]})=>{if(active)setPosts([...posts].sort((a,b)=>new Date(b.sort_time||b.published_at||0)-new Date(a.sort_time||a.published_at||0)))}).catch(()=>{})
+    const load=()=>fetch(API+'?action=live'+(editionSlug?'&edition='+encodeURIComponent(editionSlug):'')+'&_='+Date.now(),{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(({posts=[]})=>{if(active){setPosts([...posts].sort((a,b)=>new Date(b.sort_time||b.published_at||0)-new Date(a.sort_time||a.published_at||0)));setLoadState('ready')}}).catch(()=>{if(active)setLoadState('error')})
     load()
     const timer=window.setInterval(load,20000)
     return()=>{active=false;window.clearInterval(timer)}
-  },[isLive])
+  },[isLive,editionSlug])
   const todayNY=new Date().toLocaleDateString('en-US',{timeZone:'America/New_York'})
   const todaysPosts=posts.filter(p=>p.published_at&&new Date(p.published_at).toLocaleDateString('en-US',{timeZone:'America/New_York'})===todayNY)
-  const normalized=todaysPosts.length?todaysPosts.map(p=>({...p,time:p.published_at?new Date(p.published_at).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',timeZone:'America/New_York'}):'',id:p.id})):fallbackPosts
+  const normalized=todaysPosts.length?todaysPosts.map(p=>({...p,time:p.published_at?new Date(p.published_at).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',timeZone:'America/New_York'}):'',id:p.id})):(editionSlug?[]:fallbackPosts)
   const visible=useMemo(()=>filter==='all'?normalized:normalized.filter(p=>p.writer===filter),[normalized,filter])
   const pageCount=Math.max(1,Math.ceil(visible.length/pageSize))
   const currentPage=Math.min(page,pageCount)
@@ -55,7 +56,7 @@ export default function SundayLiveDesk(){
     </div>
     <div className="sundayDeskHead">
       <div>
-        <small>THE NEWSROOM • LIVE WIRE</small>
+        <small>{editionLabel} • LIVE WIRE</small>
       </div>
       <div className="deskStatus live"><i/> LIVE NOW</div>
     </div>
@@ -64,11 +65,12 @@ export default function SundayLiveDesk(){
       {activeWriters.map(key=><button key={key} className={filter===key?'active':''} onClick={()=>{setFilter(key);setPage(1)}}>{writers[key]?.name.split(' ')[0]?.toUpperCase()}</button>)}
     </div>
     <div className="sundayDeskFeed">
+      {normalized.length===0&&<p className="deskEmpty" role="status" style={{padding:'24px 0',fontSize:'1rem',lineHeight:1.5}}>{loadState==='loading'?'Loading the live desk…':loadState==='error'?'The live desk is temporarily unavailable. We’ll retry shortly.':'The Sunday Crew desk is open. Coverage will appear here as reports come in.'}</p>}
       {displayed.map(post=>{
         const writer=writers[post.writer]
         if(!writer)return null
         return <article className="deskPost" key={post.id}>
-          <Link className="deskWriter" href={`/staff#${writer.slug}`}>
+          <Link className="deskWriter" href={`${staffPath}#${writer.slug}`}>
             <img src={writer.image} alt=""/>
             <span><b>{writer.name}</b><small>{writer.title}</small></span>
           </Link>
