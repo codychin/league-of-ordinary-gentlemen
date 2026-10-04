@@ -17,21 +17,24 @@ Deno.serve(async(req)=>{
   try{
     if(req.method==='GET'&&action==='live'){
       const edition=url.searchParams.get('edition')
+      const {data:globalPosts,error:globalError}=await db.from('brief_global_live_posts').select('id,writer,tag,text,subject,thread,published_at,sort_time,source_url,source_name').order('sort_time',{ascending:false}).limit(100)
+      if(globalError)throw globalError
+      const merged=(local:any[])=>[...(globalPosts||[]).map((p:any)=>({...p,id:'global:'+p.id})),...local].sort((a,b)=>Date.parse(b.sort_time)-Date.parse(a.sort_time)).slice(0,100)
       if(edition){
         if(edition!=='sunday-crew') return response({error:'Unknown edition'},404)
         const {data,error}=await db.from('brief_edition_live_posts').select('id,writer,tag,text,subject,thread,published_at,sort_time,source_url,source_name').eq('edition_slug',edition).eq('status','live').order('sort_time',{ascending:false}).limit(100)
         if(error) throw error
-        return response({edition,posts:data||[]})
+        return response({edition,posts:merged(data||[])})
       }
       const {data,error}=await db.from('brief_live_desk_posts').select('id,writer,tag,text,subject,thread,published_at,sort_time,source_url,source_name').eq('status','live').order('sort_time',{ascending:false}).limit(100)
       if(error) throw error
-      return response({posts:data||[]})
+      return response({posts:merged(data||[])})
     }
     if(req.method==='GET'&&action==='queue'){
       if(!isEditor) return response({error:'Unauthorized'},401)
       const {data,error}=await db.from('brief_live_desk_posts').select('*').in('status',['draft','hold']).order('sort_time',{ascending:false}).limit(100)
       if(error) throw error
-      return response({posts:data||[]})
+      return response({posts:merged(data||[])})
     }
     if(req.method==='POST'&&action==='draft'){
       if(!isEditor) return response({error:'Unauthorized'},401)

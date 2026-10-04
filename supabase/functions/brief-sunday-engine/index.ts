@@ -150,7 +150,7 @@ Deno.serve(async req=>{
     const {data:last}=await d.from('brief_live_desk_posts').select('published_at').eq('status','live').order('published_at',{ascending:false}).limit(1).maybeSingle()
     const mins=last?.published_at?(Date.now()-new Date(last.published_at).getTime())/60000:99
     if(mins>=3){
-      if(!(await publishCandidate(d,now))) await generateAndPublish(d,games,prev?.payload?.matchups||[],now)
+      // Editorial generation is owned exclusively by the capped shared worker.
     }
   }
   return json({ok:true,source:'espn',week:period,matchups:games})
@@ -163,7 +163,7 @@ Deno.serve(async req=>{
     const {data:last}=await d.from('brief_live_desk_posts').select('published_at').eq('status','live').order('published_at',{ascending:false}).limit(1).maybeSingle()
     const mins=last?.published_at?(Date.now()-new Date(last.published_at).getTime())/60000:99
     if(ny>=13&&ny<24&&mins>=3){
-      if(!(await publishCandidate(d,now))) await generateAndPublish(d,Date.now()-new Date(snap.captured_at).getTime()<900000?snap.payload.matchups:[],[],now)
+      // Editorial generation is owned exclusively by the capped shared worker.
     }
     return json({ok:true,source:'verified-snapshot',stale:true,error,matchups:snap.payload.matchups})
   }
