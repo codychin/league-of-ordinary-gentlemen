@@ -29,16 +29,7 @@ export default function SharedEditorialFront({archiveHref='/archive'}){
 </section>
 
 <section className={front.recent} aria-label="Recent stories">
-<article className={front.card} aria-label="Marnie Kells on Tee Higgins">
-  <Link className={front.story} href="/articles/marnie-tee-higgins-ankles">
-    <div className="eyebrow">MATTERS OF CULTURE • IN MEMORIAM • OCTOBER 4</div>
-    <h3>Tee Higgins’ Ankles Have Asked to Be Buried Separately</h3>
-    <PreviewAuthor slug="marnie-tee-higgins-ankles"/>
-    <p className={front.dek}>The family is contesting Travis Hunter’s appointment as executor.</p>
-    <div className="read">READ MARNIE</div>
-  </Link>
-  <div className={front.clip}><ArticleClip tweetId="2106801789630919072" url="https://x.com/fballforeverhq/status/2106801789630919072" showCaption={false}/></div>
-</article>
+
 
 <article className={front.card} aria-label="Featured Conrad Sorrell column">
   <Link className={front.story} href="/articles/conrad-deshaun-watson-cleveland-hope">
@@ -64,6 +55,26 @@ export default function SharedEditorialFront({archiveHref='/archive'}){
     <div className="read">READ HOLLIS CRANE →</div>
   </Link>
 </article>
+<article className={front.card} aria-label="Sabine March on Michigan">
+  <Link className={front.story} href="/articles/sabine-michigan-money-privilege-impatience">
+    <div className={front.image} style={{backgroundImage:"url('/api/jolin-ellison-image')",backgroundPosition:"center 35%"}}/>
+    <div className="eyebrow">SOCIETY • MONEY & INSTITUTIONS</div>
+    <h3>Michigan, Money and the Privilege of Impatience</h3>
+    <PreviewAuthor slug="sabine-michigan-money-privilege-impatience"/>
+    <p className={front.dek}>Jolin Ellison represents a new kind of college-football power broker. The uncomfortable question is whether institutions need people like her.</p>
+    <div className="read">READ SABINE →</div>
+  </Link>
+</article>
+</section>
+<section className="hero heroStack" aria-label="Marnie Kells on Tee Higgins">
+  <Link className="hero-copy storylink" href="/articles/marnie-tee-higgins-ankles">
+    <div className="eyebrow">MATTERS OF CULTURE • IN MEMORIAM • OCTOBER 4</div>
+    <h2>Tee Higgins’ Ankles Have Asked to Be Buried Separately</h2>
+    <PreviewAuthor slug="marnie-tee-higgins-ankles"/>
+    <p className="standfirst">The family is contesting Travis Hunter’s appointment as executor.</p>
+    <div className="read">READ MARNIE</div>
+  </Link>
+  <div className={front.clip}><ArticleClip tweetId="2106801789630919072" url="https://x.com/fballforeverhq/status/2106801789630919072" showCaption={false}/></div>
 </section>
 <section className="morningBriefPreview sundayFront" aria-label="Sunday Morning Brief">
   <div className="morningBriefFlag"><span>THE SUNDAY MORNING BRIEF</span><small>SEPTEMBER 27 • WEEK 3</small></div>
