@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import styles from './ArchiveCta.module.css';
+import front from './SharedEditorialFront.module.css';
 import ArticleClip from './ArticleClip';
 import PreviewAuthor from './PreviewAuthor';
 import ResilientImage from './ResilientImage';
@@ -27,40 +28,42 @@ export default function SharedEditorialFront({archiveHref='/archive'}){
   </div>
 </section>
 
-<section className="hero heroStack" aria-label="Marnie Kells on Tee Higgins">
-  <Link className="hero-copy storylink" href="/articles/marnie-tee-higgins-ankles">
+<section className={front.recent} aria-label="Recent stories">
+<article className={front.card} aria-label="Marnie Kells on Tee Higgins">
+  <Link className={front.story} href="/articles/marnie-tee-higgins-ankles">
     <div className="eyebrow">MATTERS OF CULTURE • IN MEMORIAM • OCTOBER 4</div>
-    <h2>Tee Higgins’ Ankles Have Asked to Be Buried Separately</h2>
+    <h3>Tee Higgins’ Ankles Have Asked to Be Buried Separately</h3>
     <PreviewAuthor slug="marnie-tee-higgins-ankles"/>
-    <p className="standfirst">The family is contesting Travis Hunter’s appointment as executor.</p>
+    <p className={front.dek}>The family is contesting Travis Hunter’s appointment as executor.</p>
     <div className="read">READ MARNIE</div>
   </Link>
-  <ArticleClip tweetId="2106801789630919072" url="https://x.com/fballforeverhq/status/2106801789630919072" showCaption={false}/>
-</section>
+  <details className={front.clip}><summary>WATCH THE CLIP ↓</summary><ArticleClip tweetId="2106801789630919072" url="https://x.com/fballforeverhq/status/2106801789630919072" showCaption={false}/></details>
+</article>
 
-<section className="hero heroStack" aria-label="Featured Conrad Sorrell column">
-  <Link className="hero-copy storylink" href="/articles/conrad-deshaun-watson-cleveland-hope">
-    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.08)),url('https://img.ksl.com/slc/3198/319896/31989626.jpg?filter=kslv2%2Fresponsive_story_lg&v=1787444404')",backgroundPosition:"center 34%"}}>
+<article className={front.card} aria-label="Featured Conrad Sorrell column">
+  <Link className={front.story} href="/articles/conrad-deshaun-watson-cleveland-hope">
+    <div className={front.image} style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.08)),url('https://img.ksl.com/slc/3198/319896/31989626.jpg?filter=kslv2%2Fresponsive_story_lg&v=1787444404')",backgroundPosition:"center 34%"}}>
       <div><small>CONRAD SORRELL • COLUMN</small><b>GROPER CLEVELAND IS 3–1</b></div>
     </div>
     <div className="eyebrow">COLUMN • POWER & AMERICAN ARRANGEMENTS</div>
-    <h2>Groper Cleveland <em>Is 3–1.</em></h2>
+    <h3>Groper Cleveland <em>Is 3–1.</em></h3>
     <PreviewAuthor slug="conrad-deshaun-watson-cleveland-hope"/>
-    <p className="standfirst">A column on Browns fandom, quarterback play, and the moral tension created by winning.</p>
+    <p className={front.dek}>A column on Browns fandom, quarterback play, and the moral tension created by winning.</p>
     <div className="read">READ CONRAD SORRELL →</div>
   </Link>
-</section>
-<section className="hero heroStack" aria-label="Featured Hollis Crane investigation">
-  <Link className="hero-copy storylink" href="/articles/hollis-jameis-winston-turing-test">
-    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.08)),url('/images/editorial/jameis-winston.webp')",backgroundPosition:"center 34%"}}>
+</article>
+<article className={front.card} aria-label="Featured Hollis Crane investigation">
+  <Link className={front.story} href="/articles/hollis-jameis-winston-turing-test">
+    <div className={front.image} style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.08)),url('/images/editorial/jameis-winston.webp')",backgroundPosition:"center 34%"}}>
       <div><small>HOLLIS CRANE • INVESTIGATIONS</small><b>THE JAMEIS WINSTON TURING TEST</b></div>
     </div>
     <div className="eyebrow">INVESTIGATIONS • PERSONHOOD & INTELLIGENCE</div>
-    <h2>The Jameis Winston <em>Turing Test.</em></h2>
+    <h3>The Jameis Winston <em>Turing Test.</em></h3>
     <PreviewAuthor slug="hollis-jameis-winston-turing-test"/>
-    <p className="standfirst">After a decade of motivational philosophy, recursive metaphors and sentences that sound important without technically containing information, Jameis Winston has become an unexpectedly interesting case study in intelligence.</p>
+    <p className={front.dek}>After a decade of motivational philosophy, recursive metaphors and sentences that sound important without technically containing information, Jameis Winston has become an unexpectedly interesting case study in intelligence.</p>
     <div className="read">READ HOLLIS CRANE →</div>
   </Link>
+</article>
 </section>
 <section className="morningBriefPreview sundayFront" aria-label="Sunday Morning Brief">
   <div className="morningBriefFlag"><span>THE SUNDAY MORNING BRIEF</span><small>SEPTEMBER 27 • WEEK 3</small></div>
@@ -78,11 +81,7 @@ export default function SharedEditorialFront({archiveHref='/archive'}){
         <Link href="/articles/sabine-sunday-maracana" className="sabinePackageCta">READ THE DISPATCH →</Link>
       </div>
     </article>
-    <div className="sundaySide sundayStoryCarousel" aria-label="Sunday night supporting stories">
-      <Link href="/articles/dashiell-man-city-infrastructure" className="sundaySideStory storylink"><div className="sideImage sundaySecondaryAction"><ResilientImage loading="lazy" decoding="async" src="/images/editorial/man-city-derby.webp" alt="Erling Haaland celebrates Manchester City's derby victory at Old Trafford with teammates"/><small>DASHIELL PIKE • FRONT OFFICE</small><b>CAPITAL & INFRASTRUCTURE</b></div><small>DASHIELL PIKE • FRONT OFFICE</small><h3>Manchester City Is What Happens When a Football Club Becomes Infrastructure</h3><p>The Premier League thought it was regulating a football team. Abu Dhabi was building an economic system.</p><span>READ →</span></Link>
-      <Link href="/articles/dashiell-favorite-team-asset-class" className="sundaySideStory storylink"><div className="sideImage sundaySecondaryAction"><ResilientImage loading="lazy" decoding="async" src="/api/dashiell-london-fans-image" alt="NFL fans gathered in London"/><small>DASHIELL PIKE • CAPITAL & FANDOM</small><b>THE ASSET CLASS</b></div><small>DASHIELL PIKE • CAPITAL & FANDOM</small><h3>When Your Favorite Team Became an Asset Class</h3><p>Sports spent a century as an exception to economic pragmatism. The mean is reverting.</p><span>READ →</span></Link>
-      <Link href="/articles/sabine-michigan-money-privilege-impatience" className="sundaySideStory storylink"><div className="sideImage sundaySecondaryAction"><ResilientImage loading="lazy" decoding="async" src="/api/jolin-ellison-image" alt="Jolin Ellison with Larry Ellison at Indian Wells"/><small>SABINE MARCH • SOCIETY</small><b>MONEY & INSTITUTIONS</b></div><small>SABINE MARCH • SOCIETY</small><h3>Michigan, Money and the Privilege of Impatience</h3><p>Jolin Ellison represents a new kind of college-football power broker. The uncomfortable question is whether institutions need people like her.</p><span>READ →</span></Link>
-    </div>
+
   </div>
 </section>
 <section className="hero heroStack" aria-label="Featured Hollis Crane investigation">

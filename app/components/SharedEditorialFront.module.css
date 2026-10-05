@@ -1,0 +1,23 @@
+.recent {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--ink);
+}
+.card { min-width: 0; padding-right: 24px; border-right: 1px solid var(--line); }
+.card:last-child { padding-right: 0; border-right: 0; }
+.story { display: block; color: inherit; text-decoration: none; }
+.card h3 { font-size: 25px; line-height: 1.08; letter-spacing: -.5px; margin: 8px 0 12px; }
+.card h3 em { color: var(--red); }
+.card .dek { font-size: 14px; line-height: 1.5; color: var(--muted); margin: 12px 0; }
+.image { height: 170px; background-size: cover; background-position: center; margin-bottom: 16px; }
+.image > div { display: none; }
+.clip { margin-top: 16px; }
+.clip summary { cursor: pointer; font: 800 10px Arial, sans-serif; letter-spacing: 1px; }
+@media (max-width: 760px) {
+  .recent { display: flex; overflow-x: auto; gap: 16px; scroll-snap-type: x mandatory; padding: 18px 0; -webkit-overflow-scrolling: touch; }
+  .card { flex: 0 0 82%; scroll-snap-align: start; padding-right: 16px; }
+  .card h3 { font-size: 23px; }
+  .image { height: 150px; }
+}

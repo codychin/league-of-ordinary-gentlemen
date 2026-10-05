@@ -3,6 +3,8 @@
   color: #fff;
   border-bottom: 1px solid #11100e;
   overflow: hidden;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
 }
 
 .inner {
@@ -63,4 +65,16 @@
   .viewport { overflow-x: auto; }
   .track { animation: none; }
   .item + .item { display: none; }
+}
+
+/* Keep every ticker fragment at the label size, including mobile Safari. */
+.banner .label,
+.banner .viewport,
+.banner .track,
+.banner .item,
+.banner .update {
+  font-size: 11px;
+  line-height: 18px;
+  font-family: inherit;
+  font-weight: 800;
 }
