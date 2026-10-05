@@ -1,3 +1,4 @@
+import {LIVE_DESK_ENABLED} from '../../lib/live-desk-state';
 import Link from 'next/link';
 import SharedEditorialFront from '../components/SharedEditorialFront';
 import EditionLeagueSurfaces from '../components/EditionLeagueSurfaces';
@@ -28,7 +29,7 @@ export default async function SundayCrewPage(){
     <header>
       <div className="utility"><span className="utilityMain">SUNDAY CREW EDITION <i>•</i> JOURNALISM WITHOUT PURPOSE</span></div>
       <div className="mast"><h1>{edition.tenant.publication_name}</h1><div className="dek">Fantasy football, personal grievances, forensic accounting and other matters of irrelevance.</div></div>
-      <nav className="siteNav"><Link href="/sunday-crew">HOME</Link><Link href="/sunday-crew#live-desk">LIVE DESK</Link><Link href="/sunday-crew#league">THE LEAGUE</Link><Link href="/sunday-crew#standings">STANDINGS</Link><Link href="/sunday-crew#transactions">THE WIRE</Link><Link href="/sunday-crew#scores">SCORES</Link><Link href="/sunday-crew/newsroom">MASTHEAD</Link></nav>
+      <nav className="siteNav"><Link href="/sunday-crew">HOME</Link>{LIVE_DESK_ENABLED&&<Link href="/sunday-crew#live-desk">LIVE DESK</Link>}<Link href="/sunday-crew#league">THE LEAGUE</Link><Link href="/sunday-crew#standings">STANDINGS</Link><Link href="/sunday-crew#transactions">THE WIRE</Link><Link href="/sunday-crew#scores">SCORES</Link><Link href="/sunday-crew/newsroom">MASTHEAD</Link></nav>
     </header>
     <main>
       <SundayLiveDesk editionSlug="sunday-crew" editionLabel="SUNDAY CREW" staffPath="/sunday-crew/newsroom"/>

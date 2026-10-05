@@ -1,5 +1,6 @@
 'use client'
 
+import {LIVE_DESK_ENABLED} from '../../lib/live-desk-state'
 import {useEffect,useMemo,useState} from 'react'
 import Link from 'next/link'
 import {writers} from '../articles/writers'
@@ -7,6 +8,7 @@ import {sundayDeskMeta,sundayDeskPosts as fallbackPosts} from '../live-desk/data
 
 const API='https://dnzdbqycuuoonewcowis.supabase.co/functions/v1/brief-live-desk'
 const liveNow=()=>{
+  if(!LIVE_DESK_ENABLED)return false
   try{
     const parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date())
     const get=t=>parts.find(p=>p.type===t)?.value
