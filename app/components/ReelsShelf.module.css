@@ -1,4 +1,4 @@
-.wrap{margin:18px 0 30px;padding:18px 0 20px;border-top:5px solid var(--ink);border-bottom:1px solid var(--ink)}
+.wrap{margin:18px 0 0;padding:18px 0 20px;border-top:5px solid var(--ink);border-bottom:1px solid var(--ink)}
 .head{display:block;margin-bottom:18px}
 .head small,.head span{font:900 8px/1.2 Arial,sans-serif;letter-spacing:1.45px;text-transform:uppercase}
 .head h2{font-family:Georgia,serif;font-size:30px;line-height:.96;margin:4px 0 0;letter-spacing:-.7px}
