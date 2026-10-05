@@ -33,4 +33,4 @@ The byline is part of the joke, not decoration. Assign every article to the writ
 
 ## Culture presentation
 
-- On homepage culture story cards, the “MATTERS OF CULTURE” section line always precedes the photo or clip. Keep a clear gap between the section line and image, preserve the full image framing, and place the headline below the photo. Apply the same order in both league editions.
+- On homepage culture story cards, the “MATTERS OF CULTURE” section line always precedes the photo or clip. Keep a clear gap between the section line and image, preserve the full image framing, and place the headline above the photo. Apply the same order in both league editions.
