@@ -36,3 +36,9 @@ The byline is part of the joke, not decoration. Assign every article to the writ
 - On homepage culture story cards, the “MATTERS OF CULTURE” section line always precedes the photo or clip. Keep a clear gap between the section line and image, preserve the full image framing, and place the headline above the photo. Apply the same order in both league editions.
 
 - Global editorial opening standard: start page/section editorial content with a thick black rule, section label on the left and date/writer on the right, then a thin divider. Reuse the shared morningBriefFlag treatment; headline and image follow below. Keep the same treatment in both league editions, with no stacked spacer above the header.
+
+## Required media check
+
+- Every featured story and recent-story card must have visible, relevant imagery or an expanded video/tweet embed. A collapsed clip link does not count as visible media.
+- Before publishing layout changes, check media in both editions at desktop and mobile widths. Confirm images load and inspect the actual image for corruption, cropping, and distortion; a successful build or HTTP response alone does not pass this check.
+- Tweet embeds must include a usable source link when the external widget is unavailable.

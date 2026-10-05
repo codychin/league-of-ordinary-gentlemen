@@ -15,9 +15,9 @@
 .image > div { display: none; }
 .clip { margin-top: 16px; }
 .clip summary { cursor: pointer; font: 800 10px Arial, sans-serif; letter-spacing: 1px; }
-@media (max-width: 760px) {
+@media (max-width: 900px) {
   .recent { display: flex; overflow-x: auto; gap: 16px; scroll-snap-type: x mandatory; padding: 18px 0; -webkit-overflow-scrolling: touch; }
-  .card { flex: 0 0 82%; scroll-snap-align: start; padding-right: 16px; }
+  .card { flex: 0 0 max(82%, 280px); scroll-snap-align: start; padding-right: 16px; }
   .card h3 { font-size: 23px; }
   .image { height: 150px; }
 }

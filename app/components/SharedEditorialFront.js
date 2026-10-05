@@ -37,7 +37,7 @@ export default function SharedEditorialFront({archiveHref='/archive'}){
     <p className={front.dek}>The family is contesting Travis Hunter’s appointment as executor.</p>
     <div className="read">READ MARNIE</div>
   </Link>
-  <details className={front.clip}><summary>WATCH THE CLIP ↓</summary><ArticleClip tweetId="2106801789630919072" url="https://x.com/fballforeverhq/status/2106801789630919072" showCaption={false}/></details>
+  <div className={front.clip}><ArticleClip tweetId="2106801789630919072" url="https://x.com/fballforeverhq/status/2106801789630919072" showCaption={false}/></div>
 </article>
 
 <article className={front.card} aria-label="Featured Conrad Sorrell column">
@@ -86,7 +86,7 @@ export default function SharedEditorialFront({archiveHref='/archive'}){
 </section>
 <section className="hero heroStack" aria-label="Featured Hollis Crane investigation">
   <Link className="hero-copy storylink" href="/articles/hollis-arch-manning-compression">
-    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.06)),url('/api/hollis-arch-manning-image')",backgroundPosition:"center 42%"}}>
+    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.06)),url('/images/editorial/arch-press-conference.png')",backgroundPosition:"center 42%"}}>
       <div><small>HOLLIS CRANE • INVESTIGATIONS</small><b>THE COMPRESSION FILE</b></div>
     </div>
     <div className="eyebrow">INVESTIGATIONS • TELEMETRY & PERSONHOOD</div>
