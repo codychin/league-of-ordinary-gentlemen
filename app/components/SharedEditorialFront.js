@@ -6,6 +6,17 @@ import ResilientImage from './ResilientImage';
 
 export default function SharedEditorialFront({archiveHref='/archive'}){
   return <>
+<section className="hero heroStack" aria-label="Marnie Kells on the corgi race">
+  <Link className="hero-copy storylink" href="/articles/marnie-corgi-he-wanted-them-to-know">
+    <ResilientImage src="/images/editorial/corgi-look-back-bw.png" alt="A leading corgi looks back at two trailing competitors, in black and white" loading="eager" decoding="async" style={{display:'block',width:'100%',height:'auto'}}/>
+    <div className="eyebrow">MATTERS OF CULTURE • SPORTING LIFE • OCTOBER 4</div>
+    <h2>He Wanted Them to Know He Knew.</h2>
+    <PreviewAuthor slug="marnie-corgi-he-wanted-them-to-know"/>
+    <p className="standfirst">Winning the corgi race was insufficient. He needed witnesses.</p>
+    <div className="read">READ MARNIE →</div>
+  </Link>
+</section>
+
 <section className="hero heroStack" aria-label="Marnie Kells on Tee Higgins">
   <Link className="hero-copy storylink" href="/articles/marnie-tee-higgins-ankles">
     <div className="eyebrow">MATTERS OF CULTURE • IN MEMORIAM • OCTOBER 4</div>
