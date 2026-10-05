@@ -48,3 +48,16 @@
 .articleSource a {
   color: var(--red);
 }
+
+/* Photo credits must wrap in normal flow above any source attribution. */
+.articleMain .articleImage:has(+ .articleImageCredit){margin-bottom:8px}
+.articleMain .articleImageCredit{
+  display:block;
+  margin:0 0 12px;
+  color:var(--muted);
+  font:400 10px/1.5 Arial,sans-serif;
+  letter-spacing:.2px;
+  overflow-wrap:anywhere;
+}
+.articleMain .articleImageCredit a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.articleMain .articleImageCredit + .articleSource{margin:0 0 24px;line-height:1.5;overflow-wrap:anywhere}
