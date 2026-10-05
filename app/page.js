@@ -37,33 +37,8 @@ export default function Home(){const sundayLive=isSundayLiveWindow();return <><h
 <ReelsShelf reels={publishedReels}/>
 <SharedEditorialFront/>
 {!sundayLive&&<SundayLiveDesk/>}
-<section className="grid3" id="league">
-  <Link href="/articles/stone-unc-denial" className="card storylink">
-    <div className="photoStrip uncPhoto"><span>CHAPEL HILL / INDEPENDENT REVIEW</span></div>
-    <div className="tag">INSTITUTIONAL CRISIS</div>
-    <h3>Stone Denies UNC Scandal Ties Despite Triple Legacy; Choe Admits “Limited Advisory Role”</h3>
-    <PreviewAuthor slug="stone-unc-denial"/>
-    <p>UNC closed its football investigation. Stone produced a suspiciously complete denial. Choe has declined to deny exactly enough.</p>
-    <div className="read">REVIEW THE FINDINGS →</div>
-  </Link>
-  <Link href="/articles/hollis-one-second" className="card storylink">
-    <div className="photoStrip" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.35),rgba(0,0,0,.04)),url('/api/hollis-one-second-image')",backgroundPosition:"center center"}}><span>HOLLIS CRANE / THE SECOND SCOREBOARD</span></div>
-    <div className="tag">INVESTIGATIONS</div>
-    <h3>The Most Important Second That Didn’t Matter</h3>
-    <PreviewAuthor slug="hollis-one-second"/>
-    <p>The game was over. Replay recovered one second. Vanderbilt still won. The point after changed who got paid.</p>
-    <div className="read">READ THE INVESTIGATION →</div>
-  </Link>
-  <Link href="/articles/marnie-jumbotron-juilliard" className="card storylink">
-    <div className="photoStrip" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.30),rgba(0,0,0,.03)),url('/api/preston-powe-image')",backgroundPosition:"center 40%"}}><span>MARNIE KELLS / FAME & ATTENTION</span></div>
-    <div className="tag">MATTERS OF CULTURE</div>
-    <h3>The Jumbotron Is the New Juilliard</h3>
-    <PreviewAuthor slug="marnie-jumbotron-juilliard"/>
-    <p>The audition has escaped the casting room and entered the arena of popular response.</p>
-    <div className="read">READ MARNIE →</div>
-  </Link>
-</section>
-<section className="section autopsySection">
+
+<section className="section autopsySection" id="league">
   <div className="autopsyHeader">
     <div><small>THE NEWSROOM • WEEK 3 POSTMORTEM</small><h2>Week 3 Autopsy</h2></div>
     <span>FINAL SCORES / BAD PROCESS / DIVINE INTERVENTION</span>
