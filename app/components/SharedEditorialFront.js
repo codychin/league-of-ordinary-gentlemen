@@ -25,7 +25,7 @@ export default function SharedEditorialFront({archiveHref='/archive'}){
     <p className="standfirst">The family is contesting Travis Hunter’s appointment as executor.</p>
     <div className="read">READ MARNIE</div>
   </Link>
-  <ArticleClip tweetId="2106801789630919072" url="https://x.com/fballforeverhq/status/2106801789630919072" caption="The following footage has been admitted into evidence over the family’s objections."/>
+  <ArticleClip tweetId="2106801789630919072" url="https://x.com/fballforeverhq/status/2106801789630919072" showCaption={false}/>
 </section>
 <aside aria-label="Breaking news" style={{borderTop:'4px solid #a32626',borderBottom:'1px solid currentColor',padding:'16px 0',marginBottom:24}}>
   <div className="eyebrow" style={{color:'#a32626'}}>BREAKING NEWS • GLOBAL UPDATE</div>
