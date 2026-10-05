@@ -1,3 +1,4 @@
+import {loogArticleVideos as alsoVideos} from '../lib/article-videos';
 import {LIVE_DESK_ENABLED} from '../lib/live-desk-state';
 import Link from 'next/link';import SiteNav from './components/SiteNav';import Standings from './components/Standings';import TransactionFeed from './components/TransactionFeed';import CultureDesk from './components/CultureDesk';import PreviewAuthor from './components/PreviewAuthor';import {leagueSnapshot} from './teams/league-data';import {writers} from './articles/writers';import ReelsShelf from './components/ReelsShelf';import AlsoShelf from './components/AlsoShelf';import SundayLiveDesk from './components/SundayLiveDesk';import SundayScoreStrip from './components/SundayScoreStrip';import SharedEditorialFront from './components/SharedEditorialFront';import LiveWeek3Surfaces from './components/LiveWeek3Surfaces'
 const week3FinalScores=Object.values(leagueSnapshot.teams).flatMap(team=>team.season.weekly.filter(w=>w.week===3&&w.status==='FINAL'&&team.teamId<(leagueSnapshot.teams[w.opponentSlug]?.teamId||999)).map(w=>[team.teamName,Number(w.score).toFixed(2),w.opponent,Number(w.opponentScore).toFixed(2),'FINAL']));
@@ -19,11 +20,7 @@ const publishedReels=[
   const rp=featuredPlayer(leagueSnapshot.teams[right]);
   return {id,left,right,short,matchup,correspondent,avatar,leftImage:playerHeadshot(lp),rightImage:playerHeadshot(rp)};
 });
-const alsoVideos=[
-  {id:'maude-flores',correspondent:'Maude Gannon',title:'The Brian Flores protection tax',poster:'https://cdn.openart.ai/openart/thumbnail/production/2026-09/create-video/TLTpmJfydK54x1UaTK6G/69035775-metadata_6A1194o3_4b66a4a64fcc_1790477381469_34111093.webp',src:'https://cdn.openart.ai/openart-ai/production/2026-09/create-video/TLTpmJfydK54x1UaTK6G/69035775-metadata_6A1194o3_4b66a4a64fcc_1790477376734_1df2ad0a.mp4'},
-  {id:'hollis-hotel-bar',correspondent:'Hollis Crane',title:'1:17 a.m. at the hotel bar',poster:'https://cdn.openart.ai/openart/thumbnail/production/2026-09/create-video/TLTpmJfydK54x1UaTK6G/56528537-metadata_3rdrDRmI_5bb9e7cceb70_1790470073327_1e7f29cf.webp',src:'https://cdn.openart.ai/openart-ai/production/2026-09/create-video/TLTpmJfydK54x1UaTK6G/56528537-metadata_3rdrDRmI_5bb9e7cceb70_1790470069594_6ab20387.mp4'},
-  {id:'sabine-maracana',correspondent:'Sabine March',title:'Sunday at the Maracanã',poster:'https://cdn.openart.ai/openart/thumbnail/production/2026-09/create-video/TLTpmJfydK54x1UaTK6G/cgt-20260927072638-56wll_1790465571680_924949be.webp',src:'https://cdn.openart.ai/openart-ai/production/2026-09/create-video/TLTpmJfydK54x1UaTK6G/cgt-20260927072638-56wll_1790465560812_7dd1af7e.mp4'}
-];
+
 const MEDIA='https://dnzdbqycuuoonewcowis.supabase.co/storage/v1/object/public/brief-media';
 export const dynamic='force-dynamic';
 const isSundayLiveWindow=()=>{
