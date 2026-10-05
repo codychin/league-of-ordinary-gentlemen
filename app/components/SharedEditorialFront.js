@@ -1,9 +1,10 @@
 import Link from 'next/link';
+import styles from './ArchiveCta.module.css';
 import ArticleClip from './ArticleClip';
 import PreviewAuthor from './PreviewAuthor';
 import ResilientImage from './ResilientImage';
 
-export default function SharedEditorialFront(){
+export default function SharedEditorialFront({archiveHref='/archive'}){
   return <>
 <section className="hero heroStack" aria-label="Marnie Kells on Tee Higgins">
   <Link className="hero-copy storylink" href="/articles/marnie-tee-higgins-ankles">
@@ -104,5 +105,9 @@ export default function SharedEditorialFront(){
   </Link>
 </section>
 
+<div className={styles.archiveCta}>
+  <div><span className={styles.label}>THE PERMANENT RECORD</span><p>Every take. Every receipt.</p></div>
+  <Link className={styles.link} href={archiveHref}>BROWSE THE ARCHIVE <span aria-hidden="true">→</span></Link>
+</div>
   </>;
 }

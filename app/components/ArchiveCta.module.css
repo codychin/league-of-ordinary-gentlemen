@@ -1,0 +1,7 @@
+.archiveCta{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px 24px;padding:24px 0;margin-bottom:24px;border-bottom:3px double var(--ink)}
+.label{font:800 10px Arial,sans-serif;letter-spacing:2px;color:var(--red)}
+.archiveCta p{margin:6px 0 0;font:italic 18px Georgia,serif;color:var(--muted)}
+.link{display:inline-flex;align-items:center;justify-content:center;gap:18px;min-height:46px;padding:13px 18px;border:1px solid var(--ink);color:var(--ink);text-decoration:none;font:800 11px Arial,sans-serif;letter-spacing:1.3px;transition:background .15s,color .15s}
+.link:hover{background:var(--ink);color:var(--paper)}
+.link:focus-visible{outline:2px solid var(--red);outline-offset:4px}
+@media(max-width:540px){.archiveCta{padding:20px 0;gap:16px}.link{width:100%;justify-content:space-between}}
