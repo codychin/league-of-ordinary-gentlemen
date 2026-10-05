@@ -76,6 +76,18 @@ export default function SharedEditorialFront({archiveHref='/archive'}){
   </Link>
   <div className={front.clip}><ArticleClip tweetId="2106801789630919072" url="https://x.com/fballforeverhq/status/2106801789630919072" showCaption={false}/></div>
 </section>
+<section className="hero heroStack" aria-label="Hollis Crane on Jameis Winston">
+  <Link className="hero-copy storylink" href="/articles/hollis-jameis-winston-turing-test">
+    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.06)),url('/images/editorial/jameis-winston.webp')",backgroundPosition:"center 42%"}}>
+      <div><small>HOLLIS CRANE • INVESTIGATIONS</small><b>JAMEIS WINSTON</b></div>
+    </div>
+    <div className="eyebrow">INVESTIGATIONS • PERSONHOOD & INTELLIGENCE</div>
+    <h2>The draw to <em>Jameis Winston.</em></h2>
+    <PreviewAuthor slug="hollis-jameis-winston-turing-test"/>
+    <p className="standfirst">The more evidence he provides, the harder he becomes to explain.</p>
+    <div className="read">READ HOLLIS CRANE →</div>
+  </Link>
+</section>
 <section className="morningBriefPreview sundayFront" aria-label="On Assignment: Sabine March in Rio de Janeiro">
   <div className="morningBriefFlag"><span>ON ASSIGNMENT</span><small>SABINE MARCH • RIO DE JANEIRO • SEPTEMBER 27</small></div>
   <div className="sundayFrontGrid">
@@ -95,30 +107,6 @@ export default function SharedEditorialFront({archiveHref='/archive'}){
 
   </div>
 </section>
-<section className="hero heroStack" aria-label="Featured Hollis Crane investigation">
-  <Link className="hero-copy storylink" href="/articles/hollis-arch-manning-compression">
-    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.06)),url('/images/editorial/arch-press-conference.png')",backgroundPosition:"center 42%"}}>
-      <div><small>HOLLIS CRANE • INVESTIGATIONS</small><b>THE COMPRESSION FILE</b></div>
-    </div>
-    <div className="eyebrow">INVESTIGATIONS • TELEMETRY & PERSONHOOD</div>
-    <h2>The Real-Time Compression of <em>Arch Manning.</em></h2>
-    <PreviewAuthor slug="hollis-arch-manning-compression"/>
-    <p className="standfirst">The mathematical cost of being America’s most observable quarterback.</p>
-    <div className="read">READ HOLLIS CRANE →</div>
-  </Link>
-</section>
-<section className="hero heroStack" aria-label="Featured Conrad Sorrell column">
-  <Link className="hero-copy storylink" href="/articles/conrad-caleb-williams-survived">
-    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.10)),url('/api/caleb-williams-image')",backgroundPosition:"center 36%"}}>
-      <div><small>CONRAD SORRELL • OPINION & POWER</small><b>THE DRAMATIC INJURY INDEX</b></div>
-    </div>
-    <div className="eyebrow">COLUMN • POWER & AMERICAN ARRANGEMENTS</div>
-    <h2>Caleb Williams <em>Survived.</em></h2>
-    <PreviewAuthor slug="conrad-caleb-williams-survived"/>
-    <p className="standfirst">Chicago’s quarterback left Soldier Field like a wounded general. By Monday, the Bears had not even ruled him out for next week.</p>
-    <div className="read">READ CONRAD SORRELL →</div>
-  </Link>
-</section>
 <section className="hero heroStack" aria-label="Featured culture column">
   <Link className="hero-copy storylink" href="/articles/marnie-manifest-destiny-wembley">
     <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.52),rgba(0,0,0,.06)),url('/images/editorial/wembley-fans.webp')",backgroundPosition:"center 42%"}}>
@@ -129,6 +117,19 @@ export default function SharedEditorialFront({archiveHref='/archive'}){
     <PreviewAuthor slug="marnie-manifest-destiny-wembley"/>
     <p className="standfirst">America sent 15,000 fans, marching bands, cheerleaders, an electric-guitar anthem and a fake Britain to Britain. Wembley never had a chance.</p>
     <div className="read">READ MARNIE KELLS →</div>
+  </Link>
+</section>
+
+<section className="hero heroStack" aria-label="Featured Hollis Crane investigation">
+  <Link className="hero-copy storylink" href="/articles/hollis-arch-manning-compression">
+    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.06)),url('/images/editorial/arch-press-conference.png')",backgroundPosition:"center 42%"}}>
+      <div><small>HOLLIS CRANE • INVESTIGATIONS</small><b>THE COMPRESSION FILE</b></div>
+    </div>
+    <div className="eyebrow">INVESTIGATIONS • TELEMETRY & PERSONHOOD</div>
+    <h2>The Real-Time Compression of <em>Arch Manning.</em></h2>
+    <PreviewAuthor slug="hollis-arch-manning-compression"/>
+    <p className="standfirst">The mathematical cost of being America’s most observable quarterback.</p>
+    <div className="read">READ HOLLIS CRANE →</div>
   </Link>
 </section>
 
