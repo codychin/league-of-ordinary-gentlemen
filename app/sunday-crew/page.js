@@ -2,6 +2,7 @@ import AlsoShelf from '../components/AlsoShelf';
 import {globalArticleVideos} from '../../lib/article-videos';
 import {LIVE_DESK_ENABLED} from '../../lib/live-desk-state';
 import Link from 'next/link';
+import BreakingNewsBanner from '../components/BreakingNewsBanner';
 import SharedEditorialFront from '../components/SharedEditorialFront';
 import EditionLeagueSurfaces from '../components/EditionLeagueSurfaces';
 import CultureDesk from '../components/CultureDesk';
@@ -33,6 +34,7 @@ export default async function SundayCrewPage(){
       <div className="mast"><h1>{edition.tenant.publication_name}</h1><div className="dek">Fantasy football, personal grievances, forensic accounting and other matters of irrelevance.</div></div>
       <nav className="siteNav"><Link href="/sunday-crew">HOME</Link>{LIVE_DESK_ENABLED&&<Link href="/sunday-crew#live-desk">LIVE DESK</Link>}<Link href="/sunday-crew#league">THE LEAGUE</Link><Link href="/sunday-crew#standings">STANDINGS</Link><Link href="/sunday-crew#transactions">THE WIRE</Link><Link href="/sunday-crew#scores">SCORES</Link><Link href="/sunday-crew/newsroom">MASTHEAD</Link></nav>
     </header>
+    <BreakingNewsBanner/>
     <main>
       <SundayLiveDesk editionSlug="sunday-crew" editionLabel="SUNDAY CREW" staffPath="/sunday-crew/newsroom"/>
       <ReelsShelf reels={reels} releaseId="sunday-crew-week4-preview-v1" storageKey="brief-sunday-crew-week4-preview-viewed-v1" weekLabel="THE BRIEF • SUNDAY CREW • WEEK 4" title="Week 4 previews." modeLabel="SUNDAY CREW • WEEK 4 • PREVIEW"/>
