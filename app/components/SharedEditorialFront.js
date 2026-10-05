@@ -76,15 +76,15 @@ export default function SharedEditorialFront({archiveHref='/archive'}){
   </Link>
   <div className={front.clip}><ArticleClip tweetId="2106801789630919072" url="https://x.com/fballforeverhq/status/2106801789630919072" showCaption={false}/></div>
 </section>
-<section className="hero heroStack" aria-label="Hollis Crane on Jameis Winston">
+<section className="hero heroStack" aria-label="Featured Hollis Crane investigation">
   <Link className="hero-copy storylink" href="/articles/hollis-jameis-winston-turing-test">
-    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.06)),url('/images/editorial/jameis-winston.webp')",backgroundPosition:"center 42%"}}>
-      <div><small>HOLLIS CRANE • INVESTIGATIONS</small><b>JAMEIS WINSTON</b></div>
+    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.08)),url('/images/editorial/jameis-winston.webp')",backgroundPosition:"center 34%"}}>
+      <div><small>HOLLIS CRANE • INVESTIGATIONS</small><b>THE JAMEIS WINSTON TURING TEST</b></div>
     </div>
     <div className="eyebrow">INVESTIGATIONS • PERSONHOOD & INTELLIGENCE</div>
-    <h2>The draw to <em>Jameis Winston.</em></h2>
+    <h2>The Jameis Winston <em>Turing Test.</em></h2>
     <PreviewAuthor slug="hollis-jameis-winston-turing-test"/>
-    <p className="standfirst">The more evidence he provides, the harder he becomes to explain.</p>
+    <p className="standfirst">After a decade of motivational philosophy, recursive metaphors and sentences that sound important without technically containing information, Jameis Winston has become an unexpectedly interesting case study in intelligence.</p>
     <div className="read">READ HOLLIS CRANE →</div>
   </Link>
 </section>
