@@ -30,3 +30,7 @@ The byline is part of the joke, not decoration. Assign every article to the writ
 - **Hollis:** Chaos must resolve. Without the profound turn and final callback, the piece is unfinished.
 - **Dashiell:** The ridiculous question must uncover real machinery. Documents and incentives matter.
 - **Marnie:** Current, observant and selective. One excellent cultural detail beats five references.
+
+## Culture presentation
+
+- On homepage culture story cards, the “MATTERS OF CULTURE” section line always precedes the photo or clip. Keep a clear gap between the section line and image, preserve the full image framing, and place the headline below the photo. Apply the same order in both league editions.
