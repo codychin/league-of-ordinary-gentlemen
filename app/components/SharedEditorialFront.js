@@ -6,7 +6,7 @@ import ResilientImage from './ResilientImage';
 
 export default function SharedEditorialFront({archiveHref='/archive'}){
   return <>
-<section className="morningBriefPreview sundayFront marnieRetailPackage" style={{paddingTop:0}} aria-label="Lead story: Marnie Kells on the corgi race">
+<section className="morningBriefPreview sundayFront" style={{paddingTop:0}} aria-label="Lead story: Marnie Kells on the corgi race">
   <div className="morningBriefFlag"><span>THE LEAD STORY</span><small>OCTOBER 4 • MARNIE KELLS</small></div>
   <div className="sundayFrontGrid">
     <article className="sundayFeature sabinePackage">
@@ -37,11 +37,7 @@ export default function SharedEditorialFront({archiveHref='/archive'}){
   </Link>
   <ArticleClip tweetId="2106801789630919072" url="https://x.com/fballforeverhq/status/2106801789630919072" showCaption={false}/>
 </section>
-<aside aria-label="Breaking news" style={{borderTop:'4px solid #a32626',borderBottom:'1px solid currentColor',padding:'16px 0',marginBottom:24}}>
-  <div className="eyebrow" style={{color:'#a32626'}}>BREAKING NEWS • GLOBAL UPDATE</div>
-  <a href="https://x.com/ab84/status/2105831116464886238" target="_blank" rel="noopener noreferrer" className="storylink"><h2 style={{fontSize:'clamp(22px, 3.5vw, 34px)',lineHeight:1.15,margin:'8px 0'}}>Antonio Brown Bombs Hospital in Mike Tomlin’s Minecraft City</h2></a>
-  <small>MORE TO COME • <a href="https://x.com/ab84/status/2105831116464886238" target="_blank" rel="noopener noreferrer">AB ON X ↗</a></small>
-</aside>
+
 <section className="hero heroStack" aria-label="Featured Conrad Sorrell column">
   <Link className="hero-copy storylink" href="/articles/conrad-deshaun-watson-cleveland-hope">
     <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.08)),url('https://img.ksl.com/slc/3198/319896/31989626.jpg?filter=kslv2%2Fresponsive_story_lg&v=1787444404')",backgroundPosition:"center 34%"}}>
