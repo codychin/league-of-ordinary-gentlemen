@@ -6,7 +6,7 @@ import ResilientImage from './ResilientImage';
 
 export default function SharedEditorialFront({archiveHref='/archive'}){
   return <>
-<section className="hero heroStack" aria-label="Marnie Kells on the corgi race">
+<section className="hero heroStack" style={{paddingTop:16}} aria-label="Marnie Kells on the corgi race">
   <Link className="hero-copy storylink" href="/articles/marnie-corgi-he-wanted-them-to-know">
     <div className="eyebrow">MATTERS OF CULTURE • SPORTING LIFE • OCTOBER 4</div>
     <ResilientImage src="/images/editorial/corgi-look-back-bw.png" alt="A leading corgi looks back at two trailing competitors, in black and white" loading="eager" decoding="async" style={{display:'block',width:'100%',height:'auto',marginTop:14}}/>
