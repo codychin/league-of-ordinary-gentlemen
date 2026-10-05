@@ -6,15 +6,25 @@ import ResilientImage from './ResilientImage';
 
 export default function SharedEditorialFront({archiveHref='/archive'}){
   return <>
-<section className="hero heroStack" style={{paddingTop:0,borderTop:'8px solid var(--ink)'}} aria-label="Marnie Kells on the corgi race">
-  <div className="morningBriefFlag" style={{marginBottom:14}}><span>MATTERS OF CULTURE</span><small>OCTOBER 4 • MARNIE KELLS</small></div>
-  <Link className="hero-copy storylink" href="/articles/marnie-corgi-he-wanted-them-to-know">
-    <h2>He Wanted Them to Know He Knew.</h2>
-    <ResilientImage src="/images/editorial/corgi-look-back-bw.png" alt="A leading corgi looks back at two trailing competitors, in black and white" loading="eager" decoding="async" style={{display:'block',width:'100%',height:'auto',marginTop:14}}/>
-    <PreviewAuthor slug="marnie-corgi-he-wanted-them-to-know"/>
-    <p className="standfirst">Winning the corgi race was insufficient. He needed witnesses.</p>
-    <div className="read">READ MARNIE →</div>
-  </Link>
+<section className="morningBriefPreview sundayFront marnieRetailPackage" style={{paddingTop:0}} aria-label="Lead story: Marnie Kells on the corgi race">
+  <div className="morningBriefFlag"><span>THE LEAD STORY</span><small>OCTOBER 4 • MARNIE KELLS</small></div>
+  <div className="sundayFrontGrid">
+    <article className="sundayFeature sabinePackage">
+      <Link href="/articles/marnie-corgi-he-wanted-them-to-know" className="sundayFeatureImage sundayActionHero storylink">
+        <ResilientImage loading="eager" decoding="async" src="/images/editorial/corgi-look-back-bw.png" alt="A leading corgi looks back at two trailing competitors, in black and white"/>
+        <div className="actionCaption"><small>MARNIE KELLS • CULTURE</small><b>HE WANTED THEM TO KNOW HE KNEW</b></div>
+      </Link>
+      <div className="sundayFeatureCopy">
+        <div className="sabinePackageIntro">
+          <small>MATTERS OF CULTURE</small>
+          <Link href="/articles/marnie-corgi-he-wanted-them-to-know" className="sabinePackageTitle storylink"><h2>He Wanted Them to Know He Knew.</h2></Link>
+          <p>Winning the corgi race was insufficient. He needed witnesses.</p>
+          <PreviewAuthor slug="marnie-corgi-he-wanted-them-to-know"/>
+        </div>
+        <Link href="/articles/marnie-corgi-he-wanted-them-to-know" className="sabinePackageCta">READ MARNIE →</Link>
+      </div>
+    </article>
+  </div>
 </section>
 
 <section className="hero heroStack" aria-label="Marnie Kells on Tee Higgins">
@@ -32,17 +42,17 @@ export default function SharedEditorialFront({archiveHref='/archive'}){
   <a href="https://x.com/ab84/status/2105831116464886238" target="_blank" rel="noopener noreferrer" className="storylink"><h2 style={{fontSize:'clamp(22px, 3.5vw, 34px)',lineHeight:1.15,margin:'8px 0'}}>Antonio Brown Bombs Hospital in Mike Tomlin’s Minecraft City</h2></a>
   <small>MORE TO COME • <a href="https://x.com/ab84/status/2105831116464886238" target="_blank" rel="noopener noreferrer">AB ON X ↗</a></small>
 </aside>
-<section className="morningBriefPreview sundayFront marnieRetailPackage" aria-label="Conrad Sorrell lead column">
-  <div className="morningBriefFlag"><span>THE LEAD COLUMN</span><small>OCTOBER 2 • CONRAD SORRELL</small></div>
-  <div className="sundayFrontGrid">
-    <article className="sundayFeature sabinePackage">
-      <Link href="/articles/conrad-deshaun-watson-cleveland-hope" className="sundayFeatureImage sundayActionHero storylink"><ResilientImage loading="eager" decoding="async" src="https://img.ksl.com/slc/3198/319896/31989626.jpg?filter=kslv2%2Fresponsive_story_lg&v=1787444404" alt="Deshaun Watson speaks after Cleveland's preseason game against Buffalo"/><div className="actionCaption"><small>CONRAD SORRELL • COLUMN</small><b>GROPER CLEVELAND IS 3–1</b></div></Link>
-      <div className="sundayFeatureCopy">
-        <div className="sabinePackageIntro"><small>CONRAD SORRELL • COLUMN</small><Link href="/articles/conrad-deshaun-watson-cleveland-hope" className="sabinePackageTitle storylink"><h2>Groper Cleveland Is 3–1</h2></Link><p>A column on Browns fandom, quarterback play, and the moral tension created by winning.</p><PreviewAuthor slug="conrad-deshaun-watson-cleveland-hope"/></div>
-        <Link href="/articles/conrad-deshaun-watson-cleveland-hope" className="sabinePackageCta">READ CONRAD →</Link>
-      </div>
-    </article>
-  </div>
+<section className="hero heroStack" aria-label="Featured Conrad Sorrell column">
+  <Link className="hero-copy storylink" href="/articles/conrad-deshaun-watson-cleveland-hope">
+    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.08)),url('https://img.ksl.com/slc/3198/319896/31989626.jpg?filter=kslv2%2Fresponsive_story_lg&v=1787444404')",backgroundPosition:"center 34%"}}>
+      <div><small>CONRAD SORRELL • COLUMN</small><b>GROPER CLEVELAND IS 3–1</b></div>
+    </div>
+    <div className="eyebrow">COLUMN • POWER & AMERICAN ARRANGEMENTS</div>
+    <h2>Groper Cleveland <em>Is 3–1.</em></h2>
+    <PreviewAuthor slug="conrad-deshaun-watson-cleveland-hope"/>
+    <p className="standfirst">A column on Browns fandom, quarterback play, and the moral tension created by winning.</p>
+    <div className="read">READ CONRAD SORRELL →</div>
+  </Link>
 </section>
 <section className="hero heroStack" aria-label="Featured Hollis Crane investigation">
   <Link className="hero-copy storylink" href="/articles/hollis-jameis-winston-turing-test">
