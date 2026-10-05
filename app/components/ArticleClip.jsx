@@ -2,7 +2,7 @@
 
 import {useEffect, useRef} from 'react'
 
-export default function ArticleClip({tweetId, url, caption}) {
+export default function ArticleClip({tweetId, url, caption, showCaption=true}) {
   const container = useRef(null)
   useEffect(() => {
     let cancelled = false
@@ -28,11 +28,11 @@ export default function ArticleClip({tweetId, url, caption}) {
     }
     return () => { cancelled = true; script?.removeEventListener('load', render) }
   }, [tweetId])
-  return <figure style={{margin:'24px 0 28px',maxWidth:'100%'}}>
+  return <figure style={{margin:showCaption?'24px 0 28px':'24px 0 0',maxWidth:'100%'}}>
     <div ref={container} style={{maxWidth:550,margin:'0 auto',overflow:'hidden'}}/>
-    <figcaption style={{fontSize:14,lineHeight:1.6,fontStyle:'italic',textAlign:'center'}}>
+    {showCaption&&<figcaption style={{fontSize:14,lineHeight:1.6,fontStyle:'italic',textAlign:'center'}}>
       {caption}<br/>
       <a href={url} target="_blank" rel="noopener noreferrer">Watch the clip on X</a>
-    </figcaption>
+    </figcaption>}
   </figure>
 }
