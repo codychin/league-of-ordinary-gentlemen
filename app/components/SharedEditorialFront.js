@@ -76,8 +76,8 @@ export default function SharedEditorialFront({archiveHref='/archive'}){
   </Link>
   <div className={front.clip}><ArticleClip tweetId="2106801789630919072" url="https://x.com/fballforeverhq/status/2106801789630919072" showCaption={false}/></div>
 </section>
-<section className="morningBriefPreview sundayFront" aria-label="Sunday Morning Brief">
-  <div className="morningBriefFlag"><span>THE SUNDAY MORNING BRIEF</span><small>SEPTEMBER 27 • WEEK 3</small></div>
+<section className="morningBriefPreview sundayFront" aria-label="On Assignment: Sabine March in Rio de Janeiro">
+  <div className="morningBriefFlag"><span>ON ASSIGNMENT</span><small>SABINE MARCH • RIO DE JANEIRO • SEPTEMBER 27</small></div>
   <div className="sundayFrontGrid">
     <article className="sundayFeature sabinePackage">
       <Link href="/articles/sabine-sunday-maracana" className="sundayFeatureImage sundayActionHero storylink"><ResilientImage loading="lazy" decoding="async" src="/images/editorial/maracana-stadium.webp" alt="Interior of the Maracanã stadium in Rio de Janeiro"/><div className="actionCaption"><small>SABINE MARCH • RIO DE JANEIRO</small><b>SUNDAY DISPATCH</b></div></Link>
