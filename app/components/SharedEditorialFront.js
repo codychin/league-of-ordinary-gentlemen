@@ -6,7 +6,7 @@ import ResilientImage from './ResilientImage';
 
 export default function SharedEditorialFront({archiveHref='/archive'}){
   return <>
-<section className="hero heroStack" style={{paddingTop:16}} aria-label="Marnie Kells on the corgi race">
+<section className="hero heroStack" style={{paddingTop:8}} aria-label="Marnie Kells on the corgi race">
   <Link className="hero-copy storylink" href="/articles/marnie-corgi-he-wanted-them-to-know">
     <div className="eyebrow">MATTERS OF CULTURE • SPORTING LIFE • OCTOBER 4</div>
     <h2>He Wanted Them to Know He Knew.</h2>
