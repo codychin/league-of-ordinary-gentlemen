@@ -1,4 +1,55 @@
 export const articles = {
+"hollis-bryce-young-good-time":{
+  "week": 4,
+  "section": "INVESTIGATIONS • SPORTING DISPOSITION",
+  "title": "Is Bryce Young Really Having That Good of a Time?",
+  "dek": "The Panthers quarterback keeps smiling. His colleagues have chosen to find this reassuring.",
+  "date": "OCTOBER 5, 2026",
+  "author": "crane",
+  "image": "/images/editorial/bryce-smiles-collage.jpg",
+  "imageAlt": "Five-panel AI-assisted editorial collage based on photographs of Bryce Young smiling.",
+  "imageCredit": {
+    "label": "The Brief • AI-assisted collage from supplied photographs",
+    "url": "/articles/hollis-bryce-young-good-time"
+  },
+  "body": [
+    "At first, Bryce Young’s expression on Sunday night seemed appropriate to the service Detroit was providing. Receivers were available. Passes were arriving. Every return to Carolina’s quarterback seemed to find him smiling, as though the Lions had remembered his birthday and instructed the secondary to make an effort.",
+    "Then the game got closer, and he continued to look as though someone should be thanked.",
+    "Young finished with 329 passing yards and two touchdowns in a 32–26 win. Tet McMillan, the principal beneficiary of Detroit’s hospitality, caught fourteen passes for 192 yards and both scores. The Lions spent much of the evening furnishing perfectly understandable reasons for a quarterback to enjoy himself.",
+    "It was the persistence that began to feel unusual. The smile kept turning up in the broadcast, acquiring through repetition the faintly troubling quality of a song playing in an empty room. At some point, the explanation that things were going well stopped accounting for how consistently pleased he appeared to be.",
+    "Football otherwise supplies a recognizable range of expressions. A coordinator stares at his play sheet as though the correct answer has been removed. A cornerback gives up a touchdown and immediately identifies someone else who should have been standing there. A quarterback beneath a towel has requested privacy, which the broadcast will honor by discussing his childhood.",
+    "Young kept coming back on screen looking delighted. The surrounding conditions appeared to have limited influence on the arrangement.",
+    "Detroit’s secondary deserves its share of the credit. This was hardly an evening in which every completion required Young to solve a previously unknown branch of mathematics. Carolina found Tet, then found him again, then continued finding him while Detroit attempted to establish whether this was something it intended to address. From the Lions’ perspective, it was the same doorbell ringing all evening while you hid in your own house.",
+    "Under those circumstances, smiling makes sense. A quarterback is entitled to appreciate convenient working conditions. But Detroit eventually cut the lead to six with 3:38 remaining, and Carolina needed a difficult third-and-14 sideline completion to Tet to keep a late possession moving. There were consequences available again.",
+    "Even as the evening tightened, the smiling remained part of the picture. The game had moved into the portion where coaches chew without food. Young still seemed to be enjoying the amenities.",
+    "This does not establish greatness. A man can smile his way through an excellent performance, a fortunate matchup or a sequence of decisions that will shortly require an apology. The scoreboard can evaluate the football. It offers limited assistance with the face.",
+    "There is relevant history. Against Arizona in December 2024, Young released a pass to Tommy Tremble and took a shot to the chest that put him on his back. The ball had gone; his body absorbed the rest of the play. Robert Hunt hurried over to check on him, concerned enough to ask whether he was all right.",
+    "Young got up smiling. Hunt later said the sight lifted his spirits.",
+    "That is one interpretation of the scene. Your quarterback has just been deposited on the ground, you arrive expecting to help, and he appears to have enjoyed the excursion. From a teammate’s perspective, the relief is understandable.",
+    "The man who hit him has received a less straightforward result. He has generated the collision. Another offensive lineman has come over to inspect the consequences. Everything about the sequence suggests that his contribution should have registered as unpleasant.",
+    "Bryce seems glad he could make it.",
+    "Hitting him again remains an option, although a basic question about the purpose of the exercise has opened up. You were attempting to discourage an activity. The participant appears eager to renew.",
+    "Football is full of men advertising how little they mind being hit. They pound their chests, get in someone’s face, stage a brief demonstration of the damage having failed to damage them. There is an audience for this, and everyone understands the presentation. Young’s smile is peculiar because it looks so much less laborious. He seems to have skipped the part where he has to convince himself.",
+    "Asked about the Arizona incident, Young described the reaction as instinctive. During the same interview, he encountered the nickname “Carolina Reaper” and initially wondered whether people meant the pepper. Once the more ominous meaning became clear, he expressed concern.",
+    "“I try not to be evil,” he said.",
+    "The statement establishes a goal. There is no accompanying information about supervision.",
+    "It is also a wonderfully Bryce Young objection. Presented with a nickname suggesting that his presence concludes other people’s affairs, he worries about the moral implications. Somewhere in the public imagination, a terrifying figure is being assembled around a man who would prefer everyone understand that he is making an effort to be nice.",
+    "His coaches have supplied observations that do little to settle things. Before Sunday’s game, Dave Canales described Young responding well when plays go wrong; offensive coordinator Brad Idzik spoke about his ability to remain loose amid disruption. These are useful professional qualities. They also mean that making the situation worse may fail to produce the expected change in demeanor.",
+    "None of this tells us what he will do on the next down. He can still miss a receiver. Carolina can still lose. The unsettling possibility is that the smile does not depend on those matters as closely as everyone would prefer.",
+    "Perhaps he likes football in its entirety. The successful passes, certainly, but also the pursuit, the collision, the moment a reasonably organized activity becomes a collection of large men improvising at speed. Most of us would select a few agreeable elements from that experience and tolerate the remainder. Young’s face leaves open the possibility that he ordered the whole thing.",
+    "There is an innocent explanation available: he is a cheerful person playing a game he loves. It has the advantage of being plausible and the disadvantage of also describing someone who gets up smiling after a shot to the chest. The reassuring explanation keeps arriving at the same place as the concerning one.",
+    "Sunday’s broadcast returned to that ambiguity again and again. Another glimpse, another smile. Tet was having a career night. Detroit was hanging around. The remaining time became important. Whatever adjustments the game required, Young’s face seemed satisfied with the original settings.",
+    "The crowd eventually chanted “MVP,” and Young acknowledged afterward that he had heard it. That smile has an identifiable cause. A stadium had complimented him. The normal social machinery was functioning.",
+    "The Arizona smile is harder to file away. Hunt rushing over, the quarterback getting up, relief spreading through the people whose job it is to protect him. Everyone taking comfort in the fact that the collision had failed to spoil his mood.",
+    "By Sunday night, the same cheerful expression had become a recurring feature of an evening whose terms kept changing. It was easy to be happy for him. Harder to establish the boundaries of what, exactly, he was happy about.",
+    "Bryce Young appears to be enjoying himself. Good for him."
+  ],
+  "receipt": "“I try not to be evil.” — Bryce Young",
+  "source": {
+    "label": "Carolina Panthers — Bryce Young smiling through it all",
+    "url": "https://www.panthers.com/news/notebook-bryce-young-smiling-through-it-all-this-holiday-season"
+  }
+},
 "conrad-tomlin-minecraft-cvs":{
   "week": 4,
   "section": "COLUMN • POWER & AMERICAN ARRANGEMENTS",

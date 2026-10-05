@@ -7,28 +7,38 @@ import ResilientImage from './ResilientImage';
 
 export default function SharedEditorialFront({archiveHref='/archive'}){
   return <>
-<section className="morningBriefPreview sundayFront" style={{paddingTop:0}} aria-label="Lead story: Conrad Sorrell on Mike Tomlin’s Minecraft city">
-  <div className="morningBriefFlag"><span>THE LEAD STORY</span><small>OCTOBER 5 • CONRAD SORRELL</small></div>
+<section className="morningBriefPreview sundayFront" style={{paddingTop:0}} aria-label="Lead story: Hollis Crane on Bryce Young">
+  <div className="morningBriefFlag"><span>THE LEAD STORY</span><small>OCTOBER 5 • HOLLIS CRANE</small></div>
   <div className="sundayFrontGrid">
     <article className="sundayFeature sabinePackage">
-      <Link href="/articles/conrad-tomlin-minecraft-cvs" className={`sundayFeatureImage storylink ${front.tourHero}`}>
-        <ResilientImage loading="eager" decoding="async" src="/images/editorial/tomlin-minecraft-city.jpg" alt="Mike Tomlin explains his Minecraft city during a video tour, appearing beside a view of its waterfront buildings."/>
-        <div className="actionCaption"><small>CONRAD SORRELL • COLUMN</small><b>TWELVE YEARS. ONE CITY.</b></div>
+      <Link href="/articles/hollis-bryce-young-good-time" className={`sundayFeatureImage storylink ${front.tourHero}`}>
+        <ResilientImage loading="eager" decoding="async" src="/images/editorial/bryce-smiles-collage.jpg" alt="Five-panel AI-assisted editorial collage based on photographs of Bryce Young smiling."/>
+        <div className="actionCaption"><small>HOLLIS CRANE • INVESTIGATIONS</small><b>GOOD FOR HIM.</b></div>
       </Link>
       <div className="sundayFeatureCopy">
         <div className="sabinePackageIntro">
-          <small>POWER & AMERICAN ARRANGEMENTS</small>
-          <Link href="/articles/conrad-tomlin-minecraft-cvs" className="sabinePackageTitle storylink"><h2>In a World Without Scarcity, Mike Tomlin Built a CVS</h2></Link>
-          <p>An architectural tour of a civilization where anything is possible and the pharmacy is conveniently located.</p>
-          <PreviewAuthor slug="conrad-tomlin-minecraft-cvs"/>
+          <small>SPORTING DISPOSITION</small>
+          <Link href="/articles/hollis-bryce-young-good-time" className="sabinePackageTitle storylink"><h2>Is Bryce Young Really Having That Good of a Time?</h2></Link>
+          <p>The Panthers quarterback keeps smiling. His colleagues have chosen to find this reassuring.</p>
+          <PreviewAuthor slug="hollis-bryce-young-good-time"/>
         </div>
-        <Link href="/articles/conrad-tomlin-minecraft-cvs" className="sabinePackageCta">READ CONRAD →</Link>
+        <Link href="/articles/hollis-bryce-young-good-time" className="sabinePackageCta">READ HOLLIS →</Link>
       </div>
     </article>
   </div>
 </section>
 
 <section className={front.recent} aria-label="Recent stories">
+<article className={front.card} aria-label="Conrad Sorrell on Mike Tomlin">
+  <Link className={front.story} href="/articles/conrad-tomlin-minecraft-cvs">
+    <div className={front.image} style={{backgroundImage:"url('/images/editorial/tomlin-minecraft-city.jpg')",backgroundSize:"contain",backgroundRepeat:"no-repeat",backgroundColor:"#171613"}}/>
+    <div className="eyebrow">COLUMN • POWER & AMERICAN ARRANGEMENTS</div>
+    <h3>In a World Without Scarcity, Mike Tomlin Built a CVS</h3>
+    <PreviewAuthor slug="conrad-tomlin-minecraft-cvs"/>
+    <p className={front.dek}>An architectural tour of a civilization where anything is possible and the pharmacy is conveniently located.</p>
+    <div className="read">READ CONRAD →</div>
+  </Link>
+</article>
 <article className={front.card} aria-label="Marnie Kells on the corgi race">
   <Link className={front.story} href="/articles/marnie-corgi-he-wanted-them-to-know">
     <div className={front.image} style={{backgroundImage:"url('/images/editorial/corgi-look-back-bw.png')",backgroundPosition:"center"}}/>
@@ -53,18 +63,7 @@ export default function SharedEditorialFront({archiveHref='/archive'}){
     <div className="read">READ CONRAD SORRELL →</div>
   </Link>
 </article>
-<article className={front.card} aria-label="Featured Hollis Crane investigation">
-  <Link className={front.story} href="/articles/hollis-jameis-winston-turing-test">
-    <div className={front.image} style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.08)),url('/images/editorial/jameis-winston.webp')",backgroundPosition:"center 34%"}}>
-      <div><small>HOLLIS CRANE • INVESTIGATIONS</small><b>THE JAMEIS WINSTON TURING TEST</b></div>
-    </div>
-    <div className="eyebrow">INVESTIGATIONS • PERSONHOOD & INTELLIGENCE</div>
-    <h3>The Jameis Winston <em>Turing Test.</em></h3>
-    <PreviewAuthor slug="hollis-jameis-winston-turing-test"/>
-    <p className={front.dek}>After a decade of motivational philosophy, recursive metaphors and sentences that sound important without technically containing information, Jameis Winston has become an unexpectedly interesting case study in intelligence.</p>
-    <div className="read">READ HOLLIS CRANE →</div>
-  </Link>
-</article>
+
 
 </section>
 <section className="hero heroStack" aria-label="Marnie Kells on Tee Higgins">
