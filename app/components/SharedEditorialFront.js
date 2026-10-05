@@ -13,7 +13,7 @@ export default function SharedEditorialFront({archiveHref='/archive'}){
     <article className="sundayFeature sabinePackage">
       <Link href="/articles/hollis-bryce-young-good-time" className={`sundayFeatureImage storylink ${front.tourHero}`}>
         <ResilientImage loading="eager" decoding="async" src="/images/editorial/bryce-smiles-collage.jpg" alt="Five-panel AI-assisted editorial collage based on photographs of Bryce Young smiling."/>
-        <div className="actionCaption"><small>HOLLIS CRANE • INVESTIGATIONS</small><b>GOOD FOR HIM.</b></div>
+        <div className="actionCaption"><small>HOLLIS CRANE • INVESTIGATIONS</small><b>THE SMILE FILE</b></div>
       </Link>
       <div className="sundayFeatureCopy">
         <div className="sabinePackageIntro">
