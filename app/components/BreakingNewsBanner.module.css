@@ -85,14 +85,14 @@
   .banner .viewport .track,
   .banner .viewport .item,
   .banner .viewport .update {
-    font: 800 9px/16px Georgia, 'Times New Roman', serif !important;
+    font: 800 9px/20px Georgia, 'Times New Roman', serif !important;
     letter-spacing: .7px !important;
     -webkit-text-size-adjust: none !important;
     text-size-adjust: none !important;
-    max-height: 16px;
+    max-height: none;
   }
   .banner .label {
-    font: 800 11px/16px Georgia, 'Times New Roman', serif !important;
+    font: 800 11px/20px Georgia, 'Times New Roman', serif !important;
     -webkit-text-size-adjust: none !important;
     text-size-adjust: none !important;
   }
