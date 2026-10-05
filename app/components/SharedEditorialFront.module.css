@@ -21,3 +21,7 @@
   .card h3 { font-size: 23px; }
   .image { height: 150px; }
 }
+
+.tourHero { min-height: 0 !important; aspect-ratio: 16 / 9; }
+.tourHero > img { display: block; width: 100%; height: 100%; object-fit: contain; }
+@media (max-width: 600px) { .tourHero :global(.actionCaption) { display: none; } }

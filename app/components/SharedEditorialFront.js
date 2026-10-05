@@ -7,28 +7,38 @@ import ResilientImage from './ResilientImage';
 
 export default function SharedEditorialFront({archiveHref='/archive'}){
   return <>
-<section className="morningBriefPreview sundayFront" style={{paddingTop:0}} aria-label="Lead story: Marnie Kells on the corgi race">
-  <div className="morningBriefFlag"><span>THE LEAD STORY</span><small>OCTOBER 4 • MARNIE KELLS</small></div>
+<section className="morningBriefPreview sundayFront" style={{paddingTop:0}} aria-label="Lead story: Conrad Sorrell on Mike Tomlin’s Minecraft city">
+  <div className="morningBriefFlag"><span>THE LEAD STORY</span><small>OCTOBER 5 • CONRAD SORRELL</small></div>
   <div className="sundayFrontGrid">
     <article className="sundayFeature sabinePackage">
-      <Link href="/articles/marnie-corgi-he-wanted-them-to-know" className="sundayFeatureImage sundayActionHero storylink">
-        <ResilientImage loading="eager" decoding="async" src="/images/editorial/corgi-look-back-bw.png" alt="A leading corgi looks back at two trailing competitors, in black and white"/>
-        <div className="actionCaption"><small>MARNIE KELLS • CULTURE</small><b>HE WANTED THEM TO KNOW HE KNEW</b></div>
+      <Link href="/articles/conrad-tomlin-minecraft-cvs" className={`sundayFeatureImage storylink ${front.tourHero}`}>
+        <ResilientImage loading="eager" decoding="async" src="/images/editorial/tomlin-minecraft-city.jpg" alt="Mike Tomlin explains his Minecraft city during a video tour, appearing beside a view of its waterfront buildings."/>
+        <div className="actionCaption"><small>CONRAD SORRELL • COLUMN</small><b>TWELVE YEARS. ONE CITY.</b></div>
       </Link>
       <div className="sundayFeatureCopy">
         <div className="sabinePackageIntro">
-          <small>MATTERS OF CULTURE</small>
-          <Link href="/articles/marnie-corgi-he-wanted-them-to-know" className="sabinePackageTitle storylink"><h2>He Wanted Them to Know He Knew.</h2></Link>
-          <p>Winning the corgi race was insufficient. He needed witnesses.</p>
-          <PreviewAuthor slug="marnie-corgi-he-wanted-them-to-know"/>
+          <small>POWER & AMERICAN ARRANGEMENTS</small>
+          <Link href="/articles/conrad-tomlin-minecraft-cvs" className="sabinePackageTitle storylink"><h2>In a World Without Scarcity, Mike Tomlin Built a CVS</h2></Link>
+          <p>An architectural tour of a civilization where anything is possible and the pharmacy is conveniently located.</p>
+          <PreviewAuthor slug="conrad-tomlin-minecraft-cvs"/>
         </div>
-        <Link href="/articles/marnie-corgi-he-wanted-them-to-know" className="sabinePackageCta">READ MARNIE →</Link>
+        <Link href="/articles/conrad-tomlin-minecraft-cvs" className="sabinePackageCta">READ CONRAD →</Link>
       </div>
     </article>
   </div>
 </section>
 
 <section className={front.recent} aria-label="Recent stories">
+<article className={front.card} aria-label="Marnie Kells on the corgi race">
+  <Link className={front.story} href="/articles/marnie-corgi-he-wanted-them-to-know">
+    <div className={front.image} style={{backgroundImage:"url('/images/editorial/corgi-look-back-bw.png')",backgroundPosition:"center"}}/>
+    <div className="eyebrow">MATTERS OF CULTURE • SPORTING LIFE</div>
+    <h3>He Wanted Them to Know He Knew.</h3>
+    <PreviewAuthor slug="marnie-corgi-he-wanted-them-to-know"/>
+    <p className={front.dek}>Winning the corgi race was insufficient. He needed witnesses.</p>
+    <div className="read">READ MARNIE →</div>
+  </Link>
+</article>
 
 
 <article className={front.card} aria-label="Featured Conrad Sorrell column">
@@ -55,16 +65,7 @@ export default function SharedEditorialFront({archiveHref='/archive'}){
     <div className="read">READ HOLLIS CRANE →</div>
   </Link>
 </article>
-<article className={front.card} aria-label="Sabine March on Michigan">
-  <Link className={front.story} href="/articles/sabine-michigan-money-privilege-impatience">
-    <div className={front.image} style={{backgroundImage:"url('/api/jolin-ellison-image')",backgroundPosition:"center 35%"}}/>
-    <div className="eyebrow">SOCIETY • MONEY & INSTITUTIONS</div>
-    <h3>Michigan, Money and the Privilege of Impatience</h3>
-    <PreviewAuthor slug="sabine-michigan-money-privilege-impatience"/>
-    <p className={front.dek}>Jolin Ellison represents a new kind of college-football power broker. The uncomfortable question is whether institutions need people like her.</p>
-    <div className="read">READ SABINE →</div>
-  </Link>
-</article>
+
 </section>
 <section className="hero heroStack" aria-label="Marnie Kells on Tee Higgins">
   <Link className="hero-copy storylink" href="/articles/marnie-tee-higgins-ankles">
