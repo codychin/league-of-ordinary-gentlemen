@@ -9,7 +9,7 @@ const PAGE_SIZE=5
 const MEDIA='https://dnzdbqycuuoonewcowis.supabase.co/storage/v1/object/public/brief-media'
 
 const stories=[
-  {href:'/articles/conrad-white-coaches-lose-individually',slug:'conrad-white-coaches-lose-individually',tag:'RACE & FOOTBALL',title:'White Coaches Continue to Lose Football Games Individually',dek:'Three Black coaches are losing. Somehow their race has become part of the box score.',read:'READ CONRAD →'},
+  {href:'/articles/conrad-white-coaches-lose-individually',slug:'conrad-white-coaches-lose-individually',image:'https://phantom-marca-us.unidadeditorial.es/1dbe84cc26f2f244effacc3e1d1d69f3/resize/828/f/jpg/assets/multimedia/imagenes/2025/01/27/17380111307030.jpg',editions:['doge'],tag:'RACE & FOOTBALL',title:'White Coaches Continue to Lose Football Games Individually',dek:'Three Black coaches are losing. Somehow their race has become part of the box score.',read:'READ CONRAD →'},
   {href:'/articles/marnie-jumbotron-juilliard',slug:'marnie-jumbotron-juilliard',image:'/api/preston-powe-image',tag:'FAME & ATTENTION',title:'The Jumbotron Is the New Juilliard',dek:'The audition has escaped the casting room and entered the arena of popular response.',read:'ENTER THE CASTING ROOM →'},
   {href:'/articles/sabine-michigan-money-privilege-impatience',slug:'sabine-michigan-money-privilege-impatience',image:'/api/jolin-ellison-image',tag:'MONEY & INSTITUTIONS',title:'Michigan, Money and the Privilege of Impatience',dek:'Jolin Ellison represents a new kind of college-football power broker. The uncomfortable question is whether institutions need people like her.',read:'READ THE DISPATCH →'},
   {href:'/articles/dashiell-favorite-team-asset-class',slug:'dashiell-favorite-team-asset-class',image:'/api/dashiell-london-fans-image',tag:'CAPITAL & FANDOM',title:'When Your Favorite Team Became an Asset Class',dek:'Sports spent a century as an exception to economic pragmatism. The mean is reverting.',read:'FOLLOW THE MONEY →'},
@@ -34,7 +34,7 @@ function Story({story,root}){
 
 export default function CultureDesk({globalOnly=false,root="",extraSlugs=[]}){
   const [page,setPage]=useState(0)
-  const scopedStories=globalOnly?stories.filter(story=>story.slug&&(isGlobalArticle(story.slug)||extraSlugs.includes(story.slug))):stories
+  const editionSlug=root==='/doge'?'doge':root==='/sunday-crew'?'sunday-crew':'loog';const scopedStories=(globalOnly?stories.filter(story=>story.slug&&(isGlobalArticle(story.slug)||extraSlugs.includes(story.slug))):stories).filter(story=>!story.editions||story.editions.includes(editionSlug))
   const pageCount=Math.ceil(scopedStories.length/PAGE_SIZE)
   const visible=scopedStories.slice(page*PAGE_SIZE,(page+1)*PAGE_SIZE)
   const changePage=next=>{setPage(next);document.getElementById('culture')?.scrollIntoView({behavior:'auto',block:'start'})}
