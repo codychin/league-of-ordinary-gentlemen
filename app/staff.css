@@ -25,6 +25,7 @@
 .staffPortrait figcaption{padding:11px 12px;background:var(--ink);color:var(--paper);font:900 8px/1.35 Arial,sans-serif;letter-spacing:1.35px;text-transform:uppercase}
 .staffProfile h2{font-size:48px;line-height:.95;margin:2px 0 18px;letter-spacing:-2px}
 .staffProfile>p{font-size:18px;line-height:1.52;color:#454139;margin:0}
+.staffProfile>p+p{margin-top:1em}
 .staffProfile dl{margin:24px 0 0;border-top:1px solid var(--line)}
 .staffProfile dl>div{display:grid;grid-template-columns:94px 1fr;gap:14px;padding:13px 0;border-bottom:1px solid var(--line)}
 .staffProfile dt{font:900 8px Arial,sans-serif;letter-spacing:1.2px;color:var(--red)}
