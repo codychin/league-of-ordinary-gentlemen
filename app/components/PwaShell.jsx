@@ -295,7 +295,7 @@ function MobileAppNav(){
   }
 
   const overflowLabel=pathname.startsWith('/staff')?'Staff':pathname.startsWith('/archive')?'Archive':pathname.startsWith('/corrections')?'Corrections':'More'
-  const headerLabel=moreOpen?'More':pathname.includes('/matchups/')?'Matchup':activeTab==='scores'?'Scores':activeTab==='teams'?'Teams':activeTab==='culture'?'Tha Culture':activeTab==='more'?overflowLabel:activeTab==='detail'?'The Brief':''
+  const headerLabel=moreOpen?'More':pathname.includes('/matchups/')?'Matchup':activeTab==='scores'?'Scores':activeTab==='teams'?'Teams':activeTab==='culture'?'The Culture':activeTab==='more'?overflowLabel:activeTab==='detail'?'The Brief':''
   return <>
     <div className="appSectionHeader" aria-hidden="true"><span>{headerLabel}</span></div>
     {moreOpen&&<aside className="appMoreSheet" aria-label="More and settings">
