@@ -1,3 +1,7 @@
 import {readFile} from 'node:fs/promises';
 import path from 'node:path';
-export async function GET(){const source=await readFile(path.join(process.cwd(),'public/sw.js'),'utf8');return new Response(source.replaceAll('ordinary-brief-', 'doge-brief-'),{headers:{'Content-Type':'application/javascript','Cache-Control':'no-cache','Service-Worker-Allowed':'/doge'}});}
+export async function GET(){
+  const source=await readFile(path.join(process.cwd(),'public/sw.js'),'utf8');
+  const scoped=source.replace("const VERSION='ordinary-brief-", "const VERSION='doge-brief-").replace("key.startsWith('ordinary-brief-')", "key.startsWith('doge-brief-')");
+  return new Response(scoped,{headers:{'Content-Type':'application/javascript','Cache-Control':'no-cache','Service-Worker-Allowed':'/doge'}});
+}
