@@ -26,7 +26,7 @@ function ShareIcon(){
   </svg>
 }
 
-export default function ShareArticle({slug,title,dek}){
+export default function ShareArticle({slug}){
   const [status,setStatus]=useState('')
   const [sharing,setSharing]=useState(false)
 
@@ -36,7 +36,7 @@ export default function ShareArticle({slug,title,dek}){
     setSharing(true)
     try{
       if(navigator.share){
-        await navigator.share({title,text:dek,url})
+        await navigator.share({url})
         setStatus('SHARED')
       }else{
         await fallbackCopy(url)
