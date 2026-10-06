@@ -1,8 +1,9 @@
+import {isStaging} from '../lib/environment';
 export default function manifest() {
   return {
     id: '/',
-    name: 'The Brief of Ordinary Gentleman',
-    short_name: 'The Brief',
+    name: isStaging?'STAGING — The Brief':'The Brief of Ordinary Gentleman',
+    short_name: isStaging?'QA Brief':'The Brief',
     description: 'Fantasy football, personal grievances and other matters of irrelevance.',
     lang: 'en-US',
     dir: 'ltr',

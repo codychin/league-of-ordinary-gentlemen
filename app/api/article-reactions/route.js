@@ -1,3 +1,4 @@
+import {isStaging} from '../../../lib/environment';
 const SUPABASE_URL='https://dnzdbqycuuoonewcowis.supabase.co'
 const SUPABASE_KEY='sb_publishable_oVFeqnL1WtrpB5BWZopBSw_rKScXieO'
 
@@ -9,6 +10,7 @@ const headers={
 const emptyCounts=()=>({up:0,wtf:0,middle:0})
 
 export async function GET(request){
+  if(isStaging)return Response.json({counts:emptyCounts(),staging:true});
   const {searchParams}=new URL(request.url)
   const slug=searchParams.get('slug')
   if(!slug) return Response.json({error:'Missing article slug'},{status:400})

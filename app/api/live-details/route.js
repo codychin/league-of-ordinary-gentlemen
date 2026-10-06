@@ -1,7 +1,9 @@
+import {isStaging} from '../../../lib/environment';
 export const dynamic='force-dynamic';
 const DETAIL='https://dnzdbqycuuoonewcowis.supabase.co/functions/v1/brief-sunday-engine?action=details';
 const TICK='https://dnzdbqycuuoonewcowis.supabase.co/functions/v1/brief-sunday-engine?action=tick';
 export async function GET(){
+ if(isStaging)return Response.json({ok:true,staging:true,details:[]});
  try{
   let r=await fetch(DETAIL,{cache:'no-store'}),d=await r.json();
   const age=d?.updatedAt?Math.max(0,(Date.now()-new Date(d.updatedAt).getTime())/1000):9999;

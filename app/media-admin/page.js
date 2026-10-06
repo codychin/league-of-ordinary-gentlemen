@@ -2,7 +2,7 @@
 
 import {useState} from 'react'
 
-const PUSH_API='https://dnzdbqycuuoonewcowis.supabase.co/functions/v1/brief-push'
+const PUSH_API=process.env.NEXT_PUBLIC_BRIEF_ENV==='staging'?'/api/staging-disabled':'https://dnzdbqycuuoonewcowis.supabase.co/functions/v1/brief-push'
 const fieldStyle={display:'block',width:'100%',padding:10}
 const formStyle={display:'grid',gap:14,paddingBottom:32,borderBottom:'1px solid #aaa'}
 

@@ -6,7 +6,7 @@ import Link from 'next/link'
 import {writers} from '../articles/writers'
 import {sundayDeskMeta,sundayDeskPosts as fallbackPosts} from '../live-desk/data'
 
-const API='https://dnzdbqycuuoonewcowis.supabase.co/functions/v1/brief-live-desk'
+const API=process.env.NEXT_PUBLIC_BRIEF_ENV==='staging'?'/api/staging-disabled':'https://dnzdbqycuuoonewcowis.supabase.co/functions/v1/brief-live-desk'
 const liveNow=()=>{
   if(!LIVE_DESK_ENABLED)return false
   try{

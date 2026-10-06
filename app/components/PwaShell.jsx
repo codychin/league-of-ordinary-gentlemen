@@ -7,7 +7,7 @@ import {usePathname, useRouter} from 'next/navigation'
 
 const DISMISS_KEY='ordinary-brief-install-dismissed'
 const NOTIFICATION_SEEN_KEY='ordinary-brief-last-notification'
-const PUSH_API='https://dnzdbqycuuoonewcowis.supabase.co/functions/v1/brief-push'
+const PUSH_API=process.env.NEXT_PUBLIC_BRIEF_ENV==='staging'?'/api/staging-disabled':'https://dnzdbqycuuoonewcowis.supabase.co/functions/v1/brief-push'
 
 function urlBase64ToUint8Array(value){
   const padding='='.repeat((4-value.length%4)%4)
@@ -30,6 +30,7 @@ function ArticleAlertSettings({edition=null}){
   useEffect(()=>{
     let active=true
     const check=async()=>{
+      if(process.env.NEXT_PUBLIC_BRIEF_ENV==='staging'){setState('unsupported');setMessage('Notifications are disabled in staging.');return;}
       const standalone=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true
       if(!standalone){if(active){setState('install');setMessage('Install this edition to receive iPhone alerts.')}return}
       if(!('serviceWorker' in navigator)||!('PushManager' in window)||!('Notification' in window)){if(active){setState('unsupported');setMessage('Article alerts are not supported on this device.')}return}
@@ -388,7 +389,7 @@ function PullToRefresh(){
 function InstallPrompt({edition=null}){
   const dismissKey=edition?edition.slug+'-install-dismissed':DISMISS_KEY
   const appName=edition?edition.name:'The Brief'
-  const installUrl=edition?'ordinarybrief.com'+edition.root:'ordinarybrief.com'
+  const installUrl=(process.env.NEXT_PUBLIC_BRIEF_ENV==='staging'?'staging.ordinarybrief.com':'ordinarybrief.com')+(edition?.root||'')
   const [installEvent,setInstallEvent]=useState(null)
   const [show,setShow]=useState(false)
   const [expanded,setExpanded]=useState(false)

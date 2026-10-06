@@ -2,7 +2,7 @@
 import {useEffect,useState} from 'react'
 import {writers} from '../../articles/writers'
 
-const API='https://dnzdbqycuuoonewcowis.supabase.co/functions/v1/brief-live-desk'
+const API=process.env.NEXT_PUBLIC_BRIEF_ENV==='staging'?'/api/staging-disabled':'https://dnzdbqycuuoonewcowis.supabase.co/functions/v1/brief-live-desk'
 const KEY='brief-editor-key'
 
 export default function LiveEditor(){

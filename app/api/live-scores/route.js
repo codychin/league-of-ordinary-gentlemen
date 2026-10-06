@@ -1,3 +1,4 @@
+import {isStaging} from '../../../lib/environment';
 import completedScores from '../../../data/completed-loog-scores.json';
 export const dynamic='force-dynamic'
 
@@ -13,6 +14,7 @@ const readScores=async()=>{
 }
 
 export async function GET(){
+  if(isStaging)return Response.json({...completedScores,staging:true,stale:false});
   try{
     let data=await readScores()
     if(Number(data.week)<=completedScores.week){

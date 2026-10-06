@@ -84,7 +84,7 @@ export default function ArticleReactions({slug}){
         aria-pressed={selected===option.key}
         aria-label={option.label}
         onClick={()=>react(option.key)}
-        disabled={saving}
+        disabled={saving||process.env.NEXT_PUBLIC_BRIEF_ENV==='staging'}
       >
         <span className="reactionIcon" aria-hidden="true">{option.icon}</span>
         <b>{option.label}</b>

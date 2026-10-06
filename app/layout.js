@@ -12,6 +12,8 @@ import './staff.css'
 import './culture-fixes.css'
 import './share.css'
 import PwaShell from './components/PwaShell'
+import {isStaging} from '../lib/environment'
+import './staging.css'
 
 export const metadata={
   title:'The Brief of Ordinary Gentleman',
@@ -19,7 +21,7 @@ export const metadata={
   applicationName:'The Brief',
   manifest:'/manifest.webmanifest',
   formatDetection:{telephone:false},
-  appleWebApp:{capable:true,statusBarStyle:'black-translucent',title:'The Brief'},
+  appleWebApp:{capable:true,statusBarStyle:'black-translucent',title:isStaging?'QA Brief':'The Brief'},
   icons:{
     icon:[
       {url:'/icons/ordinary-brief-v3-32.png',sizes:'32x32',type:'image/png'},
@@ -34,4 +36,4 @@ export const viewport={width:'device-width',initialScale:1,viewportFit:'cover',t
 
 const standaloneBoot=`try{var q=new URLSearchParams(location.search),preview=q.get('app-preview')==='1';if(preview||matchMedia('(display-mode: standalone)').matches||navigator.standalone===true){document.documentElement.classList.add('standaloneApp');if(preview)document.documentElement.classList.add('appPreview');var p=location.pathname,h=location.hash,t=q.get('tab'),root=['/sunday-crew','/doge'].find(function(r){return p===r||p.startsWith(r+'/')})||'',home=root||'/',teams=root+'/teams';document.documentElement.dataset.appTab=p.startsWith(teams)?'teams':p.includes('/matchups/')?'scores':p!==home?(['/staff','/archive','/corrections','/sunday-crew/newsroom','/sunday-crew/archive','/doge/newsroom','/doge/archive'].some(function(x){return p.startsWith(x)})?'more':'detail'):(h==='#scores'||h==='#week4'?'scores':h==='#culture'?'culture':t==='scores'||t==='culture'?t:'home')}}catch(e){}`
 
-export default function RootLayout({children}){return <html lang="en"><head><script id="standalone-boot" dangerouslySetInnerHTML={{__html:standaloneBoot}}/></head><body>{children}<PwaShell/></body></html>}
+export default function RootLayout({children}){return <html lang="en"><head><script id="standalone-boot" dangerouslySetInnerHTML={{__html:standaloneBoot}}/></head><body>{isStaging&&<aside className="stagingBanner" aria-label="Staging environment"><b>STAGING · QA ONLY</b><span>Frozen data · publishing disabled</span><nav><a href="/">LOOG</a><a href="/sunday-crew">Sunday Crew</a><a href="/doge">DOGE</a></nav></aside>}{children}<PwaShell/></body></html>}
