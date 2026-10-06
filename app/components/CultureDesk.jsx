@@ -32,9 +32,9 @@ function Story({story,root}){
   return story.href?<Link href={root+story.href} className="card storylink">{body}</Link>:<article className="card">{body}</article>
 }
 
-export default function CultureDesk({globalOnly=false,root=""}){
+export default function CultureDesk({globalOnly=false,root="",extraSlugs=[]}){
   const [page,setPage]=useState(0)
-  const scopedStories=globalOnly?stories.filter(story=>story.slug&&isGlobalArticle(story.slug)):stories
+  const scopedStories=globalOnly?stories.filter(story=>story.slug&&(isGlobalArticle(story.slug)||extraSlugs.includes(story.slug))):stories
   const pageCount=Math.ceil(scopedStories.length/PAGE_SIZE)
   const visible=scopedStories.slice(page*PAGE_SIZE,(page+1)*PAGE_SIZE)
   const changePage=next=>{setPage(next);document.getElementById('culture')?.scrollIntoView({behavior:'auto',block:'start'})}
