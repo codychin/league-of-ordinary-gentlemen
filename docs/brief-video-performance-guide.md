@@ -163,3 +163,10 @@ The league came to make Rio part of the NFL calendar.
 
 [clean, understated finish]
 For one weekend, the NFL is simply part of Rio's.
+
+## Global pronunciation: Romeo Doubs
+
+- Spoken: **Romeo DOBBS**. The u is silent. Keep the written spelling Doubs in articles, captions and subtitles.
+- Applies to every correspondent and every league.
+- HeyGen: use the `Doubs` → `Dobbs` rule in The Brief — Names glossary (`efaca59a90f74128a87a3d59f94733f5`). Include this mapping when another glossary is selected.
+- Canonical locked asset: `global-pronunciation-romeo-doubs`.
