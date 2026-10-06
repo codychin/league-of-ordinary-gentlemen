@@ -1,0 +1,28 @@
+name: Publish approved Dashiell recap
+on:
+  push:
+    paths: ['.github/workflows/publish-dashiell-recap.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: week4-recap-publication
+  cancel-in-progress: false
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - run: python3 scripts/package-dashiell-recap.py
+      - run: node --test tests/release-integrity.test.mjs
+      - name: Publish complete media and approved reel
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/reels public/reels-hls app/page.js
+          git commit -m "Publish approved Dashiell Week 4 recap"
+          git pull --rebase origin main
+          git push origin HEAD:main
