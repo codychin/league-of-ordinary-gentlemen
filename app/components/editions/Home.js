@@ -3,7 +3,6 @@ import AlsoShelf from '../AlsoShelf';
 import {globalArticleVideos} from '../../../lib/article-videos';
 import {LIVE_DESK_ENABLED} from '../../../lib/live-desk-state';
 import Link from 'next/link';
-import BreakingNewsBanner from '../BreakingNewsBanner';
 import SharedEditorialFront from '../SharedEditorialFront';
 import EditionLeagueSurfaces from '../EditionLeagueSurfaces';
 import CultureDesk from '../CultureDesk';
@@ -29,7 +28,6 @@ export default async function Home({config}){
       <div className="mast"><h1>{edition.tenant.publication_name}</h1><div className="dek">Fantasy football, personal grievances, forensic accounting and other matters of irrelevance.</div></div>
       <nav className="siteNav"><Link href={root+""}>HOME</Link>{LIVE_DESK_ENABLED&&<Link href={root+"#live-desk"}>LIVE DESK</Link>}<Link href={root+"#league"}>THE LEAGUE</Link><Link href={root+"/teams"}>FRANCHISES</Link><Link href={root+"#standings"}>STANDINGS</Link><Link href={root+"#transactions"}>THE WIRE</Link><Link href={root+"#scores"}>SCORES</Link></nav>
     </header>
-    <BreakingNewsBanner/>
     <main>
       <SundayLiveDesk editionSlug={slug} editionLabel={name.toUpperCase()} staffPath={root+"/newsroom"}/>
       {reels.length>0&&<ReelsShelf reels={reels} releaseId={config.reelRelease} storageKey={config.reelStorage||config.reelRelease+"-viewed"} weekLabel={config.reelLabel} title={config.reelTitle} modeLabel={config.reelLabel}/>}
