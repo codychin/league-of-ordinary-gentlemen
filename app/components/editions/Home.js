@@ -38,7 +38,7 @@ export default async function Home({config}){
       <EditionLeagueSurfaces edition={edition} headshots={headshots} config={config}/>
       <StartSitOfWeek/>
       <AlsoShelf videos={globalArticleVideos}/>
-      <CultureDesk globalOnly root={root}/>
+      <CultureDesk globalOnly root={root} extraSlugs={slug==='doge'?['conrad-white-coaches-lose-individually']:[]}/>
     </main>
     <footer><b>The Brief of Ordinary Gentleman</b><span>{name} bureau • shared newsroom, local grievances.</span></footer>
   </>;
