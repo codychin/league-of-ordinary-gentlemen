@@ -1,0 +1,18 @@
+# The Brief — repository ownership
+#
+# Default: Cody owns review responsibility for all shared/global code.
+* @codychin
+
+# DOGE edition: Mohsin can work here, with Cody retaining ownership/review visibility.
+/app/doge/ @codychin @mhassan1219
+
+# Production-sensitive and shared platform areas remain explicitly Cody-owned.
+/app/components/ @codychin
+/lib/ @codychin
+/data/ @codychin
+/scripts/ @codychin
+/supabase/ @codychin
+/.github/ @codychin
+/proxy.js @codychin
+/package.json @codychin
+/package-lock.json @codychin
