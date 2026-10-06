@@ -42,3 +42,16 @@ The byline is part of the joke, not decoration. Assign every article to the writ
 - Every featured story and recent-story card must have visible, relevant imagery or an expanded video/tweet embed. A collapsed clip link does not count as visible media.
 - Before publishing layout changes, check media in both editions at desktop and mobile widths. Confirm images load and inspect the actual image for corruption, cropping, and distortion; a successful build or HTTP response alone does not pass this check.
 - Tweet embeds must include a usable source link when the external widget is unavailable.
+
+
+## News verification standard
+
+Accuracy outranks speed. No item may be presented as breaking news, a transaction, an injury update, a practice report, or a factual roster-status change unless the underlying claim has been verified for the current season and current date.
+
+- Check the publication date **and** the date of the event. Search results, snippets, and resurfaced stories are not evidence of recency.
+- Explicitly verify the season/year for NFL, fantasy, transaction, injury, practice, and roster news. A 2025 report surfaced during the 2026 season must never be treated as current.
+- Prefer primary sources: team announcements, official transaction wires, league injury/practice reports, player/team statements, and direct source material. Strong beat reporting can supplement these sources but should not silently override them.
+- For a breaking-news banner, push alert, transaction note, injury designation, suspension, trade, release, IR move, or other high-impact factual claim, require either a primary source or two independent current sources before publication.
+- If current confirmation is unavailable, state that the report is unconfirmed or do not publish it. Never convert uncertainty into a declarative headline.
+- Before publishing, run a contradiction check against the subject's most recent game participation, transaction history, current roster status, and relevant official reports when those facts are available.
+- Corrections must propagate to every affected surface. If a published factual item proves wrong, remove or correct the headline, banner, feed item, cached/PWA version, and any downstream generated copy that inherited the claim.
