@@ -1,0 +1,28 @@
+name: Publish approved Week 4 recap reels
+on:
+  push:
+    paths: ['.github/workflows/package-week4-recaps.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: week4-recap-publication
+  cancel-in-progress: false
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - run: python3 scripts/package-week4-recaps.py
+      - run: node --test tests/release-integrity.test.mjs
+      - name: Commit complete media and approved shelves atomically
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/reels public/reels-hls app/page.js app/sunday-crew/page.js app/components/ReelsShelf.jsx tests/release-integrity.test.mjs
+          git commit -m "Publish eleven approved Week 4 recaps; hold Dashiell LOOG"
+          git pull --rebase origin main
+          git push origin HEAD:main
