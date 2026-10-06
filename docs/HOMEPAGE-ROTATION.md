@@ -2,9 +2,9 @@
 
 Editor-approved rule, October 6, 2026:
 
-- The recent-story carousel immediately below the lead always contains three stories.
-- When a new lead is added, move the previous lead to the front of that row and remove the oldest (last) card.
-- Move the outgoing story to Culture when its editorial classification applies; otherwise retain it in the archive. Never delete the article or change its approved title, subtitle, or copy.
-- Apply the same global story order to LOOG, Sunday Crew, and DOGE. Preserve league-local boundaries.
-- Do not remove separate homepage packages or league sections as part of this rotation.
-- Current staging order: Mixon lead; Bryce Young, Tomlin, corgi in the three-card row; Watson retained in archive.
+- Keep the carousel directly below the lead at exactly three stories.
+- Preserve newest-to-oldest editorial order down the entire homepage, respecting explicit editor placement overrides.
+- A new lead pushes the previous lead into the three-card row. Overflow from that row continues below it; do not archive a newer story just because it is the fourth card.
+- Drop the oldest story at the bottom of the full homepage selection: to Culture if applicable, otherwise archive. Preserve its URL and approved copy.
+- Apply shared story order across all three editions without moving league-local content between leagues.
+- Current editor override: archive Arch Manning, retain Watson below Tee Higgins and above Jameis. Keep Mixon lead and Bryce, Tomlin, corgi in the three-card row.
