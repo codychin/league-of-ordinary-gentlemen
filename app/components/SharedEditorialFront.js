@@ -52,18 +52,7 @@ export default function SharedEditorialFront({archiveHref='/archive',root=''}){
 </article>
 
 
-<article className={front.card} aria-label="Featured Conrad Sorrell column">
-  <Link className={front.story} href={root+"/articles/conrad-deshaun-watson-cleveland-hope"}>
-    <div className={front.image} style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.08)),url('https://img.ksl.com/slc/3198/319896/31989626.jpg?filter=kslv2%2Fresponsive_story_lg&v=1787444404')",backgroundPosition:"center 34%"}}>
-      <div><small>CONRAD SORRELL • COLUMN</small><b>GROPER CLEVELAND IS 3–1</b></div>
-    </div>
-    <div className="eyebrow">COLUMN • POWER & AMERICAN ARRANGEMENTS</div>
-    <h3>Groper Cleveland <em>Is 3–1.</em></h3>
-    <PreviewAuthor slug="conrad-deshaun-watson-cleveland-hope"/>
-    <p className={front.dek}>A column on Browns fandom, quarterback play, and the moral tension created by winning.</p>
-    <div className="read">READ CONRAD SORRELL →</div>
-  </Link>
-</article>
+
 
 
 </section>
