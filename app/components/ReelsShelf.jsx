@@ -136,7 +136,7 @@ export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1',storag
   return <section className={styles.wrap} aria-label={`${title} videos`}>
     <div className={styles.head}>
       <div><small>{weekLabel}</small><h2>{title}</h2></div>
-      <span>6 MATCHUPS • 6 CORRESPONDENTS</span>
+      <span>{reels.length} MATCHUPS • {new Set(reels.map(r=>r.correspondent)).size} CORRESPONDENTS</span>
     </div>
     <div className={styles.rail}>
       {reels.map((r,i)=><button className={`${styles.story} ${viewed[r.id]?styles.seen:styles.unseen}`} key={r.id} onClick={()=>openReel(i)} aria-label={`Watch ${r.matchup} recap by ${r.correspondent}`}>

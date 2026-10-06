@@ -17,7 +17,7 @@ test('reels require all delivery assets before display',()=>{
 });
 test('view state is supplied per release rather than hard-coded globally',()=>{
   assert.match(reels,/storageKey=/); assert.match(reels,/releaseId=/);
-  assert.match(sunday,/sunday-crew-week4-preview-v1/); assert.match(sunday,/brief-sunday-crew-week4-preview-viewed-v1/);
+  assert.match(sunday,/sunday-crew-week4-recap-v1/); assert.match(sunday,/brief-sunday-crew-week4-recap-viewed-v1/);
 });
 test('Week 4 score surface has no stale Week 3 labels',()=>{
   assert.match(scores,/THE BRIEF • WEEK 4/); assert.match(scores,/<h2>Week 4<\/h2>/); assert.equal(scores.includes('THE BRIEF • WEEK 3'),false);

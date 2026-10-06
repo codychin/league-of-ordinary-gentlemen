@@ -9,12 +9,11 @@ const currentMatchups=matchupPairs.map(([a,b,note])=>[leagueSnapshot.teams[a],le
 const featuredPlayer=team=>team.roster.filter(p=>!['Bench','IR','K','D/ST'].includes(p.slot)&&!['K','D/ST'].includes(p.position)).sort((a,b)=>b.seasonPoints-a.seasonPoints)[0]
 const playerHeadshot=player=>`https://a.espncdn.com/i/headshots/nfl/players/full/${player.id}.png`
 const publishedReels=[
-  ['royrek','ceedeep','ROY · CEE','Royrek Tishmeshulam vs. CeeDeep Shaheeded Rivalry','Sabine March',writers.march.image,'38c3af817e17134c29be012a859195b4'],
-  ['pollard-greens','all-ugly','POLL · UGLY','Pollard Greens vs. The All Ugly Team','Maude Gannon',writers.gannon.image,'a582e7339a5b83ef20e1f1ee886b404b'],
-  ['kupp-doubs','route-22','KUPP · R22','Kupp Kupp Doubs vs. The Route 22 Clubhouse','Dashiell Pike',writers.pike.image,'999f35329e9d35dd3656143a52cb8c3e'],
-  ['lloyd-rings','hopkins-opus','LLOYD · HOP','Lloyd of the Rings vs. Mr Hopkins Opus','Conrad Sorrell',writers.sorrell.image,'f898d39457eef2ca7fe46e65c9db9c78'],
-  ['shake-baker','danir','SHAKE · DANIR','Shake ’N Baker vs. DarkHorse Danir','Hollis Crane',writers.crane.image,'5b9851d3dc6a4589cc9d6c8b229753ca'],
-  ['kraft','skatt','KRAFT · SKATT','For the Love of the Kraft vs. I’m a Skatt man','Marnie Kells',writers.kells.image,'35dba1a859bd687042b2da3fcf345239']
+  ['route-22','kraft','R22 · KRAFT','The Route 22 Clubhouse vs. For the Love of the Kraft','Maude Gannon',writers.gannon.image,'7f34018424eca5db9ec92b7a8c63d19d'],
+  ['hopkins-opus','pollard-greens','HOP · POLL','Mr Hopkins Opus vs. Pollard Greens','Hollis Crane',writers.crane.image,'a8e34cf9eb4f6feb6fdbc4a2915293d6'],
+  ['ceedeep','lloyd-rings','CEE · LLOYD','CeeDeep Shaheeded Rivalry vs. Lloyd of the Rings','Marnie Kells',writers.kells.image,'bc59f8b8b7f49b1d13532b9bd5ac352b'],
+  ['royrek','shake-baker','ROY · SHAKE','Royrek Tishmeshulam vs. Shake ’N Baker','Sabine March',writers.march.image,'eb912530ce683f55ae9f704e9dc908db'],
+  ['skatt','all-ugly','SKATT · UGLY','I’m a Skatt man vs. The All Ugly Team','Conrad Sorrell',writers.sorrell.image,'958c0c26787eed251648743bd726c4ae']
 ].map(([left,right,short,matchup,correspondent,avatar,id])=>{
   const lp=featuredPlayer(leagueSnapshot.teams[left]);
   const rp=featuredPlayer(leagueSnapshot.teams[right]);
@@ -31,7 +30,7 @@ const isSundayLiveWindow=()=>{
 };
 export default function Home(){const sundayLive=isSundayLiveWindow();return <><header><div className="utility"><span className="utilityMain">JOURNALISM WITHOUT PURPOSE <i>•</i> WRITTEN BY ROBOTS</span></div><div className="mast"><h1>The Brief of Ordinary Gentleman</h1><div className="dek">Fantasy football, personal grievances, forensic accounting and other matters of irrelevance.</div></div><SiteNav/></header><BreakingNewsBanner/><main>
 {sundayLive&&<><SundayScoreStrip/><SundayLiveDesk/></>}
-<ReelsShelf reels={publishedReels}/>
+<ReelsShelf reels={publishedReels} releaseId="loog-week4-recap-v1" storageKey="brief-loog-week4-recap-viewed-v1" weekLabel="THE BRIEF • WEEK 4" title="Week 4, the aftermath." modeLabel="WEEK 4 • RECAP"/>
 <SharedEditorialFront/>
 {!sundayLive&&<SundayLiveDesk/>}
 
