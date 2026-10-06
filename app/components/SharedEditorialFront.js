@@ -7,28 +7,29 @@ import ResilientImage from './ResilientImage';
 
 export default function SharedEditorialFront({archiveHref='/archive',root=''}){
   return <>
-<section className="morningBriefPreview sundayFront" style={{paddingTop:0}} aria-label="Lead story: Hollis Crane on Bryce Young">
-  <div className="morningBriefFlag"><span>THE LEAD STORY</span><small>OCTOBER 5 • HOLLIS CRANE</small></div>
+<section className="morningBriefPreview sundayFront" style={{paddingTop:0}} aria-label="Lead story: Marnie Kells on Joe Mixon">
+  <div className="morningBriefFlag"><span>THE LEAD STORY</span><small>OCTOBER 6 • MARNIE KELLS</small></div>
   <div className="sundayFrontGrid">
     <article className="sundayFeature sabinePackage">
-      <Link href={root+"/articles/hollis-bryce-young-good-time"} className={`sundayFeatureImage storylink ${front.tourHero}`}>
-        <ResilientImage loading="eager" decoding="async" src="/images/editorial/bryce-smiles-collage.jpg" alt="Five-panel AI-assisted editorial collage based on photographs of Bryce Young smiling."/>
-        <div className="actionCaption"><small>HOLLIS CRANE • INVESTIGATIONS</small><b>THE SMILE FILE</b></div>
+      <Link href={root+"/articles/marnie-joe-mixon-nostalgia-era"} className={`sundayFeatureImage storylink ${front.tourHero}`}>
+        <ResilientImage loading="eager" decoding="async" style={{objectPosition:"center 62%"}} src="/images/editorial/joe-mixon-comeback.jpg" alt="Joe Mixon in his comeback video."/>
+        <div className="actionCaption"><small>MARNIE KELLS • CULTURE</small><b>THE COMEBACK ERA</b></div>
       </Link>
       <div className="sundayFeatureCopy">
         <div className="sabinePackageIntro">
-          <small>SPORTING DISPOSITION</small>
-          <Link href={root+"/articles/hollis-bryce-young-good-time"} className="sabinePackageTitle storylink"><h2>Is Bryce Young Really Having That Good of a Time?</h2></Link>
-          <p>The Panthers quarterback keeps smiling. His colleagues have chosen to find this reassuring.</p>
-          <PreviewAuthor slug="hollis-bryce-young-good-time"/>
+          <small>THE COMEBACK ECONOMY</small>
+          <Link href={root+"/articles/marnie-joe-mixon-nostalgia-era"} className="sabinePackageTitle storylink"><h2>Joe Mixon’s Comeback Enters Its Nostalgia Era</h2></Link>
+          <p>For a brief, beautiful period, he was back. Those who were online will understand.</p>
+          <PreviewAuthor slug="marnie-joe-mixon-nostalgia-era"/>
         </div>
-        <Link href={root+"/articles/hollis-bryce-young-good-time"} className="sabinePackageCta">READ HOLLIS →</Link>
+        <Link href={root+"/articles/marnie-joe-mixon-nostalgia-era"} className="sabinePackageCta">READ MARNIE →</Link>
       </div>
     </article>
   </div>
 </section>
 
 <section className={front.recent} aria-label="Recent stories">
+<article className={front.card} aria-label="Hollis Crane on Bryce Young"><Link className={front.story} href={root+"/articles/hollis-bryce-young-good-time"}><div className={front.image} style={{backgroundImage:"url('/images/editorial/bryce-smiles-collage.jpg')"}}/><div className="eyebrow">SPORTING DISPOSITION</div><h3>Is Bryce Young Really Having That Good of a Time?</h3><PreviewAuthor slug="hollis-bryce-young-good-time"/><p className={front.dek}>The Panthers quarterback keeps smiling. His colleagues have chosen to find this reassuring.</p><div className="read">READ HOLLIS →</div></Link></article>
 <article className={front.card} aria-label="Conrad Sorrell on Mike Tomlin">
   <Link className={front.story} href={root+"/articles/conrad-tomlin-minecraft-cvs"}>
     <div className={front.image} style={{backgroundImage:"url('/images/editorial/tomlin-minecraft-city.jpg')",backgroundSize:"contain",backgroundRepeat:"no-repeat",backgroundColor:"#171613"}}/>

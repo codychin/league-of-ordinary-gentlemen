@@ -11,7 +11,7 @@ export async function proxy(request) {
     }
     const response=NextResponse.next();
     response.headers.set('X-Robots-Tag','noindex, nofollow');
-    response.headers.set('Content-Security-Policy',"connect-src 'self'; form-action 'self'; object-src 'none'; base-uri 'self'");
+    response.headers.set('Content-Security-Policy',"connect-src 'self' https://cdn.syndication.twimg.com https://syndication.twitter.com https://platform.twitter.com; form-action 'self'; object-src 'none'; base-uri 'self'");
     return response;
   }
   if(!request.nextUrl.pathname.startsWith('/manage')&&!request.nextUrl.pathname.startsWith('/api/manage'))return NextResponse.next();
