@@ -11,6 +11,7 @@ const playerHeadshot=player=>`https://a.espncdn.com/i/headshots/nfl/players/full
 const publishedReels=[
   ['route-22','kraft','R22 · KRAFT','The Route 22 Clubhouse vs. For the Love of the Kraft','Maude Gannon',writers.gannon.image,'7f34018424eca5db9ec92b7a8c63d19d'],
   ['hopkins-opus','pollard-greens','HOP · POLL','Mr Hopkins Opus vs. Pollard Greens','Hollis Crane',writers.crane.image,'a8e34cf9eb4f6feb6fdbc4a2915293d6'],
+  ['danir','kupp-doubs','DANIR · KUPP','DarkHorse Danir vs. Kupp Kupp Doubs','Dashiell Pike',writers.pike.image,'284ffa740e45c0f9873a164fe18435ba'],
   ['ceedeep','lloyd-rings','CEE · LLOYD','CeeDeep Shaheeded Rivalry vs. Lloyd of the Rings','Marnie Kells',writers.kells.image,'bc59f8b8b7f49b1d13532b9bd5ac352b'],
   ['royrek','shake-baker','ROY · SHAKE','Royrek Tishmeshulam vs. Shake ’N Baker','Sabine March',writers.march.image,'eb912530ce683f55ae9f704e9dc908db'],
   ['skatt','all-ugly','SKATT · UGLY','I’m a Skatt man vs. The All Ugly Team','Conrad Sorrell',writers.sorrell.image,'958c0c26787eed251648743bd726c4ae']
