@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import SiteNav from '../components/SiteNav'
 import {writers} from '../articles/writers'
+import {staffBios} from '../articles/staff-bios'
 
 export default function Staff(){
   return <>
@@ -9,7 +10,7 @@ export default function Staff(){
     </header>
     <main className="staffPage">
       <section className="directoryHead">
-        <div className="eyebrow">THE MASTHEAD • INSTITUTIONAL BIASES DISCLOSED</div>
+        <div className="eyebrow">THE MASTHEAD</div>
         <h1>The Newsroom</h1>
         <p>Independent voices united by editorial standards, narrow grievances and continued access to the group chat.</p>
         <div className="openMasthead">
@@ -22,18 +23,11 @@ export default function Staff(){
           <article id={writer.slug} className="staffCard" key={writer.slug}>
             <figure className="staffPortrait">
               <img src={writer.image} alt={writer.imageAlt}/>
-              <figcaption>{String(index+1).padStart(2,'0')} / {writer.title}</figcaption>
+              <figcaption>{String(index+1).padStart(2,'0')} / {staffBios[writer.slug]?.title || writer.title}</figcaption>
             </figure>
             <div className="staffProfile">
               <h2>{writer.name}</h2>
-              <p>{writer.bio}</p>
-              <dl>
-                <div><dt>METHOD</dt><dd>{writer.method}</dd></div>
-                <div><dt>ON THE PAGE</dt><dd>{writer.voice}</dd></div>
-                <div><dt>SIGNATURE</dt><dd>{writer.signature}</dd></div>
-              </dl>
-              <blockquote>{writer.sample}</blockquote>
-              <aside><b>DISCLOSED TENDENCY</b><span>{writer.tendency}</span></aside>
+              {staffBios[writer.slug].paragraphs.map((paragraph,i)=><p key={i}>{paragraph}</p>)}
             </div>
           </article>
         )}
