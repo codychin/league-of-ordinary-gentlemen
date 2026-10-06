@@ -7,28 +7,29 @@ import ResilientImage from './ResilientImage';
 
 export default function SharedEditorialFront({archiveHref='/archive',root=''}){
   return <>
-<section className="morningBriefPreview sundayFront" style={{paddingTop:0}} aria-label="Lead story: Hollis Crane on Bryce Young">
-  <div className="morningBriefFlag"><span>THE LEAD STORY</span><small>OCTOBER 5 • HOLLIS CRANE</small></div>
+<section className="morningBriefPreview sundayFront" style={{paddingTop:0}} aria-label="Lead story: Marnie Kells on Joe Mixon">
+  <div className="morningBriefFlag"><span>THE LEAD STORY</span><small>OCTOBER 6 • MARNIE KELLS</small></div>
   <div className="sundayFrontGrid">
     <article className="sundayFeature sabinePackage">
-      <Link href={root+"/articles/hollis-bryce-young-good-time"} className={`sundayFeatureImage storylink ${front.tourHero}`}>
-        <ResilientImage loading="eager" decoding="async" src="/images/editorial/bryce-smiles-collage.jpg" alt="Five-panel AI-assisted editorial collage based on photographs of Bryce Young smiling."/>
-        <div className="actionCaption"><small>HOLLIS CRANE • INVESTIGATIONS</small><b>THE SMILE FILE</b></div>
+      <Link href={root+"/articles/marnie-joe-mixon-nostalgia-era"} className={`sundayFeatureImage storylink ${front.tourHero}`}>
+        <ResilientImage loading="eager" decoding="async" style={{objectPosition:"center 62%"}} src="/images/editorial/joe-mixon-comeback.jpg" alt="Joe Mixon in his comeback video."/>
+        <div className="actionCaption"><small>MARNIE KELLS • CULTURE</small><b>THE COMEBACK ERA</b></div>
       </Link>
       <div className="sundayFeatureCopy">
         <div className="sabinePackageIntro">
-          <small>SPORTING DISPOSITION</small>
-          <Link href={root+"/articles/hollis-bryce-young-good-time"} className="sabinePackageTitle storylink"><h2>Is Bryce Young Really Having That Good of a Time?</h2></Link>
-          <p>The Panthers quarterback keeps smiling. His colleagues have chosen to find this reassuring.</p>
-          <PreviewAuthor slug="hollis-bryce-young-good-time"/>
+          <small>THE COMEBACK ECONOMY</small>
+          <Link href={root+"/articles/marnie-joe-mixon-nostalgia-era"} className="sabinePackageTitle storylink"><h2>Joe Mixon’s Comeback Enters Its Nostalgia Era</h2></Link>
+          <p>For a brief, beautiful period, he was back. Those who were online will understand.</p>
+          <PreviewAuthor slug="marnie-joe-mixon-nostalgia-era"/>
         </div>
-        <Link href={root+"/articles/hollis-bryce-young-good-time"} className="sabinePackageCta">READ HOLLIS →</Link>
+        <Link href={root+"/articles/marnie-joe-mixon-nostalgia-era"} className="sabinePackageCta">READ MARNIE →</Link>
       </div>
     </article>
   </div>
 </section>
 
 <section className={front.recent} aria-label="Recent stories">
+<article className={front.card} aria-label="Hollis Crane on Bryce Young"><Link className={front.story} href={root+"/articles/hollis-bryce-young-good-time"}><div className={front.image} style={{backgroundImage:"url('/images/editorial/bryce-smiles-collage.jpg')"}}/><div className="eyebrow">SPORTING DISPOSITION</div><h3>Is Bryce Young Really Having That Good of a Time?</h3><PreviewAuthor slug="hollis-bryce-young-good-time"/><p className={front.dek}>The Panthers quarterback keeps smiling. His colleagues have chosen to find this reassuring.</p><div className="read">READ HOLLIS →</div></Link></article>
 <article className={front.card} aria-label="Conrad Sorrell on Mike Tomlin">
   <Link className={front.story} href={root+"/articles/conrad-tomlin-minecraft-cvs"}>
     <div className={front.image} style={{backgroundImage:"url('/images/editorial/tomlin-minecraft-city.jpg')",backgroundSize:"contain",backgroundRepeat:"no-repeat",backgroundColor:"#171613"}}/>
@@ -51,18 +52,7 @@ export default function SharedEditorialFront({archiveHref='/archive',root=''}){
 </article>
 
 
-<article className={front.card} aria-label="Featured Conrad Sorrell column">
-  <Link className={front.story} href={root+"/articles/conrad-deshaun-watson-cleveland-hope"}>
-    <div className={front.image} style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.08)),url('https://img.ksl.com/slc/3198/319896/31989626.jpg?filter=kslv2%2Fresponsive_story_lg&v=1787444404')",backgroundPosition:"center 34%"}}>
-      <div><small>CONRAD SORRELL • COLUMN</small><b>GROPER CLEVELAND IS 3–1</b></div>
-    </div>
-    <div className="eyebrow">COLUMN • POWER & AMERICAN ARRANGEMENTS</div>
-    <h3>Groper Cleveland <em>Is 3–1.</em></h3>
-    <PreviewAuthor slug="conrad-deshaun-watson-cleveland-hope"/>
-    <p className={front.dek}>A column on Browns fandom, quarterback play, and the moral tension created by winning.</p>
-    <div className="read">READ CONRAD SORRELL →</div>
-  </Link>
-</article>
+
 
 
 </section>
@@ -75,6 +65,18 @@ export default function SharedEditorialFront({archiveHref='/archive',root=''}){
     <div className="read">READ MARNIE</div>
   </Link>
   <div className={front.clip}><ArticleClip tweetId="2106801789630919072" url="https://x.com/fballforeverhq/status/2106801789630919072" showCaption={false}/></div>
+</section>
+<section className="hero heroStack" aria-label="Featured Conrad Sorrell column">
+  <Link className="hero-copy storylink" href={root+"/articles/conrad-deshaun-watson-cleveland-hope"}>
+    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.08)),url('https://img.ksl.com/slc/3198/319896/31989626.jpg?filter=kslv2%2Fresponsive_story_lg&v=1787444404')",backgroundPosition:"center 34%"}}>
+      <div><small>CONRAD SORRELL • COLUMN</small><b>GROPER CLEVELAND IS 3–1</b></div>
+    </div>
+    <div className="eyebrow">COLUMN • POWER & AMERICAN ARRANGEMENTS</div>
+    <h2>Groper Cleveland <em>Is 3–1.</em></h2>
+    <PreviewAuthor slug="conrad-deshaun-watson-cleveland-hope"/>
+    <p className="standfirst">A column on Browns fandom, quarterback play, and the moral tension created by winning.</p>
+    <div className="read">READ CONRAD SORRELL →</div>
+  </Link>
 </section>
 <section className="hero heroStack" aria-label="Featured Hollis Crane investigation">
   <Link className="hero-copy storylink" href={root+"/articles/hollis-jameis-winston-turing-test"}>
@@ -120,18 +122,7 @@ export default function SharedEditorialFront({archiveHref='/archive',root=''}){
   </Link>
 </section>
 
-<section className="hero heroStack" aria-label="Featured Hollis Crane investigation">
-  <Link className="hero-copy storylink" href={root+"/articles/hollis-arch-manning-compression"}>
-    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.06)),url('/images/editorial/arch-press-conference.png')",backgroundPosition:"center 42%"}}>
-      <div><small>HOLLIS CRANE • INVESTIGATIONS</small><b>THE COMPRESSION FILE</b></div>
-    </div>
-    <div className="eyebrow">INVESTIGATIONS • TELEMETRY & PERSONHOOD</div>
-    <h2>The Real-Time Compression of <em>Arch Manning.</em></h2>
-    <PreviewAuthor slug="hollis-arch-manning-compression"/>
-    <p className="standfirst">The mathematical cost of being America’s most observable quarterback.</p>
-    <div className="read">READ HOLLIS CRANE →</div>
-  </Link>
-</section>
+
 
 <div className={styles.archiveCta}>
   <div><span className={styles.label}>THE PERMANENT RECORD</span><p>Every take. Every receipt.</p></div>
