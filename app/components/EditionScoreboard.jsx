@@ -1,6 +1,6 @@
 import MatchupCardGrid from './MatchupCardGrid';
 
-const score=n=>Number(n||0).toFixed(2);
+const score=n=>n==null?'—':Number(n).toFixed(2);
 const projected=n=>Number(n||0).toFixed(1);
 
 export default function EditionScoreboard({matchups=[],week=4,rosters=[],headshots={},root='/sunday-crew'}){
@@ -14,7 +14,7 @@ export default function EditionScoreboard({matchups=[],week=4,rosters=[],headsho
   const image=p=>p?.playerId?(headshots[String(p.playerId)]||''):'';
   const cards=matchups.map((g,i)=>{
     const hp=featured(g.home?.teamKey),ap=featured(g.away?.teamKey);
-    return {id:g.matchupId||i,href:`${root}/matchups/${g.home?.teamId}/${g.away?.teamId}`,kicker:`WEEK ${week} • OPEN MATCHUP`,leftName:g.home?.teamName,leftScore:score(g.home?.points),leftProjection:projected(g.home?.projectedPoints),leftImage:image(hp),rightName:g.away?.teamName,rightScore:score(g.away?.points),rightProjection:projected(g.away?.projectedPoints),rightImage:image(ap)};
+    return {id:g.matchupId||i,status:allFinal?'FINAL':'LIVE',href:`${root}/matchups/${g.home?.teamId}/${g.away?.teamId}`,kicker:`WEEK ${week} • ${allFinal?'FINAL':'OPEN MATCHUP'}`,leftName:g.home?.teamName,leftScore:score(g.home?.points),leftProjection:projected(g.home?.projectedPoints),leftImage:image(hp),rightName:g.away?.teamName,rightScore:score(g.away?.points),rightProjection:projected(g.away?.projectedPoints),rightImage:image(ap)};
   });
   return <section className="section scoreSection editionScoreSection" id="scores">
     <div className="sectionhead"><div><small className="deskLabel">THE BRIEF • SCOREBOARD</small><h2>Week {week} {allFinal?'Final':'Live'}</h2></div><span>{allFinal?'FINAL SCORES • WEEK '+week+' IN THE BOOKS':'LATEST VERIFIED SCORES'}</span></div>

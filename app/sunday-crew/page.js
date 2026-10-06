@@ -1,3 +1,4 @@
+import StartSitOfWeek from '../components/StartSitOfWeek';
 import AlsoShelf from '../components/AlsoShelf';
 import {globalArticleVideos} from '../../lib/article-videos';
 import {LIVE_DESK_ENABLED} from '../../lib/live-desk-state';
@@ -41,6 +42,7 @@ export default async function SundayCrewPage(){
       <SharedEditorialFront archiveHref="/sunday-crew/archive"/>
       {localArticles.length>0&&<section style={{padding:'28px 0',borderTop:'2px solid #11100e'}}><div style={{fontSize:11,fontWeight:800,letterSpacing:2,color:'#b21f24'}}>FROM THE SUNDAY CREW BUREAU</div><div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(240px,1fr))',gap:24,marginTop:20}}>{localArticles.map(article=><article key={article.id}><Link href={'/sunday-crew/articles/'+article.slug} style={{color:'#11100e',textDecoration:'none'}}><h2 style={{fontFamily:'Georgia,serif',fontSize:28,lineHeight:1.1}}>{article.title}</h2><p style={{fontSize:14,lineHeight:1.5}}>{article.dek}</p></Link></article>)}</div></section>}
       <EditionLeagueSurfaces edition={edition} headshots={headshots}/>
+      <StartSitOfWeek/>
       <AlsoShelf videos={globalArticleVideos}/>
       <CultureDesk globalOnly/>
     </main>

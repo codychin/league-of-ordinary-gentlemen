@@ -1,4 +1,5 @@
-export const teams = [
+import {leagueSnapshot} from './league-data';
+const franchiseFiles = [
   {
     id: 'all-ugly', team: 'The All Ugly Team', owners: 'Cody + Ferret', aliases: 'Co-managers', record: "0-3", pf: "383.34", pa: "471.69", week1: "L 102.26–167.22 vs Pollard Greens",
     stars: ['Amon-Ra St. Brown — 65.9', 'DeVonta Smith — 40.5', 'Christian Watson — 51.8'], moves: ['Added Demond Claiborne — $0'], coverage: [['all-ugly-process', 'All Ugly Lost With 152.86. The Spreadsheet Has Been Notified.']],
@@ -106,3 +107,25 @@ export const teams = [
     mythology: ['The Waldenberg Alias System — Norm, Nails, Woody, Bobby, Bobby Shmurda and The Berg Man remain equally valid.', 'Week 1 — Bijan was present. Several colleagues were technically also present.'],
   },
 ]
+
+const currentNotes={
+  "all-ugly": "Skatt won 149.47–132.98, leaving All Ugly at 0–4. The first win is still outstanding; the latest evidence is a 16.49-point loss, not an accounting error.",
+  "hopkins-opus": "Hopkins beat Pollard Greens by 2.54 and moves to 3–1. First place is restored, with considerably less room for rhetorical expansion than the opening-week blowout.",
+  "lloyd-rings": "CeeDeep ended the unbeaten run, 147.07–141.28. Lloyd is 3–1, with Emanuel Wilson’s 30.6-point FLEX performance a good decision inside a losing result.",
+  "ceedeep": "CeeDeep beat the previously unbeaten Katz family office by 5.79. At 3–1, the rivalry now has a fresh receipt and a place among the four teams sharing the best record.",
+  "kupp-doubs": "Kupp beat Danir 143.62–125.42 and moves to 3–1. The standings recognize the win even if the opposing bench has requested a separate hearing.",
+  "danir": "Danir is 1–3 after losing to Kupp by 18.20. Kyle Monangai’s 35 bench points exceeded the margin, and the FLEX decision has become a particularly difficult exhibit.",
+  "route-22": "Route 22 scored 167.94 and lost to Kraft by 0.28. The Clubhouse is 2–2; two of its losses now total 0.84 points, after Week 2’s 0.56-point defeat.",
+  "kraft": "Kraft survived 168.22–167.94 in the week’s highest-scoring matchup. At 2–2, the franchise has two wins and a new reason to defend the second decimal place.",
+  "skatt": "Skatt beat All Ugly 149.47–132.98 and reaches 2–2. Kyren Williams supplied 39.8 points, more than enough to give the organization a preferable subject of conversation.",
+  "pollard-greens": "Pollard Greens leads the league with 610.07 points but sits 2–2 after a 2.54-point loss to Hopkins. Production remains convincing; the schedule remains unpersuaded.",
+  "royrek": "Royrek beat Shake ’N Baker 133.88–130.24 and reaches 2–2. A 3.64-point margin counts as a full win, a conversion rate the franchise has no reason to challenge.",
+  "shake-baker": "Shake ’N Baker falls to 1–3 after losing to Royrek by 3.64. The Week 2 escape by 0.56 is still on file; it does not provide credit toward this result."
+};
+export const teams=franchiseFiles.map(t=>{
+ const ops=leagueSnapshot.teams[t.id];
+ if(!ops)return t;
+ const last=ops.season.weekly.at(-1);
+ const note=currentNotes[t.id]||t.note;
+ return {...t,record:ops.record,pf:ops.pointsFor.toFixed(2),pa:ops.pointsAgainst.toFixed(2),note,lore:note,week1:`${last.result} ${last.score.toFixed(2)}–${last.opponentScore.toFixed(2)} vs ${last.opponent}`,posture:`${ops.record} • ${ops.seed} in the table • Week ${leagueSnapshot.week} complete`,receipt:`${ops.pointsFor.toFixed(2)} points. ${ops.record}. Through Week ${leagueSnapshot.week}.`,stars:[...ops.roster].sort((a,b)=>b.seasonPoints-a.seasonPoints).slice(0,3).map(p=>`${p.name} — ${p.seasonPoints.toFixed(1)}`)};
+});

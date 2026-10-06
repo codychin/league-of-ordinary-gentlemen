@@ -18,7 +18,10 @@ export default async function SundayCrewTeam({params}){
   const standing=standings.find(t=>String(t.teamId)===String(id));
   if(!roster) notFound();
 
-  const week=Number(edition?.league?.settings?.currentWeek||4);
+  const week=Number(edition?.snapshots?.matchups?.data?.data?.matchupWeek||4);
+  const rosterWeek=roster.snapshot?.week||week;
+  const completedGames=standing?Number(standing.wins)+Number(standing.losses)+Number(standing.ties||0):0;
+  const history=edition?.snapshots?.history?.data?.data?.weeks||[];
   const matchup=matchups.find(m=>String(m.home?.teamId)===String(id)||String(m.away?.teamId)===String(id));
   const isHome=String(matchup?.home?.teamId)===String(id);
   const mine=isHome?matchup?.home:matchup?.away;
@@ -40,13 +43,13 @@ export default async function SundayCrewTeam({params}){
         <div><b>{standing?(standing.wins+'-'+standing.losses):'—'}</b><span>RECORD</span></div>
         <div><b>{standing?'#'+standing.rank:'—'}</b><span>SEED</span></div>
         <div><b>{standing?num(standing.pointsFor):'—'}</b><span>PF</span></div>
-        <div><b>{standing?num(Number(standing.pointsFor)/3):'—'}</b><span>PPG</span></div>
+        <div><b>{standing?num(Number(standing.pointsFor)/Math.max(1,completedGames)):'—'}</b><span>PPG</span></div>
         <div><b>{standing?'$'+Number(standing.faabBalance??0).toFixed(0):'—'}</b><span>FAAB</span></div>
         <div><b>{rosterPlayers.filter(p=>p.isKeeper?.kept).length}</b><span>KEEPERS</span></div>
       </div>
 
       <section className="seasonRead">
-        <div className="operationsHead"><div><small>2026 SEASON FILE</small><h2>Season to Date</h2></div><span>OFFICIAL YAHOO TOTALS THROUGH WEEK {Math.max(0,week-1)}</span></div>
+        <div className="operationsHead"><div><small>2026 SEASON FILE</small><h2>Season to Date</h2></div><span>OFFICIAL YAHOO TOTALS THROUGH WEEK {completedGames}</span></div>
         <div className="seasonSummary">
           <div><b>{standing?num(standing.pointsAgainst):'—'}</b><span>POINTS AGAINST</span><small>SEASON TO DATE</small></div>
           <div><b>{standing?num(standing.pointsFor):'—'}</b><span>POINTS FOR</span><small>SEASON TO DATE</small></div>
@@ -55,17 +58,18 @@ export default async function SundayCrewTeam({params}){
       </section>
 
       {matchup&&<section className="liveOperations">
-        <div className="operationsHead"><div><small>FOOTBALL OPERATIONS • WEEK {week}</small><h2>Week {week}</h2></div><span>YAHOO MATCHUP</span></div>
+        <div className="operationsHead"><div><small>FOOTBALL OPERATIONS • WEEK {week}</small><h2>Week {week}</h2></div><span>{matchup.winner?'FINAL':'YAHOO MATCHUP'}</span></div>
         <div className="matchupBoard">
-          <div className="matchupTeam active"><small>{roster.teamName}</small><b>{num(mine?.points)}</b><span>PROJECTED {num(mine?.projectedPoints)}</span></div>
+          <div className="matchupTeam active"><small>{roster.teamName}</small><b>{num(mine?.points)}</b><span>{matchup.winner?'FINAL':`PROJECTED ${num(mine?.projectedPoints)}`}</span></div>
           <div className="matchupVs">VS</div>
-          <Link href={'/sunday-crew/teams/'+opp?.teamId} className="matchupTeam"><small>{opp?.teamName}</small><b>{num(opp?.points)}</b><span>PROJECTED {num(opp?.projectedPoints)}</span></Link>
+          <Link href={'/sunday-crew/teams/'+opp?.teamId} className="matchupTeam"><small>{opp?.teamName}</small><b>{num(opp?.points)}</b><span>{matchup.winner?'FINAL':`PROJECTED ${num(opp?.projectedPoints)}`}</span></Link>
         </div>
       </section>}
 
+      <section className="seasonRead"><div className="hubHead">WEEKLY RESULTS</div>{history.map(w=>{const g=w.matchups.find(m=>String(m.home.teamId)===id||String(m.away.teamId)===id);if(!g)return null;const [me,op]=String(g.home.teamId)===id?[g.home,g.away]:[g.away,g.home];const result=Number(me.points)>Number(op.points)?'W':Number(me.points)<Number(op.points)?'L':'T';return <div className="weekResult" key={w.matchupWeek}><b className={result==='W'?'win':'loss'}>{result}</b><span>WEEK {w.matchupWeek}</span><Link href={'/sunday-crew/teams/'+op.teamId}>{op.teamName}</Link><strong>{num(me.points)}–{num(op.points)}</strong></div>})}</section>
       <section className="rosterSection">
-        <div className="hubHead">ACTIVE ROSTER • WEEK {week}</div>
-        <div className="rosterHeader"><span>SLOT</span><span>PLAYER</span><span>STATUS</span><span>KEEPER</span><span>WEEK {week} PTS</span><span>COST</span></div>
+        <div className="hubHead">LINEUP ON FILE • WEEK {rosterWeek}</div>
+        <div className="rosterHeader"><span>SLOT</span><span>PLAYER</span><span>STATUS</span><span>KEEPER</span><span>WEEK {rosterWeek} PTS</span><span>COST</span></div>
         {rosterPlayers.map(p=>{const reserve=['BN','IR'].includes(p.selectedPosition);return <div className={'rosterRow '+(reserve?'reserve':'')} key={p.playerKey}>
           <b>{playerSlot(p)}</b>
           <span><strong>{p.name}</strong><em>{p.position} • {p.team}</em></span>

@@ -24,7 +24,7 @@ export default async function Team({params}) {
         <div className="seasonSummary">
           <div><b>{ops.pointsAgainst}</b><span>POINTS AGAINST</span><small>#{ops.season.paRank} MOST</small></div>
           <div><b>{ops.season.startedPoints}</b><span>STARTER POINTS</span><small>THROUGH WEEK {ops.season.completedGames}</small></div>
-          <div><b>{ops.season.benchPoints}</b><span>BENCH POINTS</span><small>SEASON TO DATE</small></div>
+          <div><b>{ops.season.benchPoints}</b><span>BENCH POINTS</span><small>THROUGH WEEK {ops.season.completedGames}</small></div>
         </div>
         <div className="seasonDetailGrid">
           <div><div className="hubHead">WEEKLY RESULTS</div>{ops.season.weekly.map(w=><div className="weekResult" key={w.week}><b className={w.result==='W'?'win':w.result==='L'?'loss':'live'}>{w.result==='—'?'LIVE':w.result}</b><span>WEEK {w.week}</span><Link href={`/teams/${w.opponentSlug}`}>{w.opponent}</Link><strong>{w.score}–{w.opponentScore}</strong></div>)}</div>
@@ -33,18 +33,18 @@ export default async function Team({params}) {
       </section>
 
       <section className="liveOperations">
-        <div className="operationsHead"><div><small>FOOTBALL OPERATIONS • WEEK 3 FINAL</small><h2>Week {leagueSnapshot.week}</h2></div><span>{leagueSnapshot.updatedAt}</span></div>
+        <div className="operationsHead"><div><small>FOOTBALL OPERATIONS • WEEK {leagueSnapshot.week} FINAL</small><h2>Week {leagueSnapshot.week}</h2></div><span>{leagueSnapshot.updatedAt}</span></div>
         <div className="matchupBoard">
-          <div className="matchupTeam active"><small>{t.team}</small><b>{ops.matchup.score}</b><span>PROJECTED {ops.matchup.projection}</span></div>
+          <div className="matchupTeam active"><small>{t.team}</small><b>{ops.matchup.score}</b><span>FINAL</span></div>
           <div className="matchupVs">VS</div>
-          <Link href={`/teams/${ops.matchup.opponentSlug}`} className="matchupTeam"><small>{ops.matchup.opponent}</small><b>{ops.matchup.opponentScore}</b><span>PROJECTED {ops.matchup.opponentProjection}</span></Link>
+          <Link href={`/teams/${ops.matchup.opponentSlug}`} className="matchupTeam"><small>{ops.matchup.opponent}</small><b>{ops.matchup.opponentScore}</b><span>FINAL</span></Link>
         </div>
       </section>
 
       <section className="rosterSection">
-        <div className="hubHead">ACTIVE ROSTER • WEEK {leagueSnapshot.week}</div>
-        <div className="rosterHeader"><span>SLOT</span><span>PLAYER</span><span>STATUS</span><span>STARTS</span><span>WEEK {leagueSnapshot.week} PTS</span><span>SEASON PTS</span></div>
-        {rosterBySeason.map((p,i)=>{const reserve=p.slot==='Bench'||p.slot==='IR';return <div className={`rosterRow ${reserve?'reserve':''}`} key={p.id}><b>{p.slot}</b><span><strong>{p.name}</strong><em>{p.position} • {p.team}</em></span><span className={p.status?'statusFlag':''}>{p.status||'—'}</span><span>{p.starts}</span><strong data-label={`W${leagueSnapshot.week} PTS`}>{Number(p.weekPoints).toFixed(1)}</strong><strong data-label="SEASON PTS">{Number(p.seasonPoints).toFixed(1)}</strong></div>})}
+        <div className="hubHead">LINEUP ON FILE • WEEK {leagueSnapshot.week}</div>
+        <div className="rosterHeader"><span>SLOT</span><span>PLAYER</span><span>STATUS</span><span>STARTS</span><span>WEEK {leagueSnapshot.week} PTS</span><span>POINTS WHILE ROSTERED</span></div>
+        {rosterBySeason.map((p,i)=>{const reserve=p.slot==='Bench'||p.slot==='IR';return <div className={`rosterRow ${reserve?'reserve':''}`} key={p.id}><b>{p.slot}</b><span><strong>{p.name}</strong><em>{p.position} • {p.team}</em></span><span className={p.status?'statusFlag':''}>{p.status||'—'}</span><span>{p.starts}</span><strong data-label={`W${leagueSnapshot.week} PTS`}>{Number(p.weekPoints).toFixed(1)}</strong><strong data-label="POINTS WHILE ROSTERED">{Number(p.seasonPoints).toFixed(1)}</strong></div>})}
       </section>
 
       <section className="franchiseLead"><div><small>LATEST RESULT</small><h2>{t.week1}</h2><p>{t.note}</p></div><aside><small>ON FILE</small><p>{t.lore}</p></aside></section>

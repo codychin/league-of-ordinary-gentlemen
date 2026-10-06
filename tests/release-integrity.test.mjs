@@ -20,7 +20,7 @@ test('view state is supplied per release rather than hard-coded globally',()=>{
   assert.match(sunday,/sunday-crew-week4-recap-v1/); assert.match(sunday,/brief-sunday-crew-week4-recap-viewed-v1/);
 });
 test('Week 4 score surface has no stale Week 3 labels',()=>{
-  assert.match(scores,/THE BRIEF • WEEK 4/); assert.match(scores,/<h2>Week 4<\/h2>/); assert.equal(scores.includes('THE BRIEF • WEEK 3'),false);
+  assert.match(scores,/THE BRIEF • WEEK \{week\}/); assert.match(scores,/<h2>Week \{week\}/); assert.equal(scores.includes('THE BRIEF • WEEK 3'),false);
 });
 test('Sunday Crew release has six unique approved reels with complete packaged assets',()=>{
   const ids=[...sunday.matchAll(/id:'([a-f0-9]{32})'/g)].map(m=>m[1]);

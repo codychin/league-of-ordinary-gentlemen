@@ -7,9 +7,9 @@ export default function MatchupCardGrid({cards=[]}){
     <article className="briefMatchupCard">
       <small className="briefMatchupKicker">{c.kicker||'OPEN MATCHUP'}</small>
       <div className="briefMatchupTeams">
-        <div className="briefMatchupSide"><b>{c.leftName}</b><em>{c.leftProjection} PROJECTED</em></div>
+        <div className="briefMatchupSide"><b>{c.leftName}</b><strong>{c.leftScore??"—"}</strong><em>{c.status==='FINAL'?'FINAL':c.leftProjection!=null?`${c.leftProjection} PROJECTED`:'POINTS'}</em></div>
         <i>VS</i>
-        <div className="briefMatchupSide briefMatchupRight"><b>{c.rightName}</b><em>{c.rightProjection} PROJECTED</em></div>
+        <div className="briefMatchupSide briefMatchupRight"><b>{c.rightName}</b><strong>{c.rightScore??"—"}</strong><em>{c.status==='FINAL'?'FINAL':c.rightProjection!=null?`${c.rightProjection} PROJECTED`:'POINTS'}</em></div>
       </div>
       <div className="briefMatchupPortraits" aria-hidden="true">
         {c.leftImage&&<ResilientImage loading="lazy" decoding="async" className="briefMatchupLeftPlayer" src={c.leftImage} alt=""/>}

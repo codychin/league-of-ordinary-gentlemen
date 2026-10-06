@@ -17,7 +17,7 @@ export default async function SundayCrewMatchup({params}){
   const game=games.find(g=>[String(g.home?.teamId),String(g.away?.teamId)].includes(String(a))&&[String(g.home?.teamId),String(g.away?.teamId)].includes(String(b)));
   if(!game)notFound();
   const side=(id)=>String(game.home.teamId)===String(id)?game.home:game.away;
-  const ls=side(a),rs=side(b),week=Number(edition?.league?.settings?.currentWeek||4);
+  const ls=side(a),rs=side(b),week=Number(edition?.snapshots?.matchups?.data?.data?.matchupWeek||4);
   const active=r=>[...(r.players||[])].filter(p=>!['BN','IR'].includes(p.selectedPosition)).sort((x,y)=>(order[x.selectedPosition]??10)-(order[y.selectedPosition]??10));
   const L=active(left),R=active(right),rows=Array.from({length:Math.max(L.length,R.length)},(_,i)=>[L[i],R[i]]);
   const standing=id=>standings.find(s=>String(s.teamId)===String(id));
@@ -26,20 +26,20 @@ export default async function SundayCrewMatchup({params}){
     <header className="articleHeader"><Link href="/sunday-crew" className="miniMast">The Brief of Ordinary Gentleman</Link><EditionSiteNav root="/sunday-crew"/></header>
     <main className="matchupPage">
       <section className="matchupLead">
-        <div className="matchupHeroKicker">SUNDAY CREW • WEEK {week} • GAME PREVIEW</div>
+        <div className="matchupHeroKicker">SUNDAY CREW • WEEK {week} • FINAL RESULT</div>
         <div className="matchupScoreboard">
-          <Link href={'/sunday-crew/teams/'+a} className="matchupHeroSide"><small>{left.ownerName}</small><h1>{left.teamName}</h1><b>{fmt(ls.points)}</b><span>PROJECTED {fmt(ls.projectedPoints)}</span></Link>
+          <Link href={'/sunday-crew/teams/'+a} className="matchupHeroSide"><small>{left.ownerName}</small><h1>{left.teamName}</h1><b>{fmt(ls.points)}</b><span>FINAL</span></Link>
           <div className="matchupHeroCenter"><span>VS</span><small>YAHOO</small></div>
-          <Link href={'/sunday-crew/teams/'+b} className="matchupHeroSide right"><small>{right.ownerName}</small><h1>{right.teamName}</h1><b>{fmt(rs.points)}</b><span>PROJECTED {fmt(rs.projectedPoints)}</span></Link>
+          <Link href={'/sunday-crew/teams/'+b} className="matchupHeroSide right"><small>{right.ownerName}</small><h1>{right.teamName}</h1><b>{fmt(rs.points)}</b><span>FINAL</span></Link>
         </div>
       </section>
       <section className="matchupColumn">
-        <div className="matchupColumnByline"><img src={writer.image} alt={writer.imageAlt}/><div><small>GAME PREVIEW • {writer.title.toUpperCase()}</small><b>{writer.name}</b></div></div>
-        <h2>What this matchup is actually asking</h2>
-        <p>{left.teamName} and {right.teamName} arrive with a {Math.abs(Number(ls.projectedPoints)-Number(rs.projectedPoints)).toFixed(1)}-point projection gap. The useful part is the roster construction, current availability and which side creates the first avoidable problem.</p>
+        <div className="matchupColumnByline"><img src={writer.image} alt={writer.imageAlt}/><div><small>FINAL RESULT • {writer.title.toUpperCase()}</small><b>{writer.name}</b></div></div>
+        <h2>The final accounting</h2>
+        <p>{left.teamName} and {right.teamName} finished with a {Math.abs(Number(ls.points)-Number(rs.points)).toFixed(2)}-point margin. {Number(ls.points)>Number(rs.points)?left.teamName:right.teamName} takes the win. The lineup below is the Week {week} record, with actual player points.</p>
       </section>
       <section className="matchupPrimer"><div className="matchupSectionHead"><small>THE BRIEF'S READ</small><h2>Numbers worth staring at</h2></div><div className="primerGrid">
-        <article><b>{Math.abs(Number(ls.projectedPoints)-Number(rs.projectedPoints)).toFixed(1)}</b><span>PROJECTED POINT GAP</span></article>
+        <article><b>{Math.abs(Number(ls.points)-Number(rs.points)).toFixed(2)}</b><span>FINAL MARGIN</span></article>
         <article><b>{standing(a)?.wins}-{standing(a)?.losses} / {standing(b)?.wins}-{standing(b)?.losses}</b><span>RECORDS</span></article>
         <article><b>{L.filter(p=>p.status).length+R.filter(p=>p.status).length}</b><span>STARTER STATUS FLAGS</span></article>
       </div></section>

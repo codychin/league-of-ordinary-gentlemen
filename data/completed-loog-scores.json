@@ -1,0 +1,111 @@
+{
+  "ok": true,
+  "week": 4,
+  "status": "FINAL",
+  "updatedAt": "2026-10-06T13:10:46.708Z",
+  "source": "flaim-authenticated-final",
+  "matchups": [
+    {
+      "id": 1,
+      "status": "FINAL",
+      "winner": "HOME",
+      "home": {
+        "id": 5,
+        "name": "I'm a Skatt man",
+        "score": 149.47,
+        "projection": 144.18318447
+      },
+      "away": {
+        "id": 3,
+        "name": "The All Ugly Team",
+        "score": 132.98,
+        "projection": 124.86168025
+      }
+    },
+    {
+      "id": 2,
+      "status": "FINAL",
+      "winner": "AWAY",
+      "home": {
+        "id": 4,
+        "name": "The Route 22 Clubhouse",
+        "score": 167.94,
+        "projection": 147.32030221
+      },
+      "away": {
+        "id": 9,
+        "name": "For the Love of the Kraft",
+        "score": 168.22,
+        "projection": 140.5793575
+      }
+    },
+    {
+      "id": 3,
+      "status": "FINAL",
+      "winner": "HOME",
+      "home": {
+        "id": 7,
+        "name": "Mr Hopkins Opus",
+        "score": 155.7,
+        "projection": 157.42728142
+      },
+      "away": {
+        "id": 6,
+        "name": "Pollard Greens",
+        "score": 153.16,
+        "projection": 150.98828853
+      }
+    },
+    {
+      "id": 4,
+      "status": "FINAL",
+      "winner": "AWAY",
+      "home": {
+        "id": 2,
+        "name": "DarkHorse Danir",
+        "score": 125.42,
+        "projection": 147.67945378
+      },
+      "away": {
+        "id": 1,
+        "name": "Kupp Kupp Doubs",
+        "score": 143.62,
+        "projection": 140.93575631
+      }
+    },
+    {
+      "id": 5,
+      "status": "FINAL",
+      "winner": "HOME",
+      "home": {
+        "id": 12,
+        "name": "CeeDeep Shaheeded Rivalry",
+        "score": 147.07,
+        "projection": 125.81199742
+      },
+      "away": {
+        "id": 11,
+        "name": "Lloyd of the Rings",
+        "score": 141.28,
+        "projection": 150.2208113
+      }
+    },
+    {
+      "id": 6,
+      "status": "FINAL",
+      "winner": "HOME",
+      "home": {
+        "id": 10,
+        "name": "Royrek Tishmeshulam",
+        "score": 133.88,
+        "projection": 142.59922161
+      },
+      "away": {
+        "id": 8,
+        "name": "Shake 'N Baker",
+        "score": 130.24,
+        "projection": 145.8398188
+      }
+    }
+  ]
+}

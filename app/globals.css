@@ -782,3 +782,17 @@
     max-height:88px!important;
   }
 }
+
+/* Score cards: a dedicated full-height portrait row, below scores and above the link. */
+.briefMatchupCard{height:286px!important;min-height:286px!important;padding:38px 16px 34px!important}
+.briefMatchupTeams{height:112px!important}
+.briefMatchupSide{grid-template-rows:58px 30px 14px!important;gap:3px!important}
+.briefMatchupSide strong{display:block;font:900 27px/1 Arial,sans-serif!important}
+.briefMatchupPortraits{top:158px!important;bottom:34px!important;overflow:hidden!important}
+.briefMatchupPortraits img{height:100%!important;max-height:100%!important;width:44%!important;object-fit:contain!important;object-position:center bottom!important;bottom:0!important}
+@media(max-width:760px){
+ .briefMatchupCard{height:276px!important;min-height:276px!important;padding:34px 14px!important}
+ .briefMatchupTeams{height:112px!important}
+ .briefMatchupSide{grid-template-rows:56px 29px 14px!important}
+ .briefMatchupPortraits{top:151px!important;bottom:34px!important}
+}
