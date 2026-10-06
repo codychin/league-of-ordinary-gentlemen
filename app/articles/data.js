@@ -6,9 +6,6 @@ export const articles = {
   "dek":"Three Black coaches are losing. Somehow their race has become part of the box score.",
   "date":"OCTOBER 6, 2026",
   "author":"sorrell",
-  "image":"https://phantom-marca-us.unidadeditorial.es/1dbe84cc26f2f244effacc3e1d1d69f3/resize/828/f/jpg/assets/multimedia/imagenes/2025/01/27/17380111307030.jpg",
-  "imageAlt":"New York Jets head coach Aaron Glenn speaks at a press conference.",
-  "imageCredit":{"label":"Aaron Glenn at his Jets introductory press conference","url":"https://us.marca.com/nfl/2025/01/27/6797ebbc268e3eec728b45c2.html"},
   "instagramEmbed":"https://www.instagram.com/reel/DeIjjz1iLuk/embed/",
   "body":[
     "There are three Black head coaches in the National Football League. They are currently 1–11.",
