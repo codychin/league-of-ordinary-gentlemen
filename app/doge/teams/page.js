@@ -1,4 +1,4 @@
 import Page from '../../components/editions/Teams';
 import {getEditionConfig} from '../../../lib/edition-content';
 export const dynamic='force-dynamic';
-export default function Route(props){return <Page {...props} config={getEditionConfig('sunday-crew')}/>;}
+export default function Route(props){return <Page {...props} config={getEditionConfig('doge')}/>;}

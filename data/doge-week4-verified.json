@@ -1,0 +1,4924 @@
+{
+  "league": {
+    "leagueKey": "470.l.226614",
+    "leagueId": "226614",
+    "name": "DOGE4",
+    "url": "https://football.fantasysports.yahoo.com/f1/226614",
+    "numTeams": 12,
+    "scoringType": "head",
+    "currentWeek": 5,
+    "startWeek": "1",
+    "endWeek": "17",
+    "isFinished": false,
+    "draftStatus": "postdraft",
+    "draftType": "live",
+    "isAuctionDraft": false,
+    "tradeEndDate": "2026-11-28",
+    "tradeRatifyType": "vote",
+    "tradeRejectTime": 2,
+    "usesFaab": true,
+    "isProLeague": false,
+    "teams": [
+      {
+        "teamKey": "470.l.226614.t.1",
+        "teamId": "1",
+        "teamName": "Caleb’s Elite Touch Rate",
+        "ownerName": "Cody"
+      },
+      {
+        "teamKey": "470.l.226614.t.2",
+        "teamId": "2",
+        "teamName": "Gimothy Blossoms",
+        "ownerName": "Alan"
+      },
+      {
+        "teamKey": "470.l.226614.t.3",
+        "teamId": "3",
+        "teamName": "RFK Jr’s Bears",
+        "ownerName": "jasonmb17"
+      },
+      {
+        "teamKey": "470.l.226614.t.4",
+        "teamId": "4",
+        "teamName": "El Niño Grande",
+        "ownerName": "Corey"
+      },
+      {
+        "teamKey": "470.l.226614.t.5",
+        "teamId": "5",
+        "teamName": "Jerruh’s World",
+        "ownerName": "Andrew"
+      },
+      {
+        "teamKey": "470.l.226614.t.6",
+        "teamId": "6",
+        "teamName": "McConkey Kong",
+        "ownerName": "Sandy"
+      },
+      {
+        "teamKey": "470.l.226614.t.7",
+        "teamId": "7",
+        "teamName": "Tranimal",
+        "ownerName": "bennett"
+      },
+      {
+        "teamKey": "470.l.226614.t.8",
+        "teamId": "8",
+        "teamName": "T. Ocellus",
+        "ownerName": "Bryan"
+      },
+      {
+        "teamKey": "470.l.226614.t.9",
+        "teamId": "9",
+        "teamName": "Extremely Tight Ends",
+        "ownerName": "Pete"
+      },
+      {
+        "teamKey": "470.l.226614.t.10",
+        "teamId": "10",
+        "teamName": "De'Coldest Hassan",
+        "ownerName": "Mohsin"
+      },
+      {
+        "teamKey": "470.l.226614.t.11",
+        "teamId": "11",
+        "teamName": "Ordway and Son",
+        "ownerName": "Jason"
+      },
+      {
+        "teamKey": "470.l.226614.t.12",
+        "teamId": "12",
+        "teamName": "Nix in 5",
+        "ownerName": "Patrick"
+      }
+    ]
+  },
+  "standings": {
+    "leagueKey": "470.l.226614",
+    "leagueName": "DOGE4",
+    "seasonPhase": "regular_season",
+    "seasonComplete": false,
+    "standings": [
+      {
+        "rank": "1",
+        "teamKey": "470.l.226614.t.11",
+        "teamId": "11",
+        "name": "Ordway and Son",
+        "wins": "3",
+        "losses": "1",
+        "ties": 0,
+        "percentage": ".750",
+        "pointsFor": "512.36",
+        "pointsAgainst": 466.22,
+        "waiverPriority": 10,
+        "faabBalance": 100,
+        "playoffSeed": 1,
+        "madePlayoffs": true,
+        "finalRank": null,
+        "championshipWon": null,
+        "playoffOutcome": null,
+        "outcomeConfidence": null
+      },
+      {
+        "rank": "2",
+        "teamKey": "470.l.226614.t.7",
+        "teamId": "7",
+        "name": "Tranimal",
+        "wins": "3",
+        "losses": "1",
+        "ties": 0,
+        "percentage": ".750",
+        "pointsFor": "498.34",
+        "pointsAgainst": 428.52,
+        "waiverPriority": 12,
+        "faabBalance": 90,
+        "playoffSeed": 2,
+        "madePlayoffs": true,
+        "finalRank": null,
+        "championshipWon": null,
+        "playoffOutcome": null,
+        "outcomeConfidence": null
+      },
+      {
+        "rank": "3",
+        "teamKey": "470.l.226614.t.9",
+        "teamId": "9",
+        "name": "Extremely Tight Ends",
+        "wins": "2",
+        "losses": "2",
+        "ties": 0,
+        "percentage": ".500",
+        "pointsFor": "509.28",
+        "pointsAgainst": 482.08,
+        "waiverPriority": 6,
+        "faabBalance": 50,
+        "playoffSeed": 3,
+        "madePlayoffs": true,
+        "finalRank": null,
+        "championshipWon": null,
+        "playoffOutcome": null,
+        "outcomeConfidence": null
+      },
+      {
+        "rank": "4",
+        "teamKey": "470.l.226614.t.2",
+        "teamId": "2",
+        "name": "Gimothy Blossoms",
+        "wins": "2",
+        "losses": "2",
+        "ties": 0,
+        "percentage": ".500",
+        "pointsFor": "501.38",
+        "pointsAgainst": 492.41999999999996,
+        "waiverPriority": 11,
+        "faabBalance": 88,
+        "playoffSeed": 4,
+        "madePlayoffs": true,
+        "finalRank": null,
+        "championshipWon": null,
+        "playoffOutcome": null,
+        "outcomeConfidence": null
+      },
+      {
+        "rank": "5",
+        "teamKey": "470.l.226614.t.4",
+        "teamId": "4",
+        "name": "El Niño Grande",
+        "wins": "2",
+        "losses": "2",
+        "ties": 0,
+        "percentage": ".500",
+        "pointsFor": "491.88",
+        "pointsAgainst": 485.28,
+        "waiverPriority": 7,
+        "faabBalance": 94,
+        "playoffSeed": 5,
+        "madePlayoffs": true,
+        "finalRank": null,
+        "championshipWon": null,
+        "playoffOutcome": null,
+        "outcomeConfidence": null
+      },
+      {
+        "rank": "6",
+        "teamKey": "470.l.226614.t.5",
+        "teamId": "5",
+        "name": "Jerruh’s World",
+        "wins": "2",
+        "losses": "2",
+        "ties": 0,
+        "percentage": ".500",
+        "pointsFor": "470.92",
+        "pointsAgainst": 502.6,
+        "waiverPriority": 1,
+        "faabBalance": 100,
+        "playoffSeed": 6,
+        "madePlayoffs": true,
+        "finalRank": null,
+        "championshipWon": null,
+        "playoffOutcome": null,
+        "outcomeConfidence": null
+      },
+      {
+        "rank": "7",
+        "teamKey": "470.l.226614.t.3",
+        "teamId": "3",
+        "name": "RFK Jr’s Bears",
+        "wins": "2",
+        "losses": "2",
+        "ties": 0,
+        "percentage": ".500",
+        "pointsFor": "453.66",
+        "pointsAgainst": 459.12,
+        "waiverPriority": 4,
+        "faabBalance": 100,
+        "playoffSeed": 7,
+        "madePlayoffs": true,
+        "finalRank": null,
+        "championshipWon": null,
+        "playoffOutcome": null,
+        "outcomeConfidence": null
+      },
+      {
+        "rank": "8",
+        "teamKey": "470.l.226614.t.1",
+        "teamId": "1",
+        "name": "Caleb’s Elite Touch Rate",
+        "wins": "2",
+        "losses": "2",
+        "ties": 0,
+        "percentage": ".500",
+        "pointsFor": "441.98",
+        "pointsAgainst": 458.23999999999995,
+        "waiverPriority": 3,
+        "faabBalance": 93,
+        "playoffSeed": 8,
+        "madePlayoffs": true,
+        "finalRank": null,
+        "championshipWon": null,
+        "playoffOutcome": null,
+        "outcomeConfidence": null
+      },
+      {
+        "rank": "9",
+        "teamKey": "470.l.226614.t.8",
+        "teamId": "8",
+        "name": "T. Ocellus",
+        "wins": "2",
+        "losses": "2",
+        "ties": 0,
+        "percentage": ".500",
+        "pointsFor": "433.34",
+        "pointsAgainst": 423.88,
+        "waiverPriority": 9,
+        "faabBalance": 46,
+        "playoffSeed": 9,
+        "madePlayoffs": true,
+        "finalRank": null,
+        "championshipWon": null,
+        "playoffOutcome": null,
+        "outcomeConfidence": null
+      },
+      {
+        "rank": "10",
+        "teamKey": "470.l.226614.t.6",
+        "teamId": "6",
+        "name": "McConkey Kong",
+        "wins": "2",
+        "losses": "2",
+        "ties": 0,
+        "percentage": ".500",
+        "pointsFor": "424.78",
+        "pointsAgainst": 456.53999999999996,
+        "waiverPriority": 5,
+        "faabBalance": 95,
+        "playoffSeed": 10,
+        "madePlayoffs": true,
+        "finalRank": null,
+        "championshipWon": null,
+        "playoffOutcome": null,
+        "outcomeConfidence": null
+      },
+      {
+        "rank": "11",
+        "teamKey": "470.l.226614.t.10",
+        "teamId": "10",
+        "name": "De'Coldest Hassan",
+        "wins": "1",
+        "losses": "3",
+        "ties": 0,
+        "percentage": ".250",
+        "pointsFor": "481.38",
+        "pointsAgainst": 526.5999999999999,
+        "waiverPriority": 2,
+        "faabBalance": 97,
+        "playoffSeed": 11,
+        "madePlayoffs": true,
+        "finalRank": null,
+        "championshipWon": null,
+        "playoffOutcome": null,
+        "outcomeConfidence": null
+      },
+      {
+        "rank": "12",
+        "teamKey": "470.l.226614.t.12",
+        "teamId": "12",
+        "name": "Nix in 5",
+        "wins": "1",
+        "losses": "3",
+        "ties": 0,
+        "percentage": ".250",
+        "pointsFor": "465.04",
+        "pointsAgainst": 502.84,
+        "waiverPriority": 8,
+        "faabBalance": 90,
+        "playoffSeed": 12,
+        "madePlayoffs": true,
+        "finalRank": null,
+        "championshipWon": null,
+        "playoffOutcome": null,
+        "outcomeConfidence": null
+      }
+    ]
+  },
+  "weeks": [
+    {
+      "leagueKey": "470.l.226614",
+      "leagueName": "DOGE4",
+      "currentWeek": 5,
+      "matchupWeek": 1,
+      "scoringType": "categories",
+      "scoringTypeRaw": "head",
+      "matchups": [
+        {
+          "matchupId": 1,
+          "week": 1,
+          "home": {
+            "teamKey": "470.l.226614.t.1",
+            "teamId": "1",
+            "teamName": "Caleb’s Elite Touch Rate",
+            "points": 130.16,
+            "projectedPoints": 118.1,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 130.16
+          },
+          "away": {
+            "teamKey": "470.l.226614.t.12",
+            "teamId": "12",
+            "teamName": "Nix in 5",
+            "points": 105.22,
+            "projectedPoints": 122.37,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 105.22
+          },
+          "winner": "home",
+          "statWinnersAvailable": false
+        },
+        {
+          "matchupId": 2,
+          "week": 1,
+          "home": {
+            "teamKey": "470.l.226614.t.2",
+            "teamId": "2",
+            "teamName": "Gimothy Blossoms",
+            "points": 114.22,
+            "projectedPoints": 106.06,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 114.22
+          },
+          "away": {
+            "teamKey": "470.l.226614.t.3",
+            "teamId": "3",
+            "teamName": "RFK Jr’s Bears",
+            "points": 153.76,
+            "projectedPoints": 116.44,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 153.76
+          },
+          "winner": "away",
+          "statWinnersAvailable": false
+        },
+        {
+          "matchupId": 3,
+          "week": 1,
+          "home": {
+            "teamKey": "470.l.226614.t.4",
+            "teamId": "4",
+            "teamName": "El Niño Grande",
+            "points": 157.12,
+            "projectedPoints": 114.24,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 157.12
+          },
+          "away": {
+            "teamKey": "470.l.226614.t.10",
+            "teamId": "10",
+            "teamName": "De'Coldest Hassan",
+            "points": 147.66,
+            "projectedPoints": 114.45,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 147.66
+          },
+          "winner": "home",
+          "statWinnersAvailable": false
+        },
+        {
+          "matchupId": 4,
+          "week": 1,
+          "home": {
+            "teamKey": "470.l.226614.t.5",
+            "teamId": "5",
+            "teamName": "Jerruh’s World",
+            "points": 126.1,
+            "projectedPoints": 113.34,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 126.1
+          },
+          "away": {
+            "teamKey": "470.l.226614.t.11",
+            "teamId": "11",
+            "teamName": "Ordway and Son",
+            "points": 154.86,
+            "projectedPoints": 122.1,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 154.86
+          },
+          "winner": "away",
+          "statWinnersAvailable": false
+        },
+        {
+          "matchupId": 5,
+          "week": 1,
+          "home": {
+            "teamKey": "470.l.226614.t.6",
+            "teamId": "6",
+            "teamName": "McConkey Kong",
+            "points": 97.56,
+            "projectedPoints": 120.29,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 97.56
+          },
+          "away": {
+            "teamKey": "470.l.226614.t.8",
+            "teamId": "8",
+            "teamName": "T. Ocellus",
+            "points": 91.26,
+            "projectedPoints": 112.48,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 91.26
+          },
+          "winner": "home",
+          "statWinnersAvailable": false
+        },
+        {
+          "matchupId": 6,
+          "week": 1,
+          "home": {
+            "teamKey": "470.l.226614.t.7",
+            "teamId": "7",
+            "teamName": "Tranimal",
+            "points": 106.54,
+            "projectedPoints": 117.87,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 106.54
+          },
+          "away": {
+            "teamKey": "470.l.226614.t.9",
+            "teamId": "9",
+            "teamName": "Extremely Tight Ends",
+            "points": 105.1,
+            "projectedPoints": 112.08,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 105.1
+          },
+          "winner": "home",
+          "statWinnersAvailable": false
+        }
+      ],
+      "categoryNamesAvailable": true
+    },
+    {
+      "leagueKey": "470.l.226614",
+      "leagueName": "DOGE4",
+      "currentWeek": 5,
+      "matchupWeek": 2,
+      "scoringType": "categories",
+      "scoringTypeRaw": "head",
+      "matchups": [
+        {
+          "matchupId": 1,
+          "week": 2,
+          "home": {
+            "teamKey": "470.l.226614.t.1",
+            "teamId": "1",
+            "teamName": "Caleb’s Elite Touch Rate",
+            "points": 83.82,
+            "projectedPoints": 109.52,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 83.82
+          },
+          "away": {
+            "teamKey": "470.l.226614.t.4",
+            "teamId": "4",
+            "teamName": "El Niño Grande",
+            "points": 115.36,
+            "projectedPoints": 107.51,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 115.36
+          },
+          "winner": "away",
+          "statWinnersAvailable": false
+        },
+        {
+          "matchupId": 2,
+          "week": 2,
+          "home": {
+            "teamKey": "470.l.226614.t.2",
+            "teamId": "2",
+            "teamName": "Gimothy Blossoms",
+            "points": 95.42,
+            "projectedPoints": 117.95,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 95.42
+          },
+          "away": {
+            "teamKey": "470.l.226614.t.11",
+            "teamId": "11",
+            "teamName": "Ordway and Son",
+            "points": 125.24,
+            "projectedPoints": 122.66,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 125.24
+          },
+          "winner": "away",
+          "statWinnersAvailable": false
+        },
+        {
+          "matchupId": 3,
+          "week": 2,
+          "home": {
+            "teamKey": "470.l.226614.t.3",
+            "teamId": "3",
+            "teamName": "RFK Jr’s Bears",
+            "points": 116.62,
+            "projectedPoints": 115.32,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 116.62
+          },
+          "away": {
+            "teamKey": "470.l.226614.t.6",
+            "teamId": "6",
+            "teamName": "McConkey Kong",
+            "points": 94.18,
+            "projectedPoints": 113.08,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 94.18
+          },
+          "winner": "home",
+          "statWinnersAvailable": false
+        },
+        {
+          "matchupId": 4,
+          "week": 2,
+          "home": {
+            "teamKey": "470.l.226614.t.5",
+            "teamId": "5",
+            "teamName": "Jerruh’s World",
+            "points": 126.88,
+            "projectedPoints": 118.99,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 126.88
+          },
+          "away": {
+            "teamKey": "470.l.226614.t.12",
+            "teamId": "12",
+            "teamName": "Nix in 5",
+            "points": 93.12,
+            "projectedPoints": 103.57,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 93.12
+          },
+          "winner": "home",
+          "statWinnersAvailable": false
+        },
+        {
+          "matchupId": 5,
+          "week": 2,
+          "home": {
+            "teamKey": "470.l.226614.t.7",
+            "teamId": "7",
+            "teamName": "Tranimal",
+            "points": 127.66,
+            "projectedPoints": 127.09,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 127.66
+          },
+          "away": {
+            "teamKey": "470.l.226614.t.8",
+            "teamId": "8",
+            "teamName": "T. Ocellus",
+            "points": 111.28,
+            "projectedPoints": 111.94,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 111.28
+          },
+          "winner": "home",
+          "statWinnersAvailable": false
+        },
+        {
+          "matchupId": 6,
+          "week": 2,
+          "home": {
+            "teamKey": "470.l.226614.t.9",
+            "teamId": "9",
+            "teamName": "Extremely Tight Ends",
+            "points": 166.78,
+            "projectedPoints": 118.03,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 166.78
+          },
+          "away": {
+            "teamKey": "470.l.226614.t.10",
+            "teamId": "10",
+            "teamName": "De'Coldest Hassan",
+            "points": 129.2,
+            "projectedPoints": 118.06,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 129.2
+          },
+          "winner": "home",
+          "statWinnersAvailable": false
+        }
+      ],
+      "categoryNamesAvailable": true
+    },
+    {
+      "leagueKey": "470.l.226614",
+      "leagueName": "DOGE4",
+      "currentWeek": 5,
+      "matchupWeek": 3,
+      "scoringType": "categories",
+      "scoringTypeRaw": "head",
+      "matchups": [
+        {
+          "matchupId": 1,
+          "week": 3,
+          "home": {
+            "teamKey": "470.l.226614.t.1",
+            "teamId": "1",
+            "teamName": "Caleb’s Elite Touch Rate",
+            "points": 96.24,
+            "projectedPoints": 106.93,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 96.24
+          },
+          "away": {
+            "teamKey": "470.l.226614.t.5",
+            "teamId": "5",
+            "teamName": "Jerruh’s World",
+            "points": 127.84,
+            "projectedPoints": 123.48,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 127.84
+          },
+          "winner": "away",
+          "statWinnersAvailable": false
+        },
+        {
+          "matchupId": 2,
+          "week": 3,
+          "home": {
+            "teamKey": "470.l.226614.t.2",
+            "teamId": "2",
+            "teamName": "Gimothy Blossoms",
+            "points": 133.36,
+            "projectedPoints": 117.47,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 133.36
+          },
+          "away": {
+            "teamKey": "470.l.226614.t.12",
+            "teamId": "12",
+            "teamName": "Nix in 5",
+            "points": 123.32,
+            "projectedPoints": 121.05,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 123.32
+          },
+          "winner": "home",
+          "statWinnersAvailable": false
+        },
+        {
+          "matchupId": 3,
+          "week": 3,
+          "home": {
+            "teamKey": "470.l.226614.t.3",
+            "teamId": "3",
+            "teamName": "RFK Jr’s Bears",
+            "points": 85.16,
+            "projectedPoints": 103.21,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 85.16
+          },
+          "away": {
+            "teamKey": "470.l.226614.t.7",
+            "teamId": "7",
+            "teamName": "Tranimal",
+            "points": 140.04,
+            "projectedPoints": 119.3,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 140.04
+          },
+          "winner": "away",
+          "statWinnersAvailable": false
+        },
+        {
+          "matchupId": 4,
+          "week": 3,
+          "home": {
+            "teamKey": "470.l.226614.t.4",
+            "teamId": "4",
+            "teamName": "El Niño Grande",
+            "points": 114.58,
+            "projectedPoints": 112.77,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 114.58
+          },
+          "away": {
+            "teamKey": "470.l.226614.t.9",
+            "teamId": "9",
+            "teamName": "Extremely Tight Ends",
+            "points": 127.58,
+            "projectedPoints": 104.16,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 127.58
+          },
+          "winner": "away",
+          "statWinnersAvailable": false
+        },
+        {
+          "matchupId": 5,
+          "week": 3,
+          "home": {
+            "teamKey": "470.l.226614.t.6",
+            "teamId": "6",
+            "teamName": "McConkey Kong",
+            "points": 120.6,
+            "projectedPoints": 116.78,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 120.6
+          },
+          "away": {
+            "teamKey": "470.l.226614.t.11",
+            "teamId": "11",
+            "teamName": "Ordway and Son",
+            "points": 105.28,
+            "projectedPoints": 126.26,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 105.28
+          },
+          "winner": "home",
+          "statWinnersAvailable": false
+        },
+        {
+          "matchupId": 6,
+          "week": 3,
+          "home": {
+            "teamKey": "470.l.226614.t.8",
+            "teamId": "8",
+            "teamName": "T. Ocellus",
+            "points": 104.58,
+            "projectedPoints": 112.7,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 104.58
+          },
+          "away": {
+            "teamKey": "470.l.226614.t.10",
+            "teamId": "10",
+            "teamName": "De'Coldest Hassan",
+            "points": 93.84,
+            "projectedPoints": 120.87,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 93.84
+          },
+          "winner": "home",
+          "statWinnersAvailable": false
+        }
+      ],
+      "categoryNamesAvailable": true
+    },
+    {
+      "leagueKey": "470.l.226614",
+      "leagueName": "DOGE4",
+      "currentWeek": 5,
+      "matchupWeek": 4,
+      "scoringType": "categories",
+      "scoringTypeRaw": "head",
+      "matchups": [
+        {
+          "matchupId": 1,
+          "week": 4,
+          "home": {
+            "teamKey": "470.l.226614.t.1",
+            "teamId": "1",
+            "teamName": "Caleb’s Elite Touch Rate",
+            "points": 131.76,
+            "projectedPoints": 119.91,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 131.76
+          },
+          "away": {
+            "teamKey": "470.l.226614.t.9",
+            "teamId": "9",
+            "teamName": "Extremely Tight Ends",
+            "points": 109.82,
+            "projectedPoints": 109.89,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 109.82
+          },
+          "winner": "home",
+          "statWinnersAvailable": false
+        },
+        {
+          "matchupId": 2,
+          "week": 4,
+          "home": {
+            "teamKey": "470.l.226614.t.2",
+            "teamId": "2",
+            "teamName": "Gimothy Blossoms",
+            "points": 158.38,
+            "projectedPoints": 123.73,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 158.38
+          },
+          "away": {
+            "teamKey": "470.l.226614.t.5",
+            "teamId": "5",
+            "teamName": "Jerruh’s World",
+            "points": 90.1,
+            "projectedPoints": 123.03,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 90.1
+          },
+          "winner": "home",
+          "statWinnersAvailable": false
+        },
+        {
+          "matchupId": 3,
+          "week": 4,
+          "home": {
+            "teamKey": "470.l.226614.t.3",
+            "teamId": "3",
+            "teamName": "RFK Jr’s Bears",
+            "points": 98.12,
+            "projectedPoints": 113.5,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 98.12
+          },
+          "away": {
+            "teamKey": "470.l.226614.t.10",
+            "teamId": "10",
+            "teamName": "De'Coldest Hassan",
+            "points": 110.68,
+            "projectedPoints": 106.59,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 110.68
+          },
+          "winner": "away",
+          "statWinnersAvailable": false
+        },
+        {
+          "matchupId": 4,
+          "week": 4,
+          "home": {
+            "teamKey": "470.l.226614.t.4",
+            "teamId": "4",
+            "teamName": "El Niño Grande",
+            "points": 104.82,
+            "projectedPoints": 126.36,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 104.82
+          },
+          "away": {
+            "teamKey": "470.l.226614.t.8",
+            "teamId": "8",
+            "teamName": "T. Ocellus",
+            "points": 126.22,
+            "projectedPoints": 119.91,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 126.22
+          },
+          "winner": "away",
+          "statWinnersAvailable": false
+        },
+        {
+          "matchupId": 5,
+          "week": 4,
+          "home": {
+            "teamKey": "470.l.226614.t.6",
+            "teamId": "6",
+            "teamName": "McConkey Kong",
+            "points": 112.44,
+            "projectedPoints": 113.71,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 112.44
+          },
+          "away": {
+            "teamKey": "470.l.226614.t.12",
+            "teamId": "12",
+            "teamName": "Nix in 5",
+            "points": 143.38,
+            "projectedPoints": 131.03,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 143.38
+          },
+          "winner": "away",
+          "statWinnersAvailable": false
+        },
+        {
+          "matchupId": 6,
+          "week": 4,
+          "home": {
+            "teamKey": "470.l.226614.t.7",
+            "teamId": "7",
+            "teamName": "Tranimal",
+            "points": 124.1,
+            "projectedPoints": 108.78,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 124.1
+          },
+          "away": {
+            "teamKey": "470.l.226614.t.11",
+            "teamId": "11",
+            "teamName": "Ordway and Son",
+            "points": 126.98,
+            "projectedPoints": 121.16,
+            "categories": null,
+            "categoryScore": null,
+            "categoriesWon": 126.98
+          },
+          "winner": "away",
+          "statWinnersAvailable": false
+        }
+      ],
+      "categoryNamesAvailable": true
+    }
+  ],
+  "rosters": [
+    {
+      "teamKey": "470.l.226614.t.1",
+      "teamName": "Caleb’s Elite Touch Rate",
+      "ownerName": "Cody",
+      "snapshot": {
+        "type": "week",
+        "week": 4
+      },
+      "limitations": {
+        "playerProTeamAvailable": false
+      },
+      "pointsCoverage": {
+        "type": "week",
+        "week": 4
+      },
+      "players": [
+        {
+          "playerKey": "470.p.40029",
+          "playerId": "40029",
+          "name": "Bryce Young",
+          "position": "QB",
+          "selectedPosition": "QB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 21.46
+        },
+        {
+          "playerKey": "470.p.41807",
+          "playerId": "41807",
+          "name": "Omarion Hampton",
+          "position": "RB",
+          "selectedPosition": "RB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 12.3
+        },
+        {
+          "playerKey": "470.p.40196",
+          "playerId": "40196",
+          "name": "Chase Brown",
+          "position": "RB",
+          "selectedPosition": "RB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 13.6
+        },
+        {
+          "playerKey": "470.p.41793",
+          "playerId": "41793",
+          "name": "Tetairoa McMillan",
+          "position": "WR",
+          "selectedPosition": "WR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 40.2
+        },
+        {
+          "playerKey": "470.p.41804",
+          "playerId": "41804",
+          "name": "Emeka Egbuka",
+          "position": "WR",
+          "selectedPosition": "WR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 2.3
+        },
+        {
+          "playerKey": "470.p.40102",
+          "playerId": "40102",
+          "name": "Tucker Kraft",
+          "position": "TE",
+          "selectedPosition": "TE",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 13.5
+        },
+        {
+          "playerKey": "470.p.41824",
+          "playerId": "41824",
+          "name": "Luther Burden III",
+          "position": "WR",
+          "selectedPosition": "W/R/T",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 9.4
+        },
+        {
+          "playerKey": "470.p.42010",
+          "playerId": "42010",
+          "name": "Jacory Croskey-Merritt",
+          "position": "RB",
+          "selectedPosition": "W/R/T",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 6
+        },
+        {
+          "playerKey": "470.p.42626",
+          "playerId": "42626",
+          "name": "Carnell Tate",
+          "position": "WR",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 17
+        },
+        {
+          "playerKey": "470.p.42025",
+          "playerId": "42025",
+          "name": "Kyle Monangai",
+          "position": "RB",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 29.5
+        },
+        {
+          "playerKey": "470.p.33113",
+          "playerId": "33113",
+          "name": "Juwan Johnson",
+          "position": "TE",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 8.9
+        },
+        {
+          "playerKey": "470.p.42716",
+          "playerId": "42716",
+          "name": "Chris Bell",
+          "position": "WR",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 0
+        },
+        {
+          "playerKey": "470.p.40900",
+          "playerId": "40900",
+          "name": "Caleb Williams",
+          "position": "QB",
+          "selectedPosition": "IR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 0
+        },
+        {
+          "playerKey": "470.p.42702",
+          "playerId": "42702",
+          "name": "Ja'Kobi Lane",
+          "position": "WR",
+          "selectedPosition": "IR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 0
+        },
+        {
+          "playerKey": "470.p.33537",
+          "playerId": "33537",
+          "name": "Evan McPherson",
+          "position": "K",
+          "selectedPosition": "K",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 5
+        },
+        {
+          "playerKey": "470.p.100016",
+          "playerId": "100016",
+          "name": "Vikings",
+          "position": "DEF",
+          "selectedPosition": "DEF",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 8
+        }
+      ]
+    },
+    {
+      "teamKey": "470.l.226614.t.2",
+      "teamName": "Gimothy Blossoms",
+      "ownerName": "Alan",
+      "snapshot": {
+        "type": "week",
+        "week": 4
+      },
+      "limitations": {
+        "playerProTeamAvailable": false
+      },
+      "pointsCoverage": {
+        "type": "week",
+        "week": 4
+      },
+      "players": [
+        {
+          "playerKey": "470.p.40030",
+          "playerId": "40030",
+          "name": "C.J. Stroud",
+          "position": "QB",
+          "selectedPosition": "QB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 25.08
+        },
+        {
+          "playerKey": "470.p.40055",
+          "playerId": "40055",
+          "name": "Bijan Robinson",
+          "position": "RB",
+          "selectedPosition": "RB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 31.2
+        },
+        {
+          "playerKey": "470.p.30180",
+          "playerId": "30180",
+          "name": "Alvin Kamara",
+          "position": "RB",
+          "selectedPosition": "RB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 20.3
+        },
+        {
+          "playerKey": "470.p.33963",
+          "playerId": "33963",
+          "name": "Drake London",
+          "position": "WR",
+          "selectedPosition": "WR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 12.1
+        },
+        {
+          "playerKey": "470.p.32703",
+          "playerId": "32703",
+          "name": "Tee Higgins",
+          "position": "WR",
+          "selectedPosition": "WR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 23.2
+        },
+        {
+          "playerKey": "470.p.30259",
+          "playerId": "30259",
+          "name": "George Kittle",
+          "position": "TE",
+          "selectedPosition": "TE",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 17
+        },
+        {
+          "playerKey": "470.p.31905",
+          "playerId": "31905",
+          "name": "David Montgomery",
+          "position": "RB",
+          "selectedPosition": "W/R/T",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 4.3
+        },
+        {
+          "playerKey": "470.p.42642",
+          "playerId": "42642",
+          "name": "Makai Lemon",
+          "position": "WR",
+          "selectedPosition": "W/R/T",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 4.2
+        },
+        {
+          "playerKey": "470.p.26699",
+          "playerId": "26699",
+          "name": "Keenan Allen",
+          "position": "WR",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 0
+        },
+        {
+          "playerKey": "470.p.42661",
+          "playerId": "42661",
+          "name": "Denzel Boston",
+          "position": "WR",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 12.9
+        },
+        {
+          "playerKey": "470.p.32676",
+          "playerId": "32676",
+          "name": "Justin Herbert",
+          "position": "QB",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 12.56
+        },
+        {
+          "playerKey": "470.p.40883",
+          "playerId": "40883",
+          "name": "Brian Thomas Jr.",
+          "position": "WR",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 8.7
+        },
+        {
+          "playerKey": "470.p.40641",
+          "playerId": "40641",
+          "name": "Keaton Mitchell",
+          "position": "RB",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 8.8
+        },
+        {
+          "playerKey": "470.p.34320",
+          "playerId": "34320",
+          "name": "Jordan Mason",
+          "position": "RB",
+          "selectedPosition": "IR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 0
+        },
+        {
+          "playerKey": "470.p.31883",
+          "playerId": "31883",
+          "name": "A.J. Brown",
+          "position": "WR",
+          "selectedPosition": "IR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 0
+        },
+        {
+          "playerKey": "470.p.29792",
+          "playerId": "29792",
+          "name": "Ka'imi Fairbairn",
+          "position": "K",
+          "selectedPosition": "K",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 16
+        },
+        {
+          "playerKey": "470.p.100002",
+          "playerId": "100002",
+          "name": "Bills",
+          "position": "DEF",
+          "selectedPosition": "DEF",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 5
+        }
+      ]
+    },
+    {
+      "teamKey": "470.l.226614.t.3",
+      "teamName": "RFK Jr’s Bears",
+      "ownerName": "jasonmb17",
+      "snapshot": {
+        "type": "week",
+        "week": 4
+      },
+      "limitations": {
+        "playerProTeamAvailable": false
+      },
+      "pointsCoverage": {
+        "type": "week",
+        "week": 4
+      },
+      "players": [
+        {
+          "playerKey": "470.p.30977",
+          "playerId": "30977",
+          "name": "Josh Allen",
+          "position": "QB",
+          "selectedPosition": "QB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 20.52
+        },
+        {
+          "playerKey": "470.p.29279",
+          "playerId": "29279",
+          "name": "Derrick Henry",
+          "position": "RB",
+          "selectedPosition": "RB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 14.9
+        },
+        {
+          "playerKey": "470.p.40962",
+          "playerId": "40962",
+          "name": "Blake Corum",
+          "position": "RB",
+          "selectedPosition": "RB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 2.6
+        },
+        {
+          "playerKey": "470.p.33967",
+          "playerId": "33967",
+          "name": "Jameson Williams",
+          "position": "WR",
+          "selectedPosition": "WR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 15.2
+        },
+        {
+          "playerKey": "470.p.40168",
+          "playerId": "40168",
+          "name": "Puka Nacua",
+          "position": "WR",
+          "selectedPosition": "WR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 23.2
+        },
+        {
+          "playerKey": "470.p.40048",
+          "playerId": "40048",
+          "name": "Dalton Kincaid",
+          "position": "TE",
+          "selectedPosition": "TE",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 1.2
+        },
+        {
+          "playerKey": "470.p.40893",
+          "playerId": "40893",
+          "name": "Marvin Harrison Jr.",
+          "position": "WR",
+          "selectedPosition": "W/R/T",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 7.7
+        },
+        {
+          "playerKey": "470.p.32231",
+          "playerId": "32231",
+          "name": "Jakobi Meyers",
+          "position": "WR",
+          "selectedPosition": "W/R/T",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 4.8
+        },
+        {
+          "playerKey": "470.p.40224",
+          "playerId": "40224",
+          "name": "Kayshon Boutte",
+          "position": "WR",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 5.1
+        },
+        {
+          "playerKey": "470.p.33413",
+          "playerId": "33413",
+          "name": "Travis Etienne Jr.",
+          "position": "RB",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 0
+        },
+        {
+          "playerKey": "470.p.30197",
+          "playerId": "30197",
+          "name": "Chris Godwin Jr.",
+          "position": "WR",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 6.1
+        },
+        {
+          "playerKey": "470.p.33538",
+          "playerId": "33538",
+          "name": "Kenny Gainwell",
+          "position": "RB",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 9.7
+        },
+        {
+          "playerKey": "470.p.41810",
+          "playerId": "41810",
+          "name": "Jaxson Dart",
+          "position": "QB",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 0
+        },
+        {
+          "playerKey": "470.p.41988",
+          "playerId": "41988",
+          "name": "Tyler Loop",
+          "position": "K",
+          "selectedPosition": "K",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 7
+        },
+        {
+          "playerKey": "470.p.100029",
+          "playerId": "100029",
+          "name": "Panthers",
+          "position": "DEF",
+          "selectedPosition": "DEF",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 1
+        }
+      ]
+    },
+    {
+      "teamKey": "470.l.226614.t.4",
+      "teamName": "El Niño Grande",
+      "ownerName": "Corey",
+      "snapshot": {
+        "type": "week",
+        "week": 4
+      },
+      "limitations": {
+        "playerProTeamAvailable": false
+      },
+      "pointsCoverage": {
+        "type": "week",
+        "week": 4
+      },
+      "players": [
+        {
+          "playerKey": "470.p.30973",
+          "playerId": "30973",
+          "name": "Sam Darnold",
+          "position": "QB",
+          "selectedPosition": "QB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 14.32
+        },
+        {
+          "playerKey": "470.p.41900",
+          "playerId": "41900",
+          "name": "Bhayshul Tuten",
+          "position": "RB",
+          "selectedPosition": "RB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 10.1
+        },
+        {
+          "playerKey": "470.p.40981",
+          "playerId": "40981",
+          "name": "Braelon Allen",
+          "position": "RB",
+          "selectedPosition": "RB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 7.7
+        },
+        {
+          "playerKey": "470.p.40041",
+          "playerId": "40041",
+          "name": "Jaxon Smith-Njigba",
+          "position": "WR",
+          "selectedPosition": "WR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 10.1
+        },
+        {
+          "playerKey": "470.p.40039",
+          "playerId": "40039",
+          "name": "Zay Flowers",
+          "position": "WR",
+          "selectedPosition": "WR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 23.8
+        },
+        {
+          "playerKey": "470.p.40878",
+          "playerId": "40878",
+          "name": "Brock Bowers",
+          "position": "TE",
+          "selectedPosition": "TE",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 17.6
+        },
+        {
+          "playerKey": "470.p.40126",
+          "playerId": "40126",
+          "name": "Josh Downs",
+          "position": "WR",
+          "selectedPosition": "W/R/T",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 3.1
+        },
+        {
+          "playerKey": "470.p.40042",
+          "playerId": "40042",
+          "name": "Jordan Addison",
+          "position": "WR",
+          "selectedPosition": "W/R/T",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 7.1
+        },
+        {
+          "playerKey": "470.p.32723",
+          "playerId": "32723",
+          "name": "Jalen Hurts",
+          "position": "QB",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 13.52
+        },
+        {
+          "playerKey": "470.p.34095",
+          "playerId": "34095",
+          "name": "Isaiah Likely",
+          "position": "TE",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 10.1
+        },
+        {
+          "playerKey": "470.p.41293",
+          "playerId": "41293",
+          "name": "Jalen Coker",
+          "position": "WR",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 0
+        },
+        {
+          "playerKey": "470.p.40877",
+          "playerId": "40877",
+          "name": "Xavier Worthy",
+          "position": "WR",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 11
+        },
+        {
+          "playerKey": "470.p.34047",
+          "playerId": "34047",
+          "name": "Rachaad White",
+          "position": "RB",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 0
+        },
+        {
+          "playerKey": "470.p.42654",
+          "playerId": "42654",
+          "name": "Jadarian Price",
+          "position": "RB",
+          "selectedPosition": "IR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 0
+        },
+        {
+          "playerKey": "470.p.30346",
+          "playerId": "30346",
+          "name": "Harrison Butker",
+          "position": "K",
+          "selectedPosition": "K",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 6
+        },
+        {
+          "playerKey": "470.p.100034",
+          "playerId": "100034",
+          "name": "Texans",
+          "position": "DEF",
+          "selectedPosition": "DEF",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 5
+        }
+      ]
+    },
+    {
+      "teamKey": "470.l.226614.t.5",
+      "teamName": "Jerruh’s World",
+      "ownerName": "Andrew",
+      "snapshot": {
+        "type": "week",
+        "week": 4
+      },
+      "limitations": {
+        "playerProTeamAvailable": false
+      },
+      "pointsCoverage": {
+        "type": "week",
+        "week": 4
+      },
+      "players": [
+        {
+          "playerKey": "470.p.30123",
+          "playerId": "30123",
+          "name": "Patrick Mahomes",
+          "position": "QB",
+          "selectedPosition": "QB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 20
+        },
+        {
+          "playerKey": "470.p.30972",
+          "playerId": "30972",
+          "name": "Saquon Barkley",
+          "position": "RB",
+          "selectedPosition": "RB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 1.5
+        },
+        {
+          "playerKey": "470.p.33996",
+          "playerId": "33996",
+          "name": "Kenneth Walker III",
+          "position": "RB",
+          "selectedPosition": "RB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 34.4
+        },
+        {
+          "playerKey": "470.p.33965",
+          "playerId": "33965",
+          "name": "Garrett Wilson",
+          "position": "WR",
+          "selectedPosition": "WR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 4.2
+        },
+        {
+          "playerKey": "470.p.40084",
+          "playerId": "40084",
+          "name": "Rashee Rice",
+          "position": "WR",
+          "selectedPosition": "WR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 0
+        },
+        {
+          "playerKey": "470.p.41799",
+          "playerId": "41799",
+          "name": "Tyler Warren",
+          "position": "TE",
+          "selectedPosition": "TE",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 6.6
+        },
+        {
+          "playerKey": "470.p.33989",
+          "playerId": "33989",
+          "name": "Christian Watson",
+          "position": "WR",
+          "selectedPosition": "W/R/T",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 6.2
+        },
+        {
+          "playerKey": "470.p.32725",
+          "playerId": "32725",
+          "name": "J.K. Dobbins",
+          "position": "RB",
+          "selectedPosition": "W/R/T",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 6.2
+        },
+        {
+          "playerKey": "470.p.9265",
+          "playerId": "9265",
+          "name": "Matthew Stafford",
+          "position": "QB",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 11.68
+        },
+        {
+          "playerKey": "470.p.29269",
+          "playerId": "29269",
+          "name": "Hunter Henry",
+          "position": "TE",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 8.7
+        },
+        {
+          "playerKey": "470.p.29631",
+          "playerId": "29631",
+          "name": "Kalif Raymond",
+          "position": "WR",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 1.6
+        },
+        {
+          "playerKey": "470.p.33415",
+          "playerId": "33415",
+          "name": "Rashod Bateman",
+          "position": "WR",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 5.6
+        },
+        {
+          "playerKey": "470.p.40095",
+          "playerId": "40095",
+          "name": "Tank Bigsby",
+          "position": "RB",
+          "selectedPosition": "IR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 5.5
+        },
+        {
+          "playerKey": "470.p.28378",
+          "playerId": "28378",
+          "name": "Jason Myers",
+          "position": "K",
+          "selectedPosition": "K",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 6
+        },
+        {
+          "playerKey": "470.p.100014",
+          "playerId": "100014",
+          "name": "Rams",
+          "position": "DEF",
+          "selectedPosition": "DEF",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 5
+        }
+      ]
+    },
+    {
+      "teamKey": "470.l.226614.t.6",
+      "teamName": "McConkey Kong",
+      "ownerName": "Sandy",
+      "snapshot": {
+        "type": "week",
+        "week": 4
+      },
+      "limitations": {
+        "playerProTeamAvailable": false
+      },
+      "pointsCoverage": {
+        "type": "week",
+        "week": 4
+      },
+      "players": [
+        {
+          "playerKey": "470.p.41825",
+          "playerId": "41825",
+          "name": "Tyler Shough",
+          "position": "QB",
+          "selectedPosition": "QB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 16.94
+        },
+        {
+          "playerKey": "470.p.30121",
+          "playerId": "30121",
+          "name": "Christian McCaffrey",
+          "position": "RB",
+          "selectedPosition": "RB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 14.5
+        },
+        {
+          "playerKey": "470.p.33508",
+          "playerId": "33508",
+          "name": "Rhamondre Stevenson",
+          "position": "RB",
+          "selectedPosition": "RB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 16.9
+        },
+        {
+          "playerKey": "470.p.34007",
+          "playerId": "34007",
+          "name": "George Pickens",
+          "position": "WR",
+          "selectedPosition": "WR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 10.5
+        },
+        {
+          "playerKey": "470.p.33998",
+          "playerId": "33998",
+          "name": "Wan'Dale Robinson",
+          "position": "WR",
+          "selectedPosition": "WR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 9.5
+        },
+        {
+          "playerKey": "470.p.34010",
+          "playerId": "34010",
+          "name": "Trey McBride",
+          "position": "TE",
+          "selectedPosition": "TE",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 6.6
+        },
+        {
+          "playerKey": "470.p.40908",
+          "playerId": "40908",
+          "name": "Ladd McConkey",
+          "position": "WR",
+          "selectedPosition": "W/R/T",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 0
+        },
+        {
+          "playerKey": "470.p.31868",
+          "playerId": "31868",
+          "name": "Deebo Samuel Sr.",
+          "position": "WR",
+          "selectedPosition": "W/R/T",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 15.5
+        },
+        {
+          "playerKey": "470.p.40201",
+          "playerId": "40201",
+          "name": "Dontayvion Wicks",
+          "position": "WR",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 3.3
+        },
+        {
+          "playerKey": "470.p.41860",
+          "playerId": "41860",
+          "name": "Pat Bryant",
+          "position": "WR",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 6.2
+        },
+        {
+          "playerKey": "470.p.34054",
+          "playerId": "34054",
+          "name": "Brian Robinson",
+          "position": "RB",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 25.2
+        },
+        {
+          "playerKey": "470.p.34104",
+          "playerId": "34104",
+          "name": "Khalil Shakir",
+          "position": "WR",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 11.7
+        },
+        {
+          "playerKey": "470.p.40108",
+          "playerId": "40108",
+          "name": "Kendre Miller",
+          "position": "RB",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 0.9
+        },
+        {
+          "playerKey": "470.p.40926",
+          "playerId": "40926",
+          "name": "Jonathon Brooks",
+          "position": "RB",
+          "selectedPosition": "IR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 0
+        },
+        {
+          "playerKey": "470.p.41499",
+          "playerId": "41499",
+          "name": "Spencer Shrader",
+          "position": "K",
+          "selectedPosition": "K",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 16
+        },
+        {
+          "playerKey": "470.p.100033",
+          "playerId": "100033",
+          "name": "Ravens",
+          "position": "DEF",
+          "selectedPosition": "DEF",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 6
+        }
+      ]
+    },
+    {
+      "teamKey": "470.l.226614.t.7",
+      "teamName": "Tranimal",
+      "ownerName": "bennett",
+      "snapshot": {
+        "type": "week",
+        "week": 4
+      },
+      "limitations": {
+        "playerProTeamAvailable": false
+      },
+      "pointsCoverage": {
+        "type": "week",
+        "week": 4
+      },
+      "players": [
+        {
+          "playerKey": "470.p.29369",
+          "playerId": "29369",
+          "name": "Dak Prescott",
+          "position": "QB",
+          "selectedPosition": "QB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 19.1
+        },
+        {
+          "playerKey": "470.p.40059",
+          "playerId": "40059",
+          "name": "Jahmyr Gibbs",
+          "position": "RB",
+          "selectedPosition": "RB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 15.7
+        },
+        {
+          "playerKey": "470.p.34120",
+          "playerId": "34120",
+          "name": "Kyren Williams",
+          "position": "RB",
+          "selectedPosition": "RB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 31.7
+        },
+        {
+          "playerKey": "470.p.40899",
+          "playerId": "40899",
+          "name": "Malik Nabers",
+          "position": "WR",
+          "selectedPosition": "WR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 20.2
+        },
+        {
+          "playerKey": "470.p.31908",
+          "playerId": "31908",
+          "name": "Terry McLaurin",
+          "position": "WR",
+          "selectedPosition": "WR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 0
+        },
+        {
+          "playerKey": "470.p.31107",
+          "playerId": "31107",
+          "name": "Dalton Schultz",
+          "position": "TE",
+          "selectedPosition": "TE",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 1.9
+        },
+        {
+          "playerKey": "470.p.40993",
+          "playerId": "40993",
+          "name": "Bucky Irving",
+          "position": "RB",
+          "selectedPosition": "W/R/T",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 6.1
+        },
+        {
+          "playerKey": "470.p.40114",
+          "playerId": "40114",
+          "name": "Tre Tucker",
+          "position": "WR",
+          "selectedPosition": "W/R/T",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 6.4
+        },
+        {
+          "playerKey": "470.p.40971",
+          "playerId": "40971",
+          "name": "MarShawn Lloyd",
+          "position": "RB",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 7.4
+        },
+        {
+          "playerKey": "470.p.31896",
+          "playerId": "31896",
+          "name": "DK Metcalf",
+          "position": "WR",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 16
+        },
+        {
+          "playerKey": "470.p.29235",
+          "playerId": "29235",
+          "name": "Jared Goff",
+          "position": "QB",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 24.48
+        },
+        {
+          "playerKey": "470.p.40051",
+          "playerId": "40051",
+          "name": "Quentin Johnston",
+          "position": "WR",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 6.5
+        },
+        {
+          "playerKey": "470.p.31856",
+          "playerId": "31856",
+          "name": "Josh Jacobs",
+          "position": "RB",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 0
+        },
+        {
+          "playerKey": "470.p.41093",
+          "playerId": "41093",
+          "name": "Will Reichard",
+          "position": "K",
+          "selectedPosition": "K",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 19
+        },
+        {
+          "playerKey": "470.p.100012",
+          "playerId": "100012",
+          "name": "Chiefs",
+          "position": "DEF",
+          "selectedPosition": "DEF",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 4
+        }
+      ]
+    },
+    {
+      "teamKey": "470.l.226614.t.8",
+      "teamName": "T. Ocellus",
+      "ownerName": "Bryan",
+      "snapshot": {
+        "type": "week",
+        "week": 4
+      },
+      "limitations": {
+        "playerProTeamAvailable": false
+      },
+      "pointsCoverage": {
+        "type": "week",
+        "week": 4
+      },
+      "players": [
+        {
+          "playerKey": "470.p.32671",
+          "playerId": "32671",
+          "name": "Joe Burrow",
+          "position": "QB",
+          "selectedPosition": "QB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 27.72
+        },
+        {
+          "playerKey": "470.p.32711",
+          "playerId": "32711",
+          "name": "Jonathan Taylor",
+          "position": "RB",
+          "selectedPosition": "RB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 22.2
+        },
+        {
+          "playerKey": "470.p.42625",
+          "playerId": "42625",
+          "name": "Jeremiyah Love",
+          "position": "RB",
+          "selectedPosition": "RB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 6
+        },
+        {
+          "playerKey": "470.p.33394",
+          "playerId": "33394",
+          "name": "Jaylen Waddle",
+          "position": "WR",
+          "selectedPosition": "WR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 12
+        },
+        {
+          "playerKey": "470.p.30994",
+          "playerId": "30994",
+          "name": "DJ Moore",
+          "position": "WR",
+          "selectedPosition": "WR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 2.2
+        },
+        {
+          "playerKey": "470.p.42638",
+          "playerId": "42638",
+          "name": "Kenyon Sadiq",
+          "position": "TE",
+          "selectedPosition": "TE",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 0
+        },
+        {
+          "playerKey": "470.p.41821",
+          "playerId": "41821",
+          "name": "Quinshon Judkins",
+          "position": "RB",
+          "selectedPosition": "W/R/T",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 18.6
+        },
+        {
+          "playerKey": "470.p.40707",
+          "playerId": "40707",
+          "name": "Emanuel Wilson",
+          "position": "RB",
+          "selectedPosition": "W/R/T",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 25.5
+        },
+        {
+          "playerKey": "470.p.41097",
+          "playerId": "41097",
+          "name": "Devaughn Vele",
+          "position": "WR",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 14.4
+        },
+        {
+          "playerKey": "470.p.33392",
+          "playerId": "33392",
+          "name": "Kyle Pitts Sr.",
+          "position": "TE",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 6.2
+        },
+        {
+          "playerKey": "470.p.32704",
+          "playerId": "32704",
+          "name": "Michael Pittman Jr.",
+          "position": "WR",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 2.5
+        },
+        {
+          "playerKey": "470.p.40915",
+          "playerId": "40915",
+          "name": "Adonai Mitchell",
+          "position": "WR",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 0
+        },
+        {
+          "playerKey": "470.p.41010",
+          "playerId": "41010",
+          "name": "Jaylen Wright",
+          "position": "RB",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 0.7
+        },
+        {
+          "playerKey": "470.p.40819",
+          "playerId": "40819",
+          "name": "Brandon Aubrey",
+          "position": "K",
+          "selectedPosition": "K",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 10
+        },
+        {
+          "playerKey": "470.p.100007",
+          "playerId": "100007",
+          "name": "Broncos",
+          "position": "DEF",
+          "selectedPosition": "DEF",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 2
+        }
+      ]
+    },
+    {
+      "teamKey": "470.l.226614.t.9",
+      "teamName": "Extremely Tight Ends",
+      "ownerName": "Pete",
+      "snapshot": {
+        "type": "week",
+        "week": 4
+      },
+      "limitations": {
+        "playerProTeamAvailable": false
+      },
+      "pointsCoverage": {
+        "type": "week",
+        "week": 4
+      },
+      "players": [
+        {
+          "playerKey": "470.p.34218",
+          "playerId": "34218",
+          "name": "Brock Purdy",
+          "position": "QB",
+          "selectedPosition": "QB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 20.62
+        },
+        {
+          "playerKey": "470.p.34019",
+          "playerId": "34019",
+          "name": "James Cook III",
+          "position": "RB",
+          "selectedPosition": "RB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 15.3
+        },
+        {
+          "playerKey": "470.p.34107",
+          "playerId": "34107",
+          "name": "Tyler Allgeier",
+          "position": "RB",
+          "selectedPosition": "RB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 11.9
+        },
+        {
+          "playerKey": "470.p.33966",
+          "playerId": "33966",
+          "name": "Chris Olave",
+          "position": "WR",
+          "selectedPosition": "WR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 17.6
+        },
+        {
+          "playerKey": "470.p.27581",
+          "playerId": "27581",
+          "name": "Davante Adams",
+          "position": "WR",
+          "selectedPosition": "WR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 5.2
+        },
+        {
+          "playerKey": "470.p.34085",
+          "playerId": "34085",
+          "name": "Jake Ferguson",
+          "position": "TE",
+          "selectedPosition": "TE",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 2.6
+        },
+        {
+          "playerKey": "470.p.41877",
+          "playerId": "41877",
+          "name": "Harold Fannin Jr.",
+          "position": "TE",
+          "selectedPosition": "W/R/T",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 10.2
+        },
+        {
+          "playerKey": "470.p.40901",
+          "playerId": "40901",
+          "name": "Rome Odunze",
+          "position": "WR",
+          "selectedPosition": "W/R/T",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 12.4
+        },
+        {
+          "playerKey": "470.p.33389",
+          "playerId": "33389",
+          "name": "Trevor Lawrence",
+          "position": "QB",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 13.08
+        },
+        {
+          "playerKey": "470.p.41969",
+          "playerId": "41969",
+          "name": "Ollie Gordon II",
+          "position": "RB",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 21
+        },
+        {
+          "playerKey": "470.p.34659",
+          "playerId": "34659",
+          "name": "Rashid Shaheed",
+          "position": "WR",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 11.8
+        },
+        {
+          "playerKey": "470.p.40075",
+          "playerId": "40075",
+          "name": "Zach Charbonnet",
+          "position": "RB",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 0
+        },
+        {
+          "playerKey": "470.p.31012",
+          "playerId": "31012",
+          "name": "Mike Gesicki",
+          "position": "TE",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 11.5
+        },
+        {
+          "playerKey": "470.p.32417",
+          "playerId": "32417",
+          "name": "Chase McLaughlin",
+          "position": "K",
+          "selectedPosition": "K",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 2
+        },
+        {
+          "playerKey": "470.p.100026",
+          "playerId": "100026",
+          "name": "Seahawks",
+          "position": "DEF",
+          "selectedPosition": "DEF",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 12
+        }
+      ]
+    },
+    {
+      "teamKey": "470.l.226614.t.10",
+      "teamName": "De'Coldest Hassan",
+      "ownerName": "Mohsin",
+      "snapshot": {
+        "type": "week",
+        "week": 4
+      },
+      "limitations": {
+        "playerProTeamAvailable": false
+      },
+      "pointsCoverage": {
+        "type": "week",
+        "week": 4
+      },
+      "players": [
+        {
+          "playerKey": "470.p.31002",
+          "playerId": "31002",
+          "name": "Lamar Jackson",
+          "position": "QB",
+          "selectedPosition": "QB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 19.88
+        },
+        {
+          "playerKey": "470.p.41823",
+          "playerId": "41823",
+          "name": "TreVeyon Henderson",
+          "position": "RB",
+          "selectedPosition": "RB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 4.2
+        },
+        {
+          "playerKey": "470.p.41845",
+          "playerId": "41845",
+          "name": "RJ Harvey",
+          "position": "RB",
+          "selectedPosition": "RB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 14.3
+        },
+        {
+          "playerKey": "470.p.42646",
+          "playerId": "42646",
+          "name": "KC Concepcion Jr.",
+          "position": "WR",
+          "selectedPosition": "WR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 8.9
+        },
+        {
+          "playerKey": "470.p.28534",
+          "playerId": "28534",
+          "name": "Stefon Diggs",
+          "position": "WR",
+          "selectedPosition": "WR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 6
+        },
+        {
+          "playerKey": "470.p.26686",
+          "playerId": "26686",
+          "name": "Travis Kelce",
+          "position": "TE",
+          "selectedPosition": "TE",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 2.5
+        },
+        {
+          "playerKey": "470.p.32687",
+          "playerId": "32687",
+          "name": "CeeDee Lamb",
+          "position": "WR",
+          "selectedPosition": "W/R/T",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 34.8
+        },
+        {
+          "playerKey": "470.p.27535",
+          "playerId": "27535",
+          "name": "Mike Evans",
+          "position": "WR",
+          "selectedPosition": "W/R/T",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 10.1
+        },
+        {
+          "playerKey": "470.p.32692",
+          "playerId": "32692",
+          "name": "Justin Jefferson",
+          "position": "WR",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 0
+        },
+        {
+          "playerKey": "470.p.31010",
+          "playerId": "31010",
+          "name": "Courtland Sutton",
+          "position": "WR",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 0.9
+        },
+        {
+          "playerKey": "470.p.33991",
+          "playerId": "33991",
+          "name": "Breece Hall",
+          "position": "RB",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 0
+        },
+        {
+          "playerKey": "470.p.33100",
+          "playerId": "33100",
+          "name": "Rico Dowdle",
+          "position": "RB",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 0
+        },
+        {
+          "playerKey": "470.p.31019",
+          "playerId": "31019",
+          "name": "Dallas Goedert",
+          "position": "TE",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 0
+        },
+        {
+          "playerKey": "470.p.31482",
+          "playerId": "31482",
+          "name": "Eddy Pineiro",
+          "position": "K",
+          "selectedPosition": "K",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 5
+        },
+        {
+          "playerKey": "470.p.100017",
+          "playerId": "100017",
+          "name": "Patriots",
+          "position": "DEF",
+          "selectedPosition": "DEF",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 5
+        }
+      ]
+    },
+    {
+      "teamKey": "470.l.226614.t.11",
+      "teamName": "Ordway and Son",
+      "ownerName": "Jason",
+      "snapshot": {
+        "type": "week",
+        "week": 4
+      },
+      "limitations": {
+        "playerProTeamAvailable": false
+      },
+      "pointsCoverage": {
+        "type": "week",
+        "week": 4
+      },
+      "players": [
+        {
+          "playerKey": "470.p.32696",
+          "playerId": "32696",
+          "name": "Jordan Love",
+          "position": "QB",
+          "selectedPosition": "QB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 14.08
+        },
+        {
+          "playerKey": "470.p.41791",
+          "playerId": "41791",
+          "name": "Ashton Jeanty",
+          "position": "RB",
+          "selectedPosition": "RB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 15.6
+        },
+        {
+          "playerKey": "470.p.41922",
+          "playerId": "41922",
+          "name": "Cam Skattebo",
+          "position": "RB",
+          "selectedPosition": "RB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 7.1
+        },
+        {
+          "playerKey": "470.p.33393",
+          "playerId": "33393",
+          "name": "Ja'Marr Chase",
+          "position": "WR",
+          "selectedPosition": "WR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 4.2
+        },
+        {
+          "playerKey": "470.p.34088",
+          "playerId": "34088",
+          "name": "Romeo Doubs",
+          "position": "WR",
+          "selectedPosition": "WR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 20.8
+        },
+        {
+          "playerKey": "470.p.40064",
+          "playerId": "40064",
+          "name": "Sam LaPorta",
+          "position": "TE",
+          "selectedPosition": "TE",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 18.4
+        },
+        {
+          "playerKey": "470.p.32705",
+          "playerId": "32705",
+          "name": "D'Andre Swift",
+          "position": "RB",
+          "selectedPosition": "W/R/T",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 6.4
+        },
+        {
+          "playerKey": "470.p.33514",
+          "playerId": "33514",
+          "name": "Chuba Hubbard",
+          "position": "RB",
+          "selectedPosition": "W/R/T",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 27.4
+        },
+        {
+          "playerKey": "470.p.33398",
+          "playerId": "33398",
+          "name": "DeVonta Smith",
+          "position": "WR",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 0
+        },
+        {
+          "playerKey": "470.p.31056",
+          "playerId": "31056",
+          "name": "Mark Andrews",
+          "position": "TE",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 11.2
+        },
+        {
+          "playerKey": "470.p.40896",
+          "playerId": "40896",
+          "name": "Jayden Daniels",
+          "position": "QB",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 0
+        },
+        {
+          "playerKey": "470.p.30295",
+          "playerId": "30295",
+          "name": "Aaron Jones Sr.",
+          "position": "RB",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 14.8
+        },
+        {
+          "playerKey": "470.p.29399",
+          "playerId": "29399",
+          "name": "Tyreek Hill",
+          "position": "WR",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 0
+        },
+        {
+          "playerKey": "470.p.34008",
+          "playerId": "34008",
+          "name": "Alec Pierce",
+          "position": "WR",
+          "selectedPosition": "IR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 0
+        },
+        {
+          "playerKey": "470.p.42838",
+          "playerId": "42838",
+          "name": "Trey Smack",
+          "position": "K",
+          "selectedPosition": "K",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 7
+        },
+        {
+          "playerKey": "470.p.100023",
+          "playerId": "100023",
+          "name": "Steelers",
+          "position": "DEF",
+          "selectedPosition": "DEF",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 6
+        }
+      ]
+    },
+    {
+      "teamKey": "470.l.226614.t.12",
+      "teamName": "Nix in 5",
+      "ownerName": "Patrick",
+      "snapshot": {
+        "type": "week",
+        "week": 4
+      },
+      "limitations": {
+        "playerProTeamAvailable": false
+      },
+      "pointsCoverage": {
+        "type": "week",
+        "week": 4
+      },
+      "players": [
+        {
+          "playerKey": "470.p.31833",
+          "playerId": "31833",
+          "name": "Kyler Murray",
+          "position": "QB",
+          "selectedPosition": "QB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 11.48
+        },
+        {
+          "playerKey": "470.p.34447",
+          "playerId": "34447",
+          "name": "Jaylen Warren",
+          "position": "RB",
+          "selectedPosition": "RB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 14.1
+        },
+        {
+          "playerKey": "470.p.33423",
+          "playerId": "33423",
+          "name": "Javonte Williams",
+          "position": "RB",
+          "selectedPosition": "RB",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 28.8
+        },
+        {
+          "playerKey": "470.p.40234",
+          "playerId": "40234",
+          "name": "Parker Washington",
+          "position": "WR",
+          "selectedPosition": "WR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 1.5
+        },
+        {
+          "playerKey": "470.p.33477",
+          "playerId": "33477",
+          "name": "Nico Collins",
+          "position": "WR",
+          "selectedPosition": "WR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 29.3
+        },
+        {
+          "playerKey": "470.p.41795",
+          "playerId": "41795",
+          "name": "Colston Loveland",
+          "position": "TE",
+          "selectedPosition": "TE",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 8.7
+        },
+        {
+          "playerKey": "470.p.33500",
+          "playerId": "33500",
+          "name": "Amon-Ra St. Brown",
+          "position": "WR",
+          "selectedPosition": "W/R/T",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 11.5
+        },
+        {
+          "playerKey": "470.p.40121",
+          "playerId": "40121",
+          "name": "Michael Wilson",
+          "position": "WR",
+          "selectedPosition": "W/R/T",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 13
+        },
+        {
+          "playerKey": "470.p.41808",
+          "playerId": "41808",
+          "name": "Matthew Golden",
+          "position": "WR",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 10.2
+        },
+        {
+          "playerKey": "470.p.40875",
+          "playerId": "40875",
+          "name": "Bo Nix",
+          "position": "QB",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 13.56
+        },
+        {
+          "playerKey": "470.p.31960",
+          "playerId": "31960",
+          "name": "Tony Pollard",
+          "position": "RB",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 12
+        },
+        {
+          "playerKey": "470.p.41902",
+          "playerId": "41902",
+          "name": "Woody Marks",
+          "position": "RB",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 8.2
+        },
+        {
+          "playerKey": "470.p.41058",
+          "playerId": "41058",
+          "name": "Malik Washington",
+          "position": "WR",
+          "selectedPosition": "BN",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 9.5
+        },
+        {
+          "playerKey": "470.p.40063",
+          "playerId": "40063",
+          "name": "Jayden Reed",
+          "position": "WR",
+          "selectedPosition": "IR",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 0
+        },
+        {
+          "playerKey": "470.p.40835",
+          "playerId": "40835",
+          "name": "Jake Bates",
+          "position": "K",
+          "selectedPosition": "K",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 18
+        },
+        {
+          "playerKey": "470.p.100003",
+          "playerId": "100003",
+          "name": "Bears",
+          "position": "DEF",
+          "selectedPosition": "DEF",
+          "isKeeper": {
+            "status": false,
+            "cost": false,
+            "kept": false
+          },
+          "points": 7
+        }
+      ]
+    }
+  ],
+  "transactions": {
+    "platform": "yahoo",
+    "sport": "football",
+    "league_id": "470.l.226614",
+    "season_year": 2026,
+    "window": {
+      "mode": "recent_two_weeks_timestamp",
+      "weeks": [],
+      "start_timestamp_ms": 1790089277059,
+      "end_timestamp_ms": 1791298877059,
+      "returned_rows": 44
+    },
+    "dropped_invalid_timestamp_count": 0,
+    "count": 44,
+    "transactions": [
+      {
+        "transaction_id": "470.l.226614.tr.81",
+        "type": "drop",
+        "status": "complete",
+        "timestamp": 1791293439000,
+        "date": "2026-10-06",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.11"
+        ],
+        "players_added": [],
+        "players_dropped": [
+          {
+            "id": "34008",
+            "name": "Alec Pierce",
+            "position": "WR",
+            "team": "Ind"
+          }
+        ],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.80",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1791143058000,
+        "date": "2026-10-04",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.9"
+        ],
+        "players_added": [
+          {
+            "id": "100026",
+            "name": "Seahawks",
+            "position": "DEF",
+            "team": "Sea"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "100013",
+            "name": "Raiders",
+            "position": "DEF",
+            "team": "LV"
+          }
+        ],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.79",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1791128427000,
+        "date": "2026-10-04",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.4"
+        ],
+        "players_added": [
+          {
+            "id": "30973",
+            "name": "Sam Darnold",
+            "position": "QB",
+            "team": "Sea"
+          }
+        ],
+        "players_dropped": [],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.78",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1791064468000,
+        "date": "2026-10-03",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.2"
+        ],
+        "players_added": [
+          {
+            "id": "29792",
+            "name": "Ka'imi Fairbairn",
+            "position": "K",
+            "team": "Hou"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "41062",
+            "name": "Cam Little",
+            "position": "K",
+            "team": "Jax"
+          }
+        ],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.77",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790971457000,
+        "date": "2026-10-02",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.2"
+        ],
+        "players_added": [
+          {
+            "id": "42642",
+            "name": "Makai Lemon",
+            "position": "WR",
+            "team": "Phi"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "42796",
+            "name": "Emmett Johnson",
+            "position": "RB",
+            "team": "KC"
+          }
+        ],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.76",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790895749000,
+        "date": "2026-10-01",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.11"
+        ],
+        "players_added": [
+          {
+            "id": "29399",
+            "name": "Tyreek Hill",
+            "position": "WR",
+            "team": "Mia"
+          }
+        ],
+        "players_dropped": [],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.75",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790893322000,
+        "date": "2026-10-01",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.8"
+        ],
+        "players_added": [
+          {
+            "id": "41010",
+            "name": "Jaylen Wright",
+            "position": "RB",
+            "team": "Mia"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "42712",
+            "name": "Kaelon Black",
+            "position": "RB",
+            "team": "SF"
+          }
+        ],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.74",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790876646000,
+        "date": "2026-10-01",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.12"
+        ],
+        "players_added": [
+          {
+            "id": "100003",
+            "name": "Bears",
+            "position": "DEF",
+            "team": "Chi"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "100008",
+            "name": "Lions",
+            "position": "DEF",
+            "team": "Det"
+          }
+        ],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.73",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790876582000,
+        "date": "2026-10-01",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.12"
+        ],
+        "players_added": [
+          {
+            "id": "41058",
+            "name": "Malik Washington",
+            "position": "WR",
+            "team": "Mia"
+          }
+        ],
+        "players_dropped": [],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.72",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790773616000,
+        "date": "2026-09-30",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.2"
+        ],
+        "players_added": [
+          {
+            "id": "100002",
+            "name": "Bills",
+            "position": "DEF",
+            "team": "Buf"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "100021",
+            "name": "Eagles",
+            "position": "DEF",
+            "team": "Phi"
+          }
+        ],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.71",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790772992000,
+        "date": "2026-09-30",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.9"
+        ],
+        "players_added": [
+          {
+            "id": "32417",
+            "name": "Chase McLaughlin",
+            "position": "K",
+            "team": "TB"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "29792",
+            "name": "Ka'imi Fairbairn",
+            "position": "K",
+            "team": "Hou"
+          }
+        ],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.70",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790772754000,
+        "date": "2026-09-30",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.9"
+        ],
+        "players_added": [
+          {
+            "id": "100013",
+            "name": "Raiders",
+            "position": "DEF",
+            "team": "LV"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "100026",
+            "name": "Seahawks",
+            "position": "DEF",
+            "team": "Sea"
+          }
+        ],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.69",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790758580000,
+        "date": "2026-09-30",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.6"
+        ],
+        "players_added": [
+          {
+            "id": "40108",
+            "name": "Kendre Miller",
+            "position": "RB",
+            "team": "NO"
+          }
+        ],
+        "players_dropped": [],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.68",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790758494000,
+        "date": "2026-09-30",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.6"
+        ],
+        "players_added": [
+          {
+            "id": "100033",
+            "name": "Ravens",
+            "position": "DEF",
+            "team": "Bal"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "100025",
+            "name": "49ers",
+            "position": "DEF",
+            "team": "SF"
+          }
+        ],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.65",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790758276000,
+        "date": "2026-09-30",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.2"
+        ],
+        "players_added": [
+          {
+            "id": "40030",
+            "name": "C.J. Stroud",
+            "position": "QB",
+            "team": "Hou"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "40881",
+            "name": "Drake Maye",
+            "position": "QB",
+            "team": "NE"
+          }
+        ],
+        "faab_bid": 3,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.64",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790758276000,
+        "date": "2026-09-30",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.2"
+        ],
+        "players_added": [
+          {
+            "id": "26699",
+            "name": "Keenan Allen",
+            "position": "WR",
+            "team": "Ind"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "41831",
+            "name": "Terrance Ferguson",
+            "position": "TE",
+            "team": "LAR"
+          }
+        ],
+        "faab_bid": 6,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.63",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790758276000,
+        "date": "2026-09-30",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.1"
+        ],
+        "players_added": [
+          {
+            "id": "100016",
+            "name": "Vikings",
+            "position": "DEF",
+            "team": "Min"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "100030",
+            "name": "Jaguars",
+            "position": "DEF",
+            "team": "Jax"
+          }
+        ],
+        "faab_bid": 7,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.62",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790758276000,
+        "date": "2026-09-30",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.9"
+        ],
+        "players_added": [
+          {
+            "id": "34107",
+            "name": "Tyler Allgeier",
+            "position": "RB",
+            "team": "Ari"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "41904",
+            "name": "Elic Ayomanor",
+            "position": "WR",
+            "team": "Ten"
+          }
+        ],
+        "faab_bid": 12,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.61",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790758276000,
+        "date": "2026-09-30",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.8"
+        ],
+        "players_added": [
+          {
+            "id": "42638",
+            "name": "Kenyon Sadiq",
+            "position": "TE",
+            "team": "NYJ"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "33465",
+            "name": "Joshua Palmer",
+            "position": "WR",
+            "team": "Buf"
+          }
+        ],
+        "faab_bid": 17,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.60",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790758276000,
+        "date": "2026-09-30",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.9"
+        ],
+        "players_added": [
+          {
+            "id": "41969",
+            "name": "Ollie Gordon II",
+            "position": "RB",
+            "team": "Mia"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "40118",
+            "name": "De'Von Achane",
+            "position": "RB",
+            "team": "Mia"
+          }
+        ],
+        "faab_bid": 33,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.59",
+        "type": "drop",
+        "status": "complete",
+        "timestamp": 1790729937000,
+        "date": "2026-09-30",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.1"
+        ],
+        "players_added": [],
+        "players_dropped": [
+          {
+            "id": "42697",
+            "name": "Caleb Douglas",
+            "position": "WR",
+            "team": "Mia"
+          }
+        ],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.58",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790527279000,
+        "date": "2026-09-27",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.3"
+        ],
+        "players_added": [
+          {
+            "id": "100029",
+            "name": "Panthers",
+            "position": "DEF",
+            "team": "Car"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "100027",
+            "name": "Buccaneers",
+            "position": "DEF",
+            "team": "TB"
+          }
+        ],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.57",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790519286000,
+        "date": "2026-09-27",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.2"
+        ],
+        "players_added": [
+          {
+            "id": "41831",
+            "name": "Terrance Ferguson",
+            "position": "TE",
+            "team": "LAR"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "40065",
+            "name": "Michael Mayer",
+            "position": "TE",
+            "team": "LV"
+          }
+        ],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.56",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790519021000,
+        "date": "2026-09-27",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.2"
+        ],
+        "players_added": [
+          {
+            "id": "32676",
+            "name": "Justin Herbert",
+            "position": "QB",
+            "team": "LAC"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "30971",
+            "name": "Baker Mayfield",
+            "position": "QB",
+            "team": "TB"
+          }
+        ],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.55",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790453184000,
+        "date": "2026-09-26",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.1"
+        ],
+        "players_added": [
+          {
+            "id": "42626",
+            "name": "Carnell Tate",
+            "position": "WR",
+            "team": "Ten"
+          }
+        ],
+        "players_dropped": [],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.54",
+        "type": "drop",
+        "status": "complete",
+        "timestamp": 1790453170000,
+        "date": "2026-09-26",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.1"
+        ],
+        "players_added": [],
+        "players_dropped": [
+          {
+            "id": "42630",
+            "name": "Jordyn Tyson",
+            "position": "WR",
+            "team": "NO"
+          }
+        ],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.53",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790290612000,
+        "date": "2026-09-24",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.7"
+        ],
+        "players_added": [
+          {
+            "id": "100012",
+            "name": "Chiefs",
+            "position": "DEF",
+            "team": "KC"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "100029",
+            "name": "Panthers",
+            "position": "DEF",
+            "team": "Car"
+          }
+        ],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.52",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790223741000,
+        "date": "2026-09-24",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.9"
+        ],
+        "players_added": [
+          {
+            "id": "41904",
+            "name": "Elic Ayomanor",
+            "position": "WR",
+            "team": "Ten"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "42626",
+            "name": "Carnell Tate",
+            "position": "WR",
+            "team": "Ten"
+          }
+        ],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.51",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790203383000,
+        "date": "2026-09-23",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.12"
+        ],
+        "players_added": [
+          {
+            "id": "100008",
+            "name": "Lions",
+            "position": "DEF",
+            "team": "Det"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "42730",
+            "name": "Jonah Coleman",
+            "position": "RB",
+            "team": "Den"
+          }
+        ],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.50",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790194761000,
+        "date": "2026-09-23",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.11"
+        ],
+        "players_added": [
+          {
+            "id": "42838",
+            "name": "Trey Smack",
+            "position": "K",
+            "team": "GB"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "41312",
+            "name": "Harrison Mevis",
+            "position": "K",
+            "team": "LAR"
+          }
+        ],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.49",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790172972000,
+        "date": "2026-09-23",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.5"
+        ],
+        "players_added": [
+          {
+            "id": "40095",
+            "name": "Tank Bigsby",
+            "position": "RB",
+            "team": "Phi"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "31906",
+            "name": "Devin Singletary",
+            "position": "RB",
+            "team": "NYG"
+          }
+        ],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.48",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790172929000,
+        "date": "2026-09-23",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.5"
+        ],
+        "players_added": [
+          {
+            "id": "33415",
+            "name": "Rashod Bateman",
+            "position": "WR",
+            "team": "Bal"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "40231",
+            "name": "Chris Rodriguez Jr.",
+            "position": "RB",
+            "team": "Jax"
+          }
+        ],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.47",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790167918000,
+        "date": "2026-09-23",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.1"
+        ],
+        "players_added": [
+          {
+            "id": "40029",
+            "name": "Bryce Young",
+            "position": "QB",
+            "team": "Car"
+          }
+        ],
+        "players_dropped": [],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.46",
+        "type": "drop",
+        "status": "complete",
+        "timestamp": 1790167896000,
+        "date": "2026-09-23",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.1"
+        ],
+        "players_added": [],
+        "players_dropped": [
+          {
+            "id": "42820",
+            "name": "Demond Claiborne",
+            "position": "RB",
+            "team": "Min"
+          }
+        ],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.45",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790163286000,
+        "date": "2026-09-23",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.8"
+        ],
+        "players_added": [
+          {
+            "id": "33465",
+            "name": "Joshua Palmer",
+            "position": "WR",
+            "team": "Buf"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "42744",
+            "name": "Mike Washington Jr.",
+            "position": "RB",
+            "team": "LV"
+          }
+        ],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.44",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790163265000,
+        "date": "2026-09-23",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.8"
+        ],
+        "players_added": [
+          {
+            "id": "40707",
+            "name": "Emanuel Wilson",
+            "position": "RB",
+            "team": "Sea"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "29360",
+            "name": "Demarcus Robinson",
+            "position": "WR",
+            "team": "SF"
+          }
+        ],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.43",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790162305000,
+        "date": "2026-09-23",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.4"
+        ],
+        "players_added": [
+          {
+            "id": "30346",
+            "name": "Harrison Butker",
+            "position": "K",
+            "team": "KC"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "34344",
+            "name": "Cameron Dicker",
+            "position": "K",
+            "team": "LAC"
+          }
+        ],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.42",
+        "type": "drop",
+        "status": "complete",
+        "timestamp": 1790162273000,
+        "date": "2026-09-23",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.4"
+        ],
+        "players_added": [],
+        "players_dropped": [
+          {
+            "id": "41058",
+            "name": "Malik Washington",
+            "position": "WR",
+            "team": "Mia"
+          }
+        ],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.41",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790152700000,
+        "date": "2026-09-23",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.6"
+        ],
+        "players_added": [
+          {
+            "id": "34104",
+            "name": "Khalil Shakir",
+            "position": "WR",
+            "team": "Buf"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "42693",
+            "name": "Antonio Williams",
+            "position": "WR",
+            "team": "Was"
+          }
+        ],
+        "faab_bid": null,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.40",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790151450000,
+        "date": "2026-09-23",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.10"
+        ],
+        "players_added": [
+          {
+            "id": "42646",
+            "name": "KC Concepcion Jr.",
+            "position": "WR",
+            "team": "Cle"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "34107",
+            "name": "Tyler Allgeier",
+            "position": "RB",
+            "team": "Ari"
+          }
+        ],
+        "faab_bid": 3,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.39",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790151450000,
+        "date": "2026-09-23",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.7"
+        ],
+        "players_added": [
+          {
+            "id": "31107",
+            "name": "Dalton Schultz",
+            "position": "TE",
+            "team": "Hou"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "34036",
+            "name": "Greg Dulcich",
+            "position": "TE",
+            "team": "Mia"
+          }
+        ],
+        "faab_bid": 5,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.38",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790151450000,
+        "date": "2026-09-23",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.7"
+        ],
+        "players_added": [
+          {
+            "id": "40114",
+            "name": "Tre Tucker",
+            "position": "WR",
+            "team": "LV"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "42642",
+            "name": "Makai Lemon",
+            "position": "WR",
+            "team": "Phi"
+          }
+        ],
+        "faab_bid": 5,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.37",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790151450000,
+        "date": "2026-09-23",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.6"
+        ],
+        "players_added": [
+          {
+            "id": "41825",
+            "name": "Tyler Shough",
+            "position": "QB",
+            "team": "NO"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "32676",
+            "name": "Justin Herbert",
+            "position": "QB",
+            "team": "LAC"
+          }
+        ],
+        "faab_bid": 5,
+        "waiver_priority": null,
+        "draft_picks": null
+      },
+      {
+        "transaction_id": "470.l.226614.tr.36",
+        "type": "add",
+        "status": "complete",
+        "timestamp": 1790151450000,
+        "date": "2026-09-23",
+        "week": null,
+        "team_ids": [
+          "470.l.226614.t.12"
+        ],
+        "players_added": [
+          {
+            "id": "40063",
+            "name": "Jayden Reed",
+            "position": "WR",
+            "team": "GB"
+          }
+        ],
+        "players_dropped": [
+          {
+            "id": "100033",
+            "name": "Ravens",
+            "position": "DEF",
+            "team": "Bal"
+          }
+        ],
+        "faab_bid": 10,
+        "waiver_priority": null,
+        "draft_picks": null
+      }
+    ]
+  },
+  "verifiedAt": "2026-10-06"
+}

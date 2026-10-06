@@ -3,7 +3,7 @@ import MatchupCardGrid from './MatchupCardGrid';
 const score=n=>n==null?'—':Number(n).toFixed(2);
 const projected=n=>Number(n||0).toFixed(1);
 
-export default function EditionScoreboard({matchups=[],week=4,rosters=[],headshots={},root='/sunday-crew'}){
+export default function EditionScoreboard({matchups=[],week=4,rosters=[],headshots={},root='/sunday-crew',history=[]}){
   const allFinal=matchups.length>0&&matchups.every(g=>g.winner&&g.winner!=='UNDECIDED');
   const rosterByKey=Object.fromEntries(rosters.map(t=>[t.teamKey,t]));
   const featured=key=>{
@@ -19,5 +19,6 @@ export default function EditionScoreboard({matchups=[],week=4,rosters=[],headsho
   return <section className="section scoreSection editionScoreSection" id="scores">
     <div className="sectionhead"><div><small className="deskLabel">THE BRIEF • SCOREBOARD</small><h2>Week {week} {allFinal?'Final':'Live'}</h2></div><span>{allFinal?'FINAL SCORES • WEEK '+week+' IN THE BOOKS':'LATEST VERIFIED SCORES'}</span></div>
     <MatchupCardGrid cards={cards}/>
+    {history.filter(w=>Number(w.matchupWeek)<Number(week)).sort((a,b)=>b.matchupWeek-a.matchupWeek).map(w=><details className="editionScoreHistory" key={w.matchupWeek}><summary>Week {w.matchupWeek} Final</summary>{w.matchups.map(g=><div className="editionHistoryGame" key={g.matchupId}><span>{g.home.teamName}</span><b>{score(g.home.points)}</b><span>{g.away.teamName}</span><b>{score(g.away.points)}</b></div>)}</details>)}
   </section>;
 }

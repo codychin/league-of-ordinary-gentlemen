@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import {editionForPath} from '../../lib/editions'
 import {useEffect, useRef, useState} from 'react'
 import {usePathname, useRouter} from 'next/navigation'
 
@@ -19,7 +20,9 @@ function BellIcon(){
   return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9Z"/><path d="M10 21h4"/></svg>
 }
 
-function ArticleAlertSettings(){
+function ArticleAlertSettings({edition=null}){
+  const root=edition?.root||''
+  const api=PUSH_API+'?edition='+(edition?.slug||'league-of-ordinary-gentlemen')
   const [state,setState]=useState('loading')
   const [message,setMessage]=useState('Checking this device…')
   const showDetail=['install','unsupported','denied','error'].includes(state)
@@ -28,11 +31,11 @@ function ArticleAlertSettings(){
     let active=true
     const check=async()=>{
       const standalone=window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true
-      if(!standalone){if(active){setState('install');setMessage('Install The Brief to receive iPhone alerts.')}return}
+      if(!standalone){if(active){setState('install');setMessage('Install this edition to receive iPhone alerts.')}return}
       if(!('serviceWorker' in navigator)||!('PushManager' in window)||!('Notification' in window)){if(active){setState('unsupported');setMessage('Article alerts are not supported on this device.')}return}
       if(Notification.permission==='denied'){if(active){setState('denied');setMessage('Notifications are blocked in your device settings.')}return}
       try{
-        const registration=await navigator.serviceWorker.ready
+        const registration=await navigator.serviceWorker.register(root?root+'/sw.js':'/sw.js',{scope:root||'/',updateViaCache:'none'})
         const subscription=await registration.pushManager.getSubscription()
         if(active){setState(subscription?'subscribed':'available');setMessage(subscription?'Homepage story alerts are on.':'Get alerts for stories featured on the main page.')}
       }catch{
@@ -53,12 +56,12 @@ function ArticleAlertSettings(){
         setMessage(permission==='denied'?'Notifications are blocked in your device settings.':'Permission was not granted.')
         return
       }
-      const registration=await navigator.serviceWorker.ready
-      const keyResponse=await fetch(`${PUSH_API}?action=key`,{cache:'no-store'})
+      const registration=await navigator.serviceWorker.register(root?root+'/sw.js':'/sw.js',{scope:root||'/',updateViaCache:'none'})
+      const keyResponse=await fetch(`${api}&action=key`,{cache:'no-store'})
       if(!keyResponse.ok) throw new Error('Public key unavailable')
       const {publicKey}=await keyResponse.json()
       const subscription=await registration.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:urlBase64ToUint8Array(publicKey)})
-      const saveResponse=await fetch(`${PUSH_API}?action=subscribe`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(subscription)})
+      const saveResponse=await fetch(`${api}&action=subscribe`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(subscription)})
       if(!saveResponse.ok){await subscription.unsubscribe();throw new Error('Subscription could not be saved')}
       setState('subscribed')
       setMessage('Homepage story alerts are on.')
@@ -72,10 +75,10 @@ function ArticleAlertSettings(){
     setState('working')
     setMessage('Turning off homepage alerts…')
     try{
-      const registration=await navigator.serviceWorker.ready
+      const registration=await navigator.serviceWorker.register(root?root+'/sw.js':'/sw.js',{scope:root||'/',updateViaCache:'none'})
       const subscription=await registration.pushManager.getSubscription()
       if(subscription){
-        await fetch(`${PUSH_API}?action=subscribe`,{method:'DELETE',headers:{'Content-Type':'application/json'},body:JSON.stringify({endpoint:subscription.endpoint})})
+        await fetch(`${api}&action=subscribe`,{method:'DELETE',headers:{'Content-Type':'application/json'},body:JSON.stringify({endpoint:subscription.endpoint})})
         await subscription.unsubscribe()
       }
       if('clearAppBadge' in navigator) await navigator.clearAppBadge()
@@ -95,7 +98,9 @@ function ArticleAlertSettings(){
   </div>
 }
 
-function NotificationCenter(){
+function NotificationCenter({edition=null}){
+  const api=PUSH_API+'?edition='+(edition?.slug||'league-of-ordinary-gentlemen')
+  const seenKey=NOTIFICATION_SEEN_KEY+'-'+(edition?.slug||'league-of-ordinary-gentlemen')
   const [open,setOpen]=useState(false)
   const [notifications,setNotifications]=useState([])
   const [loading,setLoading]=useState(true)
@@ -103,12 +108,12 @@ function NotificationCenter(){
 
   useEffect(()=>{
     let active=true
-    const load=()=>fetch(`${PUSH_API}?action=notifications`,{cache:'no-store'})
+    const load=()=>fetch(`${api}&action=notifications`,{cache:'no-store'})
         .then(response=>response.ok?response.json():Promise.reject())
         .then(({notifications:items=[]})=>{
           if(!active)return
           setNotifications(items)
-          setUnread(Boolean(items[0]?.sent_at&&items[0].sent_at!==window.localStorage.getItem(NOTIFICATION_SEEN_KEY)))
+          setUnread(Boolean(items[0]?.sent_at&&items[0].sent_at!==window.localStorage.getItem(seenKey)))
         })
         .catch(()=>{})
         .finally(()=>{if(active)setLoading(false)})
@@ -125,7 +130,7 @@ function NotificationCenter(){
     const next=!open
     setOpen(next)
     if(next&&notifications[0]?.sent_at){
-      window.localStorage.setItem(NOTIFICATION_SEEN_KEY,notifications[0].sent_at)
+      window.localStorage.setItem(seenKey,notifications[0].sent_at)
       setUnread(false)
       if('clearAppBadge' in navigator) navigator.clearAppBadge().catch(()=>{})
     }
@@ -167,7 +172,8 @@ function MoreMenuIcon({name}){
 function MobileAppNav(){
   const pathname=usePathname()
   const router=useRouter()
-  const editionRoot=pathname.startsWith('/sunday-crew')?'/sunday-crew':''
+  const edition=editionForPath(pathname)
+  const editionRoot=edition?.root||''
   const homePath=editionRoot||'/'
   const teamsPath=editionRoot?editionRoot+'/teams':'/teams'
   const isEditionHome=pathname===homePath
@@ -179,7 +185,7 @@ function MobileAppNav(){
   const tabFor=hash=>{
     if(isEditionTeams) return 'teams'
     if(pathname.includes('/matchups/')) return 'scores'
-    if(['/staff','/archive','/corrections','/sunday-crew/newsroom'].some(path=>pathname.startsWith(path))) return 'more'
+    if(['/staff','/archive','/corrections',...(editionRoot?[editionRoot+'/newsroom',editionRoot+'/archive']:[])].some(path=>pathname.startsWith(path))) return 'more'
     if(!isEditionHome) return document.querySelector('[data-app-section="culture"]')?'culture':'detail'
     if(hash==='#scores'||hash==='#week4'||hash==='#current-scores'||hash==='#scores-week3') return 'scores'
     return hash==='#culture'?'culture':'home'
@@ -294,8 +300,8 @@ function MobileAppNav(){
     <div className="appSectionHeader" aria-hidden="true"><span>{headerLabel}</span></div>
     {moreOpen&&<aside className="appMoreSheet" aria-label="More and settings">
       <div className="appMoreHead"><small>THE BRIEF</small><b>More</b><button type="button" onClick={()=>setMoreOpen(false)} aria-label="Close more menu">×</button></div>
-      {!editionRoot&&<div className="appSettings"><small>SETTINGS</small><ArticleAlertSettings/></div>}
-      <div className="appMoreLinks">{editionRoot?<Link href="/sunday-crew/newsroom" onClick={()=>setMoreOpen(false)}><MoreMenuIcon name="Staff"/><span>Sunday Crew newsroom</span></Link>:<>
+      <div className="appSettings"><small>SETTINGS</small><ArticleAlertSettings edition={edition}/></div>
+      <div className="appMoreLinks">{editionRoot?<><Link href={editionRoot+"/archive"} onClick={()=>setMoreOpen(false)}><MoreMenuIcon name="Archive"/><span>Archive</span></Link><Link href={editionRoot+"/newsroom"} onClick={()=>setMoreOpen(false)}><MoreMenuIcon name="Staff"/><span>{edition.name} newsroom</span></Link></>:<>
         <Link href="/archive"><MoreMenuIcon name="Archive"/><span>Archive</span></Link>
         <Link href="/staff"><MoreMenuIcon name="Staff"/><span>Staff</span></Link>
         <Link href="/corrections"><MoreMenuIcon name="Corrections"/><span>Corrections</span></Link></>}
@@ -379,10 +385,10 @@ function PullToRefresh(){
   return <div className="pullRefresh" ref={indicatorRef} aria-hidden="true"><span/><b/></div>
 }
 
-function InstallPrompt({sundayCrew=false}){
-  const dismissKey=sundayCrew?'sunday-crew-install-dismissed':DISMISS_KEY
-  const appName=sundayCrew?'Sunday Crew':'The Brief'
-  const installUrl=sundayCrew?'ordinarybrief.com/sunday-crew':'ordinarybrief.com'
+function InstallPrompt({edition=null}){
+  const dismissKey=edition?edition.slug+'-install-dismissed':DISMISS_KEY
+  const appName=edition?edition.name:'The Brief'
+  const installUrl=edition?'ordinarybrief.com'+edition.root:'ordinarybrief.com'
   const [installEvent,setInstallEvent]=useState(null)
   const [show,setShow]=useState(false)
   const [expanded,setExpanded]=useState(false)
@@ -429,10 +435,10 @@ function InstallPrompt({sundayCrew=false}){
 
   return <aside className={`installPrompt ${expanded?'expanded':''}`} aria-label={`Install ${appName}`}>
     <button className="installDismiss" type="button" onClick={dismiss} aria-label="Dismiss app download message">×</button>
-    <div className="installMark">{sundayCrew?'SC':'OB'}</div>
+    <div className="installMark">{edition?edition.mark:'OB'}</div>
     <div className="installCopy">
-      <b>{sundayCrew?'Install Sunday Crew':'Download the Ordinary Brief app'}</b>
-      <span>{sundayCrew?'Your league, scores and stories — straight from your home screen.':'Faster access, push alerts, and journalism without purpose — now with an icon.'}</span>
+      <b>{edition?'Install '+edition.name:'Download the Ordinary Brief app'}</b>
+      <span>{edition?'Your league, scores and stories — straight from your home screen.':'Faster access, push alerts, and journalism without purpose — now with an icon.'}</span>
       {expanded&&<div className="installSteps">{isIOS
         ? isSafari
           ? <><span><i>1</i>Tap the <strong>Share</strong> button in Safari.</span><span><i>2</i>Choose <strong>Add to Home Screen</strong>.</span><span><i>3</i>Tap <strong>Add</strong>. {appName} will appear with your apps.</span></>
@@ -445,12 +451,13 @@ function InstallPrompt({sundayCrew=false}){
 
 export default function PwaShell(){
   const pathname=usePathname()
+  const edition=editionForPath(pathname)
   useEffect(()=>{
     if(process.env.NODE_ENV==='production'&&'serviceWorker' in navigator){
-      navigator.serviceWorker.register('/sw.js',{scope:'/',updateViaCache:'none'}).then(registration=>registration.update().catch(()=>{})).catch(()=>{})
+      navigator.serviceWorker.register(edition?edition.root+'/sw.js':'/sw.js',{scope:edition?edition.root:'/',updateViaCache:'none'}).then(registration=>registration.update().catch(()=>{})).catch(()=>{})
     }
-  },[])
+  },[edition?.slug])
 
   if(pathname.startsWith('/manage'))return null
-  return <><PullToRefresh/><InstallPrompt key={pathname.startsWith('/sunday-crew')?'sunday-crew':'brief'} sundayCrew={pathname.startsWith('/sunday-crew')}/>{!pathname.startsWith('/sunday-crew')&&<NotificationCenter/>}<MobileAppNav/></>
+  return <><PullToRefresh/><InstallPrompt key={edition?.slug||'brief'} edition={edition}/><NotificationCenter key={edition?.slug||"brief"} edition={edition}/><MobileAppNav/></>
 }

@@ -14,6 +14,7 @@ const outbidContext=(t,failed)=>{
 }
 
 const copy=(t,failed)=>{
+  if(t.type==='drop'&&!t.add)return 'ROSTER MOVE: '+t.team+' released '+t.drop+'. One fewer name to explain at the next meeting.'
   if(t.type==='trade') return '🚨 TRADE: '+t.team+' completed a trade involving '+[t.add,t.drop].filter(Boolean).join(' / ')+'. Paperwork filed; group chat consequences pending.'
   if(t.type==='waiver'){
     const base='🚨 WAIVER: '+t.team+' landed '+(t.add||'a player')+' for '+(t.faab??0)+(t.drop?' and released '+t.drop:'')+'.'
@@ -36,7 +37,7 @@ export default function SchefterTransactionFeed({transactions=[],week=4}){
     <div className="schefterBody">
       <div className="schefterMeta"><b>Adam Schefter</b><span className="verified">✓</span><span>@AdamSchefter · {fmtDate(t.date)}</span><i>•••</i></div>
       <p>{copy(t,failed)}</p>
-      <div className="schefterEngagement"><span>VERIFIED</span><span>{String(t.type).toUpperCase()}</span>{(t.faab||0)>0&&<span>FAAB {t.faab}</span>}<span>WEEK {week}</span></div>
+      <div className="schefterEngagement"><span>VERIFIED</span><span>{String(t.type).toUpperCase()}</span>{(t.faab||0)>0&&<span>FAAB {t.faab}</span>}{week!=null&&<span>WEEK {week}</span>}</div>
     </div>
   </article>)}</div>
 }

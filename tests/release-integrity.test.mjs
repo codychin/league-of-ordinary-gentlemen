@@ -7,7 +7,7 @@ const exists=p=>fs.existsSync(new URL('../'+p,import.meta.url));
 const page=read('app/page.js');
 const reels=read('app/components/ReelsShelf.jsx');
 const scores=read('app/components/LiveWeek3Surfaces.jsx');
-const sunday=read('app/sunday-crew/page.js');
+const sunday=read('lib/edition-content.js')+read('lib/sunday-reels.js');
 
 test('production JSX never contains escaped newline artifacts',()=>assert.equal(page.includes('\\n{'),false));
 test('current matchup surface is not deliberately suppressed',()=>assert.equal(page.includes('<LiveWeek3Surfaces finalWeek={true}'),false));

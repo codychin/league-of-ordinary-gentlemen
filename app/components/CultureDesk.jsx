@@ -26,16 +26,16 @@ const stories=[
   {image:`${MEDIA}/culture/mitch-voit.png`,tag:'BASEBALL DESK',title:'Mitch Voit Appears Increasingly Alien-Like; League Declines to Investigate Further',dek:'The latest broadcast image has renewed questions nobody with jurisdiction intends to answer. The League Office reviewed the matter and found no fantasy-football implications at this time.'}
 ]
 
-function Story({story}){
+function Story({story,root}){
   const body=<><div className={`culturePhoto ${story.photoClass||''}`} style={story.image?{backgroundImage:`url('${story.image}')`}:undefined}/><div className="tag">{story.tag}</div><h3>{story.title}</h3>{story.slug&&<PreviewAuthor slug={story.slug}/>}<p>{story.dek}</p>{story.read&&<div className="read">{story.read}</div>}</>
-  return story.href?<Link href={story.href} className="card storylink">{body}</Link>:<article className="card">{body}</article>
+  return story.href?<Link href={root+story.href} className="card storylink">{body}</Link>:<article className="card">{body}</article>
 }
 
-export default function CultureDesk({globalOnly=false}){
+export default function CultureDesk({globalOnly=false,root=""}){
   const [page,setPage]=useState(0)
   const scopedStories=globalOnly?stories.filter(story=>story.slug&&isGlobalArticle(story.slug)):stories
   const pageCount=Math.ceil(scopedStories.length/PAGE_SIZE)
   const visible=scopedStories.slice(page*PAGE_SIZE,(page+1)*PAGE_SIZE)
   const changePage=next=>{setPage(next);document.getElementById('culture')?.scrollIntoView({behavior:'auto',block:'start'})}
-  return <section className="affairs" id="culture"><div className="sectionhead light affairsHead"><span>CULTURE DESK</span><h2>Matters of Culture</h2></div><div className="affairsIntro">Important to someone.</div><div className="grid3 darkgrid cultureGrid">{visible.map((story,index)=><Story story={story} key={`${page}-${index}`}/>)}</div>{pageCount>1&&<nav className="culturePagination" aria-label="Culture stories pagination"><button type="button" onClick={()=>changePage(page-1)} disabled={page===0}>← NEWER</button><span>PAGE {page+1} OF {pageCount}</span><button type="button" onClick={()=>changePage(page+1)} disabled={page===pageCount-1}>OLDER →</button></nav>}</section>
+  return <section className="affairs" id="culture"><div className="sectionhead light affairsHead"><span>CULTURE DESK</span><h2>Matters of Culture</h2></div><div className="affairsIntro">Important to someone.</div><div className="grid3 darkgrid cultureGrid">{visible.map((story,index)=><Story root={root} story={story} key={`${page}-${index}`}/>)}</div>{pageCount>1&&<nav className="culturePagination" aria-label="Culture stories pagination"><button type="button" onClick={()=>changePage(page-1)} disabled={page===0}>← NEWER</button><span>PAGE {page+1} OF {pageCount}</span><button type="button" onClick={()=>changePage(page+1)} disabled={page===pageCount-1}>OLDER →</button></nav>}</section>
 }
