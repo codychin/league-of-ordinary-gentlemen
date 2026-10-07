@@ -1,6 +1,343 @@
-const MEDIA='https://dnzdbqycuuoonewcowis.supabase.co/storage/v1/object/public/brief-media'
-const week=4
+import SchefterTransactionFeed from './SchefterTransactionFeed'
+
+const week=5
 const tx=[
+  {
+    "id": "7a1fe09b-9188-4817-8bcf-b5dada39e94a",
+    "date": "2026-10-07",
+    "type": "add",
+    "status": "complete",
+    "team": "For the Love of the Kraft",
+    "add": "Bengals D/ST",
+    "addPosition": "D/ST",
+    "drop": "Browns D/ST",
+    "dropPosition": "D/ST",
+    "faab": 0
+  },
+  {
+    "id": "1c9d5ec2-0ff3-4817-b2be-fdc2123ba021",
+    "date": "2026-10-07",
+    "type": "add",
+    "status": "complete",
+    "team": "Kupp Kupp Doubs",
+    "add": "Aaron Rodgers",
+    "addPosition": "QB",
+    "drop": "",
+    "dropPosition": "",
+    "faab": 0
+  },
+  {
+    "id": "4ac2bf71-e219-4505-bd42-779aedb279c3",
+    "date": "2026-10-07",
+    "type": "waiver",
+    "status": "complete",
+    "team": "Shake 'N Baker",
+    "add": "Jacoby Brissett",
+    "addPosition": "QB",
+    "drop": "Marcus Mariota",
+    "dropPosition": "QB",
+    "faab": 2
+  },
+  {
+    "id": "c8a21468-8f70-4c7f-b4a1-1cc942bb538a",
+    "date": "2026-10-07",
+    "type": "waiver",
+    "status": "complete",
+    "team": "Shake 'N Baker",
+    "add": "Mike Gesicki",
+    "addPosition": "TE",
+    "drop": "Kyle Pitts Sr.",
+    "dropPosition": "TE",
+    "faab": 2
+  },
+  {
+    "id": "92404d5e-4bf2-4084-b951-ebaf41feaf91",
+    "date": "2026-10-07",
+    "type": "waiver",
+    "status": "complete",
+    "team": "The All Ugly Team",
+    "add": "Keon Coleman",
+    "addPosition": "WR",
+    "drop": "Ja'Kobi Lane",
+    "dropPosition": "WR",
+    "faab": 2
+  },
+  {
+    "id": "ea1c1a91-665e-4ee2-bb3e-d3a7ff9d5aac",
+    "date": "2026-10-07",
+    "type": "waiver",
+    "status": "failed",
+    "team": "The All Ugly Team",
+    "add": "Will Shipley",
+    "addPosition": "RB",
+    "drop": "Ja'Kobi Lane",
+    "dropPosition": "WR",
+    "faab": 5
+  },
+  {
+    "id": "7eb38b0f-636b-4ff3-9a2f-36de55a5b3f8",
+    "date": "2026-10-07",
+    "type": "waiver",
+    "status": "complete",
+    "team": "DarkHorse Danir",
+    "add": "Roman Wilson",
+    "addPosition": "WR",
+    "drop": "Michael Pittman Jr.",
+    "dropPosition": "WR",
+    "faab": 2
+  },
+  {
+    "id": "b0bf59be-8462-4829-ae8d-10b93adb2d8e",
+    "date": "2026-10-07",
+    "type": "waiver",
+    "status": "complete",
+    "team": "Kupp Kupp Doubs",
+    "add": "Brenton Strange",
+    "addPosition": "TE",
+    "drop": "Justin Herbert",
+    "dropPosition": "QB",
+    "faab": 5
+  },
+  {
+    "id": "83a1535d-686f-4f62-b3f9-52fc3e03cc05",
+    "date": "2026-10-07",
+    "type": "waiver",
+    "status": "complete",
+    "team": "Mr Hopkins Opus",
+    "add": "Will Shipley",
+    "addPosition": "RB",
+    "drop": "Jake Ferguson",
+    "dropPosition": "TE",
+    "faab": 8
+  },
+  {
+    "id": "ecd4f4ae-e47c-4a3c-9afe-22c6565611cb",
+    "date": "2026-10-07",
+    "type": "waiver",
+    "status": "failed",
+    "team": "DarkHorse Danir",
+    "add": "Will Shipley",
+    "addPosition": "RB",
+    "drop": "Michael Pittman Jr.",
+    "dropPosition": "WR",
+    "faab": 6
+  },
+  {
+    "id": "4b59549b-8e48-4fa5-8838-c09397f5a76c",
+    "date": "2026-10-07",
+    "type": "waiver",
+    "status": "complete",
+    "team": "CeeDeep Shaheeded Rivalry",
+    "add": "Broncos D/ST",
+    "addPosition": "D/ST",
+    "drop": "Chiefs D/ST",
+    "dropPosition": "D/ST",
+    "faab": 8
+  },
+  {
+    "id": "ff605eff-31a6-4272-ae05-112d7a777c5d",
+    "date": "2026-10-06",
+    "type": "waiver",
+    "status": "pending",
+    "team": "The All Ugly Team",
+    "add": "Keon Coleman",
+    "addPosition": "WR",
+    "drop": "Ja'Kobi Lane",
+    "dropPosition": "WR",
+    "faab": 2
+  },
+  {
+    "id": "f43f14a6-5b86-4106-924b-ed2cf1cb0812",
+    "date": "2026-10-06",
+    "type": "waiver",
+    "status": "pending",
+    "team": "The All Ugly Team",
+    "add": "Will Shipley",
+    "addPosition": "RB",
+    "drop": "Ja'Kobi Lane",
+    "dropPosition": "WR",
+    "faab": 5
+  },
+  {
+    "id": "0a10810e-8c6d-41fb-bcf0-f7fe6e3b8a94",
+    "date": "2026-10-06",
+    "type": "waiver",
+    "status": "unknown",
+    "team": "Mr Hopkins Opus",
+    "add": "Jets D/ST",
+    "addPosition": "D/ST",
+    "drop": "Jake Ferguson",
+    "dropPosition": "TE",
+    "faab": 0
+  },
+  {
+    "id": "e681c4de-0025-446d-89a8-5bfafcc036d8",
+    "date": "2026-10-04",
+    "type": "add",
+    "status": "complete",
+    "team": "CeeDeep Shaheeded Rivalry",
+    "add": "Dalton Schultz",
+    "addPosition": "TE",
+    "drop": "Hunter Henry",
+    "dropPosition": "TE",
+    "faab": 0
+  },
+  {
+    "id": "f774a53d-c9f4-4166-b705-4393a5047ab1",
+    "date": "2026-10-03",
+    "type": "add",
+    "status": "complete",
+    "team": "I'm a Skatt man",
+    "add": "Commanders D/ST",
+    "addPosition": "D/ST",
+    "drop": "Colts D/ST",
+    "dropPosition": "D/ST",
+    "faab": 0
+  },
+  {
+    "id": "94f4c4c1-1b6a-44b3-a8b1-f41d29b4143e",
+    "date": "2026-10-03",
+    "type": "add",
+    "status": "complete",
+    "team": "I'm a Skatt man",
+    "add": "Makai Lemon",
+    "addPosition": "WR",
+    "drop": "Chig Okonkwo",
+    "dropPosition": "TE",
+    "faab": 0
+  },
+  {
+    "id": "e12e22af-85f1-4611-83c5-e6f1957244c0",
+    "date": "2026-10-03",
+    "type": "add",
+    "status": "complete",
+    "team": "Pollard Greens",
+    "add": "Quentin Johnston",
+    "addPosition": "WR",
+    "drop": "Lions D/ST",
+    "dropPosition": "D/ST",
+    "faab": 0
+  },
+  {
+    "id": "c8f56076-6f51-4d4a-bcb3-a7d8eed607e2",
+    "date": "2026-10-03",
+    "type": "add",
+    "status": "complete",
+    "team": "The All Ugly Team",
+    "add": "George Holani",
+    "addPosition": "RB",
+    "drop": "Demond Claiborne",
+    "dropPosition": "RB",
+    "faab": 0
+  },
+  {
+    "id": "e2ee2e40-dded-46d9-a573-3f50cb5fb808",
+    "date": "2026-10-03",
+    "type": "add",
+    "status": "complete",
+    "team": "The All Ugly Team",
+    "add": "Rams D/ST",
+    "addPosition": "D/ST",
+    "drop": "Panthers D/ST",
+    "dropPosition": "D/ST",
+    "faab": 0
+  },
+  {
+    "id": "06b9bb6d-3a73-42ab-b517-d2a629468455",
+    "date": "2026-10-01",
+    "type": "add",
+    "status": "complete",
+    "team": "Pollard Greens",
+    "add": "Ryan Flournoy",
+    "addPosition": "WR",
+    "drop": "",
+    "dropPosition": "",
+    "faab": 0
+  },
+  {
+    "id": "70c1a325-8922-46c3-9fef-7011f2ef38fe",
+    "date": "2026-10-01",
+    "type": "add",
+    "status": "complete",
+    "team": "Shake 'N Baker",
+    "add": "Marcus Mariota",
+    "addPosition": "QB",
+    "drop": "Baker Mayfield",
+    "dropPosition": "QB",
+    "faab": 0
+  },
+  {
+    "id": "f2d71456-d535-4b6f-9935-ec296b8782f1",
+    "date": "2026-10-01",
+    "type": "add",
+    "status": "complete",
+    "team": "Kupp Kupp Doubs",
+    "add": "Matt Gay",
+    "addPosition": "K",
+    "drop": "",
+    "dropPosition": "",
+    "faab": 0
+  },
+  {
+    "id": "92719c2d-d0a4-462e-8a6e-92e9ee7768c7",
+    "date": "2026-10-01",
+    "type": "add",
+    "status": "complete",
+    "team": "CeeDeep Shaheeded Rivalry",
+    "add": "Mack Hollins",
+    "addPosition": "WR",
+    "drop": "Jayden Reed",
+    "dropPosition": "WR",
+    "faab": 0
+  },
+  {
+    "id": "8cfa9ba7-f8d7-4e8e-b437-8e2378e109cd",
+    "date": "2026-10-01",
+    "type": "add",
+    "status": "complete",
+    "team": "The Route 22 Clubhouse",
+    "add": "Bears D/ST",
+    "addPosition": "D/ST",
+    "drop": "",
+    "dropPosition": "",
+    "faab": 0
+  },
+  {
+    "id": "7275451a-8a9a-48c8-815b-8a698dfcb90e",
+    "date": "2026-09-30",
+    "type": "add",
+    "status": "complete",
+    "team": "Mr Hopkins Opus",
+    "add": "Spencer Shrader",
+    "addPosition": "K",
+    "drop": "Rashod Bateman",
+    "dropPosition": "WR",
+    "faab": 0
+  },
+  {
+    "id": "4a7da85b-c69b-4c05-8942-99bf10fe66b3",
+    "date": "2026-09-30",
+    "type": "add",
+    "status": "complete",
+    "team": "Mr Hopkins Opus",
+    "add": "Bryce Young",
+    "addPosition": "QB",
+    "drop": "Cody White",
+    "dropPosition": "WR",
+    "faab": 0
+  },
+  {
+    "id": "fcc489e3-46bd-47aa-a2e3-c041071f44dd",
+    "date": "2026-09-30",
+    "type": "add",
+    "status": "complete",
+    "team": "I'm a Skatt man",
+    "add": "Colts D/ST",
+    "addPosition": "D/ST",
+    "drop": "Bengals D/ST",
+    "dropPosition": "D/ST",
+    "faab": 0
+  },
   {
     "id": "0718b455-e02b-4163-9762-496404578368",
     "date": "2026-09-30",
@@ -8,7 +345,9 @@ const tx=[
     "status": "complete",
     "team": "CeeDeep Shaheeded Rivalry",
     "add": "Kendre Miller",
+    "addPosition": "RB",
     "drop": "",
+    "dropPosition": "",
     "faab": 0
   },
   {
@@ -18,7 +357,9 @@ const tx=[
     "status": "complete",
     "team": "Lloyd of the Rings",
     "add": "Jaguars D/ST",
+    "addPosition": "D/ST",
     "drop": "Packers D/ST",
+    "dropPosition": "D/ST",
     "faab": 0
   },
   {
@@ -28,7 +369,9 @@ const tx=[
     "status": "complete",
     "team": "For the Love of the Kraft",
     "add": "Browns D/ST",
+    "addPosition": "D/ST",
     "drop": "Eagles D/ST",
+    "dropPosition": "D/ST",
     "faab": 0
   },
   {
@@ -38,7 +381,9 @@ const tx=[
     "status": "complete",
     "team": "Kupp Kupp Doubs",
     "add": "Tyreek Hill",
+    "addPosition": "WR",
     "drop": "",
+    "dropPosition": "",
     "faab": 0
   },
   {
@@ -48,7 +393,9 @@ const tx=[
     "status": "complete",
     "team": "Kupp Kupp Doubs",
     "add": "Bills D/ST",
+    "addPosition": "D/ST",
     "drop": "",
+    "dropPosition": "",
     "faab": 0
   },
   {
@@ -58,7 +405,9 @@ const tx=[
     "status": "complete",
     "team": "Kupp Kupp Doubs",
     "add": "Sam Darnold",
+    "addPosition": "QB",
     "drop": "",
+    "dropPosition": "",
     "faab": 0
   },
   {
@@ -68,7 +417,9 @@ const tx=[
     "status": "failed",
     "team": "DarkHorse Danir",
     "add": "Kenyon Sadiq",
+    "addPosition": "TE",
     "drop": "Quentin Johnston",
+    "dropPosition": "WR",
     "faab": 2
   },
   {
@@ -78,18 +429,10 @@ const tx=[
     "status": "failed",
     "team": "I'm a Skatt man",
     "add": "Jaylen Wright",
+    "addPosition": "RB",
     "drop": "Bengals D/ST",
+    "dropPosition": "D/ST",
     "faab": 8
-  },
-  {
-    "id": "243e8149-dd5b-42f3-bc02-f63d455146ce",
-    "date": "2026-09-30",
-    "type": "waiver",
-    "status": "failed",
-    "team": "For the Love of the Kraft",
-    "add": "Kenyon Sadiq",
-    "drop": "Chris Bell",
-    "faab": 5
   },
   {
     "id": "5fb79fb4-0fa3-4a38-ab84-f86e234d0eae",
@@ -98,18 +441,10 @@ const tx=[
     "status": "failed",
     "team": "DarkHorse Danir",
     "add": "Ollie Gordon II",
+    "addPosition": "RB",
     "drop": "Quentin Johnston",
+    "dropPosition": "WR",
     "faab": 12
-  },
-  {
-    "id": "a0e804a4-65c7-4718-abd2-a294dfb77b45",
-    "date": "2026-09-30",
-    "type": "waiver",
-    "status": "failed",
-    "team": "The Route 22 Clubhouse",
-    "add": "Kenyon Sadiq",
-    "drop": "Dalton Schultz",
-    "faab": 6
   },
   {
     "id": "940db5b9-adc9-412f-8f66-00b2d7e2cb22",
@@ -118,7 +453,9 @@ const tx=[
     "status": "failed",
     "team": "The All Ugly Team",
     "add": "Jaylen Wright",
+    "addPosition": "RB",
     "drop": "Zachariah Branch",
+    "dropPosition": "WR",
     "faab": 7
   },
   {
@@ -128,8 +465,34 @@ const tx=[
     "status": "complete",
     "team": "DarkHorse Danir",
     "add": "Kalif Raymond",
+    "addPosition": "WR",
     "drop": "Quentin Johnston",
+    "dropPosition": "WR",
     "faab": 2
+  },
+  {
+    "id": "243e8149-dd5b-42f3-bc02-f63d455146ce",
+    "date": "2026-09-30",
+    "type": "waiver",
+    "status": "failed",
+    "team": "For the Love of the Kraft",
+    "add": "Kenyon Sadiq",
+    "addPosition": "TE",
+    "drop": "Chris Bell",
+    "dropPosition": "WR",
+    "faab": 5
+  },
+  {
+    "id": "a0e804a4-65c7-4718-abd2-a294dfb77b45",
+    "date": "2026-09-30",
+    "type": "waiver",
+    "status": "failed",
+    "team": "The Route 22 Clubhouse",
+    "add": "Kenyon Sadiq",
+    "addPosition": "TE",
+    "drop": "Dalton Schultz",
+    "dropPosition": "TE",
+    "faab": 6
   },
   {
     "id": "f064eaa0-4a1d-4c40-83bf-64064a18f96d",
@@ -138,7 +501,9 @@ const tx=[
     "status": "failed",
     "team": "The All Ugly Team",
     "add": "Kenyon Sadiq",
+    "addPosition": "TE",
     "drop": "Demond Claiborne",
+    "dropPosition": "RB",
     "faab": 9
   },
   {
@@ -148,7 +513,9 @@ const tx=[
     "status": "complete",
     "team": "Mr Hopkins Opus",
     "add": "Kenyon Sadiq",
+    "addPosition": "TE",
     "drop": "Trey Smack",
+    "dropPosition": "K",
     "faab": 18
   },
   {
@@ -158,7 +525,9 @@ const tx=[
     "status": "failed",
     "team": "I'm a Skatt man",
     "add": "Ollie Gordon II",
+    "addPosition": "RB",
     "drop": "Kayshon Boutte",
+    "dropPosition": "WR",
     "faab": 18
   },
   {
@@ -168,7 +537,9 @@ const tx=[
     "status": "failed",
     "team": "CeeDeep Shaheeded Rivalry",
     "add": "Jaylen Wright",
+    "addPosition": "RB",
     "drop": "",
+    "dropPosition": "",
     "faab": 26
   },
   {
@@ -178,7 +549,9 @@ const tx=[
     "status": "failed",
     "team": "I'm a Skatt man",
     "add": "Kenyon Sadiq",
+    "addPosition": "TE",
     "drop": "Chig Okonkwo",
+    "dropPosition": "TE",
     "faab": 16
   },
   {
@@ -188,7 +561,9 @@ const tx=[
     "status": "complete",
     "team": "The All Ugly Team",
     "add": "Ollie Gordon II",
+    "addPosition": "RB",
     "drop": "Zachariah Branch",
+    "dropPosition": "WR",
     "faab": 38
   },
   {
@@ -198,7 +573,9 @@ const tx=[
     "status": "complete",
     "team": "The Route 22 Clubhouse",
     "add": "Jaylen Wright",
+    "addPosition": "RB",
     "drop": "Dalton Schultz",
+    "dropPosition": "TE",
     "faab": 47
   },
   {
@@ -208,7 +585,9 @@ const tx=[
     "status": "unknown",
     "team": "DarkHorse Danir",
     "add": "Kalif Raymond",
+    "addPosition": "WR",
     "drop": "Bo Nix",
+    "dropPosition": "QB",
     "faab": 0
   },
   {
@@ -218,7 +597,9 @@ const tx=[
     "status": "unknown",
     "team": "DarkHorse Danir",
     "add": "Ollie Gordon II",
+    "addPosition": "RB",
     "drop": "Bo Nix",
+    "dropPosition": "QB",
     "faab": 0
   },
   {
@@ -228,7 +609,9 @@ const tx=[
     "status": "pending",
     "team": "The All Ugly Team",
     "add": "Kenyon Sadiq",
+    "addPosition": "TE",
     "drop": "Demond Claiborne",
+    "dropPosition": "RB",
     "faab": 9
   },
   {
@@ -238,7 +621,9 @@ const tx=[
     "status": "pending",
     "team": "The All Ugly Team",
     "add": "Jaylen Wright",
+    "addPosition": "RB",
     "drop": "Zachariah Branch",
+    "dropPosition": "WR",
     "faab": 7
   },
   {
@@ -248,7 +633,9 @@ const tx=[
     "status": "pending",
     "team": "The All Ugly Team",
     "add": "Ollie Gordon II",
+    "addPosition": "RB",
     "drop": "Zachariah Branch",
+    "dropPosition": "WR",
     "faab": 38
   },
   {
@@ -258,7 +645,9 @@ const tx=[
     "status": "unknown",
     "team": "Lloyd of the Rings",
     "add": "Darren Waller",
+    "addPosition": "TE",
     "drop": "Caleb Douglas",
+    "dropPosition": "WR",
     "faab": 0
   },
   {
@@ -268,14 +657,13 @@ const tx=[
     "status": "unknown",
     "team": "Lloyd of the Rings",
     "add": "Jaguars D/ST",
+    "addPosition": "D/ST",
     "drop": "Packers D/ST",
+    "dropPosition": "D/ST",
     "faab": 0
   }
 ]
 
-
-import SchefterTransactionFeed from './SchefterTransactionFeed'
-
 export default function TransactionFeed(){
-  return <SchefterTransactionFeed transactions={tx} week={week}/>
+  return <SchefterTransactionFeed transactions={tx} week={week} maxItems={20}/>
 }
