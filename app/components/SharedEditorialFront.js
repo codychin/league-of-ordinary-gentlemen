@@ -7,22 +7,28 @@ import ResilientImage from './ResilientImage';
 
 export default function SharedEditorialFront({archiveHref='/archive',root=''}){
   return <>
-<section className="morningBriefPreview sundayFront" style={{paddingTop:0}} aria-label="Lead story: Marnie Kells on Joe Mixon">
-  <div className="morningBriefFlag"><span>THE LEAD STORY</span><small>OCTOBER 6 • MARNIE KELLS</small></div>
+<section className="morningBriefPreview sundayFront" style={{paddingTop:0}} aria-label="On Assignment: Dashiell Pike in London">
+  <div className="morningBriefFlag"><span>ON ASSIGNMENT</span><small>DASHIELL PIKE • LONDON • OCTOBER 7</small></div>
   <div className="sundayFrontGrid">
     <article className="sundayFeature sabinePackage">
-      <Link href={root+"/articles/marnie-joe-mixon-nostalgia-era"} className={`sundayFeatureImage storylink ${front.tourHero}`}>
-        <ResilientImage loading="eager" decoding="async" style={{objectPosition:"center 62%"}} src="/images/editorial/joe-mixon-comeback.jpg" alt="Joe Mixon in his comeback video."/>
-        <div className="actionCaption"><small>MARNIE KELLS • CULTURE</small><b>THE COMEBACK ERA</b></div>
+      <Link href={root+"/articles/dashiell-jaguars-london-future"} className={`sundayFeatureImage storylink ${front.tourHero}`}>
+        <ResilientImage loading="eager" decoding="async" style={{objectPosition:"center 42%"}} src="https://cdn.openart.ai/openart/thumbnail/production/2026-10/create-video/TLTpmJfydK54x1UaTK6G/cgt-20261008002242-mexhp_1791390729765_82dc1525.webp" alt="Dashiell Pike filing outside Tottenham Hotspur Stadium in London."/>
+        <div className="actionCaption"><small>DASHIELL PIKE • LONDON</small><b>ON ASSIGNMENT</b></div>
       </Link>
       <div className="sundayFeatureCopy">
         <div className="sabinePackageIntro">
-          <small>THE COMEBACK ECONOMY</small>
-          <Link href={root+"/articles/marnie-joe-mixon-nostalgia-era"} className="sabinePackageTitle storylink"><h2>Joe Mixon’s Comeback Enters Its Nostalgia Era</h2></Link>
-          <p>For a brief, beautiful period, he was back. Those who were online will understand.</p>
-          <PreviewAuthor slug="marnie-joe-mixon-nostalgia-era"/>
+          <small>SPECIAL PROJECTS • CAPITAL & DEMOCRACY</small>
+          <Link href={root+"/articles/dashiell-jaguars-london-future"} className="sabinePackageTitle storylink"><h2>Is the NFL’s Future Hiding Inside Its Weirdest Franchise?</h2></Link>
+          <p>The Jacksonville Jaguars spent years looking like an NFL problem to be solved. In London, they may have accidentally become something else.</p>
+          <PreviewAuthor slug="dashiell-jaguars-london-future"/>
         </div>
-        <Link href={root+"/articles/marnie-joe-mixon-nostalgia-era"} className="sabinePackageCta">READ MARNIE →</Link>
+        <div className="sabineInlineVideo">
+          <div className="sabineVideoLabel"><small><span className="sabineDesktopLabel">ON ASSIGNMENT • LONDON</span><span className="sabineMobileLabel">FROM LONDON</span></small><span>0:29</span></div>
+          <div className="sabineVideoBody">
+            <video controls playsInline preload="none" poster="https://cdn.openart.ai/openart/thumbnail/production/2026-10/create-video/TLTpmJfydK54x1UaTK6G/cgt-20261008002242-mexhp_1791390729765_82dc1525.webp" src="https://cdn.openart.ai/openart-ai/production/2026-10/create-video/TLTpmJfydK54x1UaTK6G/cgt-20261008002242-mexhp_1791390692996_b5b0afba.mp4"/>
+          </div>
+        </div>
+        <Link href={root+"/articles/dashiell-jaguars-london-future"} className="sabinePackageCta">READ THE DISPATCH →</Link>
       </div>
     </article>
   </div>
