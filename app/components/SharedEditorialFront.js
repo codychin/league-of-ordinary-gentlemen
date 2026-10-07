@@ -12,7 +12,7 @@ export default function SharedEditorialFront({archiveHref='/archive',root=''}){
   <div className="sundayFrontGrid">
     <article className="sundayFeature sabinePackage">
       <Link href={root+"/articles/dashiell-jaguars-london-future"} className={`sundayFeatureImage storylink ${front.tourHero}`}>
-        <ResilientImage loading="eager" decoding="async" style={{objectPosition:"center 42%"}} src="https://cdn.openart.ai/openart/thumbnail/production/2026-10/create-video/TLTpmJfydK54x1UaTK6G/cgt-20261008002242-mexhp_1791390729765_82dc1525.webp" alt="Dashiell Pike filing outside Tottenham Hotspur Stadium in London."/>
+        <ResilientImage loading="eager" decoding="async" style={{objectPosition:"center 42%"}} src="/api/dashiell-london-fans-image" alt="NFL fans gathered in London for an international game."/>
         <div className="actionCaption"><small>DASHIELL PIKE • LONDON</small><b>ON ASSIGNMENT</b></div>
       </Link>
       <div className="sundayFeatureCopy">
@@ -22,7 +22,7 @@ export default function SharedEditorialFront({archiveHref='/archive',root=''}){
           <p>The Jacksonville Jaguars spent years looking like an NFL problem to be solved. In London, they may have accidentally become something else.</p>
           <PreviewAuthor slug="dashiell-jaguars-london-future"/>
         </div>
-        <div className="sabineInlineVideo">
+        <div className="sabineInlineVideo dashiellLondonVideo">
           <div className="sabineVideoLabel"><small><span className="sabineDesktopLabel">ON ASSIGNMENT • LONDON</span><span className="sabineMobileLabel">FROM LONDON</span></small><span>0:29</span></div>
           <div className="sabineVideoBody">
             <video controls playsInline preload="none" poster="https://cdn.openart.ai/openart/thumbnail/production/2026-10/create-video/TLTpmJfydK54x1UaTK6G/cgt-20261008002242-mexhp_1791390729765_82dc1525.webp" src="https://cdn.openart.ai/openart-ai/production/2026-10/create-video/TLTpmJfydK54x1UaTK6G/cgt-20261008002242-mexhp_1791390692996_b5b0afba.mp4"/>
