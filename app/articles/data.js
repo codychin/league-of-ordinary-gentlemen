@@ -6,8 +6,8 @@ export const articles = {
   "dek":"The Jacksonville Jaguars spent years looking like an NFL problem to be solved. In London, they may have accidentally become something else.",
   "date":"OCTOBER 7, 2026",
   "author":"pike",
-  "image":"https://cdn.openart.ai/openart/thumbnail/production/2026-10/create-video/TLTpmJfydK54x1UaTK6G/cgt-20261008002242-mexhp_1791390729765_82dc1525.webp",
-  "imageAlt":"Dashiell Pike filing outside Tottenham Hotspur Stadium in London.",
+  "image":"/api/dashiell-london-fans-image",
+  "imageAlt":"NFL fans gathered in London for an international game.",
   "body":[
     "There are easier ways to build a global sports franchise.",
     "You can begin in London, for instance.",
