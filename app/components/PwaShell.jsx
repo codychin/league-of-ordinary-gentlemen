@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import {scrollToSection} from '../../lib/scroll-to-section.mjs'
 import {editionForPath} from '../../lib/editions'
 import {useEffect, useRef, useState} from 'react'
 import {usePathname, useRouter} from 'next/navigation'
@@ -193,21 +194,9 @@ function MobileAppNav(){
   const resetAppScroll=()=>window.scrollTo({top:0,left:0,behavior:'instant'})
   const scrollSection=id=>{
     pendingScroll.current?.()
-    const targetId=id==='week4'?'scores':id
-    const scroll=()=>{
-      const el=document.getElementById(targetId)
-      if(!el)return false
-      el.scrollIntoView({behavior:'instant',block:'start'})
-      return true
-    }
-    if(scroll())return
-    // Scores may arrive after hydration. Cancel this wait on the next tap/route.
-    const observer=new MutationObserver(()=>{if(scroll())cancel()})
-    const timer=window.setTimeout(()=>cancel(),10000)
-    const cancel=()=>{observer.disconnect();window.clearTimeout(timer);pendingScroll.current=null}
-    pendingScroll.current=cancel
-    observer.observe(document.body,{childList:true,subtree:true})
+    pendingScroll.current=scrollToSection(id==='week4'?'scores':id)
   }
+
   const activate=hash=>{
     const nextTab=tabFor(hash)
     setActiveTab(nextTab)
