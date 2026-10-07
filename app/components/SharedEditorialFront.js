@@ -85,25 +85,7 @@ export default function SharedEditorialFront({archiveHref='/archive',root=''}){
     <div className="read">READ HOLLIS CRANE →</div>
   </Link>
 </section>
-<section className="morningBriefPreview sundayFront" aria-label="On Assignment: Sabine March in Rio de Janeiro">
-  <div className="morningBriefFlag"><span>ON ASSIGNMENT</span><small>SABINE MARCH • RIO DE JANEIRO • SEPTEMBER 27</small></div>
-  <div className="sundayFrontGrid">
-    <article className="sundayFeature sabinePackage">
-      <Link href={root+"/articles/sabine-sunday-maracana"} className="sundayFeatureImage sundayActionHero storylink"><ResilientImage loading="lazy" decoding="async" src="/images/editorial/maracana-stadium.webp" alt="Interior of the Maracanã stadium in Rio de Janeiro"/><div className="actionCaption"><small>SABINE MARCH • RIO DE JANEIRO</small><b>SUNDAY DISPATCH</b></div></Link>
-      <div className="sundayFeatureCopy">
-        <div className="sabinePackageIntro"><small>SABINE MARCH • SOCIETY & SPECIAL CORRESPONDENCE</small><Link href={root+"/articles/sabine-sunday-maracana"} className="sabinePackageTitle storylink"><h2>Sunday at the Maracanã</h2></Link><p>Everybody wants the stadium. The grass has begun to object.</p><PreviewAuthor slug="sabine-sunday-maracana"/></div>
-        <div className="sabineInlineVideo">
-          <div className="sabineVideoLabel"><small><span className="sabineDesktopLabel">ON ASSIGNMENT • RIO DE JANEIRO</span><span className="sabineMobileLabel">FROM RIO</span></small><span>0:28</span></div>
-          <div className="sabineVideoBody">
-            <video controls playsInline preload="none" poster="https://cdn.openart.ai/openart/thumbnail/production/2026-09/create-video/TLTpmJfydK54x1UaTK6G/cgt-20260927072638-56wll_1790465571680_924949be.webp" src="https://cdn.openart.ai/openart-ai/production/2026-09/create-video/TLTpmJfydK54x1UaTK6G/cgt-20260927072638-56wll_1790465560812_7dd1af7e.mp4"/>
-          </div>
-        </div>
-        <Link href={root+"/articles/sabine-sunday-maracana"} className="sabinePackageCta">READ THE DISPATCH →</Link>
-      </div>
-    </article>
 
-  </div>
-</section>
 <section className="hero heroStack" aria-label="Featured culture column">
   <Link className="hero-copy storylink" href={root+"/articles/marnie-manifest-destiny-wembley"}>
     <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.52),rgba(0,0,0,.06)),url('/images/editorial/wembley-fans.webp')",backgroundPosition:"center 42%"}}>
