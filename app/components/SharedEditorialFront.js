@@ -35,32 +35,21 @@ export default function SharedEditorialFront({archiveHref='/archive',root=''}){
 </section>
 
 <section className={front.recent} aria-label="Recent stories">
+<article className={front.card} aria-label="Marnie Kells on Joe Mixon"><Link className={front.story} href={root+"/articles/marnie-joe-mixon-nostalgia-era"}><div className={front.image} style={{backgroundImage:"url('/images/editorial/joe-mixon-comeback.jpg')",backgroundPosition:"center 62%"}}/><div className="eyebrow">THE COMEBACK ECONOMY</div><h3>Joe Mixon’s Comeback Enters Its Nostalgia Era</h3><PreviewAuthor slug="marnie-joe-mixon-nostalgia-era"/><p className={front.dek}>For a brief, beautiful period, he was back. Those who were online will understand.</p><div className="read">READ MARNIE →</div></Link></article>
 <article className={front.card} aria-label="Hollis Crane on Bryce Young"><Link className={front.story} href={root+"/articles/hollis-bryce-young-good-time"}><div className={front.image} style={{backgroundImage:"url('/images/editorial/bryce-smiles-collage.jpg')"}}/><div className="eyebrow">SPORTING DISPOSITION</div><h3>Is Bryce Young Really Having That Good of a Time?</h3><PreviewAuthor slug="hollis-bryce-young-good-time"/><p className={front.dek}>The Panthers quarterback keeps smiling. His colleagues have chosen to find this reassuring.</p><div className="read">READ HOLLIS →</div></Link></article>
-<article className={front.card} aria-label="Conrad Sorrell on Mike Tomlin">
-  <Link className={front.story} href={root+"/articles/conrad-tomlin-minecraft-cvs"}>
-    <div className={front.image} style={{backgroundImage:"url('/images/editorial/tomlin-minecraft-city.jpg')",backgroundSize:"contain",backgroundRepeat:"no-repeat",backgroundColor:"#171613"}}/>
-    <div className="eyebrow">COLUMN • POWER & AMERICAN ARRANGEMENTS</div>
-    <h3>In a World Without Scarcity, Mike Tomlin Built a CVS</h3>
-    <PreviewAuthor slug="conrad-tomlin-minecraft-cvs"/>
-    <p className={front.dek}>An architectural tour of a civilization where anything is possible and the pharmacy is conveniently located.</p>
-    <div className="read">READ CONRAD →</div>
-  </Link>
-</article>
-<article className={front.card} aria-label="Marnie Kells on the corgi race">
-  <Link className={front.story} href={root+"/articles/marnie-corgi-he-wanted-them-to-know"}>
-    <div className={front.image} style={{backgroundImage:"url('/images/editorial/corgi-look-back-bw.png')",backgroundPosition:"center"}}/>
+<article className={front.card} aria-label="Conrad Sorrell on Mike Tomlin"><Link className={front.story} href={root+"/articles/conrad-tomlin-minecraft-cvs"}><div className={front.image} style={{backgroundImage:"url('/images/editorial/tomlin-minecraft-city.jpg')",backgroundSize:"contain",backgroundRepeat:"no-repeat",backgroundColor:"#171613"}}/><div className="eyebrow">COLUMN • POWER & AMERICAN ARRANGEMENTS</div><h3>In a World Without Scarcity, Mike Tomlin Built a CVS</h3><PreviewAuthor slug="conrad-tomlin-minecraft-cvs"/><p className={front.dek}>An architectural tour of a civilization where anything is possible and the pharmacy is conveniently located.</p><div className="read">READ CONRAD →</div></Link></article>
+</section>
+<section className="hero heroStack" aria-label="Marnie Kells on the corgi race">
+  <Link className="hero-copy storylink" href={root+"/articles/marnie-corgi-he-wanted-them-to-know"}>
+    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.52),rgba(0,0,0,.08)),url('/images/editorial/corgi-look-back-bw.png')",backgroundPosition:"center"}}>
+      <div><small>MARNIE KELLS • CULTURE</small><b>HE WANTED THEM TO KNOW</b></div>
+    </div>
     <div className="eyebrow">MATTERS OF CULTURE • SPORTING LIFE</div>
-    <h3>He Wanted Them to Know He Knew.</h3>
+    <h2>He Wanted Them to Know He Knew.</h2>
     <PreviewAuthor slug="marnie-corgi-he-wanted-them-to-know"/>
-    <p className={front.dek}>Winning the corgi race was insufficient. He needed witnesses.</p>
+    <p className="standfirst">Winning the corgi race was insufficient. He needed witnesses.</p>
     <div className="read">READ MARNIE →</div>
   </Link>
-</article>
-
-
-
-
-
 </section>
 <section className="hero heroStack" aria-label="Marnie Kells on Tee Higgins">
   <Link className="hero-copy storylink" href={root+"/articles/marnie-tee-higgins-ankles"}>
