@@ -18,7 +18,7 @@ export async function generateMetadata({params}){
   const a=articles[slug]
   if(!a) return {title:'Story not found • The Brief'}
   const url=`${SITE_ORIGIN}/articles/${slug}`
-  const image=a.image?new URL(a.image,SITE_ORIGIN).href:undefined
+  const image=(a.image||a.shareImage)?new URL(a.image||a.shareImage,SITE_ORIGIN).href:undefined
   return {
     title:`${a.title} • The Brief`,
     description:a.dek,
