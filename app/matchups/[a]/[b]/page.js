@@ -1,4 +1,4 @@
-import matchupColumns from '../../../data/week5-matchup-columns.json';
+import matchupColumns from '../../../../data/week5-matchup-columns.json';
 import Link from 'next/link'
 import SiteNav from '../../../components/SiteNav'
 import {leagueSnapshot} from '../../../teams/league-data'
