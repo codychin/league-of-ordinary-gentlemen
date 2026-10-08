@@ -26,7 +26,7 @@ export default function LiveWeek3Surfaces({matchupPairs=[],teamVisuals={},initia
    const left=slugMap[g.home?.name],right=slugMap[g.away?.name];
    const column=matchupColumns.find(x=>x.edition==='loog'&&x.week===Number(week)&&x.teamIds.includes(String(g.home?.id||''))&&x.teamIds.includes(String(g.away?.id||'')));
    const note=matchupPairs.find(x=>(x[0]===left&&x[1]===right)||(x[0]===right&&x[1]===left))?.[2]||`WEEK ${week}`;
-   return {columnHeadline:column?.headline,columnAuthor:column?writers[column.writer]?.name:null,id:g.id||i,status:isFinal?'FINAL':pregame?'PREGAME':'LIVE',href:left&&right?`/matchups/${left}/${right}`:'#scores',kicker:note,leftName:g.home?.name,leftScore:num(g.home?.score),leftProjection:num(g.home?.projection),leftImage:teamVisuals[left]?.image||'',rightName:g.away?.name,rightScore:num(g.away?.score),rightProjection:num(g.away?.projection),rightImage:teamVisuals[right]?.image||''};
+   return {columnHeadline:column?.headline,columnExcerpt:column?.body?.split('\n\n')[0],columnAuthor:column?writers[column.writer]?.name:null,id:g.id||i,status:isFinal?'FINAL':pregame?'PREGAME':'LIVE',href:left&&right?`/matchups/${left}/${right}`:'#scores',kicker:note,leftName:g.home?.name,leftScore:num(g.home?.score),leftProjection:num(g.home?.projection),leftImage:teamVisuals[left]?.image||'',rightName:g.away?.name,rightScore:num(g.away?.score),rightProjection:num(g.away?.projection),rightImage:teamVisuals[right]?.image||''};
   })}/>
  </section>;
 }
