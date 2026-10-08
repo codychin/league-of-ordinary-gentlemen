@@ -5,7 +5,8 @@ const projected=n=>Number(n||0).toFixed(1);
 
 export default function EditionScoreboard({matchups=[],week=4,rosters=[],headshots={},root='/sunday-crew',history=[]}){
   const allFinal=matchups.length>0&&matchups.every(g=>g.winner&&g.winner!=='UNDECIDED');
-  const pregame=!allFinal&&matchups.length>0&&matchups.every(g=>Number(g.home?.points||0)===0&&Number(g.away?.points||0)===0);\n  const rosterByKey=Object.fromEntries(rosters.map(t=>[t.teamKey,t]));
+  const pregame=!allFinal&&matchups.length>0&&matchups.every(g=>Number(g.home?.points||0)===0&&Number(g.away?.points||0)===0);
+  const rosterByKey=Object.fromEntries(rosters.map(t=>[t.teamKey,t]));
   const featured=key=>{
     const ps=rosterByKey[key]?.players||[];
     return ps.find(p=>!['BN','IR'].includes(p.selectedPosition)&&p.position!=='K'&&p.position!=='DEF'&&headshots[String(p.playerId)])
