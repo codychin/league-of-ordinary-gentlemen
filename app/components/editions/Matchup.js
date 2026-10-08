@@ -1,3 +1,4 @@
+import matchupColumns from '../../../data/week5-matchup-columns.json';
 import Link from 'next/link';
 import EditionSiteNav from '../EditionSiteNav';
 import {notFound} from 'next/navigation';
@@ -27,7 +28,8 @@ export default async function Matchup({params,config}){
   const active=r=>[...(r.players||[])].filter(p=>!['BN','IR'].includes(p.selectedPosition)).sort((x,y)=>(order[x.selectedPosition]??10)-(order[y.selectedPosition]??10));
   const L=active(left),R=active(right),rows=Array.from({length:Math.max(L.length,R.length)},(_,i)=>[L[i],R[i]]);
   const standing=id=>standings.find(s=>String(s.teamId)===String(id));
-  const writer=writers.gannon;
+  const column=matchupColumns.find(x=>x.edition===editionSlug&&x.week===week&&x.teamIds.includes(String(a))&&x.teamIds.includes(String(b)));
+  const writer=writers[column?.writer||'gannon'];
   const isFinal=game.winner&&game.winner!=='UNDECIDED';
   return <>
     <header className="articleHeader"><Link href={root+""} className="miniMast">{publicationName}</Link><EditionSiteNav root={root+""}/></header>
@@ -41,9 +43,9 @@ export default async function Matchup({params,config}){
         </div>
       </section>
       <section className="matchupColumn">
-        <div className="matchupColumnByline"><img src={writer.image} alt={writer.imageAlt}/><div><small>{isFinal?"FINAL RESULT":"MATCHUP IN PROGRESS"} • {writer.title.toUpperCase()}</small><b>{writer.name}</b></div></div>
-        <h2>{isFinal?"The final accounting":"The score so far"}</h2>
-        <p>{!isFinal?"The matchup is still in progress. Scores below are the latest verified totals.":<>{left.teamName} and {right.teamName} finished with a {Math.abs(Number(ls.points)-Number(rs.points)).toFixed(2)}-point margin. {Number(ls.points)>Number(rs.points)?left.teamName:right.teamName} takes the win. The lineup below is the Week {week} record, with actual player points.</>}</p>
+        <div className="matchupColumnByline"><img src={writer.image} alt={writer.imageAlt}/><div><small>{column?"WEEK "+week+" • CORRESPONDENT PREVIEW":isFinal?"FINAL RESULT":"MATCHUP IN PROGRESS"} • {writer.title.toUpperCase()}</small><b>{writer.name}</b></div></div>
+        <h2>{column?.headline||(isFinal?"The final accounting":"The score so far")}</h2>
+        <p>{column?.body||"A verified correspondent preview is not available for this matchup."}</p>
       </section>
       <section className="matchupPrimer"><div className="matchupSectionHead"><small>THE BRIEF'S READ</small><h2>Numbers worth staring at</h2></div><div className="primerGrid">
         <article><b>{Math.abs(Number(ls.points)-Number(rs.points)).toFixed(2)}</b><span>{isFinal?"FINAL MARGIN":"CURRENT MARGIN"}</span></article>

@@ -1,3 +1,4 @@
+import matchupColumns from '../../../../data/week5-matchup-columns.json';
 import Link from 'next/link'
 import SiteNav from '../../../components/SiteNav'
 import {leagueSnapshot} from '../../../teams/league-data'
@@ -45,6 +46,8 @@ export default async function MatchupPreview({params}){
     const final=Boolean(game.winner&&game.winner!=='UNDECIDED');
     const pregame=!final&&Number(ls.score||0)===0&&Number(rs.score||0)===0;
     const phase=final?'FINAL':pregame?'PREGAME':'LIVE';
+    const column=matchupColumns.find(x=>x.edition==='loog'&&x.week===Number(latest.week)&&x.teamIds.includes(String(idA))&&x.teamIds.includes(String(idB)));
+    const columnist=writers[column?.writer||'gannon'];
     return <>
       <header className="articleHeader"><Link href="/" className="miniMast">The Brief of Ordinary Gentleman</Link><SiteNav/></header>
       <main className="matchupPage">
@@ -58,9 +61,10 @@ export default async function MatchupPreview({params}){
           <div className="matchupUpdated">LATEST PROVIDER-VERIFIED SCORE • {latest.updatedAt?new Date(latest.updatedAt).toLocaleString('en-US',{timeZone:'America/New_York'}):'WEEK '+latest.week}</div>
         </section>
         <section className="matchupColumn">
-          <div className="matchupColumnByline"><img src={writers.gannon.image} alt={writers.gannon.imageAlt}/><div><small>FOOTBALL DESK • {phase}</small><b>Maude Gannon</b></div></div>
-          <h2>{pregame?'A new week, a clean scoreboard':final?'The week is decided':'The score so far'}</h2>
-          <p>{pregame?'Both teams begin the new scoring week at zero.':final?'This matchup is complete.':'This matchup is underway.'} Projections: {fmt(ls.projection)} for {left.teamName} and {fmt(rs.projection)} for {right.teamName}.</p>
+          <div className="matchupColumnByline"><img src={columnist.image} alt={columnist.imageAlt}/><div><small>WEEK {latest.week} • CORRESPONDENT PREVIEW</small><b>{columnist.name}</b></div></div>
+          <h2>{column?.headline||'Awaiting correspondent analysis'}</h2>
+          <p>{column?.body||'The verified correspondent writeup for this pairing is unavailable.'}</p>
+          <p className="matchupUpdated">LATEST SCORE: {fmt(ls.score)}–{fmt(rs.score)} • PROJECTED {fmt(ls.projection)} / {fmt(rs.projection)}. Preview analysis was written before kickoff.</p>
         </section>
         <section className="lineupPreview"><div className="matchupSectionHead"><small>STARTING LINEUPS</small><h2>Awaiting current-week roster verification</h2></div><p>Last week's starters are not being presented as current. Scores and projections above are the latest verified matchup values.</p></section>
         <Link className="matchupBack" href="/#scores">← ALL WEEK {latest.week} MATCHUPS</Link>
