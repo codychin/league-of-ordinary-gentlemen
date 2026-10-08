@@ -63,7 +63,7 @@ export default async function MatchupPreview({params}){
         <section className="matchupColumn">
           <div className="matchupColumnByline"><img src={columnist.image} alt={columnist.imageAlt}/><div><small>WEEK {latest.week} • CORRESPONDENT PREVIEW</small><b>{columnist.name}</b></div></div>
           <h2>{column?.headline||'Awaiting correspondent analysis'}</h2>
-          <p>{column?.body||'The verified correspondent writeup for this pairing is unavailable.'}</p>
+          {(column?.body||'The verified correspondent writeup for this pairing is unavailable.').split(/\n\n+/).map((paragraph,index)=><p key={index}>{paragraph}</p>)}
           <p className="matchupUpdated">LATEST SCORE: {fmt(ls.score)}–{fmt(rs.score)} • PROJECTED {fmt(ls.projection)} / {fmt(rs.projection)}. Preview analysis was written before kickoff.</p>
         </section>
         <section className="lineupPreview"><div className="matchupSectionHead"><small>STARTING LINEUPS</small><h2>Awaiting current-week roster verification</h2></div><p>Last week's starters are not being presented as current. Scores and projections above are the latest verified matchup values.</p></section>
