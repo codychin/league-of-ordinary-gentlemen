@@ -4,56 +4,128 @@
     {
       "id": "maude",
       "version": "maude-v1",
-      "voiceId": null,
-      "avatarId": null,
+      "voiceId": "6567750df960424fb6556202d7206640",
+      "avatarId": "d0bdf24214d84f7fb1ac0cfc63f4ee5f",
       "locale": "en-US",
       "style": "Brisk tactical explanation. Crisp shifts between mechanism and reversal. No sportscaster enthusiasm.",
-      "audioReferences": []
+      "audioReferences": [
+        {
+          "videoId": "7ed179bb2ede5b7f6b225b93d2f01897",
+          "source": "HeyGen approved Week 5 release manifest",
+          "settingsCaptured": true
+        }
+      ],
+      "voiceSettings": {
+        "speed": 1.1,
+        "pitch": 0,
+        "volume": 1,
+        "locale": "en-US"
+      }
     },
     {
       "id": "hollis",
       "version": "hollis-v1",
-      "voiceId": null,
-      "avatarId": null,
+      "voiceId": "31c61db6d4894da3af7ed2784507448e",
+      "avatarId": "29582cca7ee6437b97ea464ee87a5f71",
       "locale": "en-US",
       "style": "Rolling observations; quieter final dagger. Unhurried hotel-bar energy, dry not performative.",
-      "audioReferences": []
+      "audioReferences": [
+        {
+          "videoId": "e5ee138912bcd43034ab1ff0a1674d37",
+          "source": "HeyGen approved Week 5 release manifest",
+          "settingsCaptured": true
+        }
+      ],
+      "voiceSettings": {
+        "speed": 1.05,
+        "pitch": -2,
+        "volume": 1,
+        "locale": "en-US"
+      }
     },
     {
       "id": "conrad",
       "version": "conrad-v1",
-      "voiceId": null,
-      "avatarId": null,
+      "voiceId": "16f7bb8bd1574de182d793c7e3fddf81",
+      "avatarId": "57617e96d3dd4d23b8352c8b09cc90f9",
       "locale": "en-US",
       "style": "Controlled acidic essayistic pace. Wry inevitability, not breathless sarcasm.",
-      "audioReferences": []
+      "audioReferences": [
+        {
+          "videoId": "60ed77c2a7e43a64eba5e745fc983592",
+          "source": "HeyGen approved Week 5 release manifest",
+          "settingsCaptured": true
+        }
+      ],
+      "voiceSettings": {
+        "speed": 1.06,
+        "pitch": -3,
+        "volume": 1,
+        "locale": "en-US"
+      }
     },
     {
       "id": "marnie",
       "version": "marnie-v1",
-      "voiceId": null,
-      "avatarId": null,
+      "voiceId": "44c2584dd48f46b7bce9b66c8bf086e0",
+      "avatarId": "cc13f2d6ec184433a7c11fdcf09d4f84",
       "locale": "en-US",
       "style": "Sharp deadpan cultural observation. Natural linking; no manufactured comic pause.",
-      "audioReferences": []
+      "audioReferences": [
+        {
+          "videoId": "d741736341b5eb026000aaa653b4df30",
+          "source": "HeyGen approved Week 5 release manifest",
+          "settingsCaptured": true
+        }
+      ],
+      "voiceSettings": {
+        "speed": 1.1,
+        "pitch": 1,
+        "volume": 1,
+        "locale": "en-US"
+      }
     },
     {
       "id": "sabine",
       "version": "sabine-v1",
-      "voiceId": null,
-      "avatarId": null,
+      "voiceId": "a5aef5ec6ea94faebb575b2b52a915f6",
+      "avatarId": "8bdb8a9ee7c74819a928410c8f3b23b0",
       "locale": "en-US",
       "style": "Lower pitch. Neutral American accent; elegant and economical emphasis. Not British.",
-      "audioReferences": []
+      "audioReferences": [
+        {
+          "videoId": "1325b9f08384c5280e05ba3a18904df6",
+          "source": "HeyGen approved Week 5 release manifest",
+          "settingsCaptured": true
+        }
+      ],
+      "voiceSettings": {
+        "speed": 1.08,
+        "pitch": -4,
+        "volume": 1,
+        "locale": "en-US"
+      }
     },
     {
       "id": "dashiell",
       "version": "dashiell-v1",
-      "voiceId": null,
-      "avatarId": null,
+      "voiceId": "00e3d285aba44b27a83c47c02c9c2d9c",
+      "avatarId": "880b3f809c6f4a6997563295f00b94ca",
       "locale": "en-US",
       "style": "Neutral American, measured, pragmatic accounting of incentives and cost.",
-      "audioReferences": []
+      "audioReferences": [
+        {
+          "videoId": "8fd86e3b0be1bfe4c027ebab7f6561fa",
+          "source": "HeyGen approved Week 5 release manifest",
+          "settingsCaptured": true
+        }
+      ],
+      "voiceSettings": {
+        "speed": 1.09,
+        "pitch": -1,
+        "volume": 1,
+        "locale": "en-US"
+      }
     }
   ]
 }
