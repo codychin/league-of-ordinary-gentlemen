@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "profiles": [
+    {
+      "id": "maude",
+      "version": "maude-v1",
+      "voiceId": null,
+      "avatarId": null,
+      "locale": "en-US",
+      "style": "Brisk tactical explanation. Crisp shifts between mechanism and reversal. No sportscaster enthusiasm.",
+      "audioReferences": []
+    },
+    {
+      "id": "hollis",
+      "version": "hollis-v1",
+      "voiceId": null,
+      "avatarId": null,
+      "locale": "en-US",
+      "style": "Rolling observations; quieter final dagger. Unhurried hotel-bar energy, dry not performative.",
+      "audioReferences": []
+    },
+    {
+      "id": "conrad",
+      "version": "conrad-v1",
+      "voiceId": null,
+      "avatarId": null,
+      "locale": "en-US",
+      "style": "Controlled acidic essayistic pace. Wry inevitability, not breathless sarcasm.",
+      "audioReferences": []
+    },
+    {
+      "id": "marnie",
+      "version": "marnie-v1",
+      "voiceId": null,
+      "avatarId": null,
+      "locale": "en-US",
+      "style": "Sharp deadpan cultural observation. Natural linking; no manufactured comic pause.",
+      "audioReferences": []
+    },
+    {
+      "id": "sabine",
+      "version": "sabine-v1",
+      "voiceId": null,
+      "avatarId": null,
+      "locale": "en-US",
+      "style": "Lower pitch. Neutral American accent; elegant and economical emphasis. Not British.",
+      "audioReferences": []
+    },
+    {
+      "id": "dashiell",
+      "version": "dashiell-v1",
+      "voiceId": null,
+      "avatarId": null,
+      "locale": "en-US",
+      "style": "Neutral American, measured, pragmatic accounting of incentives and cost.",
+      "audioReferences": []
+    }
+  ]
+}
