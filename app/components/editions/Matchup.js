@@ -19,6 +19,11 @@ export default async function Matchup({params,config}){
   if(!game)notFound();
   const side=(id)=>String(game.home.teamId)===String(id)?game.home:game.away;
   const ls=side(a),rs=side(b),week=Number(edition?.snapshots?.matchups?.data?.data?.matchupWeek||4);
+  // Current matchup snapshots may roll over before the corresponding roster feed.
+  // Avoid showing last week's starting lineups as if they belonged to this matchup.
+  const rosterAsOf=Date.parse(edition?.snapshots?.rosters?.created_at||'');
+  const matchupAsOf=Date.parse(edition?.snapshots?.matchups?.created_at||'');
+  const rosterVerified=Number.isFinite(rosterAsOf)&&Number.isFinite(matchupAsOf)&&rosterAsOf>=matchupAsOf-12*60*60*1000;
   const active=r=>[...(r.players||[])].filter(p=>!['BN','IR'].includes(p.selectedPosition)).sort((x,y)=>(order[x.selectedPosition]??10)-(order[y.selectedPosition]??10));
   const L=active(left),R=active(right),rows=Array.from({length:Math.max(L.length,R.length)},(_,i)=>[L[i],R[i]]);
   const standing=id=>standings.find(s=>String(s.teamId)===String(id));
@@ -45,7 +50,7 @@ export default async function Matchup({params,config}){
         <article><b>{standing(a)?.wins}-{standing(a)?.losses} / {standing(b)?.wins}-{standing(b)?.losses}</b><span>RECORDS</span></article>
         <article><b>{L.filter(p=>p.status).length+R.filter(p=>p.status).length}</b><span>STARTER STATUS FLAGS</span></article>
       </div></section>
-      <section className="lineupPreview">
+      {rosterVerified?<section className="lineupPreview">
         <div className="matchupSectionHead"><div><small>STARTING LINEUPS</small><h2>Position by position</h2></div></div>
         <div className="lineupTeams"><span>{left.teamName}</span><span>{right.teamName}</span></div>
         <div>{rows.map(([l,r],i)=><div className="lineupRow" key={i}>
@@ -53,7 +58,7 @@ export default async function Matchup({params,config}){
           <div className="lineupVs">VS</div>
           <div className="lineupPlayer right">{r&&<><small>{r.selectedPosition}</small><b>{r.name}</b><span>{fmt(r.points)}</span>{r.status&&<em>{r.status}</em>}</>}</div>
         </div>)}</div>
-      </section>
+      </section>:<section className="lineupPreview"><div className="matchupSectionHead"><small>STARTING LINEUPS</small><h2>Awaiting current-week roster refresh</h2></div><p>The matchup and scores are verified, but the last stored lineup is from an earlier snapshot. We'll show player-by-player details when the provider roster is updated.</p></section>}
       <Link className="matchupBack" href={root+"#scores"}>← ALL WEEK {week} MATCHUPS</Link>
     </main>
   </>;
