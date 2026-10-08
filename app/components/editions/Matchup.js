@@ -45,7 +45,7 @@ export default async function Matchup({params,config}){
       <section className="matchupColumn">
         <div className="matchupColumnByline"><img src={writer.image} alt={writer.imageAlt}/><div><small>{column?"WEEK "+week+" • CORRESPONDENT PREVIEW":isFinal?"FINAL RESULT":"MATCHUP IN PROGRESS"} • {writer.title.toUpperCase()}</small><b>{writer.name}</b></div></div>
         <h2>{column?.headline||(isFinal?"The final accounting":"The score so far")}</h2>
-        <p>{column?.body||"A verified correspondent preview is not available for this matchup."}</p>
+        {(column?.body||"A verified correspondent preview is not available for this matchup.").split(/\n\n+/).map((paragraph,index)=><p key={index}>{paragraph}</p>)}
       </section>
       <section className="matchupPrimer"><div className="matchupSectionHead"><small>THE BRIEF'S READ</small><h2>Numbers worth staring at</h2></div><div className="primerGrid">
         <article><b>{Math.abs(Number(ls.points)-Number(rs.points)).toFixed(2)}</b><span>{isFinal?"FINAL MARGIN":"CURRENT MARGIN"}</span></article>
