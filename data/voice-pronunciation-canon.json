@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "scope": "global-all-leagues",
+  "notes": "Editor-confirmed phonetic spellings. Do not treat the audioReference fields as approved until URLs and review records exist. Do not silently rewrite visible captions/subtitles.",
+  "entries": [
+    {
+      "term": "Romeo Doubs",
+      "spoken": "ROH-mee-oh DOBBS",
+      "alias": [
+        "Doubs"
+      ],
+      "stress": "DOBBS",
+      "status": "editor-confirmed",
+      "audioReference": null,
+      "notes": "The u in Doubs is silent; HeyGen glossary efaca59a90f74128a87a3d59f94733f5."
+    },
+    {
+      "term": "Jahmyr Gibbs",
+      "spoken": "juh-MEER GIBBS",
+      "alias": [
+        "Jahmyr"
+      ],
+      "status": "editor-confirmed",
+      "audioReference": null
+    },
+    {
+      "term": "Malik Nabers",
+      "spoken": "muh-LEEK NAY-bers",
+      "alias": [
+        "Malik Nabers"
+      ],
+      "status": "editor-confirmed",
+      "audioReference": null,
+      "notes": "Avoid mah-lick and unnatural pause between syllables."
+    },
+    {
+      "term": "Nipun",
+      "spoken": "nih-POON",
+      "alias": [],
+      "status": "editor-confirmed",
+      "audioReference": null,
+      "notes": "Second syllable rhymes with lagoon/bassoon. No long I in the first syllable."
+    },
+    {
+      "term": "Mohsin",
+      "spoken": "MOE-sin",
+      "alias": [],
+      "status": "editor-confirmed",
+      "audioReference": null,
+      "notes": "Never rewrite as another person's name."
+    },
+    {
+      "term": "ZAYWATCH",
+      "spoken": "ZAY-watch",
+      "alias": [
+        "Zaywatch"
+      ],
+      "status": "editor-confirmed",
+      "audioReference": null,
+      "notes": "ZAY rhymes with day; do not say Z-eye."
+    },
+    {
+      "term": "Zay Flowers",
+      "spoken": "ZAY FLOW-ers",
+      "alias": [],
+      "status": "editor-confirmed",
+      "audioReference": null,
+      "notes": "ZAY rhymes with day."
+    },
+    {
+      "term": "Danir",
+      "spoken": "dah-NEER",
+      "alias": [],
+      "status": "editor-confirmed",
+      "audioReference": null
+    },
+    {
+      "term": "route",
+      "spoken": "ROOT",
+      "alias": [],
+      "status": "editor-confirmed",
+      "audioReference": null,
+      "notes": "House football commentary pronunciation."
+    }
+  ]
+}

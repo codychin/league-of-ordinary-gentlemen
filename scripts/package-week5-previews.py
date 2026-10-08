@@ -1,6 +1,6 @@
 import json,pathlib,subprocess,urllib.request,concurrent.futures
 root=pathlib.Path(__file__).resolve().parents[1]
-videos=json.loads((root/'scripts/week5-video-sources.json').read_text())
+subprocess.run(['node',str(root/'scripts/check-week5-video-approvals.mjs')],cwd=root,check=True)\nvideos=json.loads((root/'scripts/week5-video-sources.json').read_text())
 def run(*args): subprocess.run(args,check=True,stdout=subprocess.DEVNULL)
 def package(v):
     vid=v['videoId']; source=pathlib.Path('/tmp')/(vid+'.mp4'); target=root/'public/reels'/(vid+'.mp4'); out=root/'public/reels-hls'/vid
