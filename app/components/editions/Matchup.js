@@ -23,7 +23,8 @@ export default async function Matchup({params,config}){
   const active=r=>[...(r.players||[])].filter(p=>!['BN','IR'].includes(p.selectedPosition)).sort((x,y)=>(order[x.selectedPosition]??10)-(order[y.selectedPosition]??10));
   const L=active(left),R=active(right),rows=Array.from({length:Math.max(L.length,R.length)},(_,i)=>[L[i],R[i]]);
   const standing=id=>standings.find(s=>String(s.teamId)===String(id));
-  const column=matchupColumns.find(x=>x.edition===editionSlug&&x.week===week&&x.teamIds.includes(String(a))&&x.teamIds.includes(String(b)));\n  const writer=writers[column?.writer||'gannon'];
+  const column=matchupColumns.find(x=>x.edition===editionSlug&&x.week===week&&x.teamIds.includes(String(a))&&x.teamIds.includes(String(b)));
+  const writer=writers[column?.writer||'gannon'];
   const isFinal=game.winner&&game.winner!=='UNDECIDED';
   return <>
     <header className="articleHeader"><Link href={root+""} className="miniMast">{publicationName}</Link><EditionSiteNav root={root+""}/></header>
