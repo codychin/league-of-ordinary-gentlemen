@@ -1,3 +1,5 @@
+import matchupColumns from '../../data/week5-matchup-columns.json';
+import {writers} from '../articles/writers';
 import MatchupCardGrid from './MatchupCardGrid';
 
 const score=n=>n==null?'—':Number(n).toFixed(2);
@@ -15,7 +17,9 @@ export default function EditionScoreboard({matchups=[],week=4,rosters=[],headsho
   const image=p=>p?.playerId?(headshots[String(p.playerId)]||''):'';
   const cards=matchups.map((g,i)=>{
     const hp=featured(g.home?.teamKey),ap=featured(g.away?.teamKey);
-    return {id:g.matchupId||i,status:allFinal?'FINAL':pregame?'PREGAME':'LIVE',href:`${root}/matchups/${g.home?.teamId}/${g.away?.teamId}`,kicker:`WEEK ${week} • ${allFinal?'FINAL':pregame?'PREGAME':'OPEN MATCHUP'}`,leftName:g.home?.teamName,leftScore:score(g.home?.points),leftProjection:projected(g.home?.projectedPoints),leftImage:image(hp),rightName:g.away?.teamName,rightScore:score(g.away?.points),rightProjection:projected(g.away?.projectedPoints),rightImage:image(ap)};
+    const edition=root.replace(/^\//,'');
+    const column=matchupColumns.find(x=>x.edition===edition&&x.week===Number(week)&&x.teamIds.includes(String(g.home?.teamId))&&x.teamIds.includes(String(g.away?.teamId)));
+    return {columnHeadline:column?.headline,columnAuthor:column?writers[column.writer]?.name:null,id:g.matchupId||i,status:allFinal?'FINAL':pregame?'PREGAME':'LIVE',href:`${root}/matchups/${g.home?.teamId}/${g.away?.teamId}`,kicker:`WEEK ${week} • ${allFinal?'FINAL':pregame?'PREGAME':'OPEN MATCHUP'}`,leftName:g.home?.teamName,leftScore:score(g.home?.points),leftProjection:projected(g.home?.projectedPoints),leftImage:image(hp),rightName:g.away?.teamName,rightScore:score(g.away?.points),rightProjection:projected(g.away?.projectedPoints),rightImage:image(ap)};
   });
   return <section className="section scoreSection editionScoreSection" id="scores">
     <div className="sectionhead"><div><small className="deskLabel">THE BRIEF • SCOREBOARD</small><h2>Week {week} {allFinal?'Final':pregame?'Matchups':'Live'}</h2></div><span>{allFinal?'FINAL SCORES • WEEK '+week+' IN THE BOOKS':pregame?'NEW WEEK • 0–0':'LATEST VERIFIED SCORES'}</span></div>
