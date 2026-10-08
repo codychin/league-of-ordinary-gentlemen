@@ -4,6 +4,7 @@ import {leagueSnapshot} from '../../../teams/league-data'
 import {teams} from '../../../teams/data'
 import {writers} from '../../../articles/writers'
 
+export const dynamic='force-dynamic';
 const fmt=value=>{
   const n=Number(value)
   if(!Number.isFinite(n)) return '—'
@@ -22,6 +23,49 @@ export default async function MatchupPreview({params}){
   const leftProfile=profileFor(a),rightProfile=profileFor(b);
   if(!left||!right||!leftProfile||!rightProfile){
     return <main className="matchupPage"><h1>Matchup not found.</h1><Link href="/#scores">Return to scores</Link></main>
+  }
+
+
+  // Current-week scores are provider snapshots. The static leagueSnapshot below remains historical.
+  // Never recycle last week's finalized roster or score into a new matchup.
+  let latest=null;
+  try{
+    const res=await fetch('https://dnzdbqycuuoonewcowis.supabase.co/functions/v1/brief-sunday-engine?action=scores',{cache:'no-store'});
+    if(res.ok){
+      const value=await res.json();
+      if(value?.ok&&Number(value.week)>Number(leagueSnapshot.week)&&Array.isArray(value.matchups))latest=value;
+    }
+  }catch{}
+  if(latest){
+    const idA=Number(left.teamId),idB=Number(right.teamId);
+    const game=latest.matchups.find(g=>[Number(g.home?.id),Number(g.away?.id)].includes(idA)&&[Number(g.home?.id),Number(g.away?.id)].includes(idB));
+    if(!game)return <main className="matchupPage"><h1>Not a Week {latest.week} pairing.</h1><Link href="/#scores">Return to current scores</Link></main>;
+    const ls=Number(game.home?.id)===idA?game.home:game.away;
+    const rs=Number(game.home?.id)===idB?game.home:game.away;
+    const final=Boolean(game.winner&&game.winner!=='UNDECIDED');
+    const pregame=!final&&Number(ls.score||0)===0&&Number(rs.score||0)===0;
+    const phase=final?'FINAL':pregame?'PREGAME':'LIVE';
+    return <>
+      <header className="articleHeader"><Link href="/" className="miniMast">The Brief of Ordinary Gentleman</Link><SiteNav/></header>
+      <main className="matchupPage">
+        <section className="matchupLead">
+          <div className="matchupHeroKicker">WEEK {latest.week} • {phase}</div>
+          <div className="matchupScoreboard">
+            <Link href={`/teams/${a}`} className="matchupHeroSide"><small>{leftProfile.owners}</small><h1>{left.teamName}</h1><b>{fmt(ls.score)}</b><span>{phase}</span></Link>
+            <div className="matchupHeroCenter"><span>VS</span><small>WEEK {latest.week}</small></div>
+            <Link href={`/teams/${b}`} className="matchupHeroSide right"><small>{rightProfile.owners}</small><h1>{right.teamName}</h1><b>{fmt(rs.score)}</b><span>{phase}</span></Link>
+          </div>
+          <div className="matchupUpdated">LATEST PROVIDER-VERIFIED SCORE • {latest.updatedAt?new Date(latest.updatedAt).toLocaleString('en-US',{timeZone:'America/New_York'}):'WEEK '+latest.week}</div>
+        </section>
+        <section className="matchupColumn">
+          <div className="matchupColumnByline"><img src={writers.gannon.image} alt={writers.gannon.imageAlt}/><div><small>FOOTBALL DESK • {phase}</small><b>Maude Gannon</b></div></div>
+          <h2>{pregame?'A new week, a clean scoreboard':final?'The week is decided':'The score so far'}</h2>
+          <p>{pregame?'Both teams begin the new scoring week at zero.':final?'This matchup is complete.':'This matchup is underway.'} Projections: {fmt(ls.projection)} for {left.teamName} and {fmt(rs.projection)} for {right.teamName}.</p>
+        </section>
+        <section className="lineupPreview"><div className="matchupSectionHead"><small>STARTING LINEUPS</small><h2>Awaiting current-week roster verification</h2></div><p>Last week's starters are not being presented as current. Scores and projections above are the latest verified matchup values.</p></section>
+        <Link className="matchupBack" href="/#scores">← ALL WEEK {latest.week} MATCHUPS</Link>
+      </main>
+    </>;
   }
 
   const leftStarters=activeRoster(left)
