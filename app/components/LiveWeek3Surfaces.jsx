@@ -14,7 +14,8 @@ export default function LiveWeek3Surfaces({matchupPairs=[],teamVisuals={},initia
  },[initialData]);
  const games=data?.matchups||[];
  const week=data?.week||initialData?.week||4;
- const isFinal=data?.status==='FINAL'||(games.length>0&&games.every(g=>g.winner&&g.winner!=='UNDECIDED'));\n const pregame=!isFinal&&games.length>0&&games.every(g=>Number(g.home?.score||0)===0&&Number(g.away?.score||0)===0);
+ const isFinal=data?.status==='FINAL'||(games.length>0&&games.every(g=>g.winner&&g.winner!=='UNDECIDED'));
+ const pregame=!isFinal&&games.length>0&&games.every(g=>Number(g.home?.score||0)===0&&Number(g.away?.score||0)===0);
  if(finalWeek)return null;
  return <section className="section scoreSection" id="scores">
   <div className="scoreHero"><div><small>THE BRIEF • WEEK {week}</small><span id={'week'+week} aria-hidden="true"/><h2>Week {week}{isFinal?' Final':''}</h2></div><span>{isFinal?'FINAL SCORES':pregame?'THURSDAY • NEW MATCHUPS':'LATEST SCORES'}</span></div>
