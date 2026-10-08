@@ -16,7 +16,7 @@ export async function GET(){
   try{
     let data=await readScores()
     if(Number(data.week)<=completedScores.week){
-      return Response.json({...completedScores,stale:false},{headers:{'Cache-Control':'no-store'}})
+      return Response.json({...completedScores,stale:true},{headers:{'Cache-Control':'no-store'}})
     }
     let ageSeconds=Math.max(0,Math.round((Date.now()-new Date(data.updatedAt).getTime())/1000))
 
