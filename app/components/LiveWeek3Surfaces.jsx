@@ -1,6 +1,6 @@
+'use client';
 import matchupColumns from '../../data/week5-matchup-columns.json';
 import {writers} from '../articles/writers';
-'use client';
 import {useEffect,useState} from 'react';
 import MatchupCardGrid from './MatchupCardGrid';
 const num=n=>n==null?'—':Number(n).toFixed(2);
