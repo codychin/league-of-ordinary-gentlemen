@@ -139,7 +139,7 @@ export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1',storag
       <span>{reels.length} MATCHUPS • {new Set(reels.map(r=>r.correspondent)).size} CORRESPONDENTS</span>
     </div>
     <div className={styles.rail}>
-      {reels.map((r,i)=><button className={`${styles.story} ${viewed[r.id]?styles.seen:styles.unseen}`} key={r.id} onClick={()=>openReel(i)} aria-label={`Watch ${r.matchup} recap by ${r.correspondent}`}>
+      {reels.map((r,i)=><button className={`${styles.story} ${viewed[r.id]?styles.seen:styles.unseen}`} key={r.id} onClick={()=>openReel(i)} aria-label={`Watch ${r.matchup} by ${r.correspondent}`}>
         <span className={styles.thumb}>
           {r.leftImage&&<span className={styles.playerLeft}><ResilientImage loading="lazy" decoding="async" src={r.leftImage} alt=""/></span>}
           {r.rightImage&&<span className={styles.playerRight}><ResilientImage loading="lazy" decoding="async" src={r.rightImage} alt=""/></span>}
