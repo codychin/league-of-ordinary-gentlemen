@@ -15,6 +15,6 @@ for(const [edition,pairs] of Object.entries(pairings)){
   assert.ok(found.every(Boolean));
   assert.equal(new Set(found.map(x=>x.videoId)).size,6);
   assert.ok(found.every(x=>x.body.split(/\s+/).length>=200));
-  assert.ok(found.every(x=>x.writer!=='gannon').length>=0);
+  assert.ok(new Set(found.map(x=>x.writer)).size>=4);
  });
 }
