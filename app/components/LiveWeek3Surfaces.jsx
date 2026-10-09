@@ -2,6 +2,7 @@
 import matchupColumns from '../../data/week5-matchup-columns.json';
 import {writers} from '../articles/writers';
 import {useEffect,useState} from 'react';
+import MatchupEditorialColumns from './MatchupEditorialColumns';
 import MatchupCardGrid from './MatchupCardGrid';
 const num=n=>n==null?'—':Number(n).toFixed(2);
 const slugMap={"For the Love of the Kraft":"kraft","I'm a Skatt man":"skatt","I'm a Skatt Man":"skatt","Pollard Greens":"pollard-greens","The All Ugly Team":"all-ugly","Kupp Kupp Doubs":"kupp-doubs","The Route 22 Clubhouse":"route-22","Lloyd of the Rings":"lloyd-rings","Mr Hopkins Opus":"hopkins-opus","Shake 'N Baker":"shake-baker","Shake ’N Baker":"shake-baker","DarkHorse Danir":"danir","Royrek Tishmeshulam":"royrek","CeeDeep Shaheeded Rivalry":"ceedeep"};
@@ -28,5 +29,6 @@ export default function LiveWeek3Surfaces({matchupPairs=[],teamVisuals={},initia
    const note=matchupPairs.find(x=>(x[0]===left&&x[1]===right)||(x[0]===right&&x[1]===left))?.[2]||`WEEK ${week}`;
    return {columnHeadline:column?.headline,columnExcerpt:column?.body?.split('\n\n')[0],columnAuthor:column?writers[column.writer]?.name:null,id:g.id||i,status:isFinal?'FINAL':pregame?'PREGAME':'LIVE',href:left&&right?`/matchups/${left}/${right}`:'#scores',kicker:note,leftName:g.home?.name,leftScore:num(g.home?.score),leftProjection:num(g.home?.projection),leftImage:teamVisuals[left]?.image||'',rightName:g.away?.name,rightScore:num(g.away?.score),rightProjection:num(g.away?.projection),rightImage:teamVisuals[right]?.image||''};
   })}/>
+  <MatchupEditorialColumns edition="loog" week={week} matchups={games.map(g=>({...g,href:'/matchups/'+slugMap[g.home?.name]+'/'+slugMap[g.away?.name]}))}/>
  </section>;
 }
