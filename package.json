@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/operations/assert-production-boundary.mjs && node --test tests/production-release-rules.test.mjs && node scripts/restore-approved-reels.mjs && next build",
+    "build": "node scripts/operations/assert-production-boundary.mjs && node --test tests/production-release-rules.test.mjs tests/global-routing-completeness.test.mjs && node scripts/restore-approved-reels.mjs && next build",
     "start": "next start",
     "test": "node --test tests/*.test.mjs"
   },
