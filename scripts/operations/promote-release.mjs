@@ -36,9 +36,13 @@ console.log('Preflight: verify staging exact SHA and required pages');
 smoke(stage);
 const previous=await alias();assert.ok(previous,'Cannot determine existing production release for rollback');
 console.log('Prior production deployment:',previous);
+const upstream=await fetch('https://api.github.com/repos/codychin/league-of-ordinary-gentlemen/commits/main',{signal:AbortSignal.timeout(20000)});
+if(!upstream.ok)throw Error('Cannot verify main release tip');
+const main=(await upstream.json()).sha;
+if(main!==sha)throw Error('RELEASE BLOCKED: approved SHA must equal main tip; main='+main+' requested='+sha);
 const created=await vercel('POST','/v13/deployments'+qs,{
  name:'league-of-ordinary-gentlemen',project,target:'production',
- gitSource:{type:'github',org:'codychin',repo:'league-of-ordinary-gentlemen',ref:'staging',sha}
+ gitSource:{type:'github',org:'codychin',repo:'league-of-ordinary-gentlemen',ref:'main',sha}
 });
 const id=created.id||created.deployment?.id;
 if(!id)throw Error('No deployment ID returned');
