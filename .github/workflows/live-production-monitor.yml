@@ -1,0 +1,39 @@
+name: Live production route monitor
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: ordinarybrief-public-route-monitor
+  cancel-in-progress: false
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Check all three public editions and global article routes
+        id: check
+        continue-on-error: true
+        run: node scripts/operations/monitor-public-routes.mjs
+        env:
+          BASE_URL: https://www.ordinarybrief.com
+          REPORT_PATH: /tmp/brief-route-report.json
+      - name: Raise incident or record recovery
+        if: always()
+        run: node scripts/operations/monitor-incident.mjs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          REPORT_PATH: /tmp/brief-route-report.json
+      - name: Fail run on public outage
+        if: steps.check.outcome != 'success'
+        run: exit 1
