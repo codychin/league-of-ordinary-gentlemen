@@ -28,7 +28,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           RELEASE_SHA: ${{ github.event.workflow_run.head_sha }}
         run: |
-          HEAD="$(git ls-remote https://github.com/${{ github.repository }}.git refs/heads/main | cut -f1)"
+          HEAD="$(gh api repos/${{ github.repository }}/branches/main --jq .commit.sha)"
           test "$HEAD" = "$RELEASE_SHA" || { echo "Superseded commit; refusing promotion"; exit 1; }
       - name: Promote exact successful build and verify domain assignment
         env:
