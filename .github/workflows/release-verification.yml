@@ -1,20 +1,36 @@
-name: Release verification
+name: Verify published release
 on:
   workflow_dispatch:
     inputs:
       base_url:
-        description: "Exact Vercel preview URL or public production origin to verify"
+        description: "Exact live or preview origin"
         required: true
         type: string
       expected_commit:
-        description: "Approved commit SHA (recorded with check results)"
+        description: "Git SHA to confirm is serving"
         required: true
+        type: string
+      article_slug:
+        description: "Optional story slug to test across all editions"
+        required: false
+        type: string
+      expected_title:
+        description: "Optional exact headline"
+        required: false
+        type: string
+      expected_video_id:
+        description: "Optional YouTube video id"
+        required: false
         type: string
 permissions:
   contents: read
+concurrency:
+  group: brief-release-verification
+  cancel-in-progress: false
 jobs:
   verify:
     runs-on: ubuntu-latest
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
@@ -22,9 +38,15 @@ jobs:
           ref: ${{ inputs.expected_commit }}
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
-          node-version: 22
-      - run: node scripts/operations/smoke-release.mjs
+          node-version: '22'
+      - name: Verify published pages and exact release
+        run: node scripts/operations/release-smoke.mjs
         env:
           BASE_URL: ${{ inputs.base_url }}
-      - name: Write verified evidence
-        run: echo "Checked ${{ inputs.base_url }} at approved commit ${{ inputs.expected_commit }}"
+          EXPECTED_SHA: ${{ inputs.expected_commit }}
+          ARTICLE_SLUG: ${{ inputs.article_slug }}
+          EXPECTED_TITLE: ${{ inputs.expected_title }}
+          EXPECTED_VIDEO_ID: ${{ inputs.expected_video_id }}
+      - name: Record evidence
+        if: always()
+        run: echo "Release ${{ inputs.expected_commit }} on ${{ inputs.base_url }} — result ${{ job.status }}" >> "$GITHUB_STEP_SUMMARY"
