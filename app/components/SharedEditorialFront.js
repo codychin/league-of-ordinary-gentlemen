@@ -101,18 +101,7 @@ export default function SharedEditorialFront({archiveHref='/archive',root=''}){
   </Link>
 </section>
 
-<section className="hero heroStack" aria-label="Featured culture column">
-  <Link className="hero-copy storylink" href={root+"/articles/marnie-manifest-destiny-wembley"}>
-    <div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.52),rgba(0,0,0,.06)),url('/images/editorial/wembley-fans.webp')",backgroundPosition:"center 42%"}}>
-      <div><small>MARNIE KELLS • CULTURE</small><b>MANIFEST DESTINY</b></div>
-    </div>
-    <div className="eyebrow">MATTERS OF CULTURE • AMERICAN EXPORTS</div>
-    <h2>Manifest Destiny Has Reached <em>the Jubilee Line.</em></h2>
-    <PreviewAuthor slug="marnie-manifest-destiny-wembley"/>
-    <p className="standfirst">America sent 15,000 fans, marching bands, cheerleaders, an electric-guitar anthem and a fake Britain to Britain. Wembley never had a chance.</p>
-    <div className="read">READ MARNIE KELLS →</div>
-  </Link>
-</section>
+
 
 
 
