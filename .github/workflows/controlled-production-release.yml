@@ -1,0 +1,65 @@
+name: Controlled production release
+on:
+  workflow_dispatch:
+    inputs:
+      release_sha:
+        description: Exact approved staging commit SHA
+        required: true
+        type: string
+      staging_url:
+        description: Exact staging deployment URL
+        required: true
+        type: string
+      article_slug:
+        required: false
+        type: string
+      expected_title:
+        required: false
+        type: string
+      expected_video_id:
+        required: false
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: brief-production-release
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    environment: production
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ inputs.release_sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Verify exact source and CI
+        run: |
+          test "$(git rev-parse HEAD)" = "$RELEASE_SHA"
+          npm ci
+          npm test
+          npm run build
+        env:
+          RELEASE_SHA: ${{ inputs.release_sha }}
+      - name: Promote and verify with rollback
+        run: node scripts/operations/promote-release.mjs
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          RELEASE_SHA: ${{ inputs.release_sha }}
+          STAGING_URL: ${{ inputs.staging_url }}
+          ARTICLE_SLUG: ${{ inputs.article_slug }}
+          EXPECTED_TITLE: ${{ inputs.expected_title }}
+          EXPECTED_VIDEO_ID: ${{ inputs.expected_video_id }}
+      - name: Record result
+        if: always()
+        run: |
+          echo "Release: $RELEASE_SHA" >> "$GITHUB_STEP_SUMMARY"
+          echo "Staging: $STAGING_URL" >> "$GITHUB_STEP_SUMMARY"
+          echo "Status: ${{ job.status }}" >> "$GITHUB_STEP_SUMMARY"
+        env:
+          RELEASE_SHA: ${{ inputs.release_sha }}
+          STAGING_URL: ${{ inputs.staging_url }}
