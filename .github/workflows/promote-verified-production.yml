@@ -1,0 +1,48 @@
+name: Promote verified production release
+on:
+  workflow_run:
+    workflows: ["Release integrity"]
+    types: [completed]
+permissions:
+  contents: read
+concurrency:
+  group: ordinarybrief-production-promotion
+  cancel-in-progress: false
+jobs:
+  promote:
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.event == 'push' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - name: Check out exact validated commit
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          persist-credentials: false
+      - name: Set up Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Refuse to promote obsolete builds
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          HEAD="$(git ls-remote https://github.com/${{ github.repository }}.git refs/heads/main | cut -f1)"
+          test "$HEAD" = "$RELEASE_SHA" || { echo "Superseded commit; refusing promotion"; exit 1; }
+      - name: Promote exact successful build and verify domain assignment
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_PROJECT_ID: prj_h89MCmxn3Mr3O0wRpnwstM917E0l
+          RELEASE_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: node scripts/operations/promote-verified-release.mjs
+      - name: Verify live public routes after promotion
+        env:
+          BASE_URL: https://www.ordinarybrief.com
+        run: |
+          for attempt in 1 2 3 4 5 6; do
+            if node scripts/operations/check-public-routes.mjs; then exit 0; fi
+            echo "Live route verification attempt $attempt failed"
+            sleep 15
+          done
+          exit 1
