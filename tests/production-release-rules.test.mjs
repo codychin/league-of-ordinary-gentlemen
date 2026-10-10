@@ -20,3 +20,13 @@ test('global stories come after Jaguars feature',()=>{
  const s=readFileSync('app/components/SharedEditorialFront.js','utf8');
  assert.ok(s.indexOf('On Assignment: Dashiell Pike in London')<s.indexOf('aria-label="Recent stories"'));
 });
+
+test('every globally featured story resolves through the global edition allowlist',()=>{
+ const front=readFileSync('app/components/SharedEditorialFront.js','utf8');
+ const scope=readFileSync('lib/editorial-scope.js','utf8');
+ const recent=front.match(/<section className=\{front\.recent\}[^>]*>([\s\S]*?)<\/section>/);
+ assert.ok(recent,'Global article section missing');
+ const slugs=[...recent[1].matchAll(/root\+"\/articles\/([a-z0-9-]+)"/g)].map(m=>m[1]);
+ assert.equal(slugs.length,3,'Expected three global story links');
+ for(const slug of slugs)assert.ok(scope.includes("'"+slug+"'"),'Global carousel story not available in league editions: '+slug);
+});
