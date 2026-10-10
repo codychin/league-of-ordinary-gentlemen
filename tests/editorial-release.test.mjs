@@ -29,3 +29,10 @@ test('Ditka media is inline and story is present',()=>{
  assert.match(article,/p\?\.type==="youtube"/);
  assert.doesNotMatch(article,/WATCH THE JUICE BOX EXCHANGE/);
 });
+
+test('global article carousel must have exactly three stories',()=>{
+ const section=front.match(/<section className=\{front\.recent\}[^>]*>([\s\S]*?)<\/section>/);
+ assert.ok(section,'global story carousel must exist');
+ const cards=section[1].match(/<article className=\{front\.card\}/g)||[];
+ assert.equal(cards.length,3,'homepage carousel is limited to three articles; move displaced stories to archive');
+});
