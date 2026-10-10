@@ -7,6 +7,7 @@ import ResilientImage from './ResilientImage';
 
 export default function SharedEditorialFront({archiveHref='/archive',root=''}){
   return <>
+<section className="hero heroStack" aria-label="Hollis Crane remembers Mike Ditka"><Link className="hero-copy storylink" href={root+"/articles/hollis-mike-ditka-juice-box-guy"}><div className="photoHero" style={{backgroundImage:"linear-gradient(0deg,rgba(0,0,0,.55),rgba(0,0,0,.08)),url('https://clip.cafe/img1x1/now-is-gonna-be-the-hardest.jpg')",backgroundPosition:"center 36%"}}><div><small>HOLLIS CRANE • IN MEMORIAM</small><b>MIKE DITKA • 1939–2026</b></div></div><div className="eyebrow">IN MEMORIAM • CULTURAL IMMORTALITY</div><h2>The Juice Box Guy</h2><PreviewAuthor slug="hollis-mike-ditka-juice-box-guy"/><p className="standfirst">On the peculiar immortality of one of football's most indestructible characters.</p><div className="read">READ HOLLIS →</div></Link></section>
 <section className="morningBriefPreview sundayFront" style={{paddingTop:0}} aria-label="On Assignment: Dashiell Pike in London">
   <div className="morningBriefFlag"><span>ON ASSIGNMENT</span><small>DASHIELL PIKE • LONDON • OCTOBER 7</small></div>
   <div className="sundayFrontGrid">
