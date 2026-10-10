@@ -14,12 +14,13 @@ test('every featured editorial link has a published article record',()=>{
  }
 });
 
-test('Ditka appears as first global card, below standalone Jaguars dispatch',()=>{
+test('approved featured story appears first global below standalone Jaguars dispatch',()=>{
  const j=front.indexOf('aria-label="On Assignment: Dashiell Pike in London"');
  const grid=front.indexOf('aria-label="Recent stories"');
+ const feature=front.indexOf('aria-label="Marnie Kells on Jeremy Hecklinski"');
  const ditka=front.indexOf('aria-label="Hollis Crane remembers Mike Ditka"');
  const next=front.indexOf('aria-label="Marnie Kells on the Time-Traveling Goblin Paradox"');
- assert.ok(j>=0&&grid>j&&ditka>grid&&next>ditka,'global editorial ordering changed');
+ assert.ok(j>=0&&grid>j&&feature>grid&&ditka>feature&&next>ditka,'global editorial ordering changed');
 });
 
 test('Ditka media is inline and story is present',()=>{
@@ -35,4 +36,12 @@ test('global article carousel must have exactly three stories',()=>{
  assert.ok(section,'global story carousel must exist');
  const cards=section[1].match(/<article className=\{front\.card\}/g)||[];
  assert.equal(cards.length,3,'homepage carousel is limited to three articles; move displaced stories to archive');
+});
+
+test('Use Your Words video is last and cannot spoil homepage',()=>{
+ assert.match(content, /"marnie-hecklinski-use-your-words":/);
+ const story=content.split('"marnie-hecklinski-use-your-words":')[1].split(',"marnie-')[0];
+ assert.match(story, /"type":"xclip","id":"2108815586281099617"/);
+ assert.match(article, /p\?\.type==="xclip"/);
+ assert.doesNotMatch(front, /FUCKING JUMP/);
 });
