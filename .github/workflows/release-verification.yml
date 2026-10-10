@@ -1,0 +1,30 @@
+name: Release verification
+on:
+  workflow_dispatch:
+    inputs:
+      base_url:
+        description: "Exact Vercel preview URL or public production origin to verify"
+        required: true
+        type: string
+      expected_commit:
+        description: "Approved commit SHA (recorded with check results)"
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+          ref: ${{ inputs.expected_commit }}
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 22
+      - run: node scripts/operations/smoke-release.mjs
+        env:
+          BASE_URL: ${{ inputs.base_url }}
+      - name: Write verified evidence
+        run: echo "Checked ${{ inputs.base_url }} at approved commit ${{ inputs.expected_commit }}"
