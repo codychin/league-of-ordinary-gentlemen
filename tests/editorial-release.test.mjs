@@ -10,7 +10,7 @@ const slugs=[...front.matchAll(/root\+"\/articles\/([a-z0-9-]+)"/g)].map(m=>m[1]
 test('every featured editorial link has a published article record',()=>{
  assert.ok(slugs.length>=5,'unexpectedly empty featured article list');
  for(const slug of slugs){
-  assert.ok(content.includes(JSON.stringify(slug)+':'),`Missing article record for homepage link: ${slug}`);
+  assert.ok(content.includes(JSON.stringify(slug)+':')||content.includes("'"+slug+"':"),`Missing article record for homepage link: ${slug}`);
  }
 });
 
