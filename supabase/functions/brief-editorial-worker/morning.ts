@@ -2,7 +2,7 @@
 export function morningCandidates(nfl, now = new Date()) {
  const day = date => new Date(date).toLocaleDateString('en-CA',{timeZone:'America/New_York'});
  const today = day(now);
- const highImpact = /\b(injur\w*|inactive|active|questionable|doubtful|ruled out|suspend\w*|arrest\w*|trad\w*|roster|released|waiver\w*|signs|signed|dies|died|death|concussion|out for|will play)\b/i;
+ const highImpact = /\b(injur\w*|inactiv\w*|activ\w*|out|questionable|doubtful|ruled out|suspend\w*|arrest\w*|trad\w*|roster|released|waiver\w*|signs|signed|dies|died|death|concussion|out for|will play)\b/i;
  const evergreen = /\b(rankings|betting|odds|prop plays|draft questions|highlights)\b/i;
  const articles = (nfl.morningNews || []).filter(a => {
   const timestamp = Date.parse(a.published);
