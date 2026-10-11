@@ -19,7 +19,7 @@ export function validDraft(p:any){return p&&Object.hasOwn(DESKS,p.writer)&&typeo
 export async function sharedDesk(db:any){
  const now=new Date(),parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(now)
  const part=(t:string)=>parts.find(p=>p.type===t)?.value
- if(part('weekday')!=='Sun'||Number(part('hour'))*60+Number(part('minute'))<765)return {ok:true,closed:true}
+ if(part('weekday')!=='Sun'||Number(part('hour'))*60+Number(part('minute'))<540)return {ok:true,closed:true}
  const {data:claimed,error}=await db.rpc('claim_brief_attempt');if(error)throw error
  if(!claimed)return {ok:true,idle:true}
  const nfl=await nflEvidence(),candidates=eventCandidates(nfl)

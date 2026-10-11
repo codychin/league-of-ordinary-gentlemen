@@ -1,20 +1,13 @@
 'use client'
 
-import {LIVE_DESK_ENABLED} from '../../lib/live-desk-state'
+import {isSundayLiveWindow} from '../../lib/live-desk-state'
 import {useEffect,useMemo,useState} from 'react'
 import Link from 'next/link'
 import {writers} from '../articles/writers'
-import {sundayDeskMeta,sundayDeskPosts as fallbackPosts} from '../live-desk/data'
+import {sundayDeskMeta} from '../live-desk/data'
 
 const API='https://dnzdbqycuuoonewcowis.supabase.co/functions/v1/brief-live-desk'
-const liveNow=()=>{
-  if(!LIVE_DESK_ENABLED)return false
-  try{
-    const parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date())
-    const get=t=>parts.find(p=>p.type===t)?.value
-    return get('weekday')==='Sun'&&(Number(get('hour'))>12||(Number(get('hour'))===12&&Number(get('minute'))>=45))
-  }catch{return false}
-}
+const liveNow=isSundayLiveWindow
 
 export default function SundayLiveDesk({editionSlug=null,editionLabel='THE NEWSROOM',staffPath='/staff'}){
   const [posts,setPosts]=useState([])
@@ -39,7 +32,7 @@ export default function SundayLiveDesk({editionSlug=null,editionLabel='THE NEWSR
   },[isLive,editionSlug])
   const todayNY=new Date().toLocaleDateString('en-US',{timeZone:'America/New_York'})
   const todaysPosts=posts.filter(p=>p.published_at&&new Date(p.published_at).toLocaleDateString('en-US',{timeZone:'America/New_York'})===todayNY)
-  const normalized=todaysPosts.length?todaysPosts.map(p=>({...p,time:p.published_at?new Date(p.published_at).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',timeZone:'America/New_York'}):'',id:p.id})):(editionSlug?[]:fallbackPosts)
+  const normalized=todaysPosts.length?todaysPosts.map(p=>({...p,time:p.published_at?new Date(p.published_at).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',timeZone:'America/New_York'}):'',id:p.id})):[]
   const visible=useMemo(()=>filter==='all'?normalized:normalized.filter(p=>p.writer===filter),[normalized,filter])
   const pageCount=Math.max(1,Math.ceil(visible.length/pageSize))
   const currentPage=Math.min(page,pageCount)
@@ -67,7 +60,7 @@ export default function SundayLiveDesk({editionSlug=null,editionLabel='THE NEWSR
       {activeWriters.map(key=><button key={key} className={filter===key?'active':''} onClick={()=>{setFilter(key);setPage(1)}}>{writers[key]?.name.split(' ')[0]?.toUpperCase()}</button>)}
     </div>
     <div className="sundayDeskFeed">
-      {normalized.length===0&&<p className="deskEmpty" role="status" style={{padding:'24px 0',fontSize:'1rem',lineHeight:1.5}}>{loadState==='loading'?'Loading the live desk…':loadState==='error'?'The live desk is temporarily unavailable. We’ll retry shortly.':'The Sunday Crew desk is open. Coverage will appear here as reports come in.'}</p>}
+      {normalized.length===0&&<p className="deskEmpty" role="status" style={{padding:'24px 0',fontSize:'1rem',lineHeight:1.5}}>{loadState==='loading'?'Loading the live desk…':loadState==='error'?'The live desk is temporarily unavailable. We’ll retry shortly.':'The Sunday Live Desk is open. Coverage will appear here as reports come in.'}</p>}
       {displayed.map(post=>{
         const writer=writers[post.writer]
         if(!writer)return null
