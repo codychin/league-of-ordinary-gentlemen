@@ -13,10 +13,10 @@ export async function nflEvidence(){
  }))
  const details=summaries.flatMap(x=>x.status==='fulfilled'&&x.value?[x.value]:[])
  if(active.length&&!details.length)throw new Error('All live game summaries failed; refusing an empty evidence packet')
- let morningNews=[]
+ let morningNews=details.flatMap((d:any)=>(d.news?.articles||[]).map((a:any)=>({id:a.id,headline:a.headline,description:a.description,published:a.published,source_url:a.links?.web?.href})))
  try{
-  const newsResponse=await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/news?limit=30',{headers:{Accept:'application/json'},signal:AbortSignal.timeout(8000)})
-  if(newsResponse.ok){const news=await newsResponse.json();morningNews=(news.articles||[]).map((a:any)=>({id:a.id,headline:a.headline,description:a.description,published:a.published,source_url:a.links?.web?.href}))}
+  const newsResponse=await fetch('https://site.api.espn.com/apis/site/v2/sports/football/nfl/news?limit=30',{headers:{Accept:'application/json','User-Agent':'Mozilla/5.0'},signal:AbortSignal.timeout(12000)})
+  if(newsResponse.ok){const news=await newsResponse.json();morningNews=[...morningNews,...(news.articles||[]).map((a:any)=>({id:a.id,headline:a.headline,description:a.description,published:a.published,source_url:a.links?.web?.href}))]}
  }catch{/* Live-game evidence remains available if news retrieval fails. */}
  return {as_of:new Date().toISOString(),scoreboard:result,details,morningNews}
 }
