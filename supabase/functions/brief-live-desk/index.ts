@@ -21,7 +21,7 @@ Deno.serve(async(req)=>{
       if(globalError)throw globalError
       const merged=(local:any[])=>[...(globalPosts||[]).map((p:any)=>({...p,id:'global:'+p.id})),...local].sort((a,b)=>Date.parse(b.sort_time)-Date.parse(a.sort_time)).slice(0,100)
       if(edition){
-        if(edition!=='sunday-crew') return response({error:'Unknown edition'},404)
+        if(!['sunday-crew','doge'].includes(edition)) return response({error:'Unknown edition'},404)
         const {data,error}=await db.from('brief_edition_live_posts').select('id,writer,tag,text,subject,thread,published_at,sort_time,source_url,source_name').eq('edition_slug',edition).eq('status','live').order('sort_time',{ascending:false}).limit(100)
         if(error) throw error
         return response({edition,posts:merged(data||[])})
