@@ -1,0 +1,32 @@
+.history{margin:36px 0 44px;border-top:5px solid #171614;color:#171614}
+.flag{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #171614;font-size:11px;font-weight:800;letter-spacing:1.4px}
+.heading{padding:26px 0 20px;max-width:860px}
+.manager{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#a52326;margin-bottom:10px}
+.heading h2{font-family:Georgia,serif;font-size:clamp(30px,4.2vw,49px);line-height:1.1;margin:0 0 14px;letter-spacing:-1px}
+.heading p{font-family:Georgia,serif;font-size:20px;line-height:1.5;margin:0;color:#514c46}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:0;border-top:1px solid #b9b2a8;border-bottom:1px solid #b9b2a8}
+.stats div{padding:18px 12px;border-right:1px solid #d3cdc4}
+.stats div:first-child{padding-left:0}.stats div:last-child{border-right:0}
+.stats dt{font-size:10px;font-weight:800;letter-spacing:.8px;line-height:1.5}
+.stats dd{font-family:Georgia,serif;font-weight:700;font-size:30px;color:#a52326;margin:7px 0 0}
+.scope{font-size:12px;color:#655e55;margin:9px 0 26px}
+.columns{display:grid;grid-template-columns:minmax(0,2.5fr) minmax(190px,1fr);gap:38px;align-items:start}
+.story h3{font-family:Georgia,serif;font-size:24px;line-height:1.25;margin:0 0 10px}
+.story p{font-family:Georgia,serif;font-size:18px;line-height:1.75;margin:0 0 26px}
+.rivals{border-top:3px solid #171614;padding-top:12px}
+.rivals h3{font-family:Georgia,serif;font-size:22px;margin:0 0 12px}
+.rivals a{display:block;color:inherit;text-decoration:none;border-bottom:1px solid #cfc8bf;padding:13px 0}
+.rivals strong,.rivals span,.rivals small{display:block}
+.rivals strong{font-size:15px}.rivals span{font-family:Georgia,serif;font-size:15px;line-height:1.5;margin:6px 0}.rivals small{font-size:9px;letter-spacing:.7px;font-weight:800;color:#a52326}
+.rivals a:hover strong{text-decoration:underline}.rivals p{font-size:12px;line-height:1.6;color:#655e55}
+.seasonHeading{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-top:3px solid #171614;padding:15px 0 4px;margin-top:8px}
+.seasonHeading h3{font-family:Georgia,serif;font-size:26px;margin:0}.seasonHeading span{font-size:12px;color:#655e55}
+.tableWrap{max-width:100%;overflow-x:auto}.tableWrap:focus-visible{outline:2px solid #a52326;outline-offset:3px}
+.tableWrap table{border-collapse:collapse;width:100%;font-size:14px;text-align:left;min-width:530px}
+.tableWrap caption{text-align:left;font-size:12px;color:#655e55;padding:8px 0 14px}
+.tableWrap th,.tableWrap td{padding:12px 10px;border-bottom:1px solid #d3cdc4;vertical-align:top}
+.tableWrap th:first-child{padding-left:0}.tableWrap thead th{font-size:10px;text-transform:uppercase;letter-spacing:.9px;border-bottom:2px solid #171614}
+.tableWrap td:nth-child(3){white-space:nowrap;font-variant-numeric:tabular-nums}
+.champion{background:#a5232609}.champion td:last-child{font-weight:800;color:#a52326}
+.source{font-size:12px;line-height:1.65;color:#655e55;margin:15px 0 0;max-width:800px}
+@media(max-width:650px){.history{margin-top:28px}.flag{font-size:9px;letter-spacing:.8px}.heading{padding-top:20px}.heading p{font-size:18px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stats div{padding:14px 10px}.stats div:nth-child(2){border-right:0}.stats div:nth-child(-n+2){border-bottom:1px solid #d3cdc4}.stats div:nth-child(3){padding-left:0}.stats dd{font-size:28px}.columns{grid-template-columns:minmax(0,1fr);gap:4px}.story p{font-size:17px;line-height:1.75}.story h3{font-size:23px}.rivals{margin-bottom:22px}.seasonHeading{align-items:start;flex-direction:column;gap:5px}.seasonHeading h3{font-size:24px}}

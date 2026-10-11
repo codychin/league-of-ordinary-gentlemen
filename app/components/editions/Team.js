@@ -1,3 +1,4 @@
+import FranchiseHistory from './FranchiseHistory';
 import Link from 'next/link';
 import EditionSiteNav from '../EditionSiteNav';
 import {notFound} from 'next/navigation';
@@ -50,6 +51,8 @@ export default async function Team({params,config}){
         <div><b>{rosterPlayers.filter(p=>p.isKeeper?.kept).length}</b><span>KEEPERS</span></div>
       </div>
 
+      <FranchiseHistory teamId={id} editionSlug={editionSlug}/>
+
       <section className="seasonRead">
         <div className="operationsHead"><div><small>{edition.league.season} SEASON FILE</small><h2>Season to Date</h2></div><span>OFFICIAL YAHOO TOTALS THROUGH WEEK {completedGames}</span></div>
         <div className="seasonSummary">
@@ -82,10 +85,10 @@ export default async function Team({params,config}){
         </div>})}
       </section>
 
-      <section className="franchiseLead">
+      {editionSlug!=='sunday-crew'&&<section className="franchiseLead">
         <div><small>EDITORIAL FILE</small><h2>{config.teamNotes?.[id]?.title||"The season on file"}</h2><p>{config.teamNotes?.[id]?.body||"The results above form this franchise’s record. Each week adds another receipt."}</p></div>
         <aside><small>ON FILE</small><p>{completedGames} games. {standing?.wins} wins. {standing?.losses} losses. {standing?num(standing.pointsFor):"—"} points scored.</p></aside>
-      </section>
+      </section>}
 
       <div className="teamFoot"><span>Team names change. The file does not.</span><Link href={root+"/teams"} className="back">← ALL FRANCHISES</Link></div>
     </main>
