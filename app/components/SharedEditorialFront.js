@@ -7,6 +7,21 @@ import ResilientImage from './ResilientImage';
 
 export default function SharedEditorialFront({archiveHref='/archive',root=''}){
   return <>
+<section className="morningBriefPreview sundayFront" style={{paddingTop:0}} aria-label="Lead story: The NFC East Declines to Name a Winner">
+  <div className="morningBriefFlag"><span>THE FOOTBALL DESK</span><small>MAUDE GANNON • OCTOBER 11</small></div>
+  <div className="sundayFrontGrid"><article className="sundayFeature sabinePackage">
+    <Link href={root+"/articles/maude-nfc-east-declines-winner"} className={`sundayFeatureImage storylink ${front.tourHero}`}>
+      <ResilientImage loading="eager" decoding="async" style={{objectPosition:"center center"}} src="https://sportshub.cbsistatic.com/i/r/2026/10/11/830be0b3-3807-40dd-b003-6e64d0d49615/thumbnail/1200x675/7fba8e6037ce9a83e03b456a120f5a57/commanders-giants.jpg" alt="Giants defenders celebrate at the end of the 27–27 tie with Washington on October 11, 2026."/>
+    </Link>
+    <div className="sundayFeatureCopy"><div className="sabinePackageIntro">
+      <small>FOOTBALL • STRATEGY & BAD PROCESS</small>
+      <Link href={root+"/articles/maude-nfc-east-declines-winner"} className="sabinePackageTitle storylink"><h2>The NFC East Declines to Name a Winner</h2></Link>
+      <p>The Giants and Commanders spent the afternoon reducing the requirements for victory. Neither could meet the final version.</p>
+      <PreviewAuthor slug="maude-nfc-east-declines-winner"/>
+    </div><Link href={root+"/articles/maude-nfc-east-declines-winner"} className="sabinePackageCta">READ MAUDE →</Link></div>
+  </article></div>
+</section>
+
 <section className="morningBriefPreview sundayFront" style={{paddingTop:0}} aria-label="On Assignment: Dashiell Pike in London">
   <div className="morningBriefFlag"><span>ON ASSIGNMENT</span><small>DASHIELL PIKE • LONDON • OCTOBER 7</small></div>
   <div className="sundayFrontGrid">
