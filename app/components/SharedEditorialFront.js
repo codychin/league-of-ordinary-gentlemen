@@ -22,33 +22,6 @@ export default function SharedEditorialFront({archiveHref='/archive',root=''}){
   </article></div>
 </section>
 
-<section className="morningBriefPreview sundayFront" style={{paddingTop:0}} aria-label="On Assignment: Dashiell Pike in London">
-  <div className="morningBriefFlag"><span>ON ASSIGNMENT</span><small>DASHIELL PIKE • LONDON • OCTOBER 7</small></div>
-  <div className="sundayFrontGrid">
-    <article className="sundayFeature sabinePackage">
-      <Link href={root+"/articles/dashiell-jaguars-london-future"} className={`sundayFeatureImage storylink ${front.tourHero}`}>
-        <ResilientImage loading="eager" decoding="async" style={{objectPosition:"center 42%"}} src="/api/dashiell-london-fans-image" alt="NFL fans gathered in London for an international game."/>
-        <div className="actionCaption"><small>DASHIELL PIKE • LONDON</small><b>ON ASSIGNMENT</b></div>
-      </Link>
-      <div className="sundayFeatureCopy">
-        <div className="sabinePackageIntro">
-          <small>SPECIAL PROJECTS • CAPITAL & DEMOCRACY</small>
-          <Link href={root+"/articles/dashiell-jaguars-london-future"} className="sabinePackageTitle storylink"><h2>Is the NFL’s Future Hiding Inside Its Weirdest Franchise?</h2></Link>
-          <p>The Jacksonville Jaguars spent years looking like an NFL problem to be solved. In London, they may have accidentally become something else.</p>
-          <PreviewAuthor slug="dashiell-jaguars-london-future"/>
-        </div>
-        <div className="sabineInlineVideo dashiellLondonVideo">
-          <div className="sabineVideoLabel"><small><span className="sabineDesktopLabel">ON ASSIGNMENT • LONDON</span><span className="sabineMobileLabel">FROM LONDON</span></small><span>0:29</span></div>
-          <div className="sabineVideoBody">
-            <video controls playsInline preload="none" poster="https://cdn.openart.ai/openart/thumbnail/production/2026-10/create-video/TLTpmJfydK54x1UaTK6G/cgt-20261008002242-mexhp_1791390729765_82dc1525.webp" src="https://cdn.openart.ai/openart-ai/production/2026-10/create-video/TLTpmJfydK54x1UaTK6G/cgt-20261008002242-mexhp_1791390692996_b5b0afba.mp4"/>
-          </div>
-        </div>
-        <Link href={root+"/articles/dashiell-jaguars-london-future"} className="sabinePackageCta">READ THE DISPATCH →</Link>
-      </div>
-    </article>
-  </div>
-</section>
-
 <section className={front.recent} aria-label="Recent stories">
 <article className={front.card} aria-label="Marnie Kells on Marvin Harrison Jr."><Link className={front.story} href={root+"/articles/marnie-marvin-harrison-somewhere-else"}><div className={front.image} role="img" aria-label="Marvin Harrison Jr. catching a football in his white Arizona Cardinals No. 18 uniform." style={{backgroundImage:"url('https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/cardinals/whbhqzxotle5uja93jv1')",backgroundPosition:"left center"}}/><div className="eyebrow">MATTERS OF CULTURE • SPORTING LIFE</div><h3>Marvin Harrison Jr. Will Be Playing Somewhere Else. The Important Part Is Else.</h3><PreviewAuthor slug="marnie-marvin-harrison-somewhere-else"/><p className={front.dek}>The destination remains unreported. The departure has received considerably more clarity.</p><div className="read">READ MARNIE →</div></Link></article>
 <article className={front.card} aria-label="Marnie Kells on Jeremy Hecklinski"><Link className={front.story} href={root+"/articles/marnie-hecklinski-use-your-words"}><div className={front.image} style={{backgroundImage:"url('https://images2.minutemediacdn.com/image/upload/c_crop%2Cx_0%2Cy_275%2Cw_4659%2Ch_2620/c_fill%2Cw_1440%2Car_1440%3A810%2Cf_auto%2Cq_auto%2Cg_auto/images/ImagnImages/mmsport/inside_the_hawkeyes/01kt4afzsc00k8hwtpfv.jpg')",backgroundPosition:"center 27%"}}/><div className="eyebrow">MATTERS OF CULTURE • INTERPERSONAL COMMUNICATION</div><h3>Use Your Words.</h3><PreviewAuthor slug="marnie-hecklinski-use-your-words"/><p className={front.dek}>An Iowa quarterback and the quiet courage of asking for what you need.</p><div className="read">READ MARNIE →</div></Link></article>
@@ -121,6 +94,33 @@ export default function SharedEditorialFront({archiveHref='/archive',root=''}){
 
 
 
+
+<section className="morningBriefPreview sundayFront" style={{paddingTop:0}} aria-label="On Assignment: Dashiell Pike in London">
+  <div className="morningBriefFlag"><span>ON ASSIGNMENT</span><small>DASHIELL PIKE • LONDON • OCTOBER 7</small></div>
+  <div className="sundayFrontGrid">
+    <article className="sundayFeature sabinePackage">
+      <Link href={root+"/articles/dashiell-jaguars-london-future"} className={`sundayFeatureImage storylink ${front.tourHero}`}>
+        <ResilientImage loading="eager" decoding="async" style={{objectPosition:"center 42%"}} src="/api/dashiell-london-fans-image" alt="NFL fans gathered in London for an international game."/>
+        <div className="actionCaption"><small>DASHIELL PIKE • LONDON</small><b>ON ASSIGNMENT</b></div>
+      </Link>
+      <div className="sundayFeatureCopy">
+        <div className="sabinePackageIntro">
+          <small>SPECIAL PROJECTS • CAPITAL & DEMOCRACY</small>
+          <Link href={root+"/articles/dashiell-jaguars-london-future"} className="sabinePackageTitle storylink"><h2>Is the NFL’s Future Hiding Inside Its Weirdest Franchise?</h2></Link>
+          <p>The Jacksonville Jaguars spent years looking like an NFL problem to be solved. In London, they may have accidentally become something else.</p>
+          <PreviewAuthor slug="dashiell-jaguars-london-future"/>
+        </div>
+        <div className="sabineInlineVideo dashiellLondonVideo">
+          <div className="sabineVideoLabel"><small><span className="sabineDesktopLabel">ON ASSIGNMENT • LONDON</span><span className="sabineMobileLabel">FROM LONDON</span></small><span>0:29</span></div>
+          <div className="sabineVideoBody">
+            <video controls playsInline preload="none" poster="https://cdn.openart.ai/openart/thumbnail/production/2026-10/create-video/TLTpmJfydK54x1UaTK6G/cgt-20261008002242-mexhp_1791390729765_82dc1525.webp" src="https://cdn.openart.ai/openart-ai/production/2026-10/create-video/TLTpmJfydK54x1UaTK6G/cgt-20261008002242-mexhp_1791390692996_b5b0afba.mp4"/>
+          </div>
+        </div>
+        <Link href={root+"/articles/dashiell-jaguars-london-future"} className="sabinePackageCta">READ THE DISPATCH →</Link>
+      </div>
+    </article>
+  </div>
+</section>
 
 <div className={styles.archiveCta}>
   <div><span className={styles.label}>THE PERMANENT RECORD</span><p>Every take. Every receipt.</p></div>
