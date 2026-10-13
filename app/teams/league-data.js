@@ -1,23 +1,23 @@
 export const leagueSnapshot = {
-  "updatedAt": "OCTOBER 6, 2026 • WEEK 4 FINAL",
-  "week": 4,
+  "updatedAt": "OCTOBER 13, 2026 • WEEK 5 FINAL",
+  "week": 5,
   "teams": {
     "kupp-doubs": {
       "teamId": 1,
       "teamName": "Kupp Kupp Doubs",
-      "record": "3-1",
-      "seed": 4,
-      "pointsFor": 500.7,
-      "pointsAgainst": 490.02,
+      "record": "4-1",
+      "seed": 3,
+      "pointsFor": 678.3,
+      "pointsAgainst": 626.88,
       "projectedRank": 3,
       "matchup": {
-        "opponent": "DarkHorse Danir",
-        "opponentSlug": "danir",
-        "score": 143.62,
-        "opponentScore": 125.42,
+        "opponent": "Royrek Tishmeshulam",
+        "opponentSlug": "royrek",
+        "score": 177.6,
+        "opponentScore": 136.86,
         "status": "FINAL",
-        "projection": null,
-        "opponentProjection": null
+        "projection": 128.59469006,
+        "opponentProjection": 121.89138295
       },
       "roster": [
         {
@@ -27,9 +27,9 @@ export const leagueSnapshot = {
           "team": "SF",
           "slot": "RB",
           "status": "",
-          "weekPoints": 18.5,
-          "seasonPoints": 83.0,
-          "starts": 4
+          "weekPoints": 19.4,
+          "seasonPoints": 102.4,
+          "starts": 5
         },
         {
           "id": "4047646",
@@ -38,7 +38,7 @@ export const leagueSnapshot = {
           "team": "NE",
           "slot": "IR",
           "status": "",
-          "weekPoints": 0.0,
+          "weekPoints": 0,
           "seasonPoints": 4.6,
           "starts": 1
         },
@@ -49,9 +49,9 @@ export const leagueSnapshot = {
           "team": "DAL",
           "slot": "RB",
           "status": "",
-          "weekPoints": 34.2,
-          "seasonPoints": 88.0,
-          "starts": 4
+          "weekPoints": 14.4,
+          "seasonPoints": 102.4,
+          "starts": 5
         },
         {
           "id": "3915416",
@@ -60,9 +60,9 @@ export const leagueSnapshot = {
           "team": "BUF",
           "slot": "WR",
           "status": "",
-          "weekPoints": 1.8,
-          "seasonPoints": 44.0,
-          "starts": 4
+          "weekPoints": 0,
+          "seasonPoints": 44,
+          "starts": 5
         },
         {
           "id": "4426388",
@@ -71,9 +71,9 @@ export const leagueSnapshot = {
           "team": "DET",
           "slot": "WR",
           "status": "",
-          "weekPoints": 17.2,
-          "seasonPoints": 40.9,
-          "starts": 4
+          "weekPoints": 19.7,
+          "seasonPoints": 60.6,
+          "starts": 5
         },
         {
           "id": "4569987",
@@ -82,9 +82,9 @@ export const leagueSnapshot = {
           "team": "PIT",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 16.3,
-          "seasonPoints": 64.7,
-          "starts": 4
+          "weekPoints": 49.3,
+          "seasonPoints": 114,
+          "starts": 5
         },
         {
           "id": "4047365",
@@ -93,20 +93,9 @@ export const leagueSnapshot = {
           "team": "GB",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0.0,
-          "seasonPoints": 0.0,
+          "weekPoints": 0,
+          "seasonPoints": 0,
           "starts": 0
-        },
-        {
-          "id": "4038941",
-          "name": "Justin Herbert",
-          "position": "QB",
-          "team": "LAC",
-          "slot": "Bench",
-          "status": "",
-          "weekPoints": 9.91,
-          "seasonPoints": 42.49,
-          "starts": 3
         },
         {
           "id": "4695883",
@@ -115,7 +104,7 @@ export const leagueSnapshot = {
           "team": "CAR",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0.0,
+          "weekPoints": 0,
           "seasonPoints": 58.2,
           "starts": 2
         },
@@ -126,19 +115,19 @@ export const leagueSnapshot = {
           "team": "NYG",
           "slot": "TE",
           "status": "",
-          "weekPoints": 14.6,
-          "seasonPoints": 55.0,
-          "starts": 4
+          "weekPoints": 32.4,
+          "seasonPoints": 87.4,
+          "starts": 5
         },
         {
           "id": "3929645",
           "name": "Juwan Johnson",
           "position": "TE",
           "team": "NO",
-          "slot": "FLEX",
+          "slot": "Bench",
           "status": "",
-          "weekPoints": 10.9,
-          "seasonPoints": 59.7,
+          "weekPoints": 4.6,
+          "seasonPoints": 64.3,
           "starts": 1
         },
         {
@@ -148,8 +137,8 @@ export const leagueSnapshot = {
           "team": "NO",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 16.4,
-          "seasonPoints": 34.7,
+          "weekPoints": 5.6,
+          "seasonPoints": 40.3,
           "starts": 0
         },
         {
@@ -159,44 +148,58 @@ export const leagueSnapshot = {
           "team": "IND",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0.0,
-          "seasonPoints": 19.8,
+          "weekPoints": 8.5,
+          "seasonPoints": 28.3,
           "starts": 0
-        },
-        {
-          "id": "3912547",
-          "name": "Sam Darnold",
-          "slot": "QB",
-          "status": "",
-          "weekPoints": 14.62,
-          "seasonPoints": 14.62,
-          "starts": 1
-        },
-        {
-          "id": "-16002",
-          "name": "Bills D/ST",
-          "slot": "D/ST",
-          "status": "",
-          "weekPoints": 0.5,
-          "seasonPoints": 0.5,
-          "starts": 1
         },
         {
           "id": "3116406",
           "name": "Tyreek Hill",
+          "position": "WR",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0.0,
-          "seasonPoints": 0.0,
+          "weekPoints": 0,
+          "seasonPoints": 0,
           "starts": 0
         },
         {
           "id": "4249087",
           "name": "Matt Gay",
+          "position": "K",
           "slot": "K",
           "status": "",
-          "weekPoints": 15.0,
-          "seasonPoints": 15.0,
+          "weekPoints": 4,
+          "seasonPoints": 19,
+          "starts": 2
+        },
+        {
+          "id": "4430539",
+          "name": "Brenton Strange",
+          "position": "TE",
+          "slot": "FLEX",
+          "status": "",
+          "weekPoints": 14.8,
+          "seasonPoints": 14.8,
+          "starts": 1
+        },
+        {
+          "id": "8439",
+          "name": "Aaron Rodgers",
+          "position": "QB",
+          "slot": "QB",
+          "status": "",
+          "weekPoints": 25.1,
+          "seasonPoints": 25.1,
+          "starts": 1
+        },
+        {
+          "id": "-16003",
+          "name": "Bears D/ST",
+          "position": "D/ST",
+          "slot": "D/ST",
+          "status": "",
+          "weekPoints": -1.5,
+          "seasonPoints": -1.5,
           "starts": 1
         }
       ],
@@ -213,21 +216,21 @@ export const leagueSnapshot = {
         }
       ],
       "season": {
-        "completedGames": 4,
-        "ppg": 125.17,
-        "pfRank": 12,
+        "completedGames": 5,
+        "ppg": 135.66,
+        "pfRank": 8,
         "paRank": 12,
         "projectedRank": 3,
-        "startedPoints": 500.7,
-        "benchPoints": 203.55,
+        "startedPoints": 678.3,
+        "benchPoints": 222.25,
         "positionTotals": {
-          "RB": 171.0,
-          "WR": 86.2,
-          "FLEX": 99.3,
-          "QB": 47.2,
-          "D/ST": 13.5,
-          "TE": 55.0,
-          "K": 28.5
+          "RB": 204.8,
+          "WR": 105.9,
+          "FLEX": 163.4,
+          "QB": 72.3,
+          "D/ST": 12,
+          "TE": 87.4,
+          "K": 32.5
         },
         "weekly": [
           {
@@ -265,6 +268,15 @@ export const leagueSnapshot = {
             "score": 143.62,
             "opponentScore": 125.42,
             "result": "W"
+          },
+          {
+            "week": 5,
+            "status": "FINAL",
+            "opponent": "Royrek Tishmeshulam",
+            "opponentSlug": "royrek",
+            "score": 177.6,
+            "opponentScore": 136.86,
+            "result": "W"
           }
         ]
       }
@@ -272,19 +284,19 @@ export const leagueSnapshot = {
     "danir": {
       "teamId": 2,
       "teamName": "DarkHorse Danir",
-      "record": "1-3",
-      "seed": 10,
-      "pointsFor": 558.67,
-      "pointsAgainst": 654.22,
-      "projectedRank": 10,
+      "record": "2-3",
+      "seed": 7,
+      "pointsFor": 729.93,
+      "pointsAgainst": 801.42,
+      "projectedRank": 8,
       "matchup": {
-        "opponent": "Kupp Kupp Doubs",
-        "opponentSlug": "kupp-doubs",
-        "score": 125.42,
-        "opponentScore": 143.62,
+        "opponent": "For the Love of the Kraft",
+        "opponentSlug": "kraft",
+        "score": 171.26,
+        "opponentScore": 147.2,
         "status": "FINAL",
-        "projection": null,
-        "opponentProjection": null
+        "projection": 143.03525984,
+        "opponentProjection": 148.01093469
       },
       "roster": [
         {
@@ -294,9 +306,9 @@ export const leagueSnapshot = {
           "team": "DET",
           "slot": "RB",
           "status": "",
-          "weekPoints": 18.2,
-          "seasonPoints": 127.0,
-          "starts": 4
+          "weekPoints": 44.2,
+          "seasonPoints": 171.2,
+          "starts": 5
         },
         {
           "id": "4595348",
@@ -305,9 +317,9 @@ export const leagueSnapshot = {
           "team": "NYG",
           "slot": "WR",
           "status": "",
-          "weekPoints": 26.2,
-          "seasonPoints": 48.8,
-          "starts": 4
+          "weekPoints": 31.1,
+          "seasonPoints": 79.9,
+          "starts": 5
         },
         {
           "id": "4427366",
@@ -316,7 +328,7 @@ export const leagueSnapshot = {
           "team": "NYJ",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0.0,
+          "weekPoints": 0,
           "seasonPoints": 49.6,
           "starts": 3
         },
@@ -327,9 +339,9 @@ export const leagueSnapshot = {
           "team": "JAX",
           "slot": "RB",
           "status": "",
-          "weekPoints": 13.8,
-          "seasonPoints": 60.1,
-          "starts": 4
+          "weekPoints": 14.8,
+          "seasonPoints": 74.9,
+          "starts": 5
         },
         {
           "id": "4431459",
@@ -338,9 +350,9 @@ export const leagueSnapshot = {
           "team": "IND",
           "slot": "TE",
           "status": "",
-          "weekPoints": 10.1,
-          "seasonPoints": 48.7,
-          "starts": 4
+          "weekPoints": 20.5,
+          "seasonPoints": 69.2,
+          "starts": 5
         },
         {
           "id": "3128429",
@@ -349,20 +361,9 @@ export const leagueSnapshot = {
           "team": "DEN",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0.4,
-          "seasonPoints": 18.1,
+          "weekPoints": 10.8,
+          "seasonPoints": 28.9,
           "starts": 2
-        },
-        {
-          "id": "4035687",
-          "name": "Michael Pittman Jr.",
-          "position": "WR",
-          "team": "PIT",
-          "slot": "Bench",
-          "status": "",
-          "weekPoints": 3.0,
-          "seasonPoints": 17.4,
-          "starts": 1
         },
         {
           "id": "4608686",
@@ -371,7 +372,7 @@ export const leagueSnapshot = {
           "team": "CHI",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 35.0,
+          "weekPoints": 0,
           "seasonPoints": 77.3,
           "starts": 1
         },
@@ -382,9 +383,9 @@ export const leagueSnapshot = {
           "team": "IND",
           "slot": "WR",
           "status": "",
-          "weekPoints": 5.6,
-          "seasonPoints": 37.7,
-          "starts": 2
+          "weekPoints": 6.7,
+          "seasonPoints": 44.4,
+          "starts": 3
         },
         {
           "id": "4426385",
@@ -393,8 +394,8 @@ export const leagueSnapshot = {
           "team": "SEA",
           "slot": "IR",
           "status": "",
-          "weekPoints": 0.0,
-          "seasonPoints": 0.0,
+          "weekPoints": 0,
+          "seasonPoints": 0,
           "starts": 0
         },
         {
@@ -404,8 +405,8 @@ export const leagueSnapshot = {
           "team": "DEN",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 12.76,
-          "seasonPoints": 56.66,
+          "weekPoints": 9.32,
+          "seasonPoints": 65.98,
           "starts": 1
         },
         {
@@ -415,9 +416,9 @@ export const leagueSnapshot = {
           "team": "SF",
           "slot": "QB",
           "status": "",
-          "weekPoints": 23.62,
-          "seasonPoints": 110.48,
-          "starts": 3
+          "weekPoints": 16.66,
+          "seasonPoints": 127.14,
+          "starts": 4
         },
         {
           "id": "4428850",
@@ -426,9 +427,9 @@ export const leagueSnapshot = {
           "team": "PHI",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 3.8,
-          "seasonPoints": 21.4,
-          "starts": 2
+          "weekPoints": 10.3,
+          "seasonPoints": 31.7,
+          "starts": 3
         },
         {
           "id": "4697815",
@@ -437,8 +438,8 @@ export const leagueSnapshot = {
           "team": "WSH",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0.0,
-          "seasonPoints": 33.55,
+          "weekPoints": 6.7,
+          "seasonPoints": 40.25,
           "starts": 0
         },
         {
@@ -448,9 +449,9 @@ export const leagueSnapshot = {
           "team": "MIN",
           "slot": "D/ST",
           "status": "",
-          "weekPoints": 15.5,
-          "seasonPoints": 40.5,
-          "starts": 2
+          "weekPoints": 17.5,
+          "seasonPoints": 58,
+          "starts": 3
         },
         {
           "id": "4360234",
@@ -459,17 +460,28 @@ export const leagueSnapshot = {
           "team": "CIN",
           "slot": "K",
           "status": "",
-          "weekPoints": 4.5,
-          "seasonPoints": 15.5,
-          "starts": 2
+          "weekPoints": 8.5,
+          "seasonPoints": 24,
+          "starts": 3
+        },
+        {
+          "id": "4431492",
+          "name": "Roman Wilson",
+          "position": "WR",
+          "slot": "FLEX",
+          "status": "",
+          "weekPoints": 1,
+          "seasonPoints": 1,
+          "starts": 1
         },
         {
           "id": "2973405",
           "name": "Kalif Raymond",
-          "slot": "FLEX",
+          "position": "WR",
+          "slot": "Bench",
           "status": "",
-          "weekPoints": 4.1,
-          "seasonPoints": 4.1,
+          "weekPoints": 2.5,
+          "seasonPoints": 6.6,
           "starts": 1
         }
       ],
@@ -496,21 +508,21 @@ export const leagueSnapshot = {
         }
       ],
       "season": {
-        "completedGames": 4,
-        "ppg": 139.67,
-        "pfRank": 7,
+        "completedGames": 5,
+        "ppg": 145.99,
+        "pfRank": 3,
         "paRank": 1,
-        "projectedRank": 10,
-        "startedPoints": 558.67,
-        "benchPoints": 239.47,
+        "projectedRank": 8,
+        "startedPoints": 729.93,
+        "benchPoints": 268.79,
         "positionTotals": {
-          "RB": 190.4,
-          "WR": 84.4,
-          "FLEX": 68.8,
-          "TE": 48.7,
-          "QB": 92.62,
-          "D/ST": 53.5,
-          "K": 20.25
+          "RB": 249.4,
+          "WR": 122.2,
+          "FLEX": 80.1,
+          "TE": 69.2,
+          "QB": 109.28,
+          "D/ST": 71,
+          "K": 28.75
         },
         "weekly": [
           {
@@ -548,6 +560,15 @@ export const leagueSnapshot = {
             "score": 125.42,
             "opponentScore": 143.62,
             "result": "L"
+          },
+          {
+            "week": 5,
+            "status": "FINAL",
+            "opponent": "For the Love of the Kraft",
+            "opponentSlug": "kraft",
+            "score": 171.26,
+            "opponentScore": 147.2,
+            "result": "W"
           }
         ]
       }
@@ -555,19 +576,19 @@ export const leagueSnapshot = {
     "all-ugly": {
       "teamId": 3,
       "teamName": "The All Ugly Team",
-      "record": "0-4",
+      "record": "0-5",
       "seed": 12,
-      "pointsFor": 516.32,
-      "pointsAgainst": 621.16,
+      "pointsFor": 657.56,
+      "pointsAgainst": 796.06,
       "projectedRank": 12,
       "matchup": {
-        "opponent": "I'm a Skatt man",
-        "opponentSlug": "skatt",
-        "score": 132.98,
-        "opponentScore": 149.47,
+        "opponent": "Mr Hopkins Opus",
+        "opponentSlug": "hopkins-opus",
+        "score": 141.24,
+        "opponentScore": 174.9,
         "status": "FINAL",
-        "projection": null,
-        "opponentProjection": null
+        "projection": 125.37884868,
+        "opponentProjection": 142.38386823
       },
       "roster": [
         {
@@ -577,9 +598,9 @@ export const leagueSnapshot = {
           "team": "LAC",
           "slot": "RB",
           "status": "",
-          "weekPoints": 13.2,
-          "seasonPoints": 46.6,
-          "starts": 4
+          "weekPoints": 5.3,
+          "seasonPoints": 51.9,
+          "starts": 5
         },
         {
           "id": "4374302",
@@ -588,9 +609,9 @@ export const leagueSnapshot = {
           "team": "DET",
           "slot": "WR",
           "status": "",
-          "weekPoints": 14.5,
-          "seasonPoints": 93.3,
-          "starts": 4
+          "weekPoints": 15.4,
+          "seasonPoints": 108.7,
+          "starts": 5
         },
         {
           "id": "4241478",
@@ -599,8 +620,8 @@ export const leagueSnapshot = {
           "team": "PHI",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0.0,
-          "seasonPoints": 52.0,
+          "weekPoints": 0,
+          "seasonPoints": 52,
           "starts": 3
         },
         {
@@ -610,9 +631,9 @@ export const leagueSnapshot = {
           "team": "CHI",
           "slot": "TE",
           "status": "",
-          "weekPoints": 12.7,
-          "seasonPoints": 22.1,
-          "starts": 4
+          "weekPoints": 2.9,
+          "seasonPoints": 25,
+          "starts": 5
         },
         {
           "id": "4685512",
@@ -621,7 +642,7 @@ export const leagueSnapshot = {
           "team": "SEA",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 1.0,
+          "weekPoints": 0,
           "seasonPoints": 18.8,
           "starts": 3
         },
@@ -632,9 +653,9 @@ export const leagueSnapshot = {
           "team": "GB",
           "slot": "WR",
           "status": "",
-          "weekPoints": 8.7,
-          "seasonPoints": 82.1,
-          "starts": 4
+          "weekPoints": 41.3,
+          "seasonPoints": 123.4,
+          "starts": 5
         },
         {
           "id": "4678008",
@@ -643,7 +664,7 @@ export const leagueSnapshot = {
           "team": "CAR",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0.0,
+          "weekPoints": 0,
           "seasonPoints": 10.2,
           "starts": 2
         },
@@ -654,7 +675,7 @@ export const leagueSnapshot = {
           "team": "CHI",
           "slot": "IR",
           "status": "",
-          "weekPoints": 0.0,
+          "weekPoints": 0,
           "seasonPoints": 46.48,
           "starts": 2
         },
@@ -663,11 +684,11 @@ export const leagueSnapshot = {
           "name": "Woody Marks",
           "position": "RB",
           "team": "HOU",
-          "slot": "RB",
+          "slot": "FLEX",
           "status": "",
-          "weekPoints": 7.8,
-          "seasonPoints": 34.1,
-          "starts": 2
+          "weekPoints": 15,
+          "seasonPoints": 49.1,
+          "starts": 3
         },
         {
           "id": "4682648",
@@ -676,8 +697,8 @@ export const leagueSnapshot = {
           "team": "NYG",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 14.7,
-          "seasonPoints": 29.6,
+          "weekPoints": 4,
+          "seasonPoints": 33.6,
           "starts": 0
         },
         {
@@ -687,19 +708,8 @@ export const leagueSnapshot = {
           "team": "PHI",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 5.9,
+          "weekPoints": 0,
           "seasonPoints": 21.9,
-          "starts": 0
-        },
-        {
-          "id": "4870847",
-          "name": "Ja'Kobi Lane",
-          "position": "WR",
-          "team": "BAL",
-          "slot": "Bench",
-          "status": "",
-          "weekPoints": 0.0,
-          "seasonPoints": 3.1,
           "starts": 0
         },
         {
@@ -709,9 +719,9 @@ export const leagueSnapshot = {
           "team": "JAX",
           "slot": "K",
           "status": "",
-          "weekPoints": 17.0,
-          "seasonPoints": 43.0,
-          "starts": 4
+          "weekPoints": 8.5,
+          "seasonPoints": 51.5,
+          "starts": 5
         },
         {
           "id": "3046779",
@@ -720,18 +730,19 @@ export const leagueSnapshot = {
           "team": "DET",
           "slot": "QB",
           "status": "",
-          "weekPoints": 23.48,
-          "seasonPoints": 61.88,
-          "starts": 2
+          "weekPoints": 30.04,
+          "seasonPoints": 91.92,
+          "starts": 3
         },
         {
           "id": "4711533",
           "name": "Ollie Gordon II",
-          "slot": "FLEX",
+          "position": "RB",
+          "slot": "RB",
           "status": "",
-          "weekPoints": 20.9,
-          "seasonPoints": 20.9,
-          "starts": 1
+          "weekPoints": 15.6,
+          "seasonPoints": 36.5,
+          "starts": 2
         },
         {
           "id": "-16014",
@@ -740,18 +751,29 @@ export const leagueSnapshot = {
           "team": "LAR",
           "slot": "D/ST",
           "status": "",
-          "weekPoints": 10.0,
-          "seasonPoints": 31.5,
-          "starts": 2
+          "weekPoints": -1.5,
+          "seasonPoints": 30,
+          "starts": 3
         },
         {
-          "id": "4429835",
-          "name": "George Holani",
+          "id": "4635008",
+          "name": "Keon Coleman",
+          "position": "WR",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 4.7,
-          "seasonPoints": 4.7,
+          "weekPoints": 8.7,
+          "seasonPoints": 8.7,
           "starts": 1
+        },
+        {
+          "id": "5081432",
+          "name": "Antonio Williams",
+          "position": "WR",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 6.1,
+          "seasonPoints": 6.1,
+          "starts": 0
         }
       ],
       "moves": [
@@ -762,21 +784,21 @@ export const leagueSnapshot = {
         }
       ],
       "season": {
-        "completedGames": 4,
-        "ppg": 129.08,
-        "pfRank": 10,
+        "completedGames": 5,
+        "ppg": 131.51,
+        "pfRank": 11,
         "paRank": 2,
         "projectedRank": 12,
-        "startedPoints": 516.32,
-        "benchPoints": 96.93,
+        "startedPoints": 657.56,
+        "benchPoints": 107.03,
         "positionTotals": {
-          "RB": 72.2,
-          "WR": 164.1,
-          "TE": 22.1,
-          "FLEX": 109.2,
-          "QB": 90.72,
-          "D/ST": 15.0,
-          "K": 43.0
+          "RB": 93.1,
+          "WR": 220.8,
+          "TE": 25,
+          "FLEX": 132.9,
+          "QB": 120.76,
+          "D/ST": 13.5,
+          "K": 51.5
         },
         "weekly": [
           {
@@ -814,6 +836,15 @@ export const leagueSnapshot = {
             "score": 132.98,
             "opponentScore": 149.47,
             "result": "L"
+          },
+          {
+            "week": 5,
+            "status": "FINAL",
+            "opponent": "Mr Hopkins Opus",
+            "opponentSlug": "hopkins-opus",
+            "score": 141.24,
+            "opponentScore": 174.9,
+            "result": "L"
           }
         ]
       }
@@ -821,19 +852,19 @@ export const leagueSnapshot = {
     "route-22": {
       "teamId": 4,
       "teamName": "The Route 22 Clubhouse",
-      "record": "2-2",
-      "seed": 6,
-      "pointsFor": 592.67,
-      "pointsAgainst": 550.96,
-      "projectedRank": 8,
+      "record": "2-3",
+      "seed": 8,
+      "pointsFor": 702.49,
+      "pointsAgainst": 694.26,
+      "projectedRank": 7,
       "matchup": {
-        "opponent": "For the Love of the Kraft",
-        "opponentSlug": "kraft",
-        "score": 167.94,
-        "opponentScore": 168.22,
+        "opponent": "I'm a Skatt man",
+        "opponentSlug": "skatt",
+        "score": 109.82,
+        "opponentScore": 143.3,
         "status": "FINAL",
-        "projection": null,
-        "opponentProjection": null
+        "projection": 129.90558724,
+        "opponentProjection": 149.32467769
       },
       "roster": [
         {
@@ -843,9 +874,9 @@ export const leagueSnapshot = {
           "team": "BUF",
           "slot": "RB",
           "status": "",
-          "weekPoints": 16.5,
-          "seasonPoints": 81.5,
-          "starts": 4
+          "weekPoints": 29.3,
+          "seasonPoints": 110.8,
+          "starts": 5
         },
         {
           "id": "4890973",
@@ -854,19 +885,19 @@ export const leagueSnapshot = {
           "team": "LV",
           "slot": "RB",
           "status": "",
-          "weekPoints": 19.1,
-          "seasonPoints": 87.2,
-          "starts": 4
+          "weekPoints": 10.7,
+          "seasonPoints": 97.9,
+          "starts": 5
         },
         {
           "id": "4428331",
           "name": "Rashee Rice",
           "position": "WR",
           "team": "KC",
-          "slot": "WR",
+          "slot": "Bench",
           "status": "",
-          "weekPoints": 1.0,
-          "seasonPoints": 42.0,
+          "weekPoints": 0,
+          "seasonPoints": 42,
           "starts": 4
         },
         {
@@ -874,9 +905,9 @@ export const leagueSnapshot = {
           "name": "Tetairoa McMillan",
           "position": "WR",
           "team": "CAR",
-          "slot": "WR",
+          "slot": "Bench",
           "status": "",
-          "weekPoints": 48.2,
+          "weekPoints": 0,
           "seasonPoints": 78.5,
           "starts": 4
         },
@@ -885,42 +916,31 @@ export const leagueSnapshot = {
           "name": "Rome Odunze",
           "position": "WR",
           "team": "CHI",
-          "slot": "FLEX",
+          "slot": "WR",
           "status": "",
-          "weekPoints": 16.4,
-          "seasonPoints": 39.8,
-          "starts": 4
-        },
-        {
-          "id": "4432708",
-          "name": "Marvin Harrison Jr.",
-          "position": "WR",
-          "team": "ARI",
-          "slot": "Bench",
-          "status": "",
-          "weekPoints": 7.7,
-          "seasonPoints": 18.0,
-          "starts": 1
+          "weekPoints": 4,
+          "seasonPoints": 43.8,
+          "starts": 5
         },
         {
           "id": "4371733",
           "name": "Kenny Gainwell",
           "position": "RB",
           "team": "TB",
-          "slot": "Bench",
+          "slot": "FLEX",
           "status": "",
-          "weekPoints": 10.0,
-          "seasonPoints": 25.55,
-          "starts": 0
+          "weekPoints": 7.2,
+          "seasonPoints": 32.75,
+          "starts": 1
         },
         {
           "id": "4683062",
           "name": "Xavier Worthy",
           "position": "WR",
           "team": "KC",
-          "slot": "FLEX",
+          "slot": "Bench",
           "status": "",
-          "weekPoints": 12.0,
+          "weekPoints": 0,
           "seasonPoints": 37.8,
           "starts": 2
         },
@@ -929,33 +949,22 @@ export const leagueSnapshot = {
           "name": "Matthew Stafford",
           "position": "QB",
           "team": "LAR",
-          "slot": "Bench",
+          "slot": "QB",
           "status": "",
-          "weekPoints": 12.98,
-          "seasonPoints": 70.76,
-          "starts": 2
+          "weekPoints": 28.32,
+          "seasonPoints": 99.08,
+          "starts": 3
         },
         {
           "id": "4360689",
           "name": "Tyler Shough",
           "position": "QB",
           "team": "NO",
-          "slot": "QB",
+          "slot": "Bench",
           "status": "",
-          "weekPoints": 15.14,
-          "seasonPoints": 88.92,
+          "weekPoints": -0.66,
+          "seasonPoints": 88.26,
           "starts": 2
-        },
-        {
-          "id": "3055899",
-          "name": "Harrison Butker",
-          "position": "K",
-          "team": "KC",
-          "slot": "K",
-          "status": "",
-          "weekPoints": 7.0,
-          "seasonPoints": 39.75,
-          "starts": 4
         },
         {
           "id": "3045147",
@@ -964,8 +973,8 @@ export const leagueSnapshot = {
           "team": "ARI",
           "slot": "IR",
           "status": "",
-          "weekPoints": 0.0,
-          "seasonPoints": 0.0,
+          "weekPoints": 0,
+          "seasonPoints": 0,
           "starts": 0
         },
         {
@@ -975,7 +984,7 @@ export const leagueSnapshot = {
           "team": "KC",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 3.75,
+          "weekPoints": 0,
           "seasonPoints": 15.75,
           "starts": 0
         },
@@ -984,11 +993,11 @@ export const leagueSnapshot = {
           "name": "Brian Robinson Jr.",
           "position": "RB",
           "team": "ATL",
-          "slot": "Bench",
+          "slot": "FLEX",
           "status": "",
-          "weekPoints": 28.1,
-          "seasonPoints": 55.9,
-          "starts": 0
+          "weekPoints": 2.8,
+          "seasonPoints": 58.7,
+          "starts": 1
         },
         {
           "id": "4432665",
@@ -997,26 +1006,48 @@ export const leagueSnapshot = {
           "team": "LV",
           "slot": "TE",
           "status": "",
-          "weekPoints": 19.6,
-          "seasonPoints": 50.2,
-          "starts": 2
+          "weekPoints": 24,
+          "seasonPoints": 74.2,
+          "starts": 3
         },
         {
           "id": "4682745",
           "name": "Jaylen Wright",
+          "position": "RB",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 2.45,
-          "seasonPoints": 2.45,
+          "weekPoints": 2.2,
+          "seasonPoints": 4.65,
           "starts": 0
         },
         {
-          "id": "-16003",
-          "name": "Bears D/ST",
+          "id": "4574716",
+          "name": "Harrison Mevis",
+          "position": "K",
+          "slot": "K",
+          "status": "",
+          "weekPoints": 1.5,
+          "seasonPoints": 1.5,
+          "starts": 1
+        },
+        {
+          "id": "-16023",
+          "name": "Steelers D/ST",
+          "position": "D/ST",
           "slot": "D/ST",
           "status": "",
-          "weekPoints": 13.0,
-          "seasonPoints": 13.0,
+          "weekPoints": 1,
+          "seasonPoints": 1,
+          "starts": 1
+        },
+        {
+          "id": "5123663",
+          "name": "Isaac TeSlaa",
+          "position": "WR",
+          "slot": "WR",
+          "status": "",
+          "weekPoints": 1,
+          "seasonPoints": 1,
           "starts": 1
         }
       ],
@@ -1043,21 +1074,21 @@ export const leagueSnapshot = {
         }
       ],
       "season": {
-        "completedGames": 4,
-        "ppg": 148.17,
-        "pfRank": 2,
+        "completedGames": 5,
+        "ppg": 140.5,
+        "pfRank": 6,
         "paRank": 5,
-        "projectedRank": 8,
-        "startedPoints": 592.67,
-        "benchPoints": 242.51,
+        "projectedRank": 7,
+        "startedPoints": 702.49,
+        "benchPoints": 244.05,
         "positionTotals": {
-          "RB": 168.7,
-          "WR": 120.5,
-          "FLEX": 80.0,
-          "TE": 64.0,
-          "QB": 71.72,
-          "D/ST": 48.0,
-          "K": 39.75
+          "RB": 208.7,
+          "WR": 125.5,
+          "FLEX": 90,
+          "TE": 88,
+          "QB": 100.04,
+          "D/ST": 49,
+          "K": 41.25
         },
         "weekly": [
           {
@@ -1095,6 +1126,15 @@ export const leagueSnapshot = {
             "score": 167.94,
             "opponentScore": 168.22,
             "result": "L"
+          },
+          {
+            "week": 5,
+            "status": "FINAL",
+            "opponent": "I'm a Skatt man",
+            "opponentSlug": "skatt",
+            "score": 109.82,
+            "opponentScore": 143.3,
+            "result": "L"
           }
         ]
       }
@@ -1102,19 +1142,19 @@ export const leagueSnapshot = {
     "skatt": {
       "teamId": 5,
       "teamName": "I'm a Skatt man",
-      "record": "2-2",
-      "seed": 7,
-      "pointsFor": 567.47,
-      "pointsAgainst": 543.19,
+      "record": "3-2",
+      "seed": 5,
+      "pointsFor": 710.77,
+      "pointsAgainst": 653.01,
       "projectedRank": 5,
       "matchup": {
-        "opponent": "The All Ugly Team",
-        "opponentSlug": "all-ugly",
-        "score": 149.47,
-        "opponentScore": 132.98,
+        "opponent": "The Route 22 Clubhouse",
+        "opponentSlug": "route-22",
+        "score": 143.3,
+        "opponentScore": 109.82,
         "status": "FINAL",
-        "projection": null,
-        "opponentProjection": null
+        "projection": 149.32467769,
+        "opponentProjection": 129.90558724
       },
       "roster": [
         {
@@ -1122,11 +1162,11 @@ export const leagueSnapshot = {
           "name": "Ja'Marr Chase",
           "position": "WR",
           "team": "CIN",
-          "slot": "WR",
+          "slot": "FLEX",
           "status": "",
-          "weekPoints": 4.7,
-          "seasonPoints": 60.2,
-          "starts": 4
+          "weekPoints": 25.2,
+          "seasonPoints": 85.4,
+          "starts": 5
         },
         {
           "id": "4430737",
@@ -1135,9 +1175,9 @@ export const leagueSnapshot = {
           "team": "LAR",
           "slot": "RB",
           "status": "",
-          "weekPoints": 39.8,
-          "seasonPoints": 95.6,
-          "starts": 4
+          "weekPoints": 20.2,
+          "seasonPoints": 115.8,
+          "starts": 5
         },
         {
           "id": "4361307",
@@ -1146,9 +1186,9 @@ export const leagueSnapshot = {
           "team": "ARI",
           "slot": "TE",
           "status": "",
-          "weekPoints": 9.1,
-          "seasonPoints": 67.2,
-          "starts": 4
+          "weekPoints": 20.6,
+          "seasonPoints": 87.8,
+          "starts": 5
         },
         {
           "id": "4696981",
@@ -1157,9 +1197,9 @@ export const leagueSnapshot = {
           "team": "NYG",
           "slot": "RB",
           "status": "",
-          "weekPoints": 10.4,
-          "seasonPoints": 53.0,
-          "starts": 4
+          "weekPoints": 8.4,
+          "seasonPoints": 61.4,
+          "starts": 5
         },
         {
           "id": "4372016",
@@ -1168,9 +1208,9 @@ export const leagueSnapshot = {
           "team": "DEN",
           "slot": "WR",
           "status": "",
-          "weekPoints": 13.5,
-          "seasonPoints": 46.0,
-          "starts": 4
+          "weekPoints": 5.9,
+          "seasonPoints": 51.9,
+          "starts": 5
         },
         {
           "id": "4040715",
@@ -1179,9 +1219,9 @@ export const leagueSnapshot = {
           "team": "PHI",
           "slot": "QB",
           "status": "",
-          "weekPoints": 13.02,
-          "seasonPoints": 71.12,
-          "starts": 4
+          "weekPoints": 14.2,
+          "seasonPoints": 85.32,
+          "starts": 5
         },
         {
           "id": "4871023",
@@ -1190,8 +1230,8 @@ export const leagueSnapshot = {
           "team": "TEN",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 22.5,
-          "seasonPoints": 44.8,
+          "weekPoints": 0.6,
+          "seasonPoints": 45.4,
           "starts": 2
         },
         {
@@ -1199,9 +1239,9 @@ export const leagueSnapshot = {
           "name": "Alec Pierce",
           "position": "WR",
           "team": "IND",
-          "slot": "Bench",
+          "slot": "IR",
           "status": "",
-          "weekPoints": 0.0,
+          "weekPoints": 0,
           "seasonPoints": 10.2,
           "starts": 1
         },
@@ -1212,8 +1252,8 @@ export const leagueSnapshot = {
           "team": "DEN",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 7.3,
-          "seasonPoints": 25.3,
+          "weekPoints": 18.2,
+          "seasonPoints": 43.5,
           "starts": 0
         },
         {
@@ -1221,10 +1261,10 @@ export const leagueSnapshot = {
           "name": "Isiah Pacheco",
           "position": "RB",
           "team": "DET",
-          "slot": "IR",
+          "slot": "Bench",
           "status": "",
-          "weekPoints": 0.0,
-          "seasonPoints": 0.0,
+          "weekPoints": 0,
+          "seasonPoints": 0,
           "starts": 0
         },
         {
@@ -1234,20 +1274,20 @@ export const leagueSnapshot = {
           "team": "SF",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 20.05,
-          "seasonPoints": 70.85,
-          "starts": 3
+          "weekPoints": 5.2,
+          "seasonPoints": 76.05,
+          "starts": 4
         },
         {
           "id": "4832800",
           "name": "Denzel Boston",
           "position": "WR",
           "team": "CLE",
-          "slot": "FLEX",
+          "slot": "WR",
           "status": "",
-          "weekPoints": 14.4,
-          "seasonPoints": 63.9,
-          "starts": 2
+          "weekPoints": 13.1,
+          "seasonPoints": 77,
+          "starts": 3
         },
         {
           "id": "-16017",
@@ -1256,8 +1296,8 @@ export const leagueSnapshot = {
           "team": "NE",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 4.5,
-          "seasonPoints": 36.5,
+          "weekPoints": 10,
+          "seasonPoints": 46.5,
           "starts": 0
         },
         {
@@ -1267,20 +1307,9 @@ export const leagueSnapshot = {
           "team": "MIN",
           "slot": "K",
           "status": "",
-          "weekPoints": 21.0,
-          "seasonPoints": 59.5,
-          "starts": 4
-        },
-        {
-          "id": "4429022",
-          "name": "Kayshon Boutte",
-          "position": "WR",
-          "team": "HOU",
-          "slot": "Bench",
-          "status": "",
-          "weekPoints": 5.6,
-          "seasonPoints": 16.5,
-          "starts": 0
+          "weekPoints": 19,
+          "seasonPoints": 78.5,
+          "starts": 5
         },
         {
           "id": "4870795",
@@ -1289,17 +1318,28 @@ export const leagueSnapshot = {
           "team": "PHI",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 4.7,
-          "seasonPoints": 17.1,
+          "weekPoints": 8.3,
+          "seasonPoints": 25.4,
           "starts": 0
         },
         {
-          "id": "-16028",
-          "name": "Commanders D/ST",
+          "id": "3912547",
+          "name": "Sam Darnold",
+          "position": "QB",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 7.4,
+          "seasonPoints": 7.4,
+          "starts": 0
+        },
+        {
+          "id": "-16005",
+          "name": "Browns D/ST",
+          "position": "D/ST",
           "slot": "D/ST",
           "status": "",
-          "weekPoints": 3.5,
-          "seasonPoints": 3.5,
+          "weekPoints": 11.5,
+          "seasonPoints": 11.5,
           "starts": 1
         }
       ],
@@ -1321,21 +1361,21 @@ export const leagueSnapshot = {
         }
       ],
       "season": {
-        "completedGames": 4,
-        "ppg": 141.87,
+        "completedGames": 5,
+        "ppg": 142.15,
         "pfRank": 5,
-        "paRank": 6,
+        "paRank": 10,
         "projectedRank": 5,
-        "startedPoints": 567.47,
-        "benchPoints": 181.0,
+        "startedPoints": 710.77,
+        "benchPoints": 225.5,
         "positionTotals": {
-          "WR": 106.2,
-          "RB": 148.6,
-          "TE": 67.2,
-          "QB": 71.12,
-          "FLEX": 94.35,
-          "K": 59.5,
-          "D/ST": 20.5
+          "WR": 125.2,
+          "RB": 177.2,
+          "TE": 87.8,
+          "QB": 85.32,
+          "FLEX": 124.75,
+          "K": 78.5,
+          "D/ST": 32
         },
         "weekly": [
           {
@@ -1373,6 +1413,15 @@ export const leagueSnapshot = {
             "score": 149.47,
             "opponentScore": 132.98,
             "result": "W"
+          },
+          {
+            "week": 5,
+            "status": "FINAL",
+            "opponent": "The Route 22 Clubhouse",
+            "opponentSlug": "route-22",
+            "score": 143.3,
+            "opponentScore": 109.82,
+            "result": "W"
           }
         ]
       }
@@ -1380,19 +1429,19 @@ export const leagueSnapshot = {
     "pollard-greens": {
       "teamId": 6,
       "teamName": "Pollard Greens",
-      "record": "2-2",
-      "seed": 5,
-      "pointsFor": 610.07,
-      "pointsAgainst": 564.47,
-      "projectedRank": 6,
+      "record": "3-2",
+      "seed": 4,
+      "pointsFor": 751.53,
+      "pointsAgainst": 671.22,
+      "projectedRank": 4,
       "matchup": {
-        "opponent": "Mr Hopkins Opus",
-        "opponentSlug": "hopkins-opus",
-        "score": 153.16,
-        "opponentScore": 155.7,
+        "opponent": "CeeDeep Shaheeded Rivalry",
+        "opponentSlug": "ceedeep",
+        "score": 141.46,
+        "opponentScore": 106.75,
         "status": "FINAL",
-        "projection": null,
-        "opponentProjection": null
+        "projection": 149.95689635,
+        "opponentProjection": 133.86780654
       },
       "roster": [
         {
@@ -1402,9 +1451,9 @@ export const leagueSnapshot = {
           "team": "SEA",
           "slot": "WR",
           "status": "",
-          "weekPoints": 13.6,
-          "seasonPoints": 130.66,
-          "starts": 4
+          "weekPoints": 24.4,
+          "seasonPoints": 155.06,
+          "starts": 5
         },
         {
           "id": "4426502",
@@ -1413,9 +1462,9 @@ export const leagueSnapshot = {
           "team": "ATL",
           "slot": "WR",
           "status": "",
-          "weekPoints": 15.6,
-          "seasonPoints": 61.35,
-          "starts": 4
+          "weekPoints": 20.3,
+          "seasonPoints": 81.65,
+          "starts": 5
         },
         {
           "id": "4361370",
@@ -1424,9 +1473,9 @@ export const leagueSnapshot = {
           "team": "NO",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 20.6,
-          "seasonPoints": 94.1,
-          "starts": 4
+          "weekPoints": 8.1,
+          "seasonPoints": 102.2,
+          "starts": 5
         },
         {
           "id": "4685702",
@@ -1435,9 +1484,9 @@ export const leagueSnapshot = {
           "team": "CLE",
           "slot": "RB",
           "status": "",
-          "weekPoints": 24.3,
-          "seasonPoints": 56.2,
-          "starts": 4
+          "weekPoints": 8.4,
+          "seasonPoints": 64.6,
+          "starts": 5
         },
         {
           "id": "4035538",
@@ -1446,9 +1495,9 @@ export const leagueSnapshot = {
           "team": "HOU",
           "slot": "RB",
           "status": "",
-          "weekPoints": 4.3,
-          "seasonPoints": 45.1,
-          "starts": 4
+          "weekPoints": 2.6,
+          "seasonPoints": 47.7,
+          "starts": 5
         },
         {
           "id": "4431452",
@@ -1457,9 +1506,9 @@ export const leagueSnapshot = {
           "team": "NE",
           "slot": "QB",
           "status": "",
-          "weekPoints": 26.96,
-          "seasonPoints": 49.56,
-          "starts": 4
+          "weekPoints": 43.16,
+          "seasonPoints": 92.72,
+          "starts": 5
         },
         {
           "id": "16737",
@@ -1468,19 +1517,19 @@ export const leagueSnapshot = {
           "team": "SF",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 13.6,
-          "seasonPoints": 54.3,
-          "starts": 4
+          "weekPoints": 29.3,
+          "seasonPoints": 83.6,
+          "starts": 5
         },
         {
           "id": "5083076",
           "name": "Harold Fannin Jr.",
           "position": "TE",
           "team": "CLE",
-          "slot": "TE",
+          "slot": "Bench",
           "status": "",
-          "weekPoints": 12.7,
-          "seasonPoints": 52.3,
+          "weekPoints": 0.4,
+          "seasonPoints": 52.7,
           "starts": 4
         },
         {
@@ -1490,8 +1539,8 @@ export const leagueSnapshot = {
           "team": "TEN",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 10.1,
-          "seasonPoints": 36.5,
+          "weekPoints": 10.3,
+          "seasonPoints": 46.8,
           "starts": 0
         },
         {
@@ -1501,9 +1550,9 @@ export const leagueSnapshot = {
           "team": "DAL",
           "slot": "K",
           "status": "",
-          "weekPoints": 15.0,
-          "seasonPoints": 43.5,
-          "starts": 4
+          "weekPoints": 4,
+          "seasonPoints": 47.5,
+          "starts": 5
         },
         {
           "id": "4430834",
@@ -1512,8 +1561,8 @@ export const leagueSnapshot = {
           "team": "TB",
           "slot": "IR",
           "status": "",
-          "weekPoints": 0.0,
-          "seasonPoints": -2.0,
+          "weekPoints": 0,
+          "seasonPoints": -2,
           "starts": 0
         },
         {
@@ -1521,22 +1570,11 @@ export const leagueSnapshot = {
           "name": "T.J. Hockenson",
           "position": "TE",
           "team": "MIN",
-          "slot": "Bench",
+          "slot": "TE",
           "status": "",
-          "weekPoints": 27.9,
-          "seasonPoints": 54.0,
-          "starts": 0
-        },
-        {
-          "id": "-16033",
-          "name": "Ravens D/ST",
-          "position": "D/ST",
-          "team": "BAL",
-          "slot": "D/ST",
-          "status": "",
-          "weekPoints": 6.5,
-          "seasonPoints": 18.0,
-          "starts": 3
+          "weekPoints": 2.7,
+          "seasonPoints": 56.7,
+          "starts": 1
         },
         {
           "id": "4819231",
@@ -1545,8 +1583,8 @@ export const leagueSnapshot = {
           "team": "GB",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 4.0,
-          "seasonPoints": 11.5,
+          "weekPoints": 4.3,
+          "seasonPoints": 15.8,
           "starts": 0
         },
         {
@@ -1556,28 +1594,38 @@ export const leagueSnapshot = {
           "team": "GB",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 14.48,
-          "seasonPoints": 34.06,
+          "weekPoints": 31.38,
+          "seasonPoints": 65.44,
           "starts": 0
         },
         {
           "id": "5083754",
           "name": "Ryan Flournoy",
+          "position": "WR",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 8.7,
-          "seasonPoints": 8.7,
+          "weekPoints": 11,
+          "seasonPoints": 19.7,
           "starts": 0
         },
         {
-          "id": "4429025",
-          "name": "Quentin Johnston",
-          "position": "WR",
-          "team": "LAC",
+          "id": "-16006",
+          "name": "Cowboys D/ST",
+          "position": "D/ST",
+          "slot": "D/ST",
+          "status": "",
+          "weekPoints": -1.5,
+          "seasonPoints": -1.5,
+          "starts": 1
+        },
+        {
+          "id": "4360248",
+          "name": "Kyle Pitts Sr.",
+          "position": "TE",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 4.1,
-          "seasonPoints": 14.3,
+          "weekPoints": 14.2,
+          "seasonPoints": 14.2,
           "starts": 0
         }
       ],
@@ -1594,21 +1642,21 @@ export const leagueSnapshot = {
         }
       ],
       "season": {
-        "completedGames": 4,
-        "ppg": 152.52,
+        "completedGames": 5,
+        "ppg": 150.31,
         "pfRank": 1,
-        "paRank": 4,
-        "projectedRank": 6,
-        "startedPoints": 610.07,
-        "benchPoints": 176.1,
+        "paRank": 7,
+        "projectedRank": 4,
+        "startedPoints": 751.53,
+        "benchPoints": 247.68,
         "positionTotals": {
-          "WR": 192.01,
-          "FLEX": 148.4,
-          "RB": 101.3,
-          "QB": 49.56,
-          "TE": 52.3,
-          "K": 43.5,
-          "D/ST": 23.0
+          "WR": 236.71,
+          "FLEX": 185.8,
+          "RB": 112.3,
+          "QB": 92.72,
+          "TE": 55,
+          "K": 47.5,
+          "D/ST": 21.5
         },
         "weekly": [
           {
@@ -1646,6 +1694,15 @@ export const leagueSnapshot = {
             "score": 153.16,
             "opponentScore": 155.7,
             "result": "L"
+          },
+          {
+            "week": 5,
+            "status": "FINAL",
+            "opponent": "CeeDeep Shaheeded Rivalry",
+            "opponentSlug": "ceedeep",
+            "score": 141.46,
+            "opponentScore": 106.75,
+            "result": "W"
           }
         ]
       }
@@ -1653,19 +1710,19 @@ export const leagueSnapshot = {
     "hopkins-opus": {
       "teamId": 7,
       "teamName": "Mr Hopkins Opus",
-      "record": "3-1",
+      "record": "4-1",
       "seed": 1,
-      "pointsFor": 573.54,
-      "pointsAgainst": 501.64,
+      "pointsFor": 748.44,
+      "pointsAgainst": 642.88,
       "projectedRank": 1,
       "matchup": {
-        "opponent": "Pollard Greens",
-        "opponentSlug": "pollard-greens",
-        "score": 155.7,
-        "opponentScore": 153.16,
+        "opponent": "The All Ugly Team",
+        "opponentSlug": "all-ugly",
+        "score": 174.9,
+        "opponentScore": 141.24,
         "status": "FINAL",
-        "projection": null,
-        "opponentProjection": null
+        "projection": 142.38386823,
+        "opponentProjection": 125.37884868
       },
       "roster": [
         {
@@ -1675,18 +1732,18 @@ export const leagueSnapshot = {
           "team": "IND",
           "slot": "RB",
           "status": "",
-          "weekPoints": 25.7,
-          "seasonPoints": 94.8,
-          "starts": 4
+          "weekPoints": 11.7,
+          "seasonPoints": 106.5,
+          "starts": 5
         },
         {
           "id": "4567048",
           "name": "Kenneth Walker III",
           "position": "RB",
           "team": "KC",
-          "slot": "RB",
+          "slot": "Bench",
           "status": "",
-          "weekPoints": 37.1,
+          "weekPoints": 0,
           "seasonPoints": 135.8,
           "starts": 4
         },
@@ -1697,18 +1754,18 @@ export const leagueSnapshot = {
           "team": "DAL",
           "slot": "WR",
           "status": "",
-          "weekPoints": 10.5,
-          "seasonPoints": 40.5,
-          "starts": 4
+          "weekPoints": 29,
+          "seasonPoints": 69.5,
+          "starts": 5
         },
         {
           "id": "4612826",
           "name": "Ladd McConkey",
           "position": "WR",
           "team": "LAC",
-          "slot": "WR",
+          "slot": "Bench",
           "status": "",
-          "weekPoints": -1.0,
+          "weekPoints": 0,
           "seasonPoints": 32.3,
           "starts": 4
         },
@@ -1717,22 +1774,22 @@ export const leagueSnapshot = {
           "name": "Bucky Irving",
           "position": "RB",
           "team": "TB",
-          "slot": "FLEX",
+          "slot": "RB",
           "status": "",
-          "weekPoints": 6.7,
-          "seasonPoints": 48.8,
-          "starts": 4
+          "weekPoints": 37.6,
+          "seasonPoints": 86.4,
+          "starts": 5
         },
         {
           "id": "3916148",
           "name": "Tony Pollard",
           "position": "RB",
           "team": "TEN",
-          "slot": "Bench",
+          "slot": "FLEX",
           "status": "",
-          "weekPoints": 13.6,
-          "seasonPoints": 39.9,
-          "starts": 2
+          "weekPoints": 5.6,
+          "seasonPoints": 45.5,
+          "starts": 3
         },
         {
           "id": "4430027",
@@ -1741,9 +1798,9 @@ export const leagueSnapshot = {
           "team": "DET",
           "slot": "TE",
           "status": "",
-          "weekPoints": 21.4,
-          "seasonPoints": 56.8,
-          "starts": 4
+          "weekPoints": 20.8,
+          "seasonPoints": 77.6,
+          "starts": 5
         },
         {
           "id": "4689114",
@@ -1752,7 +1809,7 @@ export const leagueSnapshot = {
           "team": "NYG",
           "slot": "IR",
           "status": "",
-          "weekPoints": 0.0,
+          "weekPoints": 0,
           "seasonPoints": 28.5,
           "starts": 2
         },
@@ -1763,8 +1820,8 @@ export const leagueSnapshot = {
           "team": "CLE",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 12.9,
-          "seasonPoints": 33.7,
+          "weekPoints": 0.5,
+          "seasonPoints": 34.2,
           "starts": 0
         },
         {
@@ -1772,22 +1829,11 @@ export const leagueSnapshot = {
           "name": "Romeo Doubs",
           "position": "WR",
           "team": "NE",
-          "slot": "Bench",
+          "slot": "WR",
           "status": "",
-          "weekPoints": 24.8,
-          "seasonPoints": 44.3,
-          "starts": 0
-        },
-        {
-          "id": "4242355",
-          "name": "Jake Ferguson",
-          "position": "TE",
-          "team": "DAL",
-          "slot": "Bench",
-          "status": "",
-          "weekPoints": 5.1,
-          "seasonPoints": 36.3,
-          "starts": 0
+          "weekPoints": 3.6,
+          "seasonPoints": 47.9,
+          "starts": 1
         },
         {
           "id": "4685247",
@@ -1796,9 +1842,9 @@ export const leagueSnapshot = {
           "team": "NYJ",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 9.1,
-          "seasonPoints": 27.7,
-          "starts": 1
+          "weekPoints": 25,
+          "seasonPoints": 52.7,
+          "starts": 2
         },
         {
           "id": "-16026",
@@ -1807,46 +1853,59 @@ export const leagueSnapshot = {
           "team": "SEA",
           "slot": "D/ST",
           "status": "",
-          "weekPoints": 10.0,
-          "seasonPoints": 41.0,
-          "starts": 4
+          "weekPoints": 6,
+          "seasonPoints": 47,
+          "starts": 5
         },
         {
           "id": "3139477",
           "name": "Patrick Mahomes",
           "position": "QB",
           "team": "KC",
-          "slot": "QB",
+          "slot": "Bench",
           "status": "",
-          "weekPoints": 18.2,
+          "weekPoints": 0,
           "seasonPoints": 90.78,
           "starts": 2
         },
         {
           "id": "5083315",
           "name": "Kenyon Sadiq",
+          "position": "TE",
           "slot": "Bench",
           "status": "",
-          "weekPoints": -1.0,
-          "seasonPoints": 14.2,
+          "weekPoints": 1.3,
+          "seasonPoints": 15.5,
           "starts": 1
-        },
-        {
-          "id": "4685720",
-          "name": "Bryce Young",
-          "slot": "Bench",
-          "status": "",
-          "weekPoints": 24.76,
-          "seasonPoints": 24.76,
-          "starts": 0
         },
         {
           "id": "4571557",
           "name": "Spencer Shrader",
+          "position": "K",
           "slot": "K",
           "status": "",
-          "weekPoints": 18.0,
-          "seasonPoints": 18.0,
+          "weekPoints": 22,
+          "seasonPoints": 40,
+          "starts": 2
+        },
+        {
+          "id": "4431545",
+          "name": "Will Shipley",
+          "position": "RB",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 7.8,
+          "seasonPoints": 7.8,
+          "starts": 0
+        },
+        {
+          "id": "4360423",
+          "name": "Michael Penix Jr.",
+          "position": "QB",
+          "slot": "QB",
+          "status": "",
+          "weekPoints": 13.6,
+          "seasonPoints": 13.6,
           "starts": 1
         }
       ],
@@ -1868,21 +1927,21 @@ export const leagueSnapshot = {
         }
       ],
       "season": {
-        "completedGames": 4,
-        "ppg": 143.38,
-        "pfRank": 3,
+        "completedGames": 5,
+        "ppg": 149.69,
+        "pfRank": 2,
         "paRank": 11,
         "projectedRank": 1,
-        "startedPoints": 573.54,
-        "benchPoints": 260.0,
+        "startedPoints": 748.44,
+        "benchPoints": 269.6,
         "positionTotals": {
-          "RB": 230.6,
-          "WR": 72.8,
-          "FLEX": 76.6,
-          "TE": 56.8,
-          "QB": 63.74,
-          "D/ST": 41.0,
-          "K": 32.0
+          "RB": 279.9,
+          "WR": 105.4,
+          "FLEX": 107.2,
+          "TE": 77.6,
+          "QB": 77.34,
+          "D/ST": 47,
+          "K": 54
         },
         "weekly": [
           {
@@ -1920,6 +1979,15 @@ export const leagueSnapshot = {
             "score": 155.7,
             "opponentScore": 153.16,
             "result": "W"
+          },
+          {
+            "week": 5,
+            "status": "FINAL",
+            "opponent": "The All Ugly Team",
+            "opponentSlug": "all-ugly",
+            "score": 174.9,
+            "opponentScore": 141.24,
+            "result": "W"
           }
         ]
       }
@@ -1927,19 +1995,19 @@ export const leagueSnapshot = {
     "shake-baker": {
       "teamId": 8,
       "teamName": "Shake 'N Baker",
-      "record": "1-3",
+      "record": "1-4",
       "seed": 11,
-      "pointsFor": 543.05,
-      "pointsAgainst": 606.45,
+      "pointsFor": 684.33,
+      "pointsAgainst": 749.57,
       "projectedRank": 11,
       "matchup": {
-        "opponent": "Royrek Tishmeshulam",
-        "opponentSlug": "royrek",
-        "score": 130.24,
-        "opponentScore": 133.88,
+        "opponent": "Lloyd of the Rings",
+        "opponentSlug": "lloyd-rings",
+        "score": 141.28,
+        "opponentScore": 143.12,
         "status": "FINAL",
-        "projection": null,
-        "opponentProjection": null
+        "projection": 129.33699016,
+        "opponentProjection": 148.9864032
       },
       "roster": [
         {
@@ -1949,9 +2017,9 @@ export const leagueSnapshot = {
           "team": "ATL",
           "slot": "RB",
           "status": "",
-          "weekPoints": 37.6,
-          "seasonPoints": 123.9,
-          "starts": 4
+          "weekPoints": 16.5,
+          "seasonPoints": 140.4,
+          "starts": 5
         },
         {
           "id": "4569618",
@@ -1960,9 +2028,9 @@ export const leagueSnapshot = {
           "team": "NYJ",
           "slot": "WR",
           "status": "",
-          "weekPoints": 4.7,
-          "seasonPoints": 63.0,
-          "starts": 4
+          "weekPoints": 26.4,
+          "seasonPoints": 89.4,
+          "starts": 5
         },
         {
           "id": "4239993",
@@ -1971,9 +2039,9 @@ export const leagueSnapshot = {
           "team": "CIN",
           "slot": "WR",
           "status": "",
-          "weekPoints": 27.7,
-          "seasonPoints": 73.1,
-          "starts": 4
+          "weekPoints": 5.2,
+          "seasonPoints": 78.3,
+          "starts": 5
         },
         {
           "id": "4426348",
@@ -1982,20 +2050,9 @@ export const leagueSnapshot = {
           "team": "WSH",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0.0,
-          "seasonPoints": 31.6,
+          "weekPoints": 35.16,
+          "seasonPoints": 66.76,
           "starts": 1
-        },
-        {
-          "id": "4360248",
-          "name": "Kyle Pitts Sr.",
-          "position": "TE",
-          "team": "ATL",
-          "slot": "Bench",
-          "status": "",
-          "weekPoints": 8.7,
-          "seasonPoints": 12.45,
-          "starts": 2
         },
         {
           "id": "4038815",
@@ -2004,8 +2061,8 @@ export const leagueSnapshot = {
           "team": "PIT",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0.0,
-          "seasonPoints": 12.0,
+          "weekPoints": 0,
+          "seasonPoints": 12,
           "starts": 1
         },
         {
@@ -2013,10 +2070,10 @@ export const leagueSnapshot = {
           "name": "Stefon Diggs",
           "position": "WR",
           "team": "WSH",
-          "slot": "FLEX",
+          "slot": "Bench",
           "status": "",
-          "weekPoints": 7.5,
-          "seasonPoints": 51.0,
+          "weekPoints": 0,
+          "seasonPoints": 51,
           "starts": 4
         },
         {
@@ -2026,20 +2083,20 @@ export const leagueSnapshot = {
           "team": "HOU",
           "slot": "D/ST",
           "status": "",
-          "weekPoints": 0.0,
-          "seasonPoints": 11.0,
-          "starts": 4
+          "weekPoints": 21,
+          "seasonPoints": 32,
+          "starts": 5
         },
         {
           "id": "3916433",
           "name": "Jakobi Meyers",
           "position": "WR",
           "team": "JAX",
-          "slot": "Bench",
+          "slot": "FLEX",
           "status": "",
-          "weekPoints": 7.3,
-          "seasonPoints": 44.55,
-          "starts": 1
+          "weekPoints": 6.7,
+          "seasonPoints": 51.25,
+          "starts": 2
         },
         {
           "id": "2473037",
@@ -2048,20 +2105,20 @@ export const leagueSnapshot = {
           "team": "SEA",
           "slot": "K",
           "status": "",
-          "weekPoints": 4.5,
-          "seasonPoints": 29.5,
-          "starts": 4
+          "weekPoints": 23,
+          "seasonPoints": 52.5,
+          "starts": 5
         },
         {
           "id": "4373626",
           "name": "Tyler Allgeier",
           "position": "RB",
           "team": "ARI",
-          "slot": "Bench",
+          "slot": "RB",
           "status": "",
-          "weekPoints": 12.7,
-          "seasonPoints": 31.9,
-          "starts": 0
+          "weekPoints": 2.9,
+          "seasonPoints": 34.8,
+          "starts": 1
         },
         {
           "id": "4428718",
@@ -2070,9 +2127,9 @@ export const leagueSnapshot = {
           "team": "LV",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 7.4,
-          "seasonPoints": 51.3,
-          "starts": 2
+          "weekPoints": 6.7,
+          "seasonPoints": 58,
+          "starts": 3
         },
         {
           "id": "3054850",
@@ -2081,8 +2138,8 @@ export const leagueSnapshot = {
           "team": "NO",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 22.5,
-          "seasonPoints": 36.6,
+          "weekPoints": 1.9,
+          "seasonPoints": 38.5,
           "starts": 0
         },
         {
@@ -2090,9 +2147,9 @@ export const leagueSnapshot = {
           "name": "Chuba Hubbard",
           "position": "RB",
           "team": "CAR",
-          "slot": "RB",
+          "slot": "Bench",
           "status": "",
-          "weekPoints": 31.9,
+          "weekPoints": 0,
           "seasonPoints": 88.1,
           "starts": 4
         },
@@ -2101,39 +2158,50 @@ export const leagueSnapshot = {
           "name": "Travis Kelce",
           "position": "TE",
           "team": "KC",
-          "slot": "TE",
+          "slot": "Bench",
           "status": "",
-          "weekPoints": 4.5,
+          "weekPoints": 0,
           "seasonPoints": 58.6,
           "starts": 4
         },
         {
-          "id": "2576980",
-          "name": "Marcus Mariota",
+          "id": "3116164",
+          "name": "Mike Gesicki",
+          "position": "TE",
+          "slot": "TE",
+          "status": "",
+          "weekPoints": 8.4,
+          "seasonPoints": 8.4,
+          "starts": 1
+        },
+        {
+          "id": "2578570",
+          "name": "Jacoby Brissett",
+          "position": "QB",
           "slot": "QB",
           "status": "",
-          "weekPoints": 4.44,
-          "seasonPoints": 4.44,
+          "weekPoints": 24.48,
+          "seasonPoints": 24.48,
           "starts": 1
         }
       ],
       "moves": [],
       "season": {
-        "completedGames": 4,
-        "ppg": 135.76,
-        "pfRank": 8,
+        "completedGames": 5,
+        "ppg": 136.87,
+        "pfRank": 7,
         "paRank": 3,
         "projectedRank": 11,
-        "startedPoints": 543.05,
-        "benchPoints": 184.89,
+        "startedPoints": 684.33,
+        "benchPoints": 221.95,
         "positionTotals": {
-          "RB": 194.2,
-          "WR": 136.1,
-          "TE": 46.5,
-          "FLEX": 83.25,
-          "D/ST": 11.0,
-          "K": 29.5,
-          "QB": 42.5
+          "RB": 213.6,
+          "WR": 167.7,
+          "TE": 54.9,
+          "FLEX": 96.65,
+          "D/ST": 32,
+          "K": 52.5,
+          "QB": 66.98
         },
         "weekly": [
           {
@@ -2171,6 +2239,15 @@ export const leagueSnapshot = {
             "score": 130.24,
             "opponentScore": 133.88,
             "result": "L"
+          },
+          {
+            "week": 5,
+            "status": "FINAL",
+            "opponent": "Lloyd of the Rings",
+            "opponentSlug": "lloyd-rings",
+            "score": 141.28,
+            "opponentScore": 143.12,
+            "result": "L"
           }
         ]
       }
@@ -2178,19 +2255,19 @@ export const leagueSnapshot = {
     "kraft": {
       "teamId": 9,
       "teamName": "For the Love of the Kraft",
-      "record": "2-2",
-      "seed": 8,
-      "pointsFor": 528.84,
-      "pointsAgainst": 520.53,
-      "projectedRank": 9,
+      "record": "2-3",
+      "seed": 9,
+      "pointsFor": 676.04,
+      "pointsAgainst": 691.79,
+      "projectedRank": 10,
       "matchup": {
-        "opponent": "The Route 22 Clubhouse",
-        "opponentSlug": "route-22",
-        "score": 168.22,
-        "opponentScore": 167.94,
+        "opponent": "DarkHorse Danir",
+        "opponentSlug": "danir",
+        "score": 147.2,
+        "opponentScore": 171.26,
         "status": "FINAL",
-        "projection": null,
-        "opponentProjection": null
+        "projection": 148.01093469,
+        "opponentProjection": 143.03525984
       },
       "roster": [
         {
@@ -2198,11 +2275,11 @@ export const leagueSnapshot = {
           "name": "Puka Nacua",
           "position": "WR",
           "team": "LAR",
-          "slot": "WR",
+          "slot": "FLEX",
           "status": "",
-          "weekPoints": 30.8,
-          "seasonPoints": 42.7,
-          "starts": 2
+          "weekPoints": 38.9,
+          "seasonPoints": 81.6,
+          "starts": 3
         },
         {
           "id": "4258173",
@@ -2211,9 +2288,9 @@ export const leagueSnapshot = {
           "team": "HOU",
           "slot": "WR",
           "status": "",
-          "weekPoints": 31.8,
-          "seasonPoints": 52.1,
-          "starts": 2
+          "weekPoints": 11.6,
+          "seasonPoints": 63.7,
+          "starts": 3
         },
         {
           "id": "4870808",
@@ -2222,9 +2299,9 @@ export const leagueSnapshot = {
           "team": "ARI",
           "slot": "RB",
           "status": "",
-          "weekPoints": 6.9,
-          "seasonPoints": 52.4,
-          "starts": 4
+          "weekPoints": 2.4,
+          "seasonPoints": 54.8,
+          "starts": 5
         },
         {
           "id": "4259545",
@@ -2233,20 +2310,20 @@ export const leagueSnapshot = {
           "team": "CHI",
           "slot": "RB",
           "status": "",
-          "weekPoints": 9.9,
-          "seasonPoints": 75.4,
-          "starts": 4
+          "weekPoints": 17.2,
+          "seasonPoints": 92.6,
+          "starts": 5
         },
         {
           "id": "4685278",
           "name": "Luther Burden III",
           "position": "WR",
           "team": "CHI",
-          "slot": "FLEX",
+          "slot": "WR",
           "status": "",
-          "weekPoints": 12.5,
-          "seasonPoints": 49.2,
-          "starts": 4
+          "weekPoints": 8.8,
+          "seasonPoints": 58,
+          "starts": 5
         },
         {
           "id": "3915511",
@@ -2255,9 +2332,9 @@ export const leagueSnapshot = {
           "team": "CIN",
           "slot": "QB",
           "status": "",
-          "weekPoints": 27.02,
-          "seasonPoints": 81.74,
-          "starts": 4
+          "weekPoints": 28,
+          "seasonPoints": 109.74,
+          "starts": 5
         },
         {
           "id": "4572680",
@@ -2266,9 +2343,9 @@ export const leagueSnapshot = {
           "team": "GB",
           "slot": "TE",
           "status": "",
-          "weekPoints": 18.1,
-          "seasonPoints": 36.7,
-          "starts": 4
+          "weekPoints": 12.7,
+          "seasonPoints": 49.4,
+          "starts": 5
         },
         {
           "id": "4429096",
@@ -2277,8 +2354,8 @@ export const leagueSnapshot = {
           "team": "LAR",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 4.6,
-          "seasonPoints": 25.5,
+          "weekPoints": 15.7,
+          "seasonPoints": 41.2,
           "starts": 2
         },
         {
@@ -2289,7 +2366,7 @@ export const leagueSnapshot = {
           "slot": "Bench",
           "status": "",
           "weekPoints": 8.1,
-          "seasonPoints": 27.9,
+          "seasonPoints": 36,
           "starts": 3
         },
         {
@@ -2299,7 +2376,7 @@ export const leagueSnapshot = {
           "team": "DEN",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0.0,
+          "weekPoints": 0,
           "seasonPoints": 16.55,
           "starts": 1
         },
@@ -2310,19 +2387,8 @@ export const leagueSnapshot = {
           "team": "NO",
           "slot": "IR",
           "status": "",
-          "weekPoints": 0.0,
-          "seasonPoints": 0.0,
-          "starts": 0
-        },
-        {
-          "id": "4869961",
-          "name": "Chris Bell",
-          "position": "WR",
-          "team": "MIA",
-          "slot": "Bench",
-          "status": "",
-          "weekPoints": -1.0,
-          "seasonPoints": 10.2,
+          "weekPoints": 0,
+          "seasonPoints": 0,
           "starts": 0
         },
         {
@@ -2332,9 +2398,9 @@ export const leagueSnapshot = {
           "team": "BAL",
           "slot": "K",
           "status": "",
-          "weekPoints": 11.5,
-          "seasonPoints": 46.5,
-          "starts": 4
+          "weekPoints": 17,
+          "seasonPoints": 63.5,
+          "starts": 5
         },
         {
           "id": "4696044",
@@ -2343,8 +2409,8 @@ export const leagueSnapshot = {
           "team": "SF",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 2.9,
-          "seasonPoints": 20.6,
+          "weekPoints": 3.2,
+          "seasonPoints": 23.8,
           "starts": 0
         },
         {
@@ -2354,26 +2420,38 @@ export const leagueSnapshot = {
           "team": "NYJ",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0.0,
-          "seasonPoints": 0.0,
+          "weekPoints": 0,
+          "seasonPoints": 0,
           "starts": 0
         },
         {
           "id": "4569603",
           "name": "Malik Washington",
-          "slot": "FLEX",
+          "position": "WR",
+          "slot": "Bench",
           "status": "",
-          "weekPoints": 11.2,
-          "seasonPoints": 23.0,
+          "weekPoints": 12.95,
+          "seasonPoints": 35.95,
           "starts": 2
         },
         {
-          "id": "-16005",
-          "name": "Browns D/ST",
+          "id": "-16004",
+          "name": "Bengals D/ST",
+          "position": "D/ST",
           "slot": "D/ST",
           "status": "",
-          "weekPoints": 8.5,
-          "seasonPoints": 8.5,
+          "weekPoints": 8,
+          "seasonPoints": 8,
+          "starts": 1
+        },
+        {
+          "id": "4686612",
+          "name": "Tre' Harris",
+          "position": "WR",
+          "slot": "FLEX",
+          "status": "",
+          "weekPoints": 2.6,
+          "seasonPoints": 2.6,
           "starts": 1
         }
       ],
@@ -2390,21 +2468,21 @@ export const leagueSnapshot = {
         }
       ],
       "season": {
-        "completedGames": 4,
-        "ppg": 132.21,
+        "completedGames": 5,
+        "ppg": 135.21,
         "pfRank": 9,
-        "paRank": 9,
-        "projectedRank": 9,
-        "startedPoints": 528.84,
-        "benchPoints": 63.75,
+        "paRank": 6,
+        "projectedRank": 10,
+        "startedPoints": 676.04,
+        "benchPoints": 103.7,
         "positionTotals": {
-          "WR": 124.2,
-          "RB": 126.5,
-          "FLEX": 96.2,
-          "QB": 81.74,
-          "TE": 36.7,
-          "D/ST": 17.0,
-          "K": 46.5
+          "WR": 144.6,
+          "RB": 146.1,
+          "FLEX": 137.7,
+          "QB": 109.74,
+          "TE": 49.4,
+          "D/ST": 25,
+          "K": 63.5
         },
         "weekly": [
           {
@@ -2442,6 +2520,15 @@ export const leagueSnapshot = {
             "score": 168.22,
             "opponentScore": 167.94,
             "result": "W"
+          },
+          {
+            "week": 5,
+            "status": "FINAL",
+            "opponent": "DarkHorse Danir",
+            "opponentSlug": "danir",
+            "score": 147.2,
+            "opponentScore": 171.26,
+            "result": "L"
           }
         ]
       }
@@ -2449,19 +2536,19 @@ export const leagueSnapshot = {
     "royrek": {
       "teamId": 10,
       "teamName": "Royrek Tishmeshulam",
-      "record": "2-2",
-      "seed": 9,
-      "pointsFor": 515.33,
-      "pointsAgainst": 538.26,
-      "projectedRank": 7,
+      "record": "2-3",
+      "seed": 10,
+      "pointsFor": 652.19,
+      "pointsAgainst": 715.86,
+      "projectedRank": 9,
       "matchup": {
-        "opponent": "Shake 'N Baker",
-        "opponentSlug": "shake-baker",
-        "score": 133.88,
-        "opponentScore": 130.24,
+        "opponent": "Kupp Kupp Doubs",
+        "opponentSlug": "kupp-doubs",
+        "score": 136.86,
+        "opponentScore": 177.6,
         "status": "FINAL",
-        "projection": null,
-        "opponentProjection": null
+        "projection": 121.89138295,
+        "opponentProjection": 128.59469006
       },
       "roster": [
         {
@@ -2471,8 +2558,8 @@ export const leagueSnapshot = {
           "team": "MIN",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0.0,
-          "seasonPoints": 47.9,
+          "weekPoints": 19.9,
+          "seasonPoints": 67.8,
           "starts": 3
         },
         {
@@ -2480,9 +2567,9 @@ export const leagueSnapshot = {
           "name": "Saquon Barkley",
           "position": "RB",
           "team": "PHI",
-          "slot": "RB",
+          "slot": "Bench",
           "status": "",
-          "weekPoints": 1.2,
+          "weekPoints": 0,
           "seasonPoints": 26.6,
           "starts": 4
         },
@@ -2493,18 +2580,18 @@ export const leagueSnapshot = {
           "team": "LAR",
           "slot": "WR",
           "status": "",
-          "weekPoints": 8.2,
-          "seasonPoints": 77.5,
-          "starts": 4
+          "weekPoints": 21.1,
+          "seasonPoints": 98.6,
+          "starts": 5
         },
         {
           "id": "3916387",
           "name": "Lamar Jackson",
           "position": "QB",
           "team": "BAL",
-          "slot": "QB",
+          "slot": "Bench",
           "status": "",
-          "weekPoints": 20.08,
+          "weekPoints": 0,
           "seasonPoints": 86.98,
           "starts": 4
         },
@@ -2515,9 +2602,9 @@ export const leagueSnapshot = {
           "team": "NE",
           "slot": "RB",
           "status": "",
-          "weekPoints": 20.7,
-          "seasonPoints": 47.7,
-          "starts": 4
+          "weekPoints": 19.8,
+          "seasonPoints": 67.5,
+          "starts": 5
         },
         {
           "id": "3121023",
@@ -2526,8 +2613,8 @@ export const leagueSnapshot = {
           "team": "PHI",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0.0,
-          "seasonPoints": 30.1,
+          "weekPoints": 8.8,
+          "seasonPoints": 38.9,
           "starts": 2
         },
         {
@@ -2537,31 +2624,31 @@ export const leagueSnapshot = {
           "team": "PIT",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 17.5,
-          "seasonPoints": 45.3,
-          "starts": 4
+          "weekPoints": 6.4,
+          "seasonPoints": 51.7,
+          "starts": 5
         },
         {
           "id": "4701936",
           "name": "Matthew Golden",
           "position": "WR",
           "team": "GB",
-          "slot": "Bench",
+          "slot": "FLEX",
           "status": "",
-          "weekPoints": 12.8,
-          "seasonPoints": 60.1,
-          "starts": 0
+          "weekPoints": 24.3,
+          "seasonPoints": 84.4,
+          "starts": 1
         },
         {
           "id": "3042519",
           "name": "Aaron Jones Sr.",
           "position": "RB",
           "team": "MIN",
-          "slot": "FLEX",
+          "slot": "RB",
           "status": "",
-          "weekPoints": 19.8,
-          "seasonPoints": 65.7,
-          "starts": 4
+          "weekPoints": 25.2,
+          "seasonPoints": 90.9,
+          "starts": 5
         },
         {
           "id": "4429205",
@@ -2570,9 +2657,9 @@ export const leagueSnapshot = {
           "team": "MIN",
           "slot": "WR",
           "status": "",
-          "weekPoints": 10.2,
+          "weekPoints": 0,
           "seasonPoints": 40.3,
-          "starts": 1
+          "starts": 2
         },
         {
           "id": "4428557",
@@ -2581,8 +2668,8 @@ export const leagueSnapshot = {
           "team": "TEN",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0.8,
-          "seasonPoints": 13.0,
+          "weekPoints": 9,
+          "seasonPoints": 22,
           "starts": 0
         },
         {
@@ -2592,9 +2679,9 @@ export const leagueSnapshot = {
           "team": "BAL",
           "slot": "TE",
           "status": "",
-          "weekPoints": 14.7,
-          "seasonPoints": 40.9,
-          "starts": 2
+          "weekPoints": 5.8,
+          "seasonPoints": 46.7,
+          "starts": 3
         },
         {
           "id": "2971573",
@@ -2603,20 +2690,20 @@ export const leagueSnapshot = {
           "team": "HOU",
           "slot": "K",
           "status": "",
-          "weekPoints": 17.0,
-          "seasonPoints": 36.75,
-          "starts": 4
+          "weekPoints": 19,
+          "seasonPoints": 55.75,
+          "starts": 5
         },
         {
           "id": "3917315",
           "name": "Kyler Murray",
           "position": "QB",
           "team": "MIN",
-          "slot": "Bench",
+          "slot": "QB",
           "status": "",
-          "weekPoints": 13.08,
-          "seasonPoints": 27.52,
-          "starts": 0
+          "weekPoints": 20.26,
+          "seasonPoints": 47.78,
+          "starts": 1
         },
         {
           "id": "3925357",
@@ -2625,20 +2712,19 @@ export const leagueSnapshot = {
           "team": "TEN",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 1.3,
-          "seasonPoints": 3.8,
+          "weekPoints": 4.3,
+          "seasonPoints": 8.1,
           "starts": 0
         },
         {
-          "id": "-16001",
-          "name": "Falcons D/ST",
+          "id": "-16013",
+          "name": "Raiders D/ST",
           "position": "D/ST",
-          "team": "ATL",
           "slot": "D/ST",
           "status": "",
-          "weekPoints": 4.5,
-          "seasonPoints": 11.5,
-          "starts": 3
+          "weekPoints": -5,
+          "seasonPoints": -5,
+          "starts": 1
         }
       ],
       "moves": [
@@ -2649,21 +2735,21 @@ export const leagueSnapshot = {
         }
       ],
       "season": {
-        "completedGames": 4,
-        "ppg": 128.83,
-        "pfRank": 11,
-        "paRank": 7,
-        "projectedRank": 7,
-        "startedPoints": 515.33,
-        "benchPoints": 154.32,
+        "completedGames": 5,
+        "ppg": 130.44,
+        "pfRank": 12,
+        "paRank": 4,
+        "projectedRank": 9,
+        "startedPoints": 652.19,
+        "benchPoints": 196.32,
         "positionTotals": {
-          "WR": 135.6,
-          "RB": 74.3,
-          "QB": 86.98,
-          "TE": 51.2,
-          "FLEX": 111.0,
-          "K": 36.75,
-          "D/ST": 19.5
+          "WR": 156.7,
+          "RB": 119.3,
+          "QB": 107.24,
+          "TE": 57,
+          "FLEX": 141.7,
+          "K": 55.75,
+          "D/ST": 14.5
         },
         "weekly": [
           {
@@ -2701,6 +2787,15 @@ export const leagueSnapshot = {
             "score": 133.88,
             "opponentScore": 130.24,
             "result": "W"
+          },
+          {
+            "week": 5,
+            "status": "FINAL",
+            "opponent": "Kupp Kupp Doubs",
+            "opponentSlug": "kupp-doubs",
+            "score": 136.86,
+            "opponentScore": 177.6,
+            "result": "L"
           }
         ]
       }
@@ -2708,19 +2803,19 @@ export const leagueSnapshot = {
     "lloyd-rings": {
       "teamId": 11,
       "teamName": "Lloyd of the Rings",
-      "record": "3-1",
+      "record": "4-1",
       "seed": 2,
-      "pointsFor": 571.78,
-      "pointsAgainst": 517.75,
+      "pointsFor": 714.9,
+      "pointsAgainst": 659.03,
       "projectedRank": 2,
       "matchup": {
-        "opponent": "CeeDeep Shaheeded Rivalry",
-        "opponentSlug": "ceedeep",
-        "score": 141.28,
-        "opponentScore": 147.07,
+        "opponent": "Shake 'N Baker",
+        "opponentSlug": "shake-baker",
+        "score": 143.12,
+        "opponentScore": 141.28,
         "status": "FINAL",
-        "projection": null,
-        "opponentProjection": null
+        "projection": 148.9864032,
+        "opponentProjection": 129.33699016
       },
       "roster": [
         {
@@ -2730,9 +2825,9 @@ export const leagueSnapshot = {
           "team": "CIN",
           "slot": "RB",
           "status": "",
-          "weekPoints": 19.5,
-          "seasonPoints": 64.3,
-          "starts": 4
+          "weekPoints": 9.3,
+          "seasonPoints": 73.6,
+          "starts": 5
         },
         {
           "id": "3043078",
@@ -2741,20 +2836,20 @@ export const leagueSnapshot = {
           "team": "BAL",
           "slot": "RB",
           "status": "",
-          "weekPoints": 19.2,
-          "seasonPoints": 104.7,
-          "starts": 4
+          "weekPoints": 27.4,
+          "seasonPoints": 132.1,
+          "starts": 5
         },
         {
           "id": "4429615",
           "name": "Zay Flowers",
           "position": "WR",
           "team": "BAL",
-          "slot": "WR",
+          "slot": "FLEX",
           "status": "",
-          "weekPoints": 28.8,
-          "seasonPoints": 77.3,
-          "starts": 2
+          "weekPoints": 15.7,
+          "seasonPoints": 93,
+          "starts": 3
         },
         {
           "id": "4567750",
@@ -2763,8 +2858,8 @@ export const leagueSnapshot = {
           "team": "TB",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 2.3,
-          "seasonPoints": 32.2,
+          "weekPoints": 18.3,
+          "seasonPoints": 50.5,
           "starts": 3
         },
         {
@@ -2774,9 +2869,9 @@ export const leagueSnapshot = {
           "team": "JAX",
           "slot": "WR",
           "status": "",
-          "weekPoints": 3.1,
-          "seasonPoints": 54.2,
-          "starts": 4
+          "weekPoints": 36.9,
+          "seasonPoints": 91.1,
+          "starts": 5
         },
         {
           "id": "4429023",
@@ -2785,8 +2880,8 @@ export const leagueSnapshot = {
           "team": "GB",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 11.6,
-          "seasonPoints": 29.0,
+          "weekPoints": 18.7,
+          "seasonPoints": 47.7,
           "starts": 2
         },
         {
@@ -2794,22 +2889,22 @@ export const leagueSnapshot = {
           "name": "Dak Prescott",
           "position": "QB",
           "team": "DAL",
-          "slot": "Bench",
+          "slot": "QB",
           "status": "",
-          "weekPoints": 21.3,
-          "seasonPoints": 83.4,
-          "starts": 3
+          "weekPoints": 13.64,
+          "seasonPoints": 97.04,
+          "starts": 4
         },
         {
           "id": "4360761",
           "name": "Michael Wilson",
           "position": "WR",
           "team": "ARI",
-          "slot": "FLEX",
+          "slot": "WR",
           "status": "",
-          "weekPoints": 15.5,
-          "seasonPoints": 54.8,
-          "starts": 2
+          "weekPoints": 6.78,
+          "seasonPoints": 61.58,
+          "starts": 3
         },
         {
           "id": "4575131",
@@ -2818,8 +2913,8 @@ export const leagueSnapshot = {
           "team": "WSH",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 6.9,
-          "seasonPoints": 34.3,
+          "weekPoints": 15.3,
+          "seasonPoints": 49.6,
           "starts": 2
         },
         {
@@ -2829,7 +2924,7 @@ export const leagueSnapshot = {
           "team": "MIN",
           "slot": "IR",
           "status": "",
-          "weekPoints": 0.0,
+          "weekPoints": 0,
           "seasonPoints": 14.4,
           "starts": 0
         },
@@ -2840,9 +2935,9 @@ export const leagueSnapshot = {
           "team": "BUF",
           "slot": "TE",
           "status": "",
-          "weekPoints": 0.7,
-          "seasonPoints": 50.0,
-          "starts": 4
+          "weekPoints": 4.7,
+          "seasonPoints": 54.7,
+          "starts": 5
         },
         {
           "id": "4686658",
@@ -2851,8 +2946,8 @@ export const leagueSnapshot = {
           "team": "LV",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 2.6,
-          "seasonPoints": 23.3,
+          "weekPoints": 1.1,
+          "seasonPoints": 24.4,
           "starts": 0
         },
         {
@@ -2860,22 +2955,11 @@ export const leagueSnapshot = {
           "name": "Trevor Lawrence",
           "position": "QB",
           "team": "JAX",
-          "slot": "QB",
-          "status": "",
-          "weekPoints": 14.38,
-          "seasonPoints": 68.22,
-          "starts": 1
-        },
-        {
-          "id": "4869645",
-          "name": "Caleb Douglas",
-          "position": "WR",
-          "team": "MIA",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0.0,
-          "seasonPoints": 2.9,
-          "starts": 0
+          "weekPoints": 27.04,
+          "seasonPoints": 95.26,
+          "starts": 1
         },
         {
           "id": "4887558",
@@ -2884,9 +2968,9 @@ export const leagueSnapshot = {
           "team": "SEA",
           "slot": "FLEX",
           "status": "",
-          "weekPoints": 30.6,
-          "seasonPoints": 31.9,
-          "starts": 1
+          "weekPoints": 14.2,
+          "seasonPoints": 46.1,
+          "starts": 2
         },
         {
           "id": "3150744",
@@ -2895,18 +2979,29 @@ export const leagueSnapshot = {
           "team": "TB",
           "slot": "K",
           "status": "",
-          "weekPoints": 1.0,
-          "seasonPoints": 13.0,
-          "starts": 2
+          "weekPoints": 8,
+          "seasonPoints": 21,
+          "starts": 3
         },
         {
           "id": "-16030",
           "name": "Jaguars D/ST",
+          "position": "D/ST",
           "slot": "D/ST",
           "status": "",
-          "weekPoints": 8.5,
-          "seasonPoints": 24.5,
-          "starts": 2
+          "weekPoints": 6.5,
+          "seasonPoints": 31,
+          "starts": 3
+        },
+        {
+          "id": "4429086",
+          "name": "Michael Mayer",
+          "position": "TE",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0.2,
+          "seasonPoints": 0.2,
+          "starts": 0
         }
       ],
       "moves": [
@@ -2927,21 +3022,21 @@ export const leagueSnapshot = {
         }
       ],
       "season": {
-        "completedGames": 4,
-        "ppg": 142.94,
+        "completedGames": 5,
+        "ppg": 142.98,
         "pfRank": 4,
-        "paRank": 10,
+        "paRank": 9,
         "projectedRank": 2,
-        "startedPoints": 571.78,
-        "benchPoints": 193.84,
+        "startedPoints": 714.9,
+        "benchPoints": 274.48,
         "positionTotals": {
-          "RB": 169.0,
-          "WR": 124.6,
-          "FLEX": 119.7,
-          "QB": 76.48,
-          "TE": 50.0,
-          "K": 14.5,
-          "D/ST": 17.5
+          "RB": 205.7,
+          "WR": 168.28,
+          "FLEX": 149.6,
+          "QB": 90.12,
+          "TE": 54.7,
+          "K": 22.5,
+          "D/ST": 24
         },
         "weekly": [
           {
@@ -2979,6 +3074,15 @@ export const leagueSnapshot = {
             "score": 141.28,
             "opponentScore": 147.07,
             "result": "L"
+          },
+          {
+            "week": 5,
+            "status": "FINAL",
+            "opponent": "Shake 'N Baker",
+            "opponentSlug": "shake-baker",
+            "score": 143.12,
+            "opponentScore": 141.28,
+            "result": "W"
           }
         ]
       }
@@ -2986,19 +3090,19 @@ export const leagueSnapshot = {
     "ceedeep": {
       "teamId": 12,
       "teamName": "CeeDeep Shaheeded Rivalry",
-      "record": "3-1",
-      "seed": 3,
-      "pointsFor": 559.86,
-      "pointsAgainst": 529.65,
-      "projectedRank": 4,
+      "record": "3-2",
+      "seed": 6,
+      "pointsFor": 666.61,
+      "pointsAgainst": 671.11,
+      "projectedRank": 6,
       "matchup": {
-        "opponent": "Lloyd of the Rings",
-        "opponentSlug": "lloyd-rings",
-        "score": 147.07,
-        "opponentScore": 141.28,
+        "opponent": "Pollard Greens",
+        "opponentSlug": "pollard-greens",
+        "score": 106.75,
+        "opponentScore": 141.46,
         "status": "FINAL",
-        "projection": null,
-        "opponentProjection": null
+        "projection": 133.86780654,
+        "opponentProjection": 149.95689635
       },
       "roster": [
         {
@@ -3008,9 +3112,9 @@ export const leagueSnapshot = {
           "team": "DAL",
           "slot": "WR",
           "status": "",
-          "weekPoints": 44.4,
-          "seasonPoints": 118.4,
-          "starts": 4
+          "weekPoints": 1.9,
+          "seasonPoints": 120.3,
+          "starts": 5
         },
         {
           "id": "3918298",
@@ -3019,9 +3123,9 @@ export const leagueSnapshot = {
           "team": "BUF",
           "slot": "QB",
           "status": "",
-          "weekPoints": 18.02,
-          "seasonPoints": 123.76,
-          "starts": 4
+          "weekPoints": 34.5,
+          "seasonPoints": 158.26,
+          "starts": 5
         },
         {
           "id": "4239996",
@@ -3030,7 +3134,7 @@ export const leagueSnapshot = {
           "team": "NO",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 0.0,
+          "weekPoints": 0,
           "seasonPoints": 32.9,
           "starts": 3
         },
@@ -3039,11 +3143,11 @@ export const leagueSnapshot = {
           "name": "Terry McLaurin",
           "position": "WR",
           "team": "WSH",
-          "slot": "Bench",
+          "slot": "FLEX",
           "status": "",
-          "weekPoints": 0.0,
-          "seasonPoints": 29.1,
-          "starts": 3
+          "weekPoints": 12.2,
+          "seasonPoints": 41.3,
+          "starts": 4
         },
         {
           "id": "4432710",
@@ -3052,9 +3156,9 @@ export const leagueSnapshot = {
           "team": "NE",
           "slot": "RB",
           "status": "",
-          "weekPoints": 6.6,
-          "seasonPoints": 26.5,
-          "starts": 3
+          "weekPoints": 6.2,
+          "seasonPoints": 32.7,
+          "starts": 4
         },
         {
           "id": "3040151",
@@ -3063,9 +3167,9 @@ export const leagueSnapshot = {
           "team": "SF",
           "slot": "TE",
           "status": "",
-          "weekPoints": 21.0,
-          "seasonPoints": 71.9,
-          "starts": 3
+          "weekPoints": 8.4,
+          "seasonPoints": 80.3,
+          "starts": 4
         },
         {
           "id": "4432773",
@@ -3074,8 +3178,8 @@ export const leagueSnapshot = {
           "team": "JAX",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 10.7,
-          "seasonPoints": 27.5,
+          "weekPoints": 1.5,
+          "seasonPoints": 29,
           "starts": 1
         },
         {
@@ -3085,20 +3189,20 @@ export const leagueSnapshot = {
           "team": "DEN",
           "slot": "RB",
           "status": "",
-          "weekPoints": 20.5,
-          "seasonPoints": 42.8,
-          "starts": 1
+          "weekPoints": 2,
+          "seasonPoints": 44.8,
+          "starts": 2
         },
         {
           "id": "4373678",
           "name": "Khalil Shakir",
           "position": "WR",
           "team": "BUF",
-          "slot": "Bench",
+          "slot": "FLEX",
           "status": "",
-          "weekPoints": 12.2,
-          "seasonPoints": 32.6,
-          "starts": 1
+          "weekPoints": 12,
+          "seasonPoints": 44.6,
+          "starts": 2
         },
         {
           "id": "4032473",
@@ -3107,9 +3211,9 @@ export const leagueSnapshot = {
           "team": "SEA",
           "slot": "WR",
           "status": "",
-          "weekPoints": 16.25,
-          "seasonPoints": 35.55,
-          "starts": 3
+          "weekPoints": 5.55,
+          "seasonPoints": 41.1,
+          "starts": 4
         },
         {
           "id": "4366031",
@@ -3118,8 +3222,8 @@ export const leagueSnapshot = {
           "team": "HOU",
           "slot": "IR",
           "status": "",
-          "weekPoints": 0.0,
-          "seasonPoints": 0.0,
+          "weekPoints": 0,
+          "seasonPoints": 0,
           "starts": 0
         },
         {
@@ -3129,20 +3233,9 @@ export const leagueSnapshot = {
           "team": "LAC",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 12.05,
-          "seasonPoints": 33.25,
+          "weekPoints": 7,
+          "seasonPoints": 40.25,
           "starts": 0
-        },
-        {
-          "id": "-16012",
-          "name": "Chiefs D/ST",
-          "position": "D/ST",
-          "team": "KC",
-          "slot": "D/ST",
-          "status": "",
-          "weekPoints": 3.0,
-          "seasonPoints": 29.5,
-          "starts": 4
         },
         {
           "id": "4034949",
@@ -3151,25 +3244,27 @@ export const leagueSnapshot = {
           "team": "SF",
           "slot": "K",
           "status": "",
-          "weekPoints": 6.5,
-          "seasonPoints": 30.0,
-          "starts": 4
+          "weekPoints": 7.5,
+          "seasonPoints": 37.5,
+          "starts": 5
         },
         {
           "id": "4599739",
           "name": "Kendre Miller",
-          "slot": "FLEX",
+          "position": "RB",
+          "slot": "Bench",
           "status": "",
-          "weekPoints": 1.5,
-          "seasonPoints": 1.5,
+          "weekPoints": 9,
+          "seasonPoints": 10.5,
           "starts": 1
         },
         {
           "id": "2991662",
           "name": "Mack Hollins",
-          "slot": "FLEX",
+          "position": "WR",
+          "slot": "Bench",
           "status": "",
-          "weekPoints": 9.3,
+          "weekPoints": 0,
           "seasonPoints": 9.3,
           "starts": 1
         },
@@ -3180,9 +3275,19 @@ export const leagueSnapshot = {
           "team": "HOU",
           "slot": "Bench",
           "status": "",
-          "weekPoints": 1.9,
-          "seasonPoints": 6.9,
+          "weekPoints": 7,
+          "seasonPoints": 13.9,
           "starts": 0
+        },
+        {
+          "id": "-16007",
+          "name": "Broncos D/ST",
+          "position": "D/ST",
+          "slot": "D/ST",
+          "status": "",
+          "weekPoints": 16.5,
+          "seasonPoints": 16.5,
+          "starts": 1
         }
       ],
       "moves": [
@@ -3193,21 +3298,21 @@ export const leagueSnapshot = {
         }
       ],
       "season": {
-        "completedGames": 4,
-        "ppg": 139.97,
-        "pfRank": 6,
+        "completedGames": 5,
+        "ppg": 133.32,
+        "pfRank": 10,
         "paRank": 8,
-        "projectedRank": 4,
-        "startedPoints": 559.86,
-        "benchPoints": 131.6,
+        "projectedRank": 6,
+        "startedPoints": 666.61,
+        "benchPoints": 156.1,
         "positionTotals": {
-          "RB": 85.0,
-          "WR": 163.75,
-          "QB": 123.76,
-          "FLEX": 56.05,
-          "D/ST": 29.5,
-          "K": 30.0,
-          "TE": 71.8
+          "RB": 93.2,
+          "WR": 171.2,
+          "QB": 158.26,
+          "FLEX": 80.25,
+          "D/ST": 46,
+          "K": 37.5,
+          "TE": 80.2
         },
         "weekly": [
           {
@@ -3245,6 +3350,15 @@ export const leagueSnapshot = {
             "score": 147.07,
             "opponentScore": 141.28,
             "result": "W"
+          },
+          {
+            "week": 5,
+            "status": "FINAL",
+            "opponent": "Pollard Greens",
+            "opponentSlug": "pollard-greens",
+            "score": 106.75,
+            "opponentScore": 141.46,
+            "result": "L"
           }
         ]
       }

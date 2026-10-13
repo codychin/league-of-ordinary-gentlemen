@@ -1,13 +1,13 @@
 {
   "loog": {
     "week": 5,
-    "pending": true,
+    "pending": false,
     "findings": [
       {
         "writer": "pike",
         "label": "The narrow escape",
         "title": "Lloyd has left the accounting department very little room for error.",
-        "body": "The posted gap against Shake ’N Baker is 1.84. Parker Washington supplied 36.9 for Lloyd; across the field, Jayden Daniels left 35.16 on the bench while Jacoby Brissett scored 24.48. That substitution changes the arithmetic by 10.68. The standings have yet to process the result. Wald already has enough paperwork.",
+        "body": "Lloyd beat Shake ’N Baker by 1.84. Parker Washington supplied 36.9 for Lloyd; across the field, Jayden Daniels left 35.16 on the bench while Jacoby Brissett scored 24.48. That substitution changes the arithmetic by 10.68 and flips the result by 8.84. Wald has enough paperwork for a full appeal and, unfortunately, no grounds.",
         "receipt": "LLOYD 143.12 • SHAKE 141.28"
       },
       {
@@ -49,13 +49,13 @@
   },
   "sunday-crew": {
     "week": 5,
-    "pending": true,
+    "pending": false,
     "findings": [
       {
         "writer": "crane",
         "label": "The remaining stationery",
         "title": "Tolbert’s Cookies may need a new letterhead.",
-        "body": "Greg brought the league’s last unbeaten record into a meeting with Croatian Sensation. Paul posted 147.26 to Cookies’ 131.52, with Drake Maye providing 39.46. The official table still shows the old record while Yahoo processes the week. It is currently the most comforting page available to the bakery.",
+        "body": "Greg brought the league’s last unbeaten record into a meeting with Croatian Sensation. Paul posted 147.26 to Cookies’ 131.52, with Drake Maye providing 39.46. The official table now reads 4–1. The bakery may retain the old stationery for private use.",
         "receipt": "CROATIA 147.26 • COOKIES 131.52"
       },
       {
@@ -97,7 +97,7 @@
   },
   "doge": {
     "week": 5,
-    "pending": true,
+    "pending": false,
     "findings": [
       {
         "writer": "march",

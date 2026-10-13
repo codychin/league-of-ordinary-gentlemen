@@ -109,18 +109,18 @@ const franchiseFiles = [
 ]
 
 const currentNotes={
-  "all-ugly": "Skatt won 149.47–132.98, leaving All Ugly at 0–4. The first win is still outstanding; the latest evidence is a 16.49-point loss, not an accounting error.",
-  "hopkins-opus": "Hopkins beat Pollard Greens by 2.54 and moves to 3–1. First place is restored, with considerably less room for rhetorical expansion than the opening-week blowout.",
-  "lloyd-rings": "CeeDeep ended the unbeaten run, 147.07–141.28. Lloyd is 3–1, with Emanuel Wilson’s 30.6-point FLEX performance a good decision inside a losing result.",
-  "ceedeep": "CeeDeep beat the previously unbeaten Katz family office by 5.79. At 3–1, the rivalry now has a fresh receipt and a place among the four teams sharing the best record.",
-  "kupp-doubs": "Kupp beat Danir 143.62–125.42 and moves to 3–1. The standings recognize the win even if the opposing bench has requested a separate hearing.",
-  "danir": "Danir is 1–3 after losing to Kupp by 18.20. Kyle Monangai’s 35 bench points exceeded the margin, and the FLEX decision has become a particularly difficult exhibit.",
-  "route-22": "Route 22 scored 167.94 and lost to Kraft by 0.28. The Clubhouse is 2–2; two of its losses now total 0.84 points, after Week 2’s 0.56-point defeat.",
-  "kraft": "Kraft survived 168.22–167.94 in the week’s highest-scoring matchup. At 2–2, the franchise has two wins and a new reason to defend the second decimal place.",
-  "skatt": "Skatt beat All Ugly 149.47–132.98 and reaches 2–2. Kyren Williams supplied 39.8 points, more than enough to give the organization a preferable subject of conversation.",
-  "pollard-greens": "Pollard Greens leads the league with 610.07 points but sits 2–2 after a 2.54-point loss to Hopkins. Production remains convincing; the schedule remains unpersuaded.",
-  "royrek": "Royrek beat Shake ’N Baker 133.88–130.24 and reaches 2–2. A 3.64-point margin counts as a full win, a conversion rate the franchise has no reason to challenge.",
-  "shake-baker": "Shake ’N Baker falls to 1–3 after losing to Royrek by 3.64. The Week 2 escape by 0.56 is still on file; it does not provide credit toward this result."
+  "all-ugly": "Christian Watson scored 41.3 and All Ugly still lost 174.90–141.24 to Hopkins. The Process is 0–5; the standings have now rejected five consecutive exhibits.",
+  "hopkins-opus": "Hopkins beat All Ugly 174.90–141.24 and moves to 4–1. Braelon Allen’s 25.0-point FLEX start earned the global Decision Desk receipt; Bucky Irving added 37.6 in case the announcement required a second attachment.",
+  "lloyd-rings": "Lloyd survived Shake ’N Baker 143.12–141.28 and moves to 4–1. Parker Washington supplied 36.9; the opposing bench supplied the postgame investigation.",
+  "ceedeep": "CeeDeep fell 141.46–106.75 to Pollard Greens and is 3–2. Josh Allen scored 34.5; CeeDee Lamb supplied 1.9, an inconvenient split for the naming department.",
+  "kupp-doubs": "Kupp posted a league-high 177.60 against Royrek’s 136.86 and moves to 4–1. Jaylen Warren, Isaiah Likely and Brenton Strange combined for 96.5; DJ Moore’s zero was rendered administrative.",
+  "danir": "Danir beat Kraft 171.26–147.20 and reaches 2–3. Jahmyr Gibbs and Malik Nabers supplied 75.3, allowing the franchise to discuss the starting lineup without a subpoena.",
+  "route-22": "Route 22 lost 143.30–109.82 to Skatt and is 2–3. The previous two defeats totaled 0.84 points; this one arrived with enough margin to retire the magnifying glass.",
+  "kraft": "Kraft scored 147.20 and lost to Danir’s 171.26, falling to 2–3. Puka Nacua’s 38.9 was excellent evidence filed in a case with the wrong verdict.",
+  "skatt": "Skatt beat Route 22 143.30–109.82 and moves to 3–2. Ja’Marr Chase, Kyren Williams and Trey McBride handled 66.0 points of the paperwork.",
+  "pollard-greens": "Pollard Greens beat CeeDeep 141.46–106.75 and moves to 3–2 while retaining the league lead in points. Drake Maye supplied 43.16; the schedule has finally accepted the production.",
+  "royrek": "Royrek lost 177.60–136.86 to Kupp and falls to 2–3. Aaron Jones and Matthew Golden produced 49.5; the opposing lineup had 41.24 more and very little interest in mitigation.",
+  "shake-baker": "Shake ’N Baker lost 143.12–141.28 to Lloyd and is 1–4. Jayden Daniels outscored starting quarterback Jacoby Brissett by 10.68 from the bench, turning a narrow loss into a permanent audit."
 };
 export const teams=franchiseFiles.map(t=>{
  const ops=leagueSnapshot.teams[t.id];
