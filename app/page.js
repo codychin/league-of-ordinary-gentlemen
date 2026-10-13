@@ -12,12 +12,12 @@ const currentMatchups=matchupPairs.map(([a,b,note])=>[leagueSnapshot.teams[a],le
 const featuredPlayer=team=>team.roster.filter(p=>!['Bench','IR','K','D/ST'].includes(p.slot)&&!['K','D/ST'].includes(p.position)).sort((a,b)=>b.seasonPoints-a.seasonPoints)[0]
 const playerHeadshot=player=>`https://a.espncdn.com/i/headshots/nfl/players/full/${player.id}.png`
 const publishedReels=[
-  ["route-22","skatt","R22 · SKATT","The Route 22 Clubhouse vs. I’m a Skatt man","Hollis Crane",writers.crane.image,"feb4d4dbc329b94c262ccd131b5768af"],
-  ["all-ugly","hopkins-opus","UGLY · HOP","The All Ugly Team vs. Mr Hopkins Opus","Conrad Sorrell",writers.sorrell.image,"8c0a8cc5db43eea0497a2c6b052a2e1e"],
-  ["kraft","danir","KRAFT · DANIR","For the Love of the Kraft vs. DarkHorse Danir","Marnie Kells",writers.kells.image,"634f4da74438007e6590019e018aa512"],
-  ["pollard-greens","ceedeep","POLL · CEE","Pollard Greens vs. CeeDeep Shaheeded Rivalry","Maude Gannon",writers.gannon.image,"5d06b29673d40a0c4bc0bdcea93a2945"],
-  ["kupp-doubs","royrek","KUPP · ROY","Kupp Kupp Doubs vs. Royrek Tishmeshulam","Sabine March",writers.march.image,"58517508d68ab8be764e1489b440fff4"],
-  ["lloyd-rings","shake-baker","LLOYD · SHAKE","Lloyd of the Rings vs. Shake ’N Baker","Dashiell Pike",writers.pike.image,"d5972cd559ec07c33cf27cf8e95546fc"]
+  ["route-22","skatt","R22 · SKATT","The Route 22 Clubhouse vs. I’m a Skatt man","Hollis Crane",writers.crane.image,"f059a6f3de4858e3a455bdd8133f9584"],
+  ["all-ugly","hopkins-opus","UGLY · HOP","The All Ugly Team vs. Mr Hopkins Opus","Conrad Sorrell",writers.sorrell.image,"8f11034f16bbd11a2482d3b167aef924"],
+  ["kraft","danir","KRAFT · DANIR","For the Love of the Kraft vs. DarkHorse Danir","Marnie Kells",writers.kells.image,"708284a394ca159752825dbfe6f7b33a"],
+  ["pollard-greens","ceedeep","POLL · CEE","Pollard Greens vs. CeeDeep Shaheeded Rivalry","Maude Gannon",writers.gannon.image,"bb607013827b61d6f81a9e5583d584be"],
+  ["kupp-doubs","royrek","KUPP · ROY","Kupp Kupp Doubs vs. Royrek Tishmeshulam","Sabine March",writers.march.image,"1c086aa49b7595d25b56d05ca939aa3e"],
+  ["lloyd-rings","shake-baker","LLOYD · SHAKE","Lloyd of the Rings vs. Shake ’N Baker","Dashiell Pike",writers.pike.image,"46e89779758f34103aa4877062d98ec3"]
 ].map(([left,right,short,matchup,correspondent,avatar,id])=>{
   const lp=featuredPlayer(leagueSnapshot.teams[left]);
   const rp=featuredPlayer(leagueSnapshot.teams[right]);
@@ -31,7 +31,7 @@ export default function Home(){const sundayLive=isSundayLiveWindow();return <><h
 <SharedEditorialFront/>
 {!sundayLive&&<SundayLiveDesk/>}
 
-<ReelsShelf reels={publishedReels} releaseId="loog-week5-preview-v1" storageKey="brief-loog-week5-preview-viewed-v1" weekLabel="THE BRIEF • WEEK 5" title="Week 5, on assignment." modeLabel="WEEK 5 • PREVIEW"/>
+<ReelsShelf reels={publishedReels} releaseId="loog-week5-recap-v1" storageKey="brief-loog-week5-recap-viewed-v1" weekLabel="THE BRIEF • WEEK 5" title="Week 5, the recap." modeLabel="WEEK 5 • RECAP"/>
 <LoogAutopsy/>
 <Standings/>
 <StartSitOfWeek/>
