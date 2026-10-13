@@ -30,9 +30,9 @@ export default async function Home({config}){
     </header>
     <main>
       <SundayLiveDesk editionSlug={slug} editionLabel={name.toUpperCase()} staffPath={root+"/newsroom"}/>
-      {reels.length>0&&<ReelsShelf reels={reels} releaseId={config.reelRelease} storageKey={config.reelStorage||config.reelRelease+"-viewed"} weekLabel={config.reelLabel} title={config.reelTitle} modeLabel={config.reelLabel}/>}
       <SharedEditorialFront root={root} archiveHref={root+"/archive"}/>
       {localArticles.length>0&&<section style={{padding:'28px 0',borderTop:'2px solid #11100e'}}><div style={{fontSize:11,fontWeight:800,letterSpacing:2,color:'#b21f24'}}>FROM THE {name.toUpperCase()} BUREAU</div><div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(240px,1fr))',gap:24,marginTop:20}}>{localArticles.map(article=><article key={article.id}><Link href={(root+'/articles/')+article.slug} style={{color:'#11100e',textDecoration:'none'}}><h2 style={{fontFamily:'Georgia,serif',fontSize:28,lineHeight:1.1}}>{article.title}</h2><p style={{fontSize:14,lineHeight:1.5}}>{article.dek}</p></Link></article>)}</div></section>}
+      {reels.length>0&&<ReelsShelf reels={reels} releaseId={config.reelRelease} storageKey={config.reelStorage||config.reelRelease+"-viewed"} weekLabel={config.reelLabel} title={config.reelTitle} modeLabel={config.reelLabel}/>}
       <EditionLeagueSurfaces edition={edition} headshots={headshots} config={config}/>
       <StartSitOfWeek/>
       <AlsoShelf videos={globalArticleVideos}/>

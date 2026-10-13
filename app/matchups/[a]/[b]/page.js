@@ -1,3 +1,5 @@
+import latestScores from '../../../../data/latest-loog-scores.json';
+import closeout from '../../../../data/week5-closeout.json';
 import matchupColumns from '../../../../data/week5-matchup-columns.json';
 import Link from 'next/link'
 import SiteNav from '../../../components/SiteNav'
@@ -29,12 +31,12 @@ export default async function MatchupPreview({params}){
 
   // Current-week scores are provider snapshots. The static leagueSnapshot below remains historical.
   // Never recycle last week's finalized roster or score into a new matchup.
-  let latest=null;
+  let latest=latestScores;
   try{
     const res=await fetch('https://dnzdbqycuuoonewcowis.supabase.co/functions/v1/brief-sunday-engine?action=scores',{cache:'no-store'});
     if(res.ok){
       const value=await res.json();
-      if(value?.ok&&Number(value.week)>Number(leagueSnapshot.week)&&Array.isArray(value.matchups))latest=value;
+      if(value?.ok&&Array.isArray(value.matchups)&&(Number(value.week)>Number(latest.week)||(Number(value.week)===Number(latest.week)&&Date.parse(value.updatedAt)>Date.parse(latest.updatedAt))))latest=value;
     }
   }catch{}
   if(latest){
@@ -45,7 +47,10 @@ export default async function MatchupPreview({params}){
     const rs=Number(game.home?.id)===idB?game.home:game.away;
     const final=Boolean(game.winner&&game.winner!=='UNDECIDED');
     const pregame=!final&&Number(ls.score||0)===0&&Number(rs.score||0)===0;
-    const phase=final?'FINAL':pregame?'PREGAME':'LIVE';
+    const phase=final?'FINAL':game.closeoutPending?'AWAITING PROVIDER FINAL':pregame?'PREGAME':'LIVE';
+    const verified=Number(latest.week)===closeout.week?closeout.loog.details.flatMap(g=>[g.home,g.away]):[];
+    const leftPlayers=verified.find(t=>t.teamId===idA)?.players.filter(p=>p.started)||[];
+    const rightPlayers=verified.find(t=>t.teamId===idB)?.players.filter(p=>p.started)||[];
     const column=matchupColumns.find(x=>x.edition==='loog'&&x.week===Number(latest.week)&&x.teamIds.includes(String(idA))&&x.teamIds.includes(String(idB)));
     const columnist=writers[column?.writer||'gannon'];
     return <>
@@ -64,9 +69,9 @@ export default async function MatchupPreview({params}){
           <div className="matchupColumnByline"><img src={columnist.image} alt={columnist.imageAlt}/><div><small>WEEK {latest.week} • CORRESPONDENT PREVIEW</small><b>{columnist.name}</b></div></div>
           <h2>{column?.headline||'Awaiting correspondent analysis'}</h2>
           {(column?.body||'The verified correspondent writeup for this pairing is unavailable.').split(/\n\n+/).map((paragraph,index)=><p key={index}>{paragraph}</p>)}
-          <p className="matchupUpdated">LATEST SCORE: {fmt(ls.score)}–{fmt(rs.score)} • PROJECTED {fmt(ls.projection)} / {fmt(rs.projection)}. Preview analysis was written before kickoff.</p>
+          <p className="matchupUpdated">LATEST SCORE: {fmt(ls.score)}–{fmt(rs.score)} . Preview analysis was written before kickoff.</p>
         </section>
-        <section className="lineupPreview"><div className="matchupSectionHead"><small>STARTING LINEUPS</small><h2>Awaiting current-week roster verification</h2></div><p>Last week's starters are not being presented as current. Scores and projections above are the latest verified matchup values.</p></section>
+        <section className="lineupPreview"><div className="matchupSectionHead"><small>STARTING LINEUPS • WEEK {latest.week}</small><h2>Position by position</h2></div>{leftPlayers.length&&rightPlayers.length?<><div className="lineupTeams"><span>{left.teamName}</span><span>{right.teamName}</span></div>{Array.from({length:Math.max(leftPlayers.length,rightPlayers.length)},(_,i)=>[leftPlayers[i],rightPlayers[i]]).map(([l,r],i)=><div className="lineupRow" key={i}><div className="lineupPlayer left">{l&&<><small>{l.lineupSlot}</small><b>{l.name}</b><span>{fmt(l.points)}</span></>}</div><div className="lineupVs">VS</div><div className="lineupPlayer right">{r&&<><small>{r.lineupSlot}</small><b>{r.name}</b><span>{fmt(r.points)}</span></>}</div></div>)}</>:<p>Awaiting current-week roster verification.</p>}</section>
         <Link className="matchupBack" href="/#scores">← ALL WEEK {latest.week} MATCHUPS</Link>
       </main>
     </>;

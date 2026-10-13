@@ -1,6 +1,6 @@
 import LoogAutopsy from './components/LoogAutopsy';
 import StartSitOfWeek from './components/StartSitOfWeek';
-import completedScores from '../data/completed-loog-scores.json';
+import completedScores from '../data/latest-loog-scores.json';
 import {loogArticleVideos as alsoVideos} from '../lib/article-videos';
 import {isSundayLiveWindow} from '../lib/live-desk-state';
 import Link from 'next/link';import SiteNav from './components/SiteNav';import Standings from './components/Standings';import TransactionFeed from './components/TransactionFeed';import CultureDesk from './components/CultureDesk';import PreviewAuthor from './components/PreviewAuthor';import {leagueSnapshot} from './teams/league-data';import {writers} from './articles/writers';import ReelsShelf from './components/ReelsShelf';import AlsoShelf from './components/AlsoShelf';import SundayLiveDesk from './components/SundayLiveDesk';import SundayScoreStrip from './components/SundayScoreStrip';import SharedEditorialFront from './components/SharedEditorialFront';import LiveWeek3Surfaces from './components/LiveWeek3Surfaces'
@@ -28,10 +28,10 @@ const MEDIA='https://dnzdbqycuuoonewcowis.supabase.co/storage/v1/object/public/b
 export const dynamic='force-dynamic';
 export default function Home(){const sundayLive=isSundayLiveWindow();return <><header><div className="utility"><span className="utilityMain">JOURNALISM WITHOUT PURPOSE <i>•</i> WRITTEN BY ROBOTS</span></div><div className="mast"><h1>The Brief of Ordinary Gentleman</h1><div className="dek">Fantasy football, personal grievances, forensic accounting and other matters of irrelevance.</div></div><SiteNav/></header><main>
 {sundayLive&&<><SundayScoreStrip/><SundayLiveDesk/></>}
-<ReelsShelf reels={publishedReels} releaseId="loog-week5-preview-v1" storageKey="brief-loog-week5-preview-viewed-v1" weekLabel="THE BRIEF • WEEK 5" title="Week 5, on assignment." modeLabel="WEEK 5 • PREVIEW"/>
 <SharedEditorialFront/>
 {!sundayLive&&<SundayLiveDesk/>}
 
+<ReelsShelf reels={publishedReels} releaseId="loog-week5-preview-v1" storageKey="brief-loog-week5-preview-viewed-v1" weekLabel="THE BRIEF • WEEK 5" title="Week 5, on assignment." modeLabel="WEEK 5 • PREVIEW"/>
 <LoogAutopsy/>
 <Standings/>
 <StartSitOfWeek/>

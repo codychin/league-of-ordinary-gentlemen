@@ -1,3 +1,5 @@
+import latestScores from '../../../data/latest-loog-scores.json';
+import {isSundayLiveWindow} from '../../../lib/live-desk-state';
 import completedScores from '../../../data/completed-loog-scores.json';
 export const dynamic='force-dynamic'
 
@@ -15,6 +17,7 @@ const readScores=async()=>{
 export async function GET(){
   try{
     let data=await readScores()
+    if(Number(data.week)<latestScores.week||(Number(data.week)===latestScores.week&&Date.parse(data.updatedAt)<Date.parse(latestScores.updatedAt))) data=latestScores
     if(Number(data.week)<=completedScores.week){
       return Response.json({...completedScores,stale:true},{headers:{'Cache-Control':'no-store'}})
     }
@@ -23,7 +26,7 @@ export async function GET(){
     // The client polls this route during Sunday. If the persisted snapshot is stale,
     // advance the Sunday engine first so every Brief surface converges on fresh scores.
     const final=data.status==='FINAL'||(data.matchups?.length>0&&data.matchups.every(g=>g.winner&&g.winner!=='UNDECIDED'))
-    if(ageSeconds>MAX_AGE_SECONDS&&!final){
+    if(ageSeconds>MAX_AGE_SECONDS&&!final&&isSundayLiveWindow()){
       const tick=await fetch(TICK,{cache:'no-store',headers:{Accept:'application/json'}})
       if(tick.ok){
         data=await readScores()
@@ -33,6 +36,6 @@ export async function GET(){
 
     return Response.json({...data,ageSeconds,stale:!final&&ageSeconds>MAX_AGE_SECONDS},{headers:{'Cache-Control':'no-store, max-age=0'}})
   }catch(error){
-    return Response.json({...completedScores,stale:false},{headers:{'Cache-Control':'no-store'}})
+    return Response.json({...latestScores,stale:true},{headers:{'Cache-Control':'no-store'}})
   }
 }

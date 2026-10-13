@@ -16,9 +16,9 @@ test('exactly three global front-page cards',()=>{
  assert.ok(section,'Missing global stories section');
  assert.equal((section[1].match(/<article className=\{front\.card\}/g)||[]).length,3);
 });
-test('global stories come after Jaguars feature',()=>{
+test('London assignment follows the last featured article',()=>{
  const s=readFileSync('app/components/SharedEditorialFront.js','utf8');
- assert.ok(s.indexOf('On Assignment: Dashiell Pike in London')<s.indexOf('aria-label="Recent stories"'));
+ assert.ok(s.indexOf('On Assignment: Dashiell Pike in London')>s.indexOf('aria-label="Featured Hollis Crane investigation"'));
 });
 
 test('every globally featured story resolves through the global edition allowlist',()=>{

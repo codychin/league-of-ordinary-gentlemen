@@ -1,3 +1,4 @@
+import {isMatchupFinal} from '../../../lib/matchup-status.mjs';
 import matchupColumns from '../../../data/week5-matchup-columns.json';
 import Link from 'next/link';
 import EditionSiteNav from '../EditionSiteNav';
@@ -30,16 +31,17 @@ export default async function Matchup({params,config}){
   const standing=id=>standings.find(s=>String(s.teamId)===String(id));
   const column=matchupColumns.find(x=>x.edition===editionSlug&&x.week===week&&x.teamIds.includes(String(a))&&x.teamIds.includes(String(b)));
   const writer=writers[column?.writer||'gannon'];
-  const isFinal=game.winner&&game.winner!=='UNDECIDED';
+  const isFinal=isMatchupFinal(game);
+  const phase=isFinal?'FINAL':game.closeoutPending?'AWAITING PROVIDER FINAL':'IN PROGRESS';
   return <>
     <header className="articleHeader"><Link href={root+""} className="miniMast">{publicationName}</Link><EditionSiteNav root={root+""}/></header>
     <main className="matchupPage">
       <section className="matchupLead">
         <div className="matchupHeroKicker">{editionName.toUpperCase()} • WEEK {week} • {isFinal?"FINAL RESULT":"LATEST SCORE"}</div>
         <div className="matchupScoreboard">
-          <Link href={(root+"/teams/")+a} className="matchupHeroSide"><small>{left.ownerName}</small><h1>{left.teamName}</h1><b>{fmt(ls.points)}</b><span>{isFinal?"FINAL":"IN PROGRESS"}</span></Link>
+          <Link href={(root+"/teams/")+a} className="matchupHeroSide"><small>{left.ownerName}</small><h1>{left.teamName}</h1><b>{fmt(ls.points)}</b><span>{phase}</span></Link>
           <div className="matchupHeroCenter"><span>VS</span><small>YAHOO</small></div>
-          <Link href={(root+"/teams/")+b} className="matchupHeroSide right"><small>{right.ownerName}</small><h1>{right.teamName}</h1><b>{fmt(rs.points)}</b><span>{isFinal?"FINAL":"IN PROGRESS"}</span></Link>
+          <Link href={(root+"/teams/")+b} className="matchupHeroSide right"><small>{right.ownerName}</small><h1>{right.teamName}</h1><b>{fmt(rs.points)}</b><span>{phase}</span></Link>
         </div>
       </section>
       <section className="matchupColumn">

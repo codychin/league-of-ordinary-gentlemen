@@ -47,3 +47,9 @@ Reuse these jobs. Do not create extra polling, enable live workers, generate pai
 ## Onboarding another edition
 
 Add registry/config and thin route wrappers, tenant/league records, verified snapshots, scoped PWA worker/manifest, and push allowlist/URL constraint. Backfill local evidence and write original local findings. Include it in existing schedules. Verify all routes, data reconciliation, other-edition article rejection, draft exclusion and notifications before launch. Never expose provider credentials in snapshots or client config.
+
+## Week 5 closeout, October 13
+
+`data/week5-closeout.json` preserves authenticated weekly matchups, lineup points and provider standings. All 36 starter sums reconcile. At capture time all provider standings still covered four games; Yahoo said in_progress and ESPN said UNDECIDED. Do not manufacture Week 5 official records. `data/latest-loog-scores.json` is the verified Week 5 score fallback; `completed-loog-scores.json` remains Week 4 until official finality. `data/week5-autopsies.json` feeds all three local Autopsies and explicitly marks provider finalization pending. The global StartSit component is already Week 5.
+
+During the existing Tuesday closeout, refresh the provider data; after official finality, update the completed score file, latest fallback, LOOG static team records/history/roster aggregates, Yahoo standings/history/settings and pending labels together. Preserve earlier evidence. Advance or replace the Autopsy imports for the new week rather than editing an unused old data file. Keep Yahoo's explicit status authoritative: a home/away winner field can identify the current leader during in_progress. `lib/matchup-status.mjs` centralizes that distinction.
