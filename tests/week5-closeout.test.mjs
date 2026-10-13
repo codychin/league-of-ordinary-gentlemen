@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import {leagueSnapshot} from '../app/teams/league-data.js';
 import {isMatchupFinal} from '../lib/matchup-status.mjs';
 const evidence=JSON.parse(fs.readFileSync('data/week5-closeout.json'));
 const scores=JSON.parse(fs.readFileSync('data/latest-loog-scores.json'));
@@ -28,11 +29,21 @@ test('all 36 Week 5 starter sums reconcile with the posted scores',()=>{
   assert.equal(stored.score,source.pointsByScoringPeriod['5']);
  }
 });
-test('unsettled provider records are preserved rather than invented',()=>{
+test('completed Week 5 records and winners reconcile to provider evidence',()=>{
  for(const edition of [evidence.loog,evidence.sundayCrew,evidence.doge]){
   assert.equal(edition.standings.standings.length,12);
-  for(const t of edition.standings.standings)assert.equal(Number(t.wins)+Number(t.losses)+Number(t.ties),4);
+  for(const t of edition.standings.standings)assert.equal(Number(t.wins)+Number(t.losses)+Number(t.ties),5);
+  assert.ok(edition.matchups.matchups.every(isMatchupFinal));
  }
- assert.equal(scores.status,'AWAITING_PROVIDER_FINAL');
- assert.ok(scores.matchups.every(m=>!isMatchupFinal(m)));
+ assert.equal(scores.status,'FINAL');
+ assert.ok(scores.matchups.every(isMatchupFinal));
+ for(const st of evidence.loog.standings.standings){
+  const t=Object.values(leagueSnapshot.teams).find(t=>t.teamId===st.teamId);
+  assert.equal(t.record,`${st.wins}-${st.losses}`);
+  assert.equal(t.season.weekly.length,5);
+  assert.equal(round(t.season.weekly.reduce((n,w)=>n+w.score,0)),round(st.pointsFor));
+  const source=evidence.loog.matchups.matchups.find(m=>m.home.teamId===st.teamId||m.away.teamId===st.teamId);
+  const stored=scores.matchups.find(m=>m.home.id===st.teamId||m.away.id===st.teamId);
+  assert.equal(stored.winner,source.winner);
+ }
 });
