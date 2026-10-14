@@ -8,16 +8,40 @@ const playerLabel=(name,position)=>isDefense(position)&&name&&!name.includes('D/
 
 const outbidContext=(t,failed)=>{
   if(t.type!=='waiver'||!t.add)return ''
-  const losers=failed.filter(x=>x.date===t.date&&x.add===t.add&&x.team!==t.team).sort((a,b)=>(b.faab||0)-(a.faab||0))
+  const bids=new Map()
+  failed.filter(x=>x.date===t.date&&x.add===t.add&&x.team!==t.team).forEach(x=>{
+    const prior=bids.get(x.team)
+    if(!prior||Number(x.faab||0)>Number(prior.faab||0))bids.set(x.team,x)
+  })
+  const losers=[...bids.values()].sort((a,b)=>(b.faab||0)-(a.faab||0))
   if(!losers.length)return ''
-  if(losers.length===1)return ' '+losers[0].team+"'s $"+losers[0].faab+' was enough to participate, not enough to win.'
-  if(losers.length===2)return ' '+losers[0].team+' ($'+losers[0].faab+') and '+losers[1].team+' ($'+losers[1].faab+') submitted thoughtful losing arguments.'
-  const names=losers.slice(0,3).map(x=>x.team).join(', ')
+  const bid=x=>x.team+' ($'+x.faab+')'
+  if(losers.length===1){
+    const gap=Math.max(0,Number(t.faab||0)-Number(losers[0].faab||0))
+    return ' '+losers[0].team+' finished $'+gap+' short at $'+losers[0].faab+'. The market has issued its ruling.'
+  }
+  if(losers.length===2)return ' '+bid(losers[0])+' and '+bid(losers[1])+' also filed claims. Both are now exhibits.'
+  const leaders=losers.slice(0,3).map(bid).join(', ')
   const more=losers.length-3
-  return ' '+names+(more>0?' and '+more+' other bidder'+(more===1?'':'s'):'')+' discovered that consensus does not confer custody.'
+  return ' '+leaders+(more>0?' and '+more+' more':'')+' submitted losing bids. Consensus did not confer custody.'
 }
 
 const aside=t=>{
+  if(isDefense(t.addPosition)&&isDefense(t.dropPosition))return pick(t,[
+    'The defense rental desk changed the locks before lunch.',
+    'One matchup streamer out, another seven-day lease in.',
+    'The schedule, not loyalty, remains general manager.',
+  ])
+  if(t.addPosition==='QB'&&t.dropPosition==='QB')return pick(t,[
+    'The quarterback room has been panic-cleaned.',
+    'One emergency contact replaced another.',
+    'The depth chart has changed passwords again.',
+  ])
+  if(t.addPosition==='TE'&&t.dropPosition==='TE')return pick(t,[
+    'Tight end certainty remains unavailable in this market.',
+    'The position carousel has accepted another rider.',
+    'A new answer arrived for the league’s least answerable position.',
+  ])
   if((t.faab||0)>=30)return pick(t,[
     'This was not a claim so much as a capital-allocation event.',
     'The FAAB department has declined to discuss liquidity.',
@@ -84,7 +108,7 @@ const copy=(t,failed)=>{
 }
 
 export default function SchefterTransactionFeed({transactions=[],week=null,maxItems=20}){
-  const successful=transactions.filter(t=>t.status==='complete').slice(0,maxItems)
+  const successful=transactions.filter(t=>t.status==='complete'&&['add','drop','waiver','trade'].includes(t.type)&&(t.add||t.drop||t.tradeSides?.length)).slice(0,maxItems)
   const failed=transactions.filter(t=>t.status==='failed')
   if(!successful.length)return <div className="parodyNote">NO TRANSACTIONS HAVE CLEARED YET.</div>
   return <div className="schefterFeed">{successful.map(t=><article className="schefterPost" key={t.id}>
