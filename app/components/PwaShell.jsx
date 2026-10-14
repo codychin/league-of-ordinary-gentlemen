@@ -1,4 +1,5 @@
 'use client'
+import ImageWarmup from './ImageWarmup'
 
 import Link from 'next/link'
 import {scrollToSection} from '../../lib/scroll-to-section.mjs'
@@ -448,5 +449,5 @@ export default function PwaShell(){
   },[edition?.slug])
 
   if(pathname.startsWith('/manage'))return null
-  return <><PullToRefresh/><InstallPrompt key={edition?.slug||'brief'} edition={edition}/><NotificationCenter key={edition?.slug||"brief"} edition={edition}/><MobileAppNav/></>
+  return <><ImageWarmup/><PullToRefresh/><InstallPrompt key={edition?.slug||'brief'} edition={edition}/><NotificationCenter key={edition?.slug||"brief"} edition={edition}/><MobileAppNav/></>
 }

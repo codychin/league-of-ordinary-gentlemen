@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import ResilientImage from './ResilientImage'
 import {useState} from 'react'
 import PreviewAuthor from './PreviewAuthor'
 import {isGlobalArticle} from '../../lib/editorial-scope'
@@ -29,7 +30,7 @@ const stories=[
 ]
 
 function Story({story,root}){
-  const body=<><div className={`culturePhoto ${story.photoClass||''}`} style={story.image?{backgroundImage:`url('${story.image}')`}:undefined}/><div className="tag">{story.tag}</div><h3>{story.title}</h3>{story.slug&&<PreviewAuthor slug={story.slug}/>}<p>{story.dek}</p>{story.read&&<div className="read">{story.read}</div>}</>
+  const body=<><div className={`culturePhoto ${story.photoClass||''}`}>{story.image&&<ResilientImage src={story.image} alt={story.title} sizes="(max-width: 600px) 100vw, 480px" style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:story.photoClass==='sabineCulturePhoto'?'center top':'center'}}/>}</div><div className="tag">{story.tag}</div><h3>{story.title}</h3>{story.slug&&<PreviewAuthor slug={story.slug}/>}<p>{story.dek}</p>{story.read&&<div className="read">{story.read}</div>}</>
   return story.href?<Link href={root+story.href} className="card storylink">{body}</Link>:<article className="card">{body}</article>
 }
 
@@ -38,6 +39,6 @@ export default function CultureDesk({globalOnly=false,root="",extraSlugs=[]}){
   const editionSlug=root==='/doge'?'doge':root==='/sunday-crew'?'sunday-crew':'loog';const scopedStories=(globalOnly?stories.filter(story=>story.slug&&(isGlobalArticle(story.slug)||extraSlugs.includes(story.slug))):stories).filter(story=>!story.editions||story.editions.includes(editionSlug))
   const pageCount=Math.ceil(scopedStories.length/PAGE_SIZE)
   const visible=scopedStories.slice(page*PAGE_SIZE,(page+1)*PAGE_SIZE)
-  const changePage=next=>{setPage(next);document.getElementById('culture')?.scrollIntoView({behavior:'auto',block:'start'})}
+  const changePage=next=>{setPage(next);setTimeout(()=>window.dispatchEvent(new Event('brief:images-changed')),0);document.getElementById('culture')?.scrollIntoView({behavior:'auto',block:'start'})}
   return <section className="affairs" id="culture"><div className="sectionhead light affairsHead"><span>CULTURE DESK</span><h2>Matters of Culture</h2></div><div className="affairsIntro">Important to someone.</div><div className="grid3 darkgrid cultureGrid">{visible.map((story,index)=><Story root={root} story={story} key={`${page}-${index}`}/>)}</div>{pageCount>1&&<nav className="culturePagination" aria-label="Culture stories pagination"><button type="button" onClick={()=>changePage(page-1)} disabled={page===0}>← NEWER</button><span>PAGE {page+1} OF {pageCount}</span><button type="button" onClick={()=>changePage(page+1)} disabled={page===pageCount-1}>OLDER →</button></nav>}</section>
 }
