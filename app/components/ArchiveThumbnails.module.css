@@ -1,4 +1,5 @@
 .story{display:flex;align-items:flex-start;gap:20px}
 .thumbnail{display:block;flex:0 0 144px;width:144px;height:100px;object-fit:cover;background:#e6e1d7;border-radius:2px}
 .copy{min-width:0;flex:1}
+.copy>small{display:block}
 @media(max-width:600px){.story{gap:12px}.thumbnail{flex-basis:88px;width:88px;height:72px}.story h2{font-size:24px;line-height:1.08}.story p{font-size:15px;line-height:1.4}}
