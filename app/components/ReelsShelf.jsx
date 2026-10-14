@@ -1,7 +1,7 @@
 'use client';
 
-import {useEffect,useRef,useState} from 'react';
-import {flushSync} from 'react-dom';
+import {useEffect,useLayoutEffect,useRef,useState} from 'react';
+import {createPortal,flushSync} from 'react-dom';
 import styles from './ReelsShelf.module.css';
 import ResilientImage from './ResilientImage';
 
@@ -70,12 +70,31 @@ export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1',storag
     setProgress(0);
     setHasStarted(false);
     const t=setTimeout(()=>setShowMeta(false),2800);
-    const old=document.body.style.overflow;
-    document.body.style.overflow='hidden';
-    document.body.classList.add('reelsOpen');
-    return()=>{clearTimeout(t);document.body.style.overflow=old;document.body.classList.remove('reelsOpen')};
+    return()=>clearTimeout(t);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   },[active]);
+
+  // Lock once per viewing session, not on every automatic reel transition.
+  const viewerOpen=active!==null;
+  useLayoutEffect(()=>{
+    if(!viewerOpen)return;
+    const root=document.documentElement;
+    const body=document.body;
+    const scrollX=window.scrollX;
+    const scrollY=window.scrollY;
+    const rootOverflow=root.style.overflow;
+    const bodyOverflow=body.style.overflow;
+    const hadReelsOpen=body.classList.contains('reelsOpen');
+    root.style.overflow='hidden';
+    body.style.overflow='hidden';
+    body.classList.add('reelsOpen');
+    return()=>{
+      root.style.overflow=rootOverflow;
+      body.style.overflow=bodyOverflow;
+      if(!hadReelsOpen)body.classList.remove('reelsOpen');
+      window.scrollTo({left:scrollX,top:scrollY,behavior:'instant'});
+    };
+  },[viewerOpen]);
 
   useEffect(()=>{
     const onKey=e=>{
@@ -151,7 +170,7 @@ export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1',storag
       </button>)}
     </div>
 
-    {reel&&<div className={styles.viewer}
+    {reel&&createPortal(<div className={styles.viewer}
       role="dialog" aria-modal="true" aria-label={`${reel.matchup} video recap`}
       onTouchStart={e=>{touchStart.current=e.touches[0].clientX}}
       onTouchEnd={e=>{if(touchStart.current===null)return;const d=e.changedTouches[0].clientX-touchStart.current;if(Math.abs(d)>55)move(d<0?1:-1);touchStart.current=null;}}>
@@ -172,6 +191,6 @@ export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1',storag
         </div>
       </div>
       <div className={styles.progress}>{reels.map((r,i)=><span key={r.id} className={i<active?styles.done:(i===active?styles.current:'')}><i style={i<active?{width:'100%'}:i===active?{width:`${progress*100}%`}:{width:'0%'}}/></span>)}</div>
-    </div>}
+    </div>,document.body)}
   </section>
 }
