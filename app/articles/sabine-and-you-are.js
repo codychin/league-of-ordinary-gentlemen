@@ -120,10 +120,12 @@ export const andYouAreArticle = {
       }
     },
     "By 2019, Rory McIlroy and Brooks Koepka had four major championships apiece. This seemed a promising basis for a rivalry, especially to people employed to discuss golf.",
-    "Koepka explained that McIlroy had not won a major since Koepka had been on the PGA Tour. He did not see a rivalry.",
+    "However, when asked about this seemingly emergent storyline at a press conference ahead of the CJ Cup in October 2019, Koepka observed that McIlroy had not won a major since he had been on the PGA Tour. He did not see a rivalry.",
     "There are several ways to separate men with identical totals. Brooks chose to establish a new calendar.",
     "McIlroy’s victories remained perfectly respectable accomplishments from the period before Brooks. They could be admired, preserved and discussed by older relatives. Their relevance to the present conversation was less clear.",
     "It takes considerable confidence to look at a contemporary with four majors and place him in antiquity.",
+    "Subsequent events have complicated the dating system. Koepka joined LIV in 2022 and won a fifth major at the 2023 PGA Championship, so the departure was hardly an immediate retirement. By August 2026, however, he was back on the PGA Tour, with one top-ten finish in 16 starts and no place in the playoffs. McIlroy had meanwhile completed the career Grand Slam at the 2025 Masters, then returned in 2026 for a second green jacket.",
+    "Brooks had been right about the absence of a rivalry. He had been less careful about which man would eventually need to establish one.",
     {
       "type": "heading",
       "text": "4. Kobe Bryant cannot be reached"
