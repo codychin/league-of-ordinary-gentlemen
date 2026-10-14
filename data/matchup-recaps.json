@@ -1,0 +1,524 @@
+[
+  {
+    "edition": "loog",
+    "season": 2026,
+    "week": 5,
+    "teamIds": [
+      "4",
+      "5"
+    ],
+    "writer": "crane",
+    "headline": "The grievance has become easier to explain",
+    "body": "I had expected Route 22 to spend another week describing a crime that could only be seen under magnification. Its previous two defeats had totaled 0.84 points. Skatt has mercifully simplified the investigation: 143.30–109.82. Nobody needs to enhance the image. The Clubhouse lost by 33.48, a margin large enough to be understood by a person who has other plans.\n\nJames Cook, Matthew Stafford and Brock Bowers produced 81.62 of Route 22’s points. The other seven starters contributed 28.20. That is less a lineup than three men discovering, halfway through moving a sofa, that everyone else has gone to look for parking. The two starting receivers supplied five points between them. The kicker and defense managed another two and a half.\n\nSkatt’s afternoon had considerably more people in it. Ja’Marr Chase scored 25.2, Trey McBride 20.6 and Kyren Williams 20.2; Will Reichard and the Browns defense added 30.5 together. There were weak spots, but they did not become an organizational identity. Skatt moves to 3–2 while the Clubhouse falls to 2–3.\n\nThe earlier losses invited a wonderfully useless question: what if one tiny thing had gone differently? This one requires a different conversation. You cannot reverse the result by replaying a single dropped pass in the toothpaste aisle. Route 22 has finally suffered a defeat that can be left at the stadium.",
+    "kind": "recap",
+    "editorialVersion": "week5-final-longform-v1",
+    "source": {
+      "path": "data/week5-closeout.json",
+      "capturedAt": "2026-10-13T12:19:00.430Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "4",
+          "points": 109.82
+        },
+        {
+          "teamId": "5",
+          "points": 143.3
+        }
+      ]
+    }
+  },
+  {
+    "edition": "loog",
+    "season": 2026,
+    "week": 5,
+    "teamIds": [
+      "3",
+      "7"
+    ],
+    "writer": "sorrell",
+    "headline": "Two managers, still no winning department",
+    "body": "I asked before kickoff how Cody and Ferret divided responsibility for a team without a win. Five games into the experiment, the structure has produced another result for which neither man is likely to seek sole credit. Hopkins won 174.90–141.24. The All Ugly Team is 0–5; the leading institution is 4–1. The distance between them has become rather difficult to attribute to administrative style.\n\nChristian Watson supplied 41.3 for All Ugly, and Jared Goff added 30.04. Those are substantial contributions to an organization that keeps receiving excellent individual work and turning it into another difficult Monday. There were also 2.9 from Colston Loveland, 5.3 from Omarion Hampton and a negative score from the Rams defense. A rescue effort requires somewhere for the rescued to stand.\n\nHopkins got 62.6 from Bucky Irving and Braelon Allen, another 29 from George Pickens and 20.8 from Sam LaPorta. The kicker contributed 22. It is easier to look like a well-governed institution when even the kicking department is flourishing. Hopkins could afford several ordinary performances because the extraordinary ones arrived in useful numbers.\n\nThe schedule remains a legitimate part of All Ugly’s case: 141.24 was not a ceremonial surrender. But a legitimate explanation does not supply the missing victory, and co-management has now doubled the number of people available to explain five defeats. I would retain Watson. The committee can review itself.",
+    "kind": "recap",
+    "editorialVersion": "week5-final-longform-v1",
+    "source": {
+      "path": "data/week5-closeout.json",
+      "capturedAt": "2026-10-13T12:19:00.430Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "3",
+          "points": 141.24
+        },
+        {
+          "teamId": "7",
+          "points": 174.9
+        }
+      ]
+    }
+  },
+  {
+    "edition": "loog",
+    "season": 2026,
+    "week": 5,
+    "teamIds": [
+      "9",
+      "2"
+    ],
+    "writer": "kells",
+    "headline": "Danir has earned a change of subject",
+    "body": "Danir needed a win badly enough that Kraft’s recent escape by less than a point looked like a possible public-health concern. Fortunately, nobody has to listen to a second lecture about Kraft’s instincts. DarkHorse Danir won 171.26–147.20, a margin sufficiently clear to spare everyone the fantasy equivalent of someone explaining how they always find parking.\n\nJahmyr Gibbs scored 44.2 and Malik Nabers added 31.1. That is an excellent way to retire the conversation about the previous week’s Monangai bench decision: put two large numbers where the starting lineup can see them. Tyler Warren contributed 20.5, and the Vikings defense supplied 17.5. Danir’s afternoon had more going for it than a single player issuing a personal apology.\n\nKraft received 38.9 from Puka Nacua and 28 from Joe Burrow. Those performances deserved a more agreeable setting than somebody else’s rehabilitation ceremony. The rest of the lineup could not keep pace, and the result brings both teams to 2–3. Kraft’s former advantage in the standings has been confiscated by the very person who had better season-scoring receipts.\n\nDanir still has an extremely persuasive complaint about his schedule. He has now faced 801.42 points in five weeks, the league’s highest total. But for once, he also has something better to discuss. I recommend allowing him to enjoy it before somebody brings up Monangai.",
+    "kind": "recap",
+    "editorialVersion": "week5-final-longform-v1",
+    "source": {
+      "path": "data/week5-closeout.json",
+      "capturedAt": "2026-10-13T12:19:00.430Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "9",
+          "points": 147.2
+        },
+        {
+          "teamId": "2",
+          "points": 171.26
+        }
+      ]
+    }
+  },
+  {
+    "edition": "loog",
+    "season": 2026,
+    "week": 5,
+    "teamIds": [
+      "6",
+      "12"
+    ],
+    "writer": "gannon",
+    "headline": "Sherm’s points have finally cleared",
+    "body": "Sherm entered the week leading the league in scoring and still having to explain why he was only 2–2. Pollard Greens has now converted that production into a 141.46–106.75 victory over CeeDeep. The important development is the result. This was not Sherm’s most complete lineup, and winning should not obscure which parts actually carried it.\n\nDrake Maye supplied 43.16 and Mike Evans 29.3. Jaxon Smith-Njigba and Drake London added 44.7 together. Those four players generated 117.16 of the total. The running backs combined for eleven, T.J. Hockenson scored 2.7 and the Cowboys defense finished below zero. It worked comfortably because the passing production was strong enough to absorb the missing support.\n\nCeeDeep’s previous win over Lloyd did not travel. Josh Allen scored 34.5, but CeeDee Lamb supplied 1.9, and the two starting running backs totaled 8.2. Allen and the Broncos defense could preserve respectability; they could not manufacture an entire offense. The 34.71-point gap leaves little room to make this about one marginal choice.\n\nBoth teams are now 3–2, with Pollard still leading the league in total points. Sherm can stop presenting that column as evidence of mistreatment for a week. He should keep checking the less productive positions, though. The victory is real. So is the amount of work Maye did to make it comfortable.",
+    "kind": "recap",
+    "editorialVersion": "week5-final-longform-v1",
+    "source": {
+      "path": "data/week5-closeout.json",
+      "capturedAt": "2026-10-13T12:19:00.430Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "6",
+          "points": 141.46
+        },
+        {
+          "teamId": "12",
+          "points": 106.75
+        }
+      ]
+    }
+  },
+  {
+    "edition": "loog",
+    "season": 2026,
+    "week": 5,
+    "teamIds": [
+      "1",
+      "10"
+    ],
+    "writer": "march",
+    "headline": "Kupp has become difficult to correct",
+    "body": "There was a rather promising case against Kupp Kupp Doubs before the weekend: three wins, very little scoring, and an opponent who had produced more while receiving less. I had hoped Roy might bring some order to the conversation. Instead, Kupp posted 177.60, the league’s highest score, and won by 40.74. It is now socially hazardous to mention the earlier arithmetic.\n\nJaylen Warren contributed 49.3. Isaiah Likely supplied 32.4, with Brenton Strange adding 14.8 from FLEX. A team accused of winning without sufficient production answered with 96.5 points from those three places alone. DJ Moore scored zero, an absence that barely disturbed the occasion. Some hosts can lose an entire guest and still feel the room is overcrowded.\n\nRoy finished with 136.86, including useful contributions from Aaron Jones, Matthew Golden and Davante Adams. It was not an afternoon without effort. It was an afternoon spent watching someone else dismantle a very reasonable argument. A zero from Jordan Addison and minus five from the Raiders defense made the experience less pleasant, but neither accounts for the size of the separation.\n\nKupp is 4–1; Roy is 2–3. The earlier concern about the relationship between Kupp’s record and production was perfectly defensible when it was made. Unfortunately, being right on Thursday does not prevent one from being shown a screenshot on Monday. I would congratulate him before he offers to explain.",
+    "kind": "recap",
+    "editorialVersion": "week5-final-longform-v1",
+    "source": {
+      "path": "data/week5-closeout.json",
+      "capturedAt": "2026-10-13T12:19:00.430Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "1",
+          "points": 177.6
+        },
+        {
+          "teamId": "10",
+          "points": 136.86
+        }
+      ]
+    }
+  },
+  {
+    "edition": "loog",
+    "season": 2026,
+    "week": 5,
+    "teamIds": [
+      "11",
+      "8"
+    ],
+    "writer": "pike",
+    "headline": "Wald has found the spreadsheet’s worst tab",
+    "body": "The preview warned that another narrow defeat might send Wald into the business of calculating alternative records. Lloyd has supplied the raw materials. Shake ’N Baker lost 143.12–141.28, a margin of 1.84, after losing the previous game by fewer than four. Lloyd returns to 4–1. Wald is 1–4, with a very specific piece of unused inventory.\n\nJayden Daniels scored 35.16 on the bench while Jacoby Brissett produced 24.48 in the starting spot. The difference is 10.68, more than enough to reverse this result. That is hindsight arithmetic, not proof that the original decision was unreasonable; the final scores cannot tell us everything Wald knew at lineup lock. They can tell us exactly how unpleasant the review will be.\n\nLloyd received 36.9 from Parker Washington and 27.4 from Derrick Henry. Across the field, Garrett Wilson supplied 26.4 while Jason Myers and the Texans defense combined for 44. Wald had enough productive departments to win. The problem was that one of the most productive people in the building was not on the payroll that counted.\n\nThe two standings points do not arrive with an adjustment for emotional difficulty. Lloyd gets the same win a blowout would have purchased, and Wald gets another loss with unusually detailed supporting documents. There is no appeal. There is, however, now a quarterback tab in the spreadsheet.",
+    "kind": "recap",
+    "editorialVersion": "week5-final-longform-v1",
+    "source": {
+      "path": "data/week5-closeout.json",
+      "capturedAt": "2026-10-13T12:19:00.430Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "11",
+          "points": 143.12
+        },
+        {
+          "teamId": "8",
+          "points": 141.28
+        }
+      ]
+    }
+  },
+  {
+    "edition": "sunday-crew",
+    "season": 2026,
+    "week": 5,
+    "teamIds": [
+      "1",
+      "10"
+    ],
+    "writer": "march",
+    "headline": "Sandy has curtailed the celebrations",
+    "body": "Last week gave Cody a victory and Tet McMillan a breakthrough worth enjoying. I suggested that Sandy might be available to limit the subsequent celebrations. ZAYWATCH has taken the assignment rather literally: 147.64–91.98. A 55.66-point margin is more than an intervention requires, though Sandy may consider the excess part of the service.\n\nParker Washington contributed 31.4 and Jared Goff 28.94 for ZAYWATCH. Spencer Shrader added 21 from the kicking position. There was room for quiet performances elsewhere because the principal guests had arrived with enough for the table. Sandy moves to 3–2 with a result that will not require any elaborate explanation.\n\nCody’s starting receivers combined for 30.3, less than Washington alone. Jacoby Brissett’s 25.78 and Jaxon Smith-Njigba’s 22.3 were useful; too many other positions offered small change. The tight end and flex supplied 3.8 together. CHANE GANG falls to 1–4, and the evidence does not support pretending this was a close game that wandered away at the end.\n\nThe earlier win still happened. So did Tet’s performance. A bad afternoon does not retrospectively make either less enjoyable, and I see no need to confiscate them. It simply leaves Cody with a less agreeable appointment this week: acknowledging that Sandy won very comfortably. I would do it briefly. There is no reason to encourage follow-up questions.",
+    "kind": "recap",
+    "editorialVersion": "week5-final-longform-v1",
+    "source": {
+      "path": "data/week5-closeout.json",
+      "capturedAt": "2026-10-13T12:19:00.430Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "1",
+          "points": 147.64
+        },
+        {
+          "teamId": "10",
+          "points": 91.98
+        }
+      ]
+    }
+  },
+  {
+    "edition": "sunday-crew",
+    "season": 2026,
+    "week": 5,
+    "teamIds": [
+      "2",
+      "3"
+    ],
+    "writer": "crane",
+    "headline": "The investigation has been referred to Jason Myers",
+    "body": "Andrew and Patrick entered with identical records and a considerable disagreement in total production. I expected the winner to consider the result a judgment on the entire matter. A Stroke of Bad Luck won 128.60–112.64, and the largest contribution came from Jason Myers. After weeks of preparing the case, Andrew has apparently called a kicker as his principal witness.\n\nMyers supplied 23. Sam LaPorta added 17.3 and MarShawn Lloyd 16.2, while the Vikings defense contributed 14.6. Andrew did not need one overwhelming offensive performance; enough separate parts did useful work. The result ends a run of three defeats and moves him to 2–3. This is the first time in a while the standings have permitted him to change the subject.\n\nPatrick received 31.2 from Puka Nacua and 17.9 from Tyler Warren. DJ Moore supplied zero, and several other positions left little to build around those stronger returns. Rhamondre — A Cautionary Tale is now 1–4. The title remains admirably versatile, although I doubt Patrick chose it to summarize quite this much of the season.\n\nI would resist claiming the universe has corrected itself. Andrew still has more season points than several teams above him; one victory has not abolished the schedule. What it has done is settle this particular meeting, with the decisive authority residing somewhere neither litigant was likely to place it. The paperwork can wait. Let the kicker finish speaking.",
+    "kind": "recap",
+    "editorialVersion": "week5-final-longform-v1",
+    "source": {
+      "path": "data/week5-closeout.json",
+      "capturedAt": "2026-10-13T12:19:00.430Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "2",
+          "points": 128.6
+        },
+        {
+          "teamId": "3",
+          "points": 112.64
+        }
+      ]
+    }
+  },
+  {
+    "edition": "sunday-crew",
+    "season": 2026,
+    "week": 5,
+    "teamIds": [
+      "4",
+      "11"
+    ],
+    "writer": "gannon",
+    "headline": "Paul has supplied the missing loss",
+    "body": "The pregame question was simple: somebody had to beat Greg, and Paul had the production to make the attempt credible. Croatian Sensation finished the job, 147.26–131.52. Tolbert’s Cookies is 4–1. There are no undefeated teams left in Sunday Crew, which should reduce the amount of philosophy being attributed to an ordinary lineup decision.\n\nDrake Maye scored 39.46 for Paul. James Cook added 24.3, Davante Adams 19.6 and the Jets defense 21.5. The receiving group was uneven, but the points came from enough other positions to make that survivable. This was not an unbeaten team obligingly collapsing; Paul had to put up a strong total to beat it.\n\nGreg got 27.32 from Matthew Stafford, 17.1 from Trey McBride and 18.7 from the Texans defense. A zero from Roman Wilson and 3.8 from Jaylen Waddle limited the ceiling. Cookies still scored 131.52. Treating the first loss as proof that the first four wins were fraudulent would be just as lazy as treating the unbeaten record as a repeatable method.\n\nPaul is now 3–2 and still ahead of Greg in season points. The distinction finally came with a direct result attached. Greg remains part of the group at 4–1, so the bakery has not closed; it has simply lost the right to advertise a product nobody else could match. Paul has given the league a useful correction. There is no need to turn that into a philosophy either.",
+    "kind": "recap",
+    "editorialVersion": "week5-final-longform-v1",
+    "source": {
+      "path": "data/week5-closeout.json",
+      "capturedAt": "2026-10-13T12:19:00.430Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "4",
+          "points": 147.26
+        },
+        {
+          "teamId": "11",
+          "points": 131.52
+        }
+      ]
+    }
+  },
+  {
+    "edition": "sunday-crew",
+    "season": 2026,
+    "week": 5,
+    "teamIds": [
+      "5",
+      "7"
+    ],
+    "writer": "pike",
+    "headline": "Matt’s advantage has been marked down",
+    "body": "Matt began one win ahead of Joe with very little separation in season scoring. That was a pleasant arrangement for Matt, and J Bird has terminated it. Joe won 125.90–83.04. Both teams are 2–3, but the previous equality in production has given way to a 40.44-point season advantage for J Bird. The standings have caught up just as the underlying business has pulled away.\n\nJoe Burrow and Malik Nabers supplied 52.2 together. Garrett Wilson added 21.9 and Christian McCaffrey 15.8. It was enough production spread across enough important positions that Joe did not need to extract something heroic from every remaining starter. A comfortable win is often just the absence of an emergency in six departments at once.\n\nIsaiah Likely produced 26.9 for Forte inch Ditka. The other nine starters combined for 56.14, with Tyler Shough returning 1.84 from the quarterback spot. Likely accounted for nearly a third of the entire total. That is a substantial concentration of labor in a position usually discussed as a supporting allocation.\n\nThe preview suggested Joe could make the conversation unbearable by winning comfortably. He has met the financial requirement. Whether he exercises the corresponding social rights is his decision; there is no evidence that he has issued a statement. Matt, meanwhile, no longer has a spare win to stand on. He needs contributions from the parts of the roster that have been letting the tight end pay the rent.",
+    "kind": "recap",
+    "editorialVersion": "week5-final-longform-v1",
+    "source": {
+      "path": "data/week5-closeout.json",
+      "capturedAt": "2026-10-13T12:19:00.430Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "5",
+          "points": 83.04
+        },
+        {
+          "teamId": "7",
+          "points": 125.9
+        }
+      ]
+    }
+  },
+  {
+    "edition": "sunday-crew",
+    "season": 2026,
+    "week": 5,
+    "teamIds": [
+      "6",
+      "8"
+    ],
+    "writer": "kells",
+    "headline": "The victory lap has encountered Nipun",
+    "body": "I suggested the league might benefit from a humbling ninety-eight to ninety-seven after Ravi’s enormous Week 4. Nobody cooperated. Nipun won 143.94–138.84, a perfectly substantial game that still managed to spoil Ravi’s next lap. Both teams brought enough production to feel entitled to a better ending, which is excellent material for everyone who was not involved.\n\nJaylen Warren supplied 39.8 for ALLENtown. Christian Watson and Mike Evans answered with 60.1 for Wake Me Up On September 1st. Nipun also received 22.5 from Derrick Henry and 19.2 from Aaron Jones. The headline performances had company; the win did not require Watson to carry a group of tourists.\n\nRavi had 17.3 from Drake London and 17.7 from Jameson Williams, but CeeDee Lamb scored 1.9 and Mark Andrews 2.8. The final margin was 5.10. It is tempting to pick a small number and appoint it the villain, though that gives one position rather too much authorship of a ten-player result. Ravi scored well. Nipun scored slightly better, and the distinction is enough to ruin the mood.\n\nNipun is 4–1 after responding to his first loss. Ravi is 3–2 after discovering that last week’s 168 did not include rollover credit. The victory lap is over for the moment. The useful thing about losing narrowly is that nobody can accuse you of disappearing. The less useful thing is that you remain present for every inch of it.",
+    "kind": "recap",
+    "editorialVersion": "week5-final-longform-v1",
+    "source": {
+      "path": "data/week5-closeout.json",
+      "capturedAt": "2026-10-13T12:19:00.430Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "6",
+          "points": 138.84
+        },
+        {
+          "teamId": "8",
+          "points": 143.94
+        }
+      ]
+    }
+  },
+  {
+    "edition": "sunday-crew",
+    "season": 2026,
+    "week": 5,
+    "teamIds": [
+      "9",
+      "12"
+    ],
+    "writer": "sorrell",
+    "headline": "Scrump’s complaint now has another attachment",
+    "body": "I agreed to hear Scrump’s case before this matchup because leading the league in points while sitting 1–3 is unusually good evidence of mistreatment. The latest result has made the hearing longer. RBs are Overrated won 162.28–144.56, leaving Scrump at 1–4 and still first in scoring. Runit is 4–1 and second in points, separated from Scrump by 1.78 across the season and three wins in the table.\n\nJahmyr Gibbs supplied 42.2 for Scrump. It was another large contribution delivered into an institution that recognizes production only when the schedule agrees to accept it. Scrump’s total would have been competitive across much of the slate. It was simply entered into the wrong argument.\n\nRunit received 37.5 from Bucky Irving, 33.5 from Josh Allen, 25.5 from George Pickens and 21 from Brock Bowers. The team called RBs are Overrated has continued to permit valuable exceptions to its public doctrine. This is an entirely respectable way to win a fantasy game and a slightly less respectable way to name a franchise.\n\nThe injustice does not require us to invent a villain. Runit scored more in the matchup and deserved the win. Scrump has scored more across the season and keeps receiving a worse record. Both things can remain true, to the considerable annoyance of anyone hoping the standings would eliminate the need for thought. I am still seated. He has another attachment.",
+    "kind": "recap",
+    "editorialVersion": "week5-final-longform-v1",
+    "source": {
+      "path": "data/week5-closeout.json",
+      "capturedAt": "2026-10-13T12:19:00.430Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "9",
+          "points": 144.56
+        },
+        {
+          "teamId": "12",
+          "points": 162.28
+        }
+      ]
+    }
+  },
+  {
+    "edition": "doge",
+    "season": 2026,
+    "week": 5,
+    "teamIds": [
+      "1",
+      "2"
+    ],
+    "writer": "gannon",
+    "headline": "A narrow win does not certify the recovery",
+    "body": "Alan came off a sixty-eight-point win; Cody came off a strong result of his own. The preview asked which production would repeat. Neither team supplied much reassurance. Caleb’s Elite Touch Rate won 101.18–98.14, taking the smallest margin in DOGE’s Week 5 and advancing to 3–2. The victory counts in full. The evidence for a much stronger team is less complete.\n\nJacoby Brissett scored 25.78 for Cody. Emeka Egbuka and Jacory Croskey-Merritt each added 14.2, and nobody else reached fifteen. The starting running backs combined for 9.9; Carnell Tate supplied 1.1. There was enough useful production to finish ahead, but very little redundancy if one of those useful contributions had been missing.\n\nAlan got 20.94 from C.J. Stroud and 17 from Ka’imi Fairbairn. David Montgomery, Tee Higgins and the Jaguars defense combined for 6.3. Gimothy Blossoms falls to 2–3 after a performance that bears little resemblance to the previous blowout. One explosive week had not established a reliable floor.\n\nThe 3.04-point margin makes hindsight exceptionally attractive. It does not make every alternative lineup decision obvious at the time it was made. Cody can bank the win without using it as a certificate of health, while Alan has to distinguish a poor result from a complete theory about his roster. The standings now separate them. This game supplied fewer reasons to feel separated than the table suggests.",
+    "kind": "recap",
+    "editorialVersion": "week5-final-longform-v1",
+    "source": {
+      "path": "data/week5-closeout.json",
+      "capturedAt": "2026-10-13T12:19:00.430Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "1",
+          "points": 101.18
+        },
+        {
+          "teamId": "2",
+          "points": 98.14
+        }
+      ]
+    }
+  },
+  {
+    "edition": "doge",
+    "season": 2026,
+    "week": 5,
+    "teamIds": [
+      "3",
+      "4"
+    ],
+    "writer": "crane",
+    "headline": "The Bears have changed the subject successfully",
+    "body": "I went looking for the thank-you note after RFK Jr’s Bears supplied Moe with his first victory. The Bears have since produced something more useful to themselves: a 147.80–141.50 win over El Niño Grande. Corey has been left with the kind of score that initially looks like good news, until you inspect the other side of the page.\n\nJosh Allen, Puka Nacua and Derrick Henry contributed 87.2 together for the Bears. Jameson Williams added 17.7 and Blake Corum 14.7. Whatever explanation accompanied the previous defeat, this lineup gave the next one considerably less room to develop. The Bears are 3–2. A recovery story has acquired an actual result.\n\nCorey got 26.9 from Isaiah Likely in FLEX, alongside 19 from Brock Bowers at tight end. Braelon Allen and Jaxon Smith-Njigba each cleared twenty. There was real production distributed around the lineup, as well as a zero from Jordan Addison. The final gap was 6.30, small enough to invite obsessive attention to every unused possibility.\n\nThe temptation is to describe one manager as back and the other as in crisis. I am not sure 6.30 points can support quite that much autobiography. Corey is 2–3 after losing a productive game; the Bears won one after losing an unproductive argument. The useful lesson is smaller: an embarrassing result need not become a franchise identity. The thank-you note can remain missing.",
+    "kind": "recap",
+    "editorialVersion": "week5-final-longform-v1",
+    "source": {
+      "path": "data/week5-closeout.json",
+      "capturedAt": "2026-10-13T12:19:00.430Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "3",
+          "points": 147.8
+        },
+        {
+          "teamId": "4",
+          "points": 141.5
+        }
+      ]
+    }
+  },
+  {
+    "edition": "doge",
+    "season": 2026,
+    "week": 5,
+    "teamIds": [
+      "5",
+      "6"
+    ],
+    "writer": "sorrell",
+    "headline": "Jerruh’s World has reopened the gates",
+    "body": "I wondered whether Andrew would have to express full confidence in himself after another ninety-point performance. He has avoided that press conference with some force. Jerruh’s World scored 170.52 against McConkey Kong’s 119.44, a 51.08-point win one week after posting 90.10. The kingdom has reopened, and I suspect the tour will omit certain recent maintenance problems.\n\nChristian Watson supplied 33.3 and Matthew Stafford 29.32. Garrett Wilson added 19.9, Tyler Warren 17.9 and Jason Myers 23. This was not one star rescuing the owner’s public position. Several departments simultaneously decided to make him look competent, which is how leadership tends to acquire its most flattering portraits.\n\nSandy received 23.5 from George Pickens, 21 from Spencer Shrader and 17.1 from Trey McBride. Tyler Shough scored 1.84, leaving a serious deficit at quarterback, but the final margin was larger than that one disagreement. McConkey Kong needed more than a modest repair to keep up with the production on the other side.\n\nAndrew is 3–2; Sandy is 2–3. One result does not prove the previous criticism was absurd, just as the earlier defeat did not establish permanent institutional failure. Unfortunately, Jerruh’s World is a poor setting for a measured statement about uncertainty. The owner now has a fifty-point victory to point at. I expect the gates to open before anyone can ask about last week.",
+    "kind": "recap",
+    "editorialVersion": "week5-final-longform-v1",
+    "source": {
+      "path": "data/week5-closeout.json",
+      "capturedAt": "2026-10-13T12:19:00.430Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "5",
+          "points": 170.52
+        },
+        {
+          "teamId": "6",
+          "points": 119.44
+        }
+      ]
+    }
+  },
+  {
+    "edition": "doge",
+    "season": 2026,
+    "week": 5,
+    "teamIds": [
+      "7",
+      "12"
+    ],
+    "writer": "pike",
+    "headline": "The turnaround has failed its second installment",
+    "body": "Patrick’s first victory came with 143 points and an attractive forecast for the next game. I advised waiting for the result before issuing a statement about the direction of the franchise. Tranimal has now supplied that result: 177.64–128.50. Nix in 5 is 1–4. Bennett is 4–1 and back at the top of DOGE’s standings.\n\nJahmyr Gibbs and Bucky Irving provided 71.7 for Tranimal. Jared Goff added 28.94, Malik Nabers 23.6 and Kyren Williams 16.6. The winning roster was able to support its largest investments with several other productive positions. That matters when assessing why two strong performances on the opposing side did not create a close game.\n\nPatrick received 39.8 from Jaylen Warren and 29.4 from Parker Washington. The remaining eight starters combined for 59.3, including 7.92 from Bo Nix. Warren and Washington produced 69.2 together, nearly matching Bennett’s two biggest contributors. The 49.14-point defeat was built mainly in the rest of the lineup, where Tranimal had substantially more output available.\n\nThe earlier win was a real improvement in Patrick’s record, not a binding promise about the following week. This is why front offices are supposed to distinguish a successful afternoon from a sustainable recovery. Bennett has restored his position with the week’s highest score. Patrick still has useful assets, but the turnaround announcement will need a second installment before anyone should subscribe.",
+    "kind": "recap",
+    "editorialVersion": "week5-final-longform-v1",
+    "source": {
+      "path": "data/week5-closeout.json",
+      "capturedAt": "2026-10-13T12:19:00.430Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "7",
+          "points": 177.64
+        },
+        {
+          "teamId": "12",
+          "points": 128.5
+        }
+      ]
+    }
+  },
+  {
+    "edition": "doge",
+    "season": 2026,
+    "week": 5,
+    "teamIds": [
+      "8",
+      "9"
+    ],
+    "writer": "march",
+    "headline": "Pete no longer needs the extended explanation",
+    "body": "Pete entered with more season points than Bryan and precisely the same record, an arrangement that tends to generate longer explanations than anyone has requested. Extremely Tight Ends has now won 111.36–78.20. Pete is 3–2; Bryan is 2–3. The arithmetic can finally be summarized without asking the listener to remain for a second course.\n\nJames Cook supplied 24.3 for Pete, Davante Adams 19.6 and Brock Purdy 17.16. It was a sufficient afternoon rather than a lavish one. There is a certain convenience in winning without needing to present the result as a masterpiece; the opponent has already done much of the explanatory work.\n\nJoe Burrow scored 25.6 for T. Ocellus, almost a third of the entire total. T.J. Hockenson contributed 1.2 while Kyle Pitts left 12.7 on the bench. That difference would not have erased the 33.16-point margin. Bryan may inspect the selection, but there is no reason to imagine that changing one chair would have improved the whole dinner.\n\nThe preview left very little room for a gracious winner, and I would now encourage Pete to locate it. He has the result his statistical argument was missing. Repeating the full argument after winning would risk making 111.36 sound like a royal procession. A brief acknowledgment should suffice. Bryan, meanwhile, has more to address than the tight end, which is an unfortunate distinction against a team named Extremely Tight Ends.",
+    "kind": "recap",
+    "editorialVersion": "week5-final-longform-v1",
+    "source": {
+      "path": "data/week5-closeout.json",
+      "capturedAt": "2026-10-13T12:19:00.430Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "8",
+          "points": 78.2
+        },
+        {
+          "teamId": "9",
+          "points": 111.36
+        }
+      ]
+    }
+  },
+  {
+    "edition": "doge",
+    "season": 2026,
+    "week": 5,
+    "teamIds": [
+      "10",
+      "11"
+    ],
+    "writer": "kells",
+    "headline": "The piano arrived as scheduled",
+    "body": "Moe escaped his winless start and was immediately assigned Ordway and Son. I described this as finishing the tutorial and having a piano dropped on you. The piano has arrived: Ordway won 134.36–99.58. There was no secret bonus level, no cinematic rescue and no brief period in which the first-place opponent agreed to be supportive.\n\nDrake Maye scored 42.46 for the family business. Aaron Jones added 19.2, Ja’Marr Chase 18.7 and Sam LaPorta 17.3. Maye was the largest contributor by a distance, but several coworkers were also willing to attend. Ordway and Son is 4–1, maintaining its place among the leaders even as Tranimal takes the top spot.\n\nJordan Love and Mike Evans combined for 54.08 for De’Coldest Hassan. Everyone else supplied 45.5. CeeDee Lamb scored 1.9, and the two running backs combined for five. That leaves a fairly unreasonable amount of rescue work for a quarterback and one receiver, neither of whom had agreed to become an entire fantasy organization.\n\nMoe is 1–4. The first victory remains a perfectly legitimate reason to have enjoyed last week; it just failed to purchase any protection from this one. Ordway has avoided becoming the flattering second chapter of somebody else’s comeback. The family business proceeds. The tutorial may need to explain that the game continues dropping things after you learn the controls.",
+    "kind": "recap",
+    "editorialVersion": "week5-final-longform-v1",
+    "source": {
+      "path": "data/week5-closeout.json",
+      "capturedAt": "2026-10-13T12:19:00.430Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "10",
+          "points": 99.58
+        },
+        {
+          "teamId": "11",
+          "points": 134.36
+        }
+      ]
+    }
+  }
+]

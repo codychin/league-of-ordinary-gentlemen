@@ -1,6 +1,8 @@
 import latestScores from '../../../../data/latest-loog-scores.json';
 import closeout from '../../../../data/week5-closeout.json';
 import matchupColumns from '../../../../data/week5-matchup-columns.json';
+import matchupRecaps from '../../../../data/matchup-recaps.json';
+import {selectMatchupColumn} from '../../../../lib/select-matchup-column.mjs';
 import Link from 'next/link'
 import SiteNav from '../../../components/SiteNav'
 import {leagueSnapshot} from '../../../teams/league-data'
@@ -51,7 +53,7 @@ export default async function MatchupPreview({params}){
     const verified=Number(latest.week)===closeout.week?closeout.loog.details.flatMap(g=>[g.home,g.away]):[];
     const leftPlayers=verified.find(t=>t.teamId===idA)?.players.filter(p=>p.started)||[];
     const rightPlayers=verified.find(t=>t.teamId===idB)?.players.filter(p=>p.started)||[];
-    const column=matchupColumns.find(x=>x.edition==='loog'&&x.week===Number(latest.week)&&x.teamIds.includes(String(idA))&&x.teamIds.includes(String(idB)));
+    const column=selectMatchupColumn({previews:matchupColumns,recaps:matchupRecaps,edition:'loog',week:latest.week,a:idA,b:idB,isFinal:final});
     const columnist=writers[column?.writer||'gannon'];
     return <>
       <header className="articleHeader"><Link href="/" className="miniMast">The Brief of Ordinary Gentleman</Link><SiteNav/></header>
@@ -66,10 +68,10 @@ export default async function MatchupPreview({params}){
           <div className="matchupUpdated">LATEST PROVIDER-VERIFIED SCORE • {latest.updatedAt?new Date(latest.updatedAt).toLocaleString('en-US',{timeZone:'America/New_York'}):'WEEK '+latest.week}</div>
         </section>
         <section className="matchupColumn">
-          <div className="matchupColumnByline"><img src={columnist.image} alt={columnist.imageAlt}/><div><small>WEEK {latest.week} • CORRESPONDENT PREVIEW</small><b>{columnist.name}</b></div></div>
-          <h2>{column?.headline||'Awaiting correspondent analysis'}</h2>
-          {(column?.body||'The verified correspondent writeup for this pairing is unavailable.').split(/\n\n+/).map((paragraph,index)=><p key={index}>{paragraph}</p>)}
-          <p className="matchupUpdated">LATEST SCORE: {fmt(ls.score)}–{fmt(rs.score)} . Preview analysis was written before kickoff.</p>
+          <div className="matchupColumnByline"><img src={columnist.image} alt={columnist.imageAlt}/><div><small>WEEK {latest.week} • {final?'CORRESPONDENT RECAP':'CORRESPONDENT PREVIEW'}</small><b>{columnist.name}</b></div></div>
+          <h2>{column?.headline||(final?'Awaiting correspondent recap':'Awaiting correspondent preview')}</h2>
+          {(column?.body||(final?'The result is final. The correspondent recap is awaiting publication.':'The correspondent preview for this pairing is awaiting publication.')).split(/\n\n+/).map((paragraph,index)=><p key={index}>{paragraph}</p>)}
+          <p className="matchupUpdated">{final?'FINAL SCORE':'LATEST SCORE'}: {fmt(ls.score)}–{fmt(rs.score)}{!final&&' • Preview analysis was written before kickoff.'}</p>
         </section>
         <section className="lineupPreview"><div className="matchupSectionHead"><small>STARTING LINEUPS • WEEK {latest.week}</small><h2>Position by position</h2></div>{leftPlayers.length&&rightPlayers.length?<><div className="lineupTeams"><span>{left.teamName}</span><span>{right.teamName}</span></div>{Array.from({length:Math.max(leftPlayers.length,rightPlayers.length)},(_,i)=>[leftPlayers[i],rightPlayers[i]]).map(([l,r],i)=><div className="lineupRow" key={i}><div className="lineupPlayer left">{l&&<><small>{l.lineupSlot}</small><b>{l.name}</b><span>{fmt(l.points)}</span></>}</div><div className="lineupVs">VS</div><div className="lineupPlayer right">{r&&<><small>{r.lineupSlot}</small><b>{r.name}</b><span>{fmt(r.points)}</span></>}</div></div>)}</>:<p>Awaiting current-week roster verification.</p>}</section>
         <Link className="matchupBack" href="/#scores">← ALL WEEK {latest.week} MATCHUPS</Link>
