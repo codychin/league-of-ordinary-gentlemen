@@ -5,6 +5,7 @@ const hash=value=>String(value||'').split('').reduce((sum,ch)=>sum+ch.charCodeAt
 const pick=(t,options)=>options[hash(t.id)%options.length]
 const isDefense=position=>position==='D/ST'||position==='DEF'
 const playerLabel=(name,position)=>isDefense(position)&&name&&!name.includes('D/ST')?name+' D/ST':name
+const sentence=value=>/[.!?]$/.test(value)?value:value+'.'
 
 const outbidContext=(t,failed)=>{
   if(t.type!=='waiver'||!t.add)return ''
@@ -18,7 +19,7 @@ const outbidContext=(t,failed)=>{
   const bid=x=>x.team+' ($'+x.faab+')'
   if(losers.length===1){
     const gap=Math.max(0,Number(t.faab||0)-Number(losers[0].faab||0))
-    return ' '+losers[0].team+' finished $'+gap+' short at $'+losers[0].faab+'. The market has issued its ruling.'
+    return gap===0?' '+losers[0].team+' also bid $'+losers[0].faab+'. Waiver priority supplied the knife.':' '+losers[0].team+' finished $'+gap+' short at $'+losers[0].faab+'. The market has issued its ruling.'
   }
   if(losers.length===2)return ' '+bid(losers[0])+' and '+bid(losers[1])+' also filed claims. Both are now exhibits.'
   const leaders=losers.slice(0,3).map(bid).join(', ')
@@ -89,22 +90,22 @@ const aside=t=>{
 const copy=(t,failed)=>{
   const add=playerLabel(t.add,t.addPosition)||'a player'
   const drop=playerLabel(t.drop,t.dropPosition)
-  if(t.type==='drop'&&!t.add)return pick(t,['ROSTER MOVE: ','League wire: ','Transaction desk: '])+t.team+' released '+drop+'. '+pick(t,[
+  if(t.type==='drop'&&!t.add)return pick(t,['ROSTER MOVE: ','League wire: ','Transaction desk: '])+sentence(t.team+' released '+drop)+' '+pick(t,[
     'The roster spot has been declared a vacancy.',
     'One fewer name to explain at the next meeting.',
     'The separation was described as mutual by exactly one side.',
   ])
-  if(t.type==='trade')return '🚨 TRADE: '+t.team+' completed a trade involving '+[add,drop].filter(Boolean).join(' / ')+'. '+pick(t,[
+  if(t.type==='trade')return sentence('🚨 TRADE: '+t.team+' completed a trade involving '+[add,drop].filter(Boolean).join(' / '))+' '+pick(t,[
     'Paperwork filed; group-chat consequences pending.',
     'Everyone won the trade until kickoff.',
     'The physicals passed. The opinions will not.',
   ])
   if(t.type==='waiver'){
     const lead=pick(t,['🚨 WAIVER: ','Claim cleared: ','FAAB desk: ','Waiver wire: '])
-    return lead+t.team+' landed '+add+' for $'+(t.faab??0)+(drop?' and released '+drop:'')+'. '+aside(t)+outbidContext(t,failed)
+    return lead+sentence(t.team+' landed '+add+' for $'+(t.faab??0)+(drop?' and released '+drop:''))+' '+aside(t)+outbidContext(t,failed)
   }
   const lead=pick(t,['ROSTER MOVE: ','League wire: ','Transaction desk: ','Sources: '])
-  return lead+t.team+' added '+add+(drop?' and released '+drop:'')+'. '+aside(t)
+  return lead+sentence(t.team+' added '+add+(drop?' and released '+drop:''))+' '+aside(t)
 }
 
 export default function SchefterTransactionFeed({transactions=[],week=null,maxItems=20}){
