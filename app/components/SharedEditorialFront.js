@@ -18,7 +18,7 @@ export default function SharedEditorialFront({archiveHref='/archive',root=''}){
       <Link href={root+"/articles/sabine-and-you-are"} className="sabinePackageTitle storylink"><h2>And You Are?</h2></Link>
       <p>Ten great moments in the sporting art of withholding recognition.</p>
       <PreviewAuthor slug="sabine-and-you-are"/>
-    </div><Link href={root+"/articles/sabine-and-you-are"} className="sabinePackageCta">READ SABINE →</Link></div>
+    </div><div className="sabineInlineVideo"><div className="sabineVideoLabel"><small>SABINE MARCH • AT THE SCENE</small><span>0:28</span></div><div className="sabineVideoBody" style={{aspectRatio:"9/16",maxWidth:280,margin:"0 auto"}}><video controls playsInline preload="none" aria-label="Sabine March: And You Are?" poster="https://cdn.openart.ai/openart/thumbnail/production/2026-10/create-video/TLTpmJfydK54x1UaTK6G/cgt-20261015011317-nyzdt_1791998392667_75bad0dd.webp" src="https://cdn.openart.ai/openart-ai/production/2026-10/create-video/TLTpmJfydK54x1UaTK6G/cgt-20261015011317-nyzdt_1791998386490_f0ad425c.mp4" style={{objectFit:"contain"}}/></div></div><Link href={root+"/articles/sabine-and-you-are"} className="sabinePackageCta">READ SABINE →</Link></div>
   </article></div>
 </section>
 
