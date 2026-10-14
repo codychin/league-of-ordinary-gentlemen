@@ -7,26 +7,27 @@ import ResilientImage from './ResilientImage';
 
 export default function SharedEditorialFront({archiveHref='/archive',root=''}){
   return <>
-<section className="morningBriefPreview sundayFront" style={{paddingTop:0}} aria-label="Lead story: The NFC East Declines to Name a Winner">
-  <div className="morningBriefFlag"><span>THE FOOTBALL DESK</span><small>MAUDE GANNON • OCTOBER 11</small></div>
+<section className="morningBriefPreview sundayFront" style={{paddingTop:0}} aria-label="Lead story: And You Are?">
+  <div className="morningBriefFlag"><span>MATTERS OF CULTURE</span><small>SABINE MARCH • OCTOBER 14</small></div>
   <div className="sundayFrontGrid"><article className="sundayFeature sabinePackage">
-    <Link href={root+"/articles/maude-nfc-east-declines-winner"} className={`sundayFeatureImage storylink ${front.tourHero}`}>
-      <ResilientImage loading="eager" decoding="async" style={{objectPosition:"center center"}} src="https://sportshub.cbsistatic.com/i/r/2026/10/11/830be0b3-3807-40dd-b003-6e64d0d49615/thumbnail/1200x675/7fba8e6037ce9a83e03b456a120f5a57/commanders-giants.jpg" alt="Giants defenders celebrate at the end of the 27–27 tie with Washington on October 11, 2026."/>
+    <Link href={root+"/articles/sabine-and-you-are"} className={`sundayFeatureImage storylink ${front.tourHero}`}>
+      <ResilientImage loading="eager" decoding="async" style={{objectPosition:"center center"}} src="/images/and-you-are/evans.jpg" alt="Mike Evans checks Trevon Diggs’s nameplate."/>
     </Link>
     <div className="sundayFeatureCopy"><div className="sabinePackageIntro">
-      <small>FOOTBALL • STRATEGY & BAD PROCESS</small>
-      <Link href={root+"/articles/maude-nfc-east-declines-winner"} className="sabinePackageTitle storylink"><h2>The NFC East Declines to Name a Winner</h2></Link>
-      <p>The Giants and Commanders spent the afternoon reducing the requirements for victory. Neither could meet the final version.</p>
-      <PreviewAuthor slug="maude-nfc-east-declines-winner"/>
-    </div><Link href={root+"/articles/maude-nfc-east-declines-winner"} className="sabinePackageCta">READ MAUDE →</Link></div>
+      <small>INTERNATIONAL & PUBLIC LIFE</small>
+      <Link href={root+"/articles/sabine-and-you-are"} className="sabinePackageTitle storylink"><h2>And You Are?</h2></Link>
+      <p>Ten great moments in the sporting art of withholding recognition.</p>
+      <PreviewAuthor slug="sabine-and-you-are"/>
+    </div><Link href={root+"/articles/sabine-and-you-are"} className="sabinePackageCta">READ SABINE →</Link></div>
   </article></div>
 </section>
 
 <section className={front.recent} aria-label="Recent stories">
+<article className={front.card} aria-label="Maude Gannon on the NFC East"><Link className={front.story} href={root+"/articles/maude-nfc-east-declines-winner"}><div className={front.image} role="img" aria-label="Giants defenders celebrate the tie with Washington." style={{backgroundImage:"url('https://sportshub.cbsistatic.com/i/r/2026/10/11/830be0b3-3807-40dd-b003-6e64d0d49615/thumbnail/1200x675/7fba8e6037ce9a83e03b456a120f5a57/commanders-giants.jpg')"}}/><div className="eyebrow">THE FOOTBALL DESK</div><h3>The NFC East Declines to Name a Winner</h3><PreviewAuthor slug="maude-nfc-east-declines-winner"/><p className={front.dek}>The Giants and Commanders spent the afternoon reducing the requirements for victory. Neither could meet the final version.</p><div className="read">READ MAUDE →</div></Link></article>
 <article className={front.card} aria-label="Marnie Kells on Marvin Harrison Jr."><Link className={front.story} href={root+"/articles/marnie-marvin-harrison-somewhere-else"}><div className={front.image} role="img" aria-label="Marvin Harrison Jr. catching a football in his white Arizona Cardinals No. 18 uniform." style={{backgroundImage:"url('https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/cardinals/whbhqzxotle5uja93jv1')",backgroundPosition:"left center"}}/><div className="eyebrow">MATTERS OF CULTURE • SPORTING LIFE</div><h3>Marvin Harrison Jr. Will Be Playing Somewhere Else. The Important Part Is Else.</h3><PreviewAuthor slug="marnie-marvin-harrison-somewhere-else"/><p className={front.dek}>The destination remains unreported. The departure has received considerably more clarity.</p><div className="read">READ MARNIE →</div></Link></article>
 <article className={front.card} aria-label="Marnie Kells on Jeremy Hecklinski"><Link className={front.story} href={root+"/articles/marnie-hecklinski-use-your-words"}><div className={front.image} style={{backgroundImage:"url('https://images2.minutemediacdn.com/image/upload/c_crop%2Cx_0%2Cy_275%2Cw_4659%2Ch_2620/c_fill%2Cw_1440%2Car_1440%3A810%2Cf_auto%2Cq_auto%2Cg_auto/images/ImagnImages/mmsport/inside_the_hawkeyes/01kt4afzsc00k8hwtpfv.jpg')",backgroundPosition:"center 27%"}}/><div className="eyebrow">MATTERS OF CULTURE • INTERPERSONAL COMMUNICATION</div><h3>Use Your Words.</h3><PreviewAuthor slug="marnie-hecklinski-use-your-words"/><p className={front.dek}>An Iowa quarterback and the quiet courage of asking for what you need.</p><div className="read">READ MARNIE →</div></Link></article>
 
-<article className={front.card} aria-label="Hollis Crane remembers Mike Ditka"><Link className={front.story} href={root+"/articles/hollis-mike-ditka-juice-box-guy"}><div className={front.image} style={{backgroundImage:"url('https://res.cloudinary.com/nflleague/image/private/t_new_photo_album/f_auto/league/y9qv85ror0kurrxauwto.jpg')",backgroundPosition:"center 36%"}}/><div className="eyebrow">IN MEMORIAM • CULTURAL IMMORTALITY</div><h3>The Juice Box Guy</h3><PreviewAuthor slug="hollis-mike-ditka-juice-box-guy"/><p className={front.dek}>On the peculiar immortality of one of football's most indestructible characters.</p><div className="read">READ HOLLIS →</div></Link></article>
+
 
 
 
