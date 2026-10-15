@@ -45,6 +45,7 @@ export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1',storag
     const verify=async()=>{
       try{
         const checks=await Promise.all(reels.map(async r=>{
+          if(r.videoUrl)return true;
           const base=`/reels-hls/${r.id}`;
           const [manifest,poster,segment]=await Promise.all([
             fetch(`${base}/index.m3u8`,{method:'HEAD',cache:'force-cache',signal:controller.signal}),
@@ -128,8 +129,8 @@ export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1',storag
 
   const reel=active===null?null:reels[active];
   const nextReel=active===null||!reels.length?null:reels[(active+1)%reels.length];
-  const mediaSrc=r=>nativeHls?`/reels-hls/${r.id}/index.m3u8`:`/reels/${r.id}.mp4?v=15`;
-  const posterSrc=r=>`/reels-hls/${r.id}/poster.jpg`;
+  const mediaSrc=r=>r.videoUrl||(nativeHls?`/reels-hls/${r.id}/index.m3u8`:`/reels/${r.id}.mp4?v=15`);
+  const posterSrc=r=>r.videoUrl?r.avatar:`/reels-hls/${r.id}/poster.jpg`;
 
   if(!releaseReady)return null;
 
