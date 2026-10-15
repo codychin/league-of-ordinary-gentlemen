@@ -34,6 +34,7 @@ export default async function Matchup({params,config}){
   const isFinal=isMatchupFinal(game);
   const column=selectMatchupColumn({previews:matchupColumns,recaps:matchupRecaps,edition:editionSlug,week,a,b,isFinal});
   const writer=writers[column?.writer||'gannon'];
+  const pregame=!isFinal&&Number(ls.points||0)===0&&Number(rs.points||0)===0;
   const phase=isFinal?'FINAL':game.closeoutPending?'AWAITING PROVIDER FINAL':'IN PROGRESS';
   return <>
     <header className="articleHeader"><Link href={root+""} className="miniMast">{publicationName}</Link><EditionSiteNav root={root+""}/></header>
@@ -61,9 +62,9 @@ export default async function Matchup({params,config}){
         <div className="lineupTeams"><span>{left.teamName}</span><span>{right.teamName}</span></div>
         {Number.isFinite(rosterAsOf)&&Number.isFinite(matchupAsOf)&&rosterAsOf<matchupAsOf-12*60*60*1000&&<p className="matchupUpdated">LINEUPS FROM MOST RECENT ROSTER SNAPSHOT • PLAYER AVAILABILITY MAY HAVE CHANGED</p>}
         <div>{rows.map(([l,r],i)=><div className="lineupRow" key={i}>
-          <div className="lineupPlayer left">{l&&<><small>{l.selectedPosition}</small><b>{l.name}</b><span>{rosterAsOf<matchupAsOf-12*60*60*1000?'—':fmt(l.points)}</span>{l.status&&<em>{l.status}</em>}</>}</div>
+          <div className="lineupPlayer left">{l&&<><small>{l.selectedPosition}</small><b>{l.name}</b><span>{pregame||rosterAsOf<matchupAsOf-12*60*60*1000?'—':fmt(l.points)}</span>{l.status&&<em>{l.status}</em>}</>}</div>
           <div className="lineupVs">VS</div>
-          <div className="lineupPlayer right">{r&&<><small>{r.selectedPosition}</small><b>{r.name}</b><span>{rosterAsOf<matchupAsOf-12*60*60*1000?'—':fmt(r.points)}</span>{r.status&&<em>{r.status}</em>}</>}</div>
+          <div className="lineupPlayer right">{r&&<><small>{r.selectedPosition}</small><b>{r.name}</b><span>{pregame||rosterAsOf<matchupAsOf-12*60*60*1000?'—':fmt(r.points)}</span>{r.status&&<em>{r.status}</em>}</>}</div>
         </div>)}</div>
       </section>:<section className="lineupPreview"><div className="matchupSectionHead"><small>STARTING LINEUPS</small><h2>Awaiting current-week roster refresh</h2></div><p>The matchup and scores are verified, but the last stored lineup is from an earlier snapshot. We'll show player-by-player details when the provider roster is updated.</p></section>}
       <Link className="matchupBack" href={root+"#scores"}>← ALL WEEK {week} MATCHUPS</Link>
