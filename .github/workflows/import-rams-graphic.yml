@@ -1,4 +1,4 @@
-name: Import approved Rams comparison graphic
+name: Correct Rams comparison image
 on:
   push:
     branches: [hollis-rams-kicker-staging]
@@ -6,16 +6,49 @@ on:
 permissions:
   contents: write
 jobs:
-  import:
+  fix-image:
     runs-on: ubuntu-latest
     steps:
-      - name: Copy approved image directly into GitHub assets
+      - name: Crop side gutters in actual PNG and restore natural article display in one commit
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SOURCE_URL: 'https://d2jqrm6oza8nb6.cloudfront.net/datasets/adc56bea-d8bf-43aa-a857-61ccf40a862e.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiN2NjZDkyYzc1MjA0Yzg3ZiIsImJ1Y2tldCI6InJ1bndheS1kYXRhc2V0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5MjIyNDgzOX0.bAG0t61A3989p6sk9IhMVKoryFSYUpuCNa2-0Mg7UpA'
         run: |
-          curl --fail --location --silent --show-error "$SOURCE_URL" -o /tmp/rams.png
-          test $(wc -c < /tmp/rams.png) -gt 100000
-          base64 -w0 /tmp/rams.png > /tmp/rams.b64
-          jq -n --rawfile content /tmp/rams.b64 '{message:"Import approved original Rams comparison PNG", content:$content, branch:"hollis-rams-kicker-staging"}' > /tmp/request.json
-          curl --fail --silent --show-error -X PUT -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" -H "Content-Type: application/json" --data-binary @/tmp/request.json "https://api.github.com/repos/codychin/league-of-ordinary-gentlemen/contents/public/images/editorial/rams-unit-short-king.png"
+          python -m pip install --quiet pillow requests
+          cat > /tmp/fix_rams.py <<'PY'
+          import os, io, base64, requests
+          from PIL import Image
+          owner='codychin'; repo='league-of-ordinary-gentlemen'; branch='hollis-rams-kicker-staging'
+          root=f'https://api.github.com/repos/{owner}/{repo}'
+          session=requests.Session()
+          session.headers.update({'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'})
+          def get(url):
+              r=session.get(url); r.raise_for_status(); return r.json()
+          def post(url,body):
+              r=session.post(url,json=body); r.raise_for_status(); return r.json()
+          head=get(root+'/git/ref/heads/'+branch)['object']['sha']
+          commit=get(root+'/git/commits/'+head)
+          original_tree=commit['tree']['sha']
+          image_path='public/images/editorial/rams-unit-short-king.png'
+          page_path='app/articles/[slug]/page.js'
+          image_obj=get(root+'/contents/'+image_path+'?ref='+branch)
+          raw=base64.b64decode(image_obj['content'])
+          im=Image.open(io.BytesIO(raw)).convert('RGB')
+          w,h=im.size
+          # The original graphic includes approximately 13.5% beige bars on both sides.
+          # Crop the bitmap, never zoom/clip the image in CSS.
+          cropped=im.crop((round(w*.135),0,round(w*.865),h))
+          buf=io.BytesIO();cropped.save(buf,format='PNG',optimize=True)
+          imageblob=post(root+'/git/blobs',{'content':base64.b64encode(buf.getvalue()).decode(),'encoding':'base64'})['sha']
+          obj=get(root+'/contents/'+page_path+'?ref='+branch)
+          text=base64.b64decode(obj['content']).decode()
+          assert 'p.src==="/images/editorial/rams-unit-short-king.png"' in text
+          text=text.replace('["/images/and-you-are/zlatan.jpg","/images/and-you-are/mcgregor.jpg","/images/editorial/rams-unit-short-king.png"].includes(p.src)?"hidden":undefined','["/images/and-you-are/zlatan.jpg","/images/and-you-are/mcgregor.jpg"].includes(p.src)?"hidden":undefined')
+          text=text.replace('p.src==="/images/editorial/rams-unit-short-king.png"?{display:"block",width:"137.4%",maxWidth:"none",height:"auto",maxHeight:"none",marginLeft:"-18.7%"}:', '')
+          pageblob=post(root+'/git/blobs',{'content':text,'encoding':'utf-8'})['sha']
+          tree=post(root+'/git/trees',{'base_tree':original_tree,'tree':[{'path':image_path,'mode':'100644','type':'blob','sha':imageblob},{'path':page_path,'mode':'100644','type':'blob','sha':pageblob}]})['sha']
+          newcommit=post(root+'/git/commits',{'message':'Use trimmed Rams PNG with full labels, shoes and caption; restore normal image layout','tree':tree,'parents':[head]})['sha']
+          response=session.patch(root+'/git/refs/heads/'+branch,json={'sha':newcommit,'force':False})
+          response.raise_for_status()
+          print('Verified bitmap dimensions:',im.size,'->',cropped.size,'new commit:',newcommit)
+          PY
+          python /tmp/fix_rams.py
