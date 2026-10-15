@@ -13,6 +13,11 @@ export const ramsKickerArticle = {
     "His replacement is Blake Grupe, a 5-foot-7, 156-pound specialist whom the Rams acquired from the New York Jets' practice squad.",
     "Mevis weighs approximately as much as one and a half Blake Grupes. The transaction represents a 36 percent reduction in the mass of the man responsible for kicking field goals.",
     "It is difficult to imagine another professional sports organization changing the physical dimensions of a single position so dramatically in the space of one afternoon.",
+    {
+      "type": "image",
+      "src": "/images/editorial/rams-unit-short-king.png",
+      "alt": "Harrison Mevis and Blake Grupe in a proportionally scaled composite, captioned Unit and Short King."
+    },
     "The NFL has occasionally experimented with extreme kicker geometry.",
     "In 2017, the Oakland Raiders replaced Sebastian Janikowski, a 260-pound Polish-American kicking institution, with Giorgio Tavecchio, who weighed 180 pounds. That transaction eliminated 80 pounds of placekicker from the Raiders' roster.",
     "The Rams have now exceeded that differential by nine pounds.",
