@@ -10,11 +10,11 @@ function check(extra){
 test('production rejects staging code branches',()=>assert.notEqual(check({VERCEL_GIT_COMMIT_REF:'staging'}).status,0));
 test('production rejects QA flags',()=>assert.notEqual(check({VERCEL_GIT_COMMIT_REF:'main',NEXT_PUBLIC_BRIEF_ENV:'staging'}).status,0));
 test('production accepts main without QA',()=>assert.equal(check({VERCEL_GIT_COMMIT_REF:'main'}).status,0));
-test('global carousel preserves full chronology',()=>{
+test('exactly three global front-page cards',()=>{
  const front=readFileSync('app/components/SharedEditorialFront.js','utf8');
  const section=front.match(/<section className=\{front\.recent\}[^>]*>([\s\S]*?)<\/section>/);
  assert.ok(section,'Missing global stories section');
- assert.ok((section[1].match(/<article className=\{front\.card\}/g)||[]).length>=3);
+ assert.equal((section[1].match(/<article className=\{front\.card\}/g)||[]).length,3);
 });
 test('London assignment follows the last featured article',()=>{
  const s=readFileSync('app/components/SharedEditorialFront.js','utf8');
@@ -27,6 +27,6 @@ test('every globally featured story resolves through the global edition allowlis
  const recent=front.match(/<section className=\{front\.recent\}[^>]*>([\s\S]*?)<\/section>/);
  assert.ok(recent,'Global article section missing');
  const slugs=[...recent[1].matchAll(/root\+"\/articles\/([a-z0-9-]+)"/g)].map(m=>m[1]);
- assert.ok(slugs.length>=3,'Expected chronological global story links');
+ assert.equal(slugs.length,3,'Expected three global story links');
  for(const slug of slugs)assert.ok(scope.includes("'"+slug+"'"),'Global carousel story not available in league editions: '+slug);
 });
