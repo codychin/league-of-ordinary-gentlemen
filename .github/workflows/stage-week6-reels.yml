@@ -1,0 +1,30 @@
+name: Stage approved Week 6 matchup reels
+on:
+  push:
+    branches: [staging]
+    paths: ['.github/workflows/stage-week6-reels.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: staging-week6-reels
+  cancel-in-progress: false
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: staging
+          fetch-depth: 0
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - run: python3 scripts/stage-week6-reels.py
+      - name: Commit packaged reels only to staging
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/reels public/reels-hls app/page.js lib/sunday-reels.js lib/doge-reels.js lib/edition-content.js
+          git commit -m "Stage all 18 approved Week 6 reels" 
+          git pull --rebase origin staging
+          git push origin HEAD:staging
