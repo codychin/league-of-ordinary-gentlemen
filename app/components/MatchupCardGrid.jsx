@@ -14,7 +14,7 @@ export default function MatchupCardGrid({cards=[]}){
       <div className="briefMatchupPortraits" aria-hidden="true">
         {c.leftImage&&<ResilientImage loading="lazy" decoding="async" className="briefMatchupLeftPlayer" src={c.leftImage} alt=""/>}
         {c.rightImage&&<ResilientImage loading="lazy" decoding="async" className="briefMatchupRightPlayer" src={c.rightImage} alt=""/>}
-      </div><span className="briefMatchupOpen">OPEN MATCHUP & READ CORRESPONDENT WRITEUP →</span>
+      </div><span className="briefMatchupOpen">Matchup →</span>
     </article>
   </Link>)}</div>;
 }
