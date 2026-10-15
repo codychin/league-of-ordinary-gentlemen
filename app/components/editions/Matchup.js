@@ -1,5 +1,5 @@
 import {isMatchupFinal} from '../../../lib/matchup-status.mjs';
-import matchupColumns from '../../../data/week5-matchup-columns.json';
+import matchupColumns from '../../../data/week6-matchup-columns.json';
 import matchupRecaps from '../../../data/matchup-recaps.json';
 import {selectMatchupColumn} from '../../../lib/select-matchup-column.mjs';
 import Link from 'next/link';
