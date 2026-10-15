@@ -51,8 +51,12 @@ export default async function MatchupPreview({params}){
     const pregame=!final&&Number(ls.score||0)===0&&Number(rs.score||0)===0;
     const phase=final?'FINAL':game.closeoutPending?'AWAITING PROVIDER FINAL':pregame?'PREGAME':'LIVE';
     const verified=Number(latest.week)===closeout.week?closeout.loog.details.flatMap(g=>[g.home,g.away]):[];
-    const leftPlayers=verified.find(t=>t.teamId===idA)?.players.filter(p=>p.started)||[];
-    const rightPlayers=verified.find(t=>t.teamId===idB)?.players.filter(p=>p.started)||[];
+    const verifiedLeft=verified.find(t=>t.teamId===idA)?.players.filter(p=>p.started)||[];
+    const fallbackLeft=activeRoster(left).map(p=>({lineupSlot:p.slot,name:p.name,points:p.weekPoints??0}));
+    const leftPlayers=verifiedLeft.length?verifiedLeft:fallbackLeft;
+    const verifiedRight=verified.find(t=>t.teamId===idB)?.players.filter(p=>p.started)||[];
+    const fallbackRight=activeRoster(right).map(p=>({lineupSlot:p.slot,name:p.name,points:p.weekPoints??0}));
+    const rightPlayers=verifiedRight.length?verifiedRight:fallbackRight;
     const column=selectMatchupColumn({previews:matchupColumns,recaps:matchupRecaps,edition:'loog',week:latest.week,a:idA,b:idB,isFinal:final});
     const columnist=writers[column?.writer||'gannon'];
     return <>
@@ -73,7 +77,7 @@ export default async function MatchupPreview({params}){
           {(column?.body||(final?'The result is final. The correspondent recap is awaiting publication.':'The correspondent preview for this pairing is awaiting publication.')).split(/\n\n+/).map((paragraph,index)=><p key={index}>{paragraph}</p>)}
           <p className="matchupUpdated">{final?'FINAL SCORE':'LATEST SCORE'}: {fmt(ls.score)}–{fmt(rs.score)}{!final&&' • Preview analysis was written before kickoff.'}</p>
         </section>
-        <section className="lineupPreview"><div className="matchupSectionHead"><small>STARTING LINEUPS • WEEK {latest.week}</small><h2>Position by position</h2></div>{leftPlayers.length&&rightPlayers.length?<><div className="lineupTeams"><span>{left.teamName}</span><span>{right.teamName}</span></div>{Array.from({length:Math.max(leftPlayers.length,rightPlayers.length)},(_,i)=>[leftPlayers[i],rightPlayers[i]]).map(([l,r],i)=><div className="lineupRow" key={i}><div className="lineupPlayer left">{l&&<><small>{l.lineupSlot}</small><b>{l.name}</b><span>{fmt(l.points)}</span></>}</div><div className="lineupVs">VS</div><div className="lineupPlayer right">{r&&<><small>{r.lineupSlot}</small><b>{r.name}</b><span>{fmt(r.points)}</span></>}</div></div>)}</>:<p>Awaiting current-week roster verification.</p>}</section>
+        <section className="lineupPreview"><div className="matchupSectionHead"><small>STARTING LINEUPS • WEEK {latest.week}</small><h2>Position by position</h2></div>{(!verifiedLeft.length||!verifiedRight.length)&&<p className="matchupUpdated">MOST RECENT STORED LINEUPS • NOT VERIFIED FOR WEEK {latest.week}</p>}{leftPlayers.length&&rightPlayers.length?<><div className="lineupTeams"><span>{left.teamName}</span><span>{right.teamName}</span></div>{Array.from({length:Math.max(leftPlayers.length,rightPlayers.length)},(_,i)=>[leftPlayers[i],rightPlayers[i]]).map(([l,r],i)=><div className="lineupRow" key={i}><div className="lineupPlayer left">{l&&<><small>{l.lineupSlot}</small><b>{l.name}</b><span>{fmt(l.points)}</span></>}</div><div className="lineupVs">VS</div><div className="lineupPlayer right">{r&&<><small>{r.lineupSlot}</small><b>{r.name}</b><span>{fmt(r.points)}</span></>}</div></div>)}</>:<p>Awaiting current-week roster verification.</p>}</section>
         <Link className="matchupBack" href="/#scores">← ALL WEEK {latest.week} MATCHUPS</Link>
       </main>
     </>;
