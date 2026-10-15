@@ -73,21 +73,28 @@ export const andYouAreArticle = {
     "Consider the ceremony from Wilshere’s position. You have been identified as one of the two finest young players on an entire continent. The other has agreed to look you up.",
     {
       "type": "heading",
-      "text": "7. Aaron Donald requests clarification"
+      "text": "7. Larry Bird asks to speak to the manager"
     },
     {
       "type": "image",
-      "src": "/images/and-you-are/donald.jpg",
-      "alt": "Aaron Donald during his postgame press conference after facing San Francisco on October 18, 2020.",
+      "src": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Larry_Bird_Lipofsky_%28high_quality%29.jpg",
+      "alt": "Larry Bird at the free-throw line during the 1985 playoffs against Detroit.",
+      "caption": "Larry Bird, 1985 playoffs.",
       "credit": {
-        "label": "Los Angeles Rams",
-        "url": "https://www.therams.com/video/aaron-donald-reacts-to-rams-week-6-loss-to-49ers"
+        "label": "Lipofsky Basketballphoto.com",
+        "url": "http://www.basketballphoto.com/NBA_Basketball_Photographs.htm"
       }
     },
-    "On October 18, 2020, Deebo Samuel had done much of what a person might reasonably do to become familiar to Aaron Donald. He had played against his team, caught six passes, gained 66 yards and scored a touchdown in a San Francisco victory.",
-    "Asked about him afterward, Donald said, “Who?”",
-    "The economy is remarkable. Donald needed one syllable to suggest that an evening’s work had failed to meet the threshold for recollection. Samuel had reached the end zone but apparently not long-term memory.",
-    "Losing ordinarily imposes an obligation to acknowledge the people responsible. Donald treated that portion of the evening as optional. The score was final; the existence of Deebo Samuel remained under review.",
+    {
+      "type": "rich",
+      "html": "<small>Photo via <a href=\"https://commons.wikimedia.org/wiki/File:Larry_Bird_Lipofsky_(high_quality).jpg\" target=\"_blank\" rel=\"noreferrer\">Wikimedia Commons</a> · <a href=\"https://creativecommons.org/licenses/by-sa/3.0/\" target=\"_blank\" rel=\"noreferrer\">CC BY-SA 3.0</a>.</small>"
+    },
+    "In 1987, Chicago assigned Ben Poquette to guard Larry Bird. In the familiar telling, Bird looked toward Bulls coach Doug Collins, laughed and asked, “Ben Poquette? Are you fucking kidding me?”",
+    "Poquette was standing right there. This did not make him the appropriate person to address. Bird’s complaint concerned whoever had sent him.",
+    "Bird famously resented being guarded by white players, a peculiar prejudice for a white man who spent his professional life demonstrating the hazards of underestimating one. Collins had been expected to understand that Larry was an exception.",
+    "There is something especially diminishing about having your opponent discuss your assignment with your supervisor while you are still attempting to carry it out. Poquette had arrived to contest shots. He was now the subject of a staffing inquiry.",
+    "Bird finished with 41 points.",
+    "Collins had sent a professional basketball player. Larry had asked whether there was anyone more senior.",
     {
       "type": "heading",
       "text": "6. Tyler Kolek is asked to explain his attendance"
