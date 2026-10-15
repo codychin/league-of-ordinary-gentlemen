@@ -32,15 +32,29 @@ export default function SharedEditorialFront({archiveHref='/archive',root=''}){
 </section>
 
 <section className={front.recent} aria-label="Recent stories">
+<article className={front.card} aria-label="Hollis Crane on the Rams kicker swap"><Link className={front.story} href={root+"/articles/hollis-rams-kicker-weight"}><div className={front.image} role="img" aria-label="Blake Grupe kicks a football for New Orleans" style={{backgroundImage:imageBackground('https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/saints/m2jfru6egwyvkpypfj8r',640),backgroundPosition:"center 40%"}}><ImageLabel byline="HOLLIS CRANE • INVESTIGATIONS" theme="A CONSIDERABLE REDUCTION IN PERSONNEL"/></div><div className="eyebrow">THE FOOTBALL DESK • PERSONNEL</div><h3>The Rams Have Lost 89 Pounds at Kicker</h3><PreviewAuthor slug="hollis-rams-kicker-weight"/><p className={front.dek}>The NFL's largest kicker is out. One of its smallest has arrived. The equipment department has been given quite a lot of room.</p><div className="read">READ HOLLIS →</div></Link></article>
+
 <article className={front.card} aria-label="Maude Gannon on the NFC East"><Link className={front.story} href={root+"/articles/maude-nfc-east-declines-winner"}><div className={front.image} role="img" aria-label="Giants defenders celebrate the tie with Washington." style={{backgroundImage:`${imageBackground('https://sportshub.cbsistatic.com/i/r/2026/10/11/830be0b3-3807-40dd-b003-6e64d0d49615/thumbnail/1200x675/7fba8e6037ce9a83e03b456a120f5a57/commanders-giants.jpg',640)}`}}><ImageLabel byline="MAUDE GANNON • FOOTBALL" theme="A WINNING KICK, NEVER ATTEMPTED"/></div><div className="eyebrow">THE FOOTBALL DESK</div><h3>The NFC East Declines to Name a Winner</h3><PreviewAuthor slug="maude-nfc-east-declines-winner"/><p className={front.dek}>The Giants and Commanders spent the afternoon reducing the requirements for victory. Neither could meet the final version.</p><div className="read">READ MAUDE →</div></Link></article>
 <article className={front.card} aria-label="Marnie Kells on Marvin Harrison Jr."><Link className={front.story} href={root+"/articles/marnie-marvin-harrison-somewhere-else"}><div className={front.image} role="img" aria-label="Marvin Harrison Jr. catching a football in his white Arizona Cardinals No. 18 uniform." style={{backgroundImage:`${imageBackground('https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/cardinals/whbhqzxotle5uja93jv1',640)}`,backgroundPosition:"left center"}}><ImageLabel byline="MARNIE KELLS • CULTURE" theme="FOURTH OVERALL. FORWARDING ADDRESS PENDING."/></div><div className="eyebrow">MATTERS OF CULTURE • SPORTING LIFE</div><h3>Marvin Harrison Jr. Will Be Playing Somewhere Else. The Important Part Is Else.</h3><PreviewAuthor slug="marnie-marvin-harrison-somewhere-else"/><p className={front.dek}>The destination remains unreported. The departure has received considerably more clarity.</p><div className="read">READ MARNIE →</div></Link></article>
-<article className={front.card} aria-label="Marnie Kells on Jeremy Hecklinski"><Link className={front.story} href={root+"/articles/marnie-hecklinski-use-your-words"}><div className={front.image} style={{backgroundImage:`${imageBackground('https://images2.minutemediacdn.com/image/upload/c_crop%2Cx_0%2Cy_275%2Cw_4659%2Ch_2620/c_fill%2Cw_1440%2Car_1440%3A810%2Cf_auto%2Cq_auto%2Cg_auto/images/ImagnImages/mmsport/inside_the_hawkeyes/01kt4afzsc00k8hwtpfv.jpg',640)}`,backgroundPosition:"center 27%"}}><ImageLabel byline="MARNIE KELLS • CULTURE" theme="ONE QUARTERBACK REACHES HIS EMOTIONAL LIMIT"/></div><div className="eyebrow">MATTERS OF CULTURE • INTERPERSONAL COMMUNICATION</div><h3>Use Your Words.</h3><PreviewAuthor slug="marnie-hecklinski-use-your-words"/><p className={front.dek}>An Iowa quarterback and the quiet courage of asking for what you need.</p><div className="read">READ MARNIE →</div></Link></article>
+
+
 
 
 
 
 
 </section>
+<section className="hero heroStack" aria-label="Marnie Kells on Jeremy Hecklinski">
+  <Link className="hero-copy storylink" href={root+"/articles/marnie-hecklinski-use-your-words"}>
+    <div className="photoHero" style={{backgroundImage:imageBackground('https://images2.minutemediacdn.com/image/upload/c_crop%2Cx_0%2Cy_275%2Cw_4659%2Ch_2620/c_fill%2Cw_1440%2Car_1440%3A810%2Cf_auto%2Cq_auto%2Cg_auto/images/ImagnImages/mmsport/inside_the_hawkeyes/01kt4afzsc00k8hwtpfv.jpg',900),backgroundPosition:"center 27%"}}><div><small>MARNIE KELLS • CULTURE</small><b>ONE QUARTERBACK REACHES HIS EMOTIONAL LIMIT</b></div></div>
+    <div className="eyebrow">MATTERS OF CULTURE • INTERPERSONAL COMMUNICATION</div>
+    <h2>Use Your Words.</h2>
+    <PreviewAuthor slug="marnie-hecklinski-use-your-words"/>
+    <p className="standfirst">An Iowa quarterback and the quiet courage of asking for what you need.</p>
+    <div className="read">READ MARNIE →</div>
+  </Link>
+</section>
+
 <section className="hero heroStack" aria-label="Marnie Kells on the Time-Traveling Goblin Paradox"><Link className="hero-copy storylink" href={root+"/articles/marnie-time-traveling-goblin-paradox"}><div className="eyebrow">MATTERS OF CULTURE • TEMPORAL STUDIES</div><h2>The Time-Traveling Goblin Paradox</h2><PreviewAuthor slug="marnie-time-traveling-goblin-paradox"/><div className="photoHero" style={{backgroundImage:`${imageBackground('https://i.kym-cdn.com/entries/icons/facebook/000/057/575/tiptoeing.jpg',640)}`,backgroundPosition:"center"}}><ImageLabel byline="MARNIE KELLS • CULTURE" theme="RIFF RAFF WAS TWELVE YEARS EARLY"/></div><p className="standfirst">A brief inquiry into Riff Raff, the Year of the Horse and an event that has begun occurring retroactively.</p><div className="read">READ MARNIE →</div></Link></section>
 <section className="hero heroStack" aria-label="Conrad Sorrell on Mike Tomlin">
   <Link className="hero-copy storylink" href={root+"/articles/conrad-tomlin-minecraft-cvs"}>
