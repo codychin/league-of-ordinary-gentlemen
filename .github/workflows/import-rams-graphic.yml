@@ -9,21 +9,13 @@ jobs:
   import:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          ref: hollis-rams-kicker-staging
-      - name: Download exact approved graphic
+      - name: Copy approved image directly into GitHub assets
         env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SOURCE_URL: 'https://d2jqrm6oza8nb6.cloudfront.net/datasets/adc56bea-d8bf-43aa-a857-61ccf40a862e.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiN2NjZDkyYzc1MjA0Yzg3ZiIsImJ1Y2tldCI6InJ1bndheS1kYXRhc2V0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5MjIyNDgzOX0.bAG0t61A3989p6sk9IhMVKoryFSYUpuCNa2-0Mg7UpA'
         run: |
-          mkdir -p public/images/editorial
-          curl --fail --location --silent --show-error "$SOURCE_URL" -o public/images/editorial/rams-unit-short-king.png
-          test $(wc -c < public/images/editorial/rams-unit-short-king.png) -gt 100000
-          file public/images/editorial/rams-unit-short-king.png
-      - name: Commit image asset
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add public/images/editorial/rams-unit-short-king.png
-          git commit -m 'Add approved Rams size comparison image' || exit 0
-          git push origin HEAD:hollis-rams-kicker-staging
+          curl --fail --location --silent --show-error "$SOURCE_URL" -o /tmp/rams.png
+          test $(wc -c < /tmp/rams.png) -gt 100000
+          base64 -w0 /tmp/rams.png > /tmp/rams.b64
+          jq -n --rawfile content /tmp/rams.b64 '{message:"Import approved original Rams comparison PNG", content:$content, branch:"hollis-rams-kicker-staging"}' > /tmp/request.json
+          curl --fail --silent --show-error -X PUT -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" -H "Content-Type: application/json" --data-binary @/tmp/request.json "https://api.github.com/repos/codychin/league-of-ordinary-gentlemen/contents/public/images/editorial/rams-unit-short-king.png"
