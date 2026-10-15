@@ -3,6 +3,16 @@ import {readFile,writeFile,mkdir,readdir,stat} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import path from 'node:path';
 import sharp from 'sharp';
+
+// Trim only the baked-in beige side gutters of the Rams graphic during the build.
+// Preserve every label, player and the full vertical composition; source stays immutable.
+const ramsAsset='public/images/editorial/rams-unit-short-king.png';
+const ramsOriginal=await readFile(ramsAsset);
+const ramsMeta=await sharp(ramsOriginal).metadata();
+const side=Math.round(ramsMeta.width*0.135);
+if(!ramsMeta.width||!ramsMeta.height||side*2>=ramsMeta.width)throw Error('Invalid Rams graphic dimensions');
+await writeFile(ramsAsset,await sharp(ramsOriginal).extract({left:side,top:0,width:ramsMeta.width-side*2,height:ramsMeta.height}).png().toBuffer());
+
 const sources=new Set();
 async function scan(dir){for(const e of await readdir(dir,{withFileTypes:true})){const p=path.join(dir,e.name);if(e.isDirectory()){if(!p.includes('generated')&&!p.includes('media-admin')&&!p.includes('/manage'))await scan(p)}else if(/\.(jsx?|css)$/.test(p)){const s=await readFile(p,'utf8');for(const m of s.matchAll(/(?:https:\/\/[^\s'"`<>)}]+|\/images\/[^\s'"`<>)}]+|\/api\/[\w.-]+(?:-image|\.jpg))/g)){const u=m[0];if(/\.(?:jpg|jpeg|png|webp)(?:\?|$)/i.test(u)||u.startsWith('/images/')||u.startsWith('/api/')||u.includes('static.clubs.nfl.com/image/')){if(!u.startsWith('/images/cache/'))sources.add(u)}}}}}
 await scan('app');await scan('lib');
