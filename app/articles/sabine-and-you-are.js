@@ -73,7 +73,25 @@ export const andYouAreArticle = {
     "Consider the ceremony from Wilshere’s position. You have been identified as one of the two finest young players on an entire continent. The other has agreed to look you up.",
     {
       "type": "heading",
-      "text": "7. Larry Bird asks to speak to the manager"
+      "text": "7. Tyler Kolek is asked to explain his attendance"
+    },
+    {
+      "type": "image",
+      "src": "/images/and-you-are/kolek.jpg",
+      "alt": "Tyler Kolek stopped by police during the Knicks’ championship parade.",
+      "credit": {
+        "label": "Parade footage / Mediaite",
+        "url": "https://www.mediaite.com/media/sports/watch-nypd-officers-grab-a-knicks-player-and-yank-him-from-the-parade-mistaking-him-for-a-fan/"
+      }
+    },
+    "New York had waited 53 years for another Knicks championship. Generations had grown old discussing what was wrong with the team. When the parade finally arrived, police identified one remaining problem: a young man who appeared to have wandered into it.",
+    "The young man was Knicks guard Tyler Kolek.",
+    "“I swear I’m on the team bro,” was Kolek’s subsequent explanation on X, where he found a more receptive audience than he had along the parade route. Officers had briefly stopped him after mistaking him for a fan.",
+    "That sentence deserves preservation. Kolek had reached the NBA, joined a championship team and arrived at the municipal celebration of that fact. He was nevertheless reduced to the explanation a teenager might offer while attempting to board the team bus.",
+    "The city was delighted with what he and his colleagues had achieved. It would appreciate it if he watched from behind the barrier.",
+    {
+      "type": "heading",
+      "text": "6. Larry Bird asks to speak to the manager"
     },
     {
       "type": "image",
@@ -95,24 +113,6 @@ export const andYouAreArticle = {
     "There is something especially diminishing about having your opponent discuss your assignment with your supervisor while you are still attempting to carry it out. Poquette had arrived to contest shots. He was now the subject of a staffing inquiry.",
     "Bird finished with 41 points.",
     "Collins had sent a professional basketball player. Larry had asked whether there was anyone more senior.",
-    {
-      "type": "heading",
-      "text": "6. Tyler Kolek is asked to explain his attendance"
-    },
-    {
-      "type": "image",
-      "src": "/images/and-you-are/kolek.jpg",
-      "alt": "Tyler Kolek stopped by police during the Knicks’ championship parade.",
-      "credit": {
-        "label": "Parade footage / Mediaite",
-        "url": "https://www.mediaite.com/media/sports/watch-nypd-officers-grab-a-knicks-player-and-yank-him-from-the-parade-mistaking-him-for-a-fan/"
-      }
-    },
-    "New York had waited 53 years for another Knicks championship. Generations had grown old discussing what was wrong with the team. When the parade finally arrived, police identified one remaining problem: a young man who appeared to have wandered into it.",
-    "The young man was Knicks guard Tyler Kolek.",
-    "“I swear I’m on the team bro,” was Kolek’s subsequent explanation on X, where he found a more receptive audience than he had along the parade route. Officers had briefly stopped him after mistaking him for a fan.",
-    "That sentence deserves preservation. Kolek had reached the NBA, joined a championship team and arrived at the municipal celebration of that fact. He was nevertheless reduced to the explanation a teenager might offer while attempting to board the team bus.",
-    "The city was delighted with what he and his colleagues had achieved. It would appreciate it if he watched from behind the barrier.",
     {
       "type": "heading",
       "text": "5. Brooks Koepka revises the historical record"
