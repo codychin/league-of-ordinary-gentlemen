@@ -658,3 +658,8 @@
 @media (max-width: 700px) {
   .articleMain { padding-top: 24px; }
 }
+
+/* Keep the entire Rams comparison, including its right-hand label, in the mobile PWA viewport. */
+@media (max-width: 700px) {
+  .articleInlineFigure.ramsComparisonFigure img { width: 88% !important; max-width: 88% !important; height: auto !important; margin-inline: auto !important; object-fit: contain !important; }
+}
