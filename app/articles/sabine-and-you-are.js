@@ -38,7 +38,7 @@ export const andYouAreArticle = {
     "One imagines the difficulty of returning to the original point. Yes, you are going to destroy him. First, remind him where you met.",
     {
       "type": "heading",
-      "text": "9. Auston Matthews consults the label"
+      "text": "9. Auston Matthews checks the credentials"
     },
     {
       "type": "image",
