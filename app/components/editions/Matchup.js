@@ -27,7 +27,7 @@ export default async function Matchup({params,config}){
   // Avoid showing last week's starting lineups as if they belonged to this matchup.
   const rosterAsOf=Date.parse(edition?.snapshots?.rosters?.created_at||'');
   const matchupAsOf=Date.parse(edition?.snapshots?.matchups?.created_at||'');
-  const rosterVerified=Number.isFinite(rosterAsOf)&&Number.isFinite(matchupAsOf)&&rosterAsOf>=matchupAsOf-12*60*60*1000;
+  const rosterVerified=Boolean(left?.players?.length&&right?.players?.length);
   const active=r=>[...(r.players||[])].filter(p=>!['BN','IR'].includes(p.selectedPosition)).sort((x,y)=>(order[x.selectedPosition]??10)-(order[y.selectedPosition]??10));
   const L=active(left),R=active(right),rows=Array.from({length:Math.max(L.length,R.length)},(_,i)=>[L[i],R[i]]);
   const standing=id=>standings.find(s=>String(s.teamId)===String(id));
@@ -59,6 +59,7 @@ export default async function Matchup({params,config}){
       {rosterVerified?<section className="lineupPreview">
         <div className="matchupSectionHead"><div><small>STARTING LINEUPS</small><h2>Position by position</h2></div></div>
         <div className="lineupTeams"><span>{left.teamName}</span><span>{right.teamName}</span></div>
+        {Number.isFinite(rosterAsOf)&&Number.isFinite(matchupAsOf)&&rosterAsOf<matchupAsOf-12*60*60*1000&&<p className="matchupUpdated">LINEUPS FROM MOST RECENT ROSTER SNAPSHOT • PLAYER AVAILABILITY MAY HAVE CHANGED</p>}
         <div>{rows.map(([l,r],i)=><div className="lineupRow" key={i}>
           <div className="lineupPlayer left">{l&&<><small>{l.selectedPosition}</small><b>{l.name}</b><span>{fmt(l.points)}</span>{l.status&&<em>{l.status}</em>}</>}</div>
           <div className="lineupVs">VS</div>
