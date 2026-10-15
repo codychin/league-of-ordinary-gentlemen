@@ -632,9 +632,8 @@
 .briefMatchupSide strong{display:block;margin:0;color:var(--red);font:900 27px/1.1 Arial,sans-serif;font-variant-numeric:tabular-nums}
 .briefMatchupSide em{display:block;margin:0;font:800 8px/1.2 Arial,sans-serif;letter-spacing:.35px;color:var(--muted);font-style:normal}
 .briefMatchupTeams>i{align-self:center;margin:0;text-align:center;color:var(--red);font:700 13px/1 Georgia,serif;font-style:normal}
-.briefMatchupPortraits{display:flex;justify-content:space-between;align-items:flex-end;height:78px;margin:8px 0 0;pointer-events:none;overflow:hidden}
+.briefMatchupPortraits{display:flex;justify-content:space-between;align-items:flex-end;height:78px;margin:8px 0 0;pointer-events:none}
 .briefMatchupPortraits img{display:block;width:42%;height:100%;object-fit:contain;object-position:center bottom;filter:grayscale(1) contrast(1.2) brightness(1.3);mix-blend-mode:multiply;opacity:1}
-.briefMatchupPortraits img{position:relative;top:20px}
 .briefMatchupRightPlayer{transform:scaleX(-1)}
 .briefMatchupOpen{display:flex;min-height:32px;align-items:center;justify-content:center;border-top:1px solid rgba(17,16,14,.16);font:900 8px/1.2 Arial,sans-serif;letter-spacing:1px;color:var(--red)}
 @media(max-width:760px){
