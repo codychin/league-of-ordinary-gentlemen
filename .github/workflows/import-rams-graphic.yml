@@ -1,0 +1,29 @@
+name: Import approved Rams comparison graphic
+on:
+  push:
+    branches: [hollis-rams-kicker-staging]
+    paths: [.github/workflows/import-rams-graphic.yml]
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: hollis-rams-kicker-staging
+      - name: Download exact approved graphic
+        env:
+          SOURCE_URL: 'https://d2jqrm6oza8nb6.cloudfront.net/datasets/adc56bea-d8bf-43aa-a857-61ccf40a862e.png?_jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXlIYXNoIjoiN2NjZDkyYzc1MjA0Yzg3ZiIsImJ1Y2tldCI6InJ1bndheS1kYXRhc2V0cyIsInN0YWdlIjoicHJvZCIsImV4cCI6MTc5MjIyNDgzOX0.bAG0t61A3989p6sk9IhMVKoryFSYUpuCNa2-0Mg7UpA'
+        run: |
+          mkdir -p public/images/editorial
+          curl --fail --location --silent --show-error "$SOURCE_URL" -o public/images/editorial/rams-unit-short-king.png
+          test $(wc -c < public/images/editorial/rams-unit-short-king.png) -gt 100000
+          file public/images/editorial/rams-unit-short-king.png
+      - name: Commit image asset
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/images/editorial/rams-unit-short-king.png
+          git commit -m 'Add approved Rams size comparison image' || exit 0
+          git push origin HEAD:hollis-rams-kicker-staging
