@@ -12,12 +12,12 @@ const currentMatchups=matchupPairs.map(([a,b,note])=>[leagueSnapshot.teams[a],le
 const featuredPlayer=team=>team.roster.filter(p=>!['Bench','IR','K','D/ST'].includes(p.slot)&&!['K','D/ST'].includes(p.position)).sort((a,b)=>b.seasonPoints-a.seasonPoints)[0]
 const playerHeadshot=player=>`https://a.espncdn.com/i/headshots/nfl/players/full/${player.id}.png`
 const publishedReels=[
-  ['route-22','kraft','R22 · KRAFT','The Route 22 Clubhouse vs. For the Love of the Kraft','Maude Gannon',writers.gannon.image,'7f34018424eca5db9ec92b7a8c63d19d'],
-  ['hopkins-opus','pollard-greens','HOP · POLL','Mr Hopkins Opus vs. Pollard Greens','Hollis Crane',writers.crane.image,'a8e34cf9eb4f6feb6fdbc4a2915293d6'],
-  ['danir','kupp-doubs','DANIR · KUPP','DarkHorse Danir vs. Kupp Kupp Doubs','Dashiell Pike',writers.pike.image,'284ffa740e45c0f9873a164fe18435ba'],
-  ['ceedeep','lloyd-rings','CEE · LLOYD','CeeDeep Shaheeded Rivalry vs. Lloyd of the Rings','Marnie Kells',writers.kells.image,'bc59f8b8b7f49b1d13532b9bd5ac352b'],
-  ['royrek','shake-baker','ROY · SHAKE','Royrek Tishmeshulam vs. Shake ’N Baker','Sabine March',writers.march.image,'eb912530ce683f55ae9f704e9dc908db'],
-  ['skatt','all-ugly','SKATT · UGLY','I’m a Skatt man vs. The All Ugly Team','Conrad Sorrell',writers.sorrell.image,'958c0c26787eed251648743bd726c4ae']
+  ["all-ugly", "ceedeep", "ALL-UGLY · CEEDEEP", "The All Ugly Team vs. CeeDeep Shaheeded Rivalry", "Hollis Crane",writers.crane.image,"624a4bbd1764945887d6b5e59bf2c569"],
+  ["danir", "route-22", "DANIR · ROUTE-22", "DarkHorse Danir vs. The Route 22 Clubhouse", "Conrad Sorrell",writers.sorrell.image,"dd4a0886e3b8570b7e0b478cd2494473"],
+  ["skatt", "hopkins-opus", "SKATT · HOPKINS-OPUS", "I'm a Skatt man vs. Mr Hopkins Opus", "Maude Gannon",writers.gannon.image,"15fabdd59b7336b35c8ad851f1449fb0"],
+  ["lloyd-rings", "kupp-doubs", "LLOYD-RINGS · KUPP-DOUBS", "Lloyd of the Rings vs. Kupp Kupp Doubs", "Dashiell Pike",writers.pike.image,"a2d015c95e646c9902128869c408ce11"],
+  ["shake-baker", "pollard-greens", "SHAKE-BAKER · POLLARD-GREENS", "Shake 'N Baker vs. Pollard Greens", "Marnie Kells",writers.kells.image,"f47f31d0791ee1022f82004e2c1b9ef2"],
+  ["royrek", "kraft", "ROYREK · KRAFT", "Royrek Tishmeshulam vs. For the Love of the Kraft", "Sabine March",writers.march.image,"ded303e56680d12f48cdeec27f5db1fc"],
 ].map(([left,right,short,matchup,correspondent,avatar,id])=>{
   const lp=featuredPlayer(leagueSnapshot.teams[left]);
   const rp=featuredPlayer(leagueSnapshot.teams[right]);
@@ -34,7 +34,7 @@ const isSundayLiveWindow=()=>{
 };
 export default function Home(){const sundayLive=isSundayLiveWindow();return <><header><div className="utility"><span className="utilityMain">JOURNALISM WITHOUT PURPOSE <i>•</i> WRITTEN BY ROBOTS</span></div><div className="mast"><h1>The Brief of Ordinary Gentleman</h1><div className="dek">Fantasy football, personal grievances, forensic accounting and other matters of irrelevance.</div></div><SiteNav/></header><main>
 {sundayLive&&<><SundayScoreStrip/><SundayLiveDesk/></>}
-<ReelsShelf reels={publishedReels} releaseId="loog-week4-recap-v1" storageKey="brief-loog-week4-recap-viewed-v1" weekLabel="THE BRIEF • WEEK 4" title="Week 4, the aftermath." modeLabel="WEEK 4 • RECAP"/>
+<ReelsShelf reels={publishedReels} releaseId="loog-week6-preview-v1" storageKey="brief-loog-week6-preview-viewed-v1" weekLabel="THE BRIEF • WEEK 6" title="Week 6, the previews." modeLabel="WEEK 6 • PREVIEWS"/>
 <SharedEditorialFront/>
 {!sundayLive&&<SundayLiveDesk/>}
 
