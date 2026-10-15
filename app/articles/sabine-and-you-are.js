@@ -101,7 +101,9 @@ export const andYouAreArticle = {
       "credit": {
         "label": "Lipofsky Basketballphoto.com",
         "url": "http://www.basketballphoto.com/NBA_Basketball_Photographs.htm"
-      }
+      },
+      "aspectRatio": "16 / 9",
+      "objectPosition": "center 25%"
     },
     {
       "type": "rich",
