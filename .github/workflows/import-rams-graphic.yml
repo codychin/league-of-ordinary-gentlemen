@@ -1,4 +1,4 @@
-name: Correct Rams comparison image
+name: Correct Rams comparison image and article layout
 on:
   push:
     branches: [hollis-rams-kicker-staging]
