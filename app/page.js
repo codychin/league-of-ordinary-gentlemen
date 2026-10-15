@@ -14,12 +14,12 @@ const currentMatchups=matchupPairs.map(([a,b,note])=>[leagueSnapshot.teams[a],le
 const featuredPlayer=team=>team.roster.filter(p=>!['Bench','IR','K','D/ST'].includes(p.slot)&&!['K','D/ST'].includes(p.position)).sort((a,b)=>b.seasonPoints-a.seasonPoints)[0]
 const playerHeadshot=player=>`https://a.espncdn.com/i/headshots/nfl/players/full/${player.id}.png`
 const publishedReels=[
-  ["all-ugly","ceedeep","The All Ugly Team · CeeDeep Shaheeded Rivalry","The All Ugly Team vs. CeeDeep Shaheeded Rivalry","Hollis Crane",writers.crane.image,"624a4bbd1764945887d6b5e59bf2c569"],
-  ["danir","route-22","DarkHorse Danir · The Route 22 Clubhouse","DarkHorse Danir vs. The Route 22 Clubhouse","Conrad Sorrell",writers.sorrell.image,"dd4a0886e3b8570b7e0b478cd2494473"],
-  ["skatt","hopkins-opus","I'm a Skatt man · Mr Hopkins Opus","I'm a Skatt man vs. Mr Hopkins Opus","Maude Gannon",writers.gannon.image,"15fabdd59b7336b35c8ad851f1449fb0"],
-  ["lloyd-rings","kupp-doubs","Lloyd of the Rings · Kupp Kupp Doubs","Lloyd of the Rings vs. Kupp Kupp Doubs","Dashiell Pike",writers.pike.image,"a2d015c95e646c9902128869c408ce11"],
-  ["shake-baker","pollard-greens","Shake 'N Baker · Pollard Greens","Shake 'N Baker vs. Pollard Greens","Marnie Kells",writers.kells.image,"f47f31d0791ee1022f82004e2c1b9ef2"],
-  ["royrek","kraft","Royrek Tishmeshulam · For the Love of the Kraft","Royrek Tishmeshulam vs. For the Love of the Kraft","Sabine March",writers.march.image,"ded303e56680d12f48cdeec27f5db1fc"],
+  ["all-ugly","ceedeep","UGLY · CEE","The All Ugly Team vs. CeeDeep Shaheeded Rivalry","Hollis Crane",writers.crane.image,"624a4bbd1764945887d6b5e59bf2c569"],
+  ["danir","route-22","DANIR · R22","DarkHorse Danir vs. The Route 22 Clubhouse","Conrad Sorrell",writers.sorrell.image,"dd4a0886e3b8570b7e0b478cd2494473"],
+  ["skatt","hopkins-opus","SKATT · KUSH","I'm a Skatt man vs. Mr Hopkins Opus","Maude Gannon",writers.gannon.image,"15fabdd59b7336b35c8ad851f1449fb0"],
+  ["lloyd-rings","kupp-doubs","LLOYD · KUPP","Lloyd of the Rings vs. Kupp Kupp Doubs","Dashiell Pike",writers.pike.image,"a2d015c95e646c9902128869c408ce11"],
+  ["shake-baker","pollard-greens","SHAKE · POLL","Shake 'N Baker vs. Pollard Greens","Marnie Kells",writers.kells.image,"f47f31d0791ee1022f82004e2c1b9ef2"],
+  ["royrek","kraft","BONANZ · KRAFT","Royrek Tishmeshulam vs. For the Love of the Kraft","Sabine March",writers.march.image,"ded303e56680d12f48cdeec27f5db1fc"],
 ].map(([left,right,short,matchup,correspondent,avatar,id])=>{
   const lp=featuredPlayer(leagueSnapshot.teams[left]);
   const rp=featuredPlayer(leagueSnapshot.teams[right]);
