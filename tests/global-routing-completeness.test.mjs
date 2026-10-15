@@ -14,8 +14,8 @@ test('all shared homepage article links route in every league',()=>{
   assert.ok(data.includes("'"+slug+"':")||data.includes('"'+slug+'":'),'GLOBAL ARTICLE DATA MISSING: '+slug);
  }
 });
-test('global three-card limit never silently grows',()=>{
+test('global carousel keeps all chronological cards',()=>{
  const section=front.match(/<section className=\{front\.recent\}[^>]*>([\s\S]*?)<\/section>/);
  assert.ok(section);
- assert.equal((section[1].match(/<article className=\{front\.card\}/g)||[]).length,3);
+ assert.ok((section[1].match(/<article className=\{front\.card\}/g)||[]).length>=4);
 });
