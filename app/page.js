@@ -1,3 +1,5 @@
+import week6SourcesRaw from '../scripts/week6-staging-video-sources.json';
+const week6Sources=Object.fromEntries(week6SourcesRaw.map(v=>[v.id,v.url]));
 import LoogAutopsy from './components/LoogAutopsy';
 import StartSitOfWeek from './components/StartSitOfWeek';
 import completedScores from '../data/latest-loog-scores.json';
@@ -21,7 +23,7 @@ const publishedReels=[
 ].map(([left,right,short,matchup,correspondent,avatar,id])=>{
   const lp=featuredPlayer(leagueSnapshot.teams[left]);
   const rp=featuredPlayer(leagueSnapshot.teams[right]);
-  return {id,left,right,short,matchup,correspondent,avatar,leftImage:playerHeadshot(lp),rightImage:playerHeadshot(rp)};
+  return {id,left,right,short,matchup,correspondent,avatar,videoUrl:week6Sources[id],leftImage:playerHeadshot(lp),rightImage:playerHeadshot(rp)};
 });
 
 const MEDIA='https://dnzdbqycuuoonewcowis.supabase.co/storage/v1/object/public/brief-media';
