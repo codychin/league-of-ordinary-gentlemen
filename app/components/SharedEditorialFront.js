@@ -6,6 +6,11 @@ import ArticleClip from './ArticleClip';
 import PreviewAuthor from './PreviewAuthor';
 import ResilientImage from './ResilientImage';
 
+// Keep correspondent/theme labels mandatory for shared homepage story imagery.
+function ImageLabel({byline,theme}){
+  return <div className="actionCaption"><small>{byline}</small><b>{theme}</b></div>;
+}
+
 export default function SharedEditorialFront({archiveHref='/archive',root=''}){
   return <>
 <section className="morningBriefPreview sundayFront" style={{paddingTop:0}} aria-label="Lead story: And You Are?">
@@ -13,6 +18,7 @@ export default function SharedEditorialFront({archiveHref='/archive',root=''}){
   <div className="sundayFrontGrid"><article className="sundayFeature sabinePackage">
     <Link href={root+"/articles/sabine-and-you-are"} className={`sundayFeatureImage storylink ${front.tourHero}`}>
       <ResilientImage loading="eager" decoding="async" style={{objectPosition:"center center"}} src="/images/and-you-are/evans.jpg" alt="Mike Evans checks Trevon Diggs’s nameplate."/>
+      <ImageLabel byline="SABINE MARCH • SOCIETY" theme="AND YOU ARE?"/>
     </Link>
     <div className="sundayFeatureCopy"><div className="sabinePackageIntro">
       <small>INTERNATIONAL & PUBLIC LIFE</small>
@@ -24,20 +30,20 @@ export default function SharedEditorialFront({archiveHref='/archive',root=''}){
 </section>
 
 <section className={front.recent} aria-label="Recent stories">
-<article className={front.card} aria-label="Maude Gannon on the NFC East"><Link className={front.story} href={root+"/articles/maude-nfc-east-declines-winner"}><div className={front.image} role="img" aria-label="Giants defenders celebrate the tie with Washington." style={{backgroundImage:`${imageBackground('https://sportshub.cbsistatic.com/i/r/2026/10/11/830be0b3-3807-40dd-b003-6e64d0d49615/thumbnail/1200x675/7fba8e6037ce9a83e03b456a120f5a57/commanders-giants.jpg',640)}`}}/><div className="eyebrow">THE FOOTBALL DESK</div><h3>The NFC East Declines to Name a Winner</h3><PreviewAuthor slug="maude-nfc-east-declines-winner"/><p className={front.dek}>The Giants and Commanders spent the afternoon reducing the requirements for victory. Neither could meet the final version.</p><div className="read">READ MAUDE →</div></Link></article>
-<article className={front.card} aria-label="Marnie Kells on Marvin Harrison Jr."><Link className={front.story} href={root+"/articles/marnie-marvin-harrison-somewhere-else"}><div className={front.image} role="img" aria-label="Marvin Harrison Jr. catching a football in his white Arizona Cardinals No. 18 uniform." style={{backgroundImage:`${imageBackground('https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/cardinals/whbhqzxotle5uja93jv1',640)}`,backgroundPosition:"left center"}}/><div className="eyebrow">MATTERS OF CULTURE • SPORTING LIFE</div><h3>Marvin Harrison Jr. Will Be Playing Somewhere Else. The Important Part Is Else.</h3><PreviewAuthor slug="marnie-marvin-harrison-somewhere-else"/><p className={front.dek}>The destination remains unreported. The departure has received considerably more clarity.</p><div className="read">READ MARNIE →</div></Link></article>
-<article className={front.card} aria-label="Marnie Kells on Jeremy Hecklinski"><Link className={front.story} href={root+"/articles/marnie-hecklinski-use-your-words"}><div className={front.image} style={{backgroundImage:`${imageBackground('https://images2.minutemediacdn.com/image/upload/c_crop%2Cx_0%2Cy_275%2Cw_4659%2Ch_2620/c_fill%2Cw_1440%2Car_1440%3A810%2Cf_auto%2Cq_auto%2Cg_auto/images/ImagnImages/mmsport/inside_the_hawkeyes/01kt4afzsc00k8hwtpfv.jpg',640)}`,backgroundPosition:"center 27%"}}/><div className="eyebrow">MATTERS OF CULTURE • INTERPERSONAL COMMUNICATION</div><h3>Use Your Words.</h3><PreviewAuthor slug="marnie-hecklinski-use-your-words"/><p className={front.dek}>An Iowa quarterback and the quiet courage of asking for what you need.</p><div className="read">READ MARNIE →</div></Link></article>
+<article className={front.card} aria-label="Maude Gannon on the NFC East"><Link className={front.story} href={root+"/articles/maude-nfc-east-declines-winner"}><div className={front.image} role="img" aria-label="Giants defenders celebrate the tie with Washington." style={{backgroundImage:`${imageBackground('https://sportshub.cbsistatic.com/i/r/2026/10/11/830be0b3-3807-40dd-b003-6e64d0d49615/thumbnail/1200x675/7fba8e6037ce9a83e03b456a120f5a57/commanders-giants.jpg',640)}`}}><ImageLabel byline="MAUDE GANNON • FOOTBALL" theme="THE NFC EAST DECLINES TO NAME A WINNER"/></div><div className="eyebrow">THE FOOTBALL DESK</div><h3>The NFC East Declines to Name a Winner</h3><PreviewAuthor slug="maude-nfc-east-declines-winner"/><p className={front.dek}>The Giants and Commanders spent the afternoon reducing the requirements for victory. Neither could meet the final version.</p><div className="read">READ MAUDE →</div></Link></article>
+<article className={front.card} aria-label="Marnie Kells on Marvin Harrison Jr."><Link className={front.story} href={root+"/articles/marnie-marvin-harrison-somewhere-else"}><div className={front.image} role="img" aria-label="Marvin Harrison Jr. catching a football in his white Arizona Cardinals No. 18 uniform." style={{backgroundImage:`${imageBackground('https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/cardinals/whbhqzxotle5uja93jv1',640)}`,backgroundPosition:"left center"}}><ImageLabel byline="MARNIE KELLS • CULTURE" theme="THE IMPORTANT PART IS ELSE"/></div><div className="eyebrow">MATTERS OF CULTURE • SPORTING LIFE</div><h3>Marvin Harrison Jr. Will Be Playing Somewhere Else. The Important Part Is Else.</h3><PreviewAuthor slug="marnie-marvin-harrison-somewhere-else"/><p className={front.dek}>The destination remains unreported. The departure has received considerably more clarity.</p><div className="read">READ MARNIE →</div></Link></article>
+<article className={front.card} aria-label="Marnie Kells on Jeremy Hecklinski"><Link className={front.story} href={root+"/articles/marnie-hecklinski-use-your-words"}><div className={front.image} style={{backgroundImage:`${imageBackground('https://images2.minutemediacdn.com/image/upload/c_crop%2Cx_0%2Cy_275%2Cw_4659%2Ch_2620/c_fill%2Cw_1440%2Car_1440%3A810%2Cf_auto%2Cq_auto%2Cg_auto/images/ImagnImages/mmsport/inside_the_hawkeyes/01kt4afzsc00k8hwtpfv.jpg',640)}`,backgroundPosition:"center 27%"}}><ImageLabel byline="MARNIE KELLS • CULTURE" theme="USE YOUR WORDS"/></div><div className="eyebrow">MATTERS OF CULTURE • INTERPERSONAL COMMUNICATION</div><h3>Use Your Words.</h3><PreviewAuthor slug="marnie-hecklinski-use-your-words"/><p className={front.dek}>An Iowa quarterback and the quiet courage of asking for what you need.</p><div className="read">READ MARNIE →</div></Link></article>
 
 
 
 
 
 </section>
-<section className="hero heroStack" aria-label="Marnie Kells on the Time-Traveling Goblin Paradox"><Link className="hero-copy storylink" href={root+"/articles/marnie-time-traveling-goblin-paradox"}><div className="eyebrow">MATTERS OF CULTURE • TEMPORAL STUDIES</div><h2>The Time-Traveling Goblin Paradox</h2><PreviewAuthor slug="marnie-time-traveling-goblin-paradox"/><div className="photoHero" style={{backgroundImage:`${imageBackground('https://i.kym-cdn.com/entries/icons/facebook/000/057/575/tiptoeing.jpg',640)}`,backgroundPosition:"center"}}/><p className="standfirst">A brief inquiry into Riff Raff, the Year of the Horse and an event that has begun occurring retroactively.</p><div className="read">READ MARNIE →</div></Link></section>
+<section className="hero heroStack" aria-label="Marnie Kells on the Time-Traveling Goblin Paradox"><Link className="hero-copy storylink" href={root+"/articles/marnie-time-traveling-goblin-paradox"}><div className="eyebrow">MATTERS OF CULTURE • TEMPORAL STUDIES</div><h2>The Time-Traveling Goblin Paradox</h2><PreviewAuthor slug="marnie-time-traveling-goblin-paradox"/><div className="photoHero" style={{backgroundImage:`${imageBackground('https://i.kym-cdn.com/entries/icons/facebook/000/057/575/tiptoeing.jpg',640)}`,backgroundPosition:"center"}}><ImageLabel byline="MARNIE KELLS • CULTURE" theme="THE TIME-TRAVELING GOBLIN PARADOX"/></div><p className="standfirst">A brief inquiry into Riff Raff, the Year of the Horse and an event that has begun occurring retroactively.</p><div className="read">READ MARNIE →</div></Link></section>
 <section className="hero heroStack" aria-label="Conrad Sorrell on Mike Tomlin">
   <Link className="hero-copy storylink" href={root+"/articles/conrad-tomlin-minecraft-cvs"}>
     <div className="photoHero" style={{backgroundImage:`linear-gradient(0deg,rgba(0,0,0,.52),rgba(0,0,0,.08)),${imageBackground('/images/editorial/tomlin-minecraft-city.jpg',640)}`,backgroundPosition:"center"}}>
-      <div><small>CONRAD SORRELL • COLUMN</small><b>IN A WORLD WITHOUT SCARCITY</b></div>
+      <ImageLabel byline="CONRAD SORRELL • COLUMN" theme="IN A WORLD WITHOUT SCARCITY"/>
     </div>
     <div className="eyebrow">COLUMN • POWER & AMERICAN ARRANGEMENTS</div>
     <h2>In a World Without Scarcity, Mike Tomlin Built a CVS</h2>
@@ -49,7 +55,7 @@ export default function SharedEditorialFront({archiveHref='/archive',root=''}){
 <section className="hero heroStack" aria-label="Marnie Kells on the corgi race">
   <Link className="hero-copy storylink" href={root+"/articles/marnie-corgi-he-wanted-them-to-know"}>
     <div className="photoHero" style={{backgroundImage:`linear-gradient(0deg,rgba(0,0,0,.52),rgba(0,0,0,.08)),${imageBackground('/images/editorial/corgi-look-back-bw.png',640)}`,backgroundPosition:"center"}}>
-      <div><small>MARNIE KELLS • CULTURE</small><b>HE WANTED THEM TO KNOW</b></div>
+      <ImageLabel byline="MARNIE KELLS • CULTURE" theme="HE WANTED THEM TO KNOW"/>
     </div>
     <div className="eyebrow">MATTERS OF CULTURE • SPORTING LIFE</div>
     <h2>He Wanted Them to Know He Knew.</h2>
@@ -71,7 +77,7 @@ export default function SharedEditorialFront({archiveHref='/archive',root=''}){
 <section className="hero heroStack" aria-label="Featured Conrad Sorrell column">
   <Link className="hero-copy storylink" href={root+"/articles/conrad-deshaun-watson-cleveland-hope"}>
     <div className="photoHero" style={{backgroundImage:`linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.08)),${imageBackground('https://img.ksl.com/slc/3198/319896/31989626.jpg?filter=kslv2%2Fresponsive_story_lg&v=1787444404',640)}`,backgroundPosition:"center 34%"}}>
-      <div><small>CONRAD SORRELL • COLUMN</small><b>GROPER CLEVELAND IS 3–1</b></div>
+      <ImageLabel byline="CONRAD SORRELL • COLUMN" theme="GROPER CLEVELAND IS 3–1"/>
     </div>
     <div className="eyebrow">COLUMN • POWER & AMERICAN ARRANGEMENTS</div>
     <h2>Groper Cleveland <em>Is 3–1.</em></h2>
@@ -83,7 +89,7 @@ export default function SharedEditorialFront({archiveHref='/archive',root=''}){
 <section className="hero heroStack" aria-label="Featured Hollis Crane investigation">
   <Link className="hero-copy storylink" href={root+"/articles/hollis-jameis-winston-turing-test"}>
     <div className="photoHero" style={{backgroundImage:`linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.08)),${imageBackground('/images/editorial/jameis-winston.webp',640)}`,backgroundPosition:"center 34%"}}>
-      <div><small>HOLLIS CRANE • INVESTIGATIONS</small><b>THE JAMEIS WINSTON TURING TEST</b></div>
+      <ImageLabel byline="HOLLIS CRANE • INVESTIGATIONS" theme="THE JAMEIS WINSTON TURING TEST"/>
     </div>
     <div className="eyebrow">INVESTIGATIONS • PERSONHOOD & INTELLIGENCE</div>
     <h2>The Jameis Winston <em>Turing Test.</em></h2>
@@ -103,7 +109,7 @@ export default function SharedEditorialFront({archiveHref='/archive',root=''}){
     <article className="sundayFeature sabinePackage">
       <Link href={root+"/articles/dashiell-jaguars-london-future"} className={`sundayFeatureImage storylink ${front.tourHero}`}>
         <ResilientImage loading="eager" decoding="async" style={{objectPosition:"center 42%"}} src="/api/dashiell-london-fans-image" alt="NFL fans gathered in London for an international game."/>
-        <div className="actionCaption"><small>DASHIELL PIKE • LONDON</small><b>ON ASSIGNMENT</b></div>
+        <ImageLabel byline="DASHIELL PIKE • LONDON" theme="ON ASSIGNMENT"/>
       </Link>
       <div className="sundayFeatureCopy">
         <div className="sabinePackageIntro">
