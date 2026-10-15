@@ -652,3 +652,8 @@
 .editionHistoryGame{display:grid;grid-template-columns:minmax(0,1fr) 72px minmax(0,1fr) 72px;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);align-items:center}
 .editionHistoryGame b{color:var(--red);text-align:right;font:800 17px Arial,sans-serif}
 @media(max-width:760px){.editionHistoryGame{grid-template-columns:minmax(0,1fr) 72px;gap:6px;padding:12px 0}}
+
+/* Mobile article headers sit close to the navigation; desktop keeps its editorial spacing. */
+@media (max-width: 700px) {
+  .articleMain { padding-top: 24px; }
+}
