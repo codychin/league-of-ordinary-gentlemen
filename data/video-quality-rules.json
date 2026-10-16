@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "autonomy": {
+    "default": "human_approval",
+    "minimum_batches": 2,
+    "minimum_first_pass_rate": 0.9,
+    "minimum_clips_per_batch": 6,
+    "require_zero_critical_errors": true,
+    "auto_publish_enabled": false
+  },
+  "pronunciations": [
+    {
+      "match": "Tetairoa McMillan",
+      "spoken": "Tet McMillan",
+      "scope": "global"
+    },
+    {
+      "match": "Mohsin",
+      "spoken": "Moe",
+      "scope": "league"
+    },
+    {
+      "match": "Romeo Doubs",
+      "spoken": "DOBBS",
+      "scope": "global"
+    },
+    {
+      "match": "Kyle Monangai",
+      "spoken": "muh-NUN-gai",
+      "scope": "global"
+    },
+    {
+      "match": "Nipun",
+      "spoken": "nih-POON",
+      "scope": "global"
+    },
+    {
+      "match": "Zay Flowers",
+      "spoken": "ZAY Flowers",
+      "scope": "global"
+    },
+    {
+      "match": "Isaiah Likely",
+      "spoken": "Isaiah Likely",
+      "scope": "global"
+    },
+    {
+      "match": "Puka Nacua",
+      "spoken": "Puka Nacua",
+      "scope": "global"
+    }
+  ],
+  "prohibited_visual_patterns": [
+    "vehicles inside stadium stands",
+    "giant handheld microphone",
+    "disappearing or multiplying props"
+  ],
+  "feedback": [],
+  "clips": []
+}
