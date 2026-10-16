@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {assess,graduationStatus} from '../scripts/operations/video-quality-gate.mjs';
+const rules={autonomy:{auto_publish_enabled:false,minimum_batches:2,minimum_first_pass_rate:.9,minimum_clips_per_batch:6}};
+const good={id:'w6-1',script:'Tet McMillan had a day.',correspondent:'march',league:'loog',approved_reference:'approved-2026',publish_intent:'review',qa:{audio_verified:true,visual_verified:true,facts_verified:true,mobile_crop_verified:true,pronunciation_verified:true,critical_errors:0}};
+test('valid candidate passes prepublication gate',()=>assert.equal(assess(good,rules).pass,true));
+test('blocks old pronunciation',()=>assert.ok(assess({...good,script:'Mohsin scored'},rules).errors.some(x=>x.includes('unnormalized'))));
+test('blocks absent visual approval',()=>assert.equal(assess({...good,qa:{...good.qa,visual_verified:false}},rules).pass,false));
+test('blocks auto publishing until explicitly activated',()=>assert.equal(assess({...good,publish_intent:'automatic'},rules).pass,false));
+test('graduation remains disabled despite perfect historical scores',()=>assert.equal(graduationStatus(Array.from({length:12},(_,i)=>({batch:i<6?'a':'b',first_pass_approved:true,critical_errors:0})),rules).eligible,false));
