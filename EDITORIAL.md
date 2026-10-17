@@ -65,7 +65,9 @@ Every piece must earn the high quality bar, not merely the occasional standout, 
 in a medium facing skepticism about AI journalism. Laughter aloud, and ultimately
 laugh-crying, is the grail: an ambition for comedy with
 emotional consequence, not a forced sentimental ending for every story. Optimism and
-creativity are viable futures. “This is going viral” is not a pitch.
+creativity are viable futures. And, in Cody’s words, “maybe we can make people love again”:
+an aspiration toward renewed affection, connection and care, not a required sentimental
+ending or another approval checkbox. “This is going viral” is not a pitch.
 
 Show, not tell is canonical. Our readers are intelligent and getting smarter. Hand-holding,
 condescension, leading the witness and explaining the joke or moral are failures. Give
