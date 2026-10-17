@@ -62,12 +62,12 @@ export async function advanceRun(d:any,models:any) {
  const memory=await recentMemory(d)
  if(!editorial.review) {
   const review=await models.reviewPost(packet,pitch,post,recent||[])
-  if(!validReview(review)) throw new Error('Invalid editorial review')
+  if(!validReview(review,contract)) throw new Error('Invalid editorial review')
   await save({draft:{...post,editorial:{...editorial,review:{...review,contract_version:contract.version,revision:editorial.revision}}},error:null})
   return {ok:true,id:run.id,status:'written',review:review.verdict}
  }
  const review=editorial.review
- if(!validReview(review)) throw new Error('Invalid stored editorial review')
+ if(!validReview(review,contract)) throw new Error('Invalid stored editorial review')
  if(review.verdict==='reject'||(review.verdict==='revise'&&editorial.revision>=MAX_REVISIONS)) {
   await save({status:'rejected',error:review.verdict==='reject'?review.reason:'Revision limit: '+review.reason})
   return {ok:true,id:run.id,status:'rejected'}
@@ -90,4 +90,5 @@ export async function advanceRun(d:any,models:any) {
  await save({status:'published',error:null})
  return {ok:true,id:run.id,status:'published',post_id:created?.id}
 }
+
 

@@ -4,6 +4,7 @@ import {advanceRun} from '../supabase/functions/brief-editorial-worker/workflow.
 import {editorialContract,contractInstructions,reviewedForPublication} from '../supabase/functions/brief-editorial-worker/contract.ts'
 import * as actualModels from '../supabase/functions/brief-editorial-worker/model.ts'
 
+const checks=Object.fromEntries(editorialContract().review_checks.map(id=>[id,{status:'pass',evidence:'Test-only assessment of this fixture; not a real editorial judgment'}]))
 const pitch={id:'one',writer:'kells',thesis:'A specific cultural contradiction'}
 const post={writer:'kells',tag:'CULTURE',subject:'A specific cultural contradiction',text:'A concrete observation grounded in the supplied reporting, followed by a particular comic consequence rather than a stock fantasy football punchline.',thread:'CULTURE'}
 function fixture(status='selected',draft) {
@@ -25,7 +26,7 @@ function fixture(status='selected',draft) {
  const calls=[]
  const models={
   async writePost(){calls.push('write');return {...post}},
-  async reviewPost(){calls.push('review');return {verdict:'approve',reason:'Specific, supported, distinct',issues:[]}},
+  async reviewPost(){calls.push('review');return {verdict:'approve',checks,reason:'Specific, supported, distinct',issues:[]}},
   async revisePost(){calls.push('revise');return {...post,text:post.text+' Revised with a stronger observation.'}},
  }
  return {state,db,models,calls}
@@ -49,7 +50,7 @@ test('a draft cannot publish until an independent review and subsequent publicat
 })
 test('revision retains prior draft and critique and needs a fresh approval',async()=>{
  const f=fixture();await advanceRun(f.db,f.models)
- f.models.reviewPost=async()=>({verdict:'revise',reason:'Generic conclusion',issues:['Make the consequence specific']})
+ f.models.reviewPost=async()=>({verdict:'revise',checks,reason:'Generic conclusion',issues:['Make the consequence specific']})
  await advanceRun(f.db,f.models);await advanceRun(f.db,f.models)
  assert.equal(f.state.posts.length,0)
  assert.equal(f.state.run.draft.editorial.revision,1)
@@ -59,7 +60,7 @@ test('revision retains prior draft and critique and needs a fresh approval',asyn
 })
 test('revision limit rejects instead of spending indefinitely',async()=>{
  const f=fixture();await advanceRun(f.db,f.models)
- f.models.reviewPost=async()=>({verdict:'revise',reason:'Still generic',issues:['Replace stock joke']})
+ f.models.reviewPost=async()=>({verdict:'revise',checks,reason:'Still generic',issues:['Replace stock joke']})
  for(let i=0;i<6;i++) await advanceRun(f.db,f.models)
  assert.equal(f.state.run.status,'rejected')
  assert.equal(f.calls.filter(x=>x==='revise').length,2)
@@ -73,7 +74,7 @@ test('legacy written drafts must be reviewed',async()=>{
 })
 test('malformed or contradictory approvals fail closed',async()=>{
  const f=fixture();await advanceRun(f.db,f.models)
- f.models.reviewPost=async()=>({verdict:'approve',reason:'Fine',issues:['Invented quotation']})
+ f.models.reviewPost=async()=>({verdict:'approve',checks,reason:'Fine',issues:['Invented quotation']})
  await assert.rejects(advanceRun(f.db,f.models),/Invalid editorial review/)
  assert.equal(f.state.posts.length,0)
 })
@@ -105,7 +106,7 @@ test('every model stage actually receives the pinned corrections',async()=>{
   await actualModels.revisePost(packet,pitch,post,{})
   assert.equal(requests.length,6)
   for(const request of requests) {
-   assert.match(request.instructions,/MANDATORY EDITORIAL CONTRACT 2026-10-02.1/)
+   assert.match(request.instructions,/MANDATORY EDITORIAL CONTRACT 2026-10-17.1/)
    assert.match(request.instructions,/first-person/)
    assert.match(request.instructions,/reluctant acceptance of flawed audio/)
   }
@@ -139,7 +140,7 @@ test('batch publishes through independent review without cron gaps',async()=>{
 })
 test('batch still rejects a draft that cannot pass revision',async()=>{
  const {advanceBatch}=await import('../supabase/functions/brief-editorial-worker/cadence.ts')
- const f=fixture();f.models.reviewPost=async()=>({verdict:'revise',reason:'Unsupported conclusion',issues:['Remove the claim']})
+ const f=fixture();f.models.reviewPost=async()=>({verdict:'revise',checks,reason:'Unsupported conclusion',issues:['Remove the claim']})
  const result=await advanceBatch(f.db,f.models)
  assert.equal(result.status,'rejected');assert.equal(f.state.posts.length,0)
 })
@@ -161,3 +162,4 @@ test('model packet preserves box score labels, facts and sources and deduplicate
  assert.equal(JSON.stringify(out).includes('discard'),false)
  assert.equal(game.boxscore.players[0].team.logo,'discard')
 })
+
