@@ -55,6 +55,8 @@ test('reachable capped draft and review receive culture; approved review retains
  const {result,requests,posts}=await runShared(approval())
  assert.equal(result.published,true);assert.equal(requests.length,2)
  for(const request of requests){assert.match(request.instructions,/MANDATORY EDITORIAL CONTRACT 2026-10-17.1/);assert.match(request.instructions,/Show, not tell is canonical/);assert.match(request.instructions,/strongest moral compass/);assert.match(request.instructions,/Do not regurgitate other journalists/)}
+ assert.match(requests[1].instructions,/Return the complete review JSON schema/ )
+ assert.match(requests[1].instructions,/"checks":\{"reader-respect"/)
  assert.match(requests[1].instructions,/Return checks as an object/)
  assert.match(requests[1].instructions,/missing necessary comparison is unverified/)
  assert.equal(posts[0].review.contract_version,contract.version)
