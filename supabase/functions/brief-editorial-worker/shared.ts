@@ -17,10 +17,14 @@ export function eventCandidates(nfl:any){
  }).reverse()
 }
 export function validDraft(p:any){return p&&Object.hasOwn(DESKS,p.writer)&&typeof p.subject==='string'&&p.subject.length>=12&&p.subject.length<=140&&typeof p.text==='string'&&p.text.length>=100&&p.text.length<=1400&&typeof p.tag==='string'&&p.tag.length<=40}
-export async function sharedDesk(db:any){
- const now=new Date(),parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(now)
+// Keep the intended window aligned with lib/live-desk-state.js; DB enablement still gates work.
+export function isSundayDeskScheduledWindow(now=new Date()){
+ const parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(now)
  const part=(t:string)=>parts.find(p=>p.type===t)?.value
- if(part('weekday')!=='Sun'||Number(part('hour'))*60+Number(part('minute'))<540)return {ok:true,closed:true}
+ return part('weekday')==='Sun'&&Number(part('hour'))*60+Number(part('minute'))>=630
+}
+export async function sharedDesk(db:any,now=new Date()){
+ if(!isSundayDeskScheduledWindow(now))return {ok:true,closed:true}
  const {data:claimed,error}=await db.rpc('claim_brief_attempt');if(error)throw error
  if(!claimed)return {ok:true,idle:true}
  const nfl=await nflEvidence(),candidates=[...eventCandidates(nfl),...morningCandidates(nfl,now)]
@@ -40,3 +44,4 @@ export async function sharedDesk(db:any){
  await db.from('brief_desk_events').update({status:'published'}).eq('event_key',item.event_key)
  return {ok:true,published:true,post_id:post.id,scope:'global'}
 }
+
