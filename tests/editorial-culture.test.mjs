@@ -10,8 +10,8 @@ const approval=()=>({verdict:'approve',reason:'Fixture approval',issues:[],check
 test('all cultural and character corrections survive instruction serialization',()=>{
  const text=contractInstructions(contract)
  for(const rule of ['cultural-purpose','reader-respect','earned-delight','independent-angle','reporting-honesty','creative-ownership','continuing-edit']) assert.ok(text.includes(rule+':'))
- for(const phrase of ['Show, not tell is canonical','laugh-crying','not a compulsory sentimental ending','strongest moral compass','dealmaker','regression to the mean','remains unresolved','tentative character aspiration','leads trends','age and lived experience','direct creative relationship']) assert.ok(text.includes(phrase),phrase)
- assert.equal(contract.version,'2026-10-17.1')
+ for(const phrase of ['Show, not tell is canonical','laugh-crying','not a compulsory sentimental ending','strongest moral compass','dealmaker','regression to the mean','almost religiously data-driven','tentative character aspiration','leads trends','age and lived experience','direct creative relationship']) assert.ok(text.includes(phrase),phrase)
+ assert.equal(contract.version,'2026-10-17.2')
 })
 test('approval requires specific coverage of every culture review dimension',()=>{
  assert.equal(validReview(approval(),contract),true)
@@ -54,7 +54,7 @@ async function runShared(review){
 test('reachable capped draft and review receive culture; approved review retains version',async()=>{
  const {result,requests,posts}=await runShared(approval())
  assert.equal(result.published,true);assert.equal(requests.length,2)
- for(const request of requests){assert.match(request.instructions,/MANDATORY EDITORIAL CONTRACT 2026-10-17.1/);assert.match(request.instructions,/Show, not tell is canonical/);assert.match(request.instructions,/strongest moral compass/);assert.match(request.instructions,/Do not regurgitate other journalists/)}
+ for(const request of requests){assert.match(request.instructions,/MANDATORY EDITORIAL CONTRACT 2026-10-17.2/);assert.match(request.instructions,/Show, not tell is canonical/);assert.match(request.instructions,/strongest moral compass/);assert.match(request.instructions,/Do not regurgitate other journalists/)}
  assert.match(requests[1].instructions,/Return the complete review JSON schema/ )
  assert.match(requests[1].instructions,/"checks":\{"reader-respect"/)
  assert.match(requests[1].instructions,/Return checks as an object/)
@@ -66,4 +66,14 @@ test('reachable shared path rejects missing or unverified culture review, withou
   const {result,requests,posts}=await runShared(review)
   assert.equal(result.rejected,true);assert.equal(requests.length,2);assert.equal(posts.length,0)
  }
+})
+
+test('resolved Maude canon combines conviction with evidence-sensitive updating',()=>{
+ const maude=contract.desks.gannon
+ for(const phrase of ['regression to the mean','actively pursuing','almost religiously data-driven','not intransigent','revise expectations','noisy samples']) assert.ok(maude.includes(phrase),phrase)
+ assert.doesNotMatch(maude,/remains unresolved|defending something data does not support/)
+ const text=contractInstructions(contract)
+ assert.match(text,/Every piece, not just the occasional standout/)
+ assert.match(text,/ultimate point of view is emotional/)
+ assert.match(text,/editorial lead owns the knowledge and source-discovery strategy/)
 })

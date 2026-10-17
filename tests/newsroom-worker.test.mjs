@@ -106,7 +106,7 @@ test('every model stage actually receives the pinned corrections',async()=>{
   await actualModels.revisePost(packet,pitch,post,{})
   assert.equal(requests.length,6)
   for(const request of requests) {
-   assert.match(request.instructions,/MANDATORY EDITORIAL CONTRACT 2026-10-17.1/)
+   assert.match(request.instructions,/MANDATORY EDITORIAL CONTRACT 2026-10-17.2/)
    assert.match(request.instructions,/first-person/)
    assert.match(request.instructions,/reluctant acceptance of flawed audio/)
   }
