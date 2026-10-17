@@ -1,5 +1,5 @@
 import {modelEvidence} from './compact.ts'
-import {contractInstructions} from './contract.ts'
+import {contractInstructions,reviewInstructions} from './contract.ts'
 const OPENAI_URL='https://api.openai.com/v1/responses'
 async function callModel(input:any,instructions:string,model='gpt-5.6-sol'){
  const packet=input?.packet||input
@@ -24,8 +24,9 @@ export async function writePost(packet:any,pitch:any){
 }
 
 export async function reviewPost(packet:any,pitch:any,post:any,recent:any[]){
- return callModel({packet,pitch,post,recent},`You are the final editor of The Brief. Independently critique this draft against every editorial contract rule, its assigned desk, supplied evidence and recent coverage. Identify unsupported claims, borrowed league context, stale or repeated premises, generic jokes, interchangeable voice and weak rhythm. Do not approve merely because the draft is grammatical. Use revise for fixable weaknesses and reject for unsupported or exhausted premises. Return JSON {"verdict":"approve|revise|reject","reason":"specific assessment","issues":["actionable correction"]}. Approve requires zero unresolved issues.`)
+ return callModel({packet,pitch,post,recent},`You are the final editor of The Brief. Independently critique this draft against every editorial contract rule, its assigned desk, supplied evidence and recent coverage. Identify unsupported claims, borrowed league context, stale or repeated premises, generic jokes, interchangeable voice and weak rhythm. Do not approve merely because the draft is grammatical. Use revise for fixable weaknesses and reject for unsupported or exhausted premises. Return JSON {"verdict":"approve|revise|reject","reason":"specific assessment","issues":["actionable correction"]}. Approve requires zero unresolved issues. If the contract requires checks, use the complete schema that follows instead of this minimal legacy shape.`+reviewInstructions(packet.editorial_contract))
 }
 export async function revisePost(packet:any,pitch:any,post:any,review:any){
  return callModel({packet,pitch,post,review},`Revise this Live Desk draft to address every issue raised by the editor. Keep the assigned writer and approved thesis. Use only supplied evidence. Do not add facts to rescue weak prose. Return JSON {"writer":"...","tag":"...","subject":"...","text":"...","thread":"..."}.`)
 }
+

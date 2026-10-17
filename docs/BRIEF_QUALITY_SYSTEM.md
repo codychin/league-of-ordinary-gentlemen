@@ -73,3 +73,13 @@ The proven Sabine/Maracana homepage video implementation is canonical. Reuse its
 
 ## Correspondent visual canon
 The editor-approved visual identity boards dated 2026-09-28 are authoritative character references for Sabine March, Conrad Sorrell, Maude Gannon, Dashiell Pike, Marnie Kells, and Hollis Crane. The incidental/generated copy printed on those boards is not editorial canon. Their people are canon: face, hair, approximate age, build/proportions, grooming, posture, gesture vocabulary, wardrobe range, accessories, and overall presence. Image/video generation must begin from the relevant approved board or extracted approved references; prose-only recreation is not sufficient when a visual reference can be supplied. Preserve variation within identity: wardrobe and setting may change contextually, but the person must remain recognizably the same character. New correspondents must graduate through an editor-approved visual-canon stage before autonomous production. Marnie's 2026-09-28 board is authoritative over earlier extrapolated styling where they conflict.
+
+
+## Culture review
+
+Use the versioned culture contract and the consumer map in
+[editorial-culture-wiring.md](editorial-culture-wiring.md). Require specific qualitative
+feedback on reader respect, entertainment with movement, distinct voice, independent
+angle and reporting honesty. No numeric checklist or passing test certifies taste.
+Machine approval is not Cody's publication approval. Editorial feedback must reach the
+actual writer and review instructions; a document-only change is not completed learning.
