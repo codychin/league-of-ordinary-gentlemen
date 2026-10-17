@@ -5,6 +5,8 @@ export const hollisWestVirginiaMedicalAssistance = {
   dek: "Cincinnati's Medical Emergency Acquired a Second Medical Emergency",
   date: 'OCTOBER 17, 2026',
   author: 'crane',
+  image: 'https://thespun.com/.image/MzM6MDAwMDAwMDAwNTA2MDc4/screenshot-2026-10-17-134453.png?ar=16-9&profile=w2560',
+  imageCredit: {label: 'TNT Sports broadcast / X via The Spun', url: 'https://thespun.com/college-football/injury-cart-accidentally-slams-cincinnati-football-player-into-wall'},
   imageAlt: 'Cincinnati defensive lineman Josh Hough transported by a medical cart at West Virginia.',
   source: {label: 'TNT Sports broadcast via Awful Announcing',url: 'https://x.com/awfulannouncing/status/2111095034502717925'},
   body: [
