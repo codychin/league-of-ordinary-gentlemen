@@ -1,8 +1,12 @@
-import test from 'node:test'
+import test,{beforeEach,afterEach} from 'node:test'
 import assert from 'node:assert/strict'
 import {rejectionFeedback} from '../supabase/functions/brief-editorial-worker/decisions.ts'
 import {sharedDesk} from '../supabase/functions/brief-editorial-worker/shared.ts'
 import {cappedCall} from '../supabase/functions/brief-editorial-worker/budget.ts'
+
+const NativeDate=globalThis.Date
+beforeEach(()=>{globalThis.Date=class extends NativeDate {constructor(...args){super(...(args.length?args:['2026-10-18T16:30:00Z']))} static now(){return NativeDate.parse('2026-10-18T16:30:00Z')}}})
+afterEach(()=>{globalThis.Date=NativeDate})
 
 test('feedback contains only bounded rejection data, never drafts or approval instructions',()=>{
  const rows=Array(8).fill({event_key:'e'.repeat(150),status:'rejected',decision:{stage:'review',reason:'r'.repeat(900),issues:Array(8).fill('i'.repeat(400)),draft:'SECRET',checks:{ignored:true}}})
@@ -59,4 +63,11 @@ test('disable switch still stops an already-reserved review before a paid call',
  const oldDeno=globalThis.Deno;globalThis.Deno={env:{get:()=> 'test-key-not-real'}};let calls=0
  const db={from:table=>{assert.equal(table,'brief_desk_control');return {select(){return this},eq(){return this},maybeSingle:async()=>({data:{enabled:false}})}}}
  try{await assert.rejects(()=>cappedCall(db,'review','Review',{},async()=>{calls++},'reserved-slot'),/Generation paused/);assert.equal(calls,0)}finally{globalThis.Deno=oldDeno}
+})
+
+
+test('midnight reached during slot claim blocks paid fetch despite earlier reservation',async()=>{
+ const oldDeno=globalThis.Deno;globalThis.Deno={env:{get:()=> 'test-key-not-real'}};let calls=0
+ const db={from:table=>table==='brief_desk_control'?{select(){return this},eq(){return this},maybeSingle:async()=>({data:{enabled:true}})}:{update(){return {eq(){return this},select(){return this},async maybeSingle(){globalThis.Date.now=()=>NativeDate.parse('2026-10-19T04:00:00Z');return {data:{id:'slot'}}},then(resolve){resolve({})}}}}}
+ try{await assert.rejects(()=>cappedCall(db,'review','Review',{},async()=>{calls++},'reserved-slot'),/Generation window closed/);assert.equal(calls,0)}finally{globalThis.Deno=oldDeno}
 })

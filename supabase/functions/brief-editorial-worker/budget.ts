@@ -22,6 +22,7 @@ export async function cappedCall(db:any,purpose:string,instructions:string,input
   if(slotError||!slot)throw new Error('Reserved generation slot unavailable')
  }
  try{
+  if(reservedId&&(Date.now()<Date.parse('2026-10-18T13:30:00Z')||Date.now()>=Date.parse('2026-10-19T04:00:00Z')))throw new Error('Generation window closed')
   const response=await fetcher('https://api.openai.com/v1/responses',{method:'POST',headers:{Authorization:'Bearer '+key,'Content-Type':'application/json'},body:JSON.stringify(body),signal:AbortSignal.timeout(60000)})
   const raw=await response.json(),usage=raw.usage
   const {error:logError}=await db.from('brief_desk_usage').update({status:response.ok?'completed':'failed',input_tokens:usage?.input_tokens??null,output_tokens:usage?.output_tokens??null,estimated_usd:usage?(usage.input_tokens*.75+usage.output_tokens*4.5)/1e6:null}).eq('id',id)
