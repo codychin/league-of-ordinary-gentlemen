@@ -19,9 +19,9 @@ export function eventCandidates(nfl:any){
 export function validDraft(p:any){return p&&Object.hasOwn(DESKS,p.writer)&&typeof p.subject==='string'&&p.subject.length>=12&&p.subject.length<=140&&typeof p.text==='string'&&p.text.length>=100&&p.text.length<=1400&&typeof p.tag==='string'&&p.tag.length<=40}
 // Keep the intended window aligned with lib/live-desk-state.js; DB enablement still gates work.
 export function isSundayDeskScheduledWindow(now=new Date()){
- // One-time owner-approved window: October 18, 10:30 through midnight Eastern.
+ // One-time owner-approved window: October 18, 09:30 through midnight Eastern.
  const time=now.getTime()
- return time>=Date.parse('2026-10-18T14:30:00Z')&&time<Date.parse('2026-10-19T04:00:00Z')
+ return time>=Date.parse('2026-10-18T13:30:00Z')&&time<Date.parse('2026-10-19T04:00:00Z')
 }
 export async function sharedDesk(db:any,now=new Date()){
  if(!isSundayDeskScheduledWindow(now))return {ok:true,closed:true}

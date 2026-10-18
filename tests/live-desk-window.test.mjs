@@ -4,8 +4,8 @@ import {LIVE_DESK_ENABLED, isSundayLiveWindow, isSundayDeskScheduledWindow as ui
 import {sharedDesk, isSundayDeskScheduledWindow as workerWindow} from '../supabase/functions/brief-editorial-worker/shared.ts';
 
 const cases = [
-  ['summer before opening', '2026-10-18T14:29:59Z', false],
-  ['summer opening', '2026-10-18T14:30:00Z', true],
+  ['summer before opening', '2026-10-18T13:29:59Z', false],
+  ['summer opening', '2026-10-18T13:30:00Z', true],
   ['winter before opening', '2026-12-06T15:29:59Z', false],
   ['winter opening', '2026-12-06T15:30:00Z', false],
   ['spring transition before opening', '2026-03-08T14:29:59Z', false],
@@ -45,6 +45,6 @@ test('opening the intended window does not bypass disabled database control', as
     async rpc(name) {calls.push(name); assert.equal(name, 'claim_brief_attempt'); return {data:false};},
     from() {throw new Error('Disabled worker must not read evidence or write posts');},
   };
-  assert.deepEqual(await sharedDesk(db, new Date('2026-10-18T14:30:00Z')), {ok:true, idle:true});
+  assert.deepEqual(await sharedDesk(db, new Date('2026-10-18T13:30:00Z')), {ok:true, idle:true});
   assert.deepEqual(calls, ['claim_brief_attempt']);
 });
