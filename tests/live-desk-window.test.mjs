@@ -7,14 +7,15 @@ const cases = [
   ['summer before opening', '2026-10-18T14:29:59Z', false],
   ['summer opening', '2026-10-18T14:30:00Z', true],
   ['winter before opening', '2026-12-06T15:29:59Z', false],
-  ['winter opening', '2026-12-06T15:30:00Z', true],
+  ['winter opening', '2026-12-06T15:30:00Z', false],
   ['spring transition before opening', '2026-03-08T14:29:59Z', false],
-  ['spring transition opening', '2026-03-08T14:30:00Z', true],
+  ['spring transition opening', '2026-03-08T14:30:00Z', false],
   ['fall transition before opening', '2026-11-01T15:29:59Z', false],
-  ['fall transition opening', '2026-11-01T15:30:00Z', true],
+  ['fall transition opening', '2026-11-01T15:30:00Z', false],
   ['Sunday night in New York despite Monday UTC', '2026-10-19T03:59:59Z', true],
   ['Monday midnight New York', '2026-10-19T04:00:00Z', false],
   ['Saturday after opening hour', '2026-10-17T18:00:00Z', false],
+  ['next Sunday not authorized', '2026-10-25T14:30:00Z', false],
   ['Sunday midnight', '2026-10-18T04:00:00Z', false],
 ];
 
@@ -26,9 +27,9 @@ for (const [label, timestamp, expected] of cases) {
   });
 }
 
-test('UI emergency stop remains disabled throughout the intended window', () => {
-  assert.equal(LIVE_DESK_ENABLED, false);
-  for (const [, timestamp] of cases) assert.equal(isSundayLiveWindow(new Date(timestamp)), false);
+test('UI opens only in the one-time authorized window', () => {
+  assert.equal(LIVE_DESK_ENABLED, true);
+  for (const [, timestamp, expected] of cases) assert.equal(isSundayLiveWindow(new Date(timestamp)), expected);
 });
 
 test('closed worker window performs no database or network operations', async () => {
