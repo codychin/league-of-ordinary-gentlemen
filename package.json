@@ -16,5 +16,9 @@
     "react": "latest",
     "react-dom": "latest",
     "sharp": "latest"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "jsdom": "^30.1.3"
   }
 }
