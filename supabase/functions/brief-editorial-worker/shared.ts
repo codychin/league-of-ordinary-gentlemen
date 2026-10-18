@@ -19,9 +19,9 @@ export function eventCandidates(nfl:any){
 export function validDraft(p:any){return p&&Object.hasOwn(DESKS,p.writer)&&typeof p.subject==='string'&&p.subject.length>=12&&p.subject.length<=140&&typeof p.text==='string'&&p.text.length>=100&&p.text.length<=1400&&typeof p.tag==='string'&&p.tag.length<=40}
 // Keep the intended window aligned with lib/live-desk-state.js; DB enablement still gates work.
 export function isSundayDeskScheduledWindow(now=new Date()){
- const parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(now)
- const part=(t:string)=>parts.find(p=>p.type===t)?.value
- return part('weekday')==='Sun'&&Number(part('hour'))*60+Number(part('minute'))>=630
+ // One-time owner-approved window: October 18, 10:30 through midnight Eastern.
+ const time=now.getTime()
+ return time>=Date.parse('2026-10-18T14:30:00Z')&&time<Date.parse('2026-10-19T04:00:00Z')
 }
 export async function sharedDesk(db:any,now=new Date()){
  if(!isSundayDeskScheduledWindow(now))return {ok:true,closed:true}
@@ -37,8 +37,10 @@ export async function sharedDesk(db:any,now=new Date()){
  const packet={evidence:item,recent:recent||[],assignment}
  const draft=await cappedCall(db,'draft',`Return JSON only. Write one 70-130 word Live Desk post, or {"publish":false} if this event offers no earned new story. Only supplied evidence. Pregame and reported-news candidates are valid before kickoff; never describe scheduled games as underway. Attribute reported news, and reject injury/roster/transaction claims without primary or independent corroboration. GLOBAL NFL coverage: no fantasy-league teams, owners, standings, scores or invented local context. Do not merely recap a score; seek a specific insight or earned comic/human observation. Honor assignment priority and cooling desks. Return {"publish":true,"writer":"gannon|crane|kells|march|pike|sorrell","tag":"...","subject":"...","text":"..."}.`+contract,packet)
  if(!draft?.publish||!validDraft(draft)||assignment.cooling_desks.includes(draft.writer)){await db.from('brief_desk_events').update({status:'declined'}).eq('event_key',item.event_key);return {ok:true,declined:true}}
+ if(!isSundayDeskScheduledWindow())return {ok:true,closed:true}
  const review=await cappedCall(db,'review',`Return JSON only. Independently check every claim against evidence, distinguish inference, enforce GLOBAL-only scope, desk voice, novelty and an earned point. Reject weak, unsupported, repeated or generic posts. No revision loop. Use the complete review schema below, with verdict approve or reject only (no revision loop); approve only with zero issues.`+contract+reviewInstructions(snapshot),{...packet,draft})
  if(!validReview(review,snapshot)||review.verdict!=='approve'){await db.from('brief_desk_events').update({status:'rejected'}).eq('event_key',item.event_key);return {ok:true,rejected:true}}
+ if(!isSundayDeskScheduledWindow())return {ok:true,closed:true}
  const {data:post,error:publishError}=await db.from('brief_global_live_posts').insert({event_key:item.event_key,writer:draft.writer,tag:draft.tag,subject:draft.subject,text:draft.text,source_url:item.source_url,source_name:item.source_name||'ESPN',review:{...review,contract_version:snapshot.version}}).select('id').single()
  if(publishError)throw publishError
  await db.from('brief_desk_events').update({status:'published'}).eq('event_key',item.event_key)
