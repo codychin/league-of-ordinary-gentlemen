@@ -31,5 +31,5 @@ export const sundayDeskPosts=[
 export const sundayDeskMeta={
   title:'Sunday Live Desk',
   dek:'The Brief staff reacts in real time to the games, the group chat and decisions that will become evidence by Monday morning.',
-  standby:'LIVE SUNDAYS • FIRST POST AROUND 12:45 PM ET'
+  standby:'LIVE DESK • REPORTS AS THEY DEVELOP'
 }
