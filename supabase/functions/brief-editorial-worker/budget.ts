@@ -7,12 +7,18 @@ export function requestBody(instructions:string,input:any){
  if(new TextEncoder().encode(instructions+text).length>MAX_BYTES)throw new Error('Evidence exceeds capped request size')
  return {model:MODEL,service_tier:'default',store:false,instructions,input:text,max_output_tokens:MAX_OUTPUT,reasoning:{effort:'low'},text:{format:{type:'json_object'}}}
 }
-export async function cappedCall(db:any,purpose:string,instructions:string,input:any,fetcher=fetch){
+export async function cappedCall(db:any,purpose:string,instructions:string,input:any,fetcher=fetch,reservedId?:string){
  const body=requestBody(instructions,input)
  const key=Deno.env.get('OPENAI_API_KEY');if(!key)throw new Error('Model credential unavailable')
- const id=crypto.randomUUID()
- const {data:allowed,error}=await db.rpc('reserve_brief_call',{p_id:id,p_purpose:purpose})
- if(error||!allowed)throw new Error('Generation paused or weekend budget exhausted')
+ const id=reservedId||crypto.randomUUID()
+ if(!reservedId){
+  const {data:allowed,error}=await db.rpc('reserve_brief_call',{p_id:id,p_purpose:purpose})
+  if(error||!allowed)throw new Error('Generation paused or weekend budget exhausted')
+ }
+ if(reservedId){
+  const {data:slot,error:slotError}=await db.from('brief_desk_usage').update({status:'started'}).eq('id',id).eq('purpose',purpose).eq('status','reserved').select('id').maybeSingle()
+  if(slotError||!slot)throw new Error('Reserved generation slot unavailable')
+ }
  try{
   const response=await fetcher('https://api.openai.com/v1/responses',{method:'POST',headers:{Authorization:'Bearer '+key,'Content-Type':'application/json'},body:JSON.stringify(body),signal:AbortSignal.timeout(60000)})
   const raw=await response.json(),usage=raw.usage
