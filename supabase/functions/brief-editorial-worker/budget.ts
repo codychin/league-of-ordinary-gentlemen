@@ -16,6 +16,8 @@ export async function cappedCall(db:any,purpose:string,instructions:string,input
   if(error||!allowed)throw new Error('Generation paused or weekend budget exhausted')
  }
  if(reservedId){
+  const {data:control,error:controlError}=await db.from('brief_desk_control').select('enabled').eq('id',true).maybeSingle()
+  if(controlError||!control?.enabled)throw new Error('Generation paused')
   const {data:slot,error:slotError}=await db.from('brief_desk_usage').update({status:'started'}).eq('id',id).eq('purpose',purpose).eq('status','reserved').select('id').maybeSingle()
   if(slotError||!slot)throw new Error('Reserved generation slot unavailable')
  }
