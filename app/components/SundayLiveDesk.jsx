@@ -79,6 +79,6 @@ export default function SundayLiveDesk({editionSlug=null,editionLabel='THE NEWSR
       <span>PAGE {currentPage} OF {pageCount}</span>
       <button disabled={currentPage===pageCount} onClick={()=>setPage(p=>Math.min(pageCount,p+1))}>OLDER →</button>
     </nav>}
-    <div className="sundayDeskFoot"><span>{sundayDeskMeta.standby}</span><b>Posts roll into Monday Morning Autopsy →</b></div>
+    <div className="sundayDeskFoot"><span>{sundayDeskMeta.standby}</span><Link href={(editionSlug?'/'+editionSlug:'')+'/live-desk'}>Browse the Sunday archive →</Link></div>
   </section>
 }

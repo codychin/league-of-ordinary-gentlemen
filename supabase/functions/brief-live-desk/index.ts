@@ -1,3 +1,4 @@
+import {readArchive} from './archive.ts'
 import {createClient} from 'https://esm.sh/@supabase/supabase-js@2'
 
 const cors={
@@ -15,6 +16,7 @@ Deno.serve(async(req)=>{
   const expected=Deno.env.get('BRIEF_MEDIA_UPLOAD_KEY')
   const isEditor=Boolean(expected&&req.headers.get('x-brief-media-key')===expected)
   try{
+    if(req.method==='GET'&&action==='archive')return response(await readArchive(db,url))
     if(req.method==='GET'&&action==='live'){
       const edition=url.searchParams.get('edition')
       const {data:globalPosts,error:globalError}=await db.from('brief_global_live_posts').select('id,writer,tag,text,subject,thread,published_at,sort_time,source_url,source_name').order('sort_time',{ascending:false}).limit(100)
