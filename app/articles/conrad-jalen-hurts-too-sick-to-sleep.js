@@ -1,7 +1,7 @@
 export const conradJalenHurtsArticle = {
   "week": 7,
   "section": "COLUMN • POWER & AMERICAN ARRANGEMENTS",
-  "title": "The Eagles Determined Jalen Hurts Was Too Sick to Sleep, but Well Enough to Play Football",
+  "title": "The Medical Clearance Industrial Complex",
   "dek": "Thirty-six hours without sleep. A blood clot. And somehow, a starting quarterback.",
   "date": "OCTOBER 19, 2026",
   "author": "sorrell",
