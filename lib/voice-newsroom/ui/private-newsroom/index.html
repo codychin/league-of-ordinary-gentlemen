@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>The Brief | Private newsroom</title><link rel="stylesheet" href="/style.css"></head>
+<body><main><p class="eyebrow">THE BRIEF · PRIVATE NEWSROOM</p><h1>The room, not a roll call.</h1>
+<p id="mode" class="notice">Checking room configuration. Microphone is off.</p>
+<section aria-labelledby="cast-title"><h2 id="cast-title">At the table</h2><div id="cast"></div></section>
+<section aria-labelledby="conversation-title"><h2 id="conversation-title">Conversation</h2>
+<p id="floor" role="status">Nothing is recording or playing.</p>
+<button id="open" disabled>Open live room</button><span id="mic">Microphone off</span>
+<div id="transcript" role="log" aria-live="polite" aria-label="Session captions"></div>
+<form id="form"><label for="speaker">Next voice</label><select id="speaker" disabled></select>
+<label for="message">Your workshop note</label><textarea id="message" maxlength="10000" required placeholder="What are we missing in this story?"></textarea>
+<button id="send" disabled>Rehearse a text turn</button></form>
+<div class="controls"><button id="talk" type="button" disabled>Hold to talk · 30 sec max</button><button id="interrupt" type="button" disabled>Interrupt / take the floor</button><button id="end" type="button">End and clear conversation</button></div>
+<p class="small">Hold the talk button or focus it and hold Space. Release to send. Recording starts only after a deliberate press and microphone permission. Interrupt stops queued playback immediately. Captions remain provisional until playback finishes; interrupted captions are not added as heard.</p>
+</section>
+<p class="small">Local, ephemeral prototype. No browser transcript storage. Live mode sends your words and recorded turn to the configured AI providers; their retention policies still apply. Offline rehearsal makes no AI or speech calls. The live test ceiling must be enforced on the server.</p>
+<p class="small warning">Mobile Safari, AirPods routing, background playback and real voice quality have not been device-tested. Keep this tab in the foreground. If audio stalls, press Interrupt.</p>
+</main><script type="module" src="/app.js"></script></body></html>
