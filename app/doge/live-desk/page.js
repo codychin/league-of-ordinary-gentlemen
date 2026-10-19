@@ -1,3 +1,3 @@
 import LiveDeskArchive from '../../components/LiveDeskArchive'
-export const metadata={title:'Sunday Desk Archive | The Brief'}
+export const metadata={title:'Live Desk Log | The Brief'}
 export default function Page(){return <LiveDeskArchive editionSlug="doge"/>}
