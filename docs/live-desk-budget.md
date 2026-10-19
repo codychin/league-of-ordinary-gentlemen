@@ -3,7 +3,7 @@
 Effective 2026-10-04. This replaces the two independent paid editorial pipelines.
 
 - One shared NFL post is merged into both existing feeds at read time. Old league-local posts remain isolated. New automated league-local stories are disabled until fresh league evidence and a scoped budgeted path are implemented.
-- Polling scores does not itself call a model. The shared worker attempts at most one new scoring/final-game event every three minutes, only on Sunday after 12:45 America/New_York. No repeat generation for the same event.
+- Polling scores does not itself call a model. The shared worker attempts at most one new scoring/final-game event every three minutes, only on Sunday from 09:00 America/New_York. No repeat generation for the same event.
 - At most two calls: draft and independent approval. No revision/retry loops. Rejected work consumes the reservation.
 - Fixed gpt-5.4-mini at standard service tier, no billable tools. Maximum 48,000 UTF-8 bytes instructions+input and 3,000 output tokens. Published standard prices checked 2026-10-04: $0.75/M input, $4.50/M output (https://developers.openai.com/api/docs/models/gpt-5.4-mini).
 - Each request atomically reserves $0.10 before network access. At verified rates the conservative byte-to-token upper bound plus 2,048 framing tokens and full output is below $0.10. Reservations are never refunded, including timeout/unknown charges. Refresh these bounds before changing models, rates, request size, output limits, tools or service tier.

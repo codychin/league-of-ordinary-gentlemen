@@ -12,7 +12,7 @@
 .card h3 em { color: var(--red); }
 .card .dek { font-size: 14px; line-height: 1.5; color: var(--muted); margin: 12px 0; }
 .image { height: 170px; background-size: cover; background-position: center; margin-bottom: 16px; }
-.image > div { display: none; }
+.image { position: relative; }
 .clip { margin-top: 16px; }
 .clip summary { cursor: pointer; font: 800 10px Arial, sans-serif; letter-spacing: 1px; }
 @media (max-width: 900px) {
@@ -23,5 +23,6 @@
 }
 
 .tourHero { min-height: 0 !important; aspect-ratio: 16 / 9; }
-.tourHero > img { display: block; width: 100%; height: 100%; object-fit: contain; }
-@media (max-width: 600px) { .tourHero :global(.actionCaption) { display: none; } }
+.tourHero > img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
+/* Fill the frame even when the desktop package stretches to its adjacent copy. */
+.tourHero { position: relative; }

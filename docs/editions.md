@@ -47,3 +47,9 @@ Reuse these jobs. Do not create extra polling, enable live workers, generate pai
 ## Onboarding another edition
 
 Add registry/config and thin route wrappers, tenant/league records, verified snapshots, scoped PWA worker/manifest, and push allowlist/URL constraint. Backfill local evidence and write original local findings. Include it in existing schedules. Verify all routes, data reconciliation, other-edition article rejection, draft exclusion and notifications before launch. Never expose provider credentials in snapshots or client config.
+
+## Week 5 closeout, October 13
+
+`data/week5-closeout.json` preserves the final authenticated Week 5 matchups, all 36 reconciled lineups and provider standings. ESPN and Yahoo finalized every Week 5 matchup before the Tuesday closeout; all three tables now cover five games. `data/latest-loog-scores.json` and `data/completed-loog-scores.json` are the same verified Week 5 final. `data/week5-autopsies.json` feeds the three league-local Autopsies with final language, and the global `StartSitOfWeek` component contains the shared LOOG retrospective.
+
+Yahoo closeout snapshots are append-only: info, standings, final matchups, twelve historical Week 5 rosters and a history payload retaining Weeks 1–5. League settings now read `currentWeek: 6` and `completedWeek: 5`. LOOG static records, PF/PA, history, roster aggregates and final score fallbacks advance together. Preserve this evidence when Week 6 begins; never infer a final from a Yahoo leader before `status: final` or from ESPN before a non-`UNDECIDED` winner.

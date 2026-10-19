@@ -1,0 +1,29 @@
+name: Publish approved Week 5 previews
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/publish-week5-previews.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: week5-preview-publication
+  cancel-in-progress: false
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with: {fetch-depth: 0}
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - run: python3 scripts/package-week5-previews.py
+      - run: node --test tests/release-integrity.test.mjs
+      - name: Commit approved previews with complete playback assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/reels public/reels-hls app/page.js app/components/ReelsShelf.jsx lib/doge-reels.js lib/sunday-reels.js lib/edition-content.js tests/release-integrity.test.mjs data/week5-approved-preview-manifest.json
+          git commit -m "Publish all 18 approved Week 5 previews"
+          git pull --rebase origin main
+          git push origin HEAD:main

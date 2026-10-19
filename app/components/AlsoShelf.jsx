@@ -1,6 +1,8 @@
 'use client';
 
 import {useEffect,useRef,useState} from 'react';
+import ResilientImage from './ResilientImage';
+import {imageSrc} from '../../lib/editorial-images';
 import styles from './AlsoShelf.module.css';
 
 export default function AlsoShelf({videos=[]}){
@@ -38,7 +40,7 @@ export default function AlsoShelf({videos=[]}){
     <div className={styles.rail}>
       {videos.map((v,i)=><button type="button" className={styles.card} key={v.id} onClick={()=>open(i)} aria-label={`Watch ${v.title} by ${v.correspondent}`}>
         <span className={styles.thumb}>
-          <img src={v.poster} alt="" loading="lazy" decoding="async"/>
+          <ResilientImage sizes="320px" src={v.poster} alt="" loading="lazy" decoding="async"/>
           <span className={styles.shade}/>
           <span className={styles.play} aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8.5 5.5v13l10-6.5z"/></svg></span>
         </span>
@@ -51,7 +53,7 @@ export default function AlsoShelf({videos=[]}){
       onTouchEnd={e=>{if(touchStart.current===null)return;const d=e.changedTouches[0].clientX-touchStart.current;if(Math.abs(d)>55)move(d<0?1:-1);touchStart.current=null}}>
       <button className={styles.close} onClick={()=>setActive(null)} aria-label="Close video">×</button>
       <div className={styles.stage}>
-        <video ref={videoRef} key={item.id} className={styles.video} src={item.src} poster={item.poster} autoPlay muted={muted} playsInline preload="auto" onLoadedMetadata={()=>setProgress(0)} onTimeUpdate={e=>{const v=e.currentTarget;setProgress(v.duration?Math.min(1,v.currentTime/v.duration):0)}} onEnded={()=>move(1)}/>
+        <video ref={videoRef} key={item.id} className={styles.video} src={item.src} poster={imageSrc(item.poster,640)} autoPlay muted={muted} playsInline preload="auto" onLoadedMetadata={()=>setProgress(0)} onTimeUpdate={e=>{const v=e.currentTarget;setProgress(v.duration?Math.min(1,v.currentTime/v.duration):0)}} onEnded={()=>move(1)}/>
         <button className={styles.sound} onClick={()=>setMuted(v=>!v)} aria-label={muted?'Turn sound on':'Mute'}>{muted?'⌁':'◖'}</button>
         <button className={`${styles.tap} ${styles.prev}`} onClick={()=>move(-1)} aria-label="Previous video"/>
         <button className={`${styles.tap} ${styles.next}`} onClick={()=>move(1)} aria-label="Next video"/>

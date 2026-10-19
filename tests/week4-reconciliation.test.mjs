@@ -4,15 +4,15 @@ import fs from 'node:fs';
 import {leagueSnapshot} from '../app/teams/league-data.js';
 const evidence=JSON.parse(fs.readFileSync(new URL('../data/week4-verified.json',import.meta.url)));
 const round=n=>Math.round(n*100)/100;
-test('LOOG team records and all four weekly results reconcile to authenticated standings',()=>{
+test('LOOG first four weekly results reconcile to historical authenticated standings',()=>{
  for(const st of evidence.loogStandings.standings){
   const t=Object.values(leagueSnapshot.teams).find(t=>t.teamId===st.teamId);
-  assert.equal(t.record,`${st.wins}-${st.losses}`);
-  assert.equal(t.season.weekly.length,4);
-  assert.equal(t.season.weekly.filter(w=>w.result==='W').length,st.wins);
-  assert.equal(round(t.season.weekly.reduce((n,w)=>n+w.score,0)),round(st.pointsFor));
-  assert.equal(round(t.season.weekly.reduce((n,w)=>n+w.opponentScore,0)),round(st.pointsAgainst));
-  assert.equal(round(Object.values(t.season.positionTotals).reduce((n,v)=>n+v,0)),round(st.pointsFor));
+  const weeks=t.season.weekly.filter(w=>w.week<=4);
+  assert.equal(weeks.length,4);
+  assert.equal(weeks.filter(w=>w.result==='W').length,st.wins);
+  assert.equal(round(weeks.reduce((n,w)=>n+w.score,0)),round(st.pointsFor));
+  assert.equal(round(weeks.reduce((n,w)=>n+w.opponentScore,0)),round(st.pointsAgainst));
+  assert.equal(round(Object.values(t.season.positionTotals).reduce((n,v)=>n+v,0)),round(t.pointsFor));
   assert.equal(round(t.roster.filter(p=>!['Bench','IR'].includes(p.slot)).reduce((n,p)=>n+p.weekPoints,0)),t.matchup.score);
  }
 });

@@ -1,3 +1,7 @@
+import {isMatchupFinal} from '../../../lib/matchup-status.mjs';
+import matchupColumns from '../../../data/week6-matchup-columns.json';
+import matchupRecaps from '../../../data/matchup-recaps.json';
+import {selectMatchupColumn} from '../../../lib/select-matchup-column.mjs';
 import Link from 'next/link';
 import EditionSiteNav from '../EditionSiteNav';
 import {notFound} from 'next/navigation';
@@ -19,41 +23,50 @@ export default async function Matchup({params,config}){
   if(!game)notFound();
   const side=(id)=>String(game.home.teamId)===String(id)?game.home:game.away;
   const ls=side(a),rs=side(b),week=Number(edition?.snapshots?.matchups?.data?.data?.matchupWeek||4);
+  // Current matchup snapshots may roll over before the corresponding roster feed.
+  // Avoid showing last week's starting lineups as if they belonged to this matchup.
+  const rosterAsOf=Date.parse(edition?.snapshots?.rosters?.created_at||'');
+  const matchupAsOf=Date.parse(edition?.snapshots?.matchups?.created_at||'');
+  const rosterVerified=Boolean(left?.players?.length&&right?.players?.length);
   const active=r=>[...(r.players||[])].filter(p=>!['BN','IR'].includes(p.selectedPosition)).sort((x,y)=>(order[x.selectedPosition]??10)-(order[y.selectedPosition]??10));
   const L=active(left),R=active(right),rows=Array.from({length:Math.max(L.length,R.length)},(_,i)=>[L[i],R[i]]);
   const standing=id=>standings.find(s=>String(s.teamId)===String(id));
-  const writer=writers.gannon;
-  const isFinal=game.winner&&game.winner!=='UNDECIDED';
+  const isFinal=isMatchupFinal(game);
+  const column=selectMatchupColumn({previews:matchupColumns,recaps:matchupRecaps,edition:editionSlug,week,a,b,isFinal});
+  const writer=writers[column?.writer||'gannon'];
+  const pregame=!isFinal&&Number(ls.points||0)===0&&Number(rs.points||0)===0;
+  const phase=isFinal?'FINAL':game.closeoutPending?'AWAITING PROVIDER FINAL':'IN PROGRESS';
   return <>
     <header className="articleHeader"><Link href={root+""} className="miniMast">{publicationName}</Link><EditionSiteNav root={root+""}/></header>
     <main className="matchupPage">
       <section className="matchupLead">
         <div className="matchupHeroKicker">{editionName.toUpperCase()} • WEEK {week} • {isFinal?"FINAL RESULT":"LATEST SCORE"}</div>
         <div className="matchupScoreboard">
-          <Link href={(root+"/teams/")+a} className="matchupHeroSide"><small>{left.ownerName}</small><h1>{left.teamName}</h1><b>{fmt(ls.points)}</b><span>{isFinal?"FINAL":"IN PROGRESS"}</span></Link>
+          <Link href={(root+"/teams/")+a} className="matchupHeroSide"><small>{left.ownerName}</small><h1>{left.teamName}</h1><b>{fmt(ls.points)}</b><span>{phase}</span></Link>
           <div className="matchupHeroCenter"><span>VS</span><small>YAHOO</small></div>
-          <Link href={(root+"/teams/")+b} className="matchupHeroSide right"><small>{right.ownerName}</small><h1>{right.teamName}</h1><b>{fmt(rs.points)}</b><span>{isFinal?"FINAL":"IN PROGRESS"}</span></Link>
+          <Link href={(root+"/teams/")+b} className="matchupHeroSide right"><small>{right.ownerName}</small><h1>{right.teamName}</h1><b>{fmt(rs.points)}</b><span>{phase}</span></Link>
         </div>
       </section>
       <section className="matchupColumn">
-        <div className="matchupColumnByline"><img src={writer.image} alt={writer.imageAlt}/><div><small>{isFinal?"FINAL RESULT":"MATCHUP IN PROGRESS"} • {writer.title.toUpperCase()}</small><b>{writer.name}</b></div></div>
-        <h2>{isFinal?"The final accounting":"The score so far"}</h2>
-        <p>{!isFinal?"The matchup is still in progress. Scores below are the latest verified totals.":<>{left.teamName} and {right.teamName} finished with a {Math.abs(Number(ls.points)-Number(rs.points)).toFixed(2)}-point margin. {Number(ls.points)>Number(rs.points)?left.teamName:right.teamName} takes the win. The lineup below is the Week {week} record, with actual player points.</>}</p>
+        <div className="matchupColumnByline"><img src={writer.image} alt={writer.imageAlt}/><div><small>{column?"WEEK "+week+(isFinal?" • CORRESPONDENT RECAP":" • CORRESPONDENT PREVIEW"):isFinal?"FINAL RESULT":"MATCHUP IN PROGRESS"} • {writer.title.toUpperCase()}</small><b>{writer.name}</b></div></div>
+        <h2>{column?.headline||(isFinal?"Awaiting correspondent recap":"Awaiting correspondent preview")}</h2>
+        {(column?.body||(isFinal?"The result is final. The correspondent recap is awaiting publication.":"The correspondent preview for this pairing is awaiting publication.")).split(/\n\n+/).map((paragraph,index)=><p key={index}>{paragraph}</p>)}
       </section>
       <section className="matchupPrimer"><div className="matchupSectionHead"><small>THE BRIEF'S READ</small><h2>Numbers worth staring at</h2></div><div className="primerGrid">
         <article><b>{Math.abs(Number(ls.points)-Number(rs.points)).toFixed(2)}</b><span>{isFinal?"FINAL MARGIN":"CURRENT MARGIN"}</span></article>
         <article><b>{standing(a)?.wins}-{standing(a)?.losses} / {standing(b)?.wins}-{standing(b)?.losses}</b><span>RECORDS</span></article>
         <article><b>{L.filter(p=>p.status).length+R.filter(p=>p.status).length}</b><span>STARTER STATUS FLAGS</span></article>
       </div></section>
-      <section className="lineupPreview">
+      {rosterVerified?<section className="lineupPreview">
         <div className="matchupSectionHead"><div><small>STARTING LINEUPS</small><h2>Position by position</h2></div></div>
         <div className="lineupTeams"><span>{left.teamName}</span><span>{right.teamName}</span></div>
+        {Number.isFinite(rosterAsOf)&&Number.isFinite(matchupAsOf)&&rosterAsOf<matchupAsOf-12*60*60*1000&&<p className="matchupUpdated">LINEUPS FROM MOST RECENT ROSTER SNAPSHOT • PLAYER AVAILABILITY MAY HAVE CHANGED</p>}
         <div>{rows.map(([l,r],i)=><div className="lineupRow" key={i}>
-          <div className="lineupPlayer left">{l&&<><small>{l.selectedPosition}</small><b>{l.name}</b><span>{fmt(l.points)}</span>{l.status&&<em>{l.status}</em>}</>}</div>
+          <div className="lineupPlayer left">{l&&<><small>{l.selectedPosition}</small><b>{l.name}</b><span>{pregame||rosterAsOf<matchupAsOf-12*60*60*1000?'—':fmt(l.points)}</span>{l.status&&<em>{l.status}</em>}</>}</div>
           <div className="lineupVs">VS</div>
-          <div className="lineupPlayer right">{r&&<><small>{r.selectedPosition}</small><b>{r.name}</b><span>{fmt(r.points)}</span>{r.status&&<em>{r.status}</em>}</>}</div>
+          <div className="lineupPlayer right">{r&&<><small>{r.selectedPosition}</small><b>{r.name}</b><span>{pregame||rosterAsOf<matchupAsOf-12*60*60*1000?'—':fmt(r.points)}</span>{r.status&&<em>{r.status}</em>}</>}</div>
         </div>)}</div>
-      </section>
+      </section>:<section className="lineupPreview"><div className="matchupSectionHead"><small>STARTING LINEUPS</small><h2>Awaiting current-week roster refresh</h2></div><p>The matchup and scores are verified, but the last stored lineup is from an earlier snapshot. We'll show player-by-player details when the provider roster is updated.</p></section>}
       <Link className="matchupBack" href={root+"#scores"}>← ALL WEEK {week} MATCHUPS</Link>
     </main>
   </>;

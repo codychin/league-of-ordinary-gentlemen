@@ -1,3 +1,5 @@
+import {isMatchupFinal} from '../../../lib/matchup-status.mjs';
+import FranchiseHistory from './FranchiseHistory';
 import Link from 'next/link';
 import EditionSiteNav from '../EditionSiteNav';
 import {notFound} from 'next/navigation';
@@ -24,7 +26,8 @@ export default async function Team({params,config}){
   const completedGames=standing?Number(standing.wins)+Number(standing.losses)+Number(standing.ties||0):0;
   const history=edition?.snapshots?.history?.data?.data?.weeks||[];
   const matchup=matchups.find(m=>String(m.home?.teamId)===String(id)||String(m.away?.teamId)===String(id));
-  const isFinal=matchup?.winner&&matchup.winner!=='UNDECIDED';
+  const isFinal=isMatchupFinal(matchup);
+  const pending=!isFinal&&matchup?.closeoutPending;
   const isHome=String(matchup?.home?.teamId)===String(id);
   const mine=isHome?matchup?.home:matchup?.away;
   const opp=isHome?matchup?.away:matchup?.home;
@@ -50,6 +53,8 @@ export default async function Team({params,config}){
         <div><b>{rosterPlayers.filter(p=>p.isKeeper?.kept).length}</b><span>KEEPERS</span></div>
       </div>
 
+      <FranchiseHistory teamId={id} editionSlug={editionSlug}/>
+
       <section className="seasonRead">
         <div className="operationsHead"><div><small>{edition.league.season} SEASON FILE</small><h2>Season to Date</h2></div><span>OFFICIAL YAHOO TOTALS THROUGH WEEK {completedGames}</span></div>
         <div className="seasonSummary">
@@ -62,9 +67,9 @@ export default async function Team({params,config}){
       {matchup&&<section className="liveOperations">
         <div className="operationsHead"><div><small>FOOTBALL OPERATIONS • WEEK {week}</small><h2>Week {week}</h2></div><span>{isFinal?'FINAL':'YAHOO MATCHUP'}</span></div>
         <div className="matchupBoard">
-          <div className="matchupTeam active"><small>{roster.teamName}</small><b>{num(mine?.points)}</b><span>{isFinal?'FINAL':`PROJECTED ${num(mine?.projectedPoints)}`}</span></div>
+          <div className="matchupTeam active"><small>{roster.teamName}</small><b>{num(mine?.points)}</b><span>{isFinal?'FINAL':pending?'AWAITING PROVIDER FINAL':`PROJECTED ${num(mine?.projectedPoints)}`}</span></div>
           <div className="matchupVs">VS</div>
-          <Link href={(root+"/teams/")+opp?.teamId} className="matchupTeam"><small>{opp?.teamName}</small><b>{num(opp?.points)}</b><span>{isFinal?'FINAL':`PROJECTED ${num(opp?.projectedPoints)}`}</span></Link>
+          <Link href={(root+"/teams/")+opp?.teamId} className="matchupTeam"><small>{opp?.teamName}</small><b>{num(opp?.points)}</b><span>{isFinal?'FINAL':pending?'AWAITING PROVIDER FINAL':`PROJECTED ${num(opp?.projectedPoints)}`}</span></Link>
         </div>
       </section>}
 
@@ -82,10 +87,10 @@ export default async function Team({params,config}){
         </div>})}
       </section>
 
-      <section className="franchiseLead">
+      {editionSlug!=='sunday-crew'&&<section className="franchiseLead">
         <div><small>EDITORIAL FILE</small><h2>{config.teamNotes?.[id]?.title||"The season on file"}</h2><p>{config.teamNotes?.[id]?.body||"The results above form this franchise’s record. Each week adds another receipt."}</p></div>
         <aside><small>ON FILE</small><p>{completedGames} games. {standing?.wins} wins. {standing?.losses} losses. {standing?num(standing.pointsFor):"—"} points scored.</p></aside>
-      </section>
+      </section>}
 
       <div className="teamFoot"><span>Team names change. The file does not.</span><Link href={root+"/teams"} className="back">← ALL FRANCHISES</Link></div>
     </main>

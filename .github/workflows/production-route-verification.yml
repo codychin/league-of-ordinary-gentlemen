@@ -1,0 +1,34 @@
+name: Production route verification
+on:
+  workflow_dispatch:
+  deployment_status:
+permissions:
+  contents: read
+concurrency:
+  group: production-route-verification
+  cancel-in-progress: false
+jobs:
+  verify:
+    if: github.event_name == 'workflow_dispatch' || (github.event.deployment_status.state == 'success' && github.event.deployment.environment == 'Production')
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Verify production public routes after propagation
+        run: |
+          for attempt in 1 2 3 4 5 6; do
+            if node scripts/operations/check-public-routes.mjs; then exit 0; fi
+            echo "Public route verification failed: attempt $attempt/6"
+            sleep 15
+          done
+          echo 'Production route verification failed after retries' >&2
+          exit 1
+        env:
+          BASE_URL: https://www.ordinarybrief.com
+          ARTICLE_SLUG: hollis-mike-ditka-juice-box-guy
+          EXPECTED_TITLE: The Juice Box Guy

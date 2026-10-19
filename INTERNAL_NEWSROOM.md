@@ -99,3 +99,15 @@ Do not imply that Ellis is working between turns or that naming him schedules wo
 
 This record establishes identity and operating standards. It does not itself
 implement the remaining queue, league-isolation or pronunciation infrastructure.
+
+
+## Editorial-fact safety in automated publishing
+
+Any automated or semi-automated newsroom pipeline must treat factual recency as a production constraint, not a writing preference.
+
+- Store source URL, source publication timestamp, event date when known, and season/year with candidate news items.
+- Reject or quarantine candidates whose source year or event year conflicts with the active season unless the item is explicitly historical/contextual.
+- Do not allow a search snippet alone to become publishable content.
+- High-impact states such as IR, out, released, traded, suspended, signed, fired, injured, or deceased require a verified source state before publication.
+- A breaking-news surface must fail closed: when verification is ambiguous, publish nothing rather than infer recency.
+- Corrections must invalidate or supersede stale cached records so old claims cannot reappear in feeds, PWAs, generated briefs, or notification jobs.

@@ -2,9 +2,9 @@ import week6SourcesRaw from '../scripts/week6-staging-video-sources.json';
 const week6Sources=Object.fromEntries(week6SourcesRaw.map(v=>[v.id,v.url]));
 import LoogAutopsy from './components/LoogAutopsy';
 import StartSitOfWeek from './components/StartSitOfWeek';
-import completedScores from '../data/completed-loog-scores.json';
+import completedScores from '../data/latest-loog-scores.json';
 import {loogArticleVideos as alsoVideos} from '../lib/article-videos';
-import {LIVE_DESK_ENABLED} from '../lib/live-desk-state';
+import {isSundayLiveWindow} from '../lib/live-desk-state';
 import Link from 'next/link';import SiteNav from './components/SiteNav';import Standings from './components/Standings';import TransactionFeed from './components/TransactionFeed';import CultureDesk from './components/CultureDesk';import PreviewAuthor from './components/PreviewAuthor';import {leagueSnapshot} from './teams/league-data';import {writers} from './articles/writers';import ReelsShelf from './components/ReelsShelf';import AlsoShelf from './components/AlsoShelf';import SundayLiveDesk from './components/SundayLiveDesk';import SundayScoreStrip from './components/SundayScoreStrip';import SharedEditorialFront from './components/SharedEditorialFront';import LiveWeek3Surfaces from './components/LiveWeek3Surfaces'
 const week3FinalScores=Object.values(leagueSnapshot.teams).flatMap(team=>team.season.weekly.filter(w=>w.week===3&&w.status==='FINAL'&&team.teamId<(leagueSnapshot.teams[w.opponentSlug]?.teamId||999)).map(w=>[team.teamName,Number(w.score).toFixed(2),w.opponent,Number(w.opponentScore).toFixed(2),'FINAL']));
 const week2Scores=[['Pollard Greens','150.07',"I'm a Skatt man",'140.21',''],['Kupp Kupp Doubs','100.48','For the Love of the Kraft','95.48','LOW-SCORE SURVIVAL • 5.00'],['Lloyd of the Rings','143.56','The All Ugly Team','128.22',''],["Shake 'N Baker",'139.49','The Route 22 Clubhouse','138.93','CLOSEST GAME • 0.56'],['Mr Hopkins Opus','133.40','Royrek Tishmeshulam','106.70',''],['CeeDeep Shaheeded Rivalry','161.22','DarkHorse Danir','126.63','LARGEST MARGIN • 34.59']];
@@ -14,12 +14,12 @@ const currentMatchups=matchupPairs.map(([a,b,note])=>[leagueSnapshot.teams[a],le
 const featuredPlayer=team=>team.roster.filter(p=>!['Bench','IR','K','D/ST'].includes(p.slot)&&!['K','D/ST'].includes(p.position)).sort((a,b)=>b.seasonPoints-a.seasonPoints)[0]
 const playerHeadshot=player=>`https://a.espncdn.com/i/headshots/nfl/players/full/${player.id}.png`
 const publishedReels=[
-  ["all-ugly","ceedeep","The All Ugly Team · CeeDeep Shaheeded Rivalry","The All Ugly Team vs. CeeDeep Shaheeded Rivalry","Hollis Crane",writers.crane.image,"624a4bbd1764945887d6b5e59bf2c569"],
-  ["danir","route-22","DarkHorse Danir · The Route 22 Clubhouse","DarkHorse Danir vs. The Route 22 Clubhouse","Conrad Sorrell",writers.sorrell.image,"dd4a0886e3b8570b7e0b478cd2494473"],
-  ["skatt","hopkins-opus","I'm a Skatt man · Mr Hopkins Opus","I'm a Skatt man vs. Mr Hopkins Opus","Maude Gannon",writers.gannon.image,"15fabdd59b7336b35c8ad851f1449fb0"],
-  ["lloyd-rings","kupp-doubs","Lloyd of the Rings · Kupp Kupp Doubs","Lloyd of the Rings vs. Kupp Kupp Doubs","Dashiell Pike",writers.pike.image,"a2d015c95e646c9902128869c408ce11"],
-  ["shake-baker","pollard-greens","Shake 'N Baker · Pollard Greens","Shake 'N Baker vs. Pollard Greens","Marnie Kells",writers.kells.image,"f47f31d0791ee1022f82004e2c1b9ef2"],
-  ["royrek","kraft","Royrek Tishmeshulam · For the Love of the Kraft","Royrek Tishmeshulam vs. For the Love of the Kraft","Sabine March",writers.march.image,"ded303e56680d12f48cdeec27f5db1fc"],
+  ["all-ugly","ceedeep","UGLY · CEE","The All Ugly Team vs. CeeDeep Shaheeded Rivalry","Hollis Crane",writers.crane.image,"624a4bbd1764945887d6b5e59bf2c569"],
+  ["danir","route-22","DANIR · R22","DarkHorse Danir vs. The Route 22 Clubhouse","Conrad Sorrell",writers.sorrell.image,"dd4a0886e3b8570b7e0b478cd2494473"],
+  ["skatt","hopkins-opus","SKATT · KUSH","I'm a Skatt man vs. Mr Hopkins Opus","Maude Gannon",writers.gannon.image,"15fabdd59b7336b35c8ad851f1449fb0"],
+  ["lloyd-rings","kupp-doubs","LLOYD · KUPP","Lloyd of the Rings vs. Kupp Kupp Doubs","Dashiell Pike",writers.pike.image,"a2d015c95e646c9902128869c408ce11"],
+  ["shake-baker","pollard-greens","SHAKE · POLL","Shake 'N Baker vs. Pollard Greens","Marnie Kells",writers.kells.image,"f47f31d0791ee1022f82004e2c1b9ef2"],
+  ["royrek","kraft","BONANZ · KRAFT","Royrek Tishmeshulam vs. For the Love of the Kraft","Sabine March",writers.march.image,"ded303e56680d12f48cdeec27f5db1fc"],
 ].map(([left,right,short,matchup,correspondent,avatar,id])=>{
   const lp=featuredPlayer(leagueSnapshot.teams[left]);
   const rp=featuredPlayer(leagueSnapshot.teams[right]);
@@ -28,12 +28,6 @@ const publishedReels=[
 
 const MEDIA='https://dnzdbqycuuoonewcowis.supabase.co/storage/v1/object/public/brief-media';
 export const dynamic='force-dynamic';
-const isSundayLiveWindow=()=>{
-  const parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short',hour:'2-digit',hourCycle:'h23'}).formatToParts(new Date());
-  const weekday=parts.find(part=>part.type==='weekday')?.value;
-  const hour=Number(parts.find(part=>part.type==='hour')?.value);
-  return LIVE_DESK_ENABLED&&weekday==='Sun'&&hour>=9&&hour<23;
-};
 export default function Home(){const sundayLive=isSundayLiveWindow();return <><header><div className="utility"><span className="utilityMain">JOURNALISM WITHOUT PURPOSE <i>•</i> WRITTEN BY ROBOTS</span></div><div className="mast"><h1>The Brief of Ordinary Gentleman</h1><div className="dek">Fantasy football, personal grievances, forensic accounting and other matters of irrelevance.</div></div><SiteNav/></header><main>
 {sundayLive&&<><SundayScoreStrip/><SundayLiveDesk/></>}
 <ReelsShelf reels={publishedReels} releaseId="loog-week6-preview-v1" storageKey="brief-loog-week6-preview-viewed-v1" weekLabel="THE BRIEF • WEEK 6" title="Week 6, the previews." modeLabel="WEEK 6 • PREVIEWS"/>
@@ -43,7 +37,7 @@ export default function Home(){const sundayLive=isSundayLiveWindow();return <><h
 <LoogAutopsy/>
 <Standings/>
 <StartSitOfWeek/>
-<section className="wire section" id="transactions"><div className="sectionhead"><div><small className="deskLabel">THE WIRE</small><h2>Transactions</h2></div><span>LIVE LEAGUE ACTIVITY / VERIFIED AGAINST ESPN</span></div><TransactionFeed/><div className="parodyNote">PARODY DESK • CURRENT-WEEK TRANSACTIONS PULLED DIRECTLY FROM LEAGUE ACTIVITY</div></section>
+<section className="wire section" id="transactions"><div className="sectionhead"><div><small className="deskLabel">THE WIRE</small><h2>Transactions</h2></div><span>LIVE LEAGUE ACTIVITY / VERIFIED AGAINST ESPN</span></div><TransactionFeed/><div className="parodyNote">PARODY DESK • RECENT COMPLETED TRANSACTIONS PULLED DIRECTLY FROM LEAGUE ACTIVITY</div></section>
 <CultureDesk/>
 <LiveWeek3Surfaces initialData={completedScores} finalWeek={false} matchupPairs={matchupPairs} teamVisuals={Object.fromEntries(Object.entries(leagueSnapshot.teams).map(([slug,team])=>{const player=featuredPlayer(team);return [slug,{image:playerHeadshot(player),player:player.name}]}))}/>
 <section className="section scoreSection" id="scores-week3"><div className="sectionhead"><div><small className="deskLabel">THE BRIEF • SCOREBOARD</small><h2>Week 3 Final</h2></div><span>FINAL SCORES</span></div><div className="scores">{week3FinalScores.map((s,i)=><div className="match" key={i}><div><b>{s[0]}</b><strong>{s[1]}</strong></div><div><span>{s[2]}</span><strong>{s[3]}</strong></div></div>)}</div></section>

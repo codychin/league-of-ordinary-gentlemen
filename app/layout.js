@@ -1,5 +1,4 @@
 import './globals.css'
-import './desktop-scroll-nav.css'
 import './v2.css'
 import './polish.css'
 import './wire.css'

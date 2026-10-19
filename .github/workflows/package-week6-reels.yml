@@ -1,0 +1,30 @@
+name: Package Week 6 approved reels
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/package-week6-reels.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: week6-approved-reel-packaging
+  cancel-in-progress: false
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: main
+          fetch-depth: 0
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - run: python3 scripts/package-week6-reels.py
+      - name: Commit approved videos
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/reels public/reels-hls
+          git commit -m "Add durable media assets for 18 approved Week 6 reels"
+          git pull --rebase origin main
+          git push origin HEAD:main
