@@ -1,0 +1,18 @@
+/* Desktop-only editorial wayfinding; no effect on mobile or installed PWAs. */
+.briefScrollNav{
+ position:fixed;top:0;left:0;right:0;z-index:90;
+ display:flex;align-items:center;justify-content:space-between;
+ min-height:48px;padding:8px clamp(20px,4vw,72px);
+ background:#f3efe5;border-top:0;border-bottom:1px solid #11100e;
+ box-shadow:0 3px 12px rgba(17,16,14,.12);
+ transform:translateY(-110%);opacity:0;pointer-events:none;
+ transition:transform .18s ease,opacity .18s ease;
+}
+.briefScrollNav.isVisible{transform:translateY(0);opacity:1;pointer-events:auto}
+.briefScrollNav .briefScrollNavBrand{font:900 17px Georgia,serif;letter-spacing:-.6px;white-space:nowrap}
+.briefScrollNav .briefScrollNavLinks{display:flex;align-items:center;gap:clamp(12px,2.15vw,30px)}
+.briefScrollNav .briefScrollNavLinks a{font:700 10px Arial,sans-serif;letter-spacing:1px;white-space:nowrap}
+.briefScrollNav a:hover{text-decoration:underline;text-underline-offset:4px}
+@media(max-width:900px){.briefScrollNav{display:none!important}}
+@media(prefers-reduced-motion:reduce){.briefScrollNav{transition:none}}
+html.standaloneApp .briefScrollNav{display:none!important}
