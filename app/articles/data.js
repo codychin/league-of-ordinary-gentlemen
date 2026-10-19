@@ -1,7 +1,9 @@
+import {conradJalenHurtsArticle} from './conrad-jalen-hurts-too-sick-to-sleep'
 import {hollisWestVirginiaMedicalAssistance} from './hollis-west-virginia-medical-assistance'
 import {andYouAreArticle} from './sabine-and-you-are'
 import {ramsKickerArticle} from './hollis-rams-kicker-weight'
 export const articles = {
+'conrad-jalen-hurts-too-sick-to-sleep': conradJalenHurtsArticle,
 'hollis-west-virginia-medical-assistance': hollisWestVirginiaMedicalAssistance,
 'hollis-rams-kicker-weight': ramsKickerArticle,
 'sabine-and-you-are': andYouAreArticle,
