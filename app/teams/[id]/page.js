@@ -43,11 +43,11 @@ export default async function Team({params}) {
 
       <section className="rosterSection">
         <div className="hubHead">LINEUP ON FILE • WEEK {leagueSnapshot.week}</div>
-        <div className="rosterHeader"><span>SLOT</span><span>PLAYER</span><span>STATUS</span><span>STARTS</span><span>WEEK {leagueSnapshot.week} PTS</span><span>POINTS WHILE ROSTERED</span></div>
-        {rosterBySeason.map((p,i)=>{const reserve=p.slot==='Bench'||p.slot==='IR';return <div className={`rosterRow ${reserve?'reserve':''}`} key={p.id}><b>{p.slot}</b><span><strong>{p.name}</strong><em>{p.position} • {p.team}</em></span><span className={p.status?'statusFlag':''}>{p.status||'—'}</span><span>{p.starts}</span><strong data-label={`W${leagueSnapshot.week} PTS`}>{Number(p.weekPoints).toFixed(1)}</strong><strong data-label="POINTS WHILE ROSTERED">{Number(p.seasonPoints).toFixed(1)}</strong></div>})}
+        <div className="rosterHeader"><span>SLOT</span><span>PLAYER</span><span>STATUS</span><span>STARTS THROUGH W{ops.rosterCumulativeThroughWeek}</span><span>WEEK {leagueSnapshot.week} PTS</span><span>POINTS WHILE ROSTERED THROUGH W{ops.rosterCumulativeThroughWeek}</span></div>
+        {rosterBySeason.map((p,i)=>{const reserve=p.slot==='Bench'||p.slot==='IR';return <div className={`rosterRow ${reserve?'reserve':''}`} key={p.id}><b>{p.slot}</b><span><strong>{p.name}</strong><em>{p.position} • {p.team}</em></span><span className={p.status?'statusFlag':''}>{p.status||'—'}</span><span>{p.starts??'—'}</span><strong data-label={`W${leagueSnapshot.week} PTS`}>{Number(p.weekPoints).toFixed(1)}</strong><strong data-label="POINTS WHILE ROSTERED">{p.seasonPoints==null?'—':Number(p.seasonPoints).toFixed(1)}</strong></div>})}
       </section>
 
-      <section className="franchiseLead"><div><small>LATEST RESULT</small><h2>{t.week1}</h2><p>{t.note}</p></div><aside><small>ON FILE</small><p>{t.lore}</p></aside></section>
+      <section className="franchiseLead"><div><small>LATEST RESULT</small><h2>{t.week1}</h2><small>WEEK 5 COVERAGE</small><p>{t.note}</p></div><aside><small>ON FILE</small><p>{t.lore}</p></aside></section>
 
       <section className="personnel">
         <div className="hubHead">UNAUTHORIZED BIOGRAPHY</div>

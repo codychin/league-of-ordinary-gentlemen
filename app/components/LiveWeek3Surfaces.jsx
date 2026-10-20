@@ -4,7 +4,7 @@ import {writers} from '../articles/writers';
 import {useEffect,useState} from 'react';
 import MatchupCardGrid from './MatchupCardGrid';
 const num=n=>n==null?'—':Number(n).toFixed(2);
-const slugMap={"For the Love of the Kraft":"kraft","I'm a Skatt man":"skatt","I'm a Skatt Man":"skatt","Pollard Greens":"pollard-greens","The All Ugly Team":"all-ugly","Kupp Kupp Doubs":"kupp-doubs","The Route 22 Clubhouse":"route-22","Lloyd of the Rings":"lloyd-rings","Mr Hopkins Opus":"hopkins-opus","Shake 'N Baker":"shake-baker","Shake ’N Baker":"shake-baker","DarkHorse Danir":"danir","Royrek Tishmeshulam":"royrek","CeeDeep Shaheeded Rivalry":"ceedeep"};
+const slugMap={"Chat GPT's Chosen Ones":"kupp-doubs","For the Love of the Kraft":"kraft","I'm a Skatt man":"skatt","I'm a Skatt Man":"skatt","Pollard Greens":"pollard-greens","The All Ugly Team":"all-ugly","Kupp Kupp Doubs":"kupp-doubs","The Route 22 Clubhouse":"route-22","Lloyd of the Rings":"lloyd-rings","Mr Hopkins Opus":"hopkins-opus","Shake 'N Baker":"shake-baker","Shake ’N Baker":"shake-baker","DarkHorse Danir":"danir","Royrek Tishmeshulam":"royrek","CeeDeep Shaheeded Rivalry":"ceedeep"};
 export default function LiveWeek3Surfaces({matchupPairs=[],teamVisuals={},initialData=null,finalWeek=false}){
  const [data,setData]=useState(initialData);
  useEffect(()=>{
