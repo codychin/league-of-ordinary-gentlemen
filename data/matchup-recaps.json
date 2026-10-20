@@ -1238,9 +1238,9 @@
     ],
     "writer": "pike",
     "headline": "The savings account has a password",
-    "body": "Patrick's bench contains Lamar Jackson and Saquon Barkley. Their names look like an answer until you reach the Week 6 points column, where both have zero. The distinction matters. Rhamondre – A Cautionary Tale lost 100.88–88.52 to Nipun, and the familiar exercise of finding the victory Patrick failed to select produces nothing among his recorded reserves. A prestigious bench is not necessarily usable inventory.\n\nThe preview gave Patrick urgency and Nipun patience. The completed lineup gives those abstractions a less flattering physical form. Patrick started Rhamondre Stevenson and Kenny Gainwell for a combined 6.5. DeMario Douglas led his offensive players with 16.1, while the kicker and defense supplied another 23.2 between them. Those contributions kept the result respectable without solving the shortage at running back.\n\nNipun did not need another extraordinary Christian Watson week. C.J. Stroud supplied 23.98; four other offensive starters reached double figures. Derrick Henry's 4.5 and Harold Fannin's 1.4 were survivable because the rest of the lineup kept producing useful amounts. Quentin Johnston, the only scoring player on the recorded bench, would not have improved any of Nipun's starting receiver totals.\n\nThe resulting positions are five and one for Nipun, one and five for Patrick. Our warning against emergency tinkering survives, but it needs a qualification: sometimes the problem is not excessive movement. Sometimes the roster has very little that can move. Patrick does not need to prove that his famous players are famous. He needs a Sunday on which their names come with numbers.",
+    "body": "Patrick's bench contains Lamar Jackson and Saquon Barkley. Both were ruled out before Sunday, Jackson with an ankle injury and Barkley with a hamstring injury. Their zeros record absences, not performances or points Patrick could have selected. Rhamondre – A Cautionary Tale lost 100.88–88.52 to Nipun, and the familiar exercise of finding the victory Patrick failed to select produces nothing among his recorded reserves. A prestigious bench is not necessarily usable inventory.\n\nThe preview gave Patrick urgency and Nipun patience. The completed lineup gives those abstractions a less flattering physical form. Patrick started Rhamondre Stevenson and Kenny Gainwell for a combined 6.5. DeMario Douglas led his offensive players with 16.1, while the kicker and defense supplied another 23.2 between them. Those contributions kept the result respectable without solving the shortage at running back.\n\nNipun did not need another extraordinary Christian Watson week. C.J. Stroud supplied 23.98; four other offensive starters reached double figures. Derrick Henry's 4.5 and Harold Fannin's 1.4 were survivable because the rest of the lineup kept producing useful amounts. Quentin Johnston, the only scoring player on the recorded bench, would not have improved any of Nipun's starting receiver totals.\n\nThe resulting positions are five and one for Nipun, one and five for Patrick. Our warning against emergency tinkering survives, but it needs a qualification: sometimes the problem is not excessive movement. Sometimes the roster has very little that can move. Patrick does not need to prove that his famous players are famous. He needs them available again before their names can become lineup choices.",
     "kind": "recap",
-    "editorialVersion": "week6-closeout-v2-review-20261020-0813",
+    "editorialVersion": "week6-sunday-3-8-availability-correction-v4-20261020",
     "source": {
       "status": "FINAL",
       "capturedAt": "2026-10-20T08:03:14Z/2026-10-20T08:04:59Z",
@@ -1265,15 +1265,45 @@
         "previewSource": "data__week6-matchup-columns.json",
         "priorScriptSource": "overnight-preflight-manifest.json",
         "snapshotDirectory": "/workspace/shared/closeout-readiness-20261020-0800"
+      },
+      "availabilityEvidence": {
+        "publishedAt": "2026-10-16",
+        "sources": [
+          "https://www.philadelphiaeagles.com/news/panthers-vs-eagles-injury-report-2026-nfl-week-6-saquon-barkley-devonta-smith",
+          "https://www.nfl.com/news/ravens-qb-lamar-jackson-ankle-out-sunday-vs-browns-tyler-huntley-to-start-again"
+        ]
       }
     },
     "approval": {
-      "messageId": "Sentinel_6fe6648bcddc8191aa193d63051f9829",
-      "approvedAt": "2026-10-20T12:36:30.385421Z",
-      "scope": "Exact Week 6 written recaps and weekly sections only; scripts and reels excluded"
+      "messageId": "Sentinel_f283d630ec648191b4e20f82b40756ba",
+      "approvedAt": "2026-10-20T14:40:38Z",
+      "scope": "Correct Lamar Jackson and Saquon Barkley pre-Sunday unavailability context in Sunday Crew Week 6 teams 3–8 written recap only"
     },
     "publicationArticleId": "cb20ef0b-3502-4be2-9d01-cd504d628393",
-    "bodySha256": "1b2c127b396cfdf9a7bd43efd9dc81a03a8fc10b35696948ee03199fd5468a40"
+    "bodySha256": "c21fc3af6eb340f0ab8fd6d304b2d917881c08eb34c26c36269a026f03278c96",
+    "correctionHistory": [
+      {
+        "revision": "week6-closeout-v2-review-20261020-0813",
+        "body": "Patrick's bench contains Lamar Jackson and Saquon Barkley. Their names look like an answer until you reach the Week 6 points column, where both have zero. The distinction matters. Rhamondre – A Cautionary Tale lost 100.88–88.52 to Nipun, and the familiar exercise of finding the victory Patrick failed to select produces nothing among his recorded reserves. A prestigious bench is not necessarily usable inventory.\n\nThe preview gave Patrick urgency and Nipun patience. The completed lineup gives those abstractions a less flattering physical form. Patrick started Rhamondre Stevenson and Kenny Gainwell for a combined 6.5. DeMario Douglas led his offensive players with 16.1, while the kicker and defense supplied another 23.2 between them. Those contributions kept the result respectable without solving the shortage at running back.\n\nNipun did not need another extraordinary Christian Watson week. C.J. Stroud supplied 23.98; four other offensive starters reached double figures. Derrick Henry's 4.5 and Harold Fannin's 1.4 were survivable because the rest of the lineup kept producing useful amounts. Quentin Johnston, the only scoring player on the recorded bench, would not have improved any of Nipun's starting receiver totals.\n\nThe resulting positions are five and one for Nipun, one and five for Patrick. Our warning against emergency tinkering survives, but it needs a qualification: sometimes the problem is not excessive movement. Sometimes the roster has very little that can move. Patrick does not need to prove that his famous players are famous. He needs a Sunday on which their names come with numbers.",
+        "bodySha256": "1b2c127b396cfdf9a7bd43efd9dc81a03a8fc10b35696948ee03199fd5468a40",
+        "approval": {
+          "messageId": "Sentinel_6fe6648bcddc8191aa193d63051f9829",
+          "approvedAt": "2026-10-20T12:36:30.385421Z",
+          "scope": "Exact Week 6 written recaps and weekly sections only; scripts and reels excluded"
+        },
+        "correctedAt": "2026-10-20T14:42:30Z",
+        "reason": "Clarify both players were ruled out before Sunday, rather than treating injury absences as zero-point performances.",
+        "sources": [
+          "https://www.philadelphiaeagles.com/news/panthers-vs-eagles-injury-report-2026-nfl-week-6-saquon-barkley-devonta-smith",
+          "https://www.nfl.com/news/ravens-qb-lamar-jackson-ankle-out-sunday-vs-browns-tyler-huntley-to-start-again"
+        ],
+        "correctionApproval": {
+          "messageId": "Sentinel_f283d630ec648191b4e20f82b40756ba",
+          "approvedAt": "2026-10-20T14:40:38Z",
+          "scope": "Correct Lamar Jackson and Saquon Barkley pre-Sunday unavailability context in Sunday Crew Week 6 teams 3–8 written recap only"
+        }
+      }
+    ]
   },
   {
     "edition": "sunday-crew",
