@@ -1,0 +1,146 @@
+{
+  "approval": {
+    "messageId": "Sentinel_6fe6648bcddc8191aa193d63051f9829",
+    "approvedAt": "2026-10-20T12:36:30.385421Z",
+    "scope": "Exact Week 6 written recaps and weekly sections only; scripts and reels excluded"
+  },
+  "articles": [
+    {
+      "id": "5493ee90-d485-4172-86c4-2f686e14da7d",
+      "slug": "doge-2026-week6-autopsy-v3",
+      "bodySha256": "5716df72f26bceae1f0d92950c4eca5f273cd3a9accefd9c698a2f003f35b088"
+    },
+    {
+      "id": "c5d15e26-ecad-4fa6-ab1e-9bb7b51ca5ad",
+      "slug": "doge-2026-week6-recap-1-8-article-v3",
+      "bodySha256": "e1e3ae914d3c001111d7d075e4b8eeb793ec1d1df6d3eeb41f86bfb5c3265be9"
+    },
+    {
+      "id": "7624b909-ef51-46ca-bacc-0dfb7b34c0ef",
+      "slug": "doge-2026-week6-recap-10-12-article-v3",
+      "bodySha256": "4a3d11a04fb8c0966d1a97a59c65a35551484b1dd15b9934209da88c75b4e294"
+    },
+    {
+      "id": "50d63b38-5cdb-4581-8a6b-1d26b69b9eac",
+      "slug": "doge-2026-week6-recap-2-6-article-v3",
+      "bodySha256": "f094db9e7948140ac6f0cca80b488a9dd5ad4f71fa8f9d73efd8f0f1122a94ac"
+    },
+    {
+      "id": "0c66b369-745d-45da-af4e-32a7af693096",
+      "slug": "doge-2026-week6-recap-3-9-article-v3",
+      "bodySha256": "dcbbe2c91e08f932c4eff459b9cfc187bf4a67008f91c692c228906de44b7c0c"
+    },
+    {
+      "id": "aff34699-9b1c-4bf8-8bd3-1690928227db",
+      "slug": "doge-2026-week6-recap-4-11-article-v3",
+      "bodySha256": "3c5dbc2b166c9d191809622e46f3cd7520bb32f20744f566029190edef187ce2"
+    },
+    {
+      "id": "6cef64b0-7d73-4afb-8191-45e91dc27374",
+      "slug": "doge-2026-week6-recap-5-7-article-v3",
+      "bodySha256": "980ca1e194aec2c5f608933e4544d93af09c5af3c9f31856206fadcae630eaf7"
+    },
+    {
+      "id": "dc8d87c8-3b02-4669-9082-3efb880b979e",
+      "slug": "doge-2026-week6-scores-summary-v3",
+      "bodySha256": "d99b9b02770e3e3531ee14676472af36a876ecf137682a0fda08cce3d527bd43"
+    },
+    {
+      "id": "87798152-3571-4173-b6fa-61defd94c90d",
+      "slug": "doge-2026-week6-start-sit-v3",
+      "bodySha256": "f43b3c0cd3cbee0ad2838706199b8968effa6ce0df11912a27e797bdf8dfcbd2"
+    },
+    {
+      "id": "e9a04cde-df8f-485f-ab2a-5d5f2bd354c6",
+      "slug": "loog-2026-week6-autopsy-v2",
+      "bodySha256": "a480d00aad3790a2b98e1b53afb7be0275c4e6900b719a615cc7d5b1dbc00ef8"
+    },
+    {
+      "id": "def41281-e800-4c74-9717-0f5c8e7bf88a",
+      "slug": "loog-2026-week6-recap-1-11-article-v2",
+      "bodySha256": "4fe4d3f93d409c366d4b84d5d300b3b437df1a977d020db6c4cd4b9c146d7ddc"
+    },
+    {
+      "id": "76ade9d2-c90b-4e89-bc73-405a96209b9b",
+      "slug": "loog-2026-week6-recap-2-4-article-v2",
+      "bodySha256": "39f6c52f2c53a5caec83cd3bc3df9290184084fb7abca4aaa275bd00e05d4076"
+    },
+    {
+      "id": "07053182-b1d5-46ab-ab94-135c4d232e5d",
+      "slug": "loog-2026-week6-recap-3-12-article-v2",
+      "bodySha256": "0523138171dba44ad64f8f5ee69d9e86ea05b68ed19efc051d9c05e40ee08cf4"
+    },
+    {
+      "id": "fad49139-5ded-4b73-afd2-ec56eae4572a",
+      "slug": "loog-2026-week6-recap-5-7-article-v2",
+      "bodySha256": "5963981a451af32e2d50bc914aa88696c3113926be6acbd7867838d5a9529750"
+    },
+    {
+      "id": "9bc27c07-785e-4d58-b4b2-d3d672ca9822",
+      "slug": "loog-2026-week6-recap-6-8-article-v2",
+      "bodySha256": "010a5ccb5ad0292b307b92b86e440f4e12ea23e4d9424f54c6260df98b7f33dc"
+    },
+    {
+      "id": "73bb0fee-615a-4805-b251-477969dfd6b5",
+      "slug": "loog-2026-week6-recap-9-10-article-v2",
+      "bodySha256": "4cfd38e9f62918a427c1009845e552589d5591ed7c69b4c240dbca59084c95cd"
+    },
+    {
+      "id": "65cfb24d-ae29-4e35-a0ee-08accc21408c",
+      "slug": "loog-2026-week6-scores-summary-v2",
+      "bodySha256": "304788d2aa0daf4f210c4526329905385e7768ea96b95c5386b184787566b709"
+    },
+    {
+      "id": "fbbc928a-6388-4613-b109-f7968e790e3a",
+      "slug": "loog-2026-week6-start-sit-v2",
+      "bodySha256": "c24ef26637906094398e2f847c71c79eb0103883e46ba9bf5716b86435b5365c"
+    },
+    {
+      "id": "d0085df0-43ed-4dad-a61e-72fd65bc2038",
+      "slug": "sunday-crew-2026-week6-autopsy-v3-precision-20261020-0815",
+      "bodySha256": "e4344938eabbc652c2625a2f175d72e58a1157102d54759caea837dfaf5c1e4a"
+    },
+    {
+      "id": "0cc31a00-9a3a-4bba-a7ea-4a2bd5b4bd89",
+      "slug": "sunday-crew-2026-week6-recap-1-2-article-v3-precision-20261020-0815",
+      "bodySha256": "26074b5bc3e185604627556d5acab471405b9c41911cb8dfdbceefbd92486be2"
+    },
+    {
+      "id": "cb20ef0b-3502-4be2-9d01-cd504d628393",
+      "slug": "sunday-crew-2026-week6-recap-3-8-article-v3-precision-20261020-0815",
+      "bodySha256": "1b2c127b396cfdf9a7bd43efd9dc81a03a8fc10b35696948ee03199fd5468a40"
+    },
+    {
+      "id": "cf3e3dc8-5822-49a9-b386-a3de6696d0df",
+      "slug": "sunday-crew-2026-week6-recap-4-6-article-v3-precision-20261020-0815",
+      "bodySha256": "471cf77b5af4b796eec7f8d19c4f7a6a2bfeb0cf1f8736ce3c8e4c2faed99444"
+    },
+    {
+      "id": "52850c6a-2cc0-44b8-81af-e05df02cebbb",
+      "slug": "sunday-crew-2026-week6-recap-5-10-article-v3-precision-20261020-0815",
+      "bodySha256": "264a1ac20c227c7197440c68fae4202404c819915f461b01eb5a54278fd53c51"
+    },
+    {
+      "id": "aa125ad0-e0ed-4701-932f-15bf84ced7e5",
+      "slug": "sunday-crew-2026-week6-recap-7-12-article-v3-precision-20261020-0815",
+      "bodySha256": "a48a2b6e53019fe225bff88cb91011c42fb435d26d32065eafbb24d055cf49bf"
+    },
+    {
+      "id": "3b5f2869-c1e9-42b1-8363-dcf808f3a231",
+      "slug": "sunday-crew-2026-week6-recap-9-11-article-v3-precision-20261020-0815",
+      "bodySha256": "bc9883cab70f1cabbfa4c116e594524506f55d6582d6a2535fb8b13bddf8d392"
+    },
+    {
+      "id": "a4a7b2b9-acd8-4b23-abfa-13b5fdb6d609",
+      "slug": "sunday-crew-2026-week6-scores-summary-v3-precision-20261020-0815",
+      "bodySha256": "9e367e016c08ec1c6369b6f6ec64d83d2015396c6329c62f139b72b8d663d8f3"
+    },
+    {
+      "id": "238f89f8-816a-43b3-9e35-df927ded20f7",
+      "slug": "sunday-crew-2026-week6-start-sit-v3-precision-20261020-0815",
+      "bodySha256": "6ce5208868a9856b1f450bafffb306d6c7228e93f4e55cef6802664aaba485e3"
+    }
+  ],
+  "scriptsApproved": false,
+  "renderingApproved": false
+}

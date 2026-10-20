@@ -520,5 +520,947 @@
         }
       ]
     }
+  },
+  {
+    "edition": "doge",
+    "season": 2026,
+    "week": 6,
+    "teamIds": [
+      "1",
+      "8"
+    ],
+    "writer": "sorrell",
+    "headline": "The second decimal is doing a lot of work",
+    "body": "Cody has won another game without meaningfully weakening the case against his team. Caleb’s Elite Touch Rate beat T. Ocellus 91.70–91.52. Bryan lost by eighteen hundredths of a point, a margin so small that rounding becomes an act of political favoritism.\n\nThe preview asked whether Cody could keep winning with modest production. Apparently the answer is yes, provided we retain enough decimal places. His starting running backs supplied 7.6 points between them. Last week’s recap identified that position as a problem; this week’s victory has not offered a rebuttal. Carnell Tate and Emeka Egbuka supplied 30.3 from the two flex spots, doing useful work while the running backs explored the minimum contribution compatible with employment.\n\nBryan had three substantial performances: Kirk Cousins, Jonathan Taylor and Germie Bernard each cleared twenty. He also started Tyler Higbee for 2.2 while Kyle Pitts scored 20.5 on the bench. That is an 18.3-point same-position difference in a game decided by 0.18. It does not tell us what Bryan reasonably knew before lock. It does tell us why this particular defeat will resist being filed under general misfortune.\n\nCody is now 4–2 with fewer season points than ten of the league’s twelve teams. Bryan is 2–4. The standings are not obliged to reward our preferred interpretation of events, which is part of their charm and most of their cruelty. Cody need not win the argument about how good his team is. At present, he is winning something much more useful.",
+    "kind": "recap",
+    "editorialVersion": "doge-week6-closeout-v3-20261020",
+    "source": {
+      "status": "FINAL",
+      "capturedAt": "2026-10-20T08:03:14Z/2026-10-20T08:04:59Z",
+      "evidence": {
+        "provider": "Flaim authenticated Yahoo",
+        "leagueKey": "470.l.226614",
+        "filesSha256": {
+          "rosters-470.l.226614.json": "3f1300647e2f86fc92cb415731e4f15b08c272a7e439d2e2d631b023cfec1649",
+          "matchups-470.l.226614.json": "a69765bae98d3ab2a20f4c0dabe87788fc7f9bc1118c9e472034decdeee00911",
+          "standings-470.l.226614.json": "526bc5135632716a98976c9d9fd44e6e400c8f4c3c1edec87fd3309e85a47709"
+        },
+        "matchupWeek": 6,
+        "providerAsOf": null,
+        "previewSource": "data/week6-matchup-columns.json",
+        "providerFinal": true,
+        "observedGateUTC": "2026-10-20T08:03:14Z/2026-10-20T08:03:38Z",
+        "actualScoresOnly": true,
+        "priorScriptSource": "/workspace/shared/closeout-readiness-20261020-0400/overnight-preflight-manifest.json",
+        "snapshotDirectory": "/workspace/shared/closeout-readiness-20261020-0800",
+        "observedRostersUTC": "2026-10-20T08:04:10Z/2026-10-20T08:04:37Z",
+        "counterfactualLimit": "Hindsight arithmetic on retrieved weekly slots; acquisition and availability at lineup lock not independently established.",
+        "sourceTimestampNote": "Flaim supplied no upstream Yahoo refresh timestamp; timestamps are retrieval observations, not claims of upstream freshness."
+      }
+    },
+    "approval": {
+      "messageId": "Sentinel_6fe6648bcddc8191aa193d63051f9829",
+      "approvedAt": "2026-10-20T12:36:30.385421Z",
+      "scope": "Exact Week 6 written recaps and weekly sections only; scripts and reels excluded"
+    },
+    "publicationArticleId": "c5d15e26-ecad-4fa6-ab1e-9bb7b51ca5ad",
+    "bodySha256": "e1e3ae914d3c001111d7d075e4b8eeb793ec1d1df6d3eeb41f86bfb5c3265be9"
+  },
+  {
+    "edition": "doge",
+    "season": 2026,
+    "week": 6,
+    "teamIds": [
+      "10",
+      "12"
+    ],
+    "writer": "march",
+    "headline": "The turnaround arrives without its namesake",
+    "body": "Patrick has won his second game, although Bo Nix did relatively little to advance the franchise bearing his name. Nix supplied 4.48 in a 110.08–99.94 victory over De’Coldest Hassan. There is nothing disqualifying about this. Institutions often carry the name of someone whose current contribution is largely ceremonial.\n\nMatthew Golden scored 19.4 from a flex spot, Colston Loveland 15.5 at tight end, and the Bears defense added eleven. Patrick’s remaining lineup supplied enough to make the quarterback’s afternoon survivable. This is more useful than the general promise of a turnaround: specific positions performed the work while the most visible position did not. Nix in 5 moves to 2–4 without requiring us to describe the entire roster as suddenly cured.\n\nMoe had the more productive quarterback. Jordan Love supplied 21.24, and his starting running backs combined for 19.5, a substantial improvement on the five noted in last week’s recap. There is genuine progress here. It simply remains less progress than the opponent. Stefon Diggs’s 13.4 stayed on the bench while Dontayvion Wicks scored 3.4; that same-position swap would still leave Moe 0.14 short. An exceptionally efficient way to make even hindsight feel inadequate.\n\nThe preview placed both men in the explanation business at 1–4. One now has a win; the other has a better account of why a win might be possible. We should not confuse those developments, but neither should we pretend the second is worthless. Moe is 1–5 with a functional quarterback and more running-back production. Patrick has the more immediate luxury. He can spend this week discussing what needs improving without first explaining why nothing ever does.",
+    "kind": "recap",
+    "editorialVersion": "doge-week6-closeout-v3-20261020",
+    "source": {
+      "status": "FINAL",
+      "capturedAt": "2026-10-20T08:03:14Z/2026-10-20T08:04:59Z",
+      "evidence": {
+        "provider": "Flaim authenticated Yahoo",
+        "leagueKey": "470.l.226614",
+        "filesSha256": {
+          "rosters-470.l.226614.json": "3f1300647e2f86fc92cb415731e4f15b08c272a7e439d2e2d631b023cfec1649",
+          "matchups-470.l.226614.json": "a69765bae98d3ab2a20f4c0dabe87788fc7f9bc1118c9e472034decdeee00911",
+          "standings-470.l.226614.json": "526bc5135632716a98976c9d9fd44e6e400c8f4c3c1edec87fd3309e85a47709"
+        },
+        "matchupWeek": 6,
+        "providerAsOf": null,
+        "previewSource": "data/week6-matchup-columns.json",
+        "providerFinal": true,
+        "observedGateUTC": "2026-10-20T08:03:14Z/2026-10-20T08:03:38Z",
+        "actualScoresOnly": true,
+        "priorScriptSource": "/workspace/shared/closeout-readiness-20261020-0400/overnight-preflight-manifest.json",
+        "snapshotDirectory": "/workspace/shared/closeout-readiness-20261020-0800",
+        "observedRostersUTC": "2026-10-20T08:04:10Z/2026-10-20T08:04:37Z",
+        "counterfactualLimit": "Hindsight arithmetic on retrieved weekly slots; acquisition and availability at lineup lock not independently established.",
+        "sourceTimestampNote": "Flaim supplied no upstream Yahoo refresh timestamp; timestamps are retrieval observations, not claims of upstream freshness."
+      }
+    },
+    "approval": {
+      "messageId": "Sentinel_6fe6648bcddc8191aa193d63051f9829",
+      "approvedAt": "2026-10-20T12:36:30.385421Z",
+      "scope": "Exact Week 6 written recaps and weekly sections only; scripts and reels excluded"
+    },
+    "publicationArticleId": "7624b909-ef51-46ca-bacc-0dfb7b34c0ef",
+    "bodySha256": "4a3d11a04fb8c0966d1a97a59c65a35551484b1dd15b9934209da88c75b4e294"
+  },
+  {
+    "edition": "doge",
+    "season": 2026,
+    "week": 6,
+    "teamIds": [
+      "2",
+      "6"
+    ],
+    "writer": "gannon",
+    "headline": "The flex spot was not the whole story",
+    "body": "Our preview suggested one useful flex decision could define Alan and Sandy’s week. Sandy won 122.16–96.14, and his flex players did beat Alan’s by 2.2 points. That is not where the other twenty-four points came from. The narrow-game premise needs retiring before it acquires a second career as analysis.\n\nTyler Shough and Christian McCaffrey supplied 53.16 for McConkey Kong. Alan’s quarterback and two running backs combined for 39.14. Add Sandy’s fifteen from the Chiefs defense against Alan’s two from Jacksonville and the shape of the result becomes considerably less mysterious. This was production at several positions, not one inspired little switch secretly running the whole afternoon.\n\nThere is a tempting bench correction for Gimothy Blossoms: C.J. Stroud scored 25.98 to Bryce Young’s 19.84, and Alvin Kamara’s 13.9 exceeded Bijan Robinson’s 6.3. Those two same-position substitutions together recover 13.74. Alan still loses by 12.28. Hindsight has been granted the starting quarterback and a running back, and it still cannot win the game. That should constrain the lecture about lineup discipline.\n\nSandy returns to 3–3 after last week’s loss, when Shough supplied fewer than two points. One week later the same quarterback clears twenty-six. That does not make the earlier result a sensible forecast, or this one a permanent new floor. It does give McConkey Kong a win that is more substantial than the close-call story we prepared. Alan falls to 2–4. There are decisions to review, but not every defeat contains a single button the manager forgot to press.",
+    "kind": "recap",
+    "editorialVersion": "doge-week6-closeout-v3-20261020",
+    "source": {
+      "status": "FINAL",
+      "capturedAt": "2026-10-20T08:03:14Z/2026-10-20T08:04:59Z",
+      "evidence": {
+        "provider": "Flaim authenticated Yahoo",
+        "leagueKey": "470.l.226614",
+        "filesSha256": {
+          "rosters-470.l.226614.json": "3f1300647e2f86fc92cb415731e4f15b08c272a7e439d2e2d631b023cfec1649",
+          "matchups-470.l.226614.json": "a69765bae98d3ab2a20f4c0dabe87788fc7f9bc1118c9e472034decdeee00911",
+          "standings-470.l.226614.json": "526bc5135632716a98976c9d9fd44e6e400c8f4c3c1edec87fd3309e85a47709"
+        },
+        "matchupWeek": 6,
+        "providerAsOf": null,
+        "previewSource": "data/week6-matchup-columns.json",
+        "providerFinal": true,
+        "observedGateUTC": "2026-10-20T08:03:14Z/2026-10-20T08:03:38Z",
+        "actualScoresOnly": true,
+        "priorScriptSource": "/workspace/shared/closeout-readiness-20261020-0400/overnight-preflight-manifest.json",
+        "snapshotDirectory": "/workspace/shared/closeout-readiness-20261020-0800",
+        "observedRostersUTC": "2026-10-20T08:04:10Z/2026-10-20T08:04:37Z",
+        "counterfactualLimit": "Hindsight arithmetic on retrieved weekly slots; acquisition and availability at lineup lock not independently established.",
+        "sourceTimestampNote": "Flaim supplied no upstream Yahoo refresh timestamp; timestamps are retrieval observations, not claims of upstream freshness."
+      }
+    },
+    "approval": {
+      "messageId": "Sentinel_6fe6648bcddc8191aa193d63051f9829",
+      "approvedAt": "2026-10-20T12:36:30.385421Z",
+      "scope": "Exact Week 6 written recaps and weekly sections only; scripts and reels excluded"
+    },
+    "publicationArticleId": "50d63b38-5cdb-4581-8a6b-1d26b69b9eac",
+    "bodySha256": "f094db9e7948140ac6f0cca80b488a9dd5ad4f71fa8f9d73efd8f0f1122a94ac"
+  },
+  {
+    "edition": "doge",
+    "season": 2026,
+    "week": 6,
+    "teamIds": [
+      "3",
+      "9"
+    ],
+    "writer": "kells",
+    "headline": "The name is doing the strenuous part",
+    "body": "Pete appears to have misunderstood which part of Extremely Tight Ends required exaggerating. The record is 4–2. The tight end scored 1.4. Harold Fannin Jr. was the only starter below three, which seems an unusually restrained interpretation of extremely.\n\nJames Cook supplied 22.8 and DeMario Douglas added 16.1 from a flex spot in the 98.06–85.50 win over RFK Jr’s Bears. I made the preview about whether two ridiculous names could support a serious contest. Pete has supplied the more interesting distinction: the thing everybody remembers about a team need not be the thing helping it win. We are discussing the tight end because Pete has practically instructed us to. Douglas, whose surname has not been worked into an innuendo, was rather more useful.\n\nJason got thirteen each from Blake Corum and Puka Nacua. Derrick Henry and Marvin Harrison Jr. combined for 9.4. Josh Allen supplied 18.3, but there was no enormous score available to make the quieter contributions disappear. The Bears fall to 3–3. Pete’s lineup also had an uncomfortable detail: Trevor Lawrence scored 28.34 on the bench, nearly ten more than Brock Purdy. Winning makes that considerably easier to scroll past.\n\nThere is a particular freedom in getting away with a name like this. Lose, and everyone can point to the 1.4. Win, and they are forced to put Extremely Tight Ends fourth in the standings. Fannin need not have done much. Pete has made the rest of the league type it.",
+    "kind": "recap",
+    "editorialVersion": "doge-week6-closeout-v3-20261020",
+    "source": {
+      "status": "FINAL",
+      "capturedAt": "2026-10-20T08:03:14Z/2026-10-20T08:04:59Z",
+      "evidence": {
+        "provider": "Flaim authenticated Yahoo",
+        "leagueKey": "470.l.226614",
+        "filesSha256": {
+          "rosters-470.l.226614.json": "3f1300647e2f86fc92cb415731e4f15b08c272a7e439d2e2d631b023cfec1649",
+          "matchups-470.l.226614.json": "a69765bae98d3ab2a20f4c0dabe87788fc7f9bc1118c9e472034decdeee00911",
+          "standings-470.l.226614.json": "526bc5135632716a98976c9d9fd44e6e400c8f4c3c1edec87fd3309e85a47709"
+        },
+        "matchupWeek": 6,
+        "providerAsOf": null,
+        "previewSource": "data/week6-matchup-columns.json",
+        "providerFinal": true,
+        "observedGateUTC": "2026-10-20T08:03:14Z/2026-10-20T08:03:38Z",
+        "actualScoresOnly": true,
+        "priorScriptSource": "/workspace/shared/closeout-readiness-20261020-0400/overnight-preflight-manifest.json",
+        "snapshotDirectory": "/workspace/shared/closeout-readiness-20261020-0800",
+        "observedRostersUTC": "2026-10-20T08:04:10Z/2026-10-20T08:04:37Z",
+        "counterfactualLimit": "Hindsight arithmetic on retrieved weekly slots; acquisition and availability at lineup lock not independently established.",
+        "sourceTimestampNote": "Flaim supplied no upstream Yahoo refresh timestamp; timestamps are retrieval observations, not claims of upstream freshness."
+      }
+    },
+    "approval": {
+      "messageId": "Sentinel_6fe6648bcddc8191aa193d63051f9829",
+      "approvedAt": "2026-10-20T12:36:30.385421Z",
+      "scope": "Exact Week 6 written recaps and weekly sections only; scripts and reels excluded"
+    },
+    "publicationArticleId": "0c66b369-745d-45da-af4e-32a7af693096",
+    "bodySha256": "dcbbe2c91e08f932c4eff459b9cfc187bf4a67008f91c692c228906de44b7c0c"
+  },
+  {
+    "edition": "doge",
+    "season": 2026,
+    "week": 6,
+    "teamIds": [
+      "4",
+      "11"
+    ],
+    "writer": "pike",
+    "headline": "A very expensive ninety-eight hundredths",
+    "body": "Corey produced the second-highest score in DOGE4 this week and received the same win total as the man who finished last. Unfortunately, he was playing the highest. Ordway and Son won 137.80–136.82. The preview asked why comparable production was buying Jason so much more success. The answer arrived with a margin of 0.98, which feels unnecessarily specific.\n\nThere was plenty worth keeping in El Niño Grande’s lineup. Bhayshul Tuten supplied 22.7. Isaiah Likely added 20.9 from a flex spot, another productive week for Corey’s two-tight-end arrangement. Jaxon Smith-Njigba contributed 19.4. This was not a good-looking total assembled around one impossible performance. Several positions worked, and the result still went elsewhere.\n\nJason, meanwhile, survived 0.9 from Mark Andrews and zero from Cam Skattebo. Drake Maye, Chuba Hubbard and D’Andre Swift combined for 66.4; Tyler Bass contributed seventeen. There is no need to invent a sophisticated management doctrine that explains why this lineup won by less than a point. It produced enough, distributed imperfectly, against the only other team that came close.\n\nThe cumulative figures now make the distinction brutal. Jason leads the league at 5–1 with 784.52 points. Corey is 2–4 with 770.20, second in scoring and eighth in the standings. Three games of separation in the win column have been purchased with 14.32 extra points across six weeks. Corey does not need to dismantle an offense that keeps supplying evidence in its favor. He needs a result. Unfortunately, the league does not sell those separately, and it has once again declined his offer to pay in points.",
+    "kind": "recap",
+    "editorialVersion": "doge-week6-closeout-v3-20261020",
+    "source": {
+      "status": "FINAL",
+      "capturedAt": "2026-10-20T08:03:14Z/2026-10-20T08:04:59Z",
+      "evidence": {
+        "provider": "Flaim authenticated Yahoo",
+        "leagueKey": "470.l.226614",
+        "filesSha256": {
+          "rosters-470.l.226614.json": "3f1300647e2f86fc92cb415731e4f15b08c272a7e439d2e2d631b023cfec1649",
+          "matchups-470.l.226614.json": "a69765bae98d3ab2a20f4c0dabe87788fc7f9bc1118c9e472034decdeee00911",
+          "standings-470.l.226614.json": "526bc5135632716a98976c9d9fd44e6e400c8f4c3c1edec87fd3309e85a47709"
+        },
+        "matchupWeek": 6,
+        "providerAsOf": null,
+        "previewSource": "data/week6-matchup-columns.json",
+        "providerFinal": true,
+        "observedGateUTC": "2026-10-20T08:03:14Z/2026-10-20T08:03:38Z",
+        "actualScoresOnly": true,
+        "priorScriptSource": "/workspace/shared/closeout-readiness-20261020-0400/overnight-preflight-manifest.json",
+        "snapshotDirectory": "/workspace/shared/closeout-readiness-20261020-0800",
+        "observedRostersUTC": "2026-10-20T08:04:10Z/2026-10-20T08:04:37Z",
+        "counterfactualLimit": "Hindsight arithmetic on retrieved weekly slots; acquisition and availability at lineup lock not independently established.",
+        "sourceTimestampNote": "Flaim supplied no upstream Yahoo refresh timestamp; timestamps are retrieval observations, not claims of upstream freshness."
+      }
+    },
+    "approval": {
+      "messageId": "Sentinel_6fe6648bcddc8191aa193d63051f9829",
+      "approvedAt": "2026-10-20T12:36:30.385421Z",
+      "scope": "Exact Week 6 written recaps and weekly sections only; scripts and reels excluded"
+    },
+    "publicationArticleId": "aff34699-9b1c-4bf8-8bd3-1690928227db",
+    "bodySha256": "3c5dbc2b166c9d191809622e46f3cd7520bb32f20744f566029190edef187ce2"
+  },
+  {
+    "edition": "doge",
+    "season": 2026,
+    "week": 6,
+    "teamIds": [
+      "5",
+      "7"
+    ],
+    "writer": "crane",
+    "headline": "The family result survives the bench audit",
+    "body": "Andrew has beaten his brother, and the family result comes with a small piece of arithmetic that makes it harder to dismiss. Jerruh’s World won 109.48–83.72. Bennett left Tre Tucker’s 26.2 on the bench. Move Tucker into MarShawn Lloyd’s one-point flex spot and Andrew still wins, by 0.56. Even the obvious alternate ending refuses to get Bennett home.\n\nThe preview made much of the brothers’ competing claims to the top of the league. Kenneth Walker supplied the more practical argument: 28.9 points for Andrew. Hunter Henry and Ryan Flournoy contributed another 26.3 between them. Andrew did this with a zero from Tyler Warren in the other flex spot, so nobody involved is being invited to submit the lineup as a model of human perfection.\n\nFor Tranimal, Malik Nabers scored 26.5 and DK Metcalf added 14.8. The two starting running backs combined for 14.1. Last week Bennett won comfortably behind running-back production; this week that part of the arrangement stopped doing enough. Tucker’s bench score deserves inspection, but it should not swallow the account of a team that finished more than twenty-five points behind.\n\nBoth brothers are now 4–2. Bennett remains narrowly ahead on season points, which is the sort of technical distinction a table is obliged to honor and a sibling is free to find unpersuasive. I cannot tell you what either man will say about this game. The result supplies sufficient material without fabricating the conversation. Andrew won the actual matchup, and he survives the most conspicuous one-player rewrite. Bennett can keep his place immediately above him in the standings. It has become a remarkably poor place to look down from.",
+    "kind": "recap",
+    "editorialVersion": "doge-week6-closeout-v3-20261020",
+    "source": {
+      "status": "FINAL",
+      "capturedAt": "2026-10-20T08:03:14Z/2026-10-20T08:04:59Z",
+      "evidence": {
+        "provider": "Flaim authenticated Yahoo",
+        "leagueKey": "470.l.226614",
+        "filesSha256": {
+          "rosters-470.l.226614.json": "3f1300647e2f86fc92cb415731e4f15b08c272a7e439d2e2d631b023cfec1649",
+          "matchups-470.l.226614.json": "a69765bae98d3ab2a20f4c0dabe87788fc7f9bc1118c9e472034decdeee00911",
+          "standings-470.l.226614.json": "526bc5135632716a98976c9d9fd44e6e400c8f4c3c1edec87fd3309e85a47709"
+        },
+        "matchupWeek": 6,
+        "providerAsOf": null,
+        "previewSource": "data/week6-matchup-columns.json",
+        "providerFinal": true,
+        "observedGateUTC": "2026-10-20T08:03:14Z/2026-10-20T08:03:38Z",
+        "actualScoresOnly": true,
+        "priorScriptSource": "/workspace/shared/closeout-readiness-20261020-0400/overnight-preflight-manifest.json",
+        "snapshotDirectory": "/workspace/shared/closeout-readiness-20261020-0800",
+        "observedRostersUTC": "2026-10-20T08:04:10Z/2026-10-20T08:04:37Z",
+        "counterfactualLimit": "Hindsight arithmetic on retrieved weekly slots; acquisition and availability at lineup lock not independently established.",
+        "sourceTimestampNote": "Flaim supplied no upstream Yahoo refresh timestamp; timestamps are retrieval observations, not claims of upstream freshness."
+      }
+    },
+    "approval": {
+      "messageId": "Sentinel_6fe6648bcddc8191aa193d63051f9829",
+      "approvedAt": "2026-10-20T12:36:30.385421Z",
+      "scope": "Exact Week 6 written recaps and weekly sections only; scripts and reels excluded"
+    },
+    "publicationArticleId": "6cef64b0-7d73-4afb-8191-45e91dc27374",
+    "bodySha256": "980ca1e194aec2c5f608933e4544d93af09c5af3c9f31856206fadcae630eaf7"
+  },
+  {
+    "edition": "loog",
+    "season": 2026,
+    "week": 6,
+    "teamIds": [
+      "1",
+      "11"
+    ],
+    "writer": "pike",
+    "headline": "The same record bought very different things",
+    "body": "Roy and the Katz Brothers arrived at four and one, which was enough to make our preview treat them as comparable investments. Roy then won 175.48–72.32. The records had been identical. Almost everything required to produce the next result was not.\n\nChat GPT's Chosen Ones had four starters outscore Lloyd's best contributor, kicker Chase McLaughlin. Christian McCaffrey led with 33.3; C.J. Stroud and Isaiah Likely supplied another 48.98. Chris Boswell added 20.5, an especially unhelpful detail for a team whose kicker was already doing more than any of its football players. Roy did not merely purchase the premium version of this matchup. He received several features Lloyd had not been shown.\n\nThere are bench choices to inspect on the losing side. Trevor Lawrence scored 28.64 against Dak Prescott's 10.22. Emeka Egbuka and Dalton Kincaid also outscored players in corresponding starting positions. But a quarterback switch alone recovers 18.42 from a 103.16-point deficit. Calling this a lineup-selection defeat would imply that the missing hundred points were all sitting neatly beside the active roster, waiting for a more attentive manager.\n\nThe preseason projections had placed Lloyd twelfth and Roy eighth; both have already made those forecasts look inadequate. That remains true after the rout. Lloyd is four and two, not suddenly the team the old projection imagined. Roy is five and one, with the week's highest score and eight starters in double figures. The useful revision is narrower: stop valuing identical records as identical rosters. Lloyd still owns four wins. This week reveals how little protection they provide against the next invoice.",
+    "kind": "recap",
+    "editorialVersion": "2026-week6-loog-v2-20261020",
+    "source": {
+      "status": "FINAL",
+      "capturedAt": "2026-10-20T08:03:14Z/2026-10-20T08:04:59Z",
+      "evidence": {
+        "matchup": {
+          "away": {
+            "teamId": 1,
+            "teamName": "Chat GPT's Chosen Ones",
+            "totalPoints": 175.48,
+            "currentPoints": 175.48,
+            "totalProjectedPoints": 144.26744767,
+            "pointsByScoringPeriod": {
+              "6": 175.48
+            }
+          },
+          "home": {
+            "teamId": 11,
+            "teamName": "Lloyd of the Rings",
+            "totalPoints": 72.32,
+            "currentPoints": 72.32,
+            "totalProjectedPoints": 143.87327179,
+            "pointsByScoringPeriod": {
+              "6": 72.32
+            }
+          },
+          "winner": "AWAY",
+          "matchupPeriodId": 6,
+          "playoffTierType": "NONE"
+        },
+        "humanHinge": "Record equality concealed distribution/depth; one QB counterfactual cannot repair103.16gap.",
+        "sourceFiles": [
+          "/workspace/shared/closeout-readiness-20261020-0800/matchups-310731.json",
+          "/workspace/shared/closeout-readiness-20261020-0800/player-matchups-310731.json",
+          "/workspace/shared/closeout-readiness-20261020-0800/standings-310731.json",
+          "/workspace/shared/closeout-readiness-20261020-0800/rosters-310731.json"
+        ],
+        "observationsUTC": {
+          "gate": "2026-10-20T08:03:14Z/2026-10-20T08:03:38Z",
+          "weeklyPlayers": "2026-10-20T08:04:48Z/2026-10-20T08:04:59Z"
+        },
+        "noPlayByPlayClaim": true,
+        "sourceCaptureManifest": "/workspace/shared/closeout-readiness-20261020-0800/manifest.json"
+      }
+    },
+    "approval": {
+      "messageId": "Sentinel_6fe6648bcddc8191aa193d63051f9829",
+      "approvedAt": "2026-10-20T12:36:30.385421Z",
+      "scope": "Exact Week 6 written recaps and weekly sections only; scripts and reels excluded"
+    },
+    "publicationArticleId": "def41281-e800-4c74-9717-0f5c8e7bf88a",
+    "bodySha256": "4fe4d3f93d409c366d4b84d5d300b3b437df1a977d020db6c4cd4b9c146d7ddc"
+  },
+  {
+    "edition": "loog",
+    "season": 2026,
+    "week": 6,
+    "teamIds": [
+      "2",
+      "4"
+    ],
+    "writer": "sorrell",
+    "headline": "The receivers have joined the discussion",
+    "body": "Last week, Route 22's two starting wide receivers combined for five points. This week Tet McMillan and Xavier Worthy combined for 30.9. Choe and Stone can postpone the sweeping statement about leadership. People catching footballs has made a promising start.\n\nThe Clubhouse beat DarkHorse Danir 133.18–123.86, returning to three and three while Danny fell to two and four. James Cook led Route 22 with 27.5, but the receivers supplied the revealing change: two productive starting slots where the previous lineup had barely registered. Our preview presented this as competing management theories. The winning theory turned out to have considerably more receiving yardage attached to it.\n\nThere is still no reason to issue the entire operation a certificate of excellence. Tyler Shough scored 28.46 on the bench to Matthew Stafford's 15.88 in the lineup; Brian Robinson supplied 2.2 in a flex spot. Route 22 won without getting every choice right in retrospect. That is a rather more attainable ambition than the immaculate lineup, which remains easiest to construct on Tuesday.\n\nDanny, meanwhile, got thirty from Malik Nabers and 24.9 from Bhayshul Tuten. The two biggest contributions did not rescue a zero at tight end or make the remaining slots disappear. His 853.79 season points are a fraction above Roy's 853.78, yet the brothers leave with records of two and four and five and one. That is not a managerial diagnosis. It is a warning against pretending the standings explain everything. Route 22 has improved its immediate problem. Danny still has to win a game in which the evidence is not merely sympathetic.",
+    "kind": "recap",
+    "editorialVersion": "2026-week6-loog-v2-20261020",
+    "source": {
+      "status": "FINAL",
+      "capturedAt": "2026-10-20T08:03:14Z/2026-10-20T08:04:59Z",
+      "evidence": {
+        "matchup": {
+          "away": {
+            "teamId": 4,
+            "teamName": "The Route 22 Clubhouse",
+            "totalPoints": 133.18,
+            "currentPoints": 133.18,
+            "totalProjectedPoints": 152.75204438,
+            "pointsByScoringPeriod": {
+              "6": 133.18
+            }
+          },
+          "home": {
+            "teamId": 2,
+            "teamName": "DarkHorse Danir",
+            "totalPoints": 123.86,
+            "currentPoints": 123.86,
+            "totalProjectedPoints": 110.52754276,
+            "pointsByScoringPeriod": {
+              "6": 123.86
+            }
+          },
+          "winner": "AWAY",
+          "matchupPeriodId": 6,
+          "playoffTierType": "NONE"
+        },
+        "humanHinge": "Route22 receiver recovery; Danny PF/record divergence prevents simplistic competence claim.",
+        "sourceFiles": [
+          "/workspace/shared/closeout-readiness-20261020-0800/matchups-310731.json",
+          "/workspace/shared/closeout-readiness-20261020-0800/player-matchups-310731.json",
+          "/workspace/shared/closeout-readiness-20261020-0800/standings-310731.json",
+          "/workspace/shared/closeout-readiness-20261020-0800/rosters-310731.json"
+        ],
+        "observationsUTC": {
+          "gate": "2026-10-20T08:03:14Z/2026-10-20T08:03:38Z",
+          "weeklyPlayers": "2026-10-20T08:04:48Z/2026-10-20T08:04:59Z"
+        },
+        "noPlayByPlayClaim": true,
+        "sourceCaptureManifest": "/workspace/shared/closeout-readiness-20261020-0800/manifest.json"
+      }
+    },
+    "approval": {
+      "messageId": "Sentinel_6fe6648bcddc8191aa193d63051f9829",
+      "approvedAt": "2026-10-20T12:36:30.385421Z",
+      "scope": "Exact Week 6 written recaps and weekly sections only; scripts and reels excluded"
+    },
+    "publicationArticleId": "76ade9d2-c90b-4e89-bc73-405a96209b9b",
+    "bodySha256": "39f6c52f2c53a5caec83cd3bc3df9290184084fb7abca4aaa275bd00e05d4076"
+  },
+  {
+    "edition": "loog",
+    "season": 2026,
+    "week": 6,
+    "teamIds": [
+      "3",
+      "12"
+    ],
+    "writer": "crane",
+    "headline": "One is quite a lot",
+    "body": "The All Ugly Team has won a game. Please allow that sentence to stand without immediately asking whether it can happen again. Cody and Ferret spent five weeks accumulating evidence against the possibility. Their first victory arrived by 1.45 points, which is an inconsiderate amount of space in which to place two people's relief.\n\nThe oddity is how ordinary the winning lineup looks. Caleb Williams led it with 19.9. DeVonta Smith and Colston Loveland supplied 19.5 apiece. Keon Coleman added 16.9. Nobody scored thirty; eight starters reached double figures. Last week Christian Watson provided forty-one and the team still lost. This time Watson supplied 10.4 and several other people appeared to understand that the afternoon concerned them too.\n\nMatty McGrath's 132.65 was no surrender. George Kittle produced 18.9, Josh Allen 19.8, and CeeDeep had enough useful contributions to make the ending horribly narrow. Khalil Shakir's 14.4 on the bench, against Terry McLaurin's 2.7 in the lineup, leaves an obvious retrospective alternative. That arithmetic cannot tell us what Matty should have known before kickoff. It can tell us why the result will be difficult to leave alone.\n\nOur preview wondered whether shared management explained the losing. A 134.1–132.65 win does not settle the governance question, cure the roster or erase the five losses. It supplies something smaller and considerably more useful: a week in which the answer to “have they won yet?” is yes. Matty is three and three. Cody and Ferret are one and five. The one finally has something to do.",
+    "kind": "recap",
+    "editorialVersion": "2026-week6-loog-v2-20261020",
+    "source": {
+      "status": "FINAL",
+      "capturedAt": "2026-10-20T08:03:14Z/2026-10-20T08:04:59Z",
+      "evidence": {
+        "matchup": {
+          "away": {
+            "teamId": 3,
+            "teamName": "The All Ugly Team",
+            "totalPoints": 134.1,
+            "currentPoints": 134.1,
+            "totalProjectedPoints": 123.77501765,
+            "pointsByScoringPeriod": {
+              "6": 134.1
+            }
+          },
+          "home": {
+            "teamId": 12,
+            "teamName": "CeeDeep Shaheeded Rivalry",
+            "totalPoints": 132.65,
+            "currentPoints": 132.65,
+            "totalProjectedPoints": 138.6869656,
+            "pointsByScoringPeriod": {
+              "6": 132.65
+            }
+          },
+          "winner": "AWAY",
+          "matchupPeriodId": 6,
+          "playoffTierType": "NONE"
+        },
+        "humanHinge": "First victory comes from distributed contributions rather than Week5 Watson eruption.",
+        "sourceFiles": [
+          "/workspace/shared/closeout-readiness-20261020-0800/matchups-310731.json",
+          "/workspace/shared/closeout-readiness-20261020-0800/player-matchups-310731.json",
+          "/workspace/shared/closeout-readiness-20261020-0800/standings-310731.json",
+          "/workspace/shared/closeout-readiness-20261020-0800/rosters-310731.json"
+        ],
+        "observationsUTC": {
+          "gate": "2026-10-20T08:03:14Z/2026-10-20T08:03:38Z",
+          "weeklyPlayers": "2026-10-20T08:04:48Z/2026-10-20T08:04:59Z"
+        },
+        "noPlayByPlayClaim": true,
+        "sourceCaptureManifest": "/workspace/shared/closeout-readiness-20261020-0800/manifest.json"
+      }
+    },
+    "approval": {
+      "messageId": "Sentinel_6fe6648bcddc8191aa193d63051f9829",
+      "approvedAt": "2026-10-20T12:36:30.385421Z",
+      "scope": "Exact Week 6 written recaps and weekly sections only; scripts and reels excluded"
+    },
+    "publicationArticleId": "07053182-b1d5-46ab-ab94-135c4d232e5d",
+    "bodySha256": "0523138171dba44ad64f8f5ee69d9e86ea05b68ed19efc051d9c05e40ee08cf4"
+  },
+  {
+    "edition": "loog",
+    "season": 2026,
+    "week": 6,
+    "teamIds": [
+      "5",
+      "7"
+    ],
+    "writer": "gannon",
+    "headline": "The points were in the running back slots",
+    "body": "Kenneth Walker and Jonathan Taylor combined for 56. Skatt's two starting running backs combined for 8.7. Before we congratulate Kush on a well-rounded performance, that is a 47.3-point advantage at two positions in a game he won by 13.44.\n\nMr Hopkins Opus beat I'm a Skatt man 121.78–108.34 and moved to five and one. Our preview offered this as a measuring stick for the leader. It measured something more specific than general superiority: Kush could carry 0.4 from Cade Otton, 1.7 from Ladd McConkey and a modest quarterback score because Walker and Taylor had already supplied so much elsewhere. That is a real strength. It is not ten strong lineup spots.\n\nSkatt did useful work outside the running back slots. Bryce Young supplied 21.14, Carnell Tate twenty and J.K. Dobbins 16.3 from a flex. Those contributions mattered; they simply did not undo Cam Skattebo's minus-one alongside Kyren Williams's 9.7. Calling the defeat a failure to compete would miss where the competition actually broke down. Skatt outscored Kush across the remaining eight slots by 33.86.\n\nKush also left Jaylin Noel's 25.2 and Romeo Doubs's 15.2 on the bench. Those are retrospective points, not evidence that either receiver was the obvious pregame choice. They do keep this win from becoming an argument that the lineup cannot be improved. Kush remains first, Skatt falls to three and three, and the leader has survived a fairly uneven afternoon. Keep the running backs. Resist teaching the rest of the roster that this is now the arrangement.",
+    "kind": "recap",
+    "editorialVersion": "2026-week6-loog-v2-20261020",
+    "source": {
+      "status": "FINAL",
+      "capturedAt": "2026-10-20T08:03:14Z/2026-10-20T08:04:59Z",
+      "evidence": {
+        "matchup": {
+          "away": {
+            "teamId": 7,
+            "teamName": "Mr Hopkins Opus",
+            "totalPoints": 121.78,
+            "currentPoints": 121.78,
+            "totalProjectedPoints": 157.82267153,
+            "pointsByScoringPeriod": {
+              "6": 121.78
+            }
+          },
+          "home": {
+            "teamId": 5,
+            "teamName": "I'm a Skatt man",
+            "totalPoints": 108.34,
+            "currentPoints": 108.34,
+            "totalProjectedPoints": 138.50202642,
+            "pointsByScoringPeriod": {
+              "6": 108.34
+            }
+          },
+          "winner": "AWAY",
+          "matchupPeriodId": 6,
+          "playoffTierType": "NONE"
+        },
+        "humanHinge": "Two-slot47.3advantage exceeds winning margin; other8slots favor loser33.86.",
+        "sourceFiles": [
+          "/workspace/shared/closeout-readiness-20261020-0800/matchups-310731.json",
+          "/workspace/shared/closeout-readiness-20261020-0800/player-matchups-310731.json",
+          "/workspace/shared/closeout-readiness-20261020-0800/standings-310731.json",
+          "/workspace/shared/closeout-readiness-20261020-0800/rosters-310731.json"
+        ],
+        "observationsUTC": {
+          "gate": "2026-10-20T08:03:14Z/2026-10-20T08:03:38Z",
+          "weeklyPlayers": "2026-10-20T08:04:48Z/2026-10-20T08:04:59Z"
+        },
+        "noPlayByPlayClaim": true,
+        "sourceCaptureManifest": "/workspace/shared/closeout-readiness-20261020-0800/manifest.json"
+      }
+    },
+    "approval": {
+      "messageId": "Sentinel_6fe6648bcddc8191aa193d63051f9829",
+      "approvedAt": "2026-10-20T12:36:30.385421Z",
+      "scope": "Exact Week 6 written recaps and weekly sections only; scripts and reels excluded"
+    },
+    "publicationArticleId": "fad49139-5ded-4b73-afd2-ec56eae4572a",
+    "bodySha256": "5963981a451af32e2d50bc914aa88696c3113926be6acbd7867838d5a9529750"
+  },
+  {
+    "edition": "loog",
+    "season": 2026,
+    "week": 6,
+    "teamIds": [
+      "6",
+      "8"
+    ],
+    "writer": "kells",
+    "headline": "The complaint has changed seats",
+    "body": "Sherm still leads LOOG in scoring. He also left twenty-two points from Kyle Pitts on the bench while Harold Fannin supplied 2.9 at tight end. This is awkward for the part of the complaint in which the universe is supposed to have acted entirely alone.\n\nShake 'N Baker beat Pollard Greens 131.3–121.04, giving Norm his second win and Sherm his third loss. Tre Tucker supplied 28.7 from a flex spot and Chuba Hubbard 25.9 at running back. Tucker alone outscored Norm's two starting wide receivers combined. A flex slot is supposedly where you put the extra person. This one had become rather central to the proceedings.\n\nOur preview predicted the loser would have something to recount about the margin. Sherm has a very specific exhibit: swapping Pitts for Fannin adds 19.1 to a team that lost by 10.26. That establishes a missed outcome, not that the choice was indefensible before the games. The screenshot has the winning alternative. It does not come with the information Sherm had when choosing.\n\nNorm, meanwhile, started Jayden Daniels and got 22.4, with Jacoby Brissett's 8.12 left on the bench. Last week's recap found enough in the opposite quarterback choice to reverse a narrow defeat. This time the points reached the scoreboard. Norm is still two and four; Sherm is three and three with a league-leading 872.57 points. Neither has achieved serenity. But for one week Norm can discuss the players he started, while Sherm must introduce the conversation to a man who was already on his team.",
+    "kind": "recap",
+    "editorialVersion": "2026-week6-loog-v2-20261020",
+    "source": {
+      "status": "FINAL",
+      "capturedAt": "2026-10-20T08:03:14Z/2026-10-20T08:04:59Z",
+      "evidence": {
+        "matchup": {
+          "away": {
+            "teamId": 6,
+            "teamName": "Pollard Greens",
+            "totalPoints": 121.04,
+            "currentPoints": 121.04,
+            "totalProjectedPoints": 142.55628488,
+            "pointsByScoringPeriod": {
+              "6": 121.04
+            }
+          },
+          "home": {
+            "teamId": 8,
+            "teamName": "Shake 'N Baker",
+            "totalPoints": 131.3,
+            "currentPoints": 131.3,
+            "totalProjectedPoints": 141.20670625,
+            "pointsByScoringPeriod": {
+              "6": 131.3
+            }
+          },
+          "winner": "HOME",
+          "matchupPeriodId": 6,
+          "playoffTierType": "NONE"
+        },
+        "humanHinge": "Sherm scoring-leader grievance meets concrete bench gap; Norm QB reversal from Week5.",
+        "sourceFiles": [
+          "/workspace/shared/closeout-readiness-20261020-0800/matchups-310731.json",
+          "/workspace/shared/closeout-readiness-20261020-0800/player-matchups-310731.json",
+          "/workspace/shared/closeout-readiness-20261020-0800/standings-310731.json",
+          "/workspace/shared/closeout-readiness-20261020-0800/rosters-310731.json"
+        ],
+        "observationsUTC": {
+          "gate": "2026-10-20T08:03:14Z/2026-10-20T08:03:38Z",
+          "weeklyPlayers": "2026-10-20T08:04:48Z/2026-10-20T08:04:59Z"
+        },
+        "noPlayByPlayClaim": true,
+        "sourceCaptureManifest": "/workspace/shared/closeout-readiness-20261020-0800/manifest.json"
+      }
+    },
+    "approval": {
+      "messageId": "Sentinel_6fe6648bcddc8191aa193d63051f9829",
+      "approvedAt": "2026-10-20T12:36:30.385421Z",
+      "scope": "Exact Week 6 written recaps and weekly sections only; scripts and reels excluded"
+    },
+    "publicationArticleId": "9bc27c07-785e-4d58-b4b2-d3d672ca9822",
+    "bodySha256": "010a5ccb5ad0292b307b92b86e440f4e12ea23e4d9424f54c6260df98b7f33dc"
+  },
+  {
+    "edition": "loog",
+    "season": 2026,
+    "week": 6,
+    "teamIds": [
+      "9",
+      "10"
+    ],
+    "writer": "march",
+    "headline": "The understudies were not waiting",
+    "body": "For the Love of the Kraft won comfortably with 5.78 from Jameis Winston. Royrek Tishmeshulam lost comfortably with 21.52 from Kirk Cousins. It is reassuring, occasionally, to find a sporting conversation in which the quarterbacks are not permitted to explain everything.\n\nKraft's 145.18–106.97 win rested elsewhere. Germie Bernard supplied 26.7 from a flex spot, D'Andre Swift 25.6 at running back, and Luther Burden added 18.5. Puka Nacua's thirteen counted, of course, but this was not an afternoon in which the most recognizable receiver had to furnish the entire argument. The Chiefs defense contributed eighteen. Kraft had enough useful work distributed around the lineup to absorb the quarterback deficit without making a ceremony of it.\n\nThe other side had its own excellent flex performance: Matthew Golden scored 25.9, more than anyone else in the starting lineup. DK Metcalf added 21.3. The difficulty was at running back, where Rhamondre Stevenson and Najee Harris combined for 5.6, and tight end, where Mark Andrews provided 0.4. Strong contributions had to keep passing through those gaps. Cousins could not politely escort all of them across.\n\nOur preview called the meeting an appointment between two teams at two and three, each seeking the authority to explain his season. Kraft leaves three and three; Tish leaves two and four. The temptation is to attach wisdom to the winner and confusion to the loser. The more useful distinction is that Kraft's less prominent contributors delivered enough to make a disappointing quarterback score incidental. A good roster need not require its most famous people to be interesting every week. It is rather civilized when they can take turns.",
+    "kind": "recap",
+    "editorialVersion": "2026-week6-loog-v2-20261020",
+    "source": {
+      "status": "FINAL",
+      "capturedAt": "2026-10-20T08:03:14Z/2026-10-20T08:04:59Z",
+      "evidence": {
+        "matchup": {
+          "away": {
+            "teamId": 9,
+            "teamName": "For the Love of the Kraft",
+            "totalPoints": 145.18,
+            "currentPoints": 145.18,
+            "totalProjectedPoints": 141.25590308,
+            "pointsByScoringPeriod": {
+              "6": 145.18
+            }
+          },
+          "home": {
+            "teamId": 10,
+            "teamName": "Royrek Tishmeshulam",
+            "totalPoints": 106.97,
+            "currentPoints": 106.97,
+            "totalProjectedPoints": 123.02591904,
+            "pointsByScoringPeriod": {
+              "6": 106.97
+            }
+          },
+          "winner": "AWAY",
+          "matchupPeriodId": 6,
+          "playoffTierType": "NONE"
+        },
+        "humanHinge": "Winner absorbed quarterback deficit via distributed lesser-billed production; avoid generic luck narrative.",
+        "sourceFiles": [
+          "/workspace/shared/closeout-readiness-20261020-0800/matchups-310731.json",
+          "/workspace/shared/closeout-readiness-20261020-0800/player-matchups-310731.json",
+          "/workspace/shared/closeout-readiness-20261020-0800/standings-310731.json",
+          "/workspace/shared/closeout-readiness-20261020-0800/rosters-310731.json"
+        ],
+        "observationsUTC": {
+          "gate": "2026-10-20T08:03:14Z/2026-10-20T08:03:38Z",
+          "weeklyPlayers": "2026-10-20T08:04:48Z/2026-10-20T08:04:59Z"
+        },
+        "noPlayByPlayClaim": true,
+        "sourceCaptureManifest": "/workspace/shared/closeout-readiness-20261020-0800/manifest.json"
+      }
+    },
+    "approval": {
+      "messageId": "Sentinel_6fe6648bcddc8191aa193d63051f9829",
+      "approvedAt": "2026-10-20T12:36:30.385421Z",
+      "scope": "Exact Week 6 written recaps and weekly sections only; scripts and reels excluded"
+    },
+    "publicationArticleId": "73bb0fee-615a-4805-b251-477969dfd6b5",
+    "bodySha256": "4cfd38e9f62918a427c1009845e552589d5591ed7c69b4c240dbca59084c95cd"
+  },
+  {
+    "edition": "sunday-crew",
+    "season": 2026,
+    "week": 6,
+    "teamIds": [
+      "1",
+      "2"
+    ],
+    "writer": "march",
+    "headline": "A more convenient kind of fairness",
+    "body": "Andrew has finally arranged for the standings to agree with him, although only as far as three and three. A Stroke of Bad Luck beat ZAYWATCH 100.52–97.14, leaving both managers with the same record. Our preview noted that Andrew had scored more while Sandy had won more. The direct meeting has resolved the discrepancy by removing Sandy's advantage rather than making either season especially comfortable.\n\nKenneth Walker supplied 28.9, nearly as much as Andrew's other two starting running backs combined with all three starting receivers. Kirk Cousins added 21.52. This was not an afternoon of universal distinction. MarShawn Lloyd contributed one; Pat Freiermuth supplied 2.1. Andrew won with several members of the party apparently attending in an advisory capacity.\n\nSandy's response was less concentrated. Jordan Love, Germie Bernard and George Kittle all reached fifteen, and Bernard's 20.2 gave ZAYWATCH a substantial receiving contribution. It simply did not produce the last 3.38. None of Sandy’s recorded bench players scored. There is no obvious selection to point at after the fact, no gratifying little substitution with which to rewrite the result. This is not evidence of a winning alternative hidden underneath the result.\n\nSandy's three-game winning run ends; Andrew reaches level terms. There is no need to make this a settlement of their relative abilities, much less their histories. Andrew has something more useful than a persuasive explanation this morning: the victory itself. Sandy now has the explanation. The league does enjoy distributing the work.",
+    "kind": "recap",
+    "editorialVersion": "week6-closeout-v2-review-20261020-0813",
+    "source": {
+      "status": "FINAL",
+      "capturedAt": "2026-10-20T08:03:14Z/2026-10-20T08:04:59Z",
+      "evidence": {
+        "away": {
+          "id": "2",
+          "score": 100.52
+        },
+        "home": {
+          "id": "1",
+          "score": 97.14
+        },
+        "status": "final",
+        "winner": "away",
+        "provider": "authenticated-flaim",
+        "leagueKey": "470.l.197826",
+        "matchupId": 1,
+        "limitations": [
+          "No kickoff availability inference from current roster.",
+          "Exact Week6 preview spoken scripts unavailable; callbacks refer to written previews."
+        ],
+        "previewSource": "data__week6-matchup-columns.json",
+        "priorScriptSource": "overnight-preflight-manifest.json",
+        "snapshotDirectory": "/workspace/shared/closeout-readiness-20261020-0800"
+      }
+    },
+    "approval": {
+      "messageId": "Sentinel_6fe6648bcddc8191aa193d63051f9829",
+      "approvedAt": "2026-10-20T12:36:30.385421Z",
+      "scope": "Exact Week 6 written recaps and weekly sections only; scripts and reels excluded"
+    },
+    "publicationArticleId": "0cc31a00-9a3a-4bba-a7ea-4a2bd5b4bd89",
+    "bodySha256": "26074b5bc3e185604627556d5acab471405b9c41911cb8dfdbceefbd92486be2"
+  },
+  {
+    "edition": "sunday-crew",
+    "season": 2026,
+    "week": 6,
+    "teamIds": [
+      "3",
+      "8"
+    ],
+    "writer": "pike",
+    "headline": "The savings account has a password",
+    "body": "Patrick's bench contains Lamar Jackson and Saquon Barkley. Their names look like an answer until you reach the Week 6 points column, where both have zero. The distinction matters. Rhamondre – A Cautionary Tale lost 100.88–88.52 to Nipun, and the familiar exercise of finding the victory Patrick failed to select produces nothing among his recorded reserves. A prestigious bench is not necessarily usable inventory.\n\nThe preview gave Patrick urgency and Nipun patience. The completed lineup gives those abstractions a less flattering physical form. Patrick started Rhamondre Stevenson and Kenny Gainwell for a combined 6.5. DeMario Douglas led his offensive players with 16.1, while the kicker and defense supplied another 23.2 between them. Those contributions kept the result respectable without solving the shortage at running back.\n\nNipun did not need another extraordinary Christian Watson week. C.J. Stroud supplied 23.98; four other offensive starters reached double figures. Derrick Henry's 4.5 and Harold Fannin's 1.4 were survivable because the rest of the lineup kept producing useful amounts. Quentin Johnston, the only scoring player on the recorded bench, would not have improved any of Nipun's starting receiver totals.\n\nThe resulting positions are five and one for Nipun, one and five for Patrick. Our warning against emergency tinkering survives, but it needs a qualification: sometimes the problem is not excessive movement. Sometimes the roster has very little that can move. Patrick does not need to prove that his famous players are famous. He needs a Sunday on which their names come with numbers.",
+    "kind": "recap",
+    "editorialVersion": "week6-closeout-v2-review-20261020-0813",
+    "source": {
+      "status": "FINAL",
+      "capturedAt": "2026-10-20T08:03:14Z/2026-10-20T08:04:59Z",
+      "evidence": {
+        "away": {
+          "id": "8",
+          "score": 100.88
+        },
+        "home": {
+          "id": "3",
+          "score": 88.52
+        },
+        "status": "final",
+        "winner": "away",
+        "provider": "authenticated-flaim",
+        "leagueKey": "470.l.197826",
+        "matchupId": 2,
+        "limitations": [
+          "No kickoff availability inference from current roster.",
+          "Exact Week6 preview spoken scripts unavailable; callbacks refer to written previews."
+        ],
+        "previewSource": "data__week6-matchup-columns.json",
+        "priorScriptSource": "overnight-preflight-manifest.json",
+        "snapshotDirectory": "/workspace/shared/closeout-readiness-20261020-0800"
+      }
+    },
+    "approval": {
+      "messageId": "Sentinel_6fe6648bcddc8191aa193d63051f9829",
+      "approvedAt": "2026-10-20T12:36:30.385421Z",
+      "scope": "Exact Week 6 written recaps and weekly sections only; scripts and reels excluded"
+    },
+    "publicationArticleId": "cb20ef0b-3502-4be2-9d01-cd504d628393",
+    "bodySha256": "1b2c127b396cfdf9a7bd43efd9dc81a03a8fc10b35696948ee03199fd5468a40"
+  },
+  {
+    "edition": "sunday-crew",
+    "season": 2026,
+    "week": 6,
+    "teamIds": [
+      "4",
+      "6"
+    ],
+    "writer": "kells",
+    "headline": "The resemblance was temporary",
+    "body": "Paul and Ravi arrived separated by less than three season points. They left separated by 35.34 on the week, which feels excessive for two people who had spent five Sundays establishing how much they had in common. Croatian Sensation won 131.30–95.96. The resemblance has been discontinued, and Paul gets to keep the more flattering photograph.\n\nIt was not his receivers who broke the symmetry. Davante Adams, A.J. Brown and Rome Odunze combined for fifteen, an unusually expensive-looking way to obtain fifteen. James Cook and D'Andre Swift supplied 43.8 at running back. Drake Maye added 25.8, and the Chiefs defense contributed 19.6. Paul could have placed the three receivers in a separate, much less successful fantasy league and still had most of his afternoon intact.\n\nRavi's receivers were considerably more cooperative. Drake London, CeeDee Lamb and Khalil Shakir all reached double figures, with DeVonta Smith adding seventeen in the flex. Then the lineup wandered elsewhere: Justin Herbert finished below ten, Mark Andrews below one, and neither starting running back reached double digits. It is mildly offensive to have the better receiving afternoon and lose this decisively. It is also what the other positions are for.\n\nPaul reaches four and two; Ravi drops to three and three. There is no single benched savior to rescue Ravi's result, and Paul's win does not make every choice immaculate: Hunter Henry outscored Travis Kelce from the bench. But our preview anticipated competing explanations from two nearly identical teams. Paul can now decline the discussion. His running backs have already supplied rather more separation than good manners require.",
+    "kind": "recap",
+    "editorialVersion": "week6-closeout-v2-review-20261020-0813",
+    "source": {
+      "status": "FINAL",
+      "capturedAt": "2026-10-20T08:03:14Z/2026-10-20T08:04:59Z",
+      "evidence": {
+        "away": {
+          "id": "6",
+          "score": 95.96
+        },
+        "home": {
+          "id": "4",
+          "score": 131.3
+        },
+        "status": "final",
+        "winner": "home",
+        "provider": "authenticated-flaim",
+        "leagueKey": "470.l.197826",
+        "matchupId": 3,
+        "limitations": [
+          "No kickoff availability inference from current roster.",
+          "Exact Week6 preview spoken scripts unavailable; callbacks refer to written previews."
+        ],
+        "previewSource": "data__week6-matchup-columns.json",
+        "priorScriptSource": "overnight-preflight-manifest.json",
+        "snapshotDirectory": "/workspace/shared/closeout-readiness-20261020-0800"
+      }
+    },
+    "approval": {
+      "messageId": "Sentinel_6fe6648bcddc8191aa193d63051f9829",
+      "approvedAt": "2026-10-20T12:36:30.385421Z",
+      "scope": "Exact Week 6 written recaps and weekly sections only; scripts and reels excluded"
+    },
+    "publicationArticleId": "cf3e3dc8-5822-49a9-b386-a3de6696d0df",
+    "bodySha256": "471cf77b5af4b796eec7f8d19c4f7a6a2bfeb0cf1f8736ce3c8e4c2faed99444"
+  },
+  {
+    "edition": "sunday-crew",
+    "season": 2026,
+    "week": 6,
+    "teamIds": [
+      "5",
+      "10"
+    ],
+    "writer": "crane",
+    "headline": "Forty-four hundredths of a rescue",
+    "body": "Matt had 26.96 from Tyler Shough on the bench and 11.48 from Patrick Mahomes in the lineup. There is a familiar little tragedy available here, until the arithmetic interferes: swapping the quarterbacks would still have left Forte inch Ditka 0.44 behind Cody. Even the imaginary rescue needed somebody to come back with a second vehicle.\n\nCHANE GANG won 112.90–96.98. Our preview framed this as two struggling teams meeting without the consolation of a glamorous opponent. Cody's actual lineup made the more interesting distinction. Jaxon Smith-Njigba, Luther Burden, Tet McMillan and flex receiver Carnell Tate supplied 62.5 between them. Four separate receiving spots, all in double figures. A zero from Juwan Johnson at tight end did not swallow the afternoon because the receivers kept handing something back.\n\nMatt had substantial help from Jonathan Taylor and Isaiah Likely, who combined for forty-one. Beyond that, the contribution became uneven. Blake Corum's thirteen on the bench exceeded Omarion Hampton's 5.9 by 7.1, a real same-position improvement but not enough by itself to change the result. The two substitutions together would reverse it. That is a retrospective calculation, not evidence that either choice was obvious before kickoff.\n\nBoth managers are now two and four. Cody has another win to work from; Matt has a quarterback question that was already present in last week's coverage. The distinction matters more than a verdict on Mahomes from one afternoon. We keep looking for the one decision that explains an entire loss. This one required two. Cody, mercifully, can spend the morning with the lineup that actually played.",
+    "kind": "recap",
+    "editorialVersion": "week6-closeout-v2-review-20261020-0813",
+    "source": {
+      "status": "FINAL",
+      "capturedAt": "2026-10-20T08:03:14Z/2026-10-20T08:04:59Z",
+      "evidence": {
+        "away": {
+          "id": "10",
+          "score": 112.9
+        },
+        "home": {
+          "id": "5",
+          "score": 96.98
+        },
+        "status": "final",
+        "winner": "away",
+        "provider": "authenticated-flaim",
+        "leagueKey": "470.l.197826",
+        "matchupId": 4,
+        "limitations": [
+          "No kickoff availability inference from current roster.",
+          "Exact Week6 preview spoken scripts unavailable; callbacks refer to written previews."
+        ],
+        "previewSource": "data__week6-matchup-columns.json",
+        "priorScriptSource": "overnight-preflight-manifest.json",
+        "snapshotDirectory": "/workspace/shared/closeout-readiness-20261020-0800"
+      }
+    },
+    "approval": {
+      "messageId": "Sentinel_6fe6648bcddc8191aa193d63051f9829",
+      "approvedAt": "2026-10-20T12:36:30.385421Z",
+      "scope": "Exact Week 6 written recaps and weekly sections only; scripts and reels excluded"
+    },
+    "publicationArticleId": "52850c6a-2cc0-44b8-81af-e05df02cebbb",
+    "bodySha256": "264a1ac20c227c7197440c68fae4202404c819915f461b01eb5a54278fd53c51"
+  },
+  {
+    "edition": "sunday-crew",
+    "season": 2026,
+    "week": 6,
+    "teamIds": [
+      "7",
+      "12"
+    ],
+    "writer": "gannon",
+    "headline": "The ceiling was already in the lineup",
+    "body": "Joe did not merely find enough ceiling to trouble Runit. J Bird scored 151.74, the highest total in Sunday Crew, and beat RBs are Overrated by 58.94. Our preview asked whether Joe could make the favorite react. There is a point at which react becomes an unnecessarily ambitious assignment. Runit finished at 92.80.\n\nMalik Nabers and Christian McCaffrey supplied 55.7. That pair almost covered the entire winning margin, but the separation was not confined to two stars: Colston Loveland scored 15.5, Tyler Bass seventeen and the Steelers defense 14.6. Across quarterback, running back, receiver, tight end, kicker and defense, Joe had a starter above twelve. This was ceiling distributed across positions, not one eruption concealing a lineup that otherwise failed.\n\nThe bench makes the outcome stranger without improving the process verdict. Tre Tucker scored 26.2 while Denzel Boston supplied two in the flex. That is a 24.2-point receiving substitution Joe could have benefited from retrospectively. It does not mean he should have known it beforehand, and it certainly does not turn a league-leading afternoon into an instructional failure. Winning comfortably is allowed to coexist with points left unused.\n\nRunit had improvements available too, including RJ Harvey over Bucky Irving and Keon Coleman over Michael Wilson. Neither comes remotely close to erasing the margin by itself. Joe reaches three and three after opening with three losses; Runit is four and two. Three straight wins now support Joe's recovery. The next test is repeating useful production, not demanding another one fifty. He has already demonstrated that an imperfect lineup can be a very strong one.",
+    "kind": "recap",
+    "editorialVersion": "week6-closeout-v2-review-20261020-0813",
+    "source": {
+      "status": "FINAL",
+      "capturedAt": "2026-10-20T08:03:14Z/2026-10-20T08:04:59Z",
+      "evidence": {
+        "away": {
+          "id": "12",
+          "score": 92.8
+        },
+        "home": {
+          "id": "7",
+          "score": 151.74
+        },
+        "status": "final",
+        "winner": "home",
+        "provider": "authenticated-flaim",
+        "leagueKey": "470.l.197826",
+        "matchupId": 5,
+        "limitations": [
+          "No kickoff availability inference from current roster.",
+          "Exact Week6 preview spoken scripts unavailable; callbacks refer to written previews."
+        ],
+        "previewSource": "data__week6-matchup-columns.json",
+        "priorScriptSource": "overnight-preflight-manifest.json",
+        "snapshotDirectory": "/workspace/shared/closeout-readiness-20261020-0800"
+      }
+    },
+    "approval": {
+      "messageId": "Sentinel_6fe6648bcddc8191aa193d63051f9829",
+      "approvedAt": "2026-10-20T12:36:30.385421Z",
+      "scope": "Exact Week 6 written recaps and weekly sections only; scripts and reels excluded"
+    },
+    "publicationArticleId": "aa125ad0-e0ed-4701-932f-15bf84ced7e5",
+    "bodySha256": "a48a2b6e53019fe225bff88cb91011c42fb435d26d32065eafbb24d055cf49bf"
+  },
+  {
+    "edition": "sunday-crew",
+    "season": 2026,
+    "week": 6,
+    "teamIds": [
+      "9",
+      "11"
+    ],
+    "writer": "sorrell",
+    "headline": "Justice lowers its standards",
+    "body": "Drew collected his second win in a game in which he was not especially good. He entered the week leading Sunday Crew in scoring with a single victory. Scrump beat Tolbert's Cookies 90.26–88.78. Nine other teams scored more than Drew. The schedule, having spent September refusing to recognize his work, has now approved a much weaker application.\n\nMatthew Golden supplied 21.4, Brock Purdy 17.36 and DK Metcalf 14.8. Elsewhere, Scrump did enough damage to itself to keep the matter open: Cam Skattebo finished with zero, Courtland Sutton with 2.9, and the kicker with two. None of the recorded reserves offered the sort of replacement that would turn this into a story about Drew overlooking a great performance. He won with the points actually available in his selected lineup, which is refreshing chiefly because he previously kept losing with considerably more.\n\nGreg's bench presents a different problem. Trevor Lawrence outscored Matthew Stafford by 11.46. Bhayshul Tuten outscored both starting running backs, and Alvin Kamara exceeded both as well. Any one of several straightforward same-position changes would have erased a 1.48-point defeat. That does not establish which choice was justified before kickoff. It does establish that this particular loss has a more practical investigation available than an appeal to cosmic fairness.\n\nDrew is two and four. Greg is four and two after losing consecutive games. Our preview offered Drew another chance to prove the standings wrong. Instead, the standings have finally done him a favor. He need not return it out of intellectual consistency. The championship was not awarded for maintaining a coherent complaint.",
+    "kind": "recap",
+    "editorialVersion": "week6-closeout-v3-precision-20261020-0815",
+    "source": {
+      "status": "FINAL",
+      "capturedAt": "2026-10-20T08:03:14Z/2026-10-20T08:04:59Z",
+      "evidence": {
+        "away": {
+          "id": "11",
+          "score": 88.78
+        },
+        "home": {
+          "id": "9",
+          "score": 90.26
+        },
+        "status": "final",
+        "winner": "home",
+        "provider": "authenticated-flaim",
+        "leagueKey": "470.l.197826",
+        "matchupId": 6,
+        "limitations": [
+          "No kickoff availability inference from current roster.",
+          "Exact Week6 preview spoken scripts unavailable; callbacks refer to written previews."
+        ],
+        "previewSource": "data__week6-matchup-columns.json",
+        "priorScriptSource": "overnight-preflight-manifest.json",
+        "snapshotDirectory": "/workspace/shared/closeout-readiness-20261020-0800"
+      }
+    },
+    "approval": {
+      "messageId": "Sentinel_6fe6648bcddc8191aa193d63051f9829",
+      "approvedAt": "2026-10-20T12:36:30.385421Z",
+      "scope": "Exact Week 6 written recaps and weekly sections only; scripts and reels excluded"
+    },
+    "publicationArticleId": "3b5f2869-c1e9-42b1-8363-dcf808f3a231",
+    "bodySha256": "bc9883cab70f1cabbfa4c116e594524506f55d6582d6a2535fb8b13bddf8d392"
   }
 ]
