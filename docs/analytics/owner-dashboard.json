@@ -1,0 +1,18 @@
+{
+  "name": "The Brief: reader engagement",
+  "status": "definition only; not created in PostHog",
+  "access": "owner only, no public sharing",
+  "default_window": "last 7 days",
+  "timezone": "America/New_York",
+  "filters": ["league", "correspondent", "article_id"],
+  "panels": [
+    {"name": "Article views and browsers", "event": "article_view", "aggregations": ["total", "unique distinct_id"], "breakdown": ["article_id", "league"]},
+    {"name": "Foreground engagement per visit", "definition": "Sum article_read_time.active_seconds by visit_id; left join article_view visits, filling missing time with zero; report median and view count by article_id/league."},
+    {"name": "75% article-body exposure", "definition": "Distinct visit_id with article_scroll.scroll_percent=75 divided by distinct article_view.visit_id for same article/league and window. Show numerator and denominator. Not reading completion."},
+    {"name": "Observed returning browsers", "definition": "Count distinct_id with page_view or article_view on two or more local calendar dates in window; report alongside all distinct browsers. Not cross-device people or cohort retention."},
+    {"name": "Entry choices", "event": "carousel_click", "aggregation": "total", "breakdown": ["article_id", "placement", "league"], "limitation": "No impressions collected; this is not CTR."},
+    {"name": "Reel playback", "events": ["reel_start", "reel_complete"], "aggregation": "total", "breakdown": ["reel_id", "league"], "limitation": "Autoplay starts and seek-to-end completions possible; no full-watch claim."}
+  ],
+  "sample_policy": "Always show counts; under 20 views describe sparse evidence, not winners. This is not a significance threshold.",
+  "reporting": "Rika interprets results for Cody on request or within existing authorized work; no new schedule."
+}

@@ -38,7 +38,7 @@ export default function AlsoShelf({videos=[]}){
   return <section className={styles.wrap} aria-label="Also, from The Brief">
     <div className={styles.head}><h2>also…</h2></div>
     <div className={styles.rail}>
-      {videos.map((v,i)=><button type="button" className={styles.card} key={v.id} onClick={()=>open(i)} aria-label={`Watch ${v.title} by ${v.correspondent}`}>
+      {videos.map((v,i)=><button data-analytics-carousel="also" data-analytics-reel={v.id} data-analytics-writer={v.correspondent} type="button" className={styles.card} key={v.id} onClick={()=>open(i)} aria-label={`Watch ${v.title} by ${v.correspondent}`}>
         <span className={styles.thumb}>
           <ResilientImage sizes="320px" src={v.poster} alt="" loading="lazy" decoding="async"/>
           <span className={styles.shade}/>
@@ -53,7 +53,7 @@ export default function AlsoShelf({videos=[]}){
       onTouchEnd={e=>{if(touchStart.current===null)return;const d=e.changedTouches[0].clientX-touchStart.current;if(Math.abs(d)>55)move(d<0?1:-1);touchStart.current=null}}>
       <button className={styles.close} onClick={()=>setActive(null)} aria-label="Close video">×</button>
       <div className={styles.stage}>
-        <video ref={videoRef} key={item.id} className={styles.video} src={item.src} poster={imageSrc(item.poster,640)} autoPlay muted={muted} playsInline preload="auto" onLoadedMetadata={()=>setProgress(0)} onTimeUpdate={e=>{const v=e.currentTarget;setProgress(v.duration?Math.min(1,v.currentTime/v.duration):0)}} onEnded={()=>move(1)}/>
+        <video data-analytics-reel={item.id} data-analytics-writer={item.correspondent} data-analytics-placement="also" ref={videoRef} key={item.id} className={styles.video} src={item.src} poster={imageSrc(item.poster,640)} autoPlay muted={muted} playsInline preload="auto" onLoadedMetadata={()=>setProgress(0)} onTimeUpdate={e=>{const v=e.currentTarget;setProgress(v.duration?Math.min(1,v.currentTime/v.duration):0)}} onEnded={()=>move(1)}/>
         <button className={styles.sound} onClick={()=>setMuted(v=>!v)} aria-label={muted?'Turn sound on':'Mute'}>{muted?'⌁':'◖'}</button>
         <button className={`${styles.tap} ${styles.prev}`} onClick={()=>move(-1)} aria-label="Previous video"/>
         <button className={`${styles.tap} ${styles.next}`} onClick={()=>move(1)} aria-label="Next video"/>
@@ -63,3 +63,4 @@ export default function AlsoShelf({videos=[]}){
     </div>}
   </section>
 }
+
