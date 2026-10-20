@@ -1,0 +1,142 @@
+{
+  "leagueKey": "470.l.226614",
+  "leagueName": "DOGE4",
+  "currentWeek": 7,
+  "matchupWeek": 6,
+  "scoringType": "points",
+  "scoringTypeRaw": "head",
+  "matchups": [
+    {
+      "matchupId": 1,
+      "week": 6,
+      "status": "final",
+      "home": {
+        "teamKey": "470.l.226614.t.1",
+        "teamId": "1",
+        "teamName": "Caleb’s Elite Touch Rate",
+        "points": 91.7,
+        "projectedPoints": 91.36,
+        "winProbability": 1
+      },
+      "away": {
+        "teamKey": "470.l.226614.t.8",
+        "teamId": "8",
+        "teamName": "T. Ocellus",
+        "points": 91.52,
+        "projectedPoints": 106.6,
+        "winProbability": 0
+      },
+      "winner": "home"
+    },
+    {
+      "matchupId": 2,
+      "week": 6,
+      "status": "final",
+      "home": {
+        "teamKey": "470.l.226614.t.2",
+        "teamId": "2",
+        "teamName": "Gimothy Blossoms",
+        "points": 96.14,
+        "projectedPoints": 122.38,
+        "winProbability": 0
+      },
+      "away": {
+        "teamKey": "470.l.226614.t.6",
+        "teamId": "6",
+        "teamName": "McConkey Kong",
+        "points": 122.16,
+        "projectedPoints": 117.65,
+        "winProbability": 1
+      },
+      "winner": "away"
+    },
+    {
+      "matchupId": 3,
+      "week": 6,
+      "status": "final",
+      "home": {
+        "teamKey": "470.l.226614.t.3",
+        "teamId": "3",
+        "teamName": "RFK Jr’s Bears",
+        "points": 85.5,
+        "projectedPoints": 113.78,
+        "winProbability": 0
+      },
+      "away": {
+        "teamKey": "470.l.226614.t.9",
+        "teamId": "9",
+        "teamName": "Extremely Tight Ends",
+        "points": 98.06,
+        "projectedPoints": 100.09,
+        "winProbability": 1
+      },
+      "winner": "away"
+    },
+    {
+      "matchupId": 4,
+      "week": 6,
+      "status": "final",
+      "home": {
+        "teamKey": "470.l.226614.t.4",
+        "teamId": "4",
+        "teamName": "El Niño Grande",
+        "points": 136.82,
+        "projectedPoints": 125.11,
+        "winProbability": 0
+      },
+      "away": {
+        "teamKey": "470.l.226614.t.11",
+        "teamId": "11",
+        "teamName": "Ordway and Son",
+        "points": 137.8,
+        "projectedPoints": 109.9,
+        "winProbability": 1
+      },
+      "winner": "away"
+    },
+    {
+      "matchupId": 5,
+      "week": 6,
+      "status": "final",
+      "home": {
+        "teamKey": "470.l.226614.t.5",
+        "teamId": "5",
+        "teamName": "Jerruh’s World",
+        "points": 109.48,
+        "projectedPoints": 107.39,
+        "winProbability": 0.99
+      },
+      "away": {
+        "teamKey": "470.l.226614.t.7",
+        "teamId": "7",
+        "teamName": "Tranimal",
+        "points": 83.72,
+        "projectedPoints": 108.66,
+        "winProbability": 0.01
+      },
+      "winner": "home"
+    },
+    {
+      "matchupId": 6,
+      "week": 6,
+      "status": "final",
+      "home": {
+        "teamKey": "470.l.226614.t.10",
+        "teamId": "10",
+        "teamName": "De'Coldest Hassan",
+        "points": 99.94,
+        "projectedPoints": 107.06,
+        "winProbability": 0
+      },
+      "away": {
+        "teamKey": "470.l.226614.t.12",
+        "teamId": "12",
+        "teamName": "Nix in 5",
+        "points": 110.08,
+        "projectedPoints": 118.63,
+        "winProbability": 1
+      },
+      "winner": "away"
+    }
+  ]
+}

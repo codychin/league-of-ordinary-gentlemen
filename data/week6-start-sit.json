@@ -1,0 +1,102 @@
+{
+  "doge": {
+    "week": 6,
+    "season": 2026,
+    "status": "FINAL",
+    "picks": [
+      {
+        "type": "start",
+        "team": "Nix in 5",
+        "player": "Matthew Golden",
+        "points": 19.4,
+        "slot": "W/R/T",
+        "gap": 14.2,
+        "body": "Patrick put Matthew Golden in a flex spot and got 19.4 in a 10.14-point win over Moe. Michael Wilson, a same-position bench option, scored 5.2. Replacing Golden with Wilson would have turned the win into a 4.06-point loss. The quarterback supplied only 4.48; this is where Nix in 5 found room to survive. Retrospective credit for the result, not a claim that the choice was obvious before lock.",
+        "playerId": "41808"
+      },
+      {
+        "type": "sit",
+        "team": "T. Ocellus",
+        "player": "Kyle Pitts",
+        "points": 20.5,
+        "slot": "bench",
+        "gap": 18.3,
+        "body": "Bryan started Tyler Higbee for 2.2 while Kyle Pitts scored 20.5 on the bench. In a 0.18-point loss, the 18.3-point tight-end gap is difficult to look past. Pitts in that slot produces a 109.82–91.70 hypothetical win. This is completed-week arithmetic, not evidence about availability, information or reasonable expectations before lock.",
+        "playerId": "33392"
+      }
+    ],
+    "approval": {
+      "messageId": "Sentinel_6fe6648bcddc8191aa193d63051f9829",
+      "approvedAt": "2026-10-20T12:36:30.385421Z",
+      "scope": "Exact Week 6 written recaps and weekly sections only; scripts and reels excluded"
+    }
+  },
+  "loog": {
+    "week": 6,
+    "season": 2026,
+    "status": "FINAL",
+    "picks": [
+      {
+        "type": "start",
+        "team": "Shake 'N Baker",
+        "player": "Jayden Daniels",
+        "points": 22.4,
+        "slot": "QB",
+        "gap": 14.28,
+        "body": "Norm started Jayden Daniels and got 22.4, leaving Jacoby Brissett's 8.12 on the bench. The 14.28-point difference exceeded Shake 'N Baker's 10.26-point win over Pollard Greens. Last week's approved recap identified the reverse quarterback choice as enough to change a narrow defeat. This week the better result reached the active lineup. Credit the outcome without pretending this proves the same choice will always be correct.",
+        "headline": "This time the quarterback points counted",
+        "playerId": "4426348"
+      },
+      {
+        "type": "sit",
+        "team": "Pollard Greens",
+        "player": "Kyle Pitts",
+        "points": 22,
+        "slot": "bench",
+        "gap": 19.1,
+        "body": "Kyle Pitts supplied 22 on Pollard Greens' bench; Harold Fannin Jr. supplied 2.9 at tight end. The 19.1-point gap would have turned 121.04 into 140.14 against Norm's 131.3. This is a retrospective missed result, not an established pregame blunder: the available source does not establish the kickoff-time rationale or availability context.",
+        "headline": "The scoring leader had another answer available",
+        "playerId": "4360248"
+      }
+    ],
+    "approval": {
+      "messageId": "Sentinel_6fe6648bcddc8191aa193d63051f9829",
+      "approvedAt": "2026-10-20T12:36:30.385421Z",
+      "scope": "Exact Week 6 written recaps and weekly sections only; scripts and reels excluded"
+    }
+  },
+  "sunday-crew": {
+    "week": 6,
+    "season": 2026,
+    "status": "FINAL",
+    "picks": [
+      {
+        "type": "start",
+        "team": "CHANE GANG",
+        "player": "Dameon Pierce",
+        "points": 13,
+        "slot": "RB",
+        "gap": 10.5,
+        "body": "Dameon Pierce scored thirteen for CHANE GANG, while reserve running backs TreVeyon Henderson and Keaton Mitchell supplied 2.5 and 0.4. Pierce’s 10.5-point advantage over Henderson helped support the receiving production in a 15.92-point win. A useful start on the actual results, not a claim that the choice was obvious before kickoff.",
+        "headline": "Cody got the running-back points into the lineup",
+        "playerId": "34063"
+      },
+      {
+        "type": "sit",
+        "team": "Tolbert’s Cookies",
+        "player": "Trevor Lawrence",
+        "points": 28.34,
+        "slot": "bench",
+        "gap": 11.46,
+        "body": "Trevor Lawrence’s 28.34 remained on the bench while Matthew Stafford supplied 16.88. The 11.46-point difference exceeds Tolbert’s Cookies’ 1.48-point loss to Scrump; that single substitution produces a 100.24–90.26 win. This is a decisive same-position retrospective, not proof that Greg ignored information available before lock.",
+        "headline": "Greg’s quarterback alternative would have changed the result",
+        "playerId": "33389"
+      }
+    ],
+    "approval": {
+      "messageId": "Sentinel_6fe6648bcddc8191aa193d63051f9829",
+      "approvedAt": "2026-10-20T12:36:30.385421Z",
+      "scope": "Exact Week 6 written recaps and weekly sections only; scripts and reels excluded"
+    }
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "doge": {
+    "week": 6,
+    "season": 2026,
+    "status": "FINAL",
+    "edition": "doge",
+    "findings": [
+      {
+        "body": "Cody won 91.70–91.52 with 7.6 from his starting running backs. Carnell Tate and Emeka Egbuka supplied 30.3 from the two flex spots. Bryan left Kyle Pitts’s 20.5 on the bench in favor of Tyler Higbee’s 2.2; that hindsight gap dwarfs the 0.18 margin. The victory does not repair Cody’s running-back problem. It does give him the pleasant option of discussing it from 4–2.",
+        "label": "The second decimal",
+        "teams": [
+          "1",
+          "8"
+        ],
+        "title": "Cody is 4–2. The running backs remain under review.",
+        "writer": "sorrell",
+        "receipt": "CODY 4–2 • MARGIN 0.18"
+      },
+      {
+        "body": "The preview emphasized a possible flex decision. Tyler Shough and Christian McCaffrey supplied 53.16 for Sandy, and the Chiefs defense added 15. Even exchanging Alan’s quarterback and one running back for their higher-scoring bench alternatives leaves him 12.28 behind. McConkey Kong is 3–3; Gimothy Blossoms is 2–4. This was not a narrow game hiding inside a poor selection.",
+        "label": "The misplaced emphasis",
+        "teams": [
+          "2",
+          "6"
+        ],
+        "title": "Sandy won by 26.02. His flex advantage was 2.2.",
+        "writer": "gannon",
+        "receipt": "SANDY 122.16 • ALAN 96.14"
+      },
+      {
+        "body": "Extremely Tight Ends won 98.06–85.50 while Harold Fannin Jr. supplied 1.4. James Cook and DeMario Douglas combined for 38.9. Jason’s Bears falls to 3–3; Pete is 4–2 and fourth. The tight end did not have to do very much. The name still gets printed above eight other teams.",
+        "label": "The unadvertised service",
+        "teams": [
+          "3",
+          "9"
+        ],
+        "title": "Pete has made the league take the name seriously.",
+        "writer": "kells",
+        "receipt": "PETE 4–2 • FANNIN 1.4"
+      },
+      {
+        "body": "Ordway won 137.80–136.82, the two highest scores of DOGE’s week. Jason now has 784.52 season points and a 5–1 record; Corey has 770.20 and is 2–4. Isaiah Likely delivered 20.9 from a flex spot. Corey’s two-tight-end arrangement continues to work rather better than his schedule. Fourteen points of cumulative scoring separate three wins.",
+        "label": "The conversion problem",
+        "teams": [
+          "4",
+          "11"
+        ],
+        "title": "Corey is second in scoring and eighth in the standings.",
+        "writer": "pike",
+        "receipt": "ORDWAY 5–1 • COREY 2–4 • MARGIN 0.98"
+      },
+      {
+        "body": "Andrew beat Bennett 109.48–83.72 behind Kenneth Walker’s 28.9. Tucker’s 26.2 stayed on Bennett’s bench; putting him into Lloyd’s one-point flex slot would still leave Tranimal 0.56 short. Both brothers are 4–2. Bennett retains the higher place on season points. Andrew has the actual result, which requires considerably less explanation.",
+        "label": "The durable result",
+        "teams": [
+          "5",
+          "7"
+        ],
+        "title": "Andrew wins, including the most conspicuous bench rewrite.",
+        "writer": "crane",
+        "receipt": "BOTH 4–2 • ANDREW+25.76"
+      },
+      {
+        "body": "Bo Nix scored 4.48, but Matthew Golden and Colston Loveland supplied 34.9 as Patrick won 110.08–99.94. Moe’s quarterback and running-back production offered things to keep, not a second win. Even Diggs for Wicks would leave him 0.14 short. Patrick moves to 2–4; Moe is 1–5. Improvement has arrived at both teams. The standings recognize only one visit.",
+        "label": "The partial recovery",
+        "teams": [
+          "10",
+          "12"
+        ],
+        "title": "Patrick’s second win does not require a quarterback revival.",
+        "writer": "march",
+        "receipt": "PATRICK 2–4 • MOE 1–5"
+      }
+    ],
+    "priorSource": "data/doge-autopsy.json (Week4 legacy); current shared Week5 source must be preserved",
+    "pending": false,
+    "approval": {
+      "messageId": "Sentinel_6fe6648bcddc8191aa193d63051f9829",
+      "approvedAt": "2026-10-20T12:36:30.385421Z",
+      "scope": "Exact Week 6 written recaps and weekly sections only; scripts and reels excluded"
+    }
+  },
+  "loog": {
+    "week": 6,
+    "findings": [
+      {
+        "writer": "gannon",
+        "label": "The completed week",
+        "title": "The standings require annotations",
+        "body": "LOOG has two five-and-one teams and no winless team. Kush leads the table with 870.22 points; Roy is second with 853.78. Sherm still leads the league in scoring at 872.57 but is three and three. Danny is two and four with 853.79, a hundredth more than Roy, and a league-high 934.6 against. That is a genuine schedule disparity, not permission to ignore this week's lineup. All Ugly's first win leaves Cody and Ferret one and five, with 928.71 against. Their most useful change this week was distribution: eight starters reached double figures rather than one huge performance being asked to rescue the rest.",
+        "receipt": "LOOG • WEEK 6 • FINAL"
+      }
+    ],
+    "status": "FINAL",
+    "pending": false,
+    "approval": {
+      "messageId": "Sentinel_6fe6648bcddc8191aa193d63051f9829",
+      "approvedAt": "2026-10-20T12:36:30.385421Z",
+      "scope": "Exact Week 6 written recaps and weekly sections only; scripts and reels excluded"
+    }
+  },
+  "sunday-crew": {
+    "week": 6,
+    "status": "FINAL",
+    "pending": false,
+    "findings": [
+      {
+        "body": "Scrump scored 144.56 and lost in Week 5. It scored 90.26 and won in Week 6. Nine Sunday Crew teams outscored Drew this time; Greg was not one of them. The defending champion’s two-and-four record is better by one win, while his argument about the schedule has become considerably less tidy.",
+        "label": "The inconvenient recovery",
+        "title": "Drew wins with less persuasive evidence.",
+        "writer": "sorrell",
+        "receipt": "SCRUMP 90.26 • COOKIES 88.78"
+      },
+      {
+        "body": "Tre Tucker’s 26.2 on the bench exceeded Denzel Boston’s two in the flex by 24.2. J Bird nevertheless posted 151.74, Sunday Crew’s highest score, and won by 58.94. The extra points matter for reviewing the selection. They do not invalidate the production already in the lineup.",
+        "label": "The outcome and the decision",
+        "title": "Joe left a large improvement unused and still led the league.",
+        "writer": "gannon",
+        "receipt": "J BIRD 151.74 • RBs 92.80"
+      },
+      {
+        "body": "Tyler Shough outscored starting quarterback Patrick Mahomes by 15.48. Forte inch Ditka lost by 15.92. The most obvious alternative therefore ends 0.44 short. Blake Corum over Omarion Hampton would supply a further 7.1, but needing two hindsight substitutions is not the same as finding one neglected winning button.",
+        "label": "The second repair",
+        "title": "Matt’s quarterback swap alone was not enough.",
+        "writer": "crane",
+        "receipt": "CHANE 112.90 • DITKA 96.98"
+      },
+      {
+        "body": "Croatian Sensation’s three starting receivers combined for fifteen, fewer than Ravi’s DeVonta Smith alone. James Cook and D’Andre Swift supplied 43.8, Drake Maye 25.8 and the Chiefs defense 19.6. Paul won by 35.34 despite losing the more photogenic comparison.",
+        "label": "The missing resemblance",
+        "title": "Paul’s receivers were permitted a quiet afternoon.",
+        "writer": "kells",
+        "receipt": "CROATIA 131.30 • ALLENTOWN 95.96"
+      },
+      {
+        "body": "Kenneth Walker’s 28.9 helped A Stroke of Bad Luck beat ZAYWATCH by 3.38. Both teams now stand at three and three. Sandy’s three-game winning run is over; Andrew has converted a prior advantage in season scoring into a rather more convenient direct result.",
+        "label": "The equal records",
+        "title": "Andrew no longer needs the scoring footnote.",
+        "writer": "march",
+        "receipt": "BAD LUCK 100.52 • ZAYWATCH 97.14"
+      },
+      {
+        "body": "Every recorded reserve on Patrick’s Week 6 roster scored zero. The starting running backs supplied 6.5 combined, and Rhamondre lost by 12.36. Nipun is five and one; Patrick is one and five. Whatever the future value of those bench names, none supplied an actual Week 6 alternative.",
+        "label": "The usable inventory",
+        "title": "Patrick’s bench offered names, not replacement points.",
+        "writer": "pike",
+        "receipt": "WAKE 100.88 • RHAMONDRE 88.52"
+      }
+    ],
+    "approval": {
+      "messageId": "Sentinel_6fe6648bcddc8191aa193d63051f9829",
+      "approvedAt": "2026-10-20T12:36:30.385421Z",
+      "scope": "Exact Week 6 written recaps and weekly sections only; scripts and reels excluded"
+    }
+  }
+}
