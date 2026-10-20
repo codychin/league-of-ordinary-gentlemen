@@ -127,5 +127,5 @@ export const teams=franchiseFiles.map(t=>{
  if(!ops)return t;
  const last=ops.season.weekly.at(-1);
  const note=currentNotes[t.id]||t.note;
- return {...t,record:ops.record,pf:ops.pointsFor.toFixed(2),pa:ops.pointsAgainst.toFixed(2),note,lore:note,week1:`${last.result} ${last.score.toFixed(2)}–${last.opponentScore.toFixed(2)} vs ${last.opponent}`,posture:`${ops.record} • ${ops.seed} in the table • Week ${leagueSnapshot.week} complete`,receipt:`${ops.pointsFor.toFixed(2)} points. ${ops.record}. Through Week ${leagueSnapshot.week}.`,stars:[...ops.roster].sort((a,b)=>b.seasonPoints-a.seasonPoints).slice(0,3).map(p=>`${p.name} — ${p.seasonPoints.toFixed(1)}`)};
+ return {...t,team:ops.teamName,record:ops.record,pf:ops.pointsFor.toFixed(2),pa:ops.pointsAgainst.toFixed(2),note,lore:note,week1:`${last.result} ${last.score.toFixed(2)}–${last.opponentScore.toFixed(2)} vs ${last.opponent}`,posture:`${ops.record} • ${ops.seed} in the table • Week ${leagueSnapshot.week} complete`,receipt:`${ops.pointsFor.toFixed(2)} points. ${ops.record}. Through Week ${leagueSnapshot.week}.`,stars:[...ops.roster].sort((a,b)=>b.seasonPoints-a.seasonPoints).slice(0,3).map(p=>`${p.name} — ${Number(p.seasonPoints).toFixed(1)}`)};
 });

@@ -1,5 +1,5 @@
 import latestScores from '../../../../data/latest-loog-scores.json';
-import closeout from '../../../../data/week5-closeout.json';
+import closeout from '../../../../data/week6-loog-closeout.json';
 import matchupColumns from '../../../../data/week6-matchup-columns.json';
 import matchupRecaps from '../../../../data/matchup-recaps.json';
 import {selectMatchupColumn} from '../../../../lib/select-matchup-column.mjs';
