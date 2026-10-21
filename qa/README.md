@@ -68,3 +68,20 @@ is modified. Test existing immutable staging URLs rather than deploying this PR.
 For protected staging verification, use separately managed temporary authentication;
 never commit cookies, share URLs, private configuration or authentication state.
 Disable traces when using such state so credentials cannot enter shared artifacts.
+
+
+## October 21 approved production expectations
+
+Cody approved promoting reviewed staging source
+`dd97d613eef52a541a318f4b22ceef9e5486a560` to production at 13:02 UTC.
+The existing v1 manifest now records Marnie as lead, Conrad/Rams/NFC East as the
+ordered three-card row, and West Virginia as archive-only. Historical approvals
+remain in `docs/HOMEPAGE-ROTATION.md`. PR #62 is not included or modified.
+
+The unchanged Phase One browser framework remains explicitly targeted to local
+or staging origins; its production-origin safety guard is not weakened.
+`tests/editorial-release-manifest.test.mjs` asserts manifest/source agreement.
+`tests/marnie-sporting-pat.test.mjs` asserts the reviewed image, normal headline
+template, GOOD INTENTIONS label, original article hero, Oregon unlink and 20px
+ desktop / 18px mobile lead subtitle. Image/typography fields are not added to the
+placement-only manifest schema. Browser test discovery is not a browser pass.

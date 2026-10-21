@@ -26,3 +26,9 @@
 .tourHero > img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
 /* Fill the frame even when the desktop package stretches to its adjacent copy. */
 .tourHero { position: relative; }
+
+/* Lead-dek type scale only; preserve the shared headline geometry. */
+:global(.sundayFeatureCopy) .leadDek { font-size: 20px; line-height: 1.45; }
+@media (max-width: 760px) {
+  :global(.sundayFeatureCopy) .leadDek { font-size: 18px; }
+}

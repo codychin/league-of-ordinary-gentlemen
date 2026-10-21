@@ -1,0 +1,73 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync, existsSync} from 'node:fs';
+const front=readFileSync('app/components/SharedEditorialFront.js','utf8');
+const data=readFileSync('app/articles/data.js','utf8');
+const scope=readFileSync('lib/editorial-scope.js','utf8');
+const source=readFileSync('app/articles/marnie-delicate-etiquette-sporting-pat.js','utf8');
+const article=JSON.parse(source.replace(/^export const sportingPatArticle = /,'').replace(/;\s*$/,''));
+const slug='marnie-delicate-etiquette-sporting-pat';
+test('approved Marnie article leads; the exact three-card chronology excludes archived West Virginia',()=>{
+ const lead=front.slice(front.indexOf('<section'),front.indexOf('<section className={front.recent}'));
+ assert.match(lead,/Lead story: The Delicate Etiquette of a Sporting Pat/);
+ assert.match(lead,new RegExp('/articles/'+slug));
+ assert.ok(lead.includes(article.dek));
+ assert.match(lead,/theme="GOOD INTENTIONS"/);
+ assert.match(lead,/src="\/images\/editorial\/allen-wolfson-interview-thumbnail\.jpg"/);
+ assert.ok(existsSync('public/images/editorial/allen-wolfson-interview-thumbnail.jpg'));
+ const recent=front.match(/<section className=\{front\.recent\}[^>]*>([\s\S]*?)<\/section>/)[1];
+ assert.equal((recent.match(/<article className=\{front\.card\}/g)||[]).length,3);
+ assert.deepEqual([...recent.matchAll(/href=\{root\+"\/articles\/([^"]+)"\}/g)].map(m=>m[1]),['conrad-jalen-hurts-too-sick-to-sleep','hollis-rams-kicker-weight','maude-nfc-east-declines-winner']);
+ assert.ok(!front.includes('hollis-west-virginia-medical-assistance'));
+});
+test('West Virginia content stays routable and in the archive; new article is global',()=>{
+ assert.match(data,/'hollis-west-virginia-medical-assistance': hollisWestVirginiaMedicalAssistance/);
+ assert.ok(existsSync('app/articles/hollis-west-virginia-medical-assistance.js'));
+ assert.match(data,/export const archive=Object.entries\(articles\)/);
+ assert.ok(scope.includes("'hollis-west-virginia-medical-assistance'"));
+ assert.ok(scope.includes("'"+slug+"'"));
+ assert.ok(data.includes("'"+slug+"': sportingPatArticle"));
+});
+test('approved language and verified media identifiers survive implementation',()=>{
+ assert.equal(article.title,'The Delicate Etiquette of a Sporting Pat');
+ assert.equal(article.dek,'Encouragement from an era with fewer follow-up questions.');
+ assert.equal(article.body[0],'Slapping someone’s ass in broad daylight is an extraordinary way to announce that you believe in them.');
+ assert.ok(article.body.includes('Actual competition offers no certainty.'));
+ assert.ok(article.body.at(-1).startsWith('Perhaps Wolfson did slap Allen after all.'));
+ assert.ok(source.includes('A remarkable exercise in interpretation of an ass slap at that particular juncture.'));
+ assert.ok(!source.includes('Chandler'));
+ assert.deepEqual(article.body.filter(p=>p.type==='xclip').map(p=>p.id),['2112173112100069629']);
+ assert.deepEqual(article.body.filter(p=>p.type==='youtube').map(p=>p.id),['5-uIwpo0dCU']);
+ assert.ok(existsSync('public'+article.image));
+ const image=article.body.find(p=>p.type==='image');
+ assert.ok(existsSync('public'+image.src));
+ assert.match(image.credit.url,/cavaliersnation.com/);
+ assert.equal(article.image,'/images/editorial/allen-wolfson-interview.jpg');
+});
+test('restored lead uses the established template and preserves the Oregon unlink',()=>{
+ const css=readFileSync('app/components/SharedEditorialFront.module.css','utf8');
+ const canonical=readFileSync('app/home-pass.css','utf8');
+ const lead=front.slice(front.indexOf('<section'),front.indexOf('<section className={front.recent}'));
+ assert.match(lead,/className="morningBriefPreview sundayFront"/);
+ assert.match(lead,/sundayFeatureImage storylink \$\{front\.tourHero\}/);
+ assert.ok(!css.includes('sportingPatHero'));
+ assert.ok(!css.includes('sportingPatLead'));
+ assert.match(css,/\.tourHero \{ min-height: 0 !important; aspect-ratio: 16 \/ 9; \}/);
+ assert.match(css,/\.tourHero > img[^}]+object-fit: cover/);
+ assert.match(canonical,/min-height:520px!important/);
+ assert.match(css,/\.image \{ height: 170px;/);
+ assert.match(css,/\.image \{ height: 150px;/);
+ const oregon=article.body.find(p=>p.type==='rich'&&p.html.includes('Oregon Park District'));
+ assert.equal(oregon.html,'Not everyone in youth sports accepts the arrangement. The Oregon Park District’s coaching manual states: “DO NOT TAP, PAT, OR SLAP a child’s buttocks.”');
+ assert.ok(!oregon.html.includes('<a'));
+});
+
+test('homepage lead subtitle gets a responsive type step without changing article copy',()=>{
+ const css=readFileSync('app/components/SharedEditorialFront.module.css','utf8');
+ const lead=front.slice(front.indexOf('<section'),front.indexOf('<section className={front.recent}'));
+ assert.match(lead,/<p className=\{front\.leadDek\}>Encouragement from an era with fewer follow-up questions\.<\/p>/);
+ assert.equal((front.match(/className=\{front\.leadDek\}/g)||[]).length,1);
+ assert.match(css,/:global\(\.sundayFeatureCopy\) \.leadDek \{ font-size: 20px; line-height: 1\.45; \}/);
+ assert.match(css,/@media \(max-width: 760px\) \{\s*:global\(\.sundayFeatureCopy\) \.leadDek \{ font-size: 18px; \}/);
+ assert.equal(article.dek,'Encouragement from an era with fewer follow-up questions.');
+});
