@@ -68,3 +68,12 @@ is modified. Test existing immutable staging URLs rather than deploying this PR.
 For protected staging verification, use separately managed temporary authentication;
 never commit cookies, share URLs, private configuration or authentication state.
 Disable traces when using such state so credentials cannot enter shared artifacts.
+
+## Keeping expectations synchronized
+
+Use `npm run editorial:publish` with an explicit approved editorial change and an
+authored placement candidate. The command previews by default; `--write` updates
+the placement, this manifest and approval history together. `editorial:check`,
+Node tests and existing build checks fail on drift. See
+[`docs/APPROVED-EDITORIAL-PUBLISHING.md`](../docs/APPROVED-EDITORIAL-PUBLISHING.md)
+for approval fields, chronology, destinations and the non-mutating Marnie fixture.

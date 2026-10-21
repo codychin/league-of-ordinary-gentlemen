@@ -1,0 +1,400 @@
+{
+  "schemaVersion": 1,
+  "records": [
+    {
+      "id": "phase-one-conrad-20261021",
+      "approval": {
+        "approvedBy": "Cody Chin",
+        "recordedAt": "2026-10-21",
+        "scope": "Conrad lead and ordered three-card row across all applicable editions",
+        "instruction": "Mark the Conrad lead and current three-card order as editorially approved, while retaining historical rotation documentation."
+      },
+      "manifest": {
+        "schemaVersion": 1,
+        "baseline": {
+          "status": "editorially-approved",
+          "source": "app/components/SharedEditorialFront.js",
+          "approval": {
+            "approvedBy": "Cody Chin",
+            "recordedAt": "2026-10-21",
+            "scope": "Conrad lead and ordered three-card row across all applicable editions",
+            "instruction": "Mark the Conrad lead and current three-card order as editorially approved, while retaining historical rotation documentation."
+          },
+          "historicalRotation": "October 6 named lead and card placements are superseded for the lead and three-card row by this approval; standing rotation rules and historical documentation are retained."
+        },
+        "editions": [
+          {
+            "id": "loog",
+            "path": "/"
+          },
+          {
+            "id": "sunday-crew",
+            "path": "/sunday-crew"
+          },
+          {
+            "id": "doge",
+            "path": "/doge"
+          }
+        ],
+        "lead": {
+          "slug": "conrad-jalen-hurts-too-sick-to-sleep",
+          "title": "The Medical Clearance Industrial Complex"
+        },
+        "carousel": [
+          {
+            "slug": "hollis-west-virginia-medical-assistance",
+            "title": "West Virginia's Medical Assistance Raises Some Questions"
+          },
+          {
+            "slug": "hollis-rams-kicker-weight",
+            "title": "The Rams Have Lost 89 Pounds at Kicker"
+          },
+          {
+            "slug": "maude-nfc-east-declines-winner",
+            "title": "The NFC East Declines to Name a Winner"
+          }
+        ]
+      },
+      "placement": {
+        "lead": {
+          "slug": "conrad-jalen-hurts-too-sick-to-sleep",
+          "title": "The Medical Clearance Industrial Complex"
+        },
+        "carousel": [
+          {
+            "slug": "hollis-west-virginia-medical-assistance",
+            "title": "West Virginia's Medical Assistance Raises Some Questions"
+          },
+          {
+            "slug": "hollis-rams-kicker-weight",
+            "title": "The Rams Have Lost 89 Pounds at Kicker"
+          },
+          {
+            "slug": "maude-nfc-east-declines-winner",
+            "title": "The NFC East Declines to Name a Winner"
+          }
+        ],
+        "overflow": [
+          {
+            "slug": "sabine-and-you-are",
+            "title": "And You Are?"
+          },
+          {
+            "slug": "marnie-marvin-harrison-somewhere-else",
+            "title": "Marvin Harrison Jr. Will Be Playing Somewhere Else. The Important Part Is Else."
+          },
+          {
+            "slug": "marnie-hecklinski-use-your-words",
+            "title": "Use Your Words."
+          },
+          {
+            "slug": "marnie-time-traveling-goblin-paradox",
+            "title": "The Time-Traveling Goblin Paradox"
+          },
+          {
+            "slug": "conrad-tomlin-minecraft-cvs",
+            "title": "In a World Without Scarcity, Mike Tomlin Built a CVS"
+          },
+          {
+            "slug": "marnie-corgi-he-wanted-them-to-know",
+            "title": "He Wanted Them to Know He Knew."
+          },
+          {
+            "slug": "marnie-tee-higgins-ankles",
+            "title": "Tee Higgins’ Ankles Have Asked to Be Buried Separately"
+          },
+          {
+            "slug": "conrad-deshaun-watson-cleveland-hope",
+            "title": "Groper Cleveland Is 3–1."
+          },
+          {
+            "slug": "hollis-jameis-winston-turing-test",
+            "title": "The Jameis Winston Turing Test."
+          },
+          {
+            "slug": "dashiell-jaguars-london-future",
+            "title": "Is the NFL’s Future Hiding Inside Its Weirdest Franchise?"
+          }
+        ]
+      },
+      "culture": [
+        {
+          "slug": "conrad-white-coaches-lose-individually",
+          "title": "White Coaches Continue to Lose Football Games Individually",
+          "editions": [
+            "doge"
+          ]
+        },
+        {
+          "slug": "marnie-jumbotron-juilliard",
+          "title": "The Jumbotron Is the New Juilliard",
+          "editions": [
+            "loog",
+            "sunday-crew",
+            "doge"
+          ]
+        },
+        {
+          "slug": "marnie-time-traveling-goblin-paradox",
+          "title": "The Time-Traveling Goblin Paradox",
+          "editions": [
+            "loog",
+            "sunday-crew",
+            "doge"
+          ]
+        },
+        {
+          "slug": "sabine-michigan-money-privilege-impatience",
+          "title": "Michigan, Money and the Privilege of Impatience",
+          "editions": [
+            "loog",
+            "sunday-crew",
+            "doge"
+          ]
+        },
+        {
+          "slug": "dashiell-favorite-team-asset-class",
+          "title": "When Your Favorite Team Became an Asset Class",
+          "editions": [
+            "loog",
+            "sunday-crew",
+            "doge"
+          ]
+        },
+        {
+          "slug": "marnie-manifest-destiny-wembley",
+          "title": "Manifest Destiny Has Reached the Jubilee Line",
+          "editions": [
+            "loog",
+            "sunday-crew",
+            "doge"
+          ]
+        },
+        {
+          "slug": "sabine-chest-statement",
+          "title": "Sabine March Addresses Ongoing Chest Speculation Without Resolving the Central Question",
+          "editions": [
+            "loog",
+            "sunday-crew",
+            "doge"
+          ]
+        },
+        {
+          "slug": "marnie-colorado-content-football",
+          "title": "Colorado Loses 41–7, Continues Difficult Transition From Content to Football",
+          "editions": [
+            "loog",
+            "sunday-crew",
+            "doge"
+          ]
+        },
+        {
+          "slug": "marnie-tilly-cantonese",
+          "title": "Hollywood’s AI Actress Glitched Into Cantonese and Continued the Press Tour",
+          "editions": [
+            "loog",
+            "sunday-crew",
+            "doge"
+          ]
+        },
+        {
+          "slug": "marnie-cruise-swift-football",
+          "title": "Tom Cruise Learns Football From Taylor Swift; Top Gun Beach Scene Now Under Formal Review",
+          "editions": [
+            "loog",
+            "sunday-crew",
+            "doge"
+          ]
+        },
+        {
+          "slug": "kraft-sheeran-roster-overhaul",
+          "title": "Robert Kraft Completes Ed Sheeran Roster Overhaul; Ed Sheeran Survives Final Cuts",
+          "editions": [
+            "loog",
+            "sunday-crew",
+            "doge"
+          ]
+        },
+        {
+          "slug": "nigella-shake-n-baker",
+          "title": "Nigella Lawson Joins Bake Off; Shake ’N Baker Thanks Committee for Its Consideration",
+          "editions": [
+            "loog",
+            "sunday-crew",
+            "doge"
+          ]
+        },
+        {
+          "slug": "sydney-sweeney-consensus",
+          "title": "Sydney Sweeney Sports Ad Divides Nation; League Reaches Consensus in Record Time",
+          "editions": [
+            "loog",
+            "sunday-crew",
+            "doge"
+          ]
+        },
+        {
+          "slug": "upper-east-side-froyo",
+          "title": "Upper East Side Residents Discover Waiting in Line; League Office Monitoring for Possible Waiver Implications",
+          "editions": [
+            "loog",
+            "sunday-crew",
+            "doge"
+          ]
+        }
+      ],
+      "catalogSlugs": [
+        "all-ugly-process",
+        "conrad-caleb-williams-survived",
+        "conrad-danir-ceedeep-hole",
+        "conrad-deshaun-watson-cleveland-hope",
+        "conrad-jalen-hurts-too-sick-to-sleep",
+        "conrad-kupp-kraft-keenan",
+        "conrad-tomlin-minecraft-cvs",
+        "conrad-white-coaches-lose-individually",
+        "conrad-york-wrong-160",
+        "danir-bench-crime",
+        "danir-emergency-jobs-program",
+        "dashiell-favorite-team-asset-class",
+        "dashiell-jaguars-london-future",
+        "dashiell-man-city-infrastructure",
+        "dashiell-route-22-portfolio",
+        "group-chat-investigation",
+        "hollis-arch-manning-compression",
+        "hollis-body-keeps-score",
+        "hollis-bryce-young-good-time",
+        "hollis-jameis-winston-turing-test",
+        "hollis-kash-folder",
+        "hollis-mike-ditka-juice-box-guy",
+        "hollis-one-second",
+        "hollis-rams-kicker-weight",
+        "hollis-uprights-reality",
+        "hollis-west-virginia-medical-assistance",
+        "hopkins-opus-statement",
+        "league-unbearable-tnf",
+        "marnie-colorado-content-football",
+        "marnie-corgi-he-wanted-them-to-know",
+        "marnie-cruise-swift-football",
+        "marnie-hecklinski-use-your-words",
+        "marnie-joe-mixon-nostalgia-era",
+        "marnie-jumbotron-juilliard",
+        "marnie-manifest-destiny-wembley",
+        "marnie-marvin-harrison-somewhere-else",
+        "marnie-nine-new-york",
+        "marnie-paying-retail",
+        "marnie-tee-higgins-ankles",
+        "marnie-tilly-cantonese",
+        "marnie-time-traveling-goblin-paradox",
+        "maude-jayden-daniels-elbow",
+        "maude-jordan-love-alibis",
+        "maude-monday-night-survival-board",
+        "maude-nfc-east-declines-winner",
+        "maude-rams-without-puka",
+        "maude-route-22-trade-review",
+        "maude-sunday-board-week-2",
+        "nigella-shake-n-baker",
+        "route-22-phones",
+        "sabine-all-ugly-lloyd",
+        "sabine-and-you-are",
+        "sabine-chest-statement",
+        "sabine-michigan-money-privilege-impatience",
+        "sabine-sunday-maracana",
+        "sources-familiar",
+        "stone-unc-denial",
+        "sydney-sweeney-consensus",
+        "upper-east-side-froyo"
+      ],
+      "globalSlugs": [
+        "conrad-caleb-williams-survived",
+        "conrad-deshaun-watson-cleveland-hope",
+        "conrad-jalen-hurts-too-sick-to-sleep",
+        "conrad-tomlin-minecraft-cvs",
+        "dashiell-favorite-team-asset-class",
+        "dashiell-jaguars-london-future",
+        "dashiell-man-city-infrastructure",
+        "hollis-arch-manning-compression",
+        "hollis-bryce-young-good-time",
+        "hollis-jameis-winston-turing-test",
+        "hollis-mike-ditka-juice-box-guy",
+        "hollis-rams-kicker-weight",
+        "hollis-west-virginia-medical-assistance",
+        "marnie-colorado-content-football",
+        "marnie-corgi-he-wanted-them-to-know",
+        "marnie-cruise-swift-football",
+        "marnie-hecklinski-use-your-words",
+        "marnie-joe-mixon-nostalgia-era",
+        "marnie-jumbotron-juilliard",
+        "marnie-manifest-destiny-wembley",
+        "marnie-marvin-harrison-somewhere-else",
+        "marnie-tee-higgins-ankles",
+        "marnie-tilly-cantonese",
+        "marnie-time-traveling-goblin-paradox",
+        "maude-nfc-east-declines-winner",
+        "sabine-and-you-are",
+        "sabine-chest-statement",
+        "sabine-michigan-money-privilege-impatience",
+        "sabine-sunday-maracana"
+      ],
+      "legacyUncataloguedCulture": [
+        "kraft-sheeran-roster-overhaul"
+      ],
+      "legacyTitleVariants": {
+        "conrad-deshaun-watson-cleveland-hope": {
+          "rendered": "Groper Cleveland Is 3–1.",
+          "catalog": "Groper Cleveland Is 3–1"
+        },
+        "hollis-jameis-winston-turing-test": {
+          "rendered": "The Jameis Winston Turing Test.",
+          "catalog": "The Jameis Winston Turing Test"
+        }
+      },
+      "cultureChronologyExceptions": [
+        {
+          "before": "conrad-white-coaches-lose-individually",
+          "after": "marnie-time-traveling-goblin-paradox",
+          "reason": "Pre-existing Culture order preserved at workflow adoption."
+        },
+        {
+          "before": "marnie-jumbotron-juilliard",
+          "after": "marnie-time-traveling-goblin-paradox",
+          "reason": "Pre-existing Culture order preserved at workflow adoption."
+        }
+      ],
+      "chronologyExceptions": [
+        {
+          "before": "maude-nfc-east-declines-winner",
+          "after": "sabine-and-you-are",
+          "reason": "Pre-existing overflow placement preserved at workflow adoption; not a new editorial approval."
+        },
+        {
+          "before": "conrad-tomlin-minecraft-cvs",
+          "after": "dashiell-jaguars-london-future",
+          "reason": "Pre-existing overflow placement preserved at workflow adoption; not a new editorial approval."
+        },
+        {
+          "before": "marnie-corgi-he-wanted-them-to-know",
+          "after": "dashiell-jaguars-london-future",
+          "reason": "Pre-existing overflow placement preserved at workflow adoption; not a new editorial approval."
+        },
+        {
+          "before": "marnie-tee-higgins-ankles",
+          "after": "dashiell-jaguars-london-future",
+          "reason": "Pre-existing overflow placement preserved at workflow adoption; not a new editorial approval."
+        },
+        {
+          "before": "conrad-deshaun-watson-cleveland-hope",
+          "after": "dashiell-jaguars-london-future",
+          "reason": "Pre-existing overflow placement preserved at workflow adoption; not a new editorial approval."
+        },
+        {
+          "before": "hollis-jameis-winston-turing-test",
+          "after": "dashiell-jaguars-london-future",
+          "reason": "Pre-existing overflow placement preserved at workflow adoption; not a new editorial approval."
+        }
+      ],
+      "provenance": "Existing explicit Phase One approval in qa/editorial-release.json; no site observation used. Lead/card approval retained verbatim. Overflow exceptions are historical preservation only.",
+      "previousRecordHash": null,
+      "recordHash": "51a034edf99d185ecf294dc06d5adb2de038216bd91cb0a59071468a4b247b34"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "provenance": {
+    "pr": 60,
+    "sha": "a89e1fb4a99b9150fc2a3c5fff4832697c6e8da7",
+    "path": "app/components/SharedEditorialFront.js",
+    "purpose": "Approved staging scenario only. Never apply this fixture to the working tree or a deployed site.",
+    "placementSha256": "b6fdcbd9d79383a5a12f3c70526d8475735425b0f46dafe871214ca13e28b12d"
+  },
+  "article": {
+    "slug": "marnie-delicate-etiquette-sporting-pat",
+    "section": "MATTERS OF CULTURE • SPORTING LIFE",
+    "title": "The Delicate Etiquette of a Sporting Pat",
+    "date": "OCTOBER 21, 2026"
+  },
+  "change": {
+    "schemaVersion": 1,
+    "id": "staged-marnie-pr60-test-only",
+    "testOnly": true,
+    "approval": {
+      "status": "approved",
+      "approvedBy": "Cody Chin",
+      "approvedAt": "2026-10-21",
+      "reference": "https://github.com/codychin/league-of-ordinary-gentlemen/pull/60 (staging review; non-mutating fixture)",
+      "environment": "staging"
+    },
+    "editions": [
+      "loog",
+      "sunday-crew",
+      "doge"
+    ],
+    "lead": {
+      "slug": "marnie-delicate-etiquette-sporting-pat",
+      "title": "The Delicate Etiquette of a Sporting Pat"
+    },
+    "carousel": [
+      {
+        "slug": "conrad-jalen-hurts-too-sick-to-sleep",
+        "title": "The Medical Clearance Industrial Complex"
+      },
+      {
+        "slug": "hollis-rams-kicker-weight",
+        "title": "The Rams Have Lost 89 Pounds at Kicker"
+      },
+      {
+        "slug": "maude-nfc-east-declines-winner",
+        "title": "The NFC East Declines to Name a Winner"
+      }
+    ],
+    "destinations": [
+      {
+        "slug": "hollis-west-virginia-medical-assistance",
+        "title": "West Virginia's Medical Assistance Raises Some Questions",
+        "destination": "archive"
+      }
+    ],
+    "chronologyOverrides": []
+  }
+}
