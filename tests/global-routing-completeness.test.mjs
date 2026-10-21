@@ -19,3 +19,7 @@ test('global three-card limit never silently grows',()=>{
  assert.ok(section);
  assert.equal((section[1].match(/<article className=\{front\.card\}/g)||[]).length,3);
 });
+
+// Runs in both npm test and the existing build-blocking routing checks.
+import {validateRepository} from '../scripts/editorial/publishing.mjs';
+test('editorial implementation and QA manifest match recorded approval',()=>validateRepository(process.cwd()));
