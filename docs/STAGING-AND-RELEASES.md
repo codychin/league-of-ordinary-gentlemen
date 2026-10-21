@@ -48,3 +48,24 @@ Refresh snapshots deliberately from the public edition read RPCs only, preservin
 6. Roll back to the recorded previous deployment if needed; do not reset database content as part of a software rollback.
 
 Never run a production promotion as an incidental step of staging setup or QA. A standing instruction to update staging is not authorization to release to live readers.
+
+### Sporting Pat headline framing correction (October 21, 2026)
+
+The homepage lead reuses the established `tourHero` / `sabinePackage` layout,
+including the existing desktop grid and 520px minimum image/copy height. No
+article-specific grid, square aspect ratio or smaller-width override remains.
+The thumbnail is a faithful frame from approximately 6.333529 seconds of the
+same CBS interview embedded in the article, not a photograph from another game:
+https://x.com/NFL_DovKleiman/status/2112173112100069629 . The clean video-area
+capture was 765×700 pixels; cropping 20 pixels from its top gives the 765×680
+thumbnail. No synthesis, repositioning of people or retouching was performed.
+CBS Sports broadcast credit remains on the article's original hero, which is
+unchanged. Reuse rights have not independently been established.
+
+Centered cover-crop simulations at 649×520 (lead), 337×170 (desktop card), and
+280×150 (small card) retain both faces; the wider card intentionally trims the
+upper cap. The article-specific image theme is shortened to “GOOD INTENTIONS”
+so its caption-position simulation clears both faces even at the minimum 280px
+small-card width. The title, subtitle and article body are unchanged. These are
+crop simulations, not a claim that the story is already published in the carousel.
+The three-card order, approved text and unlinked Oregon quotation are unchanged.

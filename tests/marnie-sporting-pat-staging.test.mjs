@@ -12,6 +12,9 @@ test('approved Marnie article leads; the exact three-card chronology excludes ar
  assert.match(lead,/Lead story: The Delicate Etiquette of a Sporting Pat/);
  assert.match(lead,new RegExp('/articles/'+slug));
  assert.ok(lead.includes(article.dek));
+ assert.match(lead,/theme="GOOD INTENTIONS"/);
+ assert.match(lead,/src="\/images\/editorial\/allen-wolfson-interview-thumbnail\.jpg"/);
+ assert.ok(existsSync('public/images/editorial/allen-wolfson-interview-thumbnail.jpg'));
  const recent=front.match(/<section className=\{front\.recent\}[^>]*>([\s\S]*?)<\/section>/)[1];
  assert.equal((recent.match(/<article className=\{front\.card\}/g)||[]).length,3);
  assert.deepEqual([...recent.matchAll(/href=\{root\+"\/articles\/([^"]+)"\}/g)].map(m=>m[1]),['conrad-jalen-hurts-too-sick-to-sleep','hollis-rams-kicker-weight','maude-nfc-east-declines-winner']);
@@ -39,15 +42,21 @@ test('approved language and verified media identifiers survive implementation',(
  const image=article.body.find(p=>p.type==='image');
  assert.ok(existsSync('public'+image.src));
  assert.match(image.credit.url,/cavaliersnation.com/);
- assert.match(readFileSync('app/components/SharedEditorialFront.module.css','utf8'),/\.sportingPatHero > img[^}]+object-fit: contain/);
+ assert.equal(article.image,'/images/editorial/allen-wolfson-interview.jpg');
 });
-test('review correction keeps the lead compact and removes only the broken Oregon hyperlink',()=>{
+test('restored lead uses the established template and preserves the Oregon unlink',()=>{
  const css=readFileSync('app/components/SharedEditorialFront.module.css','utf8');
- assert.match(front,/morningBriefPreview sundayFront \$\{front\.sportingPatLead\}/);
- assert.match(css,/grid-template-columns: minmax\(0, 360px\) minmax\(0, 1fr\)/);
- assert.match(css,/> \.sportingPatHero \{[\s\S]*?max-width: 360px;[\s\S]*?min-height: 0 !important/);
- assert.match(css,/> :global\(\.sundayFeatureCopy\) \{[\s\S]*?min-height: 0 !important/);
- assert.match(css,/@media \(max-width: 760px\)[\s\S]*max-width: 320px/);
+ const canonical=readFileSync('app/home-pass.css','utf8');
+ const lead=front.slice(front.indexOf('<section'),front.indexOf('<section className={front.recent}'));
+ assert.match(lead,/className="morningBriefPreview sundayFront"/);
+ assert.match(lead,/sundayFeatureImage storylink \$\{front\.tourHero\}/);
+ assert.ok(!css.includes('sportingPatHero'));
+ assert.ok(!css.includes('sportingPatLead'));
+ assert.match(css,/\.tourHero \{ min-height: 0 !important; aspect-ratio: 16 \/ 9; \}/);
+ assert.match(css,/\.tourHero > img[^}]+object-fit: cover/);
+ assert.match(canonical,/min-height:520px!important/);
+ assert.match(css,/\.image \{ height: 170px;/);
+ assert.match(css,/\.image \{ height: 150px;/);
  const oregon=article.body.find(p=>p.type==='rich'&&p.html.includes('Oregon Park District'));
  assert.equal(oregon.html,'Not everyone in youth sports accepts the arrangement. The Oregon Park District’s coaching manual states: “DO NOT TAP, PAT, OR SLAP a child’s buttocks.”');
  assert.ok(!oregon.html.includes('<a'));
