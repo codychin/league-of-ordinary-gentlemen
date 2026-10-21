@@ -10,6 +10,17 @@
 - Comments, reactions, notifications, management/authentication and publishing remain disabled. Frozen scores do not continue updating; this environment is a safe source/content/layout baseline, not a live-backend replica.
 - Keep new experiments on feature branches. Reconcile against the exact served production SHA before reviewing or promoting an individual feature; do not merge the preserved legacy staging branch wholesale.
 
+## Staging-only editorial review: October 21, 2026
+
+After the production-parity baseline, Cody approved staging “The Delicate Etiquette of a Sporting Pat” by Marnie Kells as the shared headline and moving West Virginia directly to the archive. This is an intentional staging-only editorial difference, not a production release.
+
+- Shared headline: Marnie, “The Delicate Etiquette of a Sporting Pat”.
+- Exact three-card row: Conrad’s medical-clearance column, Rams kicker, NFC East.
+- West Virginia is absent from the shared homepage but remains in each edition archive at its unchanged article URL and with unchanged copy.
+- New article URL in each edition: `/articles/marnie-delicate-etiquette-sporting-pat` with the applicable edition prefix.
+- All other published league content, Week 6 video shelves, text-only matchup recaps and production source remain unchanged from the verified baseline. QA guards remain in place.
+- PR58’s separate Conrad-lead browser manifest is not included or modified. Candidate-local regression tests assert this newly approved staging expectation explicitly; a pass against the older manifest is not expected for this editorial review.
+
 ## Environments
 
 - Live project: `league-of-ordinary-gentlemen` (`prj_h89MCmxn3Mr3O0wRpnwstM917E0l`). Domains: ordinarybrief.com and www.ordinarybrief.com. Main branch.

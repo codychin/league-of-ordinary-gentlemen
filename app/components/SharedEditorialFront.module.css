@@ -26,3 +26,7 @@
 .tourHero > img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; }
 /* Fill the frame even when the desktop package stretches to its adjacent copy. */
 .tourHero { position: relative; }
+
+/* The interview source is square: preserve both faces, not a landscape crop. */
+.sportingPatHero { position: relative; min-height: 0 !important; aspect-ratio: 1 / 1; }
+.sportingPatHero > img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; }
