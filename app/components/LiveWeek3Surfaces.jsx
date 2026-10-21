@@ -3,7 +3,6 @@ import matchupColumns from '../../data/week5-matchup-columns.json';
 import {writers} from '../articles/writers';
 import {useEffect,useState} from 'react';
 import MatchupCardGrid from './MatchupCardGrid';
-import CompletedScoresSummary from './CompletedScoresSummary';
 const num=n=>n==null?'—':Number(n).toFixed(2);
 const slugMap={"Chat GPT's Chosen Ones":"kupp-doubs","For the Love of the Kraft":"kraft","I'm a Skatt man":"skatt","I'm a Skatt Man":"skatt","Pollard Greens":"pollard-greens","The All Ugly Team":"all-ugly","Kupp Kupp Doubs":"kupp-doubs","The Route 22 Clubhouse":"route-22","Lloyd of the Rings":"lloyd-rings","Mr Hopkins Opus":"hopkins-opus","Shake 'N Baker":"shake-baker","Shake ’N Baker":"shake-baker","DarkHorse Danir":"danir","Royrek Tishmeshulam":"royrek","CeeDeep Shaheeded Rivalry":"ceedeep"};
 export default function LiveWeek3Surfaces({matchupPairs=[],teamVisuals={},initialData=null,finalWeek=false}){
@@ -24,7 +23,7 @@ export default function LiveWeek3Surfaces({matchupPairs=[],teamVisuals={},initia
  return <section className="section scoreSection" id="scores">
   <div className="scoreHero"><div><small>THE BRIEF • WEEK {week}</small><span id={'week'+week} aria-hidden="true"/><h2>Week {week}{isFinal?' Final':''}</h2></div><span>{isFinal?'FINAL SCORES':pending?'SCORES POSTED • PROVIDER FINALIZATION PENDING':pregame?'THURSDAY • NEW MATCHUPS':'LATEST SCORES'}</span></div>
   {!games.length&&<p role="status">Loading the latest matchups…</p>}
-  <CompletedScoresSummary edition={'loog'} week={week} isFinal={isFinal}/>
+  
   <MatchupCardGrid cards={games.map((g,i)=>{
    const left=slugMap[g.home?.name],right=slugMap[g.away?.name];
    const column=matchupColumns.find(x=>x.edition==='loog'&&x.week===Number(week)&&x.teamIds.includes(String(g.home?.id||''))&&x.teamIds.includes(String(g.away?.id||'')));

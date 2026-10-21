@@ -1,4 +1,3 @@
-import recapReels from '../../../../data/week6-loog-approved-recap-reels.json';
 import latestScores from '../../../../data/latest-loog-scores.json';
 import closeout from '../../../../data/week6-loog-closeout.json';
 import matchupColumns from '../../../../data/week6-matchup-columns.json';
@@ -60,7 +59,6 @@ export default async function MatchupPreview({params}){
     const rightPlayers=verifiedRight.length?verifiedRight:fallbackRight;
     const column=selectMatchupColumn({previews:matchupColumns,recaps:matchupRecaps,edition:'loog',week:latest.week,a:idA,b:idB,isFinal:final});
     const columnist=writers[column?.writer||'gannon'];
-    const recapReel=final&&Number(latest.week)===6?recapReels.find(r=>[r.left,r.right].includes(a)&&[r.left,r.right].includes(b)):null;
     return <>
       <header className="articleHeader"><Link href="/" className="miniMast">The Brief of Ordinary Gentleman</Link><SiteNav/></header>
       <main className="matchupPage">
@@ -73,7 +71,6 @@ export default async function MatchupPreview({params}){
           </div>
           <div className="matchupUpdated">LATEST PROVIDER-VERIFIED SCORE • {latest.updatedAt?new Date(latest.updatedAt).toLocaleString('en-US',{timeZone:'America/New_York'}):'WEEK '+latest.week}</div>
         </section>
-        {recapReel&&<section className="matchupColumn" aria-label="Matchup recap video"><h2>Week 6 recap</h2><video controls playsInline preload="metadata" poster={`/reels-hls/${recapReel.id}/poster.jpg`} style={{width:'100%',maxWidth:420,aspectRatio:'9/16',display:'block',margin:'0 auto'}}><source src={`/reels/${recapReel.id}.mp4`} type="video/mp4"/></video></section>}
         <section className="matchupColumn">
           <div className="matchupColumnByline"><img src={columnist.image} alt={columnist.imageAlt}/><div><small>WEEK {latest.week} • {final?'CORRESPONDENT RECAP':'CORRESPONDENT PREVIEW'}</small><b>{columnist.name}</b></div></div>
           <h2>{column?.headline||(final?'Awaiting correspondent recap':'Awaiting correspondent preview')}</h2>

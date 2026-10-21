@@ -16,6 +16,12 @@ for(const [edition,file] of [['sunday-crew','sunday'],['doge','doge']]){
  assert.ok(!text.includes('videoUrl:urls'));
 }
 assert.match(fs.readFileSync('app/page.js','utf8'),/loog-week6-recap-v1/);
-assert.match(fs.readFileSync('app/matchups/[a]/[b]/page.js','utf8'),/const recapReel=final&&Number\(latest.week\)===6/);
-assert.match(fs.readFileSync('app/components/editions/Matchup.js','utf8'),/const recapReel=isFinal&&week===6/);
-console.log('18 approved recap assets, league isolation, exact pairs and final-only routes verified');
+for(const path of ['app/matchups/[a]/[b]/page.js','app/components/editions/Matchup.js']){
+ const text=fs.readFileSync(path,'utf8');assert.ok(!text.includes('<video'),path+' must be text-only');
+ assert.ok(text.includes('selectMatchupColumn'));assert.ok(text.includes('.map((paragraph,index)=><p'));
+}
+for(const path of ['app/components/LiveWeek3Surfaces.jsx','app/components/EditionScoreboard.jsx'])assert.ok(!fs.readFileSync(path,'utf8').includes('CompletedScoresSummary'));
+const recaps=JSON.parse(fs.readFileSync('data/matchup-recaps.json')).filter(r=>Number(r.week)===6&&Number(r.season)===2026);
+assert.equal(recaps.length,18);
+for(const r of recaps){assert.ok(r.body.trim().split(/\s+/).length>=200);assert.ok(r.body.split(/\n\n+/).length>=3);}
+console.log('18 approved homepage recap videos; text-only long-form matchups; clean score overviews verified');
