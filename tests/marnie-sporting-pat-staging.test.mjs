@@ -61,3 +61,13 @@ test('restored lead uses the established template and preserves the Oregon unlin
  assert.equal(oregon.html,'Not everyone in youth sports accepts the arrangement. The Oregon Park District’s coaching manual states: “DO NOT TAP, PAT, OR SLAP a child’s buttocks.”');
  assert.ok(!oregon.html.includes('<a'));
 });
+
+test('homepage lead subtitle gets a responsive type step without changing article copy',()=>{
+ const css=readFileSync('app/components/SharedEditorialFront.module.css','utf8');
+ const lead=front.slice(front.indexOf('<section'),front.indexOf('<section className={front.recent}'));
+ assert.match(lead,/<p className=\{front\.leadDek\}>Encouragement from an era with fewer follow-up questions\.<\/p>/);
+ assert.equal((front.match(/className=\{front\.leadDek\}/g)||[]).length,1);
+ assert.match(css,/:global\(\.sundayFeatureCopy\) \.leadDek \{ font-size: 20px; line-height: 1\.45; \}/);
+ assert.match(css,/@media \(max-width: 760px\) \{\s*:global\(\.sundayFeatureCopy\) \.leadDek \{ font-size: 18px; \}/);
+ assert.equal(article.dek,'Encouragement from an era with fewer follow-up questions.');
+});
