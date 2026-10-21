@@ -1,5 +1,4 @@
-import week6SourcesRaw from '../scripts/week6-staging-video-sources.json';
-const week6Sources=Object.fromEntries(week6SourcesRaw.map(v=>[v.id,v.url]));
+import recapReels from '../data/week6-loog-approved-recap-reels.json';
 import LoogAutopsy from './components/LoogAutopsy';
 import StartSitOfWeek from './components/StartSitOfWeek';
 import completedScores from '../data/latest-loog-scores.json';
@@ -13,24 +12,18 @@ const matchupPairs=[['skatt','all-ugly','SKATT VS ALL UGLY'],['route-22','kraft'
 const currentMatchups=matchupPairs.map(([a,b,note])=>[leagueSnapshot.teams[a],leagueSnapshot.teams[b],note])
 const featuredPlayer=team=>team.roster.filter(p=>!['Bench','IR','K','D/ST'].includes(p.slot)&&!['K','D/ST'].includes(p.position)).sort((a,b)=>b.seasonPoints-a.seasonPoints)[0]
 const playerHeadshot=player=>`https://a.espncdn.com/i/headshots/nfl/players/full/${player.id}.png`
-const publishedReels=[
-  ["all-ugly","ceedeep","UGLY · CEE","The All Ugly Team vs. CeeDeep Shaheeded Rivalry","Hollis Crane",writers.crane.image,"624a4bbd1764945887d6b5e59bf2c569"],
-  ["danir","route-22","DANIR · R22","DarkHorse Danir vs. The Route 22 Clubhouse","Conrad Sorrell",writers.sorrell.image,"dd4a0886e3b8570b7e0b478cd2494473"],
-  ["skatt","hopkins-opus","SKATT · KUSH","I'm a Skatt man vs. Mr Hopkins Opus","Maude Gannon",writers.gannon.image,"15fabdd59b7336b35c8ad851f1449fb0"],
-  ["lloyd-rings","kupp-doubs","LLOYD · KUPP","Lloyd of the Rings vs. Kupp Kupp Doubs","Dashiell Pike",writers.pike.image,"a2d015c95e646c9902128869c408ce11"],
-  ["shake-baker","pollard-greens","SHAKE · POLL","Shake 'N Baker vs. Pollard Greens","Marnie Kells",writers.kells.image,"f47f31d0791ee1022f82004e2c1b9ef2"],
-  ["royrek","kraft","BONANZ · KRAFT","Royrek Tishmeshulam vs. For the Love of the Kraft","Sabine March",writers.march.image,"ded303e56680d12f48cdeec27f5db1fc"],
-].map(([left,right,short,matchup,correspondent,avatar,id])=>{
+const publishedReels=recapReels.map(reel=>{
+  const {left,right,writer}=reel;
   const lp=featuredPlayer(leagueSnapshot.teams[left]);
   const rp=featuredPlayer(leagueSnapshot.teams[right]);
-  return {id,left,right,short,matchup,correspondent,avatar,videoUrl:week6Sources[id],leftImage:playerHeadshot(lp),rightImage:playerHeadshot(rp)};
+  return {...reel,correspondent:writers[writer].name,avatar:writers[writer].image,leftImage:playerHeadshot(lp),rightImage:playerHeadshot(rp)};
 });
 
 const MEDIA='https://dnzdbqycuuoonewcowis.supabase.co/storage/v1/object/public/brief-media';
 export const dynamic='force-dynamic';
 export default function Home(){const sundayLive=isSundayLiveWindow();return <><header><div className="utility"><span className="utilityMain">JOURNALISM WITHOUT PURPOSE <i>•</i> WRITTEN BY ROBOTS</span></div><div className="mast"><h1>The Brief of Ordinary Gentleman</h1><div className="dek">Fantasy football, personal grievances, forensic accounting and other matters of irrelevance.</div></div><SiteNav/></header><main>
 {sundayLive&&<><SundayScoreStrip/><SundayLiveDesk/></>}
-<ReelsShelf reels={publishedReels} releaseId="loog-week6-preview-v1" storageKey="brief-loog-week6-preview-viewed-v1" weekLabel="THE BRIEF • WEEK 6" title="Week 6, the previews." modeLabel="WEEK 6 • PREVIEWS"/>
+<ReelsShelf reels={publishedReels} releaseId="loog-week6-recap-v1" storageKey="brief-loog-week6-recap-viewed-v1" weekLabel="THE BRIEF • WEEK 6" title="Week 6, the recaps." modeLabel="WEEK 6 • RECAPS"/>
 <SharedEditorialFront/>
 {!sundayLive&&<SundayLiveDesk/>}
 

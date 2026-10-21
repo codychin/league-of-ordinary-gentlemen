@@ -1,10 +1,13 @@
 {
-  "capturedAt": "2026-10-19T19:41:22.981228Z",
-  "productionSourceSha": "66e7bde4ac1feaf1444b300c230990f9d5f0ee98",
+  "capturedAt": "2026-10-21T03:48:41.628852Z",
+  "productionSourceSha": "7e84ccd2fb4e5ba3ab8fdac0dd73a9e06c70fb67",
   "files": [
     {
       "path": "data/staging-snapshot.json",
-      "capturedAt": "2026-10-19T19:40:27.597530Z",
+      "capturedAt": "2026-10-21T03:48:29.695904Z",
+      "sha256": "234435fd28d97e0e1db38abc5c9bba119256612b196e2a823f265dd72438d79f",
+      "bytes": 256766,
+      "credentialScan": "passed",
       "sources": [
         {
           "url": "https://dnzdbqycuuoonewcowis.supabase.co/rest/v1/rpc/get_public_brief_edition",
@@ -36,47 +39,44 @@
             "p_article_slug": null
           }
         }
-      ],
-      "sha256": "b6b26431cd180ba2d8e1a6311f993309010535a5e7fc6d6d3be874c9ece0f999",
-      "bytes": 220985,
-      "credentialScan": "passed"
+      ]
     },
     {
       "path": "data/staging-player-assets.json",
-      "capturedAt": "2026-10-19T19:41:06.834174Z",
+      "capturedAt": "2026-10-21T03:48:34.589639Z",
+      "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "bytes": 3,
+      "credentialScan": "passed",
       "sources": [
         "https://dnzdbqycuuoonewcowis.supabase.co/rest/v1/brief_player_provider_ids?select=provider,provider_player_id,player_id&provider=eq.yahoo&provider_player_id=in.(29235,40030)",
         "https://dnzdbqycuuoonewcowis.supabase.co/rest/v1/brief_players?select=id,canonical_name,headshot_url,espn_id,yahoo_id&id=in.(1808a205-24cc-401c-b6f0-49ffba7af3f7,e9a350a0-781d-4f02-8292-f32de0786c2c)"
-      ],
-      "sha256": "ff4bbac6bff2088f00567b42e7c2d7c48e67763d1207b7b036c7cd7d11788a33",
-      "bytes": 421,
-      "credentialScan": "passed"
+      ]
     },
     {
       "path": "data/staging-live-scores.json",
-      "capturedAt": "2026-10-19T19:41:22.979827Z",
+      "capturedAt": "2026-10-21T03:48:38.527723Z",
+      "sha256": "d1723f7c63932fa211b9a076c6860adc1fee26526d3dd03b3ee6c73d66cd553b",
+      "bytes": 1848,
+      "credentialScan": "passed",
       "sources": [
         "https://www.ordinarybrief.com/api/live-scores"
-      ],
-      "sha256": "c7c56263f492309265da5e26f26933a1107b76f3c84922aa548e5f33e2c0ac8c",
-      "bytes": 1436,
-      "credentialScan": "passed"
+      ]
     },
     {
       "path": "data/staging-live-details.json",
-      "capturedAt": "2026-10-19T19:41:22.981228Z",
+      "capturedAt": "2026-10-21T03:48:41.628757Z",
+      "sha256": "79913a6bb9c14f84a6959e97488db89c6950d73daf797da890fb9d45b5a145f0",
+      "bytes": 37183,
+      "credentialScan": "passed",
       "sources": [
         "https://www.ordinarybrief.com/api/live-details"
-      ],
-      "sha256": "6c7998084fd94d4aeb614420e920db34039e6a62a26effbd2184929ee1bcbf5e",
-      "bytes": 37183,
-      "credentialScan": "passed"
+      ]
     }
   ],
   "limitations": [
-    "Capture matches the public production read endpoints at capture time; provider snapshots have independent update times.",
+    "Capture matches public production read endpoints at capture time; provider snapshots have independent update times.",
     "No backend writes, ticks, provider synchronization, secrets or private tables used.",
-    "Edition articles were empty for both editions.",
+    "Published article counts: sunday-crew=9, doge=9.",
     "Existing comments/reactions and notifications remain deliberately disabled in staging."
   ]
 }

@@ -1,0 +1,104 @@
+[
+  {
+    "id": "3a7ce6ae765112a4b95e57ef948e7e59",
+    "left": "all-ugly",
+    "right": "ceedeep",
+    "short": "UGLY \u00b7 CEE",
+    "writer": "crane",
+    "matchup": "All Ugly / CeeDeep",
+    "season": 2026,
+    "week": 6,
+    "edition": "loog",
+    "kind": "recap",
+    "matchupTeamIds": [
+      "3",
+      "12"
+    ],
+    "approvalSource": "Sentinel_4ff963e2d65c8191b3e7da82c478171f"
+  },
+  {
+    "id": "48037052189b868d90730a322385cce2",
+    "left": "danir",
+    "right": "route-22",
+    "short": "DANIR \u00b7 R22",
+    "writer": "sorrell",
+    "matchup": "DarkHorse / Route 22",
+    "season": 2026,
+    "week": 6,
+    "edition": "loog",
+    "kind": "recap",
+    "matchupTeamIds": [
+      "2",
+      "4"
+    ],
+    "approvalSource": "Sentinel_4ff963e2d65c8191b3e7da82c478171f"
+  },
+  {
+    "id": "6c6a258ba5463f718c50cb1650d03a72",
+    "left": "skatt",
+    "right": "hopkins-opus",
+    "short": "SKATT \u00b7 HOP",
+    "writer": "gannon",
+    "matchup": "Skatt / Hopkins",
+    "season": 2026,
+    "week": 6,
+    "edition": "loog",
+    "kind": "recap",
+    "matchupTeamIds": [
+      "5",
+      "7"
+    ],
+    "approvalSource": "Sentinel_4ff963e2d65c8191b3e7da82c478171f"
+  },
+  {
+    "id": "3e9602efb3d61c54a0944851c27b4da9",
+    "left": "kupp-doubs",
+    "right": "lloyd-rings",
+    "short": "ROY \u00b7 LLOYD",
+    "writer": "pike",
+    "matchup": "Roy / Lloyd",
+    "season": 2026,
+    "week": 6,
+    "edition": "loog",
+    "kind": "recap",
+    "matchupTeamIds": [
+      "1",
+      "11"
+    ],
+    "approvalSource": "Sentinel_4ff963e2d65c8191b3e7da82c478171f"
+  },
+  {
+    "id": "996ba339064615cbc53a4456f9ec5087",
+    "left": "shake-baker",
+    "right": "pollard-greens",
+    "short": "SHAKE \u00b7 POLL",
+    "writer": "kells",
+    "matchup": "Shake / Pollard",
+    "season": 2026,
+    "week": 6,
+    "edition": "loog",
+    "kind": "recap",
+    "matchupTeamIds": [
+      "6",
+      "8"
+    ],
+    "approvalSource": "Sentinel_4ff963e2d65c8191b3e7da82c478171f"
+  },
+  {
+    "id": "6b1c61617ddd0fb640ccca45ed2cfaf2",
+    "left": "kraft",
+    "right": "royrek",
+    "short": "KRAFT \u00b7 TISH",
+    "writer": "march",
+    "matchup": "Kraft / Tish",
+    "season": 2026,
+    "week": 6,
+    "edition": "loog",
+    "kind": "recap",
+    "matchupTeamIds": [
+      "9",
+      "10"
+    ],
+    "approvalSource": "Sentinel_4ff963e2d65c8191b3e7da82c478171f"
+  }
+]

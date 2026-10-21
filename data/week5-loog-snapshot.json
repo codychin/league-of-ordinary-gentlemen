@@ -1,0 +1,3367 @@
+{
+  "updatedAt": "OCTOBER 13, 2026 \u2022 WEEK 5 FINAL",
+  "week": 5,
+  "teams": {
+    "kupp-doubs": {
+      "teamId": 1,
+      "teamName": "Kupp Kupp Doubs",
+      "record": "4-1",
+      "seed": 3,
+      "pointsFor": 678.3,
+      "pointsAgainst": 626.88,
+      "projectedRank": 3,
+      "matchup": {
+        "opponent": "Royrek Tishmeshulam",
+        "opponentSlug": "royrek",
+        "score": 177.6,
+        "opponentScore": 136.86,
+        "status": "FINAL",
+        "projection": 128.59469006,
+        "opponentProjection": 121.89138295
+      },
+      "roster": [
+        {
+          "id": "3117251",
+          "name": "Christian McCaffrey",
+          "position": "RB",
+          "team": "SF",
+          "slot": "RB",
+          "status": "",
+          "weekPoints": 19.4,
+          "seasonPoints": 102.4,
+          "starts": 5
+        },
+        {
+          "id": "4047646",
+          "name": "A.J. Brown",
+          "position": "WR",
+          "team": "NE",
+          "slot": "IR",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 4.6,
+          "starts": 1
+        },
+        {
+          "id": "4361579",
+          "name": "Javonte Williams",
+          "position": "RB",
+          "team": "DAL",
+          "slot": "RB",
+          "status": "",
+          "weekPoints": 14.4,
+          "seasonPoints": 102.4,
+          "starts": 5
+        },
+        {
+          "id": "3915416",
+          "name": "DJ Moore",
+          "position": "WR",
+          "team": "BUF",
+          "slot": "WR",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 44,
+          "starts": 5
+        },
+        {
+          "id": "4426388",
+          "name": "Jameson Williams",
+          "position": "WR",
+          "team": "DET",
+          "slot": "WR",
+          "status": "",
+          "weekPoints": 19.7,
+          "seasonPoints": 60.6,
+          "starts": 5
+        },
+        {
+          "id": "4569987",
+          "name": "Jaylen Warren",
+          "position": "RB",
+          "team": "PIT",
+          "slot": "FLEX",
+          "status": "",
+          "weekPoints": 49.3,
+          "seasonPoints": 114,
+          "starts": 5
+        },
+        {
+          "id": "4047365",
+          "name": "Josh Jacobs",
+          "position": "RB",
+          "team": "GB",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
+        },
+        {
+          "id": "4695883",
+          "name": "Jalen Coker",
+          "position": "WR",
+          "team": "CAR",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 58.2,
+          "starts": 2
+        },
+        {
+          "id": "4361050",
+          "name": "Isaiah Likely",
+          "position": "TE",
+          "team": "NYG",
+          "slot": "TE",
+          "status": "",
+          "weekPoints": 32.4,
+          "seasonPoints": 87.4,
+          "starts": 5
+        },
+        {
+          "id": "3929645",
+          "name": "Juwan Johnson",
+          "position": "TE",
+          "team": "NO",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 4.6,
+          "seasonPoints": 64.3,
+          "starts": 1
+        },
+        {
+          "id": "4569559",
+          "name": "Devaughn Vele",
+          "position": "WR",
+          "team": "NO",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 5.6,
+          "seasonPoints": 40.3,
+          "starts": 0
+        },
+        {
+          "id": "15818",
+          "name": "Keenan Allen",
+          "position": "WR",
+          "team": "IND",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 8.5,
+          "seasonPoints": 28.3,
+          "starts": 0
+        },
+        {
+          "id": "3116406",
+          "name": "Tyreek Hill",
+          "position": "WR",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
+        },
+        {
+          "id": "4249087",
+          "name": "Matt Gay",
+          "position": "K",
+          "slot": "K",
+          "status": "",
+          "weekPoints": 4,
+          "seasonPoints": 19,
+          "starts": 2
+        },
+        {
+          "id": "4430539",
+          "name": "Brenton Strange",
+          "position": "TE",
+          "slot": "FLEX",
+          "status": "",
+          "weekPoints": 14.8,
+          "seasonPoints": 14.8,
+          "starts": 1
+        },
+        {
+          "id": "8439",
+          "name": "Aaron Rodgers",
+          "position": "QB",
+          "slot": "QB",
+          "status": "",
+          "weekPoints": 25.1,
+          "seasonPoints": 25.1,
+          "starts": 1
+        },
+        {
+          "id": "-16003",
+          "name": "Bears D/ST",
+          "position": "D/ST",
+          "slot": "D/ST",
+          "status": "",
+          "weekPoints": -1.5,
+          "seasonPoints": -1.5,
+          "starts": 1
+        }
+      ],
+      "moves": [
+        {
+          "date": "2026-09-16",
+          "label": "Waiver claim",
+          "detail": "Added 49ers D/ST \u2022 $2"
+        },
+        {
+          "date": "2026-09-16",
+          "label": "Waiver claim",
+          "detail": "Added Devaughn Vele \u2022 $12"
+        }
+      ],
+      "season": {
+        "completedGames": 5,
+        "ppg": 135.66,
+        "pfRank": 8,
+        "paRank": 12,
+        "projectedRank": 3,
+        "startedPoints": 678.3,
+        "benchPoints": 222.25,
+        "positionTotals": {
+          "RB": 204.8,
+          "WR": 105.9,
+          "FLEX": 163.4,
+          "QB": 72.3,
+          "D/ST": 12,
+          "TE": 87.4,
+          "K": 32.5
+        },
+        "weekly": [
+          {
+            "week": 1,
+            "status": "FINAL",
+            "opponent": "I'm a Skatt man",
+            "opponentSlug": "skatt",
+            "score": 143.16,
+            "opponentScore": 131.22,
+            "result": "W"
+          },
+          {
+            "week": 2,
+            "status": "FINAL",
+            "opponent": "For the Love of the Kraft",
+            "opponentSlug": "kraft",
+            "score": 100.48,
+            "opponentScore": 95.48,
+            "result": "W"
+          },
+          {
+            "week": 3,
+            "status": "FINAL",
+            "opponent": "The Route 22 Clubhouse",
+            "opponentSlug": "route-22",
+            "score": 113.44,
+            "opponentScore": 137.9,
+            "result": "L"
+          },
+          {
+            "week": 4,
+            "status": "FINAL",
+            "opponent": "DarkHorse Danir",
+            "opponentSlug": "danir",
+            "score": 143.62,
+            "opponentScore": 125.42,
+            "result": "W"
+          },
+          {
+            "week": 5,
+            "status": "FINAL",
+            "opponent": "Royrek Tishmeshulam",
+            "opponentSlug": "royrek",
+            "score": 177.6,
+            "opponentScore": 136.86,
+            "result": "W"
+          }
+        ]
+      }
+    },
+    "danir": {
+      "teamId": 2,
+      "teamName": "DarkHorse Danir",
+      "record": "2-3",
+      "seed": 7,
+      "pointsFor": 729.93,
+      "pointsAgainst": 801.42,
+      "projectedRank": 8,
+      "matchup": {
+        "opponent": "For the Love of the Kraft",
+        "opponentSlug": "kraft",
+        "score": 171.26,
+        "opponentScore": 147.2,
+        "status": "FINAL",
+        "projection": 143.03525984,
+        "opponentProjection": 148.01093469
+      },
+      "roster": [
+        {
+          "id": "4429795",
+          "name": "Jahmyr Gibbs",
+          "position": "RB",
+          "team": "DET",
+          "slot": "RB",
+          "status": "",
+          "weekPoints": 44.2,
+          "seasonPoints": 171.2,
+          "starts": 5
+        },
+        {
+          "id": "4595348",
+          "name": "Malik Nabers",
+          "position": "WR",
+          "team": "NYG",
+          "slot": "WR",
+          "status": "",
+          "weekPoints": 31.1,
+          "seasonPoints": 79.9,
+          "starts": 5
+        },
+        {
+          "id": "4427366",
+          "name": "Breece Hall",
+          "position": "RB",
+          "team": "NYJ",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 49.6,
+          "starts": 3
+        },
+        {
+          "id": "4882093",
+          "name": "Bhayshul Tuten",
+          "position": "RB",
+          "team": "JAX",
+          "slot": "RB",
+          "status": "",
+          "weekPoints": 14.8,
+          "seasonPoints": 74.9,
+          "starts": 5
+        },
+        {
+          "id": "4431459",
+          "name": "Tyler Warren",
+          "position": "TE",
+          "team": "IND",
+          "slot": "TE",
+          "status": "",
+          "weekPoints": 20.5,
+          "seasonPoints": 69.2,
+          "starts": 5
+        },
+        {
+          "id": "3128429",
+          "name": "Courtland Sutton",
+          "position": "WR",
+          "team": "DEN",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 10.8,
+          "seasonPoints": 28.9,
+          "starts": 2
+        },
+        {
+          "id": "4608686",
+          "name": "Kyle Monangai",
+          "position": "RB",
+          "team": "CHI",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 77.3,
+          "starts": 1
+        },
+        {
+          "id": "4688813",
+          "name": "Josh Downs",
+          "position": "WR",
+          "team": "IND",
+          "slot": "WR",
+          "status": "",
+          "weekPoints": 6.7,
+          "seasonPoints": 44.4,
+          "starts": 3
+        },
+        {
+          "id": "4426385",
+          "name": "Zach Charbonnet",
+          "position": "RB",
+          "team": "SEA",
+          "slot": "IR",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
+        },
+        {
+          "id": "4426338",
+          "name": "Bo Nix",
+          "position": "QB",
+          "team": "DEN",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 9.32,
+          "seasonPoints": 65.98,
+          "starts": 1
+        },
+        {
+          "id": "4361741",
+          "name": "Brock Purdy",
+          "position": "QB",
+          "team": "SF",
+          "slot": "QB",
+          "status": "",
+          "weekPoints": 16.66,
+          "seasonPoints": 127.14,
+          "starts": 4
+        },
+        {
+          "id": "4428850",
+          "name": "Dontayvion Wicks",
+          "position": "WR",
+          "team": "PHI",
+          "slot": "FLEX",
+          "status": "",
+          "weekPoints": 10.3,
+          "seasonPoints": 31.7,
+          "starts": 3
+        },
+        {
+          "id": "4697815",
+          "name": "Rachaad White",
+          "position": "RB",
+          "team": "WSH",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 6.7,
+          "seasonPoints": 40.25,
+          "starts": 0
+        },
+        {
+          "id": "-16016",
+          "name": "Vikings D/ST",
+          "position": "D/ST",
+          "team": "MIN",
+          "slot": "D/ST",
+          "status": "",
+          "weekPoints": 17.5,
+          "seasonPoints": 58,
+          "starts": 3
+        },
+        {
+          "id": "4360234",
+          "name": "Evan McPherson",
+          "position": "K",
+          "team": "CIN",
+          "slot": "K",
+          "status": "",
+          "weekPoints": 8.5,
+          "seasonPoints": 24,
+          "starts": 3
+        },
+        {
+          "id": "4431492",
+          "name": "Roman Wilson",
+          "position": "WR",
+          "slot": "FLEX",
+          "status": "",
+          "weekPoints": 1,
+          "seasonPoints": 1,
+          "starts": 1
+        },
+        {
+          "id": "2973405",
+          "name": "Kalif Raymond",
+          "position": "WR",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 2.5,
+          "seasonPoints": 6.6,
+          "starts": 1
+        }
+      ],
+      "moves": [
+        {
+          "date": "2026-09-17",
+          "label": "Waiver claim",
+          "detail": "Added Rachaad White; dropped Malik Washington \u2022 $2"
+        },
+        {
+          "date": "2026-09-16",
+          "label": "Free-agent move",
+          "detail": "Added Dontayvion Wicks; dropped Jalen Nailor \u2022 $0"
+        },
+        {
+          "date": "2026-09-16",
+          "label": "Free-agent move",
+          "detail": "Added Malik Washington; dropped Jacob Saylors \u2022 $0"
+        },
+        {
+          "date": "2026-09-16",
+          "label": "Waiver claim",
+          "detail": "Added Devaughn Vele; dropped Jacob Saylors \u2022 $2"
+        }
+      ],
+      "season": {
+        "completedGames": 5,
+        "ppg": 145.99,
+        "pfRank": 3,
+        "paRank": 1,
+        "projectedRank": 8,
+        "startedPoints": 729.93,
+        "benchPoints": 268.79,
+        "positionTotals": {
+          "RB": 249.4,
+          "WR": 122.2,
+          "FLEX": 80.1,
+          "TE": 69.2,
+          "QB": 109.28,
+          "D/ST": 71,
+          "K": 28.75
+        },
+        "weekly": [
+          {
+            "week": 1,
+            "status": "FINAL",
+            "opponent": "Mr Hopkins Opus",
+            "opponentSlug": "hopkins-opus",
+            "score": 121.14,
+            "opponentScore": 181.6,
+            "result": "L"
+          },
+          {
+            "week": 2,
+            "status": "FINAL",
+            "opponent": "CeeDeep Shaheeded Rivalry",
+            "opponentSlug": "ceedeep",
+            "score": 126.63,
+            "opponentScore": 161.22,
+            "result": "L"
+          },
+          {
+            "week": 3,
+            "status": "FINAL",
+            "opponent": "Shake 'N Baker",
+            "opponentSlug": "shake-baker",
+            "score": 185.48,
+            "opponentScore": 167.78,
+            "result": "W"
+          },
+          {
+            "week": 4,
+            "status": "FINAL",
+            "opponent": "Kupp Kupp Doubs",
+            "opponentSlug": "kupp-doubs",
+            "score": 125.42,
+            "opponentScore": 143.62,
+            "result": "L"
+          },
+          {
+            "week": 5,
+            "status": "FINAL",
+            "opponent": "For the Love of the Kraft",
+            "opponentSlug": "kraft",
+            "score": 171.26,
+            "opponentScore": 147.2,
+            "result": "W"
+          }
+        ]
+      }
+    },
+    "all-ugly": {
+      "teamId": 3,
+      "teamName": "The All Ugly Team",
+      "record": "0-5",
+      "seed": 12,
+      "pointsFor": 657.56,
+      "pointsAgainst": 796.06,
+      "projectedRank": 12,
+      "matchup": {
+        "opponent": "Mr Hopkins Opus",
+        "opponentSlug": "hopkins-opus",
+        "score": 141.24,
+        "opponentScore": 174.9,
+        "status": "FINAL",
+        "projection": 125.37884868,
+        "opponentProjection": 142.38386823
+      },
+      "roster": [
+        {
+          "id": "4685382",
+          "name": "Omarion Hampton",
+          "position": "RB",
+          "team": "LAC",
+          "slot": "RB",
+          "status": "",
+          "weekPoints": 5.3,
+          "seasonPoints": 51.9,
+          "starts": 5
+        },
+        {
+          "id": "4374302",
+          "name": "Amon-Ra St. Brown",
+          "position": "WR",
+          "team": "DET",
+          "slot": "WR",
+          "status": "",
+          "weekPoints": 15.4,
+          "seasonPoints": 108.7,
+          "starts": 5
+        },
+        {
+          "id": "4241478",
+          "name": "DeVonta Smith",
+          "position": "WR",
+          "team": "PHI",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 52,
+          "starts": 3
+        },
+        {
+          "id": "4723086",
+          "name": "Colston Loveland",
+          "position": "TE",
+          "team": "CHI",
+          "slot": "TE",
+          "status": "",
+          "weekPoints": 2.9,
+          "seasonPoints": 25,
+          "starts": 5
+        },
+        {
+          "id": "4685512",
+          "name": "Jadarian Price",
+          "position": "RB",
+          "team": "SEA",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 18.8,
+          "starts": 3
+        },
+        {
+          "id": "4248528",
+          "name": "Christian Watson",
+          "position": "WR",
+          "team": "GB",
+          "slot": "WR",
+          "status": "",
+          "weekPoints": 41.3,
+          "seasonPoints": 123.4,
+          "starts": 5
+        },
+        {
+          "id": "4678008",
+          "name": "Jonathon Brooks",
+          "position": "RB",
+          "team": "CAR",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 10.2,
+          "starts": 2
+        },
+        {
+          "id": "4431611",
+          "name": "Caleb Williams",
+          "position": "QB",
+          "team": "CHI",
+          "slot": "IR",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 46.48,
+          "starts": 2
+        },
+        {
+          "id": "4429059",
+          "name": "Woody Marks",
+          "position": "RB",
+          "team": "HOU",
+          "slot": "FLEX",
+          "status": "",
+          "weekPoints": 15,
+          "seasonPoints": 49.1,
+          "starts": 3
+        },
+        {
+          "id": "4682648",
+          "name": "Malachi Fields",
+          "position": "WR",
+          "team": "NYG",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 4,
+          "seasonPoints": 33.6,
+          "starts": 0
+        },
+        {
+          "id": "4429013",
+          "name": "Tank Bigsby",
+          "position": "RB",
+          "team": "PHI",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 21.9,
+          "starts": 0
+        },
+        {
+          "id": "4686361",
+          "name": "Cam Little",
+          "position": "K",
+          "team": "JAX",
+          "slot": "K",
+          "status": "",
+          "weekPoints": 8.5,
+          "seasonPoints": 51.5,
+          "starts": 5
+        },
+        {
+          "id": "3046779",
+          "name": "Jared Goff",
+          "position": "QB",
+          "team": "DET",
+          "slot": "QB",
+          "status": "",
+          "weekPoints": 30.04,
+          "seasonPoints": 91.92,
+          "starts": 3
+        },
+        {
+          "id": "4711533",
+          "name": "Ollie Gordon II",
+          "position": "RB",
+          "slot": "RB",
+          "status": "",
+          "weekPoints": 15.6,
+          "seasonPoints": 36.5,
+          "starts": 2
+        },
+        {
+          "id": "-16014",
+          "name": "Rams D/ST",
+          "position": "D/ST",
+          "team": "LAR",
+          "slot": "D/ST",
+          "status": "",
+          "weekPoints": -1.5,
+          "seasonPoints": 30,
+          "starts": 3
+        },
+        {
+          "id": "4635008",
+          "name": "Keon Coleman",
+          "position": "WR",
+          "slot": "FLEX",
+          "status": "",
+          "weekPoints": 8.7,
+          "seasonPoints": 8.7,
+          "starts": 1
+        },
+        {
+          "id": "5081432",
+          "name": "Antonio Williams",
+          "position": "WR",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 6.1,
+          "seasonPoints": 6.1,
+          "starts": 0
+        }
+      ],
+      "moves": [
+        {
+          "date": "2026-09-16",
+          "label": "Free-agent move",
+          "detail": "Added Demond Claiborne \u2022 $0"
+        }
+      ],
+      "season": {
+        "completedGames": 5,
+        "ppg": 131.51,
+        "pfRank": 11,
+        "paRank": 2,
+        "projectedRank": 12,
+        "startedPoints": 657.56,
+        "benchPoints": 107.03,
+        "positionTotals": {
+          "RB": 93.1,
+          "WR": 220.8,
+          "TE": 25,
+          "FLEX": 132.9,
+          "QB": 120.76,
+          "D/ST": 13.5,
+          "K": 51.5
+        },
+        "weekly": [
+          {
+            "week": 1,
+            "status": "FINAL",
+            "opponent": "Royrek Tishmeshulam",
+            "opponentSlug": "royrek",
+            "score": 152.86,
+            "opponentScore": 160.91,
+            "result": "L"
+          },
+          {
+            "week": 2,
+            "status": "FINAL",
+            "opponent": "Lloyd of the Rings",
+            "opponentSlug": "lloyd-rings",
+            "score": 128.22,
+            "opponentScore": 143.56,
+            "result": "L"
+          },
+          {
+            "week": 3,
+            "status": "FINAL",
+            "opponent": "Pollard Greens",
+            "opponentSlug": "pollard-greens",
+            "score": 102.26,
+            "opponentScore": 167.22,
+            "result": "L"
+          },
+          {
+            "week": 4,
+            "status": "FINAL",
+            "opponent": "I'm a Skatt man",
+            "opponentSlug": "skatt",
+            "score": 132.98,
+            "opponentScore": 149.47,
+            "result": "L"
+          },
+          {
+            "week": 5,
+            "status": "FINAL",
+            "opponent": "Mr Hopkins Opus",
+            "opponentSlug": "hopkins-opus",
+            "score": 141.24,
+            "opponentScore": 174.9,
+            "result": "L"
+          }
+        ]
+      }
+    },
+    "route-22": {
+      "teamId": 4,
+      "teamName": "The Route 22 Clubhouse",
+      "record": "2-3",
+      "seed": 8,
+      "pointsFor": 702.49,
+      "pointsAgainst": 694.26,
+      "projectedRank": 7,
+      "matchup": {
+        "opponent": "I'm a Skatt man",
+        "opponentSlug": "skatt",
+        "score": 109.82,
+        "opponentScore": 143.3,
+        "status": "FINAL",
+        "projection": 129.90558724,
+        "opponentProjection": 149.32467769
+      },
+      "roster": [
+        {
+          "id": "4379399",
+          "name": "James Cook III",
+          "position": "RB",
+          "team": "BUF",
+          "slot": "RB",
+          "status": "",
+          "weekPoints": 29.3,
+          "seasonPoints": 110.8,
+          "starts": 5
+        },
+        {
+          "id": "4890973",
+          "name": "Ashton Jeanty",
+          "position": "RB",
+          "team": "LV",
+          "slot": "RB",
+          "status": "",
+          "weekPoints": 10.7,
+          "seasonPoints": 97.9,
+          "starts": 5
+        },
+        {
+          "id": "4428331",
+          "name": "Rashee Rice",
+          "position": "WR",
+          "team": "KC",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 42,
+          "starts": 4
+        },
+        {
+          "id": "4685472",
+          "name": "Tetairoa McMillan",
+          "position": "WR",
+          "team": "CAR",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 78.5,
+          "starts": 4
+        },
+        {
+          "id": "4431299",
+          "name": "Rome Odunze",
+          "position": "WR",
+          "team": "CHI",
+          "slot": "WR",
+          "status": "",
+          "weekPoints": 4,
+          "seasonPoints": 43.8,
+          "starts": 5
+        },
+        {
+          "id": "4371733",
+          "name": "Kenny Gainwell",
+          "position": "RB",
+          "team": "TB",
+          "slot": "FLEX",
+          "status": "",
+          "weekPoints": 7.2,
+          "seasonPoints": 32.75,
+          "starts": 1
+        },
+        {
+          "id": "4683062",
+          "name": "Xavier Worthy",
+          "position": "WR",
+          "team": "KC",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 37.8,
+          "starts": 2
+        },
+        {
+          "id": "12483",
+          "name": "Matthew Stafford",
+          "position": "QB",
+          "team": "LAR",
+          "slot": "QB",
+          "status": "",
+          "weekPoints": 28.32,
+          "seasonPoints": 99.08,
+          "starts": 3
+        },
+        {
+          "id": "4360689",
+          "name": "Tyler Shough",
+          "position": "QB",
+          "team": "NO",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": -0.66,
+          "seasonPoints": 88.26,
+          "starts": 2
+        },
+        {
+          "id": "3045147",
+          "name": "James Conner",
+          "position": "RB",
+          "team": "ARI",
+          "slot": "IR",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
+        },
+        {
+          "id": "4832955",
+          "name": "Emmett Johnson",
+          "position": "RB",
+          "team": "KC",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 15.75,
+          "starts": 0
+        },
+        {
+          "id": "4241474",
+          "name": "Brian Robinson Jr.",
+          "position": "RB",
+          "team": "ATL",
+          "slot": "FLEX",
+          "status": "",
+          "weekPoints": 2.8,
+          "seasonPoints": 58.7,
+          "starts": 1
+        },
+        {
+          "id": "4432665",
+          "name": "Brock Bowers",
+          "position": "TE",
+          "team": "LV",
+          "slot": "TE",
+          "status": "",
+          "weekPoints": 24,
+          "seasonPoints": 74.2,
+          "starts": 3
+        },
+        {
+          "id": "4682745",
+          "name": "Jaylen Wright",
+          "position": "RB",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 2.2,
+          "seasonPoints": 4.65,
+          "starts": 0
+        },
+        {
+          "id": "4574716",
+          "name": "Harrison Mevis",
+          "position": "K",
+          "slot": "K",
+          "status": "",
+          "weekPoints": 1.5,
+          "seasonPoints": 1.5,
+          "starts": 1
+        },
+        {
+          "id": "-16023",
+          "name": "Steelers D/ST",
+          "position": "D/ST",
+          "slot": "D/ST",
+          "status": "",
+          "weekPoints": 1,
+          "seasonPoints": 1,
+          "starts": 1
+        },
+        {
+          "id": "5123663",
+          "name": "Isaac TeSlaa",
+          "position": "WR",
+          "slot": "WR",
+          "status": "",
+          "weekPoints": 1,
+          "seasonPoints": 1,
+          "starts": 1
+        }
+      ],
+      "moves": [
+        {
+          "date": "2026-09-16",
+          "label": "Trade completed",
+          "detail": ""
+        },
+        {
+          "date": "2026-09-16",
+          "label": "Free-agent move",
+          "detail": "Added Emmett Johnson; dropped Chris Brooks \u2022 $0"
+        },
+        {
+          "date": "2026-09-16",
+          "label": "Waiver claim",
+          "detail": "Added Devaughn Vele; dropped Chris Brooks \u2022 $6"
+        },
+        {
+          "date": "2026-09-15",
+          "label": "Waiver claim",
+          "detail": "Added Devaughn Vele; dropped Kenny Gainwell \u2022 $0"
+        }
+      ],
+      "season": {
+        "completedGames": 5,
+        "ppg": 140.5,
+        "pfRank": 6,
+        "paRank": 5,
+        "projectedRank": 7,
+        "startedPoints": 702.49,
+        "benchPoints": 244.05,
+        "positionTotals": {
+          "RB": 208.7,
+          "WR": 125.5,
+          "FLEX": 90,
+          "TE": 88,
+          "QB": 100.04,
+          "D/ST": 49,
+          "K": 41.25
+        },
+        "weekly": [
+          {
+            "week": 1,
+            "status": "FINAL",
+            "opponent": "CeeDeep Shaheeded Rivalry",
+            "opponentSlug": "ceedeep",
+            "score": 147.9,
+            "opponentScore": 129.81,
+            "result": "W"
+          },
+          {
+            "week": 2,
+            "status": "FINAL",
+            "opponent": "Shake 'N Baker",
+            "opponentSlug": "shake-baker",
+            "score": 138.93,
+            "opponentScore": 139.49,
+            "result": "L"
+          },
+          {
+            "week": 3,
+            "status": "FINAL",
+            "opponent": "Kupp Kupp Doubs",
+            "opponentSlug": "kupp-doubs",
+            "score": 137.9,
+            "opponentScore": 113.44,
+            "result": "W"
+          },
+          {
+            "week": 4,
+            "status": "FINAL",
+            "opponent": "For the Love of the Kraft",
+            "opponentSlug": "kraft",
+            "score": 167.94,
+            "opponentScore": 168.22,
+            "result": "L"
+          },
+          {
+            "week": 5,
+            "status": "FINAL",
+            "opponent": "I'm a Skatt man",
+            "opponentSlug": "skatt",
+            "score": 109.82,
+            "opponentScore": 143.3,
+            "result": "L"
+          }
+        ]
+      }
+    },
+    "skatt": {
+      "teamId": 5,
+      "teamName": "I'm a Skatt man",
+      "record": "3-2",
+      "seed": 5,
+      "pointsFor": 710.77,
+      "pointsAgainst": 653.01,
+      "projectedRank": 5,
+      "matchup": {
+        "opponent": "The Route 22 Clubhouse",
+        "opponentSlug": "route-22",
+        "score": 143.3,
+        "opponentScore": 109.82,
+        "status": "FINAL",
+        "projection": 149.32467769,
+        "opponentProjection": 129.90558724
+      },
+      "roster": [
+        {
+          "id": "4362628",
+          "name": "Ja'Marr Chase",
+          "position": "WR",
+          "team": "CIN",
+          "slot": "FLEX",
+          "status": "",
+          "weekPoints": 25.2,
+          "seasonPoints": 85.4,
+          "starts": 5
+        },
+        {
+          "id": "4430737",
+          "name": "Kyren Williams",
+          "position": "RB",
+          "team": "LAR",
+          "slot": "RB",
+          "status": "",
+          "weekPoints": 20.2,
+          "seasonPoints": 115.8,
+          "starts": 5
+        },
+        {
+          "id": "4361307",
+          "name": "Trey McBride",
+          "position": "TE",
+          "team": "ARI",
+          "slot": "TE",
+          "status": "",
+          "weekPoints": 20.6,
+          "seasonPoints": 87.8,
+          "starts": 5
+        },
+        {
+          "id": "4696981",
+          "name": "Cam Skattebo",
+          "position": "RB",
+          "team": "NYG",
+          "slot": "RB",
+          "status": "",
+          "weekPoints": 8.4,
+          "seasonPoints": 61.4,
+          "starts": 5
+        },
+        {
+          "id": "4372016",
+          "name": "Jaylen Waddle",
+          "position": "WR",
+          "team": "DEN",
+          "slot": "WR",
+          "status": "",
+          "weekPoints": 5.9,
+          "seasonPoints": 51.9,
+          "starts": 5
+        },
+        {
+          "id": "4040715",
+          "name": "Jalen Hurts",
+          "position": "QB",
+          "team": "PHI",
+          "slot": "QB",
+          "status": "",
+          "weekPoints": 14.2,
+          "seasonPoints": 85.32,
+          "starts": 5
+        },
+        {
+          "id": "4871023",
+          "name": "Carnell Tate",
+          "position": "WR",
+          "team": "TEN",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0.6,
+          "seasonPoints": 45.4,
+          "starts": 2
+        },
+        {
+          "id": "4360078",
+          "name": "Alec Pierce",
+          "position": "WR",
+          "team": "IND",
+          "slot": "IR",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 10.2,
+          "starts": 1
+        },
+        {
+          "id": "4241985",
+          "name": "J.K. Dobbins",
+          "position": "RB",
+          "team": "DEN",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 18.2,
+          "seasonPoints": 43.5,
+          "starts": 0
+        },
+        {
+          "id": "4361529",
+          "name": "Isiah Pacheco",
+          "position": "RB",
+          "team": "DET",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
+        },
+        {
+          "id": "3126486",
+          "name": "Deebo Samuel Sr.",
+          "position": "WR",
+          "team": "SF",
+          "slot": "FLEX",
+          "status": "",
+          "weekPoints": 5.2,
+          "seasonPoints": 76.05,
+          "starts": 4
+        },
+        {
+          "id": "4832800",
+          "name": "Denzel Boston",
+          "position": "WR",
+          "team": "CLE",
+          "slot": "WR",
+          "status": "",
+          "weekPoints": 13.1,
+          "seasonPoints": 77,
+          "starts": 3
+        },
+        {
+          "id": "-16017",
+          "name": "Patriots D/ST",
+          "position": "D/ST",
+          "team": "NE",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 10,
+          "seasonPoints": 46.5,
+          "starts": 0
+        },
+        {
+          "id": "4567104",
+          "name": "Will Reichard",
+          "position": "K",
+          "team": "MIN",
+          "slot": "K",
+          "status": "",
+          "weekPoints": 19,
+          "seasonPoints": 78.5,
+          "starts": 5
+        },
+        {
+          "id": "4870795",
+          "name": "Makai Lemon",
+          "position": "WR",
+          "team": "PHI",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 8.3,
+          "seasonPoints": 25.4,
+          "starts": 0
+        },
+        {
+          "id": "3912547",
+          "name": "Sam Darnold",
+          "position": "QB",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 7.4,
+          "seasonPoints": 7.4,
+          "starts": 0
+        },
+        {
+          "id": "-16005",
+          "name": "Browns D/ST",
+          "position": "D/ST",
+          "slot": "D/ST",
+          "status": "",
+          "weekPoints": 11.5,
+          "seasonPoints": 11.5,
+          "starts": 1
+        }
+      ],
+      "moves": [
+        {
+          "date": "2026-09-16",
+          "label": "Waiver claim",
+          "detail": "Added Buccaneers D/ST; dropped Jaguars D/ST \u2022 $2"
+        },
+        {
+          "date": "2026-09-08",
+          "label": "Free-agent move",
+          "detail": "Added Kayshon Boutte; dropped Omar Cooper Jr. \u2022 $0"
+        },
+        {
+          "date": "2026-09-02",
+          "label": "Waiver claim",
+          "detail": "Added Jaguars D/ST \u2022 $2"
+        }
+      ],
+      "season": {
+        "completedGames": 5,
+        "ppg": 142.15,
+        "pfRank": 5,
+        "paRank": 10,
+        "projectedRank": 5,
+        "startedPoints": 710.77,
+        "benchPoints": 225.5,
+        "positionTotals": {
+          "WR": 125.2,
+          "RB": 177.2,
+          "TE": 87.8,
+          "QB": 85.32,
+          "FLEX": 124.75,
+          "K": 78.5,
+          "D/ST": 32
+        },
+        "weekly": [
+          {
+            "week": 1,
+            "status": "FINAL",
+            "opponent": "Kupp Kupp Doubs",
+            "opponentSlug": "kupp-doubs",
+            "score": 131.22,
+            "opponentScore": 143.16,
+            "result": "L"
+          },
+          {
+            "week": 2,
+            "status": "FINAL",
+            "opponent": "Pollard Greens",
+            "opponentSlug": "pollard-greens",
+            "score": 140.21,
+            "opponentScore": 150.07,
+            "result": "L"
+          },
+          {
+            "week": 3,
+            "status": "FINAL",
+            "opponent": "For the Love of the Kraft",
+            "opponentSlug": "kraft",
+            "score": 146.57,
+            "opponentScore": 116.98,
+            "result": "W"
+          },
+          {
+            "week": 4,
+            "status": "FINAL",
+            "opponent": "The All Ugly Team",
+            "opponentSlug": "all-ugly",
+            "score": 149.47,
+            "opponentScore": 132.98,
+            "result": "W"
+          },
+          {
+            "week": 5,
+            "status": "FINAL",
+            "opponent": "The Route 22 Clubhouse",
+            "opponentSlug": "route-22",
+            "score": 143.3,
+            "opponentScore": 109.82,
+            "result": "W"
+          }
+        ]
+      }
+    },
+    "pollard-greens": {
+      "teamId": 6,
+      "teamName": "Pollard Greens",
+      "record": "3-2",
+      "seed": 4,
+      "pointsFor": 751.53,
+      "pointsAgainst": 671.22,
+      "projectedRank": 4,
+      "matchup": {
+        "opponent": "CeeDeep Shaheeded Rivalry",
+        "opponentSlug": "ceedeep",
+        "score": 141.46,
+        "opponentScore": 106.75,
+        "status": "FINAL",
+        "projection": 149.95689635,
+        "opponentProjection": 133.86780654
+      },
+      "roster": [
+        {
+          "id": "4430878",
+          "name": "Jaxon Smith-Njigba",
+          "position": "WR",
+          "team": "SEA",
+          "slot": "WR",
+          "status": "",
+          "weekPoints": 24.4,
+          "seasonPoints": 155.06,
+          "starts": 5
+        },
+        {
+          "id": "4426502",
+          "name": "Drake London",
+          "position": "WR",
+          "team": "ATL",
+          "slot": "WR",
+          "status": "",
+          "weekPoints": 20.3,
+          "seasonPoints": 81.65,
+          "starts": 5
+        },
+        {
+          "id": "4361370",
+          "name": "Chris Olave",
+          "position": "WR",
+          "team": "NO",
+          "slot": "FLEX",
+          "status": "",
+          "weekPoints": 8.1,
+          "seasonPoints": 102.2,
+          "starts": 5
+        },
+        {
+          "id": "4685702",
+          "name": "Quinshon Judkins",
+          "position": "RB",
+          "team": "CLE",
+          "slot": "RB",
+          "status": "",
+          "weekPoints": 8.4,
+          "seasonPoints": 64.6,
+          "starts": 5
+        },
+        {
+          "id": "4035538",
+          "name": "David Montgomery",
+          "position": "RB",
+          "team": "HOU",
+          "slot": "RB",
+          "status": "",
+          "weekPoints": 2.6,
+          "seasonPoints": 47.7,
+          "starts": 5
+        },
+        {
+          "id": "4431452",
+          "name": "Drake Maye",
+          "position": "QB",
+          "team": "NE",
+          "slot": "QB",
+          "status": "",
+          "weekPoints": 43.16,
+          "seasonPoints": 92.72,
+          "starts": 5
+        },
+        {
+          "id": "16737",
+          "name": "Mike Evans",
+          "position": "WR",
+          "team": "SF",
+          "slot": "FLEX",
+          "status": "",
+          "weekPoints": 29.3,
+          "seasonPoints": 83.6,
+          "starts": 5
+        },
+        {
+          "id": "5083076",
+          "name": "Harold Fannin Jr.",
+          "position": "TE",
+          "team": "CLE",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0.4,
+          "seasonPoints": 52.7,
+          "starts": 4
+        },
+        {
+          "id": "4569587",
+          "name": "Wan'Dale Robinson",
+          "position": "WR",
+          "team": "TEN",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 10.3,
+          "seasonPoints": 46.8,
+          "starts": 0
+        },
+        {
+          "id": "3953687",
+          "name": "Brandon Aubrey",
+          "position": "K",
+          "team": "DAL",
+          "slot": "K",
+          "status": "",
+          "weekPoints": 4,
+          "seasonPoints": 47.5,
+          "starts": 5
+        },
+        {
+          "id": "4430834",
+          "name": "Jalen McMillan",
+          "position": "WR",
+          "team": "TB",
+          "slot": "IR",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": -2,
+          "starts": 0
+        },
+        {
+          "id": "4036133",
+          "name": "T.J. Hockenson",
+          "position": "TE",
+          "team": "MIN",
+          "slot": "TE",
+          "status": "",
+          "weekPoints": 2.7,
+          "seasonPoints": 56.7,
+          "starts": 1
+        },
+        {
+          "id": "4819231",
+          "name": "Kaleb Johnson",
+          "position": "RB",
+          "team": "GB",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 4.3,
+          "seasonPoints": 15.8,
+          "starts": 0
+        },
+        {
+          "id": "4036378",
+          "name": "Jordan Love",
+          "position": "QB",
+          "team": "GB",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 31.38,
+          "seasonPoints": 65.44,
+          "starts": 0
+        },
+        {
+          "id": "5083754",
+          "name": "Ryan Flournoy",
+          "position": "WR",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 11,
+          "seasonPoints": 19.7,
+          "starts": 0
+        },
+        {
+          "id": "-16006",
+          "name": "Cowboys D/ST",
+          "position": "D/ST",
+          "slot": "D/ST",
+          "status": "",
+          "weekPoints": -1.5,
+          "seasonPoints": -1.5,
+          "starts": 1
+        },
+        {
+          "id": "4360248",
+          "name": "Kyle Pitts Sr.",
+          "position": "TE",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 14.2,
+          "seasonPoints": 14.2,
+          "starts": 0
+        }
+      ],
+      "moves": [
+        {
+          "date": "2026-09-07",
+          "label": "Free-agent move",
+          "detail": "Added Justice Hill; dropped Keenan Allen \u2022 $0"
+        },
+        {
+          "date": "2026-09-02",
+          "label": "Waiver claim",
+          "detail": "Added Kaleb Johnson; dropped Travis Hunter \u2022 $3"
+        }
+      ],
+      "season": {
+        "completedGames": 5,
+        "ppg": 150.31,
+        "pfRank": 1,
+        "paRank": 7,
+        "projectedRank": 4,
+        "startedPoints": 751.53,
+        "benchPoints": 247.68,
+        "positionTotals": {
+          "WR": 236.71,
+          "FLEX": 185.8,
+          "RB": 112.3,
+          "QB": 92.72,
+          "TE": 55,
+          "K": 47.5,
+          "D/ST": 21.5
+        },
+        "weekly": [
+          {
+            "week": 1,
+            "status": "FINAL",
+            "opponent": "Lloyd of the Rings",
+            "opponentSlug": "lloyd-rings",
+            "score": 139.62,
+            "opponentScore": 166.3,
+            "result": "L"
+          },
+          {
+            "week": 2,
+            "status": "FINAL",
+            "opponent": "I'm a Skatt man",
+            "opponentSlug": "skatt",
+            "score": 150.07,
+            "opponentScore": 140.21,
+            "result": "W"
+          },
+          {
+            "week": 3,
+            "status": "FINAL",
+            "opponent": "The All Ugly Team",
+            "opponentSlug": "all-ugly",
+            "score": 167.22,
+            "opponentScore": 102.26,
+            "result": "W"
+          },
+          {
+            "week": 4,
+            "status": "FINAL",
+            "opponent": "Mr Hopkins Opus",
+            "opponentSlug": "hopkins-opus",
+            "score": 153.16,
+            "opponentScore": 155.7,
+            "result": "L"
+          },
+          {
+            "week": 5,
+            "status": "FINAL",
+            "opponent": "CeeDeep Shaheeded Rivalry",
+            "opponentSlug": "ceedeep",
+            "score": 141.46,
+            "opponentScore": 106.75,
+            "result": "W"
+          }
+        ]
+      }
+    },
+    "hopkins-opus": {
+      "teamId": 7,
+      "teamName": "Mr Hopkins Opus",
+      "record": "4-1",
+      "seed": 1,
+      "pointsFor": 748.44,
+      "pointsAgainst": 642.88,
+      "projectedRank": 1,
+      "matchup": {
+        "opponent": "The All Ugly Team",
+        "opponentSlug": "all-ugly",
+        "score": 174.9,
+        "opponentScore": 141.24,
+        "status": "FINAL",
+        "projection": 142.38386823,
+        "opponentProjection": 125.37884868
+      },
+      "roster": [
+        {
+          "id": "4242335",
+          "name": "Jonathan Taylor",
+          "position": "RB",
+          "team": "IND",
+          "slot": "RB",
+          "status": "",
+          "weekPoints": 11.7,
+          "seasonPoints": 106.5,
+          "starts": 5
+        },
+        {
+          "id": "4567048",
+          "name": "Kenneth Walker III",
+          "position": "RB",
+          "team": "KC",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 135.8,
+          "starts": 4
+        },
+        {
+          "id": "4426354",
+          "name": "George Pickens",
+          "position": "WR",
+          "team": "DAL",
+          "slot": "WR",
+          "status": "",
+          "weekPoints": 29,
+          "seasonPoints": 69.5,
+          "starts": 5
+        },
+        {
+          "id": "4612826",
+          "name": "Ladd McConkey",
+          "position": "WR",
+          "team": "LAC",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 32.3,
+          "starts": 4
+        },
+        {
+          "id": "4596448",
+          "name": "Bucky Irving",
+          "position": "RB",
+          "team": "TB",
+          "slot": "RB",
+          "status": "",
+          "weekPoints": 37.6,
+          "seasonPoints": 86.4,
+          "starts": 5
+        },
+        {
+          "id": "3916148",
+          "name": "Tony Pollard",
+          "position": "RB",
+          "team": "TEN",
+          "slot": "FLEX",
+          "status": "",
+          "weekPoints": 5.6,
+          "seasonPoints": 45.5,
+          "starts": 3
+        },
+        {
+          "id": "4430027",
+          "name": "Sam LaPorta",
+          "position": "TE",
+          "team": "DET",
+          "slot": "TE",
+          "status": "",
+          "weekPoints": 20.8,
+          "seasonPoints": 77.6,
+          "starts": 5
+        },
+        {
+          "id": "4689114",
+          "name": "Jaxson Dart",
+          "position": "QB",
+          "team": "NYG",
+          "slot": "IR",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 28.5,
+          "starts": 2
+        },
+        {
+          "id": "4870653",
+          "name": "KC Concepcion",
+          "position": "WR",
+          "team": "CLE",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0.5,
+          "seasonPoints": 34.2,
+          "starts": 0
+        },
+        {
+          "id": "4361432",
+          "name": "Romeo Doubs",
+          "position": "WR",
+          "team": "NE",
+          "slot": "WR",
+          "status": "",
+          "weekPoints": 3.6,
+          "seasonPoints": 47.9,
+          "starts": 1
+        },
+        {
+          "id": "4685247",
+          "name": "Braelon Allen",
+          "position": "RB",
+          "team": "NYJ",
+          "slot": "FLEX",
+          "status": "",
+          "weekPoints": 25,
+          "seasonPoints": 52.7,
+          "starts": 2
+        },
+        {
+          "id": "-16026",
+          "name": "Seahawks D/ST",
+          "position": "D/ST",
+          "team": "SEA",
+          "slot": "D/ST",
+          "status": "",
+          "weekPoints": 6,
+          "seasonPoints": 47,
+          "starts": 5
+        },
+        {
+          "id": "3139477",
+          "name": "Patrick Mahomes",
+          "position": "QB",
+          "team": "KC",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 90.78,
+          "starts": 2
+        },
+        {
+          "id": "5083315",
+          "name": "Kenyon Sadiq",
+          "position": "TE",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 1.3,
+          "seasonPoints": 15.5,
+          "starts": 1
+        },
+        {
+          "id": "4571557",
+          "name": "Spencer Shrader",
+          "position": "K",
+          "slot": "K",
+          "status": "",
+          "weekPoints": 22,
+          "seasonPoints": 40,
+          "starts": 2
+        },
+        {
+          "id": "4431545",
+          "name": "Will Shipley",
+          "position": "RB",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 7.8,
+          "seasonPoints": 7.8,
+          "starts": 0
+        },
+        {
+          "id": "4360423",
+          "name": "Michael Penix Jr.",
+          "position": "QB",
+          "slot": "QB",
+          "status": "",
+          "weekPoints": 13.6,
+          "seasonPoints": 13.6,
+          "starts": 1
+        }
+      ],
+      "moves": [
+        {
+          "date": "2026-09-17",
+          "label": "Free-agent move",
+          "detail": "Added Demarcus Robinson; dropped George Holani \u2022 $0"
+        },
+        {
+          "date": "2026-09-16",
+          "label": "Free-agent move",
+          "detail": "Added George Holani; dropped Jerry Jeudy \u2022 $0"
+        },
+        {
+          "date": "2026-09-02",
+          "label": "Free-agent move",
+          "detail": "Added Chris Boswell \u2022 $0"
+        }
+      ],
+      "season": {
+        "completedGames": 5,
+        "ppg": 149.69,
+        "pfRank": 2,
+        "paRank": 11,
+        "projectedRank": 1,
+        "startedPoints": 748.44,
+        "benchPoints": 269.6,
+        "positionTotals": {
+          "RB": 279.9,
+          "WR": 105.4,
+          "FLEX": 107.2,
+          "TE": 77.6,
+          "QB": 77.34,
+          "D/ST": 47,
+          "K": 54
+        },
+        "weekly": [
+          {
+            "week": 1,
+            "status": "FINAL",
+            "opponent": "DarkHorse Danir",
+            "opponentSlug": "danir",
+            "score": 181.6,
+            "opponentScore": 121.14,
+            "result": "W"
+          },
+          {
+            "week": 2,
+            "status": "FINAL",
+            "opponent": "Royrek Tishmeshulam",
+            "opponentSlug": "royrek",
+            "score": 133.4,
+            "opponentScore": 106.7,
+            "result": "W"
+          },
+          {
+            "week": 3,
+            "status": "FINAL",
+            "opponent": "Lloyd of the Rings",
+            "opponentSlug": "lloyd-rings",
+            "score": 102.84,
+            "opponentScore": 120.64,
+            "result": "L"
+          },
+          {
+            "week": 4,
+            "status": "FINAL",
+            "opponent": "Pollard Greens",
+            "opponentSlug": "pollard-greens",
+            "score": 155.7,
+            "opponentScore": 153.16,
+            "result": "W"
+          },
+          {
+            "week": 5,
+            "status": "FINAL",
+            "opponent": "The All Ugly Team",
+            "opponentSlug": "all-ugly",
+            "score": 174.9,
+            "opponentScore": 141.24,
+            "result": "W"
+          }
+        ]
+      }
+    },
+    "shake-baker": {
+      "teamId": 8,
+      "teamName": "Shake 'N Baker",
+      "record": "1-4",
+      "seed": 11,
+      "pointsFor": 684.33,
+      "pointsAgainst": 749.57,
+      "projectedRank": 11,
+      "matchup": {
+        "opponent": "Lloyd of the Rings",
+        "opponentSlug": "lloyd-rings",
+        "score": 141.28,
+        "opponentScore": 143.12,
+        "status": "FINAL",
+        "projection": 129.33699016,
+        "opponentProjection": 148.9864032
+      },
+      "roster": [
+        {
+          "id": "4430807",
+          "name": "Bijan Robinson",
+          "position": "RB",
+          "team": "ATL",
+          "slot": "RB",
+          "status": "",
+          "weekPoints": 16.5,
+          "seasonPoints": 140.4,
+          "starts": 5
+        },
+        {
+          "id": "4569618",
+          "name": "Garrett Wilson",
+          "position": "WR",
+          "team": "NYJ",
+          "slot": "WR",
+          "status": "",
+          "weekPoints": 26.4,
+          "seasonPoints": 89.4,
+          "starts": 5
+        },
+        {
+          "id": "4239993",
+          "name": "Tee Higgins",
+          "position": "WR",
+          "team": "CIN",
+          "slot": "WR",
+          "status": "",
+          "weekPoints": 5.2,
+          "seasonPoints": 78.3,
+          "starts": 5
+        },
+        {
+          "id": "4426348",
+          "name": "Jayden Daniels",
+          "position": "QB",
+          "team": "WSH",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 35.16,
+          "seasonPoints": 66.76,
+          "starts": 1
+        },
+        {
+          "id": "4038815",
+          "name": "Rico Dowdle",
+          "position": "RB",
+          "team": "PIT",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 12,
+          "starts": 1
+        },
+        {
+          "id": "2976212",
+          "name": "Stefon Diggs",
+          "position": "WR",
+          "team": "WSH",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 51,
+          "starts": 4
+        },
+        {
+          "id": "-16034",
+          "name": "Texans D/ST",
+          "position": "D/ST",
+          "team": "HOU",
+          "slot": "D/ST",
+          "status": "",
+          "weekPoints": 21,
+          "seasonPoints": 32,
+          "starts": 5
+        },
+        {
+          "id": "3916433",
+          "name": "Jakobi Meyers",
+          "position": "WR",
+          "team": "JAX",
+          "slot": "FLEX",
+          "status": "",
+          "weekPoints": 6.7,
+          "seasonPoints": 51.25,
+          "starts": 2
+        },
+        {
+          "id": "2473037",
+          "name": "Jason Myers",
+          "position": "K",
+          "team": "SEA",
+          "slot": "K",
+          "status": "",
+          "weekPoints": 23,
+          "seasonPoints": 52.5,
+          "starts": 5
+        },
+        {
+          "id": "4373626",
+          "name": "Tyler Allgeier",
+          "position": "RB",
+          "team": "ARI",
+          "slot": "RB",
+          "status": "",
+          "weekPoints": 2.9,
+          "seasonPoints": 34.8,
+          "starts": 1
+        },
+        {
+          "id": "4428718",
+          "name": "Tre Tucker",
+          "position": "WR",
+          "team": "LV",
+          "slot": "FLEX",
+          "status": "",
+          "weekPoints": 6.7,
+          "seasonPoints": 58,
+          "starts": 3
+        },
+        {
+          "id": "3054850",
+          "name": "Alvin Kamara",
+          "position": "RB",
+          "team": "NO",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 1.9,
+          "seasonPoints": 38.5,
+          "starts": 0
+        },
+        {
+          "id": "4241416",
+          "name": "Chuba Hubbard",
+          "position": "RB",
+          "team": "CAR",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 88.1,
+          "starts": 4
+        },
+        {
+          "id": "15847",
+          "name": "Travis Kelce",
+          "position": "TE",
+          "team": "KC",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 58.6,
+          "starts": 4
+        },
+        {
+          "id": "3116164",
+          "name": "Mike Gesicki",
+          "position": "TE",
+          "slot": "TE",
+          "status": "",
+          "weekPoints": 8.4,
+          "seasonPoints": 8.4,
+          "starts": 1
+        },
+        {
+          "id": "2578570",
+          "name": "Jacoby Brissett",
+          "position": "QB",
+          "slot": "QB",
+          "status": "",
+          "weekPoints": 24.48,
+          "seasonPoints": 24.48,
+          "starts": 1
+        }
+      ],
+      "moves": [],
+      "season": {
+        "completedGames": 5,
+        "ppg": 136.87,
+        "pfRank": 7,
+        "paRank": 3,
+        "projectedRank": 11,
+        "startedPoints": 684.33,
+        "benchPoints": 221.95,
+        "positionTotals": {
+          "RB": 213.6,
+          "WR": 167.7,
+          "TE": 54.9,
+          "FLEX": 96.65,
+          "D/ST": 32,
+          "K": 52.5,
+          "QB": 66.98
+        },
+        "weekly": [
+          {
+            "week": 1,
+            "status": "FINAL",
+            "opponent": "For the Love of the Kraft",
+            "opponentSlug": "kraft",
+            "score": 105.54,
+            "opponentScore": 148.16,
+            "result": "L"
+          },
+          {
+            "week": 2,
+            "status": "FINAL",
+            "opponent": "The Route 22 Clubhouse",
+            "opponentSlug": "route-22",
+            "score": 139.49,
+            "opponentScore": 138.93,
+            "result": "W"
+          },
+          {
+            "week": 3,
+            "status": "FINAL",
+            "opponent": "DarkHorse Danir",
+            "opponentSlug": "danir",
+            "score": 167.78,
+            "opponentScore": 185.48,
+            "result": "L"
+          },
+          {
+            "week": 4,
+            "status": "FINAL",
+            "opponent": "Royrek Tishmeshulam",
+            "opponentSlug": "royrek",
+            "score": 130.24,
+            "opponentScore": 133.88,
+            "result": "L"
+          },
+          {
+            "week": 5,
+            "status": "FINAL",
+            "opponent": "Lloyd of the Rings",
+            "opponentSlug": "lloyd-rings",
+            "score": 141.28,
+            "opponentScore": 143.12,
+            "result": "L"
+          }
+        ]
+      }
+    },
+    "kraft": {
+      "teamId": 9,
+      "teamName": "For the Love of the Kraft",
+      "record": "2-3",
+      "seed": 9,
+      "pointsFor": 676.04,
+      "pointsAgainst": 691.79,
+      "projectedRank": 10,
+      "matchup": {
+        "opponent": "DarkHorse Danir",
+        "opponentSlug": "danir",
+        "score": 147.2,
+        "opponentScore": 171.26,
+        "status": "FINAL",
+        "projection": 148.01093469,
+        "opponentProjection": 143.03525984
+      },
+      "roster": [
+        {
+          "id": "4426515",
+          "name": "Puka Nacua",
+          "position": "WR",
+          "team": "LAR",
+          "slot": "FLEX",
+          "status": "",
+          "weekPoints": 38.9,
+          "seasonPoints": 81.6,
+          "starts": 3
+        },
+        {
+          "id": "4258173",
+          "name": "Nico Collins",
+          "position": "WR",
+          "team": "HOU",
+          "slot": "WR",
+          "status": "",
+          "weekPoints": 11.6,
+          "seasonPoints": 63.7,
+          "starts": 3
+        },
+        {
+          "id": "4870808",
+          "name": "Jeremiyah Love",
+          "position": "RB",
+          "team": "ARI",
+          "slot": "RB",
+          "status": "",
+          "weekPoints": 2.4,
+          "seasonPoints": 54.8,
+          "starts": 5
+        },
+        {
+          "id": "4259545",
+          "name": "D'Andre Swift",
+          "position": "RB",
+          "team": "CHI",
+          "slot": "RB",
+          "status": "",
+          "weekPoints": 17.2,
+          "seasonPoints": 92.6,
+          "starts": 5
+        },
+        {
+          "id": "4685278",
+          "name": "Luther Burden III",
+          "position": "WR",
+          "team": "CHI",
+          "slot": "WR",
+          "status": "",
+          "weekPoints": 8.8,
+          "seasonPoints": 58,
+          "starts": 5
+        },
+        {
+          "id": "3915511",
+          "name": "Joe Burrow",
+          "position": "QB",
+          "team": "CIN",
+          "slot": "QB",
+          "status": "",
+          "weekPoints": 28,
+          "seasonPoints": 109.74,
+          "starts": 5
+        },
+        {
+          "id": "4572680",
+          "name": "Tucker Kraft",
+          "position": "TE",
+          "team": "GB",
+          "slot": "TE",
+          "status": "",
+          "weekPoints": 12.7,
+          "seasonPoints": 49.4,
+          "starts": 5
+        },
+        {
+          "id": "4429096",
+          "name": "Blake Corum",
+          "position": "RB",
+          "team": "LAR",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 15.7,
+          "seasonPoints": 41.2,
+          "starts": 2
+        },
+        {
+          "id": "3116165",
+          "name": "Chris Godwin Jr.",
+          "position": "WR",
+          "team": "TB",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 8.1,
+          "seasonPoints": 36,
+          "starts": 3
+        },
+        {
+          "id": "4702555",
+          "name": "Jonah Coleman",
+          "position": "RB",
+          "team": "DEN",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 16.55,
+          "starts": 1
+        },
+        {
+          "id": "4880281",
+          "name": "Jordyn Tyson",
+          "position": "WR",
+          "team": "NO",
+          "slot": "IR",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
+        },
+        {
+          "id": "4697745",
+          "name": "Tyler Loop",
+          "position": "K",
+          "team": "BAL",
+          "slot": "K",
+          "status": "",
+          "weekPoints": 17,
+          "seasonPoints": 63.5,
+          "starts": 5
+        },
+        {
+          "id": "4696044",
+          "name": "Kaelon Black",
+          "position": "RB",
+          "team": "SF",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 3.2,
+          "seasonPoints": 23.8,
+          "starts": 0
+        },
+        {
+          "id": "4597500",
+          "name": "Adonai Mitchell",
+          "position": "WR",
+          "team": "NYJ",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
+        },
+        {
+          "id": "4569603",
+          "name": "Malik Washington",
+          "position": "WR",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 12.95,
+          "seasonPoints": 35.95,
+          "starts": 2
+        },
+        {
+          "id": "-16004",
+          "name": "Bengals D/ST",
+          "position": "D/ST",
+          "slot": "D/ST",
+          "status": "",
+          "weekPoints": 8,
+          "seasonPoints": 8,
+          "starts": 1
+        },
+        {
+          "id": "4686612",
+          "name": "Tre' Harris",
+          "position": "WR",
+          "slot": "FLEX",
+          "status": "",
+          "weekPoints": 2.6,
+          "seasonPoints": 2.6,
+          "starts": 1
+        }
+      ],
+      "moves": [
+        {
+          "date": "2026-09-16",
+          "label": "Waiver claim",
+          "detail": "Added Antonio Williams; dropped Rachaad White \u2022 $2"
+        },
+        {
+          "date": "2026-09-02",
+          "label": "Free-agent move",
+          "detail": "Added Kaelon Black \u2022 $0"
+        }
+      ],
+      "season": {
+        "completedGames": 5,
+        "ppg": 135.21,
+        "pfRank": 9,
+        "paRank": 6,
+        "projectedRank": 10,
+        "startedPoints": 676.04,
+        "benchPoints": 103.7,
+        "positionTotals": {
+          "WR": 144.6,
+          "RB": 146.1,
+          "FLEX": 137.7,
+          "QB": 109.74,
+          "TE": 49.4,
+          "D/ST": 25,
+          "K": 63.5
+        },
+        "weekly": [
+          {
+            "week": 1,
+            "status": "FINAL",
+            "opponent": "Shake 'N Baker",
+            "opponentSlug": "shake-baker",
+            "score": 148.16,
+            "opponentScore": 105.54,
+            "result": "W"
+          },
+          {
+            "week": 2,
+            "status": "FINAL",
+            "opponent": "Kupp Kupp Doubs",
+            "opponentSlug": "kupp-doubs",
+            "score": 95.48,
+            "opponentScore": 100.48,
+            "result": "L"
+          },
+          {
+            "week": 3,
+            "status": "FINAL",
+            "opponent": "I'm a Skatt man",
+            "opponentSlug": "skatt",
+            "score": 116.98,
+            "opponentScore": 146.57,
+            "result": "L"
+          },
+          {
+            "week": 4,
+            "status": "FINAL",
+            "opponent": "The Route 22 Clubhouse",
+            "opponentSlug": "route-22",
+            "score": 168.22,
+            "opponentScore": 167.94,
+            "result": "W"
+          },
+          {
+            "week": 5,
+            "status": "FINAL",
+            "opponent": "DarkHorse Danir",
+            "opponentSlug": "danir",
+            "score": 147.2,
+            "opponentScore": 171.26,
+            "result": "L"
+          }
+        ]
+      }
+    },
+    "royrek": {
+      "teamId": 10,
+      "teamName": "Royrek Tishmeshulam",
+      "record": "2-3",
+      "seed": 10,
+      "pointsFor": 652.19,
+      "pointsAgainst": 715.86,
+      "projectedRank": 9,
+      "matchup": {
+        "opponent": "Kupp Kupp Doubs",
+        "opponentSlug": "kupp-doubs",
+        "score": 136.86,
+        "opponentScore": 177.6,
+        "status": "FINAL",
+        "projection": 121.89138295,
+        "opponentProjection": 128.59469006
+      },
+      "roster": [
+        {
+          "id": "4262921",
+          "name": "Justin Jefferson",
+          "position": "WR",
+          "team": "MIN",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 19.9,
+          "seasonPoints": 67.8,
+          "starts": 3
+        },
+        {
+          "id": "3929630",
+          "name": "Saquon Barkley",
+          "position": "RB",
+          "team": "PHI",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 26.6,
+          "starts": 4
+        },
+        {
+          "id": "16800",
+          "name": "Davante Adams",
+          "position": "WR",
+          "team": "LAR",
+          "slot": "WR",
+          "status": "",
+          "weekPoints": 21.1,
+          "seasonPoints": 98.6,
+          "starts": 5
+        },
+        {
+          "id": "3916387",
+          "name": "Lamar Jackson",
+          "position": "QB",
+          "team": "BAL",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 86.98,
+          "starts": 4
+        },
+        {
+          "id": "4569173",
+          "name": "Rhamondre Stevenson",
+          "position": "RB",
+          "team": "NE",
+          "slot": "RB",
+          "status": "",
+          "weekPoints": 19.8,
+          "seasonPoints": 67.5,
+          "starts": 5
+        },
+        {
+          "id": "3121023",
+          "name": "Dallas Goedert",
+          "position": "TE",
+          "team": "PHI",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 8.8,
+          "seasonPoints": 38.9,
+          "starts": 2
+        },
+        {
+          "id": "4047650",
+          "name": "DK Metcalf",
+          "position": "WR",
+          "team": "PIT",
+          "slot": "FLEX",
+          "status": "",
+          "weekPoints": 6.4,
+          "seasonPoints": 51.7,
+          "starts": 5
+        },
+        {
+          "id": "4701936",
+          "name": "Matthew Golden",
+          "position": "WR",
+          "team": "GB",
+          "slot": "FLEX",
+          "status": "",
+          "weekPoints": 24.3,
+          "seasonPoints": 84.4,
+          "starts": 1
+        },
+        {
+          "id": "3042519",
+          "name": "Aaron Jones Sr.",
+          "position": "RB",
+          "team": "MIN",
+          "slot": "RB",
+          "status": "",
+          "weekPoints": 25.2,
+          "seasonPoints": 90.9,
+          "starts": 5
+        },
+        {
+          "id": "4429205",
+          "name": "Jordan Addison",
+          "position": "WR",
+          "team": "MIN",
+          "slot": "WR",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 40.3,
+          "starts": 2
+        },
+        {
+          "id": "4428557",
+          "name": "Tyjae Spears",
+          "position": "RB",
+          "team": "TEN",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 9,
+          "seasonPoints": 22,
+          "starts": 0
+        },
+        {
+          "id": "3116365",
+          "name": "Mark Andrews",
+          "position": "TE",
+          "team": "BAL",
+          "slot": "TE",
+          "status": "",
+          "weekPoints": 5.8,
+          "seasonPoints": 46.7,
+          "starts": 3
+        },
+        {
+          "id": "2971573",
+          "name": "Ka'imi Fairbairn",
+          "position": "K",
+          "team": "HOU",
+          "slot": "K",
+          "status": "",
+          "weekPoints": 19,
+          "seasonPoints": 55.75,
+          "starts": 5
+        },
+        {
+          "id": "3917315",
+          "name": "Kyler Murray",
+          "position": "QB",
+          "team": "MIN",
+          "slot": "QB",
+          "status": "",
+          "weekPoints": 20.26,
+          "seasonPoints": 47.78,
+          "starts": 1
+        },
+        {
+          "id": "3925357",
+          "name": "Calvin Ridley",
+          "position": "WR",
+          "team": "TEN",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 4.3,
+          "seasonPoints": 8.1,
+          "starts": 0
+        },
+        {
+          "id": "-16013",
+          "name": "Raiders D/ST",
+          "position": "D/ST",
+          "slot": "D/ST",
+          "status": "",
+          "weekPoints": -5,
+          "seasonPoints": -5,
+          "starts": 1
+        }
+      ],
+      "moves": [
+        {
+          "date": "2026-09-16",
+          "label": "Free-agent move",
+          "detail": "Added Falcons D/ST; dropped Lions D/ST \u2022 $0"
+        }
+      ],
+      "season": {
+        "completedGames": 5,
+        "ppg": 130.44,
+        "pfRank": 12,
+        "paRank": 4,
+        "projectedRank": 9,
+        "startedPoints": 652.19,
+        "benchPoints": 196.32,
+        "positionTotals": {
+          "WR": 156.7,
+          "RB": 119.3,
+          "QB": 107.24,
+          "TE": 57,
+          "FLEX": 141.7,
+          "K": 55.75,
+          "D/ST": 14.5
+        },
+        "weekly": [
+          {
+            "week": 1,
+            "status": "FINAL",
+            "opponent": "The All Ugly Team",
+            "opponentSlug": "all-ugly",
+            "score": 160.91,
+            "opponentScore": 152.86,
+            "result": "W"
+          },
+          {
+            "week": 2,
+            "status": "FINAL",
+            "opponent": "Mr Hopkins Opus",
+            "opponentSlug": "hopkins-opus",
+            "score": 106.7,
+            "opponentScore": 133.4,
+            "result": "L"
+          },
+          {
+            "week": 3,
+            "status": "FINAL",
+            "opponent": "CeeDeep Shaheeded Rivalry",
+            "opponentSlug": "ceedeep",
+            "score": 113.84,
+            "opponentScore": 121.76,
+            "result": "L"
+          },
+          {
+            "week": 4,
+            "status": "FINAL",
+            "opponent": "Shake 'N Baker",
+            "opponentSlug": "shake-baker",
+            "score": 133.88,
+            "opponentScore": 130.24,
+            "result": "W"
+          },
+          {
+            "week": 5,
+            "status": "FINAL",
+            "opponent": "Kupp Kupp Doubs",
+            "opponentSlug": "kupp-doubs",
+            "score": 136.86,
+            "opponentScore": 177.6,
+            "result": "L"
+          }
+        ]
+      }
+    },
+    "lloyd-rings": {
+      "teamId": 11,
+      "teamName": "Lloyd of the Rings",
+      "record": "4-1",
+      "seed": 2,
+      "pointsFor": 714.9,
+      "pointsAgainst": 659.03,
+      "projectedRank": 2,
+      "matchup": {
+        "opponent": "Shake 'N Baker",
+        "opponentSlug": "shake-baker",
+        "score": 143.12,
+        "opponentScore": 141.28,
+        "status": "FINAL",
+        "projection": 148.9864032,
+        "opponentProjection": 129.33699016
+      },
+      "roster": [
+        {
+          "id": "4362238",
+          "name": "Chase Brown",
+          "position": "RB",
+          "team": "CIN",
+          "slot": "RB",
+          "status": "",
+          "weekPoints": 9.3,
+          "seasonPoints": 73.6,
+          "starts": 5
+        },
+        {
+          "id": "3043078",
+          "name": "Derrick Henry",
+          "position": "RB",
+          "team": "BAL",
+          "slot": "RB",
+          "status": "",
+          "weekPoints": 27.4,
+          "seasonPoints": 132.1,
+          "starts": 5
+        },
+        {
+          "id": "4429615",
+          "name": "Zay Flowers",
+          "position": "WR",
+          "team": "BAL",
+          "slot": "FLEX",
+          "status": "",
+          "weekPoints": 15.7,
+          "seasonPoints": 93,
+          "starts": 3
+        },
+        {
+          "id": "4567750",
+          "name": "Emeka Egbuka",
+          "position": "WR",
+          "team": "TB",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 18.3,
+          "seasonPoints": 50.5,
+          "starts": 3
+        },
+        {
+          "id": "4432620",
+          "name": "Parker Washington",
+          "position": "WR",
+          "team": "JAX",
+          "slot": "WR",
+          "status": "",
+          "weekPoints": 36.9,
+          "seasonPoints": 91.1,
+          "starts": 5
+        },
+        {
+          "id": "4429023",
+          "name": "MarShawn Lloyd",
+          "position": "RB",
+          "team": "GB",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 18.7,
+          "seasonPoints": 47.7,
+          "starts": 2
+        },
+        {
+          "id": "2577417",
+          "name": "Dak Prescott",
+          "position": "QB",
+          "team": "DAL",
+          "slot": "QB",
+          "status": "",
+          "weekPoints": 13.64,
+          "seasonPoints": 97.04,
+          "starts": 4
+        },
+        {
+          "id": "4360761",
+          "name": "Michael Wilson",
+          "position": "WR",
+          "team": "ARI",
+          "slot": "WR",
+          "status": "",
+          "weekPoints": 6.78,
+          "seasonPoints": 61.58,
+          "starts": 3
+        },
+        {
+          "id": "4575131",
+          "name": "Jacory Croskey-Merritt",
+          "position": "RB",
+          "team": "WSH",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 15.3,
+          "seasonPoints": 49.6,
+          "starts": 2
+        },
+        {
+          "id": "4360569",
+          "name": "Jordan Mason",
+          "position": "RB",
+          "team": "MIN",
+          "slot": "IR",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 14.4,
+          "starts": 0
+        },
+        {
+          "id": "4385690",
+          "name": "Dalton Kincaid",
+          "position": "TE",
+          "team": "BUF",
+          "slot": "TE",
+          "status": "",
+          "weekPoints": 4.7,
+          "seasonPoints": 54.7,
+          "starts": 5
+        },
+        {
+          "id": "4686658",
+          "name": "Mike Washington Jr.",
+          "position": "RB",
+          "team": "LV",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 1.1,
+          "seasonPoints": 24.4,
+          "starts": 0
+        },
+        {
+          "id": "4360310",
+          "name": "Trevor Lawrence",
+          "position": "QB",
+          "team": "JAX",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 27.04,
+          "seasonPoints": 95.26,
+          "starts": 1
+        },
+        {
+          "id": "4887558",
+          "name": "Emanuel Wilson",
+          "position": "RB",
+          "team": "SEA",
+          "slot": "FLEX",
+          "status": "",
+          "weekPoints": 14.2,
+          "seasonPoints": 46.1,
+          "starts": 2
+        },
+        {
+          "id": "3150744",
+          "name": "Chase McLaughlin",
+          "position": "K",
+          "team": "TB",
+          "slot": "K",
+          "status": "",
+          "weekPoints": 8,
+          "seasonPoints": 21,
+          "starts": 3
+        },
+        {
+          "id": "-16030",
+          "name": "Jaguars D/ST",
+          "position": "D/ST",
+          "slot": "D/ST",
+          "status": "",
+          "weekPoints": 6.5,
+          "seasonPoints": 31,
+          "starts": 3
+        },
+        {
+          "id": "4429086",
+          "name": "Michael Mayer",
+          "position": "TE",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0.2,
+          "seasonPoints": 0.2,
+          "starts": 0
+        }
+      ],
+      "moves": [
+        {
+          "date": "2026-09-16",
+          "label": "Free-agent move",
+          "detail": "Added David Njoku \u2022 $0"
+        },
+        {
+          "date": "2026-09-16",
+          "label": "Waiver claim",
+          "detail": "Added Devaughn Vele; dropped Jaylin Noel \u2022 $15"
+        },
+        {
+          "date": "2026-09-16",
+          "label": "Waiver claim",
+          "detail": "Added Caleb Douglas; dropped Jaylin Noel \u2022 $20"
+        }
+      ],
+      "season": {
+        "completedGames": 5,
+        "ppg": 142.98,
+        "pfRank": 4,
+        "paRank": 9,
+        "projectedRank": 2,
+        "startedPoints": 714.9,
+        "benchPoints": 274.48,
+        "positionTotals": {
+          "RB": 205.7,
+          "WR": 168.28,
+          "FLEX": 149.6,
+          "QB": 90.12,
+          "TE": 54.7,
+          "K": 22.5,
+          "D/ST": 24
+        },
+        "weekly": [
+          {
+            "week": 1,
+            "status": "FINAL",
+            "opponent": "Pollard Greens",
+            "opponentSlug": "pollard-greens",
+            "score": 166.3,
+            "opponentScore": 139.62,
+            "result": "W"
+          },
+          {
+            "week": 2,
+            "status": "FINAL",
+            "opponent": "The All Ugly Team",
+            "opponentSlug": "all-ugly",
+            "score": 143.56,
+            "opponentScore": 128.22,
+            "result": "W"
+          },
+          {
+            "week": 3,
+            "status": "FINAL",
+            "opponent": "Mr Hopkins Opus",
+            "opponentSlug": "hopkins-opus",
+            "score": 120.64,
+            "opponentScore": 102.84,
+            "result": "W"
+          },
+          {
+            "week": 4,
+            "status": "FINAL",
+            "opponent": "CeeDeep Shaheeded Rivalry",
+            "opponentSlug": "ceedeep",
+            "score": 141.28,
+            "opponentScore": 147.07,
+            "result": "L"
+          },
+          {
+            "week": 5,
+            "status": "FINAL",
+            "opponent": "Shake 'N Baker",
+            "opponentSlug": "shake-baker",
+            "score": 143.12,
+            "opponentScore": 141.28,
+            "result": "W"
+          }
+        ]
+      }
+    },
+    "ceedeep": {
+      "teamId": 12,
+      "teamName": "CeeDeep Shaheeded Rivalry",
+      "record": "3-2",
+      "seed": 6,
+      "pointsFor": 666.61,
+      "pointsAgainst": 671.11,
+      "projectedRank": 6,
+      "matchup": {
+        "opponent": "Pollard Greens",
+        "opponentSlug": "pollard-greens",
+        "score": 106.75,
+        "opponentScore": 141.46,
+        "status": "FINAL",
+        "projection": 133.86780654,
+        "opponentProjection": 149.95689635
+      },
+      "roster": [
+        {
+          "id": "4241389",
+          "name": "CeeDee Lamb",
+          "position": "WR",
+          "team": "DAL",
+          "slot": "WR",
+          "status": "",
+          "weekPoints": 1.9,
+          "seasonPoints": 120.3,
+          "starts": 5
+        },
+        {
+          "id": "3918298",
+          "name": "Josh Allen",
+          "position": "QB",
+          "team": "BUF",
+          "slot": "QB",
+          "status": "",
+          "weekPoints": 34.5,
+          "seasonPoints": 158.26,
+          "starts": 5
+        },
+        {
+          "id": "4239996",
+          "name": "Travis Etienne Jr.",
+          "position": "RB",
+          "team": "NO",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 32.9,
+          "starts": 3
+        },
+        {
+          "id": "3121422",
+          "name": "Terry McLaurin",
+          "position": "WR",
+          "team": "WSH",
+          "slot": "FLEX",
+          "status": "",
+          "weekPoints": 12.2,
+          "seasonPoints": 41.3,
+          "starts": 4
+        },
+        {
+          "id": "4432710",
+          "name": "TreVeyon Henderson",
+          "position": "RB",
+          "team": "NE",
+          "slot": "RB",
+          "status": "",
+          "weekPoints": 6.2,
+          "seasonPoints": 32.7,
+          "starts": 4
+        },
+        {
+          "id": "3040151",
+          "name": "George Kittle",
+          "position": "TE",
+          "team": "SF",
+          "slot": "TE",
+          "status": "",
+          "weekPoints": 8.4,
+          "seasonPoints": 80.3,
+          "starts": 4
+        },
+        {
+          "id": "4432773",
+          "name": "Brian Thomas Jr.",
+          "position": "WR",
+          "team": "JAX",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 1.5,
+          "seasonPoints": 29,
+          "starts": 1
+        },
+        {
+          "id": "4568490",
+          "name": "RJ Harvey",
+          "position": "RB",
+          "team": "DEN",
+          "slot": "RB",
+          "status": "",
+          "weekPoints": 2,
+          "seasonPoints": 44.8,
+          "starts": 2
+        },
+        {
+          "id": "4373678",
+          "name": "Khalil Shakir",
+          "position": "WR",
+          "team": "BUF",
+          "slot": "FLEX",
+          "status": "",
+          "weekPoints": 12,
+          "seasonPoints": 44.6,
+          "starts": 2
+        },
+        {
+          "id": "4032473",
+          "name": "Rashid Shaheed",
+          "position": "WR",
+          "team": "SEA",
+          "slot": "WR",
+          "status": "",
+          "weekPoints": 5.55,
+          "seasonPoints": 41.1,
+          "starts": 4
+        },
+        {
+          "id": "4366031",
+          "name": "Tank Dell",
+          "position": "WR",
+          "team": "HOU",
+          "slot": "IR",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 0,
+          "starts": 0
+        },
+        {
+          "id": "4596334",
+          "name": "Keaton Mitchell",
+          "position": "RB",
+          "team": "LAC",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 7,
+          "seasonPoints": 40.25,
+          "starts": 0
+        },
+        {
+          "id": "4034949",
+          "name": "Eddy Pineiro",
+          "position": "K",
+          "team": "SF",
+          "slot": "K",
+          "status": "",
+          "weekPoints": 7.5,
+          "seasonPoints": 37.5,
+          "starts": 5
+        },
+        {
+          "id": "4599739",
+          "name": "Kendre Miller",
+          "position": "RB",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 9,
+          "seasonPoints": 10.5,
+          "starts": 1
+        },
+        {
+          "id": "2991662",
+          "name": "Mack Hollins",
+          "position": "WR",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 0,
+          "seasonPoints": 9.3,
+          "starts": 1
+        },
+        {
+          "id": "3117256",
+          "name": "Dalton Schultz",
+          "position": "TE",
+          "team": "HOU",
+          "slot": "Bench",
+          "status": "",
+          "weekPoints": 7,
+          "seasonPoints": 13.9,
+          "starts": 0
+        },
+        {
+          "id": "-16007",
+          "name": "Broncos D/ST",
+          "position": "D/ST",
+          "slot": "D/ST",
+          "status": "",
+          "weekPoints": 16.5,
+          "seasonPoints": 16.5,
+          "starts": 1
+        }
+      ],
+      "moves": [
+        {
+          "date": "2026-09-02",
+          "label": "Free-agent move",
+          "detail": "Added Hunter Henry \u2022 $0"
+        }
+      ],
+      "season": {
+        "completedGames": 5,
+        "ppg": 133.32,
+        "pfRank": 10,
+        "paRank": 8,
+        "projectedRank": 6,
+        "startedPoints": 666.61,
+        "benchPoints": 156.1,
+        "positionTotals": {
+          "RB": 93.2,
+          "WR": 171.2,
+          "QB": 158.26,
+          "FLEX": 80.25,
+          "D/ST": 46,
+          "K": 37.5,
+          "TE": 80.2
+        },
+        "weekly": [
+          {
+            "week": 1,
+            "status": "FINAL",
+            "opponent": "The Route 22 Clubhouse",
+            "opponentSlug": "route-22",
+            "score": 129.81,
+            "opponentScore": 147.9,
+            "result": "L"
+          },
+          {
+            "week": 2,
+            "status": "FINAL",
+            "opponent": "DarkHorse Danir",
+            "opponentSlug": "danir",
+            "score": 161.22,
+            "opponentScore": 126.63,
+            "result": "W"
+          },
+          {
+            "week": 3,
+            "status": "FINAL",
+            "opponent": "Royrek Tishmeshulam",
+            "opponentSlug": "royrek",
+            "score": 121.76,
+            "opponentScore": 113.84,
+            "result": "W"
+          },
+          {
+            "week": 4,
+            "status": "FINAL",
+            "opponent": "Lloyd of the Rings",
+            "opponentSlug": "lloyd-rings",
+            "score": 147.07,
+            "opponentScore": 141.28,
+            "result": "W"
+          },
+          {
+            "week": 5,
+            "status": "FINAL",
+            "opponent": "Pollard Greens",
+            "opponentSlug": "pollard-greens",
+            "score": 106.75,
+            "opponentScore": 141.46,
+            "result": "L"
+          }
+        ]
+      }
+    }
+  }
+}

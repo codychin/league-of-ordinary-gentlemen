@@ -27,5 +27,7 @@ test('DOGE autopsy covers all six games exactly once with league-local team IDs'
  const a=JSON.parse(fs.readFileSync(new URL('../data/doge-autopsy.json',import.meta.url)));
  assert.equal(a.findings.length,6);
  assert.equal(new Set(a.findings.flatMap(f=>f.teams)).size,12);
- for(const f of a.findings)assert.ok(data.weeks[3].matchups.some(g=>f.teams.includes(g.home.teamId)&&f.teams.includes(g.away.teamId)));
+ const current=JSON.parse(fs.readFileSync(new URL('../data/doge-week6-final-matchups.json',import.meta.url)));
+ assert.equal(a.week,current.matchupWeek);
+ for(const f of a.findings)assert.ok(current.matchups.some(g=>f.teams.includes(g.home.teamId)&&f.teams.includes(g.away.teamId)));
 });

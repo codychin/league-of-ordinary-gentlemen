@@ -1,10 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {leagueSnapshot} from '../app/teams/league-data.js';
+const leagueSnapshot=JSON.parse(fs.readFileSync('data/week5-loog-snapshot.json'));
 import {isMatchupFinal} from '../lib/matchup-status.mjs';
 const evidence=JSON.parse(fs.readFileSync('data/week5-closeout.json'));
-const scores=JSON.parse(fs.readFileSync('data/latest-loog-scores.json'));
+const scores=JSON.parse(fs.readFileSync('data/week5-loog-scores.json'));
 const round=n=>Math.round(n*100)/100;
 test('Yahoo leaders are not final while the provider says in progress',()=>{
  assert.equal(isMatchupFinal({status:'in_progress',winner:'home'}),false);

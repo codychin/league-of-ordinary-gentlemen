@@ -5,7 +5,7 @@ import {createHash} from 'node:crypto';
 
 test('frozen public data matches the recorded production captures',()=>{
  const manifest=JSON.parse(readFileSync('data/staging-capture-manifest.json','utf8'));
- assert.equal(manifest.productionSourceSha,'66e7bde4ac1feaf1444b300c230990f9d5f0ee98');
+ assert.equal(manifest.productionSourceSha,'7e84ccd2fb4e5ba3ab8fdac0dd73a9e06c70fb67');
  for(const item of manifest.files){
   const bytes=readFileSync(item.path);
   assert.equal(createHash('sha256').update(bytes).digest('hex'),item.sha256,item.path);

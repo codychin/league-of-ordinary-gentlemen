@@ -25,7 +25,8 @@ export default function EditionScoreboard({matchups=[],week=4,rosters=[],headsho
   });
   return <section className="section scoreSection editionScoreSection" id="scores">
     <div className="sectionhead"><div><small className="deskLabel">THE BRIEF • SCOREBOARD</small><h2>Week {week} {allFinal?'Final':pending?'Scores':pregame?'Matchups':'Live'}</h2></div><span>{allFinal?'FINAL SCORES • WEEK '+week+' IN THE BOOKS':pending?'SCORES POSTED • PROVIDER FINALIZATION PENDING':pregame?'NEW WEEK • 0–0':'LATEST VERIFIED SCORES'}</span></div>
-    <MatchupCardGrid cards={cards}/>
+    
+  <MatchupCardGrid cards={cards}/>
 
     {history.filter(w=>Number(w.matchupWeek)<Number(week)).sort((a,b)=>b.matchupWeek-a.matchupWeek).map(w=><details className="editionScoreHistory" key={w.matchupWeek}><summary>Week {w.matchupWeek} Final</summary>{w.matchups.map(g=><div className="editionHistoryGame" key={g.matchupId}><span>{g.home.teamName}</span><b>{score(g.home.points)}</b><span>{g.away.teamName}</span><b>{score(g.away.points)}</b></div>)}</details>)}
   </section>;

@@ -1,11 +1,12 @@
 # Staging and releases
 
-## Reconciled baseline: October 19, 2026
+## Reconciled baseline: October 21, 2026
 
-- Production source: `66e7bde4ac1feaf1444b300c230990f9d5f0ee98`, verified on `www.ordinarybrief.com` at deployment `dpl_3zVLrEKzjTjGRRCkGqgJ7XfGXDDC`.
+- Production source: `7e84ccd2fb4e5ba3ab8fdac0dd73a9e06c70fb67`, verified on `www.ordinarybrief.com` at deployment `dpl_C7Yi3gsoixmdZVqU5oUTeuGuRrx4`.
 - Prior staging, including the unpromoted desktop scroll navigation, is preserved unchanged at `backup/staging-before-production-reconcile-20261019` (`a7b6ecccf6c3d4aa1ef53e3bb7c6db4656b0e994`). No history was force-reset.
 - Application content, layouts, routing, public assets, and release guards come from that production source. The only source overlay is QA isolation, environment labeling, a read-only release-health endpoint, frozen public data, and tests/documentation for those differences. No new navigation or other unfinished feature is included.
-- Public edition data, article lists, canonical player assets, score and detail responses were captured on October 19 around 19:40–19:41 UTC. `data/staging-capture-manifest.json` records exact sources, capture times, and SHA-256 hashes. Upstream provider timestamps are retained; capture does not trigger refresh, ticks, or syncs.
+- The previous reconciled staging baseline is also preserved at `backup/staging-before-production-reconcile-20261021` (`47773ebbb8884bb6a03f11b6c8cf9040b95bd1dd`). Current production includes the approved Week 6 long-form recaps, homepage video shelves, and corrected text-only matchup layout.
+- Public edition data, article lists, canonical player assets, score and detail responses were captured again on October 21. `data/staging-capture-manifest.json` records exact sources, capture times, and SHA-256 hashes. Upstream provider timestamps are retained; capture does not trigger refresh, ticks, or syncs.
 - Comments, reactions, notifications, management/authentication and publishing remain disabled. Frozen scores do not continue updating; this environment is a safe source/content/layout baseline, not a live-backend replica.
 - Keep new experiments on feature branches. Reconcile against the exact served production SHA before reviewing or promoting an individual feature; do not merge the preserved legacy staging branch wholesale.
 
