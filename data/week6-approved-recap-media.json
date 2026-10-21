@@ -1,0 +1,272 @@
+[
+  {
+    "id": "3a7ce6ae765112a4b95e57ef948e7e59",
+    "edition": "loog",
+    "teamIds": [
+      "3",
+      "12"
+    ],
+    "provider": "heygen",
+    "providerVideoPage": "https://app.heygen.com/videos/3a7ce6ae765112a4b95e57ef948e7e59",
+    "publicationApprovalSource": "Sentinel_dc7db8cdb1408191bc9d60cf7c7358e4",
+    "sourceSha256": "97ce3e14215b8b6650d28ce0499a1d026455605ae8867fab0c99dd8457050682",
+    "packagedSha256": "072596647e829bb55aecf06bab3f26e913dc786e9f530ba28b820dbb3ce421d9",
+    "approvedAudioBitstreamSha256": "10fc18c1a23a0182c0ddaac25f5a9a09271144754d7f040a395a4c9d0193a8ce",
+    "packaging": "720p H.264 delivery transcode; approved AAC audio copied unchanged"
+  },
+  {
+    "id": "48037052189b868d90730a322385cce2",
+    "edition": "loog",
+    "teamIds": [
+      "2",
+      "4"
+    ],
+    "provider": "heygen",
+    "providerVideoPage": "https://app.heygen.com/videos/48037052189b868d90730a322385cce2",
+    "publicationApprovalSource": "Sentinel_dc7db8cdb1408191bc9d60cf7c7358e4",
+    "sourceSha256": "573ebcd69eff3ce6c9a284795e01146ffbce38230a9158d613075002a7e148d7",
+    "packagedSha256": "fea1c61ad5718ce4bb6d1f2743cd0eec7da622b62dc12fa77301dfb9eeca6a12",
+    "approvedAudioBitstreamSha256": "ce6c156b69f45b40ee1dfc0bb1d0a03c6c9dfe169d879f6f4249376a37759e96",
+    "packaging": "720p H.264 delivery transcode; approved AAC audio copied unchanged"
+  },
+  {
+    "id": "6c6a258ba5463f718c50cb1650d03a72",
+    "edition": "loog",
+    "teamIds": [
+      "5",
+      "7"
+    ],
+    "provider": "heygen",
+    "providerVideoPage": "https://app.heygen.com/videos/6c6a258ba5463f718c50cb1650d03a72",
+    "publicationApprovalSource": "Sentinel_dc7db8cdb1408191bc9d60cf7c7358e4",
+    "sourceSha256": "52258adbe3b2cbaa1e47fb2bab1ae77bbe9225f45df3e9dc1aea16b144a95ec5",
+    "packagedSha256": "6065e0e5902b097dbb9ae6db4fd87045c4271b7af2d663eeee2cdf8d04bfb0e8",
+    "approvedAudioBitstreamSha256": "9bd0cddb0ef2cc15e0f3a686d256ea3a7959d29bd546000509db59e7c6e27b6b",
+    "packaging": "720p H.264 delivery transcode; approved AAC audio copied unchanged"
+  },
+  {
+    "id": "3e9602efb3d61c54a0944851c27b4da9",
+    "edition": "loog",
+    "teamIds": [
+      "1",
+      "11"
+    ],
+    "provider": "heygen",
+    "providerVideoPage": "https://app.heygen.com/videos/3e9602efb3d61c54a0944851c27b4da9",
+    "publicationApprovalSource": "Sentinel_dc7db8cdb1408191bc9d60cf7c7358e4",
+    "sourceSha256": "e2ee4d4af5732556eb93ff3a5a13d26dfc68eb192c298eb8c04883e2dc07f7ff",
+    "packagedSha256": "be77f9b76779444bc32c86dafd1b3bd255e1b4829326dacc54494e3a2e0c2bb7",
+    "approvedAudioBitstreamSha256": "2f8c6a061b82490da19361ccd8f3b420cbde9d8078f440e3c588d954a3b664a1",
+    "packaging": "720p H.264 delivery transcode; approved AAC audio copied unchanged"
+  },
+  {
+    "id": "996ba339064615cbc53a4456f9ec5087",
+    "edition": "loog",
+    "teamIds": [
+      "6",
+      "8"
+    ],
+    "provider": "heygen",
+    "providerVideoPage": "https://app.heygen.com/videos/996ba339064615cbc53a4456f9ec5087",
+    "publicationApprovalSource": "Sentinel_dc7db8cdb1408191bc9d60cf7c7358e4",
+    "sourceSha256": "22d14534ad06935d50a0aae6b682806cf7910ab60ce76c519cb966481df766a0",
+    "packagedSha256": "89c1f92c0557a007c2d14d3ffa2d85f597c6752d565014cab24390ebb7d601f2",
+    "approvedAudioBitstreamSha256": "8443a3bca86767acc93ce961cb319807e306ba357308f859a3c76eb8a4004fc3",
+    "packaging": "720p H.264 delivery transcode; approved AAC audio copied unchanged"
+  },
+  {
+    "id": "6b1c61617ddd0fb640ccca45ed2cfaf2",
+    "edition": "loog",
+    "teamIds": [
+      "9",
+      "10"
+    ],
+    "provider": "heygen",
+    "providerVideoPage": "https://app.heygen.com/videos/6b1c61617ddd0fb640ccca45ed2cfaf2",
+    "publicationApprovalSource": "Sentinel_dc7db8cdb1408191bc9d60cf7c7358e4",
+    "sourceSha256": "605ec20742c58512e5cb1d8c4bee7d69138611f745b40184ffb7d82e1c23bb1f",
+    "packagedSha256": "cdf7620fdca48d671870e391cd58d6d597b82a901a058538c5ce26c139f39faf",
+    "approvedAudioBitstreamSha256": "ae91edc48bda663a84d708099907d89fcda13466f385e34d2c86ee722c2e11d9",
+    "packaging": "720p H.264 delivery transcode; approved AAC audio copied unchanged"
+  },
+  {
+    "id": "7fbc5972ac5b818d94ebd99914243d5e",
+    "edition": "sunday-crew",
+    "teamIds": [
+      "1",
+      "2"
+    ],
+    "provider": "heygen",
+    "providerVideoPage": "https://app.heygen.com/videos/7fbc5972ac5b818d94ebd99914243d5e",
+    "publicationApprovalSource": "Sentinel_dc7db8cdb1408191bc9d60cf7c7358e4",
+    "sourceSha256": "7c9a488bd6c83d1c77fb9a495d508ee18207f0fa7338f62f1c0e44e4dcbaf1e5",
+    "packagedSha256": "8f808f1b32f48964115ebad9575690d55374243cd08f09d76c34b70f7c40f04c",
+    "approvedAudioBitstreamSha256": "50f7ef49bee20d9fa1d8644df0dc72de723394043c171609a9505f012e4f2a50",
+    "packaging": "720p H.264 delivery transcode; approved AAC audio copied unchanged"
+  },
+  {
+    "id": "deb19d81981106cc5ef30de1a68e38f2",
+    "edition": "sunday-crew",
+    "teamIds": [
+      "3",
+      "8"
+    ],
+    "provider": "heygen",
+    "providerVideoPage": "https://app.heygen.com/videos/deb19d81981106cc5ef30de1a68e38f2",
+    "publicationApprovalSource": "Sentinel_dc7db8cdb1408191bc9d60cf7c7358e4",
+    "sourceSha256": "48817897e4cd99cf74642b7f73ec351ad484ce4ac8d9706b60553497c5462e47",
+    "packagedSha256": "46fe09c4624d6a16a088366400887cfb77df0ab6c69b4af4011253c94b7b7b24",
+    "approvedAudioBitstreamSha256": "51872f29803cd15eadfae95c459a69525f4ace4314ea2481f7a83d9dd41abe8a",
+    "packaging": "720p H.264 delivery transcode; approved AAC audio copied unchanged"
+  },
+  {
+    "id": "a07e8eff1041c794e0cd8be1c82e4b91",
+    "edition": "sunday-crew",
+    "teamIds": [
+      "4",
+      "6"
+    ],
+    "provider": "heygen",
+    "providerVideoPage": "https://app.heygen.com/videos/a07e8eff1041c794e0cd8be1c82e4b91",
+    "publicationApprovalSource": "Sentinel_dc7db8cdb1408191bc9d60cf7c7358e4",
+    "sourceSha256": "13be83886ebf2d6490e02f398798b6f432dc66d05a53dd2cddbd45264fd42dea",
+    "packagedSha256": "00c024d87d145dc20449b979a4f3155b09b4b88fefa5618944b33fc8fc270f0b",
+    "approvedAudioBitstreamSha256": "456249b472e1d10ef321df4087cf6f321a31d0182e4448e8eff8d8044cc7c40c",
+    "packaging": "720p H.264 delivery transcode; approved AAC audio copied unchanged"
+  },
+  {
+    "id": "bd31af034599a7116acb12768a6ec3e1",
+    "edition": "sunday-crew",
+    "teamIds": [
+      "5",
+      "10"
+    ],
+    "provider": "heygen",
+    "providerVideoPage": "https://app.heygen.com/videos/bd31af034599a7116acb12768a6ec3e1",
+    "publicationApprovalSource": "Sentinel_dc7db8cdb1408191bc9d60cf7c7358e4",
+    "sourceSha256": "13c6d861d90adb166e2e0751276b547e219d22b68d9806f7184e5f0e6c286abc",
+    "packagedSha256": "31cbf53f0e98d8ee2750224d780890823b5065585b5d8d41893a5eea6f3052e4",
+    "approvedAudioBitstreamSha256": "f8b47f056b563f526e9387019c3fc1b9ffd2ca51be274ebfea310aff06d68ba3",
+    "packaging": "720p H.264 delivery transcode; approved AAC audio copied unchanged"
+  },
+  {
+    "id": "e7c2a83b7976eac10444584946dfacfb",
+    "edition": "sunday-crew",
+    "teamIds": [
+      "7",
+      "12"
+    ],
+    "provider": "heygen",
+    "providerVideoPage": "https://app.heygen.com/videos/e7c2a83b7976eac10444584946dfacfb",
+    "publicationApprovalSource": "Sentinel_dc7db8cdb1408191bc9d60cf7c7358e4",
+    "sourceSha256": "c63f21b849b86c7c88724db9cefbf619c33f23cde10805db08469d8c779416bc",
+    "packagedSha256": "1d4b9a98663c84827feec6831d2f31cc832ab49e3900f35b4b2e5cc4747f3584",
+    "approvedAudioBitstreamSha256": "9f2394a4fdc9f8f56a160f5f2fbc23f5e5a6150df7f24129757b0a7d4c205c8a",
+    "packaging": "720p H.264 delivery transcode; approved AAC audio copied unchanged"
+  },
+  {
+    "id": "089431a411de506e7ee5f8ad3bf52fb4",
+    "edition": "sunday-crew",
+    "teamIds": [
+      "9",
+      "11"
+    ],
+    "provider": "heygen",
+    "providerVideoPage": "https://app.heygen.com/videos/089431a411de506e7ee5f8ad3bf52fb4",
+    "publicationApprovalSource": "Sentinel_dc7db8cdb1408191bc9d60cf7c7358e4",
+    "sourceSha256": "24ba95c602873fadb5be2eabdbadabfbd98fe6edd28d158022ef6c4a3172d8c5",
+    "packagedSha256": "b6c5dfdef429489c5963310255577554dd40843afdd6884b4b6a7cf37a6293f8",
+    "approvedAudioBitstreamSha256": "b50ab37f5bfed3fa2ee12b7dafa2a68b4edf42348c673b2a418e1a0180181489",
+    "packaging": "720p H.264 delivery transcode; approved AAC audio copied unchanged"
+  },
+  {
+    "id": "83c53080dca7d0e321ef74e3aeef3010",
+    "edition": "doge",
+    "teamIds": [
+      "1",
+      "8"
+    ],
+    "provider": "heygen",
+    "providerVideoPage": "https://app.heygen.com/videos/83c53080dca7d0e321ef74e3aeef3010",
+    "publicationApprovalSource": "Sentinel_dc7db8cdb1408191bc9d60cf7c7358e4",
+    "sourceSha256": "8043823973f181d43193ce9fce163801e327ec0a1dfbb93ca9d4c8f5c11bb9a0",
+    "packagedSha256": "3f500b53e23b0a55dca7a171a9df0066a51a56571f3dea5d4f25ace54d8b52b6",
+    "approvedAudioBitstreamSha256": "34338d1ccac68fcc6784d06a318a2cd65f791a1321573ade2aeb21275c4ec21d",
+    "packaging": "720p H.264 delivery transcode; approved AAC audio copied unchanged"
+  },
+  {
+    "id": "4133febd232a755bcc7c311627424716",
+    "edition": "doge",
+    "teamIds": [
+      "2",
+      "6"
+    ],
+    "provider": "heygen",
+    "providerVideoPage": "https://app.heygen.com/videos/4133febd232a755bcc7c311627424716",
+    "publicationApprovalSource": "Sentinel_dc7db8cdb1408191bc9d60cf7c7358e4",
+    "sourceSha256": "bc77894a1691ff6313c43699bcaf59a1cb76c6f15c08d3c59489701f9bc52a93",
+    "packagedSha256": "83c942786cbcec0a8b56c21ccb865770a8dc169be08a1376e45bf1c9d8730751",
+    "approvedAudioBitstreamSha256": "105615b6dd6e66f04f28c576dad772583bc1e792b3e158b37d04295693986330",
+    "packaging": "720p H.264 delivery transcode; approved AAC audio copied unchanged"
+  },
+  {
+    "id": "f4b43054fd65fec6aac81039563313ba",
+    "edition": "doge",
+    "teamIds": [
+      "3",
+      "9"
+    ],
+    "provider": "heygen",
+    "providerVideoPage": "https://app.heygen.com/videos/f4b43054fd65fec6aac81039563313ba",
+    "publicationApprovalSource": "Sentinel_dc7db8cdb1408191bc9d60cf7c7358e4",
+    "sourceSha256": "6321e0518bff2bf00b546822c0fe3ea81c39787c21abb325256ae1d8d22e7783",
+    "packagedSha256": "c58aa21b37f6603472d0a2c11c6e2cadd1c2b3afaa5029caa1bb7ebf9f61cfd7",
+    "approvedAudioBitstreamSha256": "490bae6cc559cb7120f0361533905235ba1460af22b8d355e1450715769a160d",
+    "packaging": "720p H.264 delivery transcode; approved AAC audio copied unchanged"
+  },
+  {
+    "id": "0a1151b82fd4a4ffe9573504de60b226",
+    "edition": "doge",
+    "teamIds": [
+      "4",
+      "11"
+    ],
+    "provider": "heygen",
+    "providerVideoPage": "https://app.heygen.com/videos/0a1151b82fd4a4ffe9573504de60b226",
+    "publicationApprovalSource": "Sentinel_dc7db8cdb1408191bc9d60cf7c7358e4",
+    "sourceSha256": "4ef1ee264826036f1f06150a542b6154e30f736588476116f8c519d13ff0b695",
+    "packagedSha256": "f5034349237df681c9c55ce434f9f837c3851e892528a74e51452755570578a3",
+    "approvedAudioBitstreamSha256": "664b4553615ab53c505330f0344801d65c4471c62d4eab04e15116b76944f7ed",
+    "packaging": "720p H.264 delivery transcode; approved AAC audio copied unchanged"
+  },
+  {
+    "id": "9593c5d9183bd37730ad7ee8219267fd",
+    "edition": "doge",
+    "teamIds": [
+      "5",
+      "7"
+    ],
+    "provider": "heygen",
+    "providerVideoPage": "https://app.heygen.com/videos/9593c5d9183bd37730ad7ee8219267fd",
+    "publicationApprovalSource": "Sentinel_dc7db8cdb1408191bc9d60cf7c7358e4",
+    "sourceSha256": "256605f5bd94e9c71b6ef56facc4000a86b8d2a00a235249ffd2e674049d43d3",
+    "packagedSha256": "dff03f98155fe499b8375505af5da77e7be6cde4c8f1e54ef2b7c68813e29b9a",
+    "approvedAudioBitstreamSha256": "a7edebbc085eb736fc74b71d88abaa42bf20c2da534e29d2f13fb160d8bafd57",
+    "packaging": "720p H.264 delivery transcode; approved AAC audio copied unchanged"
+  },
+  {
+    "id": "82c93f8367906aacae840a6526e39afe",
+    "edition": "doge",
+    "teamIds": [
+      "10",
+      "12"
+    ],
+    "provider": "heygen",
+    "providerVideoPage": "https://app.heygen.com/videos/82c93f8367906aacae840a6526e39afe",
+    "publicationApprovalSource": "Sentinel_dc7db8cdb1408191bc9d60cf7c7358e4",
+    "sourceSha256": "d98991571693c3e1a308d1f4797a2477f413f5fabaf086221c8f92a075990929",
+    "packagedSha256": "48c707ac1cbef1a769fe4761f087af0de5cd8d775ee4be977d00e4a5c1daecde",
+    "approvedAudioBitstreamSha256": "c8eb45c5baf4335ece7ebf6b58f7672f9955cc21d94449c37a6cccc916f23316",
+    "packaging": "720p H.264 delivery transcode; approved AAC audio copied unchanged"
+  }
+]

@@ -34,6 +34,7 @@ export default async function Matchup({params,config}){
   const isFinal=isMatchupFinal(game);
   const column=selectMatchupColumn({previews:matchupColumns,recaps:matchupRecaps,edition:editionSlug,week,a,b,isFinal});
   const writer=writers[column?.writer||'gannon'];
+  const recapReel=isFinal&&week===6&&config.reelRelease?.includes('week6-recap')?config.reels.find(r=>[r.leftKey,r.rightKey].some(k=>k.endsWith('.t.'+a))&&[r.leftKey,r.rightKey].some(k=>k.endsWith('.t.'+b))):null;
   const pregame=!isFinal&&Number(ls.points||0)===0&&Number(rs.points||0)===0;
   const phase=isFinal?'FINAL':game.closeoutPending?'AWAITING PROVIDER FINAL':'IN PROGRESS';
   return <>
@@ -47,6 +48,7 @@ export default async function Matchup({params,config}){
           <Link href={(root+"/teams/")+b} className="matchupHeroSide right"><small>{right.ownerName}</small><h1>{right.teamName}</h1><b>{fmt(rs.points)}</b><span>{phase}</span></Link>
         </div>
       </section>
+      {recapReel&&<section className="matchupColumn" aria-label="Matchup recap video"><h2>Week 6 recap</h2><video controls playsInline preload="metadata" poster={`/reels-hls/${recapReel.id}/poster.jpg`} style={{width:'100%',maxWidth:420,aspectRatio:'9/16',display:'block',margin:'0 auto'}}><source src={`/reels/${recapReel.id}.mp4`} type="video/mp4"/></video></section>}
       <section className="matchupColumn">
         <div className="matchupColumnByline"><img src={writer.image} alt={writer.imageAlt}/><div><small>{column?"WEEK "+week+(isFinal?" • CORRESPONDENT RECAP":" • CORRESPONDENT PREVIEW"):isFinal?"FINAL RESULT":"MATCHUP IN PROGRESS"} • {writer.title.toUpperCase()}</small><b>{writer.name}</b></div></div>
         <h2>{column?.headline||(isFinal?"Awaiting correspondent recap":"Awaiting correspondent preview")}</h2>
