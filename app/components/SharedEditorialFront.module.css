@@ -30,3 +30,28 @@
 /* The interview source is square: preserve both faces, not a landscape crop. */
 .sportingPatHero { position: relative; min-height: 0 !important; aspect-ratio: 1 / 1; }
 .sportingPatHero > img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: contain; }
+
+/* Compact, square interview art: do not inherit the tall video-package rail. */
+:global(.morningBriefPreview.sundayFront).sportingPatLead :global(.sundayFeature.sabinePackage) {
+  grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
+  align-items: center !important;
+}
+:global(.morningBriefPreview.sundayFront).sportingPatLead :global(.sundayFeature.sabinePackage) > .sportingPatHero {
+  width: 100% !important;
+  max-width: 360px;
+  height: auto !important;
+  min-height: 0 !important;
+  align-self: center !important;
+}
+:global(.morningBriefPreview.sundayFront).sportingPatLead :global(.sundayFeature.sabinePackage) > :global(.sundayFeatureCopy) {
+  height: auto !important;
+  min-height: 0 !important;
+  align-self: center !important;
+}
+@media (max-width: 760px) {
+  :global(.morningBriefPreview.sundayFront).sportingPatLead :global(.sundayFeature.sabinePackage) > .sportingPatHero {
+    max-width: 320px;
+    margin-inline: auto !important;
+    display: block;
+  }
+}

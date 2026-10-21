@@ -17,7 +17,7 @@ export const sportingPatArticle = {
     "The custom is passed along as though the finer points will become obvious through participation. Watch the adults. Join the team. Eventually you, too, will know precisely which person to hit and how affectionately.",
     {
       "type": "rich",
-      "html": "Not everyone in youth sports accepts the arrangement. The Oregon Park District’s coaching manual states: <a href=\"https://oregonpark.org/wp-content/uploads/2019/02/OPD-Youth-Sports-Manual.pdf#page=10\" target=\"_blank\" rel=\"noreferrer\">“DO NOT TAP, PAT, OR SLAP a child’s buttocks.”</a>"
+      "html": "Not everyone in youth sports accepts the arrangement. The Oregon Park District’s coaching manual states: “DO NOT TAP, PAT, OR SLAP a child’s buttocks.”"
     },
     "Tap, pat, or slap. Someone has anticipated the coach who believes the distinction will help him.",
     {

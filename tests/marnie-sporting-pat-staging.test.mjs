@@ -41,3 +41,14 @@ test('approved language and verified media identifiers survive implementation',(
  assert.match(image.credit.url,/cavaliersnation.com/);
  assert.match(readFileSync('app/components/SharedEditorialFront.module.css','utf8'),/\.sportingPatHero > img[^}]+object-fit: contain/);
 });
+test('review correction keeps the lead compact and removes only the broken Oregon hyperlink',()=>{
+ const css=readFileSync('app/components/SharedEditorialFront.module.css','utf8');
+ assert.match(front,/morningBriefPreview sundayFront \$\{front\.sportingPatLead\}/);
+ assert.match(css,/grid-template-columns: minmax\(0, 360px\) minmax\(0, 1fr\)/);
+ assert.match(css,/> \.sportingPatHero \{[\s\S]*?max-width: 360px;[\s\S]*?min-height: 0 !important/);
+ assert.match(css,/> :global\(\.sundayFeatureCopy\) \{[\s\S]*?min-height: 0 !important/);
+ assert.match(css,/@media \(max-width: 760px\)[\s\S]*max-width: 320px/);
+ const oregon=article.body.find(p=>p.type==='rich'&&p.html.includes('Oregon Park District'));
+ assert.equal(oregon.html,'Not everyone in youth sports accepts the arrangement. The Oregon Park District’s coaching manual states: “DO NOT TAP, PAT, OR SLAP a child’s buttocks.”');
+ assert.ok(!oregon.html.includes('<a'));
+});
