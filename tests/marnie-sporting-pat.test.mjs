@@ -7,17 +7,13 @@ const scope=readFileSync('lib/editorial-scope.js','utf8');
 const source=readFileSync('app/articles/marnie-delicate-etiquette-sporting-pat.js','utf8');
 const article=JSON.parse(source.replace(/^export const sportingPatArticle = /,'').replace(/;\s*$/,''));
 const slug='marnie-delicate-etiquette-sporting-pat';
-test('approved Marnie article leads; the exact three-card chronology excludes archived West Virginia',()=>{
- const lead=front.slice(front.indexOf('<section'),front.indexOf('<section className={front.recent}'));
- assert.match(lead,/Lead story: The Delicate Etiquette of a Sporting Pat/);
- assert.match(lead,new RegExp('/articles/'+slug));
- assert.ok(lead.includes(article.dek));
- assert.match(lead,/theme="GOOD INTENTIONS"/);
- assert.match(lead,/src="\/images\/editorial\/allen-wolfson-interview-thumbnail\.jpg"/);
- assert.ok(existsSync('public/images/editorial/allen-wolfson-interview-thumbnail.jpg'));
+test('previous Marnie lead is preserved as first chronological card',()=>{
  const recent=front.match(/<section className=\{front\.recent\}[^>]*>([\s\S]*?)<\/section>/)[1];
  assert.equal((recent.match(/<article className=\{front\.card\}/g)||[]).length,3);
- assert.deepEqual([...recent.matchAll(/href=\{root\+"\/articles\/([^"]+)"\}/g)].map(m=>m[1]),['conrad-jalen-hurts-too-sick-to-sleep','hollis-rams-kicker-weight','maude-nfc-east-declines-winner']);
+ assert.deepEqual([...recent.matchAll(/href=\{root\+"\/articles\/([^"]+)"\}/g)].map(m=>m[1]),['marnie-delicate-etiquette-sporting-pat','conrad-jalen-hurts-too-sick-to-sleep','hollis-rams-kicker-weight']);
+ assert.ok(recent.includes(article.dek));
+ assert.match(recent,/theme="GOOD INTENTIONS"/);
+ assert.ok(existsSync('public/images/editorial/allen-wolfson-interview-thumbnail.jpg'));
  assert.ok(!front.includes('hollis-west-virginia-medical-assistance'));
 });
 test('West Virginia content stays routable and in the archive; new article is global',()=>{
@@ -65,7 +61,7 @@ test('restored lead uses the established template and preserves the Oregon unlin
 test('homepage lead subtitle gets a responsive type step without changing article copy',()=>{
  const css=readFileSync('app/components/SharedEditorialFront.module.css','utf8');
  const lead=front.slice(front.indexOf('<section'),front.indexOf('<section className={front.recent}'));
- assert.match(lead,/<p className=\{front\.leadDek\}>Encouragement from an era with fewer follow-up questions\.<\/p>/);
+ assert.match(lead,/<p className=\{front\.leadDek\}>Finding someone equal to the occasion is easier when you consider yourself the occasion\.<\/p>/);
  assert.equal((front.match(/className=\{front\.leadDek\}/g)||[]).length,1);
  assert.match(css,/:global\(\.sundayFeatureCopy\) \.leadDek \{ font-size: 20px; line-height: 1\.45; \}/);
  assert.match(css,/@media \(max-width: 760px\) \{\s*:global\(\.sundayFeatureCopy\) \.leadDek \{ font-size: 18px; \}/);

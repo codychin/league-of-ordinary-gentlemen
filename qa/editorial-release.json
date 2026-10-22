@@ -5,11 +5,25 @@
     "source": "app/components/SharedEditorialFront.js",
     "approval": {
       "approvedBy": "Cody Chin",
-      "recordedAt": "2026-10-21",
-      "scope": "Production publication of the reviewed staging Marnie lead, ordered Conrad/Rams/NFC East three-card row, and West Virginia directly to archive across LOOG, Sunday Crew and DOGE",
-      "instruction": "Cody approved the reviewed staging release for production on October 21, 2026 at 13:02 UTC: \"can you promote staging to production\". Approved staging source: dd97d613eef52a541a318f4b22ceef9e5486a560. This promotes editorial content and presentation only; production retains its live data and normal environment behavior."
+      "recordedAt": "2026-10-22",
+      "scope": "Production publication and staging update of the approved Jay-Z lead and chronological Marnie/Conrad/Rams three-card row across LOOG, Sunday Crew and DOGE",
+      "instruction": "Cody approved on October 22, 2026 at 01:04 UTC: \"K take that to staging and prod update manifest\". Approved staging source: fa2b1dd8c19bfc73817dc6c6b289d4d2b5772fd1, including the four requested copy edits. Publish editorial content and presentation only; retain production live data and normal environment behavior. NFC East continues immediately below the row; West Virginia remains archive-only."
     },
-    "historicalRotation": "October 6 and October 21 Conrad named lead/card placements are superseded by this approved production publication. Standing rotation rules and historical documentation are retained in docs/HOMEPAGE-ROTATION.md."
+    "historicalRotation": "October 6 and October 21 Conrad named lead/card placements are superseded by this approved production publication. Standing rotation rules and historical documentation are retained in docs/HOMEPAGE-ROTATION.md. The October 22 Jay-Z approval supersedes only current lead/card expectations; prior approvals are preserved in approvalHistory and docs/HOMEPAGE-ROTATION.md.",
+    "approvalHistory": [
+      {
+        "approvedBy": "Cody Chin",
+        "recordedAt": "2026-10-21",
+        "scope": "Production publication of the reviewed staging Marnie lead, ordered Conrad/Rams/NFC East three-card row, and West Virginia directly to archive across LOOG, Sunday Crew and DOGE",
+        "instruction": "Cody approved the reviewed staging release for production on October 21, 2026 at 13:02 UTC: \"can you promote staging to production\". Approved staging source: dd97d613eef52a541a318f4b22ceef9e5486a560. This promotes editorial content and presentation only; production retains its live data and normal environment behavior."
+      },
+      {
+        "approvedBy": "Cody Chin",
+        "recordedAt": "2026-10-21",
+        "scope": "Staging-only Jay-Z lead and chronological Marnie/Conrad/Rams three-card row across LOOG, Sunday Crew and DOGE",
+        "instruction": "Cody approved title and subtitle option 7 and a final pass onto staging with a Jay-Z image (Sentinel_0c03c8a164c88191a2d770735b12f0ad). Production publication is not approved. Prior lead shifts into the three-card row; NFC East continues below it. West Virginia stays archive-only."
+      }
+    ]
   },
   "editions": [
     {
@@ -26,10 +40,14 @@
     }
   ],
   "lead": {
-    "slug": "marnie-delicate-etiquette-sporting-pat",
-    "title": "The Delicate Etiquette of a Sporting Pat"
+    "slug": "conrad-allow-me-to-reintroduce-myself",
+    "title": "Allow Me to Reintroduce Myself"
   },
   "carousel": [
+    {
+      "slug": "marnie-delicate-etiquette-sporting-pat",
+      "title": "The Delicate Etiquette of a Sporting Pat"
+    },
     {
       "slug": "conrad-jalen-hurts-too-sick-to-sleep",
       "title": "The Medical Clearance Industrial Complex"
@@ -37,10 +55,6 @@
     {
       "slug": "hollis-rams-kicker-weight",
       "title": "The Rams Have Lost 89 Pounds at Kicker"
-    },
-    {
-      "slug": "maude-nfc-east-declines-winner",
-      "title": "The NFC East Declines to Name a Winner"
     }
   ]
 }

@@ -61,3 +61,14 @@ Faithful future-card crop/label simulations at 337×170 and 280×150 retained bo
 faces. Those are simulations, not an already-published Marnie carousel card.
 Prior desktop staging QA passed; mobile/PWA visual QA was not performed, and the
 official Key & Peele embed loaded but buffered at 0:00 in the cloud browser.
+
+
+## October 22 approved Jay-Z publication
+
+At 01:04 UTC Cody approved the refined staging article for staging and production and requested the manifest update. Source staging commit: fa2b1dd8c19bfc73817dc6c6b289d4d2b5772fd1.
+
+- Lead: Conrad, “Allow Me to Reintroduce Myself”.
+- Exact three cards: Marnie sporting etiquette → Conrad medical clearance → Rams kicker.
+- NFC East continues directly below the cards; West Virginia remains archive-only.
+- The four approved copy edits are included; existing source credits and both images are retained.
+- Only editorial content and presentation are promoted; production retains live data and normal environment behavior. Earlier approvals above remain historical records.
