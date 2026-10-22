@@ -20,8 +20,7 @@ export const jayZArticle = {
     "And then there is the question of trust. You need an artist whose judgment you respect. Whose vision you understand. Someone you can recommend without reservation, knowing they will appreciate the magnitude of the opportunity.",
     "After considering what the world needed to hear, Jay-Z had a name.",
     "Jay-Z.",
-    "The man will be fifty-seven by kickoff. There is nothing inherently wrong with a fifty-seven-year-old performing at the Super Bowl. There is something magnificent about searching for the future of entertainment and finding a man who uses your toothbrush.",
-    "A contribution to the distinguished internet tradition of being deeply moved by your own selection.",
+    "The man will be fifty-seven by kickoff. There is nothing inherently wrong with a fifty-seven-year-old performing at the Super Bowl. There is something magnificent about searching for the future of entertainment and finding a man who happens to use the same toothbrush as you. Quite the contribution to the distinguished internet tradition of being deeply moved by your own selection.",
     {
       "type": "image",
       "src": "/images/editorial/obama-self-medal-meme.jpg",
