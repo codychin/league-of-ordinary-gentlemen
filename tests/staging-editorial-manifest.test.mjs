@@ -10,7 +10,7 @@ test('staging uses the existing v1 manifest schema with the explicitly approved 
  assert.equal(manifest.schemaVersion,1);
  assert.equal(manifest.baseline.status,'editorially-approved');
  assert.equal(manifest.baseline.approval.approvedBy,'Cody Chin');
- assert.match(manifest.baseline.approval.scope,/Staging-only/);
+ assert.match(manifest.baseline.approval.scope,/staging update/);
  assert.deepEqual(manifest.editions,[{id:'loog',path:'/'},{id:'sunday-crew',path:'/sunday-crew'},{id:'doge',path:'/doge'}]);
  assert.deepEqual(stories,[
   {slug:'conrad-allow-me-to-reintroduce-myself',title:'Allow Me to Reintroduce Myself'},
