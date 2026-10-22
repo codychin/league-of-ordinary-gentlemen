@@ -13,7 +13,7 @@ export default async function Archive({params,config}){
   const stories=new Map(archive.filter(a=>isGlobalArticle(a.slug)).map(a=>[a.slug,{...a,href:root+'/articles/'+a.slug}]));
   for(const a of editionArticles)if(!stories.has(a.slug))stories.set(a.slug,{...a,href:(root+"/articles/")+a.slug});
   const ordered=[...stories.values()].sort((a,b)=>Date.parse(b.published_at||b.date||0)-Date.parse(a.published_at||a.date||0));
-  return <><header className="articleHeader"><Link href={root+""} className="miniMast">{publicationName}</Link><nav className="siteNav"><Link href={root+""}>HOME</Link><Link href={root+"#scores"}>SCORES</Link></nav></header>
+  return <><header className="articleHeader"><Link href={root+""} className="miniMast">{publicationName}</Link><nav className="siteNav"><Link href={root+""}>HOME</Link><Link href={root+"#scores"}>SCORES</Link><Link href={root+"/live-desk"}>DESK LOG</Link></nav></header>
     <main><section className="directoryHead"><div className="eyebrow">THE PERMANENT RECORD</div><h1>Article Archive</h1><p>Every take preserved long enough to become evidence.</p></section>
       <div className="archiveWrap"><section className="archiveWeek"><div className="weekNum">THE ARCHIVE</div><div>{ordered.map(a=><Link href={a.href} className={`archiveStory ${styles.story}`} key={a.slug}>{(a.image||a.shareImage)&&<ResilientImage sizes="(max-width: 600px) 88px, 144px" className={styles.thumbnail} src={a.image||a.shareImage} alt={a.imageAlt||""} loading="lazy" decoding="async"/>}<div className={styles.copy}><small>{a.section}</small><h2>{a.title}</h2><p>{a.dek}</p><span>READ / SAVE FOR RECEIPTS →</span></div></Link>)}</div></section></div>
     </main></>;
