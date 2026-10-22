@@ -36,3 +36,14 @@ Cody subsequently requested updating the QA manifest to those reviewed changes.
 This staging manifest supersedes only the prior lead/card expectations here;
 main’s Conrad baseline and the historical records above remain unchanged. No
 production publication is authorized by the staging approval.
+
+## October 21 Jay-Z staging review
+
+Cody approved “Allow Me to Reintroduce Myself” with “Finding someone equal to the
+occasion is easier when you consider yourself the occasion.” for staging only
+(message Sentinel_0c03c8a164c88191a2d770735b12f0ad). The new shared lead pushes
+Marnie’s Sporting Pat into the first card, followed by Conrad’s medical-clearance
+column and the Rams kicker. NFC East continues immediately below the row rather
+than being prematurely archived. West Virginia retains its explicit archive-only
+override. All article URLs and prior approved copy remain intact. Production is
+not authorized by this review.

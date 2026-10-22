@@ -13,10 +13,10 @@ test('staging uses the existing v1 manifest schema with the explicitly approved 
  assert.match(manifest.baseline.approval.scope,/Staging-only/);
  assert.deepEqual(manifest.editions,[{id:'loog',path:'/'},{id:'sunday-crew',path:'/sunday-crew'},{id:'doge',path:'/doge'}]);
  assert.deepEqual(stories,[
+  {slug:'conrad-allow-me-to-reintroduce-myself',title:'Allow Me to Reintroduce Myself'},
   {slug:'marnie-delicate-etiquette-sporting-pat',title:'The Delicate Etiquette of a Sporting Pat'},
   {slug:'conrad-jalen-hurts-too-sick-to-sleep',title:'The Medical Clearance Industrial Complex'},
-  {slug:'hollis-rams-kicker-weight',title:'The Rams Have Lost 89 Pounds at Kicker'},
-  {slug:'maude-nfc-east-declines-winner',title:'The NFC East Declines to Name a Winner'}
+  {slug:'hollis-rams-kicker-weight',title:'The Rams Have Lost 89 Pounds at Kicker'}
  ]);
 });
 test('manifest agrees with source order while West Virginia remains archive-only and routable',()=>{

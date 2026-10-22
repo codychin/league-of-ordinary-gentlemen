@@ -6,10 +6,10 @@
     "approval": {
       "approvedBy": "Cody Chin",
       "recordedAt": "2026-10-21",
-      "scope": "Staging-only Marnie lead, ordered Conrad/Rams/NFC East three-card row, and West Virginia directly to archive across LOOG, Sunday Crew and DOGE",
-      "instruction": "Cody approved staging Marnie as the headline and moving West Virginia directly to archive, then requested updating the QA manifest to these changes. Production publication is not approved."
+      "scope": "Staging-only Jay-Z lead and chronological Marnie/Conrad/Rams three-card row across LOOG, Sunday Crew and DOGE",
+      "instruction": "Cody approved title and subtitle option 7 and a final pass onto staging with a Jay-Z image (Sentinel_0c03c8a164c88191a2d770735b12f0ad). Production publication is not approved. Prior lead shifts into the three-card row; NFC East continues below it. West Virginia stays archive-only."
     },
-    "historicalRotation": "October 6 named lead and card placements are superseded for the lead and three-card row by this approval; standing rotation rules and historical documentation are retained. The October 21 Conrad baseline remains recorded in docs/HOMEPAGE-ROTATION.md and on main; this staging-only approval supersedes its lead/card expectations here."
+    "historicalRotation": "October 6 named lead and card placements are superseded for the lead and three-card row by this approval; standing rotation rules and historical documentation are retained. The October 21 Conrad baseline remains recorded in docs/HOMEPAGE-ROTATION.md and on main; this staging-only approval supersedes its lead/card expectations here. The Jay-Z staging review supersedes only the named lead/card expectations; prior approvals and chronology remain recorded."
   },
   "editions": [
     {
@@ -26,10 +26,14 @@
     }
   ],
   "lead": {
-    "slug": "marnie-delicate-etiquette-sporting-pat",
-    "title": "The Delicate Etiquette of a Sporting Pat"
+    "slug": "conrad-allow-me-to-reintroduce-myself",
+    "title": "Allow Me to Reintroduce Myself"
   },
   "carousel": [
+    {
+      "slug": "marnie-delicate-etiquette-sporting-pat",
+      "title": "The Delicate Etiquette of a Sporting Pat"
+    },
     {
       "slug": "conrad-jalen-hurts-too-sick-to-sleep",
       "title": "The Medical Clearance Industrial Complex"
@@ -37,10 +41,6 @@
     {
       "slug": "hollis-rams-kicker-weight",
       "title": "The Rams Have Lost 89 Pounds at Kicker"
-    },
-    {
-      "slug": "maude-nfc-east-declines-winner",
-      "title": "The NFC East Declines to Name a Winner"
     }
   ]
 }
