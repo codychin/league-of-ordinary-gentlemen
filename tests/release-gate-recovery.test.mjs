@@ -28,8 +28,14 @@ function simulate(mode){
    globalThis.fetch=async (input,options={})=>{
     const u=new URL(input);
     const path=u.pathname;
+    if(u.hostname==='oidc.actions.example')return Response.json({value:'test-oidc'});
+    if(options.headers?.['x-vercel-trusted-oidc-idp-token']&&u.hostname!=='candidate.vercel.app')throw Error('Identity sent to wrong origin');
     appendFileSync(${JSON.stringify(log)},JSON.stringify({host:u.hostname,path,method:options.method||'GET'})+'\\n');
-    if(u.hostname==='candidate.vercel.app')return new Response(${JSON.stringify(good)},{status:mode==='bad-routes'?403:200});
+    if(u.hostname==='candidate.vercel.app'){
+     if(options.headers?.['x-vercel-trusted-oidc-idp-token']!=='test-oidc')throw Error('Missing scoped identity');
+     if(options.redirect!=='manual')throw Error('Credential-bearing redirects must be disabled');
+     return new Response(${JSON.stringify(good)},{status:mode==='bad-routes'?403:200});
+    }
     if(u.hostname==='api.github.com'){
      if(path.endsWith('/branches/main'))return Response.json({commit:{sha:mode==='obsolete'||(mode==='changed-main'&&++branchReads>1)?'b'.repeat(40):sha}});
      if(path.endsWith('/check-runs'))return Response.json({check_runs:['integrity','article-image-qa'].map((name,i)=>({id:i+1,name,app:{slug:mode==='wrong-check-app'?'other':'github-actions'},head_sha:sha,status:'completed',conclusion:mode==='failed-qa'&&i===1?'failure':'success'}))});
@@ -43,10 +49,11 @@ function simulate(mode){
     throw Error('Unexpected request '+path);
    };
   `);
-  const result=spawnSync(process.execPath,[resolve('scripts/operations/promote-verified-release.mjs')],{encoding:'utf8',timeout:10000,env:{...process.env,RELEASE_SHA:sha,VERCEL_PROJECT_ID:project,VERCEL_TOKEN:'test-vercel',GH_TOKEN:'test-github',NODE_OPTIONS:'--import='+preload}});
+  const result=spawnSync(process.execPath,[resolve('scripts/operations/promote-verified-release.mjs')],{encoding:'utf8',timeout:10000,env:{...process.env,RELEASE_SHA:sha,VERCEL_PROJECT_ID:project,VERCEL_TOKEN:'test-vercel',GH_TOKEN:'test-github',ACTIONS_ID_TOKEN_REQUEST_URL:'https://oidc.actions.example/token',ACTIONS_ID_TOKEN_REQUEST_TOKEN:'test-request',NODE_OPTIONS:'--import='+preload}});
   assert.equal(result.error,undefined,result.error?.message);
   const calls=readFileSync(log,'utf8').trim().split('\n').map(JSON.parse);
   assert.ok(!(result.stdout+result.stderr).includes('test-vercel'));
+  assert.ok(!(result.stdout+result.stderr).includes('test-oidc'));
   return {...result,calls};
  }finally{rmSync(dir,{recursive:true,force:true});}
 }

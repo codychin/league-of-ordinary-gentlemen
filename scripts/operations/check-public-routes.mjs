@@ -8,13 +8,13 @@ const expectedTitle=process.env.EXPECTED_TITLE||'The Juice Box Guy';
 assert.equal(new URL(origin).protocol,'https:');
 const parsed=new URL(origin);
 assert.equal(parsed.origin,origin,'Expected an HTTPS origin without credentials or a path');
-if(process.env.VERCEL_AUTOMATION_BYPASS_SECRET)assert.ok(parsed.hostname.endsWith('.vercel.app'),'Bypass credentials require a verified Vercel deployment origin');
+if(process.env.VERCEL_TRUSTED_OIDC_TOKEN)assert.ok(parsed.hostname.endsWith('.vercel.app'),'Identity credentials require a verified Vercel deployment origin');
 assert.match(slug,/^[a-z0-9-]+$/);
 const paths=['/','/sunday-crew','/doge',...['','/sunday-crew','/doge'].map(prefix=>prefix+'/articles/'+slug)];
 let errors=0;
 for(const path of paths){
  try{
-  const res=await fetch(origin+path,{redirect:'manual',signal:AbortSignal.timeout(20000),headers:{'Cache-Control':'no-cache','User-Agent':'TheBrief-ProductionSmoke/1.0',...(process.env.VERCEL_AUTOMATION_BYPASS_SECRET?{'x-vercel-protection-bypass':process.env.VERCEL_AUTOMATION_BYPASS_SECRET}:{})}});
+  const res=await fetch(origin+path,{redirect:'manual',signal:AbortSignal.timeout(20000),headers:{'Cache-Control':'no-cache','User-Agent':'TheBrief-ProductionSmoke/1.0',...(process.env.VERCEL_TRUSTED_OIDC_TOKEN?{'x-vercel-trusted-oidc-idp-token':process.env.VERCEL_TRUSTED_OIDC_TOKEN}:{})}});
   const body=await res.text();
   const article=path.includes('/articles/');
   validatePublicPage(res.status,body,{article,expectedTitle:article?expectedTitle:undefined});

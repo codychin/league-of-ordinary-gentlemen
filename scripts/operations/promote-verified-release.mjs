@@ -62,8 +62,14 @@ const url=new URL(origin);
 assert.equal(url.origin,origin);
 assert.ok(url.hostname.endsWith('.vercel.app'));
 assert.ok(!url.username&&!url.password);
+// Request a short-lived GitHub identity only after verifying the destination.
+assert.ok(process.env.ACTIONS_ID_TOKEN_REQUEST_URL&&process.env.ACTIONS_ID_TOKEN_REQUEST_TOKEN,'GitHub identity token permission required');
+const identity=await fetch(process.env.ACTIONS_ID_TOKEN_REQUEST_URL,{redirect:'error',headers:{Authorization:'Bearer '+process.env.ACTIONS_ID_TOKEN_REQUEST_TOKEN},signal:AbortSignal.timeout(20000)});
+assert.ok(identity.ok,'GitHub identity request failed');
+const oidc=(await identity.json()).value;
+assert.ok(typeof oidc==='string'&&oidc.length>0,'Missing GitHub identity token');
 const smoke=spawnSync(process.execPath,[new URL('./check-public-routes.mjs',import.meta.url).pathname],{
- env:{...process.env,VERCEL_TOKEN:'',GH_TOKEN:'',BASE_URL:origin},encoding:'utf8',timeout:150000});
+ env:{PATH:process.env.PATH,NODE_OPTIONS:process.env.NODE_OPTIONS||'',BASE_URL:origin,VERCEL_TRUSTED_OIDC_TOKEN:oidc},encoding:'utf8',timeout:150000});
 process.stdout.write(smoke.stdout||'');
 assert.equal(smoke.status,0,'Staged candidate routes failed; release NOT promoted');
 await validateQA();

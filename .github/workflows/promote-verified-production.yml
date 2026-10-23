@@ -6,6 +6,7 @@ on:
 permissions:
   contents: read
   checks: read
+  id-token: write
 concurrency:
   group: ordinarybrief-production-promotion
   cancel-in-progress: false
@@ -45,7 +46,6 @@ jobs:
       - name: Verify staged routes, promote exact successful build, and verify alias
         env:
           GH_TOKEN: ${{ github.token }}
-          VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_PROJECT_ID: prj_h89MCmxn3Mr3O0wRpnwstM917E0l
           RELEASE_SHA: ${{ github.event.workflow_run.head_sha }}
