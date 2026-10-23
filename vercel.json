@@ -2,7 +2,8 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "git": {
     "deploymentEnabled": {
-      "qa/phase-one-staging-integration": false
+      "qa/phase-one-staging-integration": false,
+      "qa/release-velocity-recovery": false
     }
   }
 }

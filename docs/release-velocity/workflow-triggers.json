@@ -1,0 +1,93 @@
+[
+  {
+    "file": ".github/workflows/article-image-release-gate.yml",
+    "name": "name: Article image release gate",
+    "triggers": "name: Article image release gate\non:\n  pull_request:\n    branches: [main]\n  push:\n    branches: [main]\n",
+    "writes_main": false,
+    "builds": true
+  },
+  {
+    "file": ".github/workflows/live-production-monitor.yml",
+    "name": "name: Live production route monitor",
+    "triggers": "name: Live production route monitor\non:\n  schedule:\n    - cron: '*/15 * * * *'\n  workflow_dispatch:\npermissions:\n  contents: read\n  issues: write\nconcurrency:\n  group: ordinarybrief-public-route-monitor\n  cancel-in-progress: false\n",
+    "writes_main": false,
+    "builds": false
+  },
+  {
+    "file": ".github/workflows/normalize-week3-reels.yml",
+    "name": "name: Normalize current reels",
+    "triggers": "name: Normalize current reels\n\non:\n  push:\n    branches: [main]\n    paths:\n      - '.github/workflows/normalize-week3-reels.yml'\n\npermissions:\n  contents: write\n\n",
+    "writes_main": true,
+    "builds": false
+  },
+  {
+    "file": ".github/workflows/package-sunday-crew-week4.yml",
+    "name": "name: Package Sunday Crew Week 4 reels",
+    "triggers": "name: Package Sunday Crew Week 4 reels\non:\n  push:\n    paths: ['.github/workflows/package-sunday-crew-week4.yml']\n  workflow_dispatch:\npermissions:\n  contents: write\n",
+    "writes_main": true,
+    "builds": false
+  },
+  {
+    "file": ".github/workflows/package-week4-recaps.yml",
+    "name": "name: Publish approved Week 4 recap reels",
+    "triggers": "name: Publish approved Week 4 recap reels\non:\n  push:\n    paths: ['.github/workflows/package-week4-recaps.yml']\n  workflow_dispatch:\npermissions:\n  contents: write\nconcurrency:\n  group: week4-recap-publication\n  cancel-in-progress: false\n",
+    "writes_main": true,
+    "builds": false
+  },
+  {
+    "file": ".github/workflows/package-week6-reels.yml",
+    "name": "name: Package Week 6 approved reels",
+    "triggers": "name: Package Week 6 approved reels\non:\n  push:\n    branches: [main]\n    paths: ['.github/workflows/package-week6-reels.yml']\n  workflow_dispatch:\npermissions:\n  contents: write\nconcurrency:\n  group: week6-approved-reel-packaging\n  cancel-in-progress: false\n",
+    "writes_main": true,
+    "builds": false
+  },
+  {
+    "file": ".github/workflows/production-route-verification.yml",
+    "name": "name: Production route verification",
+    "triggers": "name: Production route verification\non:\n  workflow_dispatch:\n  deployment_status:\npermissions:\n  contents: read\nconcurrency:\n  group: production-route-verification\n  cancel-in-progress: false\n",
+    "writes_main": false,
+    "builds": false
+  },
+  {
+    "file": ".github/workflows/promote-verified-production.yml",
+    "name": "name: Promote verified production release",
+    "triggers": "name: Promote verified production release\non:\n  workflow_run:\n    workflows: [\"Release integrity\"]\n    types: [completed]\npermissions:\n  contents: read\nconcurrency:\n  group: ordinarybrief-production-promotion\n  cancel-in-progress: false\n",
+    "writes_main": false,
+    "builds": false
+  },
+  {
+    "file": ".github/workflows/publish-dashiell-recap.yml",
+    "name": "name: Publish approved Dashiell recap",
+    "triggers": "name: Publish approved Dashiell recap\non:\n  push:\n    paths: ['.github/workflows/publish-dashiell-recap.yml']\n  workflow_dispatch:\npermissions:\n  contents: write\nconcurrency:\n  group: week4-recap-publication\n  cancel-in-progress: false\n",
+    "writes_main": true,
+    "builds": false
+  },
+  {
+    "file": ".github/workflows/publish-week5-previews.yml",
+    "name": "name: Publish approved Week 5 previews",
+    "triggers": "name: Publish approved Week 5 previews\non:\n  push:\n    branches: [main]\n    paths: ['.github/workflows/publish-week5-previews.yml']\n  workflow_dispatch:\npermissions:\n  contents: write\nconcurrency:\n  group: week5-preview-publication\n  cancel-in-progress: false\n",
+    "writes_main": true,
+    "builds": false
+  },
+  {
+    "file": ".github/workflows/publish-week5-recaps.yml",
+    "name": "name: Publish approved Week 5 recaps",
+    "triggers": "name: Publish approved Week 5 recaps\non:\n  push:\n    branches: [main]\n    paths: ['.github/workflows/publish-week5-recaps.yml']\n  workflow_dispatch:\npermissions:\n  contents: write\nconcurrency:\n  group: week5-recap-publication\n  cancel-in-progress: false\n",
+    "writes_main": true,
+    "builds": false
+  },
+  {
+    "file": ".github/workflows/release-integrity.yml",
+    "name": "name: Release integrity",
+    "triggers": "name: Release integrity\n\non:\n  push:\n    branches: [main]\n  pull_request:\n  workflow_dispatch:\n\n",
+    "writes_main": false,
+    "builds": true
+  },
+  {
+    "file": ".github/workflows/transcode-reels-hls.yml",
+    "name": "name: Transcode reels to HLS",
+    "triggers": "name: Transcode reels to HLS\n\non:\n  push:\n    paths:\n      - '.github/workflows/transcode-reels-hls.yml'\n      - 'public/reels/**'\n      - '!public/reels-hls/**'\n  workflow_dispatch:\n\npermissions:\n  contents: write\n\n",
+    "writes_main": true,
+    "builds": false
+  }
+]

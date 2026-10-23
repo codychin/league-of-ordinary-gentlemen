@@ -14,11 +14,22 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 22
     steps:
+      - name: Require promotion credentials before checkout
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          test -n "$VERCEL_TOKEN" || { echo "VERCEL_TOKEN secret missing; release NOT promoted." >&2; exit 1; }
       - name: Check out exact validated commit
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           ref: ${{ github.event.workflow_run.head_sha }}
           persist-credentials: false
+          fetch-depth: 1
+          # These standalone scripts need no application or published media files.
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /scripts/operations/promote-verified-release.mjs
+            /scripts/operations/check-public-routes.mjs
       - name: Set up Node
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:

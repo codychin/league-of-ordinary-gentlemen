@@ -1,0 +1,112 @@
+{
+  "sha": "213e900f7ed9da9fe0348dff4fea7bb8b7ab32c9",
+  "tracked_bytes": 2203532669,
+  "files": 2871,
+  "directories": {
+    "public/reels-hls": [
+      2078,
+      1147592318
+    ],
+    "public/reels": [
+      132,
+      1011257260
+    ],
+    "media-sources/sunday-review": [
+      54,
+      28068291
+    ],
+    "public/images": [
+      266,
+      13789462
+    ],
+    "app/articles": [
+      12,
+      365278
+    ],
+    "data/week4-verified.json": [
+      1,
+      288301
+    ],
+    "data/week5-closeout.json": [
+      1,
+      217385
+    ],
+    "app/components": [
+      46,
+      177603
+    ],
+    "app/teams": [
+      4,
+      125345
+    ],
+    "data/doge-week4-verified.json": [
+      1,
+      125343
+    ]
+  },
+  "largest": [
+    [
+      23299672,
+      "public/reels/65a14e3f3970c6406712a99e31827fd6.mp4"
+    ],
+    [
+      22793441,
+      "public/reels/8710323881d0b2cb1ec55d3cd8137629.mp4"
+    ],
+    [
+      21163152,
+      "public/reels/392481b81c933a1c16c0681d80094e25.mp4"
+    ],
+    [
+      20763825,
+      "public/reels/2aabd81db067067020c873233c783454.mp4"
+    ],
+    [
+      18939644,
+      "public/reels/35dba1a859bd687042b2da3fcf345239.mp4"
+    ],
+    [
+      18313568,
+      "public/reels/ca91cf52b9bfd5ea053d97c8f660cdcb.mp4"
+    ],
+    [
+      16736232,
+      "public/reels/bbccb6476e9b99f1618faba7e61f27d1.mp4"
+    ],
+    [
+      16727122,
+      "public/reels/e3c3146fd8882061f97aadb30cd1c551.mp4"
+    ],
+    [
+      16290179,
+      "public/reels/4847ba749e3df2950b2c8c9d8a11308b.mp4"
+    ],
+    [
+      16077460,
+      "public/reels/45dbda4d4e0cd7cbfcac56be10bcd785.mp4"
+    ],
+    [
+      16021584,
+      "public/reels/dde9296bb0651ee9bc837520078aea1e.mp4"
+    ],
+    [
+      15955158,
+      "public/reels/9250b953a32bbb06884b73f46ca43abe.mp4"
+    ],
+    [
+      15815097,
+      "public/reels/aaa2bdbd267cdf52f10bf4332c20c24d.mp4"
+    ],
+    [
+      15564939,
+      "public/reels/934492ccc99c967bc89ba70313047cdd.mp4"
+    ],
+    [
+      15183333,
+      "public/reels/35be59702c0c7cca379ab5ca64c28788.mp4"
+    ]
+  ],
+  "reachable_blob_count": 6393,
+  "reachable_blob_bytes": 3758311677,
+  "reachable_blob_disk_bytes": 3715009506
+}

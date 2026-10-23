@@ -1,0 +1,639 @@
+{
+  "baselineSha": "213e900f7ed9da9fe0348dff4fea7bb8b7ab32c9",
+  "projectSamples": [
+    {
+      "id": "prj_h89MCmxn3Mr3O0wRpnwstM917E0l",
+      "sample": [
+        {
+          "id": "dpl_DKXsFbPW4UCYib35ZjgtU6iMgchK",
+          "branch": "main",
+          "sha": "213e900f7ed9da9fe0348dff4fea7bb8b7ab32c9",
+          "state": "READY",
+          "target": "production",
+          "created": 1792791059679
+        },
+        {
+          "id": "dpl_DRj6udbstriTRzgb1z6fpMRPZKPX",
+          "branch": "release/week7-homepage-media-20261023",
+          "sha": "ba3c63b15cea1674973f77936eba6c813dbf9b65",
+          "state": "READY",
+          "target": null,
+          "created": 1792790564119
+        },
+        {
+          "id": "dpl_BpbvT9xCpT5Qvxm1xrK4z5eRAc9m",
+          "branch": "main",
+          "sha": "5f78afb93dce81a0763ed58ab810872590a85439",
+          "state": "READY",
+          "target": "production",
+          "created": 1792774302322
+        },
+        {
+          "id": "dpl_3FyaQAJ5Ri5LmaisJoPxkzYJnRmo",
+          "branch": "main",
+          "sha": "aaf7a34ff95ed52b12f2fdfcab83f8e2c045fa3e",
+          "state": "READY",
+          "target": "production",
+          "created": 1792766848765
+        },
+        {
+          "id": "dpl_FsnjWKrGxfGCBuLJPzVej4rUiJbc",
+          "branch": "main",
+          "sha": "9c8adbb50e45eac4bf70e98f2b3884bfbd4d5731",
+          "state": "READY",
+          "target": "production",
+          "created": 1792764475003
+        },
+        {
+          "id": "dpl_5GsUwXy84uSxc77oFys7kJYb4boe",
+          "branch": "fix/article-hero-rendering-20261023",
+          "sha": "00d64384bbb907a7cd38e9e2195273c34d17f431",
+          "state": "READY",
+          "target": null,
+          "created": 1792764465739
+        },
+        {
+          "id": "dpl_GLsPWVXc51nJk7w6UcgRBMBWnBqh",
+          "branch": "main",
+          "sha": "cbf428f44ca246c4fb95326a547fe1adcdacf04f",
+          "state": "READY",
+          "target": "production",
+          "created": 1792764453837
+        },
+        {
+          "id": "dpl_CTvV9jqiiNz99yF3ZweYufNDysjC",
+          "branch": "fix/enforce-article-image-qa-20261023",
+          "sha": "aa5da4d34ac9fdd58f1077583303b5ec45a353fb",
+          "state": "READY",
+          "target": null,
+          "created": 1792764263819
+        },
+        {
+          "id": "dpl_EsFBgzRgoicexPh22T5gPVemFEiu",
+          "branch": "fix/enforce-article-image-qa-20261023",
+          "sha": "d381927f554cf5e2bc8efe25a7739b4263df0ec9",
+          "state": "READY",
+          "target": null,
+          "created": 1792764253899
+        },
+        {
+          "id": "dpl_4aNaXr476pcgrBNtQujuttQkzViv",
+          "branch": "main",
+          "sha": "4a714ec6b70b805bde52be9103e915dc5246971b",
+          "state": "READY",
+          "target": "production",
+          "created": 1792762708252
+        },
+        {
+          "id": "dpl_3eN36xQCCFzbeC5PupxTmAKEJMzz",
+          "branch": "fix/article-photo-natural-ratio-20261023",
+          "sha": "cfcfa01a96e3d3c782fc80175c679607cc1c2f67",
+          "state": "READY",
+          "target": null,
+          "created": 1792762427974
+        },
+        {
+          "id": "dpl_BPqtkCY92LtTsvqFEDt7oKCei25x",
+          "branch": "main",
+          "sha": "5dcf3fcee4abed04e1882ff7c50216c2fabe1c6d",
+          "state": "READY",
+          "target": "production",
+          "created": 1792728106415
+        },
+        {
+          "id": "dpl_E9LMXenUVR5djKG3N38hdtdaj6yt",
+          "branch": "main",
+          "sha": "a83ad2a0a34bdf007034cbe9c78d22beaf4220d7",
+          "state": "READY",
+          "target": "production",
+          "created": 1792727149412
+        },
+        {
+          "id": "dpl_4DKprpuNU7up62LfNVr3x6mykP2K",
+          "branch": "main",
+          "sha": "572d549791a443f154733492e84449c191e432bc",
+          "state": "READY",
+          "target": "production",
+          "created": 1792727147116
+        },
+        {
+          "id": "dpl_7sTynuR1Pmi8kDiQ9zfJe8AFCkEe",
+          "branch": "main",
+          "sha": "e6c9a2a80a9db478af756e288c1797a0d4606d38",
+          "state": "READY",
+          "target": "production",
+          "created": 1792727137567
+        },
+        {
+          "id": "dpl_7jaP8wmeu4xhbYmsf1ogE9PcY5kf",
+          "branch": "main",
+          "sha": "09c7f966657b8ef513bbed1cc84efb49d5a84bbf",
+          "state": "READY",
+          "target": "production",
+          "created": 1792727132534
+        },
+        {
+          "id": "dpl_5yagiBrJcH58uGNsM9sERNVo9rhR",
+          "branch": "main",
+          "sha": "6feca639059b5dc0810b553a8d5af8cd5f69ad9a",
+          "state": "READY",
+          "target": "production",
+          "created": 1792726255836
+        },
+        {
+          "id": "dpl_EeT3ET7HaQrN6MEtCu3BPEMz87nC",
+          "branch": "main",
+          "sha": "b925362fa82f656c4c1fb2cafbcd08ca053da742",
+          "state": "READY",
+          "target": "production",
+          "created": 1792638891720
+        },
+        {
+          "id": "dpl_2Uo4ktHw82cBCXAsvXSCdwzE56jJ",
+          "branch": "staging",
+          "sha": "cce8138ea94c90a0e3bda61fa3790b74024d3c21",
+          "state": "READY",
+          "target": null,
+          "created": 1792638735831
+        },
+        {
+          "id": "dpl_4Ej2UsVYpLMAuE7SZcpLJSc4KaDw",
+          "branch": "main",
+          "sha": "4fc9900a75f8a626424e8f21aadd8fbc3eae4ec4",
+          "state": "READY",
+          "target": "production",
+          "created": 1792631241892
+        },
+        {
+          "id": "dpl_8zKhnfGSM4QhK7WohEv6jheaxnop",
+          "branch": "staging",
+          "sha": "b4f34ffc959798ce9a51b742cbf3ffc42cd6e67f",
+          "state": "READY",
+          "target": null,
+          "created": 1792631205169
+        },
+        {
+          "id": "dpl_Hx1G5yMyXHBQsjyRzLvFfBh4MpTt",
+          "branch": "staging",
+          "sha": "e0e58cbe21cb2c2f2bffdac819c3ddc068f68fb7",
+          "state": "READY",
+          "target": null,
+          "created": 1792631190255
+        },
+        {
+          "id": "dpl_7TJvWwYhssmY9MeRboDRuEYV9ah3",
+          "branch": "staging",
+          "sha": "fa2b1dd8c19bfc73817dc6c6b289d4d2b5772fd1",
+          "state": "READY",
+          "target": null,
+          "created": 1792630948187
+        },
+        {
+          "id": "dpl_345ufHhYmELXfK4odA6PZ2ehTyDs",
+          "branch": "staging",
+          "sha": "87472aa6ae5e4320ccefbdf8be63c629a4cd4c5a",
+          "state": "READY",
+          "target": null,
+          "created": 1792629550299
+        },
+        {
+          "id": "dpl_E5vPDbancYJo6myKEiBnp9tE9ryr",
+          "branch": "main",
+          "sha": "74521c56a38cab23f439d8a0a1ac7236fc97ea6b",
+          "state": "READY",
+          "target": "production",
+          "created": 1792614739970
+        },
+        {
+          "id": "dpl_CLkYG9DM2UNF8RZ5qeJoKKHpFnpj",
+          "branch": "fix/scorecard-portrait-baseline-20261021",
+          "sha": "a1f07eb59ddded9558c9b1d7aba733664cb1d06f",
+          "state": "READY",
+          "target": null,
+          "created": 1792614504457
+        },
+        {
+          "id": "dpl_CF1hAzSC8wJ5eRPbppMchfth663Q",
+          "branch": "fix/scorecard-portrait-baseline-20261021",
+          "sha": "16faaf1c462b56aec2e7b931aa0eaa05e1f37718",
+          "state": "READY",
+          "target": null,
+          "created": 1792614501576
+        },
+        {
+          "id": "dpl_G5dcCTCRTqTfcQHgtJcCyqTkYfxS",
+          "branch": "staging",
+          "sha": "06ddef57847dc62ebfd73a37c61281ad22847ebd",
+          "state": "READY",
+          "target": null,
+          "created": 1792614019773
+        },
+        {
+          "id": "dpl_5knkPuatEvgaaqykRF7Gkk26WTpk",
+          "branch": "staging",
+          "sha": "2b466575a840992ab541f087b5d5ca96c7e58b1a",
+          "state": "READY",
+          "target": null,
+          "created": 1792613981402
+        },
+        {
+          "id": "dpl_3RAzi8Ruz11XEKA5X9bgoFnkp1eW",
+          "branch": "main",
+          "sha": "ab84c4b9cdb702e730d071f4a1cb30b20cd521d6",
+          "state": "READY",
+          "target": "production",
+          "created": 1792588243908
+        }
+      ]
+    },
+    {
+      "id": "prj_7rg8CkADuyPW5Um3H2Ubu008X13G",
+      "sample": [
+        {
+          "id": "dpl_GdjXmzQngfJj4RhXVnXL3LMvee4w",
+          "branch": "main",
+          "sha": "213e900f7ed9da9fe0348dff4fea7bb8b7ab32c9",
+          "state": "CANCELED",
+          "target": "production",
+          "created": 1792791059707
+        },
+        {
+          "id": "dpl_EJUjcrghbtZtA1yCwJbWi6kdScZf",
+          "branch": "release/week7-homepage-media-20261023",
+          "sha": "ba3c63b15cea1674973f77936eba6c813dbf9b65",
+          "state": "CANCELED",
+          "target": null,
+          "created": 1792790564003
+        },
+        {
+          "id": "dpl_9679R9hXJzPfmayBLh6Asg9Psjt1",
+          "branch": "main",
+          "sha": "5f78afb93dce81a0763ed58ab810872590a85439",
+          "state": "CANCELED",
+          "target": "production",
+          "created": 1792774302369
+        },
+        {
+          "id": "dpl_2oR8m3DPXSRCmXhCurJsp7zFpDrn",
+          "branch": "main",
+          "sha": "aaf7a34ff95ed52b12f2fdfcab83f8e2c045fa3e",
+          "state": "CANCELED",
+          "target": "production",
+          "created": 1792766848786
+        },
+        {
+          "id": "dpl_6nH53zPQsD9n3P6MYUPaS1NKWhoc",
+          "branch": "main",
+          "sha": "9c8adbb50e45eac4bf70e98f2b3884bfbd4d5731",
+          "state": "CANCELED",
+          "target": "production",
+          "created": 1792764474972
+        },
+        {
+          "id": "dpl_8YuigWcRDjLoY5NNonA3wejcoiYt",
+          "branch": "fix/article-hero-rendering-20261023",
+          "sha": "00d64384bbb907a7cd38e9e2195273c34d17f431",
+          "state": "CANCELED",
+          "target": null,
+          "created": 1792764465745
+        },
+        {
+          "id": "dpl_DG5rmNbbuw9PMTg85vdwfnnajE5r",
+          "branch": "main",
+          "sha": "cbf428f44ca246c4fb95326a547fe1adcdacf04f",
+          "state": "CANCELED",
+          "target": "production",
+          "created": 1792764453893
+        },
+        {
+          "id": "dpl_92jrTA8MfiC4mVpTuNrhK5uAWSaN",
+          "branch": "fix/enforce-article-image-qa-20261023",
+          "sha": "aa5da4d34ac9fdd58f1077583303b5ec45a353fb",
+          "state": "CANCELED",
+          "target": null,
+          "created": 1792764263803
+        },
+        {
+          "id": "dpl_6Q2axfZmswKehJruuSCV6939Y6Q7",
+          "branch": "fix/enforce-article-image-qa-20261023",
+          "sha": "d381927f554cf5e2bc8efe25a7739b4263df0ec9",
+          "state": "CANCELED",
+          "target": null,
+          "created": 1792764253838
+        },
+        {
+          "id": "dpl_5bCjBizj5kpehQUNPAjCqtpXWmsF",
+          "branch": "main",
+          "sha": "4a714ec6b70b805bde52be9103e915dc5246971b",
+          "state": "CANCELED",
+          "target": "production",
+          "created": 1792762708225
+        },
+        {
+          "id": "dpl_6Jfds8GPvZ4MbFVCH5KTcV7RaGxf",
+          "branch": "fix/article-photo-natural-ratio-20261023",
+          "sha": "cfcfa01a96e3d3c782fc80175c679607cc1c2f67",
+          "state": "CANCELED",
+          "target": null,
+          "created": 1792762426352
+        },
+        {
+          "id": "dpl_CcYFxZMHzJrXr96a5LQNxCCmHn2D",
+          "branch": "main",
+          "sha": "5dcf3fcee4abed04e1882ff7c50216c2fabe1c6d",
+          "state": "CANCELED",
+          "target": "production",
+          "created": 1792728106422
+        },
+        {
+          "id": "dpl_DzBxL1zhQMP7WpFaFfwKpPw3xrwn",
+          "branch": "main",
+          "sha": "a83ad2a0a34bdf007034cbe9c78d22beaf4220d7",
+          "state": "CANCELED",
+          "target": "production",
+          "created": 1792727149386
+        },
+        {
+          "id": "dpl_EwpZXbW46cYweArUZcazwYAm7vWg",
+          "branch": "main",
+          "sha": "572d549791a443f154733492e84449c191e432bc",
+          "state": "CANCELED",
+          "target": "production",
+          "created": 1792727147094
+        },
+        {
+          "id": "dpl_Cg1FucQAd3bC8pr4hipjLNBtJifZ",
+          "branch": "main",
+          "sha": "e6c9a2a80a9db478af756e288c1797a0d4606d38",
+          "state": "CANCELED",
+          "target": "production",
+          "created": 1792727137566
+        },
+        {
+          "id": "dpl_AQ4dfiMkRNMzNTsfAuT7T5DRnFej",
+          "branch": "main",
+          "sha": "09c7f966657b8ef513bbed1cc84efb49d5a84bbf",
+          "state": "CANCELED",
+          "target": "production",
+          "created": 1792727132474
+        },
+        {
+          "id": "dpl_ANL2f2pRintaJ2xVRTCQmFwcRNie",
+          "branch": "main",
+          "sha": "6feca639059b5dc0810b553a8d5af8cd5f69ad9a",
+          "state": "CANCELED",
+          "target": "production",
+          "created": 1792726255611
+        },
+        {
+          "id": "dpl_6hMathzdvniC7RYxt4VkcZqrsqor",
+          "branch": "main",
+          "sha": "b925362fa82f656c4c1fb2cafbcd08ca053da742",
+          "state": "CANCELED",
+          "target": "production",
+          "created": 1792638891548
+        },
+        {
+          "id": "dpl_BBD8RuW26YHkyQK83dXLA2fWHKKd",
+          "branch": "staging",
+          "sha": "cce8138ea94c90a0e3bda61fa3790b74024d3c21",
+          "state": "READY",
+          "target": null,
+          "created": 1792638735934
+        },
+        {
+          "id": "dpl_FAMgB1TKJjSBeMG2sDb5UshrLZXg",
+          "branch": "main",
+          "sha": "4fc9900a75f8a626424e8f21aadd8fbc3eae4ec4",
+          "state": "CANCELED",
+          "target": "production",
+          "created": 1792631241785
+        },
+        {
+          "id": "dpl_F8tSeMp7Kh4F6akepYYL7jVWqZiu",
+          "branch": "staging",
+          "sha": "b4f34ffc959798ce9a51b742cbf3ffc42cd6e67f",
+          "state": "READY",
+          "target": null,
+          "created": 1792631205320
+        },
+        {
+          "id": "dpl_DWRFsbcvG1sbiTRWoUG25mcFdTJ1",
+          "branch": "staging",
+          "sha": "e0e58cbe21cb2c2f2bffdac819c3ddc068f68fb7",
+          "state": "READY",
+          "target": null,
+          "created": 1792631190369
+        },
+        {
+          "id": "dpl_956Ge8pBvGiZHbhPaA4rnKke3MLX",
+          "branch": "staging",
+          "sha": "fa2b1dd8c19bfc73817dc6c6b289d4d2b5772fd1",
+          "state": "READY",
+          "target": null,
+          "created": 1792630947353
+        },
+        {
+          "id": "dpl_DLLqdmZ3Tr3NJxBecfPisV289cL4",
+          "branch": "staging",
+          "sha": "87472aa6ae5e4320ccefbdf8be63c629a4cd4c5a",
+          "state": "READY",
+          "target": null,
+          "created": 1792629550342
+        },
+        {
+          "id": "dpl_EA5xgDGpfHUsS587rwawFUqeQoQB",
+          "branch": "main",
+          "sha": "74521c56a38cab23f439d8a0a1ac7236fc97ea6b",
+          "state": "CANCELED",
+          "target": "production",
+          "created": 1792614739942
+        },
+        {
+          "id": "dpl_F2os4uRkq6BvnFRma7qXfH4uUMT8",
+          "branch": "fix/scorecard-portrait-baseline-20261021",
+          "sha": "a1f07eb59ddded9558c9b1d7aba733664cb1d06f",
+          "state": "CANCELED",
+          "target": null,
+          "created": 1792614504479
+        },
+        {
+          "id": "dpl_EUxvBJgZc4bENTgYoUa6SLk5BN18",
+          "branch": "fix/scorecard-portrait-baseline-20261021",
+          "sha": "16faaf1c462b56aec2e7b931aa0eaa05e1f37718",
+          "state": "CANCELED",
+          "target": null,
+          "created": 1792614501601
+        },
+        {
+          "id": "dpl_AnTFcjqXjGjeoRy5gZX3s1RLtLf3",
+          "branch": "staging",
+          "sha": "06ddef57847dc62ebfd73a37c61281ad22847ebd",
+          "state": "READY",
+          "target": null,
+          "created": 1792614019907
+        },
+        {
+          "id": "dpl_GXgENDhkokb1i2VgdUGgKvZuG3wr",
+          "branch": "staging",
+          "sha": "2b466575a840992ab541f087b5d5ca96c7e58b1a",
+          "state": "READY",
+          "target": null,
+          "created": 1792613981480
+        },
+        {
+          "id": "dpl_A4c18YBdfwcMXWEqWNQRrNEVoedg",
+          "branch": "main",
+          "sha": "ab84c4b9cdb702e730d071f4a1cb30b20cd521d6",
+          "state": "CANCELED",
+          "target": "production",
+          "created": 1792588243823
+        }
+      ]
+    }
+  ],
+  "vercelEvents": [
+    {
+      "id": "dpl_DKXsFbPW4UCYib35ZjgtU6iMgchK",
+      "events": [
+        {
+          "at": 1792791060375,
+          "text": "Running build in Cleveland, USA (East) \u2013 cle1"
+        },
+        {
+          "at": 1792791060462,
+          "text": "Cloning github.com/codychin/league-of-ordinary-gentlemen (Branch: main, Commit: 213e900)"
+        },
+        {
+          "at": 1792791182586,
+          "text": "Cloning completed: 2:02.123 (m:ss.mmm)"
+        },
+        {
+          "at": 1792791190975,
+          "text": "\u2713 Compiled successfully in 586ms"
+        },
+        {
+          "at": 1792791219282,
+          "text": "Build Completed in /vercel/output [33s]"
+        },
+        {
+          "at": 1792791226108,
+          "text": "Deployment completed"
+        }
+      ],
+      "creationToCompletionSeconds": 166.429
+    },
+    {
+      "id": "dpl_BpbvT9xCpT5Qvxm1xrK4z5eRAc9m",
+      "events": [
+        {
+          "at": 1792774302965,
+          "text": "Running build in Cleveland, USA (East) \u2013 cle1"
+        },
+        {
+          "at": 1792774303069,
+          "text": "Cloning github.com/codychin/league-of-ordinary-gentlemen (Branch: main, Commit: 5f78afb)"
+        },
+        {
+          "at": 1792774383586,
+          "text": "Cloning completed: 1:20.517 (m:ss.mmm)"
+        },
+        {
+          "at": 1792774391818,
+          "text": "\u2713 Compiled successfully in 516ms"
+        },
+        {
+          "at": 1792774416608,
+          "text": "Build Completed in /vercel/output [30s]"
+        },
+        {
+          "at": 1792774425679,
+          "text": "Deployment completed"
+        }
+      ],
+      "creationToCompletionSeconds": 123.357
+    },
+    {
+      "id": "dpl_3FyaQAJ5Ri5LmaisJoPxkzYJnRmo",
+      "events": [
+        {
+          "at": 1792766849638,
+          "text": "Running build in Cleveland, USA (East) \u2013 cle1"
+        },
+        {
+          "at": 1792766849749,
+          "text": "Cloning github.com/codychin/league-of-ordinary-gentlemen (Branch: main, Commit: aaf7a34)"
+        },
+        {
+          "at": 1792766938211,
+          "text": "Cloning completed: 1:28.462 (m:ss.mmm)"
+        },
+        {
+          "at": 1792766950449,
+          "text": "\u2713 Compiled successfully in 639ms"
+        },
+        {
+          "at": 1792766974182,
+          "text": "Build Completed in /vercel/output [33s]"
+        },
+        {
+          "at": 1792766982548,
+          "text": "Deployment completed"
+        }
+      ],
+      "creationToCompletionSeconds": 133.783
+    },
+    {
+      "id": "dpl_GdjXmzQngfJj4RhXVnXL3LMvee4w",
+      "events": [
+        {
+          "at": 1792791060445,
+          "text": "Running build in Cleveland, USA (East) \u2013 cle1"
+        },
+        {
+          "at": 1792791060543,
+          "text": "Cloning github.com/codychin/league-of-ordinary-gentlemen (Branch: main, Commit: 213e900)"
+        },
+        {
+          "at": 1792791191440,
+          "text": "Cloning completed: 2:10.896 (m:ss.mmm)"
+        },
+        {
+          "at": 1792791191978,
+          "text": "The deployment was canceled because the Ignored Build Step command returned exit code 0."
+        }
+      ]
+    }
+  ],
+  "observedDomains": [
+    {
+      "id": "dpl_DKXsFbPW4UCYib35ZjgtU6iMgchK",
+      "url": "league-of-ordinary-gentlemen-ltvnxjp37-codychin1-8195.vercel.app",
+      "sha": "213e900f7ed9da9fe0348dff4fea7bb8b7ab32c9",
+      "state": "READY",
+      "createdAt": 1792791059679,
+      "ready": 1792791225907
+    },
+    {
+      "id": "dpl_BBD8RuW26YHkyQK83dXLA2fWHKKd",
+      "url": "ordinary-brief-staging-pz96vdunv-codychin1-8195.vercel.app",
+      "sha": "cce8138ea94c90a0e3bda61fa3790b74024d3c21",
+      "state": "READY",
+      "createdAt": 1792638735934,
+      "ready": 1792638851799
+    }
+  ],
+  "githubRuns": {
+    "integrity": 40027334547,
+    "promotion": 40027702818,
+    "articleImage": 40027334529
+  },
+  "branchProtection": {
+    "classic": "404 Branch not protected",
+    "activeRules": []
+  },
+  "limitations": [
+    "Vercel wire-byte counts and effective clone flags are not exposed by build logs.",
+    "No candidate GitHub/Vercel deployment or promotion was executed."
+  ]
+}
