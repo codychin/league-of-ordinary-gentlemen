@@ -82,7 +82,14 @@ if(mode==='verify-only'){
  console.log('STAGED VERIFIED',id,'commit',sha,'production remains',previous.id);
  process.exit(0);
 }
-await request('/v10/projects/'+project+'/promote/'+id,{method:'POST',body:'{}'});
+try{
+ await request('/v10/projects/'+project+'/promote/'+id,{method:'POST',body:'{}'});
+}finally{
+ // Vercel promotion can re-enable automatic assignment (vercel/vercel#15095).
+ // Restore manual assignment even when the promotion response fails or times out.
+ await request('/v9/projects/'+project,{method:'PATCH',body:JSON.stringify({autoAssignCustomDomains:false})});
+ assert.equal((await request('/v9/projects/'+project)).autoAssignCustomDomains,false,'Manual assignment was not restored');
+}
 let verified=false;
 for(let i=0;i<24;i++){
  const live=await request('/v13/deployments/'+domain);
