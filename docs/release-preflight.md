@@ -87,3 +87,7 @@ repaired. Existing CI/release gates are unchanged. The workflow refuses a stale
 main and uses an ordinary fast-forward push, never rebasing media over a newer
 release. Its concurrency group cannot stop a legacy run already executing old
 workflow code; that run must be reconciled separately before merging this fix.
+
+The packaging job has a 30-minute timeout and its conditional ffmpeg installation
+has a 5-minute timeout. An installation/generation failure cannot reach the commit
+step. These bounds do not change or stop an already-running legacy job.

@@ -56,6 +56,8 @@ test('workflow cannot wipe history, rebase stale media, or publish branch media 
   assert.match(workflow, /branches: \[main\]/);
   assert.match(workflow, /github.ref == 'refs\/heads\/main'/);
   assert.match(workflow, /cancel-in-progress: false/);
+  assert.match(workflow, /runs-on: ubuntu-latest\n    timeout-minutes: 30/);
+  assert.match(workflow, /Install ffmpeg only when packaging is required\n        timeout-minutes: 5/);
   assert.match(workflow, /Main advanced; refusing stale media commit/);
 });
 
