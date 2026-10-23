@@ -8,6 +8,8 @@ At 21:45 UTC, the verified live release was `213e900f7ed9da9fe0348dff4fea7bb8b7a
 
 The owner's assessment at 21:46:10 UTC was: “we need to learn from that that was absolutley not acceptable”. The assistant acknowledged: “The failures were concrete: I didn’t verify the release path before spending credits, mistook accepted approval messages for visible buttons, mixed newsroom restrictions into deployment work, and let you become the progress monitor.”
 
+At 21:51:23 UTC the owner confirmed the approval button appeared later and closed that issue: “it showed up later on so im not worried about the missing button anymore but pipeline defects NEED to be fixed”. The UI issue is closed; the approval-state distinction below remains a general correctness requirement, not an active UI investigation. Pipeline recovery requires actual workflow verification, not just local tests or documentation.
+
 ## Factual failure cases
 
 | Failure | Evidence and impact | Required prevention |
