@@ -14,7 +14,7 @@ test('article headline remains required',()=>assert.throws(()=>validatePublicPag
 const sha='a'.repeat(40);
 const project='prj_h89MCmxn3Mr3O0wRpnwstM917E0l';
 const team='team_hU7RX1oX9Ea0W2U9ieHwNxzL';
-function simulate(mode){
+function simulate(mode,extra={}){
  const dir=mkdtempSync(join(tmpdir(),'brief-gate-'));
  try{
   const log=join(dir,'calls.jsonl');
@@ -49,7 +49,7 @@ function simulate(mode){
     throw Error('Unexpected request '+path);
    };
   `);
-  const result=spawnSync(process.execPath,[resolve('scripts/operations/promote-verified-release.mjs')],{encoding:'utf8',timeout:10000,env:{...process.env,RELEASE_SHA:sha,VERCEL_PROJECT_ID:project,VERCEL_TOKEN:'test-vercel',GH_TOKEN:'test-github',ACTIONS_ID_TOKEN_REQUEST_URL:'https://oidc.actions.example/token',ACTIONS_ID_TOKEN_REQUEST_TOKEN:'test-request',NODE_OPTIONS:'--import='+preload}});
+  const result=spawnSync(process.execPath,[resolve('scripts/operations/promote-verified-release.mjs')],{encoding:'utf8',timeout:10000,env:{...process.env,RELEASE_SHA:sha,RELEASE_MODE:'promote',VERCEL_PROJECT_ID:project,VERCEL_TOKEN:'test-vercel',GH_TOKEN:'test-github',ACTIONS_ID_TOKEN_REQUEST_URL:'https://oidc.actions.example/token',ACTIONS_ID_TOKEN_REQUEST_TOKEN:'test-request',NODE_OPTIONS:'--import='+preload,...extra}});
   assert.equal(result.error,undefined,result.error?.message);
   const calls=readFileSync(log,'utf8').trim().split('\n').map(JSON.parse);
   assert.ok(!(result.stdout+result.stderr).includes('test-vercel'));
@@ -67,3 +67,5 @@ for(const mode of ['obsolete','changed-main','failed-qa','wrong-check-app','auto
  const r=simulate(mode);assert.notEqual(r.status,0,r.stdout);assert.equal(r.calls.filter(c=>c.method==='POST').length,0);assert.doesNotMatch(r.stdout,/VERIFIED production domain/);
 });
 test('wrong live alias cannot be marked verified',()=>{const r=simulate('bad-alias');assert.notEqual(r.status,0);assert.doesNotMatch(r.stdout,/VERIFIED production domain/)});
+test('default verification mode never requests promotion',()=>{const r=simulate('success',{RELEASE_MODE:''});assert.equal(r.status,0,r.stderr);assert.match(r.stdout,/STAGED VERIFIED/);assert.equal(r.calls.filter(c=>c.method==='POST').length,0)});
+test('intentional staging canary fails without promotion',()=>{const r=simulate('success',{RELEASE_CANARY_FAIL:'1'});assert.notEqual(r.status,0);assert.equal(r.calls.filter(c=>c.method==='POST').length,0)});

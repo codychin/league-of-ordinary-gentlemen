@@ -46,6 +46,8 @@ jobs:
       - name: Verify staged routes, promote exact successful build, and verify alias
         env:
           GH_TOKEN: ${{ github.token }}
+          RELEASE_MODE: ${{ vars.BRIEF_RELEASE_MODE || 'verify-only' }}
+          RELEASE_CANARY_FAIL: ${{ vars.BRIEF_RELEASE_CANARY_FAIL }}
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_PROJECT_ID: prj_h89MCmxn3Mr3O0wRpnwstM917E0l
           RELEASE_SHA: ${{ github.event.workflow_run.head_sha }}

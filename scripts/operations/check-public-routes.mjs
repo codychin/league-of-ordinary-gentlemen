@@ -41,4 +41,5 @@ if(featurePath||featureImage){
  assert.ok(bytes.byteLength>4096,'Featured image appears truncated or empty');
  console.log('PASS featured image',featurePath,featureImage,bytes.byteLength,'bytes');
 }
+if(process.env.RELEASE_CANARY_FAIL==='1')throw Error('Intentional staging failure canary; release MUST NOT be promoted');
 if(errors)throw Error(errors+' public routes failed. DO NOT MARK RELEASE VERIFIED.');

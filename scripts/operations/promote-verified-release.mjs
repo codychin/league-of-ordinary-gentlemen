@@ -9,6 +9,8 @@ const team='team_hU7RX1oX9Ea0W2U9ieHwNxzL';
 const repo='codychin/league-of-ordinary-gentlemen';
 const domain='www.ordinarybrief.com';
 const sha=process.env.RELEASE_SHA;
+const mode=process.env.RELEASE_MODE||'verify-only';
+assert.ok(['verify-only','promote'].includes(mode),'Invalid release mode');
 assert.ok(token&&ghToken,'Vercel and GitHub credentials required; release NOT promoted');
 assert.match(sha||'',/^[0-9a-f]{40}$/,'Expected exact RELEASE_SHA');
 assert.ok(!process.env.VERCEL_PROJECT_ID||process.env.VERCEL_PROJECT_ID===project,'Wrong production project');
@@ -69,13 +71,17 @@ assert.ok(identity.ok,'GitHub identity request failed');
 const oidc=(await identity.json()).value;
 assert.ok(typeof oidc==='string'&&oidc.length>0,'Missing GitHub identity token');
 const smoke=spawnSync(process.execPath,[new URL('./check-public-routes.mjs',import.meta.url).pathname],{
- env:{PATH:process.env.PATH,NODE_OPTIONS:process.env.NODE_OPTIONS||'',BASE_URL:origin,VERCEL_TRUSTED_OIDC_TOKEN:oidc},encoding:'utf8',timeout:150000});
+ env:{PATH:process.env.PATH,NODE_OPTIONS:process.env.NODE_OPTIONS||'',BASE_URL:origin,VERCEL_TRUSTED_OIDC_TOKEN:oidc,RELEASE_CANARY_FAIL:process.env.RELEASE_CANARY_FAIL||''},encoding:'utf8',timeout:150000});
 process.stdout.write(smoke.stdout||'');
 assert.equal(smoke.status,0,'Staged candidate routes failed; release NOT promoted');
 await validateQA();
 const latest=await request('/v13/deployments/'+id);
 assert.equal(latest.checks?.deploymentAlias?.state,'succeeded','Provider checks changed before promotion');
 assert.equal((await request('/v9/projects/'+project)).autoAssignCustomDomains,false);
+if(mode==='verify-only'){
+ console.log('STAGED VERIFIED',id,'commit',sha,'production remains',previous.id);
+ process.exit(0);
+}
 await request('/v10/projects/'+project+'/promote/'+id,{method:'POST',body:'{}'});
 let verified=false;
 for(let i=0;i<24;i++){
