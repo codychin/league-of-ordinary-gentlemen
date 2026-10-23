@@ -23,7 +23,7 @@ function simulate(mode,extra={}){
    import {appendFileSync} from 'node:fs';
    const mode=${JSON.stringify(mode)};
    const sha='${sha}';
-   let branchReads=0,aliasReads=0,detailReads=0;
+   let branchReads=0,aliasReads=0,detailReads=0,autoAssign=false;
    globalThis.setTimeout=f=>{queueMicrotask(f);return 0};
    globalThis.fetch=async (input,options={})=>{
     const u=new URL(input);
@@ -41,11 +41,17 @@ function simulate(mode,extra={}){
      if(path.endsWith('/check-runs'))return Response.json({check_runs:['integrity','article-image-qa'].map((name,i)=>({id:i+1,name,app:{slug:mode==='wrong-check-app'?'other':'github-actions'},head_sha:sha,status:'completed',conclusion:mode==='failed-qa'&&i===1?'failure':'success'}))});
     }
     if(u.hostname!=='api.vercel.com')throw Error('Unexpected origin');
-    if(path.startsWith('/v9/projects/'))return Response.json({id:'${project}',accountId:'${team}',autoAssignCustomDomains:mode==='autoassign'});
+    if(path.startsWith('/v9/projects/')){
+     if(options.method==='PATCH'&&mode!=='restore-fails')autoAssign=false;
+     return Response.json({id:'${project}',accountId:'${team}',autoAssignCustomDomains:mode==='autoassign'||autoAssign});
+    }
     if(path==='/v6/deployments')return Response.json({deployments:[{id:'dpl_candidate',created:1,state:mode==='failed-build'?'ERROR':'READY',meta:{githubCommitSha:mode==='wrong-sha'?'b'.repeat(40):sha,githubCommitRef:'main'}}]});
     if(path.endsWith('/www.ordinarybrief.com'))return Response.json({id:++aliasReads===1?'dpl_old':mode==='bad-alias'?'dpl_wrong':'dpl_candidate',readyState:'READY',meta:{githubCommitSha:sha}});
     if(path==='/v13/deployments/dpl_candidate')return Response.json({id:'dpl_candidate',projectId:mode==='wrong-project'?'other':'${project}',target:mode==='preview'?'preview':'production',readyState:'READY',url:mode==='foreign-url'?'evil.example':'candidate.vercel.app',meta:{githubCommitSha:sha,githubCommitRef:'main'},checks:{deploymentAlias:{state:mode==='failed-checks'||(mode==='changed-checks'&&++detailReads>1)?'failed':'succeeded'}}});
-    if(path.endsWith('/promote/dpl_candidate')&&options.method==='POST')return Response.json({});
+    if(path.endsWith('/promote/dpl_candidate')&&options.method==='POST'){
+     autoAssign=true;
+     return Response.json({}, {status:mode==='promote-error'?500:200});
+    }
     throw Error('Unexpected request '+path);
    };
   `);
@@ -61,6 +67,8 @@ test('successful exact SHA promotes only after candidate route validation',()=>{
  const r=simulate('success');assert.equal(r.status,0,r.stderr);
  const post=r.calls.findIndex(c=>c.method==='POST');
  assert.ok(post>r.calls.findLastIndex(c=>c.host==='candidate.vercel.app'));
+ assert.equal(r.calls[post+1].method,'PATCH');
+ assert.ok(r.calls[post+2].path.startsWith('/v9/projects/'));
  assert.match(r.stdout,/VERIFIED production domain/);
 });
 for(const mode of ['obsolete','changed-main','failed-qa','wrong-check-app','autoassign','failed-build','wrong-sha','wrong-project','preview','foreign-url','failed-checks','changed-checks','bad-routes'])test('fail closed before any promotion: '+mode,()=>{
@@ -69,3 +77,5 @@ for(const mode of ['obsolete','changed-main','failed-qa','wrong-check-app','auto
 test('wrong live alias cannot be marked verified',()=>{const r=simulate('bad-alias');assert.notEqual(r.status,0);assert.doesNotMatch(r.stdout,/VERIFIED production domain/)});
 test('default verification mode never requests promotion',()=>{const r=simulate('success',{RELEASE_MODE:''});assert.equal(r.status,0,r.stderr);assert.match(r.stdout,/STAGED VERIFIED/);assert.equal(r.calls.filter(c=>c.method==='POST').length,0)});
 test('intentional staging canary fails without promotion',()=>{const r=simulate('success',{RELEASE_CANARY_FAIL:'1'});assert.notEqual(r.status,0);assert.equal(r.calls.filter(c=>c.method==='POST').length,0)});
+test('failed promotion still restores manual assignment',()=>{const r=simulate('promote-error');assert.notEqual(r.status,0);const post=r.calls.findIndex(c=>c.method==='POST');assert.equal(r.calls[post+1].method,'PATCH');assert.doesNotMatch(r.stdout,/VERIFIED production domain/)});
+test('failed policy restoration cannot be marked verified',()=>{const r=simulate('restore-fails');assert.notEqual(r.status,0);assert.doesNotMatch(r.stdout,/VERIFIED production domain/)});
