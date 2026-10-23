@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Checks the actual production HTML of all three editions and every globally linked homepage story.
 import {readFileSync,writeFileSync} from 'node:fs';
+import {validatePublicPage} from './public-route-validation.mjs';
 const root=(process.env.BASE_URL||'https://www.ordinarybrief.com').replace(/\/$/,'');
 const u=new URL(root);
 if(u.protocol!=='https:'||u.pathname!=='/'||u.username||u.password)throw Error('Expected an HTTPS origin');
@@ -16,10 +17,7 @@ async function check(path){
   try{
    const res=await fetch(root+path,{redirect:'follow',signal:AbortSignal.timeout(15000),headers:{'Cache-Control':'no-cache','User-Agent':'OrdinaryBrief-LiveSentinel/1.0'}});
    const html=await res.text();
-   if(res.status!==200)throw Error('HTTP '+res.status);
-   if(!html.includes('The Brief'))throw Error('Expected publication marker missing');
-   if(/Story not found\.|Sorry, not found|404: This page|This deployment is protected/i.test(html))throw Error('Missing-page content');
-   if(path.includes('/articles/')&&!html.includes('<h1'))throw Error('Article headline missing');
+   validatePublicPage(res.status,html,{article:path.includes('/articles/')});
    passed.push(path);
    return;
   }catch(e){last=e.message;if(attempt===0)await new Promise(r=>setTimeout(r,2000))}
