@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import {writers} from '../articles/writers';
-import matchupColumns from '../../data/week6-matchup-columns.json';
+import matchupColumnsWeek6 from '../../data/week6-matchup-columns.json';
+import matchupColumnsWeek7 from '../../data/week7-matchup-columns.json';
+const matchupColumns=[...matchupColumnsWeek6,...matchupColumnsWeek7];
 
 // Full approved columns are deliberately visible in the Scores section.
 // Team IDs and edition slug prevent cross-league copy from appearing.
