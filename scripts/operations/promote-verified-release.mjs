@@ -35,6 +35,19 @@ async function validateQA(){
   assert.ok(latest&&latest.head_sha===sha&&latest.status==='completed'&&latest.conclusion==='success','Required QA not successful: '+name);
  }
 }
+function validateProviderChecks(deployment){
+ if(deployment.checks!==undefined){
+  assert.equal(deployment.checks?.deploymentAlias?.state,'succeeded','Provider Deployment Checks must succeed');
+ }else if(deployment.checksState!==undefined||deployment.checksConclusion!==undefined){
+  assert.equal(deployment.checksState,'completed','Provider checks must complete');
+  assert.equal(deployment.checksConclusion,'succeeded','Provider checks must succeed');
+ }else{
+  // Vercel does not attach promotion checks when auto-assignment is disabled.
+  // Manual mode is asserted before staging and again immediately before POST;
+  // direct exact-SHA GitHub checks and staged routes remain mandatory.
+  console.log('Manual assignment: exact-SHA GitHub QA is the release authority; no provider check run attached');
+ }
+}
 await validateQA();
 const policy=await request('/v9/projects/'+project);
 assert.equal(policy.id,project);
@@ -58,7 +71,7 @@ assert.equal(candidate.target,'production');
 assert.equal(candidate.meta?.githubCommitSha,sha);
 assert.equal(candidate.meta?.githubCommitRef,'main');
 assert.equal(candidate.readyState,'READY');
-assert.equal(candidate.checks?.deploymentAlias?.state,'succeeded','Provider Deployment Checks must succeed');
+validateProviderChecks(candidate);
 const origin='https://'+candidate.url;
 const url=new URL(origin);
 assert.equal(url.origin,origin);
@@ -76,7 +89,7 @@ process.stdout.write(smoke.stdout||'');
 assert.equal(smoke.status,0,'Staged candidate routes failed; release NOT promoted');
 await validateQA();
 const latest=await request('/v13/deployments/'+id);
-assert.equal(latest.checks?.deploymentAlias?.state,'succeeded','Provider checks changed before promotion');
+validateProviderChecks(latest);
 assert.equal((await request('/v9/projects/'+project)).autoAssignCustomDomains,false);
 if(mode==='verify-only'){
  console.log('STAGED VERIFIED',id,'commit',sha,'production remains',previous.id);
