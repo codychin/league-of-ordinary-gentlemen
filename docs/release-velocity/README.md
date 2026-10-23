@@ -66,6 +66,8 @@ Packaging workflows for Sunday Crew Week 4, Week 4 recaps and Dashiell run on th
 
 During this audit, the existing automatic transcoder independently advanced main to `4decddd3848fef50fdde9fd94f9a304c39f63bf1` (“Generate HLS reel renditions”). Measurements/tests remain pinned to `213e900`; this PR has no media diff and did not start that job. That concurrent mutation reinforces the need for separately reviewed media-workflow isolation.
 
+Before this draft was opened, main advanced again to `770cbfdace6740b4630f5114175a94f1d4b19c4f`, merging [PR #71](https://github.com/codychin/league-of-ordinary-gentlemen/pull/71). That separate change replaces the destructive transcode workflow and adds HLS-packaging safety/release-preflight checks. The trigger/transcode findings above describe the measured `213e900` baseline, not that newer implementation. This draft neither duplicates nor reverts PR #71; its changed files do not overlap those guardrails. Reported test totals remain pinned to the audited source and candidate, not a claimed test of all concurrent main changes.
+
 ## Approved merge → verified release critical path
 
 For `213e900`, Vercel and GitHub ran in parallel:
