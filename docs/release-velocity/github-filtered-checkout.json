@@ -1,0 +1,17 @@
+{
+  "init_seconds": 0.0098,
+  "remote_seconds": 0.0062,
+  "promisor_seconds": 0.0047,
+  "filter_config_seconds": 0.0045,
+  "fetch_seconds": 0.2519,
+  "sparse_init_seconds": 0.0101,
+  "sparse_set_seconds": 0.0082,
+  "checkout_seconds": 0.1879,
+  "total_seconds": 0.4834,
+  "sha": "213e900f7ed9da9fe0348dff4fea7bb8b7ab32c9",
+  "git_bytes": 508070,
+  "files": [
+    "scripts/operations/promote-verified-release.mjs",
+    "scripts/operations/check-public-routes.mjs"
+  ]
+}
