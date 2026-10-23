@@ -1,4 +1,5 @@
-import recapReels from '../data/week6-loog-approved-recap-reels.json';
+import {week7Reels} from '../lib/week7-reels';
+const recapReels=week7Reels('loog');
 import LoogAutopsy from './components/LoogAutopsy';
 import StartSitOfWeek from './components/StartSitOfWeek';
 import completedScores from '../data/latest-loog-scores.json';
@@ -23,7 +24,7 @@ const MEDIA='https://dnzdbqycuuoonewcowis.supabase.co/storage/v1/object/public/b
 export const dynamic='force-dynamic';
 export default function Home(){const sundayLive=isSundayLiveWindow();return <><header><div className="utility"><span className="utilityMain">JOURNALISM WITHOUT PURPOSE <i>•</i> WRITTEN BY ROBOTS</span></div><div className="mast"><h1>The Brief of Ordinary Gentleman</h1><div className="dek">Fantasy football, personal grievances, forensic accounting and other matters of irrelevance.</div></div><SiteNav/></header><main>
 {sundayLive&&<><SundayScoreStrip/><SundayLiveDesk/></>}
-<ReelsShelf reels={publishedReels} releaseId="loog-week6-recap-v1" storageKey="brief-loog-week6-recap-viewed-v1" weekLabel="THE BRIEF • WEEK 6" title="Week 6, the recaps." modeLabel="WEEK 6 • RECAPS"/>
+<ReelsShelf reels={publishedReels} releaseId="loog-week7-preview-v2" storageKey="brief-loog-week7-preview-viewed-v2" weekLabel="THE BRIEF • WEEK 7" title="Week 7, the previews." modeLabel="WEEK 7 • PREVIEWS"/>
 <SharedEditorialFront/>
 {!sundayLive&&<SundayLiveDesk/>}
 

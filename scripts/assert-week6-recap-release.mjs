@@ -15,7 +15,8 @@ for(const [edition,file] of [['sunday-crew','sunday'],['doge','doge']]){
  assert.deepEqual(ids.sort(),sources.filter(s=>s.edition===edition).map(v=>v.id).sort());
  assert.ok(!text.includes('videoUrl:urls'));
 }
-assert.match(fs.readFileSync('app/page.js','utf8'),/loog-week6-recap-v1/);
+// Week 6 assets and pairings remain immutable archives; active shelf coverage lives in week7-homepage-media.test.mjs.
+assert.ok(loog.every(r=>r.week===6&&r.season===2026&&r.kind==='recap'));
 for(const path of ['app/matchups/[a]/[b]/page.js','app/components/editions/Matchup.js']){
  const text=fs.readFileSync(path,'utf8');assert.ok(!text.includes('<video'),path+' must be text-only');
  assert.ok(text.includes('selectMatchupColumn'));assert.ok(text.includes('.map((paragraph,index)=><p'));
