@@ -1,6 +1,8 @@
 import latestScores from '../../../../data/latest-loog-scores.json';
 import closeout from '../../../../data/week6-loog-closeout.json';
-import matchupColumns from '../../../../data/week6-matchup-columns.json';
+import matchupColumnsWeek6 from '../../../../data/week6-matchup-columns.json';
+import matchupColumnsWeek7 from '../../../../data/week7-matchup-columns.json';
+const matchupColumns=[...matchupColumnsWeek6,...matchupColumnsWeek7];
 import matchupRecaps from '../../../../data/matchup-recaps.json';
 import {selectMatchupColumn} from '../../../../lib/select-matchup-column.mjs';
 import Link from 'next/link'
