@@ -49,8 +49,8 @@ detectors independently of live content.
 
 Image audits and JavaScript error arrays are attached to individual test results.
 Generated reports are ignored by Git. Exit status is nonzero for failures; no
-automatic retries conceal intermittent defects. Existing Node tests and GitHub
-workflows remain independent and unchanged.
+automatic retries conceal intermittent defects. The full Phase One suite remains
+independent; the focused article-image release check is integrated as described below.
 Machine-specific monitors and the earlier standalone diagnostics are not included.
 
 Phase One does not automate editorial approval, complete overflow chronology,
@@ -85,3 +85,25 @@ or staging origins; its production-origin safety guard is not weakened.
 template, GOOD INTENTIONS label, original article hero, Oregon unlink and 20px
  desktop / 18px mobile lead subtitle. Image/typography fields are not added to the
 placement-only manifest schema. Browser test discovery is not a browser pass.
+
+## October 23 article-image production gate
+
+Owner approved integrating the existing six article-image geometry cases into
+Release integrity (Sentinel_3f3e0e6902b08191857daf5a7b5bc45b, 2026-10-23 16:49 UTC).
+After unit tests and the build, that workflow starts its local app and runs
+`qa/tests/article-image-framing.spec.mjs` at desktop 1440 and mobile 390/360 widths.
+The Washington and Marvin Harrison heroes must load, preserve their natural
+aspect ratios within the existing 2.5% tolerance, and not use `object-fit: cover`.
+These assertions and the production-origin safety guard are unchanged.
+
+The step is mandatory: startup timeout or any browser-test failure fails Release
+integrity. Existing automatic promotion requires that exact main push workflow
+to succeed. Reports upload even on failure. The separate article-image workflow
+remains useful independent reporting, not the promotion prerequisite.
+`tests/article-image-release-gate.test.mjs` checks the wiring and uses isolated
+stub commands to prove browser-command failure propagates (no broken app deployed).
+
+This is not a required-merge rule and does not constrain manual platform
+promotion. Repository security settings are unchanged. Editorial placement
+manifest values are unchanged because this update changes validation, not content.
+A passing gate is not proof of production alias assignment or physical-device QA.
