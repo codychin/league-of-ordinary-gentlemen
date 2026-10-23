@@ -28,3 +28,28 @@ On first failed validation, stop changing unrelated features, identify the exact
 
 ## Video feedback flywheel
 Use docs/brief-video-performance-guide.md and docs/video-first-pass-qa.md as binding production constraints. Every correction is categorized (fact, script, voice, pronunciation, visual continuity, edit, aspect/crop, placement) and must update the relevant reusable rule or individual exception before the next batch. Each render stores script, voice/avatar settings, environment prompt, source evidence, pronunciation dictionary version, asset URL, and QA disposition. Track first-pass approval rate and render/revision counts; don't turn subjective quality into fake automated certainty. Human approval remains required for new styles, contested facts, or unusual scenes until a representative validated track record supports reduced review.
+
+## Media release preflight and resumability
+
+Before paid generation, establish the complete supported path from an existing or authorized canary artifact to protected preview and eventual promotion. Verify repository/branch access, an existing promotion route, the available artifact-transfer path, current main and serving SHA, and active workflows that can write the same files or ref. A missing credential is a blocker to that route, not permission to create credentials. Do not claim a preflight from tool availability alone. Record budget and scope separately from access evidence.
+
+For each asset, record source identity and packaged identity separately: relative path, byte count, SHA-256, deterministic Git blob SHA, target repository/branch, and the returned remote result. Persist the receipt immediately after each confirmed operation and keep it in the release handoff artifact, not solely an in-memory tool store or disposable executor. Before resuming, re-read uncertain remote outcomes and compare the exact bytes' hashes. Matching filenames are insufficient; missing receipts are not evidence that a write failed. Never rerender merely to replace a missing receipt.
+
+Approval requests have distinct states: requested/pending, executed with a verifiable result, denied, and uncertain. An accepted request is not an executed upload or proof of a visible approval card. After denial, retry at most once, only with materially new relevant evidence and a known non-executed outcome. Read uncertain outcomes first. Carry authorization evidence in the handoff, not as text inserted into tool arguments. A prior “Always Allow” interaction is not a blanket rule for later work.
+
+Before merge or promotion, re-read main and active writers. Do not race a legacy run that may replace validated media or push a different tree. Assign one owner to reconcile the run's terminal result; changing a workflow does not cancel an already-running copy. Preserve historical assets and the existing CI, preview, exact-SHA, and domain-verification gates. An unchanged or pending job is not a terminal outcome.
+
+## Isolated engineering handoff
+
+Every release/recovery worker receives a short self-contained contract:
+
+- Task type and purpose: engineering release/recovery, not a scheduled newsroom publication task.
+- Exact repository, current observed base SHA, target branch, media manifest/receipt locations, and intended immutable build.
+- Requested actions and their current authorization, with source/timestamp; explicit exclusions (paid generation, new credentials, schedule/security changes, unrelated publication as applicable).
+- Active competing workflows and their owners; no overlapping main writes; reread main before mutations.
+- Acceptance criteria, tests, preview/live verification requirements, rollback reference, and stopping condition.
+- Completed, denied, pending, and uncertain operations, including exact target and evidence needed next.
+
+Resolve contradictory scope with the parent before dependent writes. This contract documents task isolation; it cannot override safety policy, grant permissions, force approval UI delivery, or control platform review classification.
+
+The release owner owns monitoring and recovery within authorization until completion or a specific blocker requiring user action. Send useful findings and exact blockers without asking the editor to poll jobs or assemble a multipart manual deployment. Consult `docs/week7-release-incident-2026-10-23.md` for the failure cases. Distinguish enforced code from operator procedure and platform limitations in every completion report.
