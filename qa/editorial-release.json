@@ -22,6 +22,16 @@
         "recordedAt": "2026-10-21",
         "scope": "Staging-only Jay-Z lead and chronological Marnie/Conrad/Rams three-card row across LOOG, Sunday Crew and DOGE",
         "instruction": "Cody approved title and subtitle option 7 and a final pass onto staging with a Jay-Z image (Sentinel_0c03c8a164c88191a2d770735b12f0ad). Production publication is not approved. Prior lead shifts into the three-card row; NFC East continues below it. West Virginia stays archive-only."
+      },
+      {
+        "approvedBy": "Cody Chin",
+        "recordedAt": "2026-10-23T04:01:00Z",
+        "scope": "Season 2026 Week 7: eighteen matchup-page text previews across LOOG, Sunday Crew and DOGE. Existing homepage placements and prior media unchanged.",
+        "instruction": "Owner messages directly verified through connected conversation reader: 2026-10-23T03:18:26Z, 3f310f1c-515e-455d-989e-0c1a4df4839f: “Yes let’s build this but for now we need to just go live with matchup previews. Let’s start with the matchup pages”. 2026-10-23T03:30:38Z, f4fa1859-1044-4ee0-b851-b67a8ed89fa3: “Ok do it. It’s still harmless enough to go generation, staging, validation, manifest upgrade, production. I need tl see what it will look like if it happens without me intervening”. Source: https://chatgpt.com/c/6adad049-473c-83e9-a3a3-eb32d9f8b934?messageId=f4fa1859-1044-4ee0-b851-b67a8ed89fa3. This documents the exact eighteen text previews imported at the content commit below, matching the final corrected Thursday packet. Video scope was authorized separately at 03:28, but rendering-credit authorization remains pending; no generation or completion is asserted.",
+        "source": "data/week7-matchup-columns.json",
+        "contentCommit": "a83ad2a0a34bdf007034cbe9c78d22beaf4220d7",
+        "packetSha256": "568c4a875265e3e741913a2d176f1db8e817e29a136febe09df227fa57d67447",
+        "validation": "All eighteen staged matchup routes returned HTTP 200 with exact full text and expected titles, no video elements. Content commit passed Release integrity. Final manifest commit still requires release checks and production promotion."
       }
     ],
     "copyRevisions": [
