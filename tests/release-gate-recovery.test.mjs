@@ -1,0 +1,62 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {mkdtempSync,writeFileSync,readFileSync,rmSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import {join,resolve} from 'node:path';
+import {spawnSync} from 'node:child_process';
+import {validatePublicPage} from '../scripts/operations/public-route-validation.mjs';
+const good='<html><body><h1>The Juice Box Guy</h1><p>The Brief</p><script>self.__next_f.push(["404: This page could not be found."])</script></body></html>';
+test('inert Next.js not-found data does not mark valid content missing',()=>validatePublicPage(200,good,{article:true,expectedTitle:'The Juice Box Guy'}));
+for(const html of ['<h1>The Brief</h1><p>Story not found.</p>','<h1>The Brief</h1><p>404: This page could not be found.</p>','<h1>Authentication Required</h1>','<script>The Brief</script>'])test('reject actual missing/protected content '+html.slice(0,30),()=>assert.throws(()=>validatePublicPage(200,html,{article:true})));
+test('HTTP errors remain failures',()=>assert.throws(()=>validatePublicPage(404,good)));
+test('wrong article title remains failure',()=>assert.throws(()=>validatePublicPage(200,good,{article:true,expectedTitle:'Wrong story'})));
+test('article headline remains required',()=>assert.throws(()=>validatePublicPage(200,'The Brief',{article:true})));
+const sha='a'.repeat(40);
+const project='prj_h89MCmxn3Mr3O0wRpnwstM917E0l';
+const team='team_hU7RX1oX9Ea0W2U9ieHwNxzL';
+function simulate(mode){
+ const dir=mkdtempSync(join(tmpdir(),'brief-gate-'));
+ try{
+  const log=join(dir,'calls.jsonl');
+  const preload=join(dir,'mock.mjs');
+  writeFileSync(preload,`
+   import {appendFileSync} from 'node:fs';
+   const mode=${JSON.stringify(mode)};
+   const sha='${sha}';
+   let branchReads=0,aliasReads=0,detailReads=0;
+   globalThis.setTimeout=f=>{queueMicrotask(f);return 0};
+   globalThis.fetch=async (input,options={})=>{
+    const u=new URL(input);
+    const path=u.pathname;
+    appendFileSync(${JSON.stringify(log)},JSON.stringify({host:u.hostname,path,method:options.method||'GET'})+'\\n');
+    if(u.hostname==='candidate.vercel.app')return new Response(${JSON.stringify(good)},{status:mode==='bad-routes'?403:200});
+    if(u.hostname==='api.github.com'){
+     if(path.endsWith('/branches/main'))return Response.json({commit:{sha:mode==='obsolete'||(mode==='changed-main'&&++branchReads>1)?'b'.repeat(40):sha}});
+     if(path.endsWith('/check-runs'))return Response.json({check_runs:['integrity','article-image-qa'].map((name,i)=>({id:i+1,name,app:{slug:mode==='wrong-check-app'?'other':'github-actions'},head_sha:sha,status:'completed',conclusion:mode==='failed-qa'&&i===1?'failure':'success'}))});
+    }
+    if(u.hostname!=='api.vercel.com')throw Error('Unexpected origin');
+    if(path.startsWith('/v9/projects/'))return Response.json({id:'${project}',accountId:'${team}',autoAssignCustomDomains:mode==='autoassign'});
+    if(path==='/v6/deployments')return Response.json({deployments:[{id:'dpl_candidate',created:1,state:mode==='failed-build'?'ERROR':'READY',meta:{githubCommitSha:mode==='wrong-sha'?'b'.repeat(40):sha,githubCommitRef:'main'}}]});
+    if(path.endsWith('/www.ordinarybrief.com'))return Response.json({id:++aliasReads===1?'dpl_old':mode==='bad-alias'?'dpl_wrong':'dpl_candidate',readyState:'READY',meta:{githubCommitSha:sha}});
+    if(path==='/v13/deployments/dpl_candidate')return Response.json({id:'dpl_candidate',projectId:mode==='wrong-project'?'other':'${project}',target:mode==='preview'?'preview':'production',readyState:'READY',url:mode==='foreign-url'?'evil.example':'candidate.vercel.app',meta:{githubCommitSha:sha,githubCommitRef:'main'},checks:{deploymentAlias:{state:mode==='failed-checks'||(mode==='changed-checks'&&++detailReads>1)?'failed':'succeeded'}}});
+    if(path.endsWith('/promote/dpl_candidate')&&options.method==='POST')return Response.json({});
+    throw Error('Unexpected request '+path);
+   };
+  `);
+  const result=spawnSync(process.execPath,[resolve('scripts/operations/promote-verified-release.mjs')],{encoding:'utf8',timeout:10000,env:{...process.env,RELEASE_SHA:sha,VERCEL_PROJECT_ID:project,VERCEL_TOKEN:'test-vercel',GH_TOKEN:'test-github',NODE_OPTIONS:'--import='+preload}});
+  assert.equal(result.error,undefined,result.error?.message);
+  const calls=readFileSync(log,'utf8').trim().split('\n').map(JSON.parse);
+  assert.ok(!(result.stdout+result.stderr).includes('test-vercel'));
+  return {...result,calls};
+ }finally{rmSync(dir,{recursive:true,force:true});}
+}
+test('successful exact SHA promotes only after candidate route validation',()=>{
+ const r=simulate('success');assert.equal(r.status,0,r.stderr);
+ const post=r.calls.findIndex(c=>c.method==='POST');
+ assert.ok(post>r.calls.findLastIndex(c=>c.host==='candidate.vercel.app'));
+ assert.match(r.stdout,/VERIFIED production domain/);
+});
+for(const mode of ['obsolete','changed-main','failed-qa','wrong-check-app','autoassign','failed-build','wrong-sha','wrong-project','preview','foreign-url','failed-checks','changed-checks','bad-routes'])test('fail closed before any promotion: '+mode,()=>{
+ const r=simulate(mode);assert.notEqual(r.status,0,r.stdout);assert.equal(r.calls.filter(c=>c.method==='POST').length,0);assert.doesNotMatch(r.stdout,/VERIFIED production domain/);
+});
+test('wrong live alias cannot be marked verified',()=>{const r=simulate('bad-alias');assert.notEqual(r.status,0);assert.doesNotMatch(r.stdout,/VERIFIED production domain/)});
