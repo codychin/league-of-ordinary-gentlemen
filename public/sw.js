@@ -1,4 +1,4 @@
-const VERSION='ordinary-brief-v21'
+const VERSION='ordinary-brief-v22'
 const STATIC_CACHE=`${VERSION}-static`
 // Stable across app releases; content-addressed image URLs invalidate themselves.
 const IMAGE_CACHE='brief-public-images-v1'
@@ -47,6 +47,7 @@ self.addEventListener('fetch',event=>{
   if(request.method!=='GET') return
 
   const url=new URL(request.url)
+  if(url.pathname.startsWith('/publishing-pilot')||url.pathname.startsWith('/api/publishing-pilot')) return
   if(url.origin!==self.location.origin||url.pathname.startsWith('/api/')||url.pathname.startsWith('/manage')) return
 
   if(request.mode==='navigate'){
