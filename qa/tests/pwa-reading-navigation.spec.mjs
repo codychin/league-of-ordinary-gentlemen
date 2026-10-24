@@ -56,6 +56,11 @@ for(const root of ['','/sunday-crew','/doge']){
    // long matchup flow does not turn into a short "not this week" provider response.
    const matchup=root?await page.locator('a[href*="/matchups/"]').first().getAttribute('href'):'/matchups/skatt/hopkins-opus';
    expect((await page.goto(matchup)).status()).toBe(200);await expect(page.locator('main.matchupPage')).toBeVisible();await expect(page.locator('.matchupColumn')).toBeVisible();
+   if(!root){
+    await expect(page.locator('.matchupHeroSide h1')).toHaveText(["I'm a Skatt man",'Mr Hopkins Opus']);
+    expect((await page.locator('.matchupColumn').innerText()).length).toBeGreaterThan(300);
+    expect(await content.evaluate(e=>e.scrollHeight-e.clientHeight)).toBeGreaterThan(500);
+   }
    for(const height of [844,500,844]){await page.setViewportSize({width:testInfo.project.use.viewport.width,height});for(const y of [0,400,100000,200,0])await scroll(y);}
    await inputScroll();await check('matchup');await page.goBack();await expect(page).toHaveURL(/#scores$/);await expect.poll(()=>content.evaluate(e=>e.scrollTop)).toBe(0);await check('matchup-back');
    await testInfo.attach('shell-after-flow',{body:await page.screenshot(),contentType:'image/png'});

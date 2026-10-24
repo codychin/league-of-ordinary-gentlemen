@@ -1,4 +1,4 @@
-// Test-server fixture only: keep the reported historical matchup long enough to
+// Test-server fixture only: keep a deterministic historical matchup long enough to
 // exercise scrolling even after the live provider advances to another week.
 // Loaded explicitly by Release integrity's localhost server, never by the app.
 const snapshot=require('../../data/latest-loog-scores.json');
