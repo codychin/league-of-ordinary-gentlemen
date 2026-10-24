@@ -18,8 +18,8 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm run build
-      - run: npx playwright install --with-deps chromium
-      - name: Verify article image geometry before release
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Verify image geometry and article navigation before release
         run: |
           npm run start -- -p 3000 > /tmp/brief-server.log 2>&1 &
           server_pid=$!
@@ -39,3 +39,4 @@ jobs:
             qa/reports/browser-html
             qa/reports/browser-results.json
             qa/test-results
+            /tmp/brief-server.log
