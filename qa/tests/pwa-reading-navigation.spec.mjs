@@ -59,8 +59,12 @@ test('reel viewers restore the standalone content position',async({page},testInf
  await page.goto('/');const content=page.locator('.appScrollContent');
  const shelves=[page.getByRole('region',{name:/videos$/}).first(),page.getByRole('region',{name:'Also, from The Brief'})];
  for(const shelf of shelves){
-  const watch=shelf.getByRole('button',{name:/^Watch /}).first();await expect(watch).toBeVisible();await watch.scrollIntoViewIfNeeded();const before=await content.evaluate(e=>e.scrollTop);await watch.click();
+  const watch=shelf.getByRole('button',{name:/^Watch /}).first();await expect(watch).toBeVisible();await watch.scrollIntoViewIfNeeded();
+  // Playwright may scroll again while waiting for a late-loading card to stabilize.
+  // Capture the user's actual opening position at click, before React opens the viewer.
+  await watch.evaluate(el=>el.addEventListener('click',()=>{window.__qaReelOpening=document.querySelector('.appScrollContent').scrollTop;},{capture:true,once:true}));
+  await watch.click();const before=await page.evaluate(()=>window.__qaReelOpening);
   await expect(page.getByRole('dialog')).toBeVisible();expect(await content.evaluate(e=>getComputedStyle(e).overflowY)).toBe('hidden');
-  await page.getByRole('button',{name:'Close video',exact:true}).click();await expect(page.getByRole('dialog')).toHaveCount(0);await expect.poll(()=>content.evaluate(e=>e.scrollTop)).toBe(before);expect(await content.evaluate(e=>getComputedStyle(e).overflowY)).toBe('auto');
+  await page.getByRole('button',{name:'Close video',exact:true}).click();await expect(page.getByRole('dialog')).toHaveCount(0);await testInfo.attach('reel-restoration',{body:JSON.stringify({before,after:await content.evaluate(e=>e.scrollTop)}),contentType:'application/json'});await expect.poll(()=>content.evaluate(e=>e.scrollTop)).toBe(before);expect(await content.evaluate(e=>getComputedStyle(e).overflowY)).toBe('auto');
  }
 });
