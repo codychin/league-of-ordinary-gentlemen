@@ -1,5 +1,4 @@
 'use client'
-import {appScrollOwner,appScrollTop,resetAppScroll} from '../../lib/app-scroll-owner.mjs'
 import ImageWarmup from './ImageWarmup'
 
 import Link from 'next/link'
@@ -193,6 +192,7 @@ function MobileAppNav(){
     if(hash==='#scores'||hash==='#week4'||hash==='#current-scores'||hash==='#scores-week3') return 'scores'
     return hash==='#culture'?'culture':'home'
   }
+  const resetAppScroll=()=>window.scrollTo({top:0,left:0,behavior:'instant'})
   const scrollSection=id=>{
     pendingScroll.current?.()
     pendingScroll.current=scrollToSection(id==='week4'?'scores':id)
@@ -333,7 +333,7 @@ function PullToRefresh(){
       indicator.classList.remove('visible','ready','refreshing')
     }
     const start=event=>{
-      if((appScrollOwner()!==window&&!appScrollOwner().contains(event.target))||appScrollTop()>0||event.touches.length!==1||(event.target instanceof Element&&event.target.closest('input,textarea,select,button'))) return
+      if(window.scrollY>0||event.touches.length!==1||(event.target instanceof Element&&event.target.closest('input,textarea,select,button'))) return
       startY=event.touches[0].clientY
       tracking=true
     }

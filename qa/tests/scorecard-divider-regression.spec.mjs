@@ -20,6 +20,31 @@ async function baselinePixels(page){
   return ink;
  });
 }
+
+// Use real route markup and available player portraits as well as the deterministic
+// pixel negative control above. The QA server's LOOG Week 6 snapshot is labelled;
+// images are neither generated nor substituted. Other editions use their data.
+for(const root of ['','/sunday-crew','/doge']){
+ test(`real edition portraits remain uncropped at divider: ${root||'LOOG'}`,async({page},testInfo)=>{
+  if(!root)testInfo.annotations.push({type:'fixture',description:'The existing QA-only server preload pins LOOG scores to committed Week 6; player image responses are real.'});
+  expect((await page.goto((root||'/')+'?app-preview=1&tab=scores')).status()).toBe(200);
+  const card=page.locator('.briefMatchupCard').filter({has:page.locator('.briefMatchupPortraits img')}).first();
+  await expect(card).toBeVisible();await card.scrollIntoViewIfNeeded();
+  const photos=card.locator('.briefMatchupPortraits img');
+  await expect(photos).toHaveCount(2);
+  await photos.evaluateAll(images=>Promise.all(images.map(i=>i.decode())));
+  const geometry=await card.evaluate(c=>{
+   const row=c.querySelector('.briefMatchupPortraits').getBoundingClientRect(),d=c.querySelector('.briefMatchupOpen').getBoundingClientRect();
+   return {gap:d.top-row.bottom,photos:[...c.querySelectorAll('.briefMatchupPortraits img')].map(i=>({src:i.currentSrc,width:i.naturalWidth,height:i.naturalHeight,fit:getComputedStyle(i).objectFit,position:getComputedStyle(i).objectPosition,bottom:i.getBoundingClientRect().bottom-row.bottom,background:getComputedStyle(i).backgroundColor,backgroundImage:getComputedStyle(i).backgroundImage}))};
+  });
+  expect(Math.abs(geometry.gap)).toBeLessThanOrEqual(1);
+  for(const p of geometry.photos){expect(p.width).toBeGreaterThan(0);expect(p.height).toBeGreaterThan(0);expect(p.fit).toBe('contain');expect(p.position).toBe('50% 100%');expect(Math.abs(p.bottom)).toBeLessThanOrEqual(1);expect(p.background).toBe('rgba(0, 0, 0, 0)');expect(p.backgroundImage).toBe('none');}
+  await testInfo.attach('actual-portrait-geometry',{body:JSON.stringify(geometry,null,2),contentType:'application/json'});
+  await testInfo.attach('actual-portraits-after',{body:await card.screenshot(),contentType:'image/png'});
+  await card.locator('.briefMatchupOpen').evaluate(e=>e.style.marginTop='14px');
+  await testInfo.attach('actual-portraits-original-gap-control',{body:await card.screenshot(),contentType:'image/png'});
+ });
+}
 for(const standalone of [false,true]){
  test(`shared Scores divider touches visible portraits; standalone=${standalone}`,async({page})=>{
   await page.setContent(`<html class="${standalone?'standaloneApp':''}" data-app-tab="scores"><head><meta name="viewport" content="width=device-width, initial-scale=1"><style>${css.join('\n')}</style></head><body><main><section id="scores" class="section scoreSection"><article class="briefMatchupCard"><div class="briefMatchupTeams"><div class="briefMatchupSide"><b>CeeDeep Shaheeded Rivalry with a long franchise name</b><strong>123.45</strong></div><i>VS</i><div class="briefMatchupSide briefMatchupRight"><b>DarkHorse Danir</b><strong>132.45</strong></div></div><div class="briefMatchupPortraits"><img src="${portrait}"><img src="${portrait}" class="briefMatchupRightPlayer"></div><span class="briefMatchupOpen">Matchup →</span></article></section></main></body></html>`);

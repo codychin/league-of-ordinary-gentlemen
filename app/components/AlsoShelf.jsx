@@ -3,7 +3,6 @@
 import {useEffect,useRef,useState} from 'react';
 import ResilientImage from './ResilientImage';
 import {imageSrc} from '../../lib/editorial-images';
-import {lockReelScroll} from '../../lib/app-scroll-owner.mjs';
 import styles from './AlsoShelf.module.css';
 
 export default function AlsoShelf({videos=[]}){
@@ -15,7 +14,10 @@ export default function AlsoShelf({videos=[]}){
 
   useEffect(()=>{
     if(active===null)return;
-    return lockReelScroll();
+    const old=document.body.style.overflow;
+    document.body.style.overflow='hidden';
+    document.body.classList.add('reelsOpen');
+    return()=>{document.body.style.overflow=old;document.body.classList.remove('reelsOpen')};
   },[active]);
 
   useEffect(()=>{
