@@ -15,10 +15,19 @@ for(const root of ['','/sunday-crew','/doge']){
    expect(s.position).toBe('fixed');
    expect(Math.abs(s.rect.bottom-(s.viewport.offsetTop+s.viewport.height-s.bottom)),JSON.stringify(s)).toBeLessThanOrEqual(1);
   };
+  const scrollByInput=async()=>{
+   // Exercise browser input/compositor scrolling as well as scrollTo geometry.
+   await page.mouse.wheel(0,600);
+   await expect.poll(()=>page.evaluate(()=>scrollY)).toBeGreaterThan(0);
+   await check();
+   await testInfo.attach('after-input-scroll',{body:await page.screenshot(),contentType:'image/png'});
+  };
   try{
    const first=`${root}/articles/maude-nfc-east-declines-winner`;
    expect((await page.goto(first)).status()).toBe(200);
    await expect(page.locator('.appTabBar')).toBeVisible();
+   await check();
+   await scrollByInput();
    for(const height of [844,500,844]){
     await page.setViewportSize({width:testInfo.project.use.viewport.width,height});
     for(const y of [0,400,100000,200,0]){
@@ -36,6 +45,7 @@ for(const root of ['','/sunday-crew','/doge']){
    await page.getByRole('button',{name:'Close more menu'}).click();
    expect((await page.goto(`${root}/articles/marnie-marvin-harrison-somewhere-else`)).status()).toBe(200);
    await check();
+   await scrollByInput();
    await page.goBack();
    await expect(page).toHaveURL(new RegExp(first+'$'));
    await check();
