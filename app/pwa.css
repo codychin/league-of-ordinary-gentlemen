@@ -845,7 +845,8 @@ main>[id]{scroll-margin-top:56px}
   html[data-app-tab='scores'] .briefMatchupOpen,
   html.standaloneApp[data-app-tab='scores'] .briefMatchupOpen {
     display: block;
-    margin-top: 14px;
+    /* The portrait row ends at this divider, including in the Scores tab. */
+    margin-top: 0;
     padding-top: 10px;
     border-top: 1px solid var(--line);
     font-size: 11px;
@@ -853,4 +854,18 @@ main>[id]{scroll-margin-top:56px}
     letter-spacing: .8px;
     color: var(--red);
   }
+}
+
+/* Temporary reading containment: keep all navigation controls after the content
+   until installed-iPhone fixed-layer drift is repaired and device-verified. */
+@media(max-width:760px){
+ html.standaloneApp body:has(main.articleMain,main.matchupPage) .appTabBar{
+  position:relative;
+  top:auto;
+  left:auto;
+  right:auto;
+  bottom:auto;
+  transform:none!important;
+  margin:16px auto max(16px,env(safe-area-inset-bottom));
+ }
 }

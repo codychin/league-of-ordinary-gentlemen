@@ -34,6 +34,9 @@ export default defineConfig({
     serviceWorkers: 'block',
   },
   projects: [
+    // WebKit runs the real shared-shell reading contract, not the full asset suite.
+    { name: 'webkit-mobile-390', testMatch: '**/pwa-reading-navigation.spec.mjs', use: { browserName: 'webkit', viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true } },
+    { name: 'webkit-input-390', testMatch: '**/pwa-reading-navigation.spec.mjs', use: { browserName: 'webkit', viewport: { width: 390, height: 844 }, isMobile: false, hasTouch: true } },
     { name: 'desktop', use: { viewport: { width: 1440, height: 900 } } },
     { name: 'mobile-390', use: { viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true } },
     { name: 'mobile-360', use: { viewport: { width: 360, height: 800 }, isMobile: true, hasTouch: true } },

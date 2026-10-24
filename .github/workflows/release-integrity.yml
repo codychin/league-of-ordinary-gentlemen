@@ -18,7 +18,7 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm run build
-      - run: npx playwright install --with-deps chromium
+      - run: npx playwright install --with-deps chromium webkit
       - name: Verify article image geometry before release
         run: |
           npm run start -- -p 3000 > /tmp/brief-server.log 2>&1 &
@@ -30,7 +30,7 @@ jobs:
             sleep 2
           done
           test "$ready" = true
-          QA_BASE_URL=http://127.0.0.1:3000 npx playwright test qa/tests/article-image-framing.spec.mjs
+          QA_BASE_URL=http://127.0.0.1:3000 npx playwright test qa/tests/article-image-framing.spec.mjs qa/tests/scorecard-divider-regression.spec.mjs qa/tests/pwa-reading-navigation.spec.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -39,3 +39,4 @@ jobs:
             qa/reports/browser-html
             qa/reports/browser-results.json
             qa/test-results
+            /tmp/brief-server.log
