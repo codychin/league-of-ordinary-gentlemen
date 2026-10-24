@@ -17,10 +17,14 @@ for(const root of ['','/sunday-crew','/doge']){
   };
   const scrollByInput=async()=>{
    // Exercise browser input/compositor scrolling as well as scrollTo geometry.
-   await page.mouse.wheel(0,600);
+   const mobileWebKit=testInfo.project.use.browserName==='webkit'&&testInfo.project.use.isMobile;
+   if(mobileWebKit){
+    testInfo.annotations.push({type:'limitation',description:'Playwright mobile WebKit has no wheel input; this case verifies programmatic scroll. webkit-input-390 covers wheel input separately.'});
+    await page.evaluate(()=>scrollBy(0,600));
+   }else await page.mouse.wheel(0,600);
    await expect.poll(()=>page.evaluate(()=>scrollY)).toBeGreaterThan(0);
    await check();
-   await testInfo.attach('after-input-scroll',{body:await page.screenshot(),contentType:'image/png'});
+   await testInfo.attach(mobileWebKit?'after-programmatic-scroll':'after-input-scroll',{body:await page.screenshot(),contentType:'image/png'});
   };
   try{
    const first=`${root}/articles/maude-nfc-east-declines-winner`;
