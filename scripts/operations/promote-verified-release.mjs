@@ -19,7 +19,12 @@ async function request(path,options={}){
  const r=await fetch('https://api.vercel.com'+path+(path.includes('?')?'&':'?')+'teamId='+team,{
   ...options,redirect:'error',headers:{Authorization:'Bearer '+token,'Content-Type':'application/json'},signal:AbortSignal.timeout(20000)});
  if(!r.ok)throw Error('Vercel API HTTP '+r.status);
- return r.json();
+ const body=await r.text();
+ if(!body.trim()){
+  assert.notEqual(options.method||'GET','GET','Vercel inspection returned no JSON');
+  return {}; // Successful mutation endpoints may acknowledge with HTTP 204.
+ }
+ try{return JSON.parse(body)}catch{throw Error('Vercel API returned invalid JSON')}
 }
 async function github(path){
  const r=await fetch('https://api.github.com/repos/'+repo+path,{redirect:'error',headers:{Authorization:'Bearer '+ghToken,Accept:'application/vnd.github+json'},signal:AbortSignal.timeout(20000)});
