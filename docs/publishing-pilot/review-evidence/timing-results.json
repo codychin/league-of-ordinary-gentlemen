@@ -1,0 +1,134 @@
+{
+  "kind": "local-next-real-postgres-synthetic-auth-not-hosted-staging",
+  "renderer": "JwrrLqHn3x6oah5SpV4Pe",
+  "successfulTrials": 20,
+  "routes": [
+    "/publishing-pilot/loog",
+    "/publishing-pilot/loog/articles/conrad-allow-me-to-reintroduce-myself",
+    "/publishing-pilot/sunday-crew",
+    "/publishing-pilot/sunday-crew/articles/conrad-allow-me-to-reintroduce-myself",
+    "/publishing-pilot/doge",
+    "/publishing-pilot/doge/articles/conrad-allow-me-to-reintroduce-myself"
+  ],
+  "approvedToVerifiedMs": {
+    "median": 515,
+    "p95": 537
+  },
+  "ttfbMs": {
+    "median": 72.55609300000015,
+    "p95": 82.59109400000125
+  },
+  "responseTotalMs": {
+    "median": 73.64004299999942,
+    "p95": 83.62812399999984
+  },
+  "load": {
+    "renderedReads": 120,
+    "activationRequests": 20,
+    "independentVerificationWrites": 20,
+    "headReadsForTestSetup": 20,
+    "approvalTimestampQueries": 20
+  },
+  "samples": [
+    {
+      "digest": "7d8eeeaf370f66454bbe9e7708d34ef026b8ed144c98da02414337a14c291cfa",
+      "approvedToVerifiedMs": 596,
+      "requestToVerificationMs": 714.1251239999999
+    },
+    {
+      "digest": "be8eaa18c3be59d20dc59ff7e1b8d108af0beef9af153db0fc8717a8fe81e111",
+      "approvedToVerifiedMs": 537,
+      "requestToVerificationMs": 650.478324
+    },
+    {
+      "digest": "7d8eeeaf370f66454bbe9e7708d34ef026b8ed144c98da02414337a14c291cfa",
+      "approvedToVerifiedMs": 535,
+      "requestToVerificationMs": 643.667541
+    },
+    {
+      "digest": "be8eaa18c3be59d20dc59ff7e1b8d108af0beef9af153db0fc8717a8fe81e111",
+      "approvedToVerifiedMs": 530,
+      "requestToVerificationMs": 651.1814420000001
+    },
+    {
+      "digest": "7d8eeeaf370f66454bbe9e7708d34ef026b8ed144c98da02414337a14c291cfa",
+      "approvedToVerifiedMs": 523,
+      "requestToVerificationMs": 628.8506870000001
+    },
+    {
+      "digest": "be8eaa18c3be59d20dc59ff7e1b8d108af0beef9af153db0fc8717a8fe81e111",
+      "approvedToVerifiedMs": 517,
+      "requestToVerificationMs": 627.0322740000001
+    },
+    {
+      "digest": "7d8eeeaf370f66454bbe9e7708d34ef026b8ed144c98da02414337a14c291cfa",
+      "approvedToVerifiedMs": 488,
+      "requestToVerificationMs": 588.5618989999994
+    },
+    {
+      "digest": "be8eaa18c3be59d20dc59ff7e1b8d108af0beef9af153db0fc8717a8fe81e111",
+      "approvedToVerifiedMs": 490,
+      "requestToVerificationMs": 592.4769780000006
+    },
+    {
+      "digest": "7d8eeeaf370f66454bbe9e7708d34ef026b8ed144c98da02414337a14c291cfa",
+      "approvedToVerifiedMs": 493,
+      "requestToVerificationMs": 601.6845599999997
+    },
+    {
+      "digest": "be8eaa18c3be59d20dc59ff7e1b8d108af0beef9af153db0fc8717a8fe81e111",
+      "approvedToVerifiedMs": 512,
+      "requestToVerificationMs": 620.5180500000006
+    },
+    {
+      "digest": "7d8eeeaf370f66454bbe9e7708d34ef026b8ed144c98da02414337a14c291cfa",
+      "approvedToVerifiedMs": 515,
+      "requestToVerificationMs": 616.5041740000006
+    },
+    {
+      "digest": "be8eaa18c3be59d20dc59ff7e1b8d108af0beef9af153db0fc8717a8fe81e111",
+      "approvedToVerifiedMs": 515,
+      "requestToVerificationMs": 632.6714589999992
+    },
+    {
+      "digest": "7d8eeeaf370f66454bbe9e7708d34ef026b8ed144c98da02414337a14c291cfa",
+      "approvedToVerifiedMs": 515,
+      "requestToVerificationMs": 625.5226070000008
+    },
+    {
+      "digest": "be8eaa18c3be59d20dc59ff7e1b8d108af0beef9af153db0fc8717a8fe81e111",
+      "approvedToVerifiedMs": 504,
+      "requestToVerificationMs": 606.0093699999998
+    },
+    {
+      "digest": "7d8eeeaf370f66454bbe9e7708d34ef026b8ed144c98da02414337a14c291cfa",
+      "approvedToVerifiedMs": 528,
+      "requestToVerificationMs": 635.3077580000008
+    },
+    {
+      "digest": "be8eaa18c3be59d20dc59ff7e1b8d108af0beef9af153db0fc8717a8fe81e111",
+      "approvedToVerifiedMs": 512,
+      "requestToVerificationMs": 622.634657999999
+    },
+    {
+      "digest": "7d8eeeaf370f66454bbe9e7708d34ef026b8ed144c98da02414337a14c291cfa",
+      "approvedToVerifiedMs": 505,
+      "requestToVerificationMs": 614.9257440000001
+    },
+    {
+      "digest": "be8eaa18c3be59d20dc59ff7e1b8d108af0beef9af153db0fc8717a8fe81e111",
+      "approvedToVerifiedMs": 492,
+      "requestToVerificationMs": 601.5144080000009
+    },
+    {
+      "digest": "7d8eeeaf370f66454bbe9e7708d34ef026b8ed144c98da02414337a14c291cfa",
+      "approvedToVerifiedMs": 513,
+      "requestToVerificationMs": 630.6539720000001
+    },
+    {
+      "digest": "be8eaa18c3be59d20dc59ff7e1b8d108af0beef9af153db0fc8717a8fe81e111",
+      "approvedToVerifiedMs": 521,
+      "requestToVerificationMs": 642.991387
+    }
+  ]
+}

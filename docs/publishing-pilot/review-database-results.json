@@ -1,0 +1,12 @@
+{
+  "renderer": "GnZzwiEO6ibtjhUsvSxgl",
+  "checks": [
+    "DOGE-only verifier cannot certify a global activation",
+    "narrow prior QA cannot authorize global rollback; replacement appends valid QA",
+    "current verifier edition scope is rechecked even without a version change",
+    "DOGE approver can revoke owned historical approval after unrelated global change",
+    "SQL rejects mixed verifier capability and null grants"
+  ],
+  "passed": 5,
+  "kind": "real-disposable-postgres"
+}

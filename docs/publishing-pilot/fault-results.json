@@ -1,6 +1,6 @@
 {
   "kind": "local-real-postgres",
-  "renderer": "JwrrLqHn3x6oah5SpV4Pe",
+  "renderer": "GnZzwiEO6ibtjhUsvSxgl",
   "checks": [
     "backend terminated before commit: no activation",
     "lost-response retry covered in database suite",
@@ -8,6 +8,6 @@
     "database paused: bounded unavailable, no stale payload",
     "recovery: original complete release"
   ],
-  "outageResponseMs": 27.56389500000114,
-  "timeoutMs": 5027.578256000001
+  "outageResponseMs": 24.418064999999842,
+  "timeoutMs": 5026.477877
 }

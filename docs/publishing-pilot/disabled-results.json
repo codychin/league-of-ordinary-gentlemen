@@ -1,0 +1,17 @@
+{
+  "kind": "local-built-next-runtime-no-valid-credentials",
+  "checks": [
+    {
+      "mode": "unconfigured",
+      "read": "unavailable",
+      "mutationStatus": 409,
+      "passed": true
+    },
+    {
+      "mode": "production-target-rejected",
+      "read": "unavailable",
+      "mutationStatus": 409,
+      "passed": true
+    }
+  ]
+}

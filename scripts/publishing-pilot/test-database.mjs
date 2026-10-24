@@ -9,7 +9,7 @@ const expected=JSON.parse(readFileSync('tests/fixtures/publishing-pilot/expected
 let passed=0;const checks=[];
 async function check(name,fn){await fn();passed++;checks.push(name);console.log('PASS',name);}
 async function stage(p){return (await call('stage',{payload:p})).digest;}
-async function qa(d,p){validateCandidate(p,baseline);return call('preflight',{digest:d,evidence:{passed:true,digest:d,fixture:'independent-expected-v1'}},ACTORS.verifier);}
+async function qa(d,p){validateCandidate(p,baseline);return call('preflight',{digest:d,evidence:{passed:true,digest:d,fixture:'independent-expected-v1',editions:['loog','sunday-crew','doge']}},ACTORS.verifier);}
 const b=await stage(baseline),c=await stage(correction(baseline)),r=await stage(rotation(baseline)),l=await stage(localFixture(baseline));
 await check('no QA, wrong scope, forged QA and service role cannot publish',async()=>{
  await assert.rejects(call('approve_publish',{digest:b,expectedGeneration:0,requestId:randomUUID()}),/preflight/);

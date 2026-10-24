@@ -1,6 +1,6 @@
 {
   "kind": "local-next-browser-real-postgres-synthetic-auth",
-  "renderer": "JwrrLqHn3x6oah5SpV4Pe",
+  "renderer": "GnZzwiEO6ibtjhUsvSxgl",
   "checks": [
     "three-edition baseline, full overflow, title and metadata",
     "protected draft preview and unauthenticated access exclusion",
@@ -10,5 +10,5 @@
     "service worker does not cache protected preview, including offline navigation"
   ],
   "passed": 6,
-  "rscRequests": 19
+  "rscRequests": 1
 }

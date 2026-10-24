@@ -1,0 +1,13 @@
+{
+  "kind": "local-real-postgres",
+  "renderer": "JwrrLqHn3x6oah5SpV4Pe",
+  "checks": [
+    "backend terminated before commit: no activation",
+    "lost-response retry covered in database suite",
+    "locked database read: five-second timeout, no stale payload",
+    "database paused: bounded unavailable, no stale payload",
+    "recovery: original complete release"
+  ],
+  "outageResponseMs": 27.56389500000114,
+  "timeoutMs": 5027.578256000001
+}

@@ -1,0 +1,11 @@
+{
+  "renderer": "GnZzwiEO6ibtjhUsvSxgl",
+  "kind": "local-browser-real-postgres-synthetic-auth",
+  "checks": [
+    "pinned preview survives article/masthead/return while active release differs",
+    "lost response reconciles automatically; reload retains request; verification and supersession refresh",
+    "reload while publish response is interrupted recovers committed operation without second action",
+    "pre-send interruption reports recoverable failure and retries the same operation ID"
+  ],
+  "passed": 4
+}

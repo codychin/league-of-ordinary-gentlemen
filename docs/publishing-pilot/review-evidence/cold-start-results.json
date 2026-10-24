@@ -1,0 +1,8 @@
+{
+  "kind": "fresh-local-next-process-real-postgres-synthetic-auth",
+  "renderer": "JwrrLqHn3x6oah5SpV4Pe",
+  "digest": "be8eaa18c3be59d20dc59ff7e1b8d108af0beef9af153db0fc8717a8fe81e111",
+  "ttfbMs": 361.06702,
+  "responseMs": 371.731109,
+  "passed": true
+}

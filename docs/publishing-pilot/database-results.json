@@ -13,11 +13,11 @@
     "status requires independent verification and rejects superseded proof",
     "permission revocation blocks publisher and QA grant invalidation blocks approval"
   ],
-  "renderer": "JwrrLqHn3x6oah5SpV4Pe",
+  "renderer": "GnZzwiEO6ibtjhUsvSxgl",
   "digests": {
-    "baseline": "be8eaa18c3be59d20dc59ff7e1b8d108af0beef9af153db0fc8717a8fe81e111",
-    "correction": "7d8eeeaf370f66454bbe9e7708d34ef026b8ed144c98da02414337a14c291cfa",
-    "rotation": "9ef3c911bf907b80bbeb606a5fb6e98245ce14504e11975062693b41d2656dae",
-    "local": "6084ffa39ebfa0851126ac7841f9f023e74639617a62bb924176da7e444bdc7d"
+    "baseline": "e1ca60cb75635e0c09138ba8bcce691dfe628b83203de89868774ecf2b6dd26c",
+    "correction": "a6f6fc74e0c1e90a76511f8cf741fc07f3c2317bd81e06f70d7ff50ea28906c2",
+    "rotation": "1c5a12d6fe6a204b93f2e4a33e3c08982b27b40ad08f20276fbb8688928e005c",
+    "local": "d73032fb4850dafae857f23e35e79d78a5e4815d8fa27eaeb3bc400ee652b8d0"
   }
 }
