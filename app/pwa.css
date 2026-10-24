@@ -855,3 +855,17 @@ main>[id]{scroll-margin-top:56px}
     color: var(--red);
   }
 }
+
+/* Temporary reading containment: keep all navigation controls after the content
+   until installed-iPhone fixed-layer drift is repaired and device-verified. */
+@media(max-width:760px){
+ html.standaloneApp body:has(main.articleMain,main.matchupPage) .appTabBar{
+  position:relative;
+  top:auto;
+  left:auto;
+  right:auto;
+  bottom:auto;
+  transform:none!important;
+  margin:16px auto max(16px,env(safe-area-inset-bottom));
+ }
+}

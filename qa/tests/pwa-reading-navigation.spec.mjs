@@ -2,18 +2,19 @@ import {test,expect} from '@playwright/test';
 
 // Standalone emulation exercises the real shell; it is not installed-iOS proof.
 for(const root of ['','/sunday-crew','/doge']){
- test(`reading navigation remains anchored: ${root||'LOOG'}`,async({page},testInfo)=>{
+ test(`reading navigation follows content: ${root||'LOOG'}`,async({page},testInfo)=>{
   test.skip(testInfo.project.name==='desktop','The mobile tab bar is hidden on desktop.');
   await page.addInitScript(()=>Object.defineProperty(navigator,'standalone',{get:()=>true}));
   const samples=[];
   const check=async()=>{
    const s=await page.locator('.appTabBar').evaluate(el=>{
     const r=el.getBoundingClientRect(),v=visualViewport,style=getComputedStyle(el);
-    return {scrollY,innerHeight,viewport:{height:v.height,offsetTop:v.offsetTop,scale:v.scale},rect:{top:r.top,bottom:r.bottom,height:r.height},bottom:parseFloat(style.bottom),position:style.position};
+    return {scrollY,innerHeight,viewport:{height:v.height,offsetTop:v.offsetTop,scale:v.scale},rect:{top:r.top,bottom:r.bottom,height:r.height},contentBottom:document.querySelector('main').getBoundingClientRect().bottom,transform:style.transform,position:style.position};
    });
    samples.push(s);
-   expect(s.position).toBe('fixed');
-   expect(Math.abs(s.rect.bottom-(s.viewport.offsetTop+s.viewport.height-s.bottom)),JSON.stringify(s)).toBeLessThanOrEqual(1);
+   expect(s.position).toBe('relative');
+   expect(s.transform).toBe('none');
+   expect(s.rect.top-s.contentBottom,JSON.stringify(s)).toBeGreaterThanOrEqual(15);
   };
   const scrollByInput=async()=>{
    // Exercise browser input/compositor scrolling as well as scrollTo geometry.
