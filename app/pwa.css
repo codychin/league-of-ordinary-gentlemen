@@ -845,7 +845,8 @@ main>[id]{scroll-margin-top:56px}
   html[data-app-tab='scores'] .briefMatchupOpen,
   html.standaloneApp[data-app-tab='scores'] .briefMatchupOpen {
     display: block;
-    margin-top: 14px;
+    /* The portrait row ends at this divider, including in the Scores tab. */
+    margin-top: 0;
     padding-top: 10px;
     border-top: 1px solid var(--line);
     font-size: 11px;

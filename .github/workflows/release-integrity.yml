@@ -30,7 +30,7 @@ jobs:
             sleep 2
           done
           test "$ready" = true
-          QA_BASE_URL=http://127.0.0.1:3000 npx playwright test qa/tests/article-image-framing.spec.mjs
+          QA_BASE_URL=http://127.0.0.1:3000 npx playwright test qa/tests/article-image-framing.spec.mjs qa/tests/scorecard-divider-regression.spec.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
