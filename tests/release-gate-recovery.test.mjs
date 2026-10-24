@@ -42,7 +42,10 @@ function simulate(mode,extra={}){
     }
     if(u.hostname!=='api.vercel.com')throw Error('Unexpected origin');
     if(path.startsWith('/v9/projects/')){
+     if(mode==='empty-get'&&options.method!=='PATCH')return new Response(null,{status:204});
+     if(mode==='invalid-json'&&options.method!=='PATCH')return new Response('sensitive-fixture-do-not-log',{status:200});
      if(options.method==='PATCH'&&mode!=='restore-fails')autoAssign=false;
+     if(options.method==='PATCH')return new Response(null,{status:204});
      return Response.json({id:'${project}',accountId:'${team}',autoAssignCustomDomains:mode==='autoassign'||autoAssign});
     }
     if(path==='/v6/deployments')return Response.json({deployments:[{id:'dpl_candidate',created:1,state:mode==='failed-build'?'ERROR':'READY',meta:{githubCommitSha:mode==='wrong-sha'?'b'.repeat(40):sha,githubCommitRef:'main'}}]});
@@ -50,7 +53,7 @@ function simulate(mode,extra={}){
     if(path==='/v13/deployments/dpl_candidate')return Response.json({id:'dpl_candidate',projectId:mode==='wrong-project'?'other':'${project}',target:mode==='preview'?'preview':'production',readyState:'READY',url:mode==='foreign-url'?'evil.example':'candidate.vercel.app',meta:{githubCommitSha:sha,githubCommitRef:'main'},checks:mode.startsWith('no-provider')?undefined:{deploymentAlias:{state:mode==='failed-checks'||(mode==='changed-checks'&&++detailReads>1)?'failed':'succeeded'}}});
     if(path.endsWith('/promote/dpl_candidate')&&options.method==='POST'){
      autoAssign=true;
-     return Response.json({}, {status:mode==='promote-error'?500:200});
+     return mode==='promote-error'?Response.json({}, {status:500}):new Response(null,{status:204});
     }
     throw Error('Unexpected request '+path);
    };
@@ -60,6 +63,7 @@ function simulate(mode,extra={}){
   const calls=readFileSync(log,'utf8').trim().split('\n').map(JSON.parse);
   assert.ok(!(result.stdout+result.stderr).includes('test-vercel'));
   assert.ok(!(result.stdout+result.stderr).includes('test-oidc'));
+  assert.ok(!(result.stdout+result.stderr).includes('sensitive-fixture-do-not-log'));
   return {...result,calls};
  }finally{rmSync(dir,{recursive:true,force:true});}
 }
@@ -81,3 +85,4 @@ test('failed promotion still restores manual assignment',()=>{const r=simulate('
 test('failed policy restoration cannot be marked verified',()=>{const r=simulate('restore-fails');assert.notEqual(r.status,0);assert.doesNotMatch(r.stdout,/VERIFIED production domain/)});
 test('manual mode without attached provider checks still requires exact QA and staged routes',()=>{const r=simulate('no-provider');assert.equal(r.status,0,r.stderr);assert.match(r.stdout,/VERIFIED production domain/);assert.equal(r.calls.filter(c=>c.host==='candidate.vercel.app').length,6)});
 test('missing provider checks never permit failed GitHub QA',()=>{const r=simulate('no-provider-failed-qa');assert.notEqual(r.status,0);assert.equal(r.calls.filter(c=>c.method==='POST').length,0)});
+for(const mode of ['empty-get','invalid-json'])test('inspection fails closed without disclosing bodies: '+mode,()=>{const r=simulate(mode);assert.notEqual(r.status,0);assert.equal(r.calls.filter(c=>c.method==='POST').length,0)});
