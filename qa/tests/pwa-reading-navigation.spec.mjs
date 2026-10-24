@@ -6,6 +6,7 @@ for(const root of ['','/sunday-crew','/doge']){
  test(`standalone content scroll owner: ${root||'LOOG'}`,async({page,context,browserName},testInfo)=>{
   test.skip(testInfo.project.name==='desktop','Mobile shell is inactive on desktop.');
   await page.addInitScript(()=>Object.defineProperty(navigator,'standalone',{get:()=>true}));
+  if(!root)testInfo.annotations.push({type:'fixture',description:'LOOG long matchup uses the committed Week 6 score snapshot via QA-only server preload; this tests layout, not live provider correctness.'});
   const samples=[],content=page.locator('.appScrollContent');
   const check=async(label)=>{
    const s=await page.locator('.appTabBar').evaluate(el=>{
@@ -51,9 +52,10 @@ for(const root of ['','/sunday-crew','/doge']){
    await expect(page).toHaveURL(new RegExp(root+'/teams$'));await expect.poll(()=>content.evaluate(e=>e.scrollTop)).toBe(0);
    for(const y of [0,400,100000,0])await scroll(y);await check('teams');
    await page.getByRole('navigation',{name:'App navigation'}).getByRole('link',{name:'Scores',exact:true}).click();await expect(page).toHaveURL(/#scores$/);
-   // Original long LOOG matchup and representative matchups in the other editions.
+   // The QA server pins the committed LOOG score snapshot so the original
+   // long matchup flow does not turn into a short "not this week" provider response.
    const matchup=root?await page.locator('a[href*="/matchups/"]').first().getAttribute('href'):'/matchups/skatt/hopkins-opus';
-   expect((await page.goto(matchup)).status()).toBe(200);await expect(page.locator('main.matchupPage')).toBeVisible();
+   expect((await page.goto(matchup)).status()).toBe(200);await expect(page.locator('main.matchupPage')).toBeVisible();await expect(page.locator('.matchupColumn')).toBeVisible();
    for(const height of [844,500,844]){await page.setViewportSize({width:testInfo.project.use.viewport.width,height});for(const y of [0,400,100000,200,0])await scroll(y);}
    await inputScroll();await check('matchup');await page.goBack();await expect(page).toHaveURL(/#scores$/);await expect.poll(()=>content.evaluate(e=>e.scrollTop)).toBe(0);await check('matchup-back');
    await testInfo.attach('shell-after-flow',{body:await page.screenshot(),contentType:'image/png'});
