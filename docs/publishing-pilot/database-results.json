@@ -1,0 +1,23 @@
+{
+  "kind": "local-real-postgres-not-deployed-supabase",
+  "passed": 10,
+  "checks": [
+    "no QA, wrong scope, forged QA and service role cannot publish",
+    "complete approved baseline and fixed renderer",
+    "concurrent CAS commits one winner; lost-response retry is idempotent",
+    "rollback exact baseline on same renderer with no deployment",
+    "revoked approval and stale approver grant block activation",
+    "local publisher cannot change shared editions; local-only release preserves others",
+    "direct immutable, pointer and approval writes fail; owner records immutable too",
+    "read snapshots stay complete during activation; correction does not reorder",
+    "status requires independent verification and rejects superseded proof",
+    "permission revocation blocks publisher and QA grant invalidation blocks approval"
+  ],
+  "renderer": "GnZzwiEO6ibtjhUsvSxgl",
+  "digests": {
+    "baseline": "e1ca60cb75635e0c09138ba8bcce691dfe628b83203de89868774ecf2b6dd26c",
+    "correction": "a6f6fc74e0c1e90a76511f8cf741fc07f3c2317bd81e06f70d7ff50ea28906c2",
+    "rotation": "1c5a12d6fe6a204b93f2e4a33e3c08982b27b40ad08f20276fbb8688928e005c",
+    "local": "d73032fb4850dafae857f23e35e79d78a5e4815d8fa27eaeb3bc400ee652b8d0"
+  }
+}

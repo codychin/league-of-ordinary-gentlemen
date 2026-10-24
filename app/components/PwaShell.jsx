@@ -440,6 +440,10 @@ function InstallPrompt({edition=null}){
 }
 
 export default function PwaShell(){
+  const pathname=usePathname();
+  return pathname.startsWith("/publishing-pilot") ? null : <PublishedPwaShell/>;
+}
+function PublishedPwaShell(){
   const pathname=usePathname()
   const edition=editionForPath(pathname)
   useEffect(()=>{

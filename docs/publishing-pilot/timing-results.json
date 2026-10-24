@@ -1,0 +1,134 @@
+{
+  "kind": "local-next-real-postgres-synthetic-auth-not-hosted-staging",
+  "renderer": "GnZzwiEO6ibtjhUsvSxgl",
+  "successfulTrials": 20,
+  "routes": [
+    "/publishing-pilot/loog",
+    "/publishing-pilot/loog/articles/conrad-allow-me-to-reintroduce-myself",
+    "/publishing-pilot/sunday-crew",
+    "/publishing-pilot/sunday-crew/articles/conrad-allow-me-to-reintroduce-myself",
+    "/publishing-pilot/doge",
+    "/publishing-pilot/doge/articles/conrad-allow-me-to-reintroduce-myself"
+  ],
+  "approvedToVerifiedMs": {
+    "median": 777,
+    "p95": 807
+  },
+  "ttfbMs": {
+    "median": 116.62969800000064,
+    "p95": 125.82948899999974
+  },
+  "responseTotalMs": {
+    "median": 117.79135899999983,
+    "p95": 129.20170100000178
+  },
+  "load": {
+    "renderedReads": 120,
+    "activationRequests": 20,
+    "independentVerificationWrites": 20,
+    "headReadsForTestSetup": 20,
+    "approvalTimestampQueries": 20
+  },
+  "samples": [
+    {
+      "digest": "a6f6fc74e0c1e90a76511f8cf741fc07f3c2317bd81e06f70d7ff50ea28906c2",
+      "approvedToVerifiedMs": 795,
+      "requestToVerificationMs": 934.576427
+    },
+    {
+      "digest": "e1ca60cb75635e0c09138ba8bcce691dfe628b83203de89868774ecf2b6dd26c",
+      "approvedToVerifiedMs": 765,
+      "requestToVerificationMs": 886.7491749999999
+    },
+    {
+      "digest": "a6f6fc74e0c1e90a76511f8cf741fc07f3c2317bd81e06f70d7ff50ea28906c2",
+      "approvedToVerifiedMs": 766,
+      "requestToVerificationMs": 891.016642
+    },
+    {
+      "digest": "e1ca60cb75635e0c09138ba8bcce691dfe628b83203de89868774ecf2b6dd26c",
+      "approvedToVerifiedMs": 773,
+      "requestToVerificationMs": 913.1659050000003
+    },
+    {
+      "digest": "a6f6fc74e0c1e90a76511f8cf741fc07f3c2317bd81e06f70d7ff50ea28906c2",
+      "approvedToVerifiedMs": 792,
+      "requestToVerificationMs": 914.5889900000002
+    },
+    {
+      "digest": "e1ca60cb75635e0c09138ba8bcce691dfe628b83203de89868774ecf2b6dd26c",
+      "approvedToVerifiedMs": 759,
+      "requestToVerificationMs": 889.6382039999999
+    },
+    {
+      "digest": "a6f6fc74e0c1e90a76511f8cf741fc07f3c2317bd81e06f70d7ff50ea28906c2",
+      "approvedToVerifiedMs": 780,
+      "requestToVerificationMs": 912.2900399999999
+    },
+    {
+      "digest": "e1ca60cb75635e0c09138ba8bcce691dfe628b83203de89868774ecf2b6dd26c",
+      "approvedToVerifiedMs": 752,
+      "requestToVerificationMs": 882.2522229999995
+    },
+    {
+      "digest": "a6f6fc74e0c1e90a76511f8cf741fc07f3c2317bd81e06f70d7ff50ea28906c2",
+      "approvedToVerifiedMs": 779,
+      "requestToVerificationMs": 896.8845820000006
+    },
+    {
+      "digest": "e1ca60cb75635e0c09138ba8bcce691dfe628b83203de89868774ecf2b6dd26c",
+      "approvedToVerifiedMs": 777,
+      "requestToVerificationMs": 906.2155810000004
+    },
+    {
+      "digest": "a6f6fc74e0c1e90a76511f8cf741fc07f3c2317bd81e06f70d7ff50ea28906c2",
+      "approvedToVerifiedMs": 783,
+      "requestToVerificationMs": 915.7393390000016
+    },
+    {
+      "digest": "e1ca60cb75635e0c09138ba8bcce691dfe628b83203de89868774ecf2b6dd26c",
+      "approvedToVerifiedMs": 757,
+      "requestToVerificationMs": 889.1047200000012
+    },
+    {
+      "digest": "a6f6fc74e0c1e90a76511f8cf741fc07f3c2317bd81e06f70d7ff50ea28906c2",
+      "approvedToVerifiedMs": 815,
+      "requestToVerificationMs": 942.2615590000005
+    },
+    {
+      "digest": "e1ca60cb75635e0c09138ba8bcce691dfe628b83203de89868774ecf2b6dd26c",
+      "approvedToVerifiedMs": 769,
+      "requestToVerificationMs": 900.1182040000003
+    },
+    {
+      "digest": "a6f6fc74e0c1e90a76511f8cf741fc07f3c2317bd81e06f70d7ff50ea28906c2",
+      "approvedToVerifiedMs": 785,
+      "requestToVerificationMs": 913.7303330000013
+    },
+    {
+      "digest": "e1ca60cb75635e0c09138ba8bcce691dfe628b83203de89868774ecf2b6dd26c",
+      "approvedToVerifiedMs": 739,
+      "requestToVerificationMs": 859.2212520000012
+    },
+    {
+      "digest": "a6f6fc74e0c1e90a76511f8cf741fc07f3c2317bd81e06f70d7ff50ea28906c2",
+      "approvedToVerifiedMs": 807,
+      "requestToVerificationMs": 936.1649939999988
+    },
+    {
+      "digest": "e1ca60cb75635e0c09138ba8bcce691dfe628b83203de89868774ecf2b6dd26c",
+      "approvedToVerifiedMs": 769,
+      "requestToVerificationMs": 893.7252410000001
+    },
+    {
+      "digest": "a6f6fc74e0c1e90a76511f8cf741fc07f3c2317bd81e06f70d7ff50ea28906c2",
+      "approvedToVerifiedMs": 802,
+      "requestToVerificationMs": 927.6695780000009
+    },
+    {
+      "digest": "e1ca60cb75635e0c09138ba8bcce691dfe628b83203de89868774ecf2b6dd26c",
+      "approvedToVerifiedMs": 780,
+      "requestToVerificationMs": 919.7869630000023
+    }
+  ]
+}

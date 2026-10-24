@@ -1,0 +1,14 @@
+{
+  "kind": "local-next-browser-real-postgres-synthetic-auth",
+  "renderer": "JwrrLqHn3x6oah5SpV4Pe",
+  "checks": [
+    "three-edition baseline, full overflow, title and metadata",
+    "protected draft preview and unauthenticated access exclusion",
+    "one publisher action commits correction without claiming verified-live",
+    "rotation and rollback preserve the same fixed renderer",
+    "browser navigation uses complete active metadata/body",
+    "service worker does not cache protected preview, including offline navigation"
+  ],
+  "passed": 6,
+  "rscRequests": 19
+}

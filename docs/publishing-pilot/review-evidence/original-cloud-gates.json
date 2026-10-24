@@ -1,0 +1,25 @@
+{
+  "head": "faaa10f3b998382e919f6d731ca57a73319413b2",
+  "integrity": {
+    "run": 40049714627,
+    "result": "success",
+    "normal_npm_run_build": "success"
+  },
+  "article-image-qa": {
+    "run": 40049714623,
+    "result": "success",
+    "normal_npm_run_build": "success"
+  },
+  "main-project-preview": {
+    "deployment": "dpl_7BYURYwkAPYhzjYLrCnzNtLFRutv",
+    "state": "READY",
+    "target": null,
+    "url": "https://league-of-ordinary-gentlemen-oxzox6nsp-codychin1-8195.vercel.app"
+  },
+  "staging-project-preview": {
+    "deployment": "dpl_BTkTi29Ss2aBzYnSuPKZqPCiyzFg",
+    "state": "CANCELED",
+    "reason": "Existing Ignored Build Step only builds staging branch; exit 0 for pilot branch"
+  },
+  "preview-runtime-check": "NOT RUN: execution proxy CONNECT 403 and web tool cannot access; no bypass created"
+}
