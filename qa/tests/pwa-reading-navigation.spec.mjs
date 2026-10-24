@@ -10,10 +10,11 @@ for(const root of ['','/sunday-crew','/doge']){
   const check=async(label)=>{
    const s=await page.locator('.appTabBar').evaluate(el=>{
     const r=el.getBoundingClientRect(),v=visualViewport,c=document.querySelector('.appScrollContent'),cr=c.getBoundingClientRect(),style=getComputedStyle(el);
-    return {path:location.pathname,scrollY,innerHeight,visibility:document.visibilityState,viewport:{height:v.height,offsetTop:v.offsetTop,scale:v.scale},rect:{top:r.top,bottom:r.bottom,height:r.height},content:{top:cr.top,bottom:cr.bottom,scrollTop:c.scrollTop,scrollHeight:c.scrollHeight},margin:parseFloat(style.marginBottom),transform:style.transform,position:style.position};
+    return {path:location.pathname,scrollY,innerHeight,visibility:document.visibilityState,viewport:v?{height:v.height,offsetTop:v.offsetTop,scale:v.scale}:null,rect:{top:r.top,bottom:r.bottom,height:r.height},content:{top:cr.top,bottom:cr.bottom,scrollTop:c.scrollTop,scrollHeight:c.scrollHeight},margin:parseFloat(style.marginBottom),transform:style.transform,position:style.position};
    });samples.push({label,...s});
    expect(s.position).toBe('relative');expect(s.transform).toBe('none');expect(s.scrollY).toBe(0);
-   expect(Math.abs(s.innerHeight-s.rect.bottom-s.margin),JSON.stringify(s)).toBeLessThan(2);
+   const visibleBottom=s.viewport?s.viewport.offsetTop+s.viewport.height:s.innerHeight;
+   expect(Math.abs(visibleBottom-s.rect.bottom-s.margin),JSON.stringify(s)).toBeLessThan(2);
    expect(s.content.bottom).toBeLessThanOrEqual(s.rect.top);
   };
   const scroll=async y=>{await content.evaluate((el,y)=>el.scrollTo(0,y),y);await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));await check('scroll');};
@@ -46,6 +47,15 @@ for(const root of ['','/sunday-crew','/doge']){
    await page.getByRole('navigation',{name:'App navigation'}).getByRole('link',{name:'Scores',exact:true}).click();await expect(page).toHaveURL(/#scores$/);await expect.poll(()=>content.evaluate(e=>e.scrollTop)).toBe(0);await check('scores');
    await page.getByRole('navigation',{name:'App navigation'}).getByRole('link',{name:'Culture',exact:true}).click();await expect(page).toHaveURL(/#culture$/);await check('culture');
    await page.goBack();await expect(page).toHaveURL(/#scores$/);await check('hash-back');
+   await page.getByRole('navigation',{name:'App navigation'}).getByRole('link',{name:'Teams',exact:true}).click();
+   await expect(page).toHaveURL(new RegExp(root+'/teams$'));await expect.poll(()=>content.evaluate(e=>e.scrollTop)).toBe(0);
+   for(const y of [0,400,100000,0])await scroll(y);await check('teams');
+   await page.getByRole('navigation',{name:'App navigation'}).getByRole('link',{name:'Scores',exact:true}).click();await expect(page).toHaveURL(/#scores$/);
+   // Original long LOOG matchup and representative matchups in the other editions.
+   const matchup=root?await page.locator('a[href*="/matchups/"]').first().getAttribute('href'):'/matchups/skatt/hopkins-opus';
+   expect((await page.goto(matchup)).status()).toBe(200);await expect(page.locator('main.matchupPage')).toBeVisible();
+   for(const height of [844,500,844]){await page.setViewportSize({width:testInfo.project.use.viewport.width,height});for(const y of [0,400,100000,200,0])await scroll(y);}
+   await inputScroll();await check('matchup');await page.goBack();await expect(page).toHaveURL(/#scores$/);await expect.poll(()=>content.evaluate(e=>e.scrollTop)).toBe(0);await check('matchup-back');
    await testInfo.attach('shell-after-flow',{body:await page.screenshot(),contentType:'image/png'});
   }finally{await testInfo.attach('viewport-samples',{body:JSON.stringify(samples,null,2),contentType:'application/json'});}
  });
@@ -67,4 +77,19 @@ test('reel viewers restore the standalone content position',async({page},testInf
   await expect(page.getByRole('dialog')).toBeVisible();expect(await content.evaluate(e=>getComputedStyle(e).overflowY)).toBe('hidden');
   await page.getByRole('button',{name:'Close video',exact:true}).click();await expect(page.getByRole('dialog')).toHaveCount(0);await testInfo.attach('reel-restoration',{body:JSON.stringify({before,after:await content.evaluate(e=>e.scrollTop)}),contentType:'application/json'});await expect.poll(()=>content.evaluate(e=>e.scrollTop)).toBe(before);expect(await content.evaluate(e=>getComputedStyle(e).overflowY)).toBe('auto');
  }
+});
+
+
+test('normal browser keeps document navigation and reel restoration',async({page},testInfo)=>{
+ await page.route('**/reels-hls/**',route=>route.request().method()==='HEAD'?route.fulfill({status:200,body:''}):route.abort());
+ expect((await page.goto('/')).status()).toBe(200);
+ expect(await page.locator('html').evaluate(e=>e.classList.contains('standaloneApp'))).toBe(false);
+ expect(await page.locator('.appScrollContent').evaluate(e=>getComputedStyle(e).display)).toBe('contents');
+ await page.evaluate(()=>window.scrollTo(0,400));await expect.poll(()=>page.evaluate(()=>scrollY)).toBeGreaterThan(0);
+ const article=page.locator('a[href*="/articles/"]').first();const path=await article.getAttribute('href');await article.click();await expect(page).toHaveURL(new RegExp(path+'$'));await page.goBack();await expect(page).toHaveURL(/\/$/);
+ const watch=page.getByRole('region',{name:/videos$/}).first().getByRole('button',{name:/^Watch /}).first();await watch.scrollIntoViewIfNeeded();
+ await watch.evaluate(el=>el.addEventListener('click',()=>{window.__qaBrowserReelOpening=scrollY;},{capture:true,once:true}));await watch.click();
+ const before=await page.evaluate(()=>window.__qaBrowserReelOpening);await expect(page.getByRole('dialog')).toBeVisible();await page.getByRole('button',{name:'Close video',exact:true}).click();await expect(page.getByRole('dialog')).toHaveCount(0);await expect.poll(()=>page.evaluate(()=>scrollY)).toBe(before);
+ expect(await page.locator('.appScrollContent').evaluate(e=>getComputedStyle(e).display)).toBe('contents');
+ await testInfo.attach('normal-browser-reel-restoration',{body:JSON.stringify({before,after:await page.evaluate(()=>scrollY)}),contentType:'application/json'});
 });
