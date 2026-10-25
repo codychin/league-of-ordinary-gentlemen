@@ -1,22 +1,25 @@
 import {test,expect} from '@playwright/test';
 
-// Real shell, standalone emulation. Keyboard-height and tab switching are engine
+// Production document-scroll navigation, standalone emulation. The held viewport
+// shell remains in PR83; this suite retains the same interactions and visible-bottom
+// assertions against production fixed navigation, not a claim that iOS drift is fixed. Keyboard-height and tab switching are engine
 // contracts, not claims of an installed iPhone keyboard/background reproduction.
 for(const root of ['','/sunday-crew','/doge']){
- test(`standalone content scroll owner: ${root||'LOOG'}`,async({page,context,browserName},testInfo)=>{
+ test(`production document-scroll navigation: ${root||'LOOG'}`,async({page,context,browserName},testInfo)=>{
   test.skip(testInfo.project.name==='desktop','Mobile shell is inactive on desktop.');
   await page.addInitScript(()=>Object.defineProperty(navigator,'standalone',{get:()=>true}));
   if(!root)testInfo.annotations.push({type:'fixture',description:'LOOG long matchup uses the committed Week 6 score snapshot via QA-only server preload; this tests layout, not live provider correctness.'});
-  const samples=[],content=page.locator('.appScrollContent');
+  const samples=[],content=page.locator('html');
   const check=async(label)=>{
    const s=await page.locator('.appTabBar').evaluate(el=>{
-    const r=el.getBoundingClientRect(),v=visualViewport,c=document.querySelector('.appScrollContent'),cr=c.getBoundingClientRect(),style=getComputedStyle(el);
-    return {path:location.pathname,scrollY,innerHeight,visibility:document.visibilityState,viewport:v?{height:v.height,offsetTop:v.offsetTop,scale:v.scale}:null,rect:{top:r.top,bottom:r.bottom,height:r.height},content:{top:cr.top,bottom:cr.bottom,scrollTop:c.scrollTop,scrollHeight:c.scrollHeight},margin:parseFloat(style.marginBottom),transform:style.transform,position:style.position};
+    const r=el.getBoundingClientRect(),v=visualViewport,c=document.scrollingElement,style=getComputedStyle(el);
+    return {path:location.pathname,scrollY,innerHeight,visibility:document.visibilityState,viewport:v?{height:v.height,offsetTop:v.offsetTop,scale:v.scale}:null,rect:{top:r.top,bottom:r.bottom,height:r.height},content:{scrollTop:c.scrollTop,scrollHeight:c.scrollHeight},bottom:parseFloat(style.bottom),transform:style.transform,position:style.position};
    });samples.push({label,...s});
-   expect(s.position).toBe('relative');expect(s.transform).toBe('none');expect(s.scrollY).toBe(0);
+   expect(s.position).toBe('fixed');expect(s.scrollY).toBe(s.content.scrollTop);
+   await expect(page.locator('.appScrollContent')).toHaveCount(0);
    const visibleBottom=s.viewport?s.viewport.offsetTop+s.viewport.height:s.innerHeight;
-   expect(Math.abs(visibleBottom-s.rect.bottom-s.margin),JSON.stringify(s)).toBeLessThan(2);
-   expect(s.content.bottom).toBeLessThanOrEqual(s.rect.top);
+   expect(Math.abs(visibleBottom-s.rect.bottom-s.bottom),JSON.stringify(s)).toBeLessThan(2);
+
   };
   const scroll=async y=>{await content.evaluate((el,y)=>el.scrollTo(0,y),y);await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));await check('scroll');};
   const inputScroll=async()=>{
@@ -35,9 +38,9 @@ for(const root of ['','/sunday-crew','/doge']){
    await expect(page).toHaveURL(new RegExp(article+'$'));await expect.poll(()=>content.evaluate(e=>e.scrollTop)).toBe(0);await inputScroll();
    for(const height of [844,500,844]){await page.setViewportSize({width:testInfo.project.use.viewport.width,height});for(const y of [0,400,100000,200,0])await scroll(y);}
    // Labelled fixture input: no existing article input or real keyboard is implied.
-   await content.evaluate(e=>{const input=document.createElement('input');input.id='qa-focus-fixture';input.setAttribute('aria-label','QA focus fixture');input.style.cssText='display:block;margin:16px;width:240px;height:40px';e.append(input);});
+   await content.evaluate(e=>{const input=document.createElement('input');input.id='qa-focus-fixture';input.setAttribute('aria-label','QA focus fixture');input.style.cssText='display:block;margin:16px 16px 100px;width:240px;height:40px';document.body.append(input);});
    const input=page.getByRole('textbox',{name:'QA focus fixture'});await input.focus();await page.setViewportSize({width:testInfo.project.use.viewport.width,height:500});await input.press('End');await input.scrollIntoViewIfNeeded();
-   await expect(input).toBeFocused();const focus=await input.boundingBox(),region=await content.boundingBox();expect(focus.y).toBeGreaterThanOrEqual(region.y);expect(focus.y+focus.height).toBeLessThanOrEqual(region.y+region.height);await check('focused-shrunken-viewport');
+   await expect(input).toBeFocused();const focus=await input.boundingBox(),nav=await page.locator('.appTabBar').boundingBox();expect(focus.y).toBeGreaterThanOrEqual(0);expect(focus.y+focus.height).toBeLessThanOrEqual(nav.y);await check('focused-shrunken-viewport');
    await input.evaluate(e=>e.remove());await page.setViewportSize({width:testInfo.project.use.viewport.width,height:844});await scroll(400);
    const before=await content.evaluate(e=>e.scrollTop);const other=await context.newPage();await other.goto('about:blank');await other.bringToFront();await page.bringToFront();await other.close();
    if(browserName==='chromium'){const session=await context.newCDPSession(page);await session.send('Page.setWebLifecycleState',{state:'frozen'});await session.send('Page.setWebLifecycleState',{state:'active'});await session.detach();}
@@ -68,21 +71,21 @@ for(const root of ['','/sunday-crew','/doge']){
  });
 }
 
-test('reel viewers restore the standalone content position',async({page},testInfo)=>{
+test('reel viewers restore the standalone document position',async({page},testInfo)=>{
  test.skip(testInfo.project.name==='desktop','Standalone mobile scroll-owner contract.');
  await page.addInitScript(()=>Object.defineProperty(navigator,'standalone',{get:()=>true}));
  // Media readiness only is stubbed; real components and user controls are tested.
  await page.route('**/reels-hls/**',route=>route.request().method()==='HEAD'?route.fulfill({status:200,body:''}):route.abort());
- await page.goto('/');const content=page.locator('.appScrollContent');
+ await page.goto('/');const content=page.locator('html');
  const shelves=[page.getByRole('region',{name:/videos$/}).first(),page.getByRole('region',{name:'Also, from The Brief'})];
  for(const shelf of shelves){
   const watch=shelf.getByRole('button',{name:/^Watch /}).first();await expect(watch).toBeVisible();await watch.scrollIntoViewIfNeeded();
   // Playwright may scroll again while waiting for a late-loading card to stabilize.
   // Capture the user's actual opening position at click, before React opens the viewer.
-  await watch.evaluate(el=>el.addEventListener('click',()=>{window.__qaReelOpening=document.querySelector('.appScrollContent').scrollTop;},{capture:true,once:true}));
+  await watch.evaluate(el=>el.addEventListener('click',()=>{window.__qaReelOpening=window.scrollY;},{capture:true,once:true}));
   await watch.click();const before=await page.evaluate(()=>window.__qaReelOpening);
-  await expect(page.getByRole('dialog')).toBeVisible();expect(await content.evaluate(e=>getComputedStyle(e).overflowY)).toBe('hidden');
-  await page.getByRole('button',{name:'Close video',exact:true}).click();await expect(page.getByRole('dialog')).toHaveCount(0);await testInfo.attach('reel-restoration',{body:JSON.stringify({before,after:await content.evaluate(e=>e.scrollTop)}),contentType:'application/json'});await expect.poll(()=>content.evaluate(e=>e.scrollTop)).toBe(before);expect(await content.evaluate(e=>getComputedStyle(e).overflowY)).toBe('auto');
+  await expect(page.getByRole('dialog')).toBeVisible();expect(await page.locator('body').evaluate(e=>getComputedStyle(e).overflowY)).toBe('hidden');
+  await page.getByRole('button',{name:'Close video',exact:true}).click();await expect(page.getByRole('dialog')).toHaveCount(0);await testInfo.attach('reel-restoration',{body:JSON.stringify({before,after:await content.evaluate(e=>e.scrollTop)}),contentType:'application/json'});await expect.poll(()=>content.evaluate(e=>e.scrollTop)).toBe(before);expect(await content.evaluate(e=>getComputedStyle(e).overflowY)).not.toBe('hidden');
  }
 });
 
@@ -91,12 +94,12 @@ test('normal browser keeps document navigation and reel restoration',async({page
  await page.route('**/reels-hls/**',route=>route.request().method()==='HEAD'?route.fulfill({status:200,body:''}):route.abort());
  expect((await page.goto('/')).status()).toBe(200);
  expect(await page.locator('html').evaluate(e=>e.classList.contains('standaloneApp'))).toBe(false);
- expect(await page.locator('.appScrollContent').evaluate(e=>getComputedStyle(e).display)).toBe('contents');
+ await expect(page.locator('.appScrollContent')).toHaveCount(0);
  await page.evaluate(()=>window.scrollTo(0,400));await expect.poll(()=>page.evaluate(()=>scrollY)).toBeGreaterThan(0);
  const article=page.locator('a[href*="/articles/"]').first();const path=await article.getAttribute('href');await article.click();await expect(page).toHaveURL(new RegExp(path+'$'));await page.goBack();await expect(page).toHaveURL(/\/$/);
  const watch=page.getByRole('region',{name:/videos$/}).first().getByRole('button',{name:/^Watch /}).first();await watch.scrollIntoViewIfNeeded();
  await watch.evaluate(el=>el.addEventListener('click',()=>{window.__qaBrowserReelOpening=scrollY;},{capture:true,once:true}));await watch.click();
  const before=await page.evaluate(()=>window.__qaBrowserReelOpening);await expect(page.getByRole('dialog')).toBeVisible();await page.getByRole('button',{name:'Close video',exact:true}).click();await expect(page.getByRole('dialog')).toHaveCount(0);await expect.poll(()=>page.evaluate(()=>scrollY)).toBe(before);
- expect(await page.locator('.appScrollContent').evaluate(e=>getComputedStyle(e).display)).toBe('contents');
+ await expect(page.locator('.appScrollContent')).toHaveCount(0);
  await testInfo.attach('normal-browser-reel-restoration',{body:JSON.stringify({before,after:await page.evaluate(()=>scrollY)}),contentType:'application/json'});
 });

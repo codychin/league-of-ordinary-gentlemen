@@ -2,7 +2,6 @@
 
 import {useEffect,useLayoutEffect,useRef,useState} from 'react';
 import {createPortal,flushSync} from 'react-dom';
-import {lockReelScroll} from '../../lib/app-scroll-owner.mjs';
 import styles from './ReelsShelf.module.css';
 import ResilientImage from './ResilientImage';
 
@@ -80,7 +79,22 @@ export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1',storag
   const viewerOpen=active!==null;
   useLayoutEffect(()=>{
     if(!viewerOpen)return;
-    return lockReelScroll();
+    const root=document.documentElement;
+    const body=document.body;
+    const scrollX=window.scrollX;
+    const scrollY=window.scrollY;
+    const rootOverflow=root.style.overflow;
+    const bodyOverflow=body.style.overflow;
+    const hadReelsOpen=body.classList.contains('reelsOpen');
+    root.style.overflow='hidden';
+    body.style.overflow='hidden';
+    body.classList.add('reelsOpen');
+    return()=>{
+      root.style.overflow=rootOverflow;
+      body.style.overflow=bodyOverflow;
+      if(!hadReelsOpen)body.classList.remove('reelsOpen');
+      window.scrollTo({left:scrollX,top:scrollY,behavior:'instant'});
+    };
   },[viewerOpen]);
 
   useEffect(()=>{
