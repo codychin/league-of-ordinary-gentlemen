@@ -1,5 +1,15 @@
 import {test,expect} from '@playwright/test';
 
+const readingPosition=element=>{
+ const top=element.getBoundingClientRect().top;
+ return {scrollY:window.scrollY,top,documentTop:top+window.scrollY,documentHeight:document.documentElement.scrollHeight};
+};
+function expectReadingPosition(before,after){
+ // Absolute scrollY can legitimately track layout growth above the reader (for
+ // example the asynchronous X embed). The reader must keep the same visible anchor.
+ expect(Math.abs(after.top-before.top),JSON.stringify({before,after})).toBeLessThanOrEqual(1);
+}
+
 // Production document-scroll navigation, standalone emulation. The held viewport
 // shell remains in PR83; this suite retains the same interactions and visible-bottom
 // assertions against production fixed navigation, not a claim that iOS drift is fixed. Keyboard-height and tab switching are engine
@@ -82,11 +92,32 @@ test('reel viewers restore the standalone document position',async({page},testIn
   const watch=shelf.getByRole('button',{name:/^Watch /}).first();await expect(watch).toBeVisible();await watch.scrollIntoViewIfNeeded();
   // Playwright may scroll again while waiting for a late-loading card to stabilize.
   // Capture the user's actual opening position at click, before React opens the viewer.
-  await watch.evaluate(el=>el.addEventListener('click',()=>{window.__qaReelOpening=window.scrollY;},{capture:true,once:true}));
+  await watch.evaluate(el=>el.addEventListener('click',()=>{
+   const top=el.getBoundingClientRect().top;
+   window.__qaReelOpening={scrollY,top,documentTop:top+scrollY,documentHeight:document.documentElement.scrollHeight};
+  },{capture:true,once:true}));
   await watch.click();const before=await page.evaluate(()=>window.__qaReelOpening);
   await expect(page.getByRole('dialog')).toBeVisible();expect(await page.locator('body').evaluate(e=>getComputedStyle(e).overflowY)).toBe('hidden');
-  await page.getByRole('button',{name:'Close video',exact:true}).click();await expect(page.getByRole('dialog')).toHaveCount(0);await testInfo.attach('reel-restoration',{body:JSON.stringify({before,after:await content.evaluate(e=>e.scrollTop)}),contentType:'application/json'});await expect.poll(()=>content.evaluate(e=>e.scrollTop)).toBe(before);expect(await content.evaluate(e=>getComputedStyle(e).overflowY)).not.toBe('hidden');
+  await page.getByRole('button',{name:'Close video',exact:true}).click();await expect(page.getByRole('dialog')).toHaveCount(0);
+  try{await expect(async()=>expectReadingPosition(before,await watch.evaluate(readingPosition))).toPass({timeout:10000});}
+  finally{await testInfo.attach('reel-restoration',{body:JSON.stringify({shelf:await shelf.getAttribute('aria-label'),before,after:await watch.evaluate(readingPosition)}),contentType:'application/json'});}
+  expect(await content.evaluate(e=>getComputedStyle(e).overflowY)).not.toBe('hidden');
  }
+});
+
+test('reading-position assertion accepts anchored reflow and rejects a real scroll jump',async({page})=>{
+ // Reproduce the measured 528px false positive without relying on a live embed's timing.
+ await page.setContent('<meta name="viewport" content="width=device-width, initial-scale=1"><div id="above" style="height:1000px"></div><button id="anchor">Reading anchor</button><div style="height:2000px"></div>');
+ const anchor=page.locator('#anchor');await page.evaluate(()=>scrollTo(0,800));
+ const before=await anchor.evaluate(readingPosition);
+ await page.evaluate(()=>{document.querySelector('#above').style.height='1528px';scrollTo(0,1328);});
+ const anchored=await anchor.evaluate(readingPosition);
+ expect(anchored.scrollY-before.scrollY).toBe(528);
+ expect(anchored.documentTop-before.documentTop).toBe(528);
+ expectReadingPosition(before,anchored);
+ // Same document geometry, but genuinely wrong restoration: this must still fail.
+ await page.evaluate(()=>scrollBy(0,100));const jumped=await anchor.evaluate(readingPosition);
+ expect(()=>expectReadingPosition(before,jumped)).toThrow();
 });
 
 
