@@ -107,7 +107,7 @@ test('reel viewers restore the standalone document position',async({page},testIn
 
 test('reading-position assertion accepts anchored reflow and rejects a real scroll jump',async({page})=>{
  // Reproduce the measured 528px false positive without relying on a live embed's timing.
- await page.setContent('<div id="above" style="height:1000px"></div><button id="anchor">Reading anchor</button><div style="height:2000px"></div>');
+ await page.setContent('<meta name="viewport" content="width=device-width, initial-scale=1"><div id="above" style="height:1000px"></div><button id="anchor">Reading anchor</button><div style="height:2000px"></div>');
  const anchor=page.locator('#anchor');await page.evaluate(()=>scrollTo(0,800));
  const before=await anchor.evaluate(readingPosition);
  await page.evaluate(()=>{document.querySelector('#above').style.height='1528px';scrollTo(0,1328);});
