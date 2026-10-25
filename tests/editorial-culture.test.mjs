@@ -45,7 +45,7 @@ async function runShared(review){
   throw new Error('Unexpected network request '+url)
  }
  const db={rpc:async()=>({data:true}),from(table){let inserted
-  const q={select(){return q},gte(){return q},order(){return q},limit(){return q},eq(){return q},update(){return q},insert(value){inserted=value;return q},async single(){if(table==='brief_global_live_posts')posts.push(inserted);return {data:{id:1}}},then(resolve,reject){return Promise.resolve({data:[]}).then(resolve,reject)}}
+  const q={select(){return q},gte(){return q},order(){return q},limit(){return q},eq(){return q},update(){return q},insert(value){inserted=value;return q},async maybeSingle(){return {data:table==='brief_desk_control'?{enabled:true}:{id:'fixture-reserved-slot'}}},async single(){if(table==='brief_global_live_posts')posts.push(inserted);return {data:{id:1}}},then(resolve,reject){return Promise.resolve({data:[]}).then(resolve,reject)}}
   return q
  }}
  try{return {result:await sharedDesk(db),requests,posts}}
