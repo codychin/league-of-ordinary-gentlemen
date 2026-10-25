@@ -1,4 +1,15 @@
 import {test,expect} from '@playwright/test';
+import {isSundayLiveWindow} from '../../lib/live-desk-state.js';
+
+const liveDeskFixture=()=>({posts:Array.from({length:5},(_,i)=>({id:'live-layout-fixture-'+i,writer:'gannon',subject:'Live layout fixture '+i,text:'Fixture reporting used only to exercise document layout. '.repeat(8),published_at:new Date().toISOString(),source_url:'https://example.com'}))});
+async function settleInitialLiveDesk(page){
+ // Pin initial feed data, not geometry; keep the restoration assertions unchanged.
+ await page.route('**/brief-live-desk?*',route=>route.fulfill({json:liveDeskFixture()}));
+}
+async function waitForInitialLiveDesk(page){
+ if(isSundayLiveWindow())await expect(page.locator('.sundayDesk .deskPost')).toHaveCount(5);
+}
+
 
 const readingPosition=element=>{
  const top=element.getBoundingClientRect().top;
@@ -84,9 +95,10 @@ for(const root of ['','/sunday-crew','/doge']){
 test('reel viewers restore the standalone document position',async({page},testInfo)=>{
  test.skip(testInfo.project.name==='desktop','Standalone mobile scroll-owner contract.');
  await page.addInitScript(()=>Object.defineProperty(navigator,'standalone',{get:()=>true}));
- // Media readiness only is stubbed; real components and user controls are tested.
+ // Media readiness and initial feed data are fixtures; real components and controls are tested.
+ await settleInitialLiveDesk(page);
  await page.route('**/reels-hls/**',route=>route.request().method()==='HEAD'?route.fulfill({status:200,body:''}):route.abort());
- await page.goto('/');const content=page.locator('html');
+ await page.goto('/');await waitForInitialLiveDesk(page);const content=page.locator('html');
  const shelves=[page.getByRole('region',{name:/videos$/}).first(),page.getByRole('region',{name:'Also, from The Brief'})];
  for(const shelf of shelves){
   const watch=shelf.getByRole('button',{name:/^Watch /}).first();await expect(watch).toBeVisible();await watch.scrollIntoViewIfNeeded();
@@ -122,8 +134,9 @@ test('reading-position assertion accepts anchored reflow and rejects a real scro
 
 
 test('normal browser keeps document navigation and reel restoration',async({page},testInfo)=>{
+ await settleInitialLiveDesk(page);
  await page.route('**/reels-hls/**',route=>route.request().method()==='HEAD'?route.fulfill({status:200,body:''}):route.abort());
- expect((await page.goto('/')).status()).toBe(200);
+ expect((await page.goto('/')).status()).toBe(200);await waitForInitialLiveDesk(page);
  expect(await page.locator('html').evaluate(e=>e.classList.contains('standaloneApp'))).toBe(false);
  await expect(page.locator('.appScrollContent')).toHaveCount(0);
  await page.evaluate(()=>window.scrollTo(0,400));await expect.poll(()=>page.evaluate(()=>scrollY)).toBeGreaterThan(0);
@@ -133,4 +146,22 @@ test('normal browser keeps document navigation and reel restoration',async({page
  const before=await page.evaluate(()=>window.__qaBrowserReelOpening);await expect(page.getByRole('dialog')).toBeVisible();await page.getByRole('button',{name:'Close video',exact:true}).click();await expect(page.getByRole('dialog')).toHaveCount(0);await expect.poll(()=>page.evaluate(()=>scrollY)).toBe(before);
  await expect(page.locator('.appScrollContent')).toHaveCount(0);
  await testInfo.attach('normal-browser-reel-restoration',{body:JSON.stringify({before,after:await page.evaluate(()=>scrollY)}),contentType:'application/json'});
+});
+
+// Exercise late content while the real viewer is locked; no relaxed assertion.
+test('reel close preserves its visible anchor when content above grows',async({page},testInfo)=>{
+ test.skip(testInfo.project.name==='desktop','Standalone mobile scroll-owner contract.');
+ await page.addInitScript(()=>Object.defineProperty(navigator,'standalone',{get:()=>true}));
+ await settleInitialLiveDesk(page);
+ await page.route('**/reels-hls/**',route=>route.request().method()==='HEAD'?route.fulfill({status:200,body:''}):route.abort());
+ await page.goto('/');await waitForInitialLiveDesk(page);
+ const shelf=page.getByRole('region',{name:/videos$/}).first();
+ const watch=shelf.getByRole('button',{name:/^Watch /}).first();await watch.scrollIntoViewIfNeeded();
+ await watch.evaluate(el=>el.addEventListener('click',()=>{window.__qaOpeningTop=el.getBoundingClientRect().top;},{capture:true,once:true}));
+ await watch.click();await expect(page.getByRole('dialog')).toBeVisible();
+ const before=await page.evaluate(()=>window.__qaOpeningTop);
+ // Deterministic equivalent of the observed delayed Live Desk insertion.
+ await shelf.evaluate(el=>{const growth=document.createElement('div');growth.style.height='1900px';growth.id='qa-live-growth';el.before(growth);});
+ await page.getByRole('button',{name:'Close video',exact:true}).click();await expect(page.getByRole('dialog')).toHaveCount(0);
+ await expect.poll(async()=>Math.abs((await watch.evaluate(el=>el.getBoundingClientRect().top))-before)).toBeLessThanOrEqual(1);
 });
