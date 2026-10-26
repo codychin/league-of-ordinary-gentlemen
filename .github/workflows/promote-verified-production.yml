@@ -1,14 +1,14 @@
 name: Promote verified production release
 on:
   workflow_run:
-    workflows: ["Release integrity"]
+    workflows: ["Release integrity", "Article image release gate"]
     types: [completed]
 permissions:
   contents: read
   checks: read
   id-token: write
 jobs:
-  reconcile:
+  candidate:
     if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.event == 'push' && github.event.workflow_run.head_repository.full_name == github.repository }}
     runs-on: ubuntu-latest
     timeout-minutes: 3
@@ -20,24 +20,27 @@ jobs:
           ref: ${{ github.event.workflow_run.head_sha }}
           persist-credentials: false
           sparse-checkout-cone-mode: false
-          sparse-checkout: /scripts/operations/reconcile-production-queue.mjs
-      - name: Reconcile candidate before acquiring the promotion lock
+          sparse-checkout: /scripts/operations/release-candidate.mjs
+      - name: Validate current main and both checks before acquiring the promotion lock
         id: queue
         env:
           GH_TOKEN: ${{ github.token }}
           RELEASE_SHA: ${{ github.event.workflow_run.head_sha }}
-        # Read-only until reviewer capability is separately authorized/verified.
-        run: node scripts/operations/reconcile-production-queue.mjs
+        run: node scripts/operations/release-candidate.mjs
   promote:
-    needs: reconcile
-    if: ${{ needs.reconcile.outputs.eligible == 'true' }}
+    needs: candidate
+    if: ${{ needs.candidate.outputs.eligible == 'true' }}
     concurrency:
       group: ordinarybrief-production-promotion
       cancel-in-progress: false
     environment: production
     runs-on: ubuntu-latest
-    timeout-minutes: 22
+    timeout-minutes: 30
     steps:
+      - name: Require automatic promotion mode
+        env:
+          RELEASE_MODE: ${{ vars.BRIEF_RELEASE_MODE || 'verify-only' }}
+        run: test "$RELEASE_MODE" = promote || { echo "Automatic promotion mode is not configured" >&2; exit 1; }
       - name: Require promotion credential before checkout
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
@@ -51,6 +54,7 @@ jobs:
           sparse-checkout-cone-mode: false
           sparse-checkout: |
             /scripts/operations/promote-verified-release.mjs
+            /scripts/operations/promotion-state.mjs
             /scripts/operations/check-public-routes.mjs
             /scripts/operations/public-route-validation.mjs
       - name: Set up Node
@@ -83,3 +87,21 @@ jobs:
             sleep 15
           done
           exit 1
+      - name: Mark public verification in receipt
+        run: |
+          node --input-type=module - <<'JS'
+          import assert from 'node:assert/strict';
+          import {readFileSync,writeFileSync} from 'node:fs';
+          const receipt=JSON.parse(readFileSync('release-receipt.json','utf8'));
+          assert.equal(receipt.state,'alias-verified');
+          receipt.state='verified';
+          receipt.publicRoutesVerifiedAt=new Date().toISOString();
+          writeFileSync('release-receipt.json',JSON.stringify(receipt,null,2));
+          JS
+      - name: Preserve release receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: production-release-${{ github.run_id }}-${{ github.run_attempt }}
+          path: release-receipt.json
+          if-no-files-found: warn

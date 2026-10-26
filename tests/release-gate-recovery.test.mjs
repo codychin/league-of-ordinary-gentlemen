@@ -23,7 +23,7 @@ function simulate(mode,extra={}){
    import {appendFileSync} from 'node:fs';
    const mode=${JSON.stringify(mode)};
    const sha='${sha}';
-   let branchReads=0,aliasReads=0,detailReads=0,autoAssign=false;
+   let branchReads=0,aliasReads=0,detailReads=0,autoAssign=mode==='interrupted-policy',promoted=mode==='interrupted-policy';
    globalThis.setTimeout=f=>{queueMicrotask(f);return 0};
    globalThis.fetch=async (input,options={})=>{
     const u=new URL(input);
@@ -46,19 +46,19 @@ function simulate(mode,extra={}){
      if(mode==='invalid-json'&&options.method!=='PATCH')return new Response('sensitive-fixture-do-not-log',{status:200});
      if(options.method==='PATCH'&&mode!=='restore-fails')autoAssign=false;
      if(options.method==='PATCH')return new Response(null,{status:204});
-     return Response.json({id:'${project}',accountId:'${team}',autoAssignCustomDomains:mode==='autoassign'||autoAssign});
+     return Response.json({id:'${project}',accountId:'${team}',autoAssignCustomDomains:mode==='autoassign'||autoAssign,lastAliasRequest:mode==='interrupted-policy'?{type:'promote',jobStatus:'succeeded',toDeploymentId:'dpl_candidate',fromDeploymentId:'dpl_old'}:mode==='provider-active'?{type:'promote',jobStatus:'in-progress',toDeploymentId:'older'}:undefined});
     }
     if(path==='/v6/deployments')return Response.json({deployments:[{id:'dpl_candidate',created:1,state:mode==='failed-build'?'ERROR':'READY',meta:{githubCommitSha:mode==='wrong-sha'?'b'.repeat(40):sha,githubCommitRef:'main'}}]});
-    if(path.endsWith('/www.ordinarybrief.com'))return Response.json({id:++aliasReads===1?'dpl_old':mode==='bad-alias'?'dpl_wrong':'dpl_candidate',readyState:'READY',meta:{githubCommitSha:sha}});
+    if(path.endsWith('/www.ordinarybrief.com'))return Response.json({id:mode==='already-live'||promoted?(mode==='bad-alias'?'dpl_wrong':'dpl_candidate'):'dpl_old',readyState:'READY',meta:{githubCommitSha:sha}});
     if(path==='/v13/deployments/dpl_candidate')return Response.json({id:'dpl_candidate',projectId:mode==='wrong-project'?'other':'${project}',target:mode==='preview'?'preview':'production',readyState:'READY',url:mode==='foreign-url'?'evil.example':'candidate.vercel.app',meta:{githubCommitSha:sha,githubCommitRef:'main'},checks:mode.startsWith('no-provider')?undefined:{deploymentAlias:{state:mode==='failed-checks'||(mode==='changed-checks'&&++detailReads>1)?'failed':'succeeded'}}});
     if(path.endsWith('/promote/dpl_candidate')&&options.method==='POST'){
-     autoAssign=true;
-     return mode==='promote-error'?Response.json({}, {status:500}):new Response(null,{status:204});
+     autoAssign=true; promoted=mode!=='promote-error';
+     return mode==='promote-error'||mode==='lost-response'?Response.json({}, {status:500}):new Response(null,{status:204});
     }
     throw Error('Unexpected request '+path);
    };
   `);
-  const result=spawnSync(process.execPath,[resolve('scripts/operations/promote-verified-release.mjs')],{encoding:'utf8',timeout:10000,env:{...process.env,RELEASE_SHA:sha,RELEASE_MODE:'promote',VERCEL_PROJECT_ID:project,VERCEL_TOKEN:'test-vercel',GH_TOKEN:'test-github',ACTIONS_ID_TOKEN_REQUEST_URL:'https://oidc.actions.example/token',ACTIONS_ID_TOKEN_REQUEST_TOKEN:'test-request',NODE_OPTIONS:'--import='+preload,...extra}});
+  const result=spawnSync(process.execPath,[resolve('scripts/operations/promote-verified-release.mjs')],{encoding:'utf8',timeout:10000,env:{...process.env,RELEASE_RECEIPT_PATH:join(dir,'receipt.json'),RELEASE_SHA:sha,RELEASE_MODE:'promote',VERCEL_PROJECT_ID:project,VERCEL_TOKEN:'test-vercel',GH_TOKEN:'test-github',ACTIONS_ID_TOKEN_REQUEST_URL:'https://oidc.actions.example/token',ACTIONS_ID_TOKEN_REQUEST_TOKEN:'test-request',NODE_OPTIONS:'--import='+preload,...extra}});
   assert.equal(result.error,undefined,result.error?.message);
   const calls=readFileSync(log,'utf8').trim().split('\n').map(JSON.parse);
   assert.ok(!(result.stdout+result.stderr).includes('test-vercel'));
@@ -86,3 +86,9 @@ test('failed policy restoration cannot be marked verified',()=>{const r=simulate
 test('manual mode without attached provider checks still requires exact QA and staged routes',()=>{const r=simulate('no-provider');assert.equal(r.status,0,r.stderr);assert.match(r.stdout,/VERIFIED production domain/);assert.equal(r.calls.filter(c=>c.host==='candidate.vercel.app').length,6)});
 test('missing provider checks never permit failed GitHub QA',()=>{const r=simulate('no-provider-failed-qa');assert.notEqual(r.status,0);assert.equal(r.calls.filter(c=>c.method==='POST').length,0)});
 for(const mode of ['empty-get','invalid-json'])test('inspection fails closed without disclosing bodies: '+mode,()=>{const r=simulate(mode);assert.notEqual(r.status,0);assert.equal(r.calls.filter(c=>c.method==='POST').length,0)});
+
+test('already-live candidate is verified without duplicate promotion',()=>{const r=simulate('already-live');assert.equal(r.status,0,r.stderr);assert.equal(r.calls.filter(c=>c.method==='POST').length,0);assert.match(r.stdout,/already-live-no-duplicate/)});
+test('lost response reconciles applied alias without repeating request',()=>{const r=simulate('lost-response');assert.equal(r.status,0,r.stderr);assert.equal(r.calls.filter(c=>c.method==='POST').length,1);assert.match(r.stdout,/outcome-uncertain/);assert.match(r.stdout,/VERIFIED production domain/)});
+
+test('interrupted applied promotion restores only the known candidate policy and does not repeat POST',()=>{const r=simulate('interrupted-policy');assert.equal(r.status,0,r.stderr);assert.equal(r.calls.filter(c=>c.method==='POST').length,0);assert.ok(r.calls.some(c=>c.method==='PATCH'));assert.match(r.stdout,/policy-restored-after-interruption/)});
+test('active provider operation blocks new POST through bounded reconciliation',()=>{const r=simulate('provider-active');assert.notEqual(r.status,0);assert.equal(r.calls.filter(c=>c.method==='POST').length,0);assert.match(r.stdout,/waiting-for-provider-operation/)});

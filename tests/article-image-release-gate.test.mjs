@@ -15,7 +15,7 @@ test('Release integrity requires geometry before successful automatic promotion'
   assert.match(workflow, /npx playwright install --with-deps chromium/)
   assert.doesNotMatch(workflow, /continue-on-error:/)
   assert.match(block, /QA_BASE_URL=http:\/\/127\.0\.0\.1:3000 npx playwright test qa\/tests\/article-image-framing\.spec\.mjs/)
-  assert.match(promotion, /workflows: \["Release integrity"\]/)
+  assert.match(promotion, /workflows: \["Release integrity", "Article image release gate"\]/)
   assert.match(promotion, /github\.event\.workflow_run\.conclusion == 'success'/)
 })
 for (const exitCode of [0, 17]) {
