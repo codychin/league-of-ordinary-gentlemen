@@ -3,18 +3,18 @@
 ## Scope and activation boundary
 
 The incident release `2b2795d` is already live (parent verification). This branch
-must not replace or roll it back while policy/merge actions remain pending.
+must not replace or roll it back while merge authority remains pending.
 The earlier review-rejection design is removed. There are no cancellation,
 review-rejection, credential-creation, or permission-expansion operations here.
 
 Owner direction: routine trusted-main releases must not depend on personal browser
-sessions or an owner's response. Actual Production environment inspection found:
-required reviewer `codychin` ON; main-only deployment branch (one branch, no tags);
-admin bypass OFF; wait timer OFF; environment-bound `VERCEL_TOKEN` present.
-Removing only Required reviewers is a separately pending platform action. Keep
-all other restrictions and the existing token in this same environment. Until
-that exact policy change is applied and verified, unattended release acceptance
-is BLOCKED. This branch cannot change GitHub environment settings.
+sessions or an owner's response. The browser worker saved and verified removal
+of Required reviewers at **2026-10-26 00:20:49 UTC**, reported by the parent.
+Production environment `22103087644` now has Required reviewers OFF; main-only
+restriction (one branch, no tags), admin bypass OFF, wait timer OFF and the
+existing environment-bound `VERCEL_TOKEN` remain unchanged. No credential value
+was read or moved. This completes the narrow policy prerequisite, not hosted
+acceptance of this implementation. This branch does not change environment settings.
 
 The workflow reads `vars.BRIEF_RELEASE_MODE` and requires `promote`; it does not
 silently default to promotion when configuration is absent. `BRIEF_RELEASE_CANARY_FAIL`
@@ -31,7 +31,7 @@ not just the `RELEASE_MODE` process variable shown in a job.
 | Admit candidate | GitHub Actions ephemeral token, contents/checks read | No global concurrency, no Production environment | Three-minute job. Only successful push-to-main workflow events from this repository; current main and both latest exact-SHA GitHub Actions checks required. |
 | Check completion order | GitHub workflow_run service event | Either integrity or image-gate completion | Both workflows trigger admission. If the other check is pending, skip; its eventual success triggers admission again. Failure becomes an incident. No dispatch token or polling writer. |
 | Serialize promotion | GitHub concurrency service | Job-only `ordinarybrief-production-promotion`, cancel-in-progress false | Only eligible candidates enter. Never cancel an executing promotion. Newest pending candidate can replace an older pending candidate; main is checked again under the lock. |
-| Production access | GitHub environment gate and environment-bound existing Vercel credential; ephemeral OIDC for staged routes | Main-only branch restriction; no reviewer after separately approved change | Thirty-minute job timeout; monitor alerts on overdue queue/execution. No secret relocation, broader grant or personal browser. |
+| Production access | GitHub environment gate and environment-bound existing Vercel credential; ephemeral OIDC for staged routes | Main-only branch restriction; Required reviewers OFF (verified 00:20:49 UTC) | Thirty-minute job timeout; monitor alerts on overdue queue/execution. No secret relocation, broader grant or personal browser. |
 | Stage and promote | Existing Vercel credential + GitHub read/OIDC identities | Exact main/checks, provider checks, six staged routes, manual assignment false | Receipt records candidate, predecessor, SHA and phases. Promotion POST at most once within an execution. Request failure triggers reads, not another POST. |
 | Provider operation | Vercel alias service | `lastAliasRequest` and actual domain identity | Active/unknown/failed operation blocks new POST; bounded four-minute reconciliation. Same candidate already live is verified without POST. Unresolved state is an incident, not permission to retry blindly. |
 | Assignment-policy restoration | Same Vercel service credential | Mandatory finally after POST | Verify manual assignment false. Interrupted-success recovery may restore only when provider says this exact candidate succeeded and is already live. Unknown policy changes fail closed. |
@@ -103,8 +103,9 @@ live promotion/rollback.
 
 Still REQUIRED before claiming the automatic architecture accepted:
 
-1. Capture actual Production policy after the narrow reviewer change; verify
-   main-only branches, admin bypass OFF, wait timer OFF, secret location, mode.
+1. Policy prerequisite completed at 00:20:49 UTC as recorded above. Retain the
+   browser verification receipt and verify exact release-mode variable names in
+   the first service run without revealing credential values.
 2. After the incident release and merge authority are resolved, run the exact
    final-main release with personal browser signed out and no owner response.
    Record both checks, READY candidate, job admission/queue timing, provider
@@ -121,3 +122,47 @@ Still REQUIRED before claiming the automatic architecture accepted:
 References: GitHub job concurrency and environment protection documentation;
 Vercel project `lastAliasRequest` API and official CLI promote/status implementation.
 This contract reduces known failure modes; it does not promise zero future failures.
+
+## Hosted acceptance sequence after authorized merge
+
+Independent review of code head `70ae9cc` found no blocking code defect under the
+verified reviewer-OFF policy. That review supports normal-path unattended delivery,
+not recovery from every ambiguous provider failure. Issue creation is not proof
+that a person received a notification. Unknown provider state must still fail closed.
+
+1. Record PR87's authorized final main SHA and its actual unattended release,
+   with the personal browser signed out and no deployment approval action. This
+   proves the existing policy/service-identity path, not PR88's unmerged code.
+2. After separate merge authority for PR88, reconcile PR87's single overlapping
+   workflow-trigger test assertion and run exact-head checks. Record the merge SHA.
+   Do not promote a preview or reuse the old incident build as acceptance evidence.
+3. Observe both main-push CI completions. Save their run/check IDs and conclusions,
+   Vercel READY deployment ID/SHA, both candidate admission outputs, lock wait/start
+   times, promotion run ID/attempt and environment policy snapshot. No human review
+   or browser interaction may be used to advance the run.
+4. Download the production receipt artifact and retain provider operation identity,
+   predecessor/candidate IDs, request count, manual assignment false, exact apex/www
+   alias identity, and HTTP/content checks for all three editions and article routes.
+   The receipt must say `verified`, not merely `alias-verified` or `staged-verified`.
+5. Use the naturally duplicated completion events if both admitted the same SHA.
+   The second execution must record `already-live-no-duplicate-request`, contain no
+   `promotion-request-started` phase, leave the provider request timestamp/target
+   unchanged and finish public verification. If the first event skipped because
+   checks were pending, duplicate no-POST proof remains outstanding. A deliberate
+   replay requires an authorized controlled run; do not infer proof from fixtures.
+6. Observe the existing monitor's first scheduled run on the merged implementation.
+   Record its release classification, issue mutation/readback and designated
+   operator notification receipt when a controlled non-production alert test is
+   authorized. Do not break production to generate an alert. A healthy monitor
+   run alone does not prove incident delivery or recovery behavior.
+7. Obsolete/newer main-candidate behavior must be observed in a controlled
+   authorized sequence; do not introduce unrelated commits or cancel executing
+   promotion solely for a drill. Destructive provider interruption and rollback
+   stay isolated. Record unexercised cases explicitly instead of claiming coverage.
+
+Acceptance report fields: exact SHA; CI runs; deployment ID; environment policy
+receipt; signed-out/no-review evidence; candidate and promotion runs; receipt
+artifact; POST/no-POST evidence; provider request identity; manual policy; domain
+identities; public routes; monitor run; incident and delivery receipts; outstanding
+cases with owner and next permitted action. No main advancement is authorized by
+this documentation update alone.
