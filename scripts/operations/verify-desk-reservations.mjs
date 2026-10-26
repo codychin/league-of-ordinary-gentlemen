@@ -12,7 +12,16 @@ const set=async time=>db.query("select set_config('test.now',$1,false)",[time]);
 const reset=async()=>db.exec('truncate brief_desk_budget,brief_desk_usage,brief_desk_events; update brief_desk_control set enabled=true');
 const pair=async(event=crypto.randomUUID(),id=crypto.randomUUID(),review=crypto.randomUUID())=>(await db.query('select reserve_brief_call($1,$2) ok',[id,JSON.stringify({mode:'draft_review_pair',review_id:review,event_key:event})])).rows[0].ok;
 let checks=0;
-for(const [time,cap] of [['2026-10-25T14:29:59Z',0],['2026-10-25T14:30Z',70],['2026-10-25T19:59:59Z',70],['2026-10-25T20:00Z',86],['2026-10-26T00:00Z',100],['2026-10-26T03:59:59Z',100],['2026-10-26T04:00Z',0],['2026-10-24T18:00Z',0],['2026-11-01T15:29:59Z',0],['2026-11-01T15:30Z',70],['2026-11-01T21:00Z',86],['2026-11-02T01:00Z',100],['2026-11-02T05:00Z',0],['2027-03-14T14:30Z',70]]){
+const boundaries = [['2026-10-25T14:29:59Z',0],['2026-10-25T14:30Z',70],['2026-10-25T19:59:59Z',70],['2026-10-25T20:00Z',86],['2026-10-26T00:00Z',86],['2026-10-26T03:59:59Z',100],['2026-10-26T04:00Z',0],['2026-10-24T18:00Z',0],['2026-11-01T15:29:59Z',0],['2026-11-01T15:30Z',70],['2026-11-01T21:00Z',86],['2026-11-02T01:00Z',86],['2026-11-02T05:00Z',0],['2027-03-14T14:30Z',70]];
+// Before and at every release in summer, fall-back Sunday and spring-forward Sunday.
+for (const [date,offset] of [['2026-10-25','-04:00'],['2026-11-01','-05:00'],['2027-03-14','-04:00']]) {
+ for(let step=0;step<7;step++) {
+  const minutes=20*60+30+step*30;
+  const at=new Date(`${date}T${String(Math.floor(minutes/60)).padStart(2,'0')}:${String(minutes%60).padStart(2,'0')}:00${offset}`);
+  boundaries.push([new Date(+at-1).toISOString(),86+step*2],[at.toISOString(),88+step*2]);
+ }
+}
+for(const [time,cap] of boundaries){
  await reset();await set(time);
  for(let i=0;i<cap/2;i++)assert.equal(await pair(),true,time);
  assert.equal(await pair(),false,time);checks++;

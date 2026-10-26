@@ -61,7 +61,15 @@ BEGIN
  IF NOT EXISTS(SELECT 1 FROM brief_desk_control WHERE id AND enabled) THEN RETURN false; END IF;
  ceiling_calls := CASE
   WHEN local_time::time < time '16:00' THEN 70
-  WHEN local_time::time < time '20:00' THEN 86
+  -- Keep seven evening pairs protected from a 20:00 burst. Unused capacity
+  -- carries forward; each half-hour releases one pair, never a posting quota.
+  WHEN local_time::time < time '20:30' THEN 86
+  WHEN local_time::time < time '21:00' THEN 88
+  WHEN local_time::time < time '21:30' THEN 90
+  WHEN local_time::time < time '22:00' THEN 92
+  WHEN local_time::time < time '22:30' THEN 94
+  WHEN local_time::time < time '23:00' THEN 96
+  WHEN local_time::time < time '23:30' THEN 98
   ELSE 100 END;
  ceiling_cents := ceiling_calls * 10;
  SELECT count(*) INTO existing_calls FROM brief_desk_usage WHERE period_start = period;
