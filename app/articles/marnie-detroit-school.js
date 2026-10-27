@@ -18,6 +18,16 @@ export const detroitSchoolArticle = {
       "type": "heading",
       "text": "I. Genesis: The Gibbs Proposition"
     },
+    {
+      "type": "image",
+      "src": "/images/editorial/detroit-school/genesis.webp",
+      "alt": "Jahmyr Gibbs and teammates at the beginning of the celebration.",
+      "caption": "Plate I. The Gibbs Proposition.",
+      "credit": {
+        "label": "NFL / still from the supplied video",
+        "url": "https://x.com/NFL/status/2114509149681627494?s=20"
+      }
+    },
     "We begin with Jahmyr Gibbs.",
     "His contribution is deceptively simple. A rhythmic movement of the feet, a degree of upper-body enthusiasm, the unmistakable confidence of a man introducing an idea he believes will be well received.",
     "But it is what happens next that elevates this from celebration to art.",
@@ -28,6 +38,16 @@ export const detroitSchoolArticle = {
     {
       "type": "heading",
       "text": "II. The Formation of a School"
+    },
+    {
+      "type": "image",
+      "src": "/images/editorial/detroit-school/formation.webp",
+      "alt": "Detroit teammates assembling into a shared celebration.",
+      "caption": "Plate II. The Formation of a School.",
+      "credit": {
+        "label": "NFL / still from the supplied video",
+        "url": "https://x.com/NFL/status/2114509149681627494?s=20"
+      }
     },
     "Amon-Ra St. Brown and Isaac TeSlaa recognize the invitation.",
     "There is no visible instruction. No counting off. No consultation regarding tempo, preferred footwork, or the relative responsibilities of the participants.",
@@ -41,6 +61,16 @@ export const detroitSchoolArticle = {
       "type": "heading",
       "text": "III. Jameson Williams and the Rejection of Consensus"
     },
+    {
+      "type": "image",
+      "src": "/images/editorial/detroit-school/jameson.webp",
+      "alt": "Jameson Williams lifts a leg and extends his arms beside his celebrating teammates.",
+      "caption": "Plate III. The Rejection of Consensus.",
+      "credit": {
+        "label": "NFL / still from the supplied video",
+        "url": "https://x.com/NFL/status/2114509149681627494?s=20"
+      }
+    },
     "Every significant artistic movement eventually produces its dissidents. For the Detroit School, that figure is Jameson Williams.",
     "While his colleagues develop an increasingly coherent movement vocabulary, Williams appears wholly uninterested in their findings. His arms swing independently. His timing bears little apparent relationship to the established rhythm. He inhabits the same physical space, but not necessarily the same artistic period.",
     "This is not a failure of coordination. It is a rejection of the proposition that coordination is desirable.",
@@ -52,6 +82,16 @@ export const detroitSchoolArticle = {
     {
       "type": "heading",
       "text": "IV. Penei Sewell: The Monumental Tradition"
+    },
+    {
+      "type": "image",
+      "src": "/images/editorial/detroit-school/sewell.webp",
+      "alt": "Penei Sewell, number 58, extends his arms in celebration.",
+      "caption": "Plate IV. The Monumental Tradition.",
+      "credit": {
+        "label": "NFL / still from the supplied video",
+        "url": "https://x.com/NFL/status/2114509149681627494?s=20"
+      }
     },
     "The composition now expands beyond dance.",
     "Penei Sewell introduces a gesture of such force and conviction that it seems to belong to an older civilization.",
@@ -66,6 +106,16 @@ export const detroitSchoolArticle = {
       "type": "heading",
       "text": "V. The Offensive Line and the Return to Vernacular Movement"
     },
+    {
+      "type": "image",
+      "src": "/images/editorial/detroit-school/offensive-line.webp",
+      "alt": "A Detroit offensive lineman raises his arms alongside his teammates.",
+      "caption": "Plate V. Vernacular Movement.",
+      "credit": {
+        "label": "NFL / still from the supplied video",
+        "url": "https://x.com/NFL/status/2114509149681627494?s=20"
+      }
+    },
     "Elsewhere, the offensive line offers an entirely different interpretation.",
     "Here the traditional first-down signal begins to mutate into something considerably more expressive. The pointed arms, the emphatic extensions, the rhythmic weight shifts: we find ourselves approaching the movement vocabulary of early-1990s hip-hop.",
     "Cade Mays is particularly committed.",
@@ -77,6 +127,16 @@ export const detroitSchoolArticle = {
     {
       "type": "heading",
       "text": "VI. Christian Mahogany: The Accusation"
+    },
+    {
+      "type": "image",
+      "src": "/images/editorial/detroit-school/accusation.webp",
+      "alt": "Christian Mahogany points toward Green Bay player Karl Brooks.",
+      "caption": "Plate VI. The Accusation.",
+      "credit": {
+        "label": "NFL / still from the supplied video",
+        "url": "https://x.com/NFL/status/2114509149681627494?s=20"
+      }
     },
     "Then we arrive at Christian Mahogany.",
     "While his colleagues concern themselves with rhythm, symbolism, and the evolution of collective movement, Mahogany has identified a more immediate subject.",
@@ -94,6 +154,16 @@ export const detroitSchoolArticle = {
     {
       "type": "heading",
       "text": "VII. The Completed Composition"
+    },
+    {
+      "type": "image",
+      "src": "/images/editorial/detroit-school/composition.webp",
+      "alt": "Jameson Williams and Detroit teammates celebrating simultaneously in the wider frame.",
+      "caption": "Plate VII. The Completed Composition.",
+      "credit": {
+        "label": "NFL / still from the supplied video",
+        "url": "https://x.com/NFL/status/2114509149681627494?s=20"
+      }
     },
     "It is only when we return to the wider frame that the full significance of the work becomes apparent.",
     "Gibbs, St. Brown, and TeSlaa have achieved choreographic unity. Williams appears to be dancing to music that has not yet been composed. Sewell has erected a monument. The offensive line has rediscovered hip-hop. Mahogany has identified a criminal.",
@@ -131,5 +201,10 @@ export const detroitSchoolArticle = {
     "The Detroit School had flourished, fractured, and disappeared in less time than it takes to explain a neutral-zone infraction.",
     "Most artistic movements require generations to accomplish this.",
     "The Lions had a play clock."
-  ]
+  ],
+  "image": "/images/editorial/detroit-school/hero.webp",
+  "imageCredit": {
+    "label": "NFL / still from the supplied video",
+    "url": "https://x.com/NFL/status/2114509149681627494?s=20"
+  }
 };
