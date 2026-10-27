@@ -7,6 +7,8 @@ export const detroitSchoolArticle = {
   "author": "kells",
   "tweetId": "2114509149681627494",
   "tweetUrl": "https://x.com/NFL/status/2114509149681627494?s=20",
+  "clipSrc": "/videos/editorial/detroit-school.mp4",
+  "clipPoster": "/images/editorial/detroit-school/hero.webp",
   "clipCaption": "The Detroit School in performance.",
   "imageAlt": "Detroit Lions celebrate together after an offside penalty against the Green Bay Packers.",
   "body": [
@@ -197,7 +199,7 @@ export const detroitSchoolArticle = {
     "But for those few seconds in Ford Field, something quite wonderful happened.",
     "A man danced. Two others recognized the language and joined him. A fourth apparently heard a different song. Elsewhere, gestures became monuments, accusations became theater, and an offensive line briefly entertained the possibility of a second career.",
     "What began as a single movement became a shared artistic language, acquiring followers, dissidents, and competing schools before anyone had thought to give it a name.",
-    "And then, as suddenly as it had begun, the movement dissolved. Its practitioners returned to their positions, its reluctant patron returned to Green Bay, and the officials prepared to resume the game.",
+    "And then, as suddenly as it had begun, the movement dissolved. Its practitioners returned to their positions, its reluctant patron returned to the right side of the line of scrimmage, and the officials prepared to resume the game.",
     "The Detroit School had flourished, fractured, and disappeared in less time than it takes to explain a neutral-zone infraction.",
     "Most artistic movements require generations to accomplish this.",
     "The Lions had a play clock."
