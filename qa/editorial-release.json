@@ -5,11 +5,11 @@
     "source": "app/components/SharedEditorialFront.js",
     "approval": {
       "approvedBy": "Cody Chin",
-      "recordedAt": "2026-10-22",
-      "scope": "Production publication and staging update of the approved Jay-Z lead and chronological Marnie/Conrad/Rams three-card row across LOOG, Sunday Crew and DOGE",
-      "instruction": "Cody approved on October 22, 2026 at 01:04 UTC: \"K take that to staging and prod update manifest\". Approved staging source: fa2b1dd8c19bfc73817dc6c6b289d4d2b5772fd1, including the four requested copy edits. Publish editorial content and presentation only; retain production live data and normal environment behavior. NFC East continues immediately below the row; West Virginia remains archive-only."
+      "recordedAt": "2026-10-27T00:42:42Z",
+      "scope": "Production publication of the reviewed Detroit School article as headline lead across LOOG, Sunday Crew and DOGE; Jay-Z, Sporting Pat and Medical Clearance form the three-card chronology; Rams continues immediately below.",
+      "instruction": "Cody approved staging commit 848bdf513d6085c8231526733253dbc522700294 at 00:42:12 UTC: \"take it to prod! love it\" (Sentinel_d404d59ef9ac81919b93554ad2d4e054), then clarified at 00:42:42 UTC: \"it should be the headline article btw if that wasnt clear\" (Sentinel_825aefdb5b608191b99c2fafcd5deb05). Preserve approved article copy, seven plates with corrected I/III assignments, display headings, author/share above tweet, and no redundant article hero. Preserve other stories/assets and production live data."
     },
-    "historicalRotation": "October 6 and October 21 Conrad named lead/card placements are superseded by this approved production publication. Standing rotation rules and historical documentation are retained in docs/HOMEPAGE-ROTATION.md. The October 22 Jay-Z approval supersedes only current lead/card expectations; prior approvals are preserved in approvalHistory and docs/HOMEPAGE-ROTATION.md.",
+    "historicalRotation": "October 6 and October 21 Conrad named lead/card placements are superseded by this approved production publication. Standing rotation rules and historical documentation are retained in docs/HOMEPAGE-ROTATION.md. The October 22 Jay-Z approval supersedes only current lead/card expectations; prior approvals are preserved in approvalHistory and docs/HOMEPAGE-ROTATION.md. The October 27 Detroit School approval supersedes current lead/card expectations only; the October 22 approval remains in approvalHistory.",
     "approvalHistory": [
       {
         "approvedBy": "Cody Chin",
@@ -32,6 +32,12 @@
         "contentCommit": "a83ad2a0a34bdf007034cbe9c78d22beaf4220d7",
         "packetSha256": "568c4a875265e3e741913a2d176f1db8e817e29a136febe09df227fa57d67447",
         "validation": "All eighteen staged matchup routes returned HTTP 200 with exact full text and expected titles, no video elements. Content commit passed Release integrity. Final manifest commit still requires release checks and production promotion."
+      },
+      {
+        "approvedBy": "Cody Chin",
+        "recordedAt": "2026-10-22",
+        "scope": "Production publication and staging update of the approved Jay-Z lead and chronological Marnie/Conrad/Rams three-card row across LOOG, Sunday Crew and DOGE",
+        "instruction": "Cody approved on October 22, 2026 at 01:04 UTC: \"K take that to staging and prod update manifest\". Approved staging source: fa2b1dd8c19bfc73817dc6c6b289d4d2b5772fd1, including the four requested copy edits. Publish editorial content and presentation only; retain production live data and normal environment behavior. NFC East continues immediately below the row; West Virginia remains archive-only."
       }
     ],
     "copyRevisions": [
@@ -58,10 +64,14 @@
     }
   ],
   "lead": {
-    "slug": "conrad-allow-me-to-reintroduce-myself",
-    "title": "Allow Me to Reintroduce Myself"
+    "slug": "marnie-detroit-school",
+    "title": "A Study in Movement: The Detroit School, 2026"
   },
   "carousel": [
+    {
+      "slug": "conrad-allow-me-to-reintroduce-myself",
+      "title": "Allow Me to Reintroduce Myself"
+    },
     {
       "slug": "marnie-delicate-etiquette-sporting-pat",
       "title": "The Delicate Etiquette of a Sporting Pat"
@@ -69,10 +79,6 @@
     {
       "slug": "conrad-jalen-hurts-too-sick-to-sleep",
       "title": "The Medical Clearance Industrial Complex"
-    },
-    {
-      "slug": "hollis-rams-kicker-weight",
-      "title": "The Rams Have Lost 89 Pounds at Kicker"
     }
   ]
 }
