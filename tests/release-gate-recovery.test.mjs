@@ -11,6 +11,10 @@ for(const html of ['<h1>The Brief</h1><p>Story not found.</p>','<h1>The Brief</h
 test('HTTP errors remain failures',()=>assert.throws(()=>validatePublicPage(404,good)));
 test('wrong article title remains failure',()=>assert.throws(()=>validatePublicPage(200,good,{article:true,expectedTitle:'Wrong story'})));
 test('article headline remains required',()=>assert.throws(()=>validatePublicPage(200,'The Brief',{article:true})));
+const detroit=JSON.parse(readFileSync('app/articles/marnie-detroit-school.js','utf8').replace(/^export const detroitSchoolArticle = /,'').replace(/;\s*$/,''));
+const plateHtml=detroit.body.filter(p=>p.type==='image').map(p=>'<figure class="articleInlineFigure"><img src="'+p.src+'" alt="'+p.alt+'"/><figcaption>'+p.caption+'</figcaption></figure>').join('');
+const detroitHtml='<h1>'+detroit.title+'</h1><p>The Brief</p><p>'+detroit.dek+'</p><div class="articleBylineShare">Marnie</div><figure>The Detroit School in performance.</figure><article class="articleBody">'+plateHtml+'</article>';
+function homepageFixture(root){return '<p>The Brief</p><section aria-label="Lead story: '+detroit.title+'"><a href="'+root+'/articles/marnie-detroit-school"><img src="/images/editorial/detroit-school/hero.webp" alt="Detroit Lions teammates celebrate together on the field."/></a></section><section aria-label="Recent stories"><h3>Allow Me to Reintroduce Myself</h3><h3>The Delicate Etiquette of a Sporting Pat</h3><h3>The Medical Clearance Industrial Complex</h3></section>';}
 const sha='a'.repeat(40);
 const project='prj_h89MCmxn3Mr3O0wRpnwstM917E0l';
 const team='team_hU7RX1oX9Ea0W2U9ieHwNxzL';
@@ -20,10 +24,10 @@ function simulate(mode,extra={}){
   const log=join(dir,'calls.jsonl');
   const preload=join(dir,'mock.mjs');
   writeFileSync(preload,`
-   import {appendFileSync} from 'node:fs';
+   import {appendFileSync,readFileSync} from 'node:fs';
    const mode=${JSON.stringify(mode)};
    const sha='${sha}';
-   let branchReads=0,aliasReads=0,detailReads=0,autoAssign=false;
+   let branchReads=0,aliasReads=0,detailReads=0,autoAssign=mode==='interrupted-policy',promoted=mode==='interrupted-policy';
    globalThis.setTimeout=f=>{queueMicrotask(f);return 0};
    globalThis.fetch=async (input,options={})=>{
     const u=new URL(input);
@@ -34,6 +38,9 @@ function simulate(mode,extra={}){
     if(u.hostname==='candidate.vercel.app'){
      if(options.headers?.['x-vercel-trusted-oidc-idp-token']!=='test-oidc')throw Error('Missing scoped identity');
      if(options.redirect!=='manual')throw Error('Credential-bearing redirects must be disabled');
+     if(path.startsWith('/images/'))return new Response(mode==='bad-detroit-image'?Buffer.alloc(5000):readFileSync('public'+path),{status:200,headers:{'content-type':'image/webp'}});
+     if(path.endsWith('/articles/marnie-detroit-school'))return new Response(mode==='bad-detroit-plate'?${JSON.stringify(detroitHtml.replace('Jahmyr Gibbs extends','Wrong athlete extends'))}:${JSON.stringify(detroitHtml)},{status:200});
+     if(!path.includes('/articles/'))return new Response(mode==='bad-detroit-lead'?'The Brief':({'/':${JSON.stringify(homepageFixture(''))},'/doge':${JSON.stringify(homepageFixture('/doge'))},'/sunday-crew':${JSON.stringify(homepageFixture('/sunday-crew'))}})[path],{status:mode==='bad-routes'?403:200});
      return new Response(${JSON.stringify(good)},{status:mode==='bad-routes'?403:200});
     }
     if(u.hostname==='api.github.com'){
@@ -46,19 +53,19 @@ function simulate(mode,extra={}){
      if(mode==='invalid-json'&&options.method!=='PATCH')return new Response('sensitive-fixture-do-not-log',{status:200});
      if(options.method==='PATCH'&&mode!=='restore-fails')autoAssign=false;
      if(options.method==='PATCH')return new Response(null,{status:204});
-     return Response.json({id:'${project}',accountId:'${team}',autoAssignCustomDomains:mode==='autoassign'||autoAssign});
+     return Response.json({id:'${project}',accountId:'${team}',autoAssignCustomDomains:mode==='autoassign'||autoAssign,lastAliasRequest:mode==='interrupted-policy'?{type:'promote',jobStatus:'succeeded',toDeploymentId:'dpl_candidate',fromDeploymentId:'dpl_old'}:mode==='provider-active'?{type:'promote',jobStatus:'in-progress',toDeploymentId:'older'}:undefined});
     }
     if(path==='/v6/deployments')return Response.json({deployments:[{id:'dpl_candidate',created:1,state:mode==='failed-build'?'ERROR':'READY',meta:{githubCommitSha:mode==='wrong-sha'?'b'.repeat(40):sha,githubCommitRef:'main'}}]});
-    if(path.endsWith('/www.ordinarybrief.com'))return Response.json({id:++aliasReads===1?'dpl_old':mode==='bad-alias'?'dpl_wrong':'dpl_candidate',readyState:'READY',meta:{githubCommitSha:sha}});
+    if(path.endsWith('/www.ordinarybrief.com'))return Response.json({id:mode==='already-live'||promoted?(mode==='bad-alias'?'dpl_wrong':'dpl_candidate'):'dpl_old',readyState:'READY',meta:{githubCommitSha:sha}});
     if(path==='/v13/deployments/dpl_candidate')return Response.json({id:'dpl_candidate',projectId:mode==='wrong-project'?'other':'${project}',target:mode==='preview'?'preview':'production',readyState:'READY',url:mode==='foreign-url'?'evil.example':'candidate.vercel.app',meta:{githubCommitSha:sha,githubCommitRef:'main'},checks:mode.startsWith('no-provider')?undefined:{deploymentAlias:{state:mode==='failed-checks'||(mode==='changed-checks'&&++detailReads>1)?'failed':'succeeded'}}});
     if(path.endsWith('/promote/dpl_candidate')&&options.method==='POST'){
-     autoAssign=true;
-     return mode==='promote-error'?Response.json({}, {status:500}):new Response(null,{status:204});
+     autoAssign=true; promoted=mode!=='promote-error';
+     return mode==='promote-error'||mode==='lost-response'?Response.json({}, {status:500}):new Response(null,{status:204});
     }
     throw Error('Unexpected request '+path);
    };
   `);
-  const result=spawnSync(process.execPath,[resolve('scripts/operations/promote-verified-release.mjs')],{encoding:'utf8',timeout:10000,env:{...process.env,RELEASE_SHA:sha,RELEASE_MODE:'promote',VERCEL_PROJECT_ID:project,VERCEL_TOKEN:'test-vercel',GH_TOKEN:'test-github',ACTIONS_ID_TOKEN_REQUEST_URL:'https://oidc.actions.example/token',ACTIONS_ID_TOKEN_REQUEST_TOKEN:'test-request',NODE_OPTIONS:'--import='+preload,...extra}});
+  const result=spawnSync(process.execPath,[resolve('scripts/operations/promote-verified-release.mjs')],{encoding:'utf8',timeout:10000,env:{...process.env,RELEASE_RECEIPT_PATH:join(dir,'receipt.json'),RELEASE_SHA:sha,RELEASE_MODE:'promote',VERCEL_PROJECT_ID:project,VERCEL_TOKEN:'test-vercel',GH_TOKEN:'test-github',ACTIONS_ID_TOKEN_REQUEST_URL:'https://oidc.actions.example/token',ACTIONS_ID_TOKEN_REQUEST_TOKEN:'test-request',NODE_OPTIONS:'--import='+preload,...extra}});
   assert.equal(result.error,undefined,result.error?.message);
   const calls=readFileSync(log,'utf8').trim().split('\n').map(JSON.parse);
   assert.ok(!(result.stdout+result.stderr).includes('test-vercel'));
@@ -83,6 +90,13 @@ test('default verification mode never requests promotion',()=>{const r=simulate(
 test('intentional staging canary fails without promotion',()=>{const r=simulate('success',{RELEASE_CANARY_FAIL:'1'});assert.notEqual(r.status,0);assert.equal(r.calls.filter(c=>c.method==='POST').length,0)});
 test('failed promotion still restores manual assignment',()=>{const r=simulate('promote-error');assert.notEqual(r.status,0);const post=r.calls.findIndex(c=>c.method==='POST');assert.equal(r.calls[post+1].method,'PATCH');assert.doesNotMatch(r.stdout,/VERIFIED production domain/)});
 test('failed policy restoration cannot be marked verified',()=>{const r=simulate('restore-fails');assert.notEqual(r.status,0);assert.doesNotMatch(r.stdout,/VERIFIED production domain/)});
-test('manual mode without attached provider checks still requires exact QA and staged routes',()=>{const r=simulate('no-provider');assert.equal(r.status,0,r.stderr);assert.match(r.stdout,/VERIFIED production domain/);assert.equal(r.calls.filter(c=>c.host==='candidate.vercel.app').length,6)});
+test('manual mode without attached provider checks still requires exact QA and staged routes',()=>{const r=simulate('no-provider');assert.equal(r.status,0,r.stderr);assert.match(r.stdout,/VERIFIED production domain/);assert.equal(r.calls.filter(c=>c.host==='candidate.vercel.app').length,20)});
 test('missing provider checks never permit failed GitHub QA',()=>{const r=simulate('no-provider-failed-qa');assert.notEqual(r.status,0);assert.equal(r.calls.filter(c=>c.method==='POST').length,0)});
 for(const mode of ['empty-get','invalid-json'])test('inspection fails closed without disclosing bodies: '+mode,()=>{const r=simulate(mode);assert.notEqual(r.status,0);assert.equal(r.calls.filter(c=>c.method==='POST').length,0)});
+
+test('already-live candidate is verified without duplicate promotion',()=>{const r=simulate('already-live');assert.equal(r.status,0,r.stderr);assert.equal(r.calls.filter(c=>c.method==='POST').length,0);assert.match(r.stdout,/already-live-no-duplicate/)});
+test('lost response reconciles applied alias without repeating request',()=>{const r=simulate('lost-response');assert.equal(r.status,0,r.stderr);assert.equal(r.calls.filter(c=>c.method==='POST').length,1);assert.match(r.stdout,/outcome-uncertain/);assert.match(r.stdout,/VERIFIED production domain/)});
+
+test('interrupted applied promotion restores only the known candidate policy and does not repeat POST',()=>{const r=simulate('interrupted-policy');assert.equal(r.status,0,r.stderr);assert.equal(r.calls.filter(c=>c.method==='POST').length,0);assert.ok(r.calls.some(c=>c.method==='PATCH'));assert.match(r.stdout,/policy-restored-after-interruption/)});
+test('active provider operation blocks new POST through bounded reconciliation',()=>{const r=simulate('provider-active');assert.notEqual(r.status,0);assert.equal(r.calls.filter(c=>c.method==='POST').length,0);assert.match(r.stdout,/waiting-for-provider-operation/)});
+for(const mode of ['bad-detroit-lead','bad-detroit-plate','bad-detroit-image'])test('Detroit release fails closed before promotion: '+mode,()=>{const r=simulate(mode);assert.notEqual(r.status,0);assert.equal(r.calls.filter(c=>c.method==='POST').length,0)});

@@ -10,15 +10,15 @@ async function request(method,path,body){
  if(!res.ok)throw Error('GitHub alert operation failed '+res.status+': '+(await res.text()).slice(0,300));
  return res.status===204?null:res.json();
 }
-const title='[Production incident] The Brief public route monitor';
+const title=process.env.INCIDENT_TITLE||'[Production incident] The Brief public route monitor';
 const issues=await request('GET','/issues?state=open&per_page=100');
 const current=issues.find(x=>x.title===title&&!x.pull_request);
 const details=report.failures.map(x=>'- '+x.path+' — '+x.error).join('\n');
-const message='Checked '+report.count+' public routes across LOOG, Sunday Crew, DOGE at '+report.checkedAt+' UTC.\nPassed: '+report.passed+'. Failed: '+report.failures.length+'.\n\n'+details+'\n\nSee the failing GitHub Actions run. No automatic production changes were made.';
+const message='Checked '+report.count+' checks for '+(report.scope||'public routes across LOOG, Sunday Crew, DOGE')+' at '+report.checkedAt+' UTC.\nPassed: '+report.passed+'. Failed: '+report.failures.length+'.\n\n'+details+'\n\nSee the failing GitHub Actions run. No automatic production changes were made.';
 if(report.failures.length){
  if(current){await request('POST','/issues/'+current.number+'/comments',{body:'Still failing.\n\n'+message})}
  else await request('POST','/issues',{title,body:message,labels:['bug']}).catch(async e=>{if(String(e).includes('422'))await request('POST','/issues',{title,body:message});else throw e});
 }else if(current){
- await request('POST','/issues/'+current.number+'/comments',{body:'Recovered: '+report.passed+'/'+report.count+' live routes passed at '+report.checkedAt+'.'});
+ await request('POST','/issues/'+current.number+'/comments',{body:'Recovered: '+report.passed+'/'+report.count+' checks passed for '+(report.scope||'live routes')+' at '+report.checkedAt+'.'});
  await request('PATCH','/issues/'+current.number,{state:'closed'});
 }

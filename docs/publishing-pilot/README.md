@@ -2,6 +2,20 @@
 
 Status: implemented for local review; hosted staging verification is blocked by the absence of a verified isolated Supabase target. Do not merge or promote. Rika owns engineering coordination; Cody retains owner decisions on spending and access. Production cutover is separate.
 
+## October 27 preparation update
+
+Reconciled with main `1055efb` (PR87/88/92). Kept current journalism, assets, production workflows and Detroit article rendering changes; the frozen Jay-Z pilot baseline intentionally remains a historical fixture, not a copy of today's homepage. No production publication occurred.
+
+The pilot now supports a narrow technical session bootstrap: POST `/api/publishing-pilot/session` with the exact preview Origin and `{op:"bootstrap",access_token,refresh_token}` from an **already authenticated isolated-branch user**. It validates the confirmed identity, persists SSR cookies, returns no tokens, and does not provision users or use admin credentials. `{op:"refresh"}` refreshes an existing session. Pilot-only proxy handling persists rotated cookies on page/API requests; `/manage` remains separate. Disabled/production-target configuration rejects bootstrap before network access. Do not send tokens in URLs, logs or committed fixtures. The operator still needs an authorized real branch sign-in path; no hosted session has been obtained.
+
+`test-session-browser.mjs` exercises actual local Next/SSR cookie transport: wrong origin, revoked refresh without persisted cookies, expired-session bootstrap, authenticated page read, automatic proxy rotation, and explicit refresh. The SDK unit tests also reject unconfirmed identities and disabled/production targets. Synthetic transport is not hosted Supabase Auth proof. No real credentials or test identities were created.
+
+The bounded verifier now uses `verify-routes.mjs`, with independent expected copy, six route checks, exact digest/renderer, no-store and redirect/offline/unavailable rejection before any attestation. Negative tests fail the final route and assert zero attestation writes. `verify-local.mjs` remains LOCAL ONLY: a hosted operator adapter must supply real user-authenticated transport and verifier RPC, without service-role credentials or a protection bypass.
+
+Fresh read-only account inspection still finds zero branches for The Brief and only the unrelated fantasy-draft-room project. No existing no-new-cost hosted isolation target is available; disposable local Postgres is available. Hosted proof still needs a consolidated decision covering isolated environment lifecycle/spend, branch-only test users and sessions, preview-only publishable configuration, protected browser/verifier access, and cleanup. The earlier proposed $1 limit is withdrawn: it cannot be enforced. A 24-hour cleanup deadline is an operator obligation, not a configured automatic TTL; billing visibility is via the existing organization dashboard, not a usage-meter connector. Do not provision until the execution/access and monitoring paths are resolved.
+
+Run the existing local suites, then `node scripts/publishing-pilot/test-session-browser.mjs`; Node tests include the new session/verifier negatives. The previous dated JSON receipts below describe their original build; see `oct27-local-results.json` for this reconciliation. Normal build/hosted checks must not be inferred from local compile-only success.
+
 ## What is implemented
 
 The pilot lives under `/publishing-pilot/{loog|sunday-crew|doge}`. It is disabled unless explicitly configured, rejects Vercel production, rejects both known production/unrelated Supabase project refs, and never falls back to the production database. Original publication routes, content, eighteen videos, provider state and release workflows remain in place.

@@ -2,6 +2,8 @@
 // Fail closed: exact main SHA, both GitHub QA jobs, provider checks, staged routes.
 import assert from 'node:assert/strict';
 import {spawnSync} from 'node:child_process';
+import {writeFileSync,appendFileSync} from 'node:fs';
+import {promotionDecision} from './promotion-state.mjs';
 const token=process.env.VERCEL_TOKEN;
 const ghToken=process.env.GH_TOKEN;
 const project='prj_h89MCmxn3Mr3O0wRpnwstM917E0l';
@@ -15,6 +17,15 @@ assert.ok(token&&ghToken,'Vercel and GitHub credentials required; release NOT pr
 assert.match(sha||'',/^[0-9a-f]{40}$/,'Expected exact RELEASE_SHA');
 assert.ok(!process.env.VERCEL_PROJECT_ID||process.env.VERCEL_PROJECT_ID===project,'Wrong production project');
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const receipt={sha,projectId:project,runId:process.env.GITHUB_RUN_ID||null,attempt:process.env.GITHUB_RUN_ATTEMPT||null,state:'inspecting'};
+function record(state,extra={}){
+ Object.assign(receipt,extra,{state,updatedAt:new Date().toISOString()});
+ writeFileSync(process.env.RELEASE_RECEIPT_PATH||'release-receipt.json',JSON.stringify(receipt,null,2));
+ console.log('RELEASE_STATE',JSON.stringify(receipt));
+ if(process.env.GITHUB_STEP_SUMMARY)appendFileSync(process.env.GITHUB_STEP_SUMMARY,`Release ${sha}: **${state}**. Owner: release operator; run ${receipt.runId}.\n`);
+}
+process.on('exit',code=>{if(code!==0)record('needs-reconciliation',{lastState:receipt.state});});
+record('inspecting');
 async function request(path,options={}){
  const r=await fetch('https://api.vercel.com'+path+(path.includes('?')?'&':'?')+'teamId='+team,{
   ...options,redirect:'error',headers:{Authorization:'Bearer '+token,'Content-Type':'application/json'},signal:AbortSignal.timeout(20000)});
@@ -57,9 +68,10 @@ await validateQA();
 const policy=await request('/v9/projects/'+project);
 assert.equal(policy.id,project);
 assert.equal(policy.accountId,team,'Wrong Vercel team');
-assert.equal(policy.autoAssignCustomDomains,false,'Automatic production assignment must remain disabled');
+// Manual assignment is checked after identifying an exact candidate; narrowly
+// scoped interrupted-success recovery may restore it before continuing.
 const previous=await request('/v13/deployments/'+domain);
-console.log('Recorded current production deployment',previous.id);
+record('waiting-for-build',{previousId:previous.id});
 let build;
 for(let i=0;i<40;i++){
  const result=await request('/v6/deployments?'+new URLSearchParams({projectId:project,target:'production',sha,limit:'100'}));
@@ -77,6 +89,17 @@ assert.equal(candidate.meta?.githubCommitSha,sha);
 assert.equal(candidate.meta?.githubCommitRef,'main');
 assert.equal(candidate.readyState,'READY');
 validateProviderChecks(candidate);
+record('candidate-ready',{candidateId:id,previousId:previous.id===id?(policy.lastAliasRequest?.fromDeploymentId||null):previous.id});
+if(policy.autoAssignCustomDomains!==false){
+ assert.equal(mode,'promote','Verification cannot repair policy');
+ assert.equal(policy.lastAliasRequest?.type,'promote','Unknown assignment-policy change');
+ assert.equal(policy.lastAliasRequest?.toDeploymentId,id,'Policy recovery is limited to this candidate');
+ assert.equal(policy.lastAliasRequest?.jobStatus,'succeeded','Unfinished provider operation requires reconciliation');
+ assert.equal(previous.id,id,'Policy recovery requires candidate already live');
+ await request('/v9/projects/'+project,{method:'PATCH',body:JSON.stringify({autoAssignCustomDomains:false})});
+ assert.equal((await request('/v9/projects/'+project)).autoAssignCustomDomains,false,'Manual assignment recovery failed');
+ record('policy-restored-after-interruption');
+}
 const origin='https://'+candidate.url;
 const url=new URL(origin);
 assert.equal(url.origin,origin);
@@ -97,22 +120,44 @@ const latest=await request('/v13/deployments/'+id);
 validateProviderChecks(latest);
 assert.equal((await request('/v9/projects/'+project)).autoAssignCustomDomains,false);
 if(mode==='verify-only'){
+ record('staged-verified');
  console.log('STAGED VERIFIED',id,'commit',sha,'production remains',previous.id);
  process.exit(0);
 }
-try{
- await request('/v10/projects/'+project+'/promote/'+id,{method:'POST',body:'{}'});
-}finally{
- // Vercel promotion can re-enable automatic assignment (vercel/vercel#15095).
- // Restore manual assignment even when the promotion response fails or times out.
- await request('/v9/projects/'+project,{method:'PATCH',body:JSON.stringify({autoAssignCustomDomains:false})});
- assert.equal((await request('/v9/projects/'+project)).autoAssignCustomDomains,false,'Manual assignment was not restored');
-}
-let verified=false;
+let decision;
 for(let i=0;i<24;i++){
+ const state=await request('/v9/projects/'+project);
  const live=await request('/v13/deployments/'+domain);
- if(live.id===id&&live.meta?.githubCommitSha===sha&&live.readyState==='READY'){verified=true;break;}
+ decision=promotionDecision({request:state.lastAliasRequest,live,candidateId:id,sha});
+ if(decision.action!=='wait')break;
+ record('waiting-for-provider-operation',{providerRequest:state.lastAliasRequest});
  await sleep(10000);
 }
-assert.ok(verified,'Live alias identity mismatch; release NOT verified');
+assert.ok(['promote','verify'].includes(decision.action),'Provider operation unresolved: '+decision.reason);
+if(decision.action==='promote'){
+ await validateQA();
+ record('promotion-request-started');
+ try{
+  await request('/v10/projects/'+project+'/promote/'+id,{method:'POST',body:'{}'});
+  record('promotion-request-acknowledged');
+ }catch{
+  // Never repeat POST here: inspect provider operation and actual alias instead.
+  record('promotion-request-outcome-uncertain');
+ }finally{
+  await request('/v9/projects/'+project,{method:'PATCH',body:JSON.stringify({autoAssignCustomDomains:false})});
+  assert.equal((await request('/v9/projects/'+project)).autoAssignCustomDomains,false,'Manual assignment was not restored');
+  record('policy-restored');
+ }
+}else record('already-live-no-duplicate-request');
+let verified=false;
+for(let i=0;i<24;i++){
+ const state=await request('/v9/projects/'+project);
+ const live=await request('/v13/deployments/'+domain);
+ const resolved=promotionDecision({request:state.lastAliasRequest,live,candidateId:id,sha});
+ if(resolved.action==='verify'&&state.autoAssignCustomDomains===false){verified=true;break;}
+ if(resolved.action==='stop')break;
+ await sleep(10000);
+}
+assert.ok(verified,'Live alias or provider operation unresolved; no duplicate promotion requested');
+record('alias-verified');
 console.log('VERIFIED production domain',domain,'commit',sha,'deployment',id);

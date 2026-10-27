@@ -18,6 +18,7 @@ export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1',storag
   const videoRef=useRef(null);
   const preloadRef=useRef(null);
   const recoveryRef=useRef(null);
+  const openingAnchor=useRef(null);
 
   useEffect(()=>{
     try{setViewed(JSON.parse(localStorage.getItem(storageKey)||'{}'))}catch{}
@@ -93,7 +94,11 @@ export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1',storag
       root.style.overflow=rootOverflow;
       body.style.overflow=bodyOverflow;
       if(!hadReelsOpen)body.classList.remove('reelsOpen');
-      window.scrollTo({left:scrollX,top:scrollY,behavior:'instant'});
+      // Live Desk may grow above the reel while the document is locked.
+      const anchor=openingAnchor.current;
+      const top=anchor?.element.isConnected?window.scrollY+anchor.element.getBoundingClientRect().top-anchor.top:scrollY;
+      window.scrollTo({left:scrollX,top,behavior:'instant'});
+      openingAnchor.current=null;
     };
   },[viewerOpen]);
 
@@ -137,7 +142,8 @@ export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1',storag
   };
 
   const move=dir=>{setProgress(0);setActive(i=>(i+dir+reels.length)%reels.length);};
-  const openReel=i=>{
+  const openReel=(i,element)=>{
+    openingAnchor.current=element?{element,top:element.getBoundingClientRect().top}:null;
     flushSync(()=>{setActive(i);setMuted(false)});
     const video=videoRef.current;
     if(!video)return;
@@ -159,7 +165,7 @@ export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1',storag
       <span>{reels.length} MATCHUPS • {new Set(reels.map(r=>r.correspondent)).size} CORRESPONDENTS</span>
     </div>
     <div className={styles.rail}>
-      {reels.map((r,i)=><button className={`${styles.story} ${viewed[r.id]?styles.seen:styles.unseen}`} key={r.id} onClick={()=>openReel(i)} aria-label={`Watch ${r.matchup} by ${r.correspondent}`}>
+      {reels.map((r,i)=><button className={`${styles.story} ${viewed[r.id]?styles.seen:styles.unseen}`} key={r.id} onClick={event=>openReel(i,event.currentTarget)} aria-label={`Watch ${r.matchup} by ${r.correspondent}`}>
         <span className={styles.thumb}>
           {r.leftImage&&<span className={styles.playerLeft}><ResilientImage loading="lazy" decoding="async" src={r.leftImage} alt=""/></span>}
           {r.rightImage&&<span className={styles.playerRight}><ResilientImage loading="lazy" decoding="async" src={r.rightImage} alt=""/></span>}

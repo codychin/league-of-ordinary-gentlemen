@@ -1,6 +1,6 @@
 'use client';
 
-import {useEffect,useRef,useState} from 'react';
+import {useEffect,useLayoutEffect,useRef,useState} from 'react';
 import ResilientImage from './ResilientImage';
 import {imageSrc} from '../../lib/editorial-images';
 import styles from './AlsoShelf.module.css';
@@ -11,14 +11,34 @@ export default function AlsoShelf({videos=[]}){
   const [progress,setProgress]=useState(0);
   const videoRef=useRef(null);
   const touchStart=useRef(null);
+  const openingAnchor=useRef(null);
 
-  useEffect(()=>{
-    if(active===null)return;
-    const old=document.body.style.overflow;
-    document.body.style.overflow='hidden';
-    document.body.classList.add('reelsOpen');
-    return()=>{document.body.style.overflow=old;document.body.classList.remove('reelsOpen')};
-  },[active]);
+  // Keep one opening anchor across automatic/manual video transitions.
+  const viewerOpen=active!==null;
+  useLayoutEffect(()=>{
+    if(!viewerOpen)return;
+    const root=document.documentElement;
+    const body=document.body;
+    const scrollX=window.scrollX;
+    const scrollY=window.scrollY;
+    const rootOverflow=root.style.overflow;
+    const bodyOverflow=body.style.overflow;
+    const hadReelsOpen=body.classList.contains('reelsOpen');
+    root.style.overflow='hidden';
+    body.style.overflow='hidden';
+    body.classList.add('reelsOpen');
+    return()=>{
+      root.style.overflow=rootOverflow;
+      body.style.overflow=bodyOverflow;
+      if(!hadReelsOpen)body.classList.remove('reelsOpen');
+      // Removing main's paint containment can clamp scroll at the document end.
+      // Measure after unlock so both restored containment and real reflow count.
+      const anchor=openingAnchor.current;
+      const top=anchor?.element.isConnected?window.scrollY+anchor.element.getBoundingClientRect().top-anchor.top:scrollY;
+      window.scrollTo({left:scrollX,top,behavior:'instant'});
+      openingAnchor.current=null;
+    };
+  },[viewerOpen]);
 
   useEffect(()=>{
     const onKey=e=>{
@@ -32,13 +52,16 @@ export default function AlsoShelf({videos=[]}){
   },[active,videos.length]);
 
   const move=dir=>{setProgress(0);setActive(i=>(i+dir+videos.length)%videos.length)};
-  const open=i=>{setProgress(0);setMuted(false);setActive(i)};
+  const open=(i,element)=>{
+    openingAnchor.current={element,top:element.getBoundingClientRect().top};
+    setProgress(0);setMuted(false);setActive(i);
+  };
   const item=active===null?null:videos[active];
 
   return <section className={styles.wrap} aria-label="Also, from The Brief">
     <div className={styles.head}><h2>also…</h2></div>
     <div className={styles.rail}>
-      {videos.map((v,i)=><button type="button" className={styles.card} key={v.id} onClick={()=>open(i)} aria-label={`Watch ${v.title} by ${v.correspondent}`}>
+      {videos.map((v,i)=><button type="button" className={styles.card} key={v.id} onClick={event=>open(i,event.currentTarget)} aria-label={`Watch ${v.title} by ${v.correspondent}`}>
         <span className={styles.thumb}>
           <ResilientImage sizes="320px" src={v.poster} alt="" loading="lazy" decoding="async"/>
           <span className={styles.shade}/>

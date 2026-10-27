@@ -37,3 +37,21 @@ jobs:
       - name: Fail run on public outage
         if: steps.check.outcome != 'success'
         run: exit 1
+      - name: Inspect release progress independently of public-route health
+        id: release
+        if: always()
+        continue-on-error: true
+        run: node scripts/operations/monitor-release-state.mjs
+        env:
+          REPORT_PATH: /tmp/brief-release-report.json
+      - name: Raise release incident or record recovery
+        if: always()
+        run: node scripts/operations/monitor-incident.mjs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          REPORT_PATH: /tmp/brief-release-report.json
+          INCIDENT_TITLE: '[Production incident] The Brief release progress'
+      - name: Fail run on stalled or failed release
+        if: always() && steps.release.outcome != 'success'
+        run: exit 1

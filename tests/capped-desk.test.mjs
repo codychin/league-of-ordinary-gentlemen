@@ -1,8 +1,12 @@
-import test from 'node:test'
+import test,{beforeEach,afterEach} from 'node:test'
 import assert from 'node:assert/strict'
 import {requestBody,cappedCall,MAX_BYTES,MAX_OUTPUT} from '../supabase/functions/brief-editorial-worker/budget.ts'
 import {eventCandidates,validDraft} from '../supabase/functions/brief-editorial-worker/shared.ts'
 import fs from 'node:fs'
+// Keep provider-failure tests deterministic outside the real Sunday window.
+const NativeDate=globalThis.Date
+beforeEach(()=>{globalThis.Date=class extends NativeDate {constructor(...args){super(...(args.length?args:['2026-10-25T17:00:00Z']))} static now(){return NativeDate.parse('2026-10-25T17:00:00Z')}}})
+afterEach(()=>{globalThis.Date=NativeDate})
 test('worst-case byte-token bound plus output stays below the nonrefundable reservation',()=>{
  assert.ok(((MAX_BYTES+2048)*.75+MAX_OUTPUT*4.5)/1e6<.10)
  assert.throws(()=>requestBody('JSON','x'.repeat(MAX_BYTES)),/exceeds/)
