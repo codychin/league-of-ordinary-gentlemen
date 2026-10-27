@@ -165,3 +165,40 @@ test('reel close preserves its visible anchor when content above grows',async({p
  await page.getByRole('button',{name:'Close video',exact:true}).click();await expect(page.getByRole('dialog')).toHaveCount(0);
  await expect.poll(async()=>Math.abs((await watch.evaluate(el=>el.getBoundingClientRect().top))-before)).toBeLessThanOrEqual(1);
 });
+
+// AlsoShelf is the last visible standalone section: opening removes main's
+// paint containment and can clamp document scroll before the user presses Close.
+for(const growth of [0,528,1900]){
+ test(`Also shelf restores its bottom-of-document anchor with ${growth}px reflow`,async({page},testInfo)=>{
+  if(testInfo.project.name==='desktop')await page.setViewportSize({width:390,height:844});
+  await page.addInitScript(()=>Object.defineProperty(navigator,'standalone',{get:()=>true}));
+  await settleInitialLiveDesk(page);
+  await page.route('**/reels-hls/**',route=>route.request().method()==='HEAD'?route.fulfill({status:200,body:''}):route.abort());
+  await page.goto('/');await waitForInitialLiveDesk(page);
+  const shelf=page.getByRole('region',{name:'Also, from The Brief'});
+  const watch=shelf.getByRole('button',{name:/^Watch /}).first();
+  await expect(watch).toBeVisible();await watch.scrollIntoViewIfNeeded();
+  await page.evaluate(()=>scrollTo({top:document.documentElement.scrollHeight,behavior:'instant'}));
+  await watch.evaluate(el=>el.addEventListener('click',()=>{
+   const top=el.getBoundingClientRect().top;
+   window.__qaAlsoOpening={scrollY,top,documentTop:top+scrollY,documentHeight:document.documentElement.scrollHeight};
+  },{capture:true,once:true}));
+  await watch.click();const before=await page.evaluate(()=>window.__qaAlsoOpening);
+  expect(Math.abs(before.documentHeight-before.scrollY-page.viewportSize().height)).toBeLessThanOrEqual(1);
+  await expect(page.getByRole('dialog')).toBeVisible();
+  const locked=await watch.evaluate(readingPosition);
+  if(growth)await shelf.evaluate((el,height)=>{
+   const above=document.createElement('div');above.style.height=`${height}px`;el.before(above);
+  },growth);
+  // Advancing must keep the original opening anchor and the same lock session.
+  await page.getByRole('button',{name:'Next video',exact:true}).click();
+  await page.getByRole('button',{name:'Previous video',exact:true}).click();
+  expect(await page.locator('body').evaluate(el=>getComputedStyle(el).overflowY)).toBe('hidden');
+  await page.getByRole('button',{name:'Close video',exact:true}).click();
+  await expect(page.getByRole('dialog')).toHaveCount(0);
+  try{await expect(async()=>expectReadingPosition(before,await watch.evaluate(readingPosition))).toPass({timeout:10000});}
+  finally{await testInfo.attach('also-bottom-restoration',{body:JSON.stringify({growth,before,locked,after:await watch.evaluate(readingPosition)}),contentType:'application/json'});}
+  expect(await page.locator('html').evaluate(el=>getComputedStyle(el).overflowY)).not.toBe('hidden');
+  expect(await page.locator('body').evaluate(el=>getComputedStyle(el).overflowY)).not.toBe('hidden');
+ });
+}
