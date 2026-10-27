@@ -39,11 +39,21 @@ for (const [label,change] of [
   assert.throws(()=>validateWeek7RecapDraft(changed));
 });
 
-test('draft packet stays outside active content and does not expose conditional recaps',()=>{
+test('prepared recaps preserve the exact approved bodies and route by finality and league',()=>{
   const recaps=JSON.parse(readFileSync('data/matchup-recaps.json','utf8'));
   for (const r of packet.entries) {
     const [a,b]=r.teamIds;
-    assert.equal(selectMatchupColumn({recaps,edition:r.edition,season:2026,week:7,a,b,isFinal:true}),null);
+    const args={recaps,edition:r.edition,season:2026,week:7,a,b,isFinal:true};
+    const selected=selectMatchupColumn(args);
+    assert.equal(selected.body,r.paragraphs.join('\n\n'));
+    assert.equal(selected.headline,r.headline);
+    assert.equal(selected.writer,r.writer);
+    assert.equal(selected.source.leagueId,r.leagueId);
+    assert.equal(selected.source.bodySha256,r.bodySha256);
+    assert.equal(selected.source.status,'FINAL');
+    assert.equal(selectMatchupColumn({...args,a:b,b:a}),selected);
+    assert.equal(selectMatchupColumn({...args,isFinal:false}),null);
+    assert.equal(selectMatchupColumn({...args,season:2027}),null);
   }
   for (const path of ['app/page.js','lib/week7-reels.js','lib/edition-content.js'])
     assert.ok(!readFileSync(path,'utf8').includes('week7-recap-draft'));
