@@ -20,8 +20,8 @@ export const detroitSchoolArticle = {
     },
     {
       "type": "image",
-      "src": "/images/editorial/detroit-school/genesis.webp",
-      "alt": "Jahmyr Gibbs and teammates at the beginning of the celebration.",
+      "src": "/images/editorial/detroit-school/jameson.webp",
+      "alt": "Jahmyr Gibbs extends both arms and lifts a leg beside an official during the celebration.",
       "caption": "Plate I. The Gibbs Proposition.",
       "credit": {
         "label": "NFL / still from the supplied video",
@@ -63,8 +63,8 @@ export const detroitSchoolArticle = {
     },
     {
       "type": "image",
-      "src": "/images/editorial/detroit-school/jameson.webp",
-      "alt": "Jameson Williams lifts a leg and extends his arms beside his celebrating teammates.",
+      "src": "/images/editorial/detroit-school/genesis.webp",
+      "alt": "Jameson Williams gestures independently behind his Detroit teammates.",
       "caption": "Plate III. The Rejection of Consensus.",
       "credit": {
         "label": "NFL / still from the supplied video",
