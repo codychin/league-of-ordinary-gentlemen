@@ -4,6 +4,8 @@
 
 Generate → staging → validation → manifest upgrade → production. The release is **not complete** until the exact production commit and every matchup route are verified. No user review of individual routine clips is required when quality gates pass. Financial authorization remains separately bounded; do not incur new unspecified rendering charges.
 
+Cody's October 27, 2026 delegation of routine recap approval to Rika remains in force within its stated scope. Apply the [passage-level editorial rejection gate](video-first-pass-qa.md#editorial-rejection-gate--evidence-before-acceptance) before accepting scripts. The specifically rejected October 27 Week 7 batch must return to Cody after rewriting; routine delegation and earlier approvals do not clear that batch. Script acceptance, rendering spend and publication remain separate gates.
+
 ## Manifest states
 
 For each edition, season, week and unordered team pair store `source_revision`, `script_revision`, `voice_id`, `video_id`, `render_status`, `qa_status`, `staging_url`, `staging_commit`, `production_commit`, `production_url`, `verified_at`, and `exceptions`. Keep an append-only transition history; never silently overwrite an approved revision.
@@ -13,7 +15,7 @@ Allowed transitions: `draft` → `source_verified` → `script_qa_passed` → `r
 ## Hard gates
 
 1. Verify all six pairings per league against authenticated current-week provider snapshots. Do not treat projections as actual scores or Thursday selected lineups as locked.
-2. Script QA: league isolation, correct week, history and scoring, source support, no invented manager motives, editorial repetition and distinct correspondent voice. Apply locked names and pronunciations.
+2. Script QA: league isolation, correct week, history and scoring, source support, no invented manager motives, editorial repetition and distinct correspondent voice. Apply the [editorial rejection gate](video-first-pass-qa.md#editorial-rejection-gate--evidence-before-acceptance) to actual passages, prior scripts and the whole batch; retain the short review note for the exact revision. Apply locked names and pronunciations.
 3. Media QA: transcript/pronunciation, nonempty audio, duration, aspect/crop, correct avatar, playable video, no black ending. Never substitute an unrelated video.
 4. Stage a complete league batch and verify all six matchup pages with browser tests on desktop and mobile, including correct headline, paragraph layout, media playback and no cross-league leakage.
 5. Upgrade the manifest only for tested assets, retaining previous versions and source evidence.
