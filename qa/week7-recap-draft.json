@@ -1,0 +1,683 @@
+{
+  "schemaVersion": 1,
+  "status": "draft",
+  "repository": "codychin/league-of-ordinary-gentlemen",
+  "baseCommit": "1055efb736bf5619540487bebeeb516b6f41f7e4",
+  "registry": {
+    "projectId": "dnzdbqycuuoonewcowis",
+    "table": "brief_publication_articles"
+  },
+  "season": 2026,
+  "week": 7,
+  "publicationApproved": false,
+  "media": [],
+  "entries": [
+    {
+      "edition": "doge",
+      "leagueId": "33707500-ac22-489e-ae65-0c11e2880ffc",
+      "teamIds": [
+        "1",
+        "6"
+      ],
+      "matchupKey": "doge-2026-week7-recap-1-6",
+      "revision": "conditional-v3-20261027",
+      "articleRegistryId": "6eab0bd4-c880-56a4-84b9-fd39d726bc1c",
+      "articleSlug": "doge-2026-week7-recap-1-6-article-conditional-v3-20261027",
+      "scriptRegistryId": "f013e594-212e-56d3-9d8a-b7447beeb49c",
+      "scriptSlug": "doge-2026-week7-recap-1-6-script-voice-rewrite-v2-20261027",
+      "writer": "sorrell",
+      "headline": "The rescue needs more people",
+      "paragraphs": [
+        "Cody found more points at running back. He also found an opponent who required considerably more points everywhere else. Caleb’s Elite Touch Rate produced 106.22 against McConkey Kong’s 136.32. Last week, eighteen hundredths separated Cody from defeat. This time, retaining additional decimal places does not improve his position. The problem is visible without magnification.",
+        "Chase Brown and Kaelon Black supplied 18.2 between them, improving substantially on last week’s 7.6 from the starting backs. Luther Burden added 23.7; Caleb Williams delivered 23.12. The improvement was real. Cody got more from the position that had required rescuing, and two substantial performances elsewhere. None of those facts made Sandy stop scoring.",
+        "The two flex slots supplied 11.4. Last week Carnell Tate and Emeka Egbuka produced 30.3 there, helping Cody survive with almost nothing to spare. Tate remained; Ja’Kobi Lane occupied the other slot and scored four. One part of the team became more useful just as another stopped doing the extra work. The running backs had finally arrived with a contribution. The people who had covered for them were no longer carrying the same load.",
+        "Sandy had Omar Cooper at twenty-four, Trey McBride at 22.1 and Rhamondre Stevenson at twenty-two, with Christian McCaffrey adding nineteen. No single performance needed to excuse the others. That is the difference between this result and Cody’s narrow escape a week ago: McConkey Kong could ask several positions for help and receive a serious answer. Cody improved the weakest part of his previous winning lineup. Sandy made the rest of it insufficient."
+      ],
+      "bodySha256": "ad31c18a5c8d7e666054eaf7c08e4dd96c8467e4be15d435dabc59f46ef14ccd",
+      "script": "Sandy has completed his audition to be regarded as Cody’s equal. He beat him by thirty. They are now both four and three. Very democratic. Sandy was already the more productive team; the standings simply needed another week to notice. Cody’s running backs did improve. I’m happy to acknowledge the progress, but we are not holding a ceremony because the weakest part of last week’s winner became less weak. Sandy has supplied the result. Cody can supply the congratulations.",
+      "scriptSha256": "cfc9d67a06ab2d0ba45502e93c2dae9990acf0b88c6ddd322237e46323c44006",
+      "sourcePackageSha256": "520da1d8ee1cf34a3c5232fdd869965059f58308f409f5562683acaef0405984",
+      "sourceCaptureManifest": {
+        "snapshotId": 189,
+        "capturedThrough": "2026-10-27T03:40:10.176Z",
+        "checkpointSha256": "b0a2f9ed0a109d26877d84b56ea4f5ec709184ef8c672a4071afbba841dd5733",
+        "providerFinality": "all6 in_progress"
+      },
+      "approvalStatus": "rika_editorial_conditional_pending_provider_finality",
+      "publicationApproved": false,
+      "scriptRevision": "voice-rewrite-v2-20261027",
+      "scriptApproved": true,
+      "scriptApprovalStatus": "exact_script_approved"
+    },
+    {
+      "edition": "doge",
+      "leagueId": "33707500-ac22-489e-ae65-0c11e2880ffc",
+      "teamIds": [
+        "2",
+        "7"
+      ],
+      "matchupKey": "doge-2026-week7-recap-2-7",
+      "revision": "conditional-v3-20261027",
+      "articleRegistryId": "6d91c38f-0892-5847-b12c-f89804862869",
+      "articleSlug": "doge-2026-week7-recap-2-7-article-conditional-v3-20261027",
+      "scriptRegistryId": "2b7f9b54-0dd6-5c23-9459-4d6a3e8e5284",
+      "scriptSlug": "doge-2026-week7-recap-2-7-script-voice-rewrite-v2-20261027",
+      "writer": "crane",
+      "headline": "Four running backs, all with something to do",
+      "paragraphs": [
+        "Bennett put four running backs in the lineup. They supplied seventy-seven points. Kyren Williams and Jahmyr Gibbs occupied the designated positions; Bucky Irving and Josh Jacobs took the flex spots. Nobody needed to explain what flex meant. Irving put up 25.5 and Jacobs 17.6, and the word became considerably less mysterious.",
+        "Tranimal produced 135.22 against Gimothy Blossoms’ 118.22. The running backs accounted for more than half of Bennett’s total without requiring one man to have an impossible afternoon. The smallest contribution among the four was Gibbs’s 16.8. Four names, four useful numbers. There is something deeply pleasant about looking down a lineup and not immediately finding the person you need everyone else to compensate for.",
+        "Thursday’s selection had DK Metcalf at flex beside Irving. By the actual Week 7 lineup, Metcalf was at receiver and Jacobs occupied that second flexible place. The result was forty-three points in those two slots. Alan’s corresponding pair, A.J. Brown and Denzel Boston, supplied 10.5. That difference was larger than the seventeen-point margin even with Tee Higgins giving Gimothy 27.8 from a receiver position.",
+        "Alan also received 17.52 from C.J. Stroud after moving him into the starting quarterback slot, plus 16.1 from Drake London. There were productive decisions and productive players on his side. Bennett simply had that long, uninterrupted stretch of running backs doing their jobs. Tre Tucker scored 20.8 on the bench again. This time, the interesting thing was not whom Bennett left out. It was how much work he had found for everyone he put in."
+      ],
+      "bodySha256": "db0c75ec7f0b839323c928d56b58691c8701663b262cbd2322f5129e52e03860",
+      "script": "I went looking for Tre Tucker, because last week Bennett had left a good afternoon on the bench. There he was again. Nearly twenty-one points, still not counting. Then I looked at the men occupying the flex spots. Running backs. Both of them. Bennett had four in the lineup, and not one scored fewer than sixteen. Tranimal beat Alan by seventeen. The bench still had something to complain about. This time, the lineup could interrupt.",
+      "scriptSha256": "a39894412f062c3a80d2670cb5856dbee50e43ba5624d496383758745dd05da4",
+      "sourcePackageSha256": "520da1d8ee1cf34a3c5232fdd869965059f58308f409f5562683acaef0405984",
+      "sourceCaptureManifest": {
+        "snapshotId": 189,
+        "capturedThrough": "2026-10-27T03:40:10.176Z",
+        "checkpointSha256": "b0a2f9ed0a109d26877d84b56ea4f5ec709184ef8c672a4071afbba841dd5733",
+        "providerFinality": "all6 in_progress"
+      },
+      "approvalStatus": "rika_editorial_conditional_pending_provider_finality",
+      "publicationApproved": false,
+      "scriptRevision": "voice-rewrite-v2-20261027",
+      "scriptApproved": true,
+      "scriptApprovalStatus": "exact_script_approved"
+    },
+    {
+      "edition": "doge",
+      "leagueId": "33707500-ac22-489e-ae65-0c11e2880ffc",
+      "teamIds": [
+        "3",
+        "8"
+      ],
+      "matchupKey": "doge-2026-week7-recap-3-8",
+      "revision": "conditional-v3-20261027",
+      "articleRegistryId": "8dcb05e9-2653-5450-8f95-0d3c1b3d2a29",
+      "articleSlug": "doge-2026-week7-recap-3-8-article-conditional-v3-20261027",
+      "scriptRegistryId": "455de228-4c0b-5820-949f-cac3180468f0",
+      "scriptSlug": "doge-2026-week7-recap-3-8-script-voice-rewrite-v2-20261027",
+      "writer": "gannon",
+      "headline": "The empty positions were filled. The gap was not.",
+      "paragraphs": [
+        "The Bears did not play three bye-week placeholders. Thursday’s captured selection had Josh Allen, Dalton Kincaid and Jakobi Meyers occupying starting slots. The actual lineup had Tyler Huntley at quarterback, T.J. Hockenson at tight end and Jameson Williams at flex. Together the replacements supplied 52.22. Jason solved the immediate problem with considerably more than three names who could register a point.",
+        "T. Ocellus nevertheless produced 137.08 against the Bears’ 108.82. Joe Burrow supplied 30.88, Quinshon Judkins 22.9 and Emanuel Wilson twenty. Bryan received 18 from Jonathan Taylor and fourteen from Brandon Aubrey as well. There were enough substantial contributions to make Tyler Higbee’s 2.4 at tight end a small part of the account. Last week, the tight-end position had considerably more authority.",
+        "Kyle Pitts scored 10.7 on Bryan’s bench. The same-position gap was 8.3, against an advantage of 28.26. In Week 6, Pitts outscored Higbee by 18.3 while Bryan lost by eighteen hundredths. That earlier difference could reverse the result; this one could only enlarge the margin. Thursday’s captured selection had Pitts starting, but the Week 7 lineup returned to Higbee. The selection deserves its own review rather than a verdict borrowed from either scoreboard.",
+        "For Jason, Huntley’s 17.12 and Hockenson’s 11.5 were useful, and Jameson Williams’s 23.6 was his highest individual score. The three replaced slots supplied nearly half the Bears’ total. Derrick Henry contributed 5.4, Chris Godwin 4.7 and the Panthers defense minus-two. The positions that first demanded attention ended up doing much of the work. Jason fixed the most visible problem. Bryan had enough production to expose the quieter ones."
+      ],
+      "bodySha256": "7adca18edd5459baf8ffeb00841924cb92722435055bbb2e168774757e766e4b",
+      "script": "I would like to stop this win from giving Bryan advice. Pitts outscored Higbee on his bench again. Last week, that gap could reverse a loss by less than a point. This week Bryan won by twenty-eight, so the same gap has become much easier to ignore. I’m not claiming the bench was obviously right before kickoff. I’m saying Burrow scoring thirty-one is not evidence that Higbee was. I am not letting a quarterback grade the tight end.",
+      "scriptSha256": "301c553552db8dead724f432c7729d243c14b159594cf96fb9e637aaa4e5ed92",
+      "sourcePackageSha256": "520da1d8ee1cf34a3c5232fdd869965059f58308f409f5562683acaef0405984",
+      "sourceCaptureManifest": {
+        "snapshotId": 189,
+        "capturedThrough": "2026-10-27T03:40:10.176Z",
+        "checkpointSha256": "b0a2f9ed0a109d26877d84b56ea4f5ec709184ef8c672a4071afbba841dd5733",
+        "providerFinality": "all6 in_progress"
+      },
+      "approvalStatus": "rika_editorial_conditional_pending_provider_finality",
+      "publicationApproved": false,
+      "scriptRevision": "voice-rewrite-v2-20261027",
+      "scriptApproved": true,
+      "scriptApprovalStatus": "exact_script_approved"
+    },
+    {
+      "edition": "doge",
+      "leagueId": "33707500-ac22-489e-ae65-0c11e2880ffc",
+      "teamIds": [
+        "4",
+        "12"
+      ],
+      "matchupKey": "doge-2026-week7-recap-4-12",
+      "revision": "conditional-v3-20261027",
+      "articleRegistryId": "3545a7d9-4e39-571c-9ce3-d2397490a876",
+      "articleSlug": "doge-2026-week7-recap-4-12-article-conditional-v3-20261027",
+      "scriptRegistryId": "c6cd8292-9ade-5f52-9cdb-2ac4b875eac3",
+      "scriptSlug": "doge-2026-week7-recap-4-12-script-voice-rewrite-v2-20261027",
+      "writer": "pike",
+      "headline": "The cheap seats have the best numbers",
+      "paragraphs": [
+        "Patrick left 67.28 points in two bench places and beat Corey by 1.72. Bo Nix supplied 30.28; Tony Pollard supplied thirty-seven. Neither counted. Nix in 5 produced 116.80 against El Niño Grande’s 115.08 using the other players, an arrangement that permits Patrick to discuss his considerable unused resources and Corey to wish he would stop.",
+        "Kyler Murray started instead of Nix and scored 13.9. Patrick received 23.7 from Amon-Ra St. Brown, 23.5 from Javonte Williams and 16.4 from Colston Loveland. Loveland was one of the useful pieces retained from last week’s win. He delivered again. The winning lineup was imperfect in several expensive-looking ways, but enough of its actual selections worked.",
+        "Corey had Jaxon Smith-Njigba and Zay Flowers combine for 54.5. Isaiah Likely and Jalen Coker supplied 3.6 from the flex spots. Jordan Addison sat on the bench with 3.3: not an eye-catching performance, not the sort of number ordinarily worth pointing out beside Pollard’s thirty-seven. Put Addison in Coker’s place and Corey gains 1.9. The result changes by eighteen hundredths. Patrick left a spectacle unused. Corey left just enough.",
+        "Last week Corey lost by 0.98 despite producing the league’s second-highest score. Now a less imposing total has brought another defeat small enough to locate inside an unremarkable reserve receiver’s afternoon. There is no need for the alternate lineup to be brilliant. Three-point-three would do. Patrick can look at his bench and imagine how much more comfortable the win might have been. Corey has the less extravagant exercise: finding the smallest change that would have let him leave with it."
+      ],
+      "bodySha256": "fcdace3fed36fff7002b24a05b36b55bced6712e91066e88ef4902c530bed8ff",
+      "script": "Patrick has a luxury: his wasted points make the roster look better. Bo Nix and Tony Pollard piled up sixty-seven on the bench, and he still beat Corey. Corey’s unused points do the opposite. Jordan Addison did almost nothing, but replacing Coker with him would have changed the winner. After losing by less than a point last week, Corey did not need a brilliant acquisition. He already owned just enough. Patrick gets to admire everything he didn’t need. Corey has to look at the very little he did.",
+      "scriptSha256": "c623164da85df1c7df6807d5378392d9d221e1ce2914261f4266429e744e8329",
+      "sourcePackageSha256": "520da1d8ee1cf34a3c5232fdd869965059f58308f409f5562683acaef0405984",
+      "sourceCaptureManifest": {
+        "snapshotId": 189,
+        "capturedThrough": "2026-10-27T03:40:10.176Z",
+        "checkpointSha256": "b0a2f9ed0a109d26877d84b56ea4f5ec709184ef8c672a4071afbba841dd5733",
+        "providerFinality": "all6 in_progress"
+      },
+      "approvalStatus": "rika_editorial_conditional_pending_provider_finality",
+      "publicationApproved": false,
+      "scriptRevision": "voice-rewrite-v2-20261027",
+      "scriptApproved": true,
+      "scriptApprovalStatus": "exact_script_approved"
+    },
+    {
+      "edition": "doge",
+      "leagueId": "33707500-ac22-489e-ae65-0c11e2880ffc",
+      "teamIds": [
+        "5",
+        "10"
+      ],
+      "matchupKey": "doge-2026-week7-recap-5-10",
+      "revision": "conditional-v3-20261027",
+      "articleRegistryId": "12ba5692-5ef1-58cc-8c25-a07861f07a0f",
+      "articleSlug": "doge-2026-week7-recap-5-10-article-conditional-v3-20261027",
+      "scriptRegistryId": "7f091356-9b2b-5556-b5e4-48675340788d",
+      "scriptSlug": "doge-2026-week7-recap-5-10-script-voice-rewrite-v2-20261027",
+      "writer": "march",
+      "headline": "The vacant place did not set the terms",
+      "paragraphs": [
+        "Moe had no kicker selected in the returned Week 7 lineup. Andrew had one. De’Coldest Hassan produced 108.76 against Jerruh’s World’s 82.30, which makes the vacant place an unusually discreet feature of a twenty-six-point win. The absent kicker contributed nothing to the total and rather a lot to the awkwardness of explaining the comparison.",
+        "Thursday’s selection had Moe preserving his eight offensive starters while Andrew rearranged both flex spots. The actual lineup was different. KC Concepcion supplied 19.2 at receiver, CeeDee Lamb 21.9 from one flex position and Dallas Goedert 7.3 from the other. Cam Little, the kicker whose bye made the Thursday selection unusable, was on the bench. There was no selected replacement in the snapshot.",
+        "The useful continuity was elsewhere. Jordan Love and the two starting running backs supplied 44.56, following 40.74 last week. In that earlier defeat, Moe had better production without a better result. This time Concepcion and Lamb supplied enough additional help to make the improvement more than something encouraging to mention afterward. Justin Jefferson and Travis Kelce each scored 6.4; neither had to be the centerpiece.",
+        "Andrew got eighteen and a half from Matthew Stafford, but no other starter reached fifteen. His revised flex pair supplied 15.4, with Saquon Barkley responsible for 14.1 and Roschon Johnson for the remaining 1.3. Jason Myers did his work at kicker and added eight. The complete lineup had its advantages. Moe’s selected offense simply scored enough to make them inadequate. After last week’s account of progress that still fell short, he has a result that does not require every place to be occupied before it looks convincing."
+      ],
+      "bodySha256": "d59e860f52e8f5b2cb57b86ae84cbfe0d7f48d44f45b4944b581d2d2b637fb55",
+      "script": "Moe beat Andrew by twenty-six without a kicker. I would resist describing this as minimalism. That tends to encourage people. Andrew supplied a full lineup, including a perfectly respectable afternoon from Jason Myers. Last week, Moe had improvement without a victory. This week he has a victory without a kicker. I would still recommend filling the position. Not for Moe. For the dignity of whoever he plays next.",
+      "scriptSha256": "db59847e4e0145faf4bdcb3b25c6eeb2f79e80529405e0d58554ca5e063b832e",
+      "sourcePackageSha256": "520da1d8ee1cf34a3c5232fdd869965059f58308f409f5562683acaef0405984",
+      "sourceCaptureManifest": {
+        "snapshotId": 189,
+        "capturedThrough": "2026-10-27T03:40:10.176Z",
+        "checkpointSha256": "b0a2f9ed0a109d26877d84b56ea4f5ec709184ef8c672a4071afbba841dd5733",
+        "providerFinality": "all6 in_progress"
+      },
+      "approvalStatus": "rika_editorial_conditional_pending_provider_finality",
+      "publicationApproved": false,
+      "scriptRevision": "voice-rewrite-v2-20261027",
+      "scriptApproved": true,
+      "scriptApprovalStatus": "exact_script_approved"
+    },
+    {
+      "edition": "doge",
+      "leagueId": "33707500-ac22-489e-ae65-0c11e2880ffc",
+      "teamIds": [
+        "9",
+        "11"
+      ],
+      "matchupKey": "doge-2026-week7-recap-9-11",
+      "revision": "conditional-v3-20261027",
+      "articleRegistryId": "239fa084-bb35-5636-afb5-1f4c909cc525",
+      "articleSlug": "doge-2026-week7-recap-9-11-article-conditional-v3-20261027",
+      "scriptRegistryId": "b26947d6-4853-584e-8bf0-7c4c0f5af1cd",
+      "scriptSlug": "doge-2026-week7-recap-9-11-script-voice-rewrite-v2-20261027",
+      "writer": "kells",
+      "headline": "Four backs, no general theory",
+      "paragraphs": [
+        "Jason and Pete used the same lineup form to submit rather different teams. Four running backs for Ordway and Son; four receivers for Extremely Tight Ends. Jason produced 114.94 against Pete’s 80.62. It would be very convenient if the result settled which arrangement was superior. Drake Maye and the kickers have made that interpretation difficult.",
+        "Maye supplied 29.44 against Brock Purdy’s 14.02. Will Reichard contributed twelve against Dominic Zvada’s one. Together, quarterback and kicker account for 26.42 of the 34.32-point separation. These were not the optional spaces that made Thursday’s selections so interesting. They were the ordinary boxes both managers had to fill, quietly supplying most of the difference while everyone admired the unusual composition.",
+        "The flex comparison did favor Jason too: D’Andre Swift and Aaron Jones supplied 20.1 against 12.7 from Rome Odunze and DeMario Douglas. Swift did seventeen points’ worth of that work. Jones contributed 3.1. Nobody should mistake the four-running-back lineup for four equally persuasive arguments. It had one very helpful flex back and another who was present for the conclusion.",
+        "Pete’s four selected receivers all finished below nine. Ollie Gordon supplied 18.8 and Seattle’s defense ten, but there was no receiving performance large enough to counter Maye, let alone recover the kicker difference. Jason’s lineup did not need to make a fashionable case for itself. It needed the quarterback to score, the kicker to score and enough assistance elsewhere. Thursday offered two distinctive silhouettes. The result belongs largely to the parts they had in common."
+      ],
+      "bodySha256": "7d45b893141039aa2171625fcdfb8360ea33af1b9cbf8ea222b1545eecd8d2c8",
+      "script": "Thursday, I noticed the symmetry: Jason’s four running backs against Pete’s four receivers. Now Jason has won, and symmetry is asking for credit. Most of the margin came from Drake Maye and Will Reichard. Neither, you will notice, is a running back. Aaron Jones is. He scored three. I’m delighted for the winning arrangement. Please do not let Aaron explain why four running backs is the future.",
+      "scriptSha256": "650b3e56d1c358ee332c1fb80db9814e9a56c008958aaa6f13598a70ce1a597f",
+      "sourcePackageSha256": "520da1d8ee1cf34a3c5232fdd869965059f58308f409f5562683acaef0405984",
+      "sourceCaptureManifest": {
+        "snapshotId": 189,
+        "capturedThrough": "2026-10-27T03:40:10.176Z",
+        "checkpointSha256": "b0a2f9ed0a109d26877d84b56ea4f5ec709184ef8c672a4071afbba841dd5733",
+        "providerFinality": "all6 in_progress"
+      },
+      "approvalStatus": "rika_editorial_conditional_pending_provider_finality",
+      "publicationApproved": false,
+      "scriptRevision": "voice-rewrite-v2-20261027",
+      "scriptApproved": true,
+      "scriptApprovalStatus": "exact_script_approved"
+    },
+    {
+      "edition": "loog",
+      "leagueId": "65c573a0-535d-4edf-8332-2522ee13872f",
+      "teamIds": [
+        "1",
+        "6"
+      ],
+      "matchupKey": "loog-2026-week7-recap-1-6",
+      "revision": "conditional-v4-20261027",
+      "articleRegistryId": "0c854c1d-f0e6-58d9-8c21-35c8d6c482f3",
+      "articleSlug": "loog-2026-week7-recap-1-6-article-conditional-v4-20261027",
+      "scriptRegistryId": "4944883b-06d1-5bc9-96fa-57a1d024b238",
+      "scriptSlug": "loog-2026-week7-recap-1-6-script-voice-rewrite-v2-20261027",
+      "writer": "pike",
+      "headline": "Pitts moved. The advantage barely did.",
+      "paragraphs": [
+        "Sherm moved Kyle Pitts into the tight-end slot. Pitts scored 14.2. Harold Fannin, now on the bench, scored 14.1. The adjustment that would have reversed last week's loss bought one tenth of a point this week. Anyone selling a subscription to yesterday's correct decisions should display that comparison before checkout.",
+        "Pollard Greens' current 164.04 comes from a considerably larger source of value. Jaxon Smith-Njigba supplied 34.5, Drake Maye 30.84, Quinshon Judkins 26.1 and Drake London 20.6. Together they produced 112.04. Pitts contributed useful work without being asked to compensate for the nineteen points his previous performance would have recovered. There was no such balance waiting to be paid.",
+        "Roy's 135.92 was not an empty target. Javonte Williams scored 28, Jameson Williams 27.1, Jaylen Warren 22.5 and Christian McCaffrey 21.7. Those four supplied 99.3. Each team had a substantial four-player contribution, but Sherm's was nearly thirteen points larger. Drake Maye's 30.84 against C.J. Stroud's 14.72 supplied a particularly valuable difference at quarterback; Brandon Aubrey added sixteen from kicker.",
+        "Thursday's question was whether Sherm could turn strong scoring into a result against this particular opponent. The selected performances now put him 28.12 ahead, with almost none of that advantage attributable to the tight-end correction. Fannin in place of Pitts would leave 28.02. Sherm made the change, got a useful tight end and received his larger returns elsewhere. The previous week's solution has become this week's rounding error. That is a perfectly acceptable price for no longer needing it."
+      ],
+      "bodySha256": "ef6c3468a3f6d2aebc42d87ccc52f503ada5c6c5a6a7e4003c70056825ea1259",
+      "script": "Sherm made the change last week's result suggested. Starting Kyle Pitts would have reversed that loss. He started him this week instead and gained one tenth of a point over Harold Fannin. The old solution was available. The old benefit wasn't. Fortunately, Sherm beat Roy by twenty-eight without needing the old nineteen-point bargain. I have no objection to making an adjustment. I do object to advertising last week's returns.",
+      "scriptSha256": "3954697d2eb0f7557c054d9e20b9e8c7fb9ace0c479b1fa35749ccc84658003a",
+      "sourcePackageSha256": "2363bd157455381806946ddb802ea5887c9cebf4854799b506cd0df435649210",
+      "sourceCaptureManifest": {
+        "snapshotId": 74,
+        "capturedThrough": "2026-10-27T03:40:08.579Z",
+        "checkpointSha256": "bf669717cecaefe7a110d32907454419ce9d934f2f2d8e0e362ec1019b38ab64",
+        "providerFinality": "all6 UNDECIDED"
+      },
+      "approvalStatus": "rika_editorial_conditional_pending_provider_finality",
+      "publicationApproved": false,
+      "scriptRevision": "voice-rewrite-v2-20261027",
+      "scriptApproved": true,
+      "scriptApprovalStatus": "exact_script_approved"
+    },
+    {
+      "edition": "loog",
+      "leagueId": "65c573a0-535d-4edf-8332-2522ee13872f",
+      "teamIds": [
+        "2",
+        "5"
+      ],
+      "matchupKey": "loog-2026-week7-recap-2-5",
+      "revision": "conditional-v4-20261027",
+      "articleRegistryId": "a441eb0c-8b9f-57c2-8e47-5c0b11d1bd43",
+      "articleSlug": "loog-2026-week7-recap-2-5-article-conditional-v4-20261027",
+      "scriptRegistryId": "20595762-7bc6-5844-b51c-3b9fc1d40dec",
+      "scriptSlug": "loog-2026-week7-recap-2-5-script-voice-rewrite-v2-20261027",
+      "writer": "gannon",
+      "headline": "The quarterback switch would not have saved Danny",
+      "paragraphs": [
+        "Bo Nix's 33.88 is the conspicuous number on Danny's bench. Replacing Brock Purdy's 11.22 would have recovered 22.66 points against Skatt. The gap on the current sheet is 33.45. A very large quarterback improvement has managed to arrive with an eleven-point problem of its own.",
+        "The rest of Danny's selected lineup explains the difference. Jahmyr Gibbs supplied 24.2 and Malik Nabers 21.1. Josh Downs and Ted Hurst supplied 3.8 between the two flex spots. Gibbs and Nabers together produced nearly half the team's 95.37, which is excellent work from two players and a rather demanding arrangement for those same two players.",
+        "Skatt had a more useful distribution. Trey McBride's 28.1, Kyren Williams's 20.7 and Ja'Marr Chase's 18.2 all counted toward 128.82. Will Reichard added 14.5 from the kicking slot. Bryce Young's 6.52 was lower than Purdy's score; quarterback was a position Danny actually won. Removing the quarterbacks altogether leaves Skatt ahead by 38.15. There is the size of the assignment Nix would have inherited.",
+        "Skattebo's 24.8 stayed on Skatt's bench, so there is an unused performance available on either side for anyone who enjoys those discussions. Danny's is the more tempting because a quarterback swap is so clean: one name out, one name in, no rearranging the flex. Put Nix in. Make the total 118.03. Skatt still has 128.82. The arithmetic has eleven points left to say."
+      ],
+      "bodySha256": "43009c138c3b4108694755fbdb66440d74da856fce783256d3eafb616066ecaf",
+      "script": "I'm declining to blame Brock Purdy for Danny's loss. Bo Nix's thirty-four points on the bench make that an unpopular position, but put Nix in: Danny still loses. He already beat Skatt at quarterback. Meanwhile, his two flex players managed fewer than four points between them. The bench offers a beautifully simple explanation. One change, one obvious disappointment. It's almost considerate of Nix, really. He has given Danny one thing to regret when the lineup contains several.",
+      "scriptSha256": "c8058b42b5a92d29676d8dc15e269c86988f9828d0b915b17b7bd1022d387577",
+      "sourcePackageSha256": "2363bd157455381806946ddb802ea5887c9cebf4854799b506cd0df435649210",
+      "sourceCaptureManifest": {
+        "snapshotId": 74,
+        "capturedThrough": "2026-10-27T03:40:08.579Z",
+        "checkpointSha256": "bf669717cecaefe7a110d32907454419ce9d934f2f2d8e0e362ec1019b38ab64",
+        "providerFinality": "all6 UNDECIDED"
+      },
+      "approvalStatus": "rika_editorial_conditional_pending_provider_finality",
+      "publicationApproved": false,
+      "scriptRevision": "voice-rewrite-v2-20261027",
+      "scriptApproved": true,
+      "scriptApprovalStatus": "exact_script_approved"
+    },
+    {
+      "edition": "loog",
+      "leagueId": "65c573a0-535d-4edf-8332-2522ee13872f",
+      "teamIds": [
+        "3",
+        "8"
+      ],
+      "matchupKey": "loog-2026-week7-recap-3-8",
+      "revision": "conditional-v4-20261027",
+      "articleRegistryId": "279f9d7e-f967-56bf-ab7d-2956283916ad",
+      "articleSlug": "loog-2026-week7-recap-3-8-article-conditional-v4-20261027",
+      "scriptRegistryId": "68c69afb-9a54-537f-ac0a-95883bd1ee3f",
+      "scriptSlug": "loog-2026-week7-recap-3-8-script-voice-rewrite-v2-20261027",
+      "writer": "crane",
+      "headline": "The little contributions grew up",
+      "paragraphs": [
+        "Last week All Ugly had eight starters in double figures. This time four reached twenty. Cody and Ferret's useful discovery has changed shape before anyone could make a superstition out of it. The current total is 131.92 against Norm's 123.58, with substantially fewer people needed for the group photograph.",
+        "Amon-Ra St. Brown supplied 27.3, Ollie Gordon 23.8, Jared Goff 21.22 and Colston Loveland 20.9. Christian Watson and Woody Marks also reached double figures. There was still a quiet corner: Konata Mumpfield and Ja'Kobi Lane produced eight between the flex positions. Six substantial contributors made that eight something the team could carry rather than the entire subject of the week.",
+        "Norm got the opposite kind of flex production. Tre Tucker and Tyler Allgeier supplied thirty between them, a twenty-two-point advantage over All Ugly's pair. Tee Higgins added 29.8 at receiver, while Bijan Robinson supplied 20.2. With those scores in hand, an eight-point deficit feels like there ought to be something small and reachable left to find.",
+        "Loveland is one place the difference accumulated: his 20.9 exceeded Travis Kelce's 7.4 by 13.5. Gordon supplied 13.6 more than Chuba Hubbard. All Ugly did not have Norm's productive flex positions or his biggest individual score. It had two less conspicuous positions returning more than twenty-seven extra points between them. Eight double-digit contributors had been enough last week. This time the tight end and the second running back grew into much larger parts. Nobody has to pretend it was the same trick."
+      ],
+      "bodySha256": "e247caf7b6a453c29961a36fcce1d966f3f1cc9222a5eff0b6d12b73f86f2b7e",
+      "script": "All Ugly is winning without yet being respectable. Two and five leaves plenty of room for that distinction. Last week Cody and Ferret needed almost everybody. This week Loveland and Ollie Gordon did more of the heavy lifting. Norm still had enough points on his bench to reverse the result. There are several sensible reasons to remain cautious, all of which I would recommend delivering from a safe distance. After five straight losses, these people have won twice. Let them be a problem.",
+      "scriptSha256": "125bccd7e81fb6eedaeaf4f4cfb3a47c56ef3b0fd54296970138723e67b57810",
+      "sourcePackageSha256": "2363bd157455381806946ddb802ea5887c9cebf4854799b506cd0df435649210",
+      "sourceCaptureManifest": {
+        "snapshotId": 74,
+        "capturedThrough": "2026-10-27T03:40:08.579Z",
+        "checkpointSha256": "bf669717cecaefe7a110d32907454419ce9d934f2f2d8e0e362ec1019b38ab64",
+        "providerFinality": "all6 UNDECIDED"
+      },
+      "approvalStatus": "rika_editorial_conditional_pending_provider_finality",
+      "publicationApproved": false,
+      "scriptRevision": "voice-rewrite-v2-20261027",
+      "scriptApproved": true,
+      "scriptApprovalStatus": "exact_script_approved"
+    },
+    {
+      "edition": "loog",
+      "leagueId": "65c573a0-535d-4edf-8332-2522ee13872f",
+      "teamIds": [
+        "4",
+        "10"
+      ],
+      "matchupKey": "loog-2026-week7-recap-4-10",
+      "revision": "conditional-v4-20261027",
+      "articleRegistryId": "9761ee07-7dba-5f88-982b-25b86c3ee7ae",
+      "articleSlug": "loog-2026-week7-recap-4-10-article-conditional-v4-20261027",
+      "scriptRegistryId": "f945ba96-1b06-57ac-9624-a8f9179d088d",
+      "scriptSlug": "loog-2026-week7-recap-4-10-script-voice-rewrite-v2-20261027",
+      "writer": "march",
+      "headline": "The difference was below the famous names",
+      "paragraphs": [
+        "Justin Jefferson moved into Royrek's lineup and scored 9.4. Tet McMillan and Xavier Worthy, Route 22's two selected receivers, combined for 10.1. The week's celebrity development and the Clubhouse's entire receiving pair finished seven tenths apart. Neither was where the largest difference appeared.",
+        "Rhamondre Stevenson supplied 25.1 for Royrek. Kirk Cousins added 19.7, and Ka'imi Fairbairn twelve. On Route 22's side, Ashton Jeanty produced 21.4 and Matthew Stafford 18.8. The recognizable work at quarterback and the leading running-back slot kept the teams relatively close. Then the less-discussed positions became harder to overlook.",
+        "Royrek got 6.5 from the Colts defense against negative 3.5 from the Ravens. Fairbairn's twelve exceeded Harrison Butker's 4.25 by another 7.75. Between defense and kicker, Royrek gained 17.75. The current overall difference is 16.9: 110.3 to 93.4. Across the other eight selected positions, Route 22 was ahead. Jefferson's return to the lineup was the more distinguished event. It was not the larger advantage.",
+        "The Clubhouse's receivers still merit attention after falling from 30.9 combined last week to 10.1. But Ryan Flournoy and Rome Odunze supplied 23.9 from the flex slots, and enough of the other work held up to make those quieter receivers survivable on their own. Thursday's bench offered Jefferson, Barkley and Lamar Jackson as the names to discuss. The score offers a kicker and a defense. They will have to be allowed into the conversation."
+      ],
+      "bodySha256": "1d83c988d3b229326cb4f604a89b706d6d4943838945369dc48c112801a873df",
+      "script": "Justin Jefferson returned to Royrek's lineup, which is the sort of event that makes a recap stand up a little straighter. I regret to inform him that the winning advantage came from the kicker and defense. Across the other eight positions, Route Twenty-Two was ahead. Jefferson's return remains a perfectly lovely occasion. It simply wasn't where Royrek won it. Ka'imi Fairbairn and the Colts defense may collect their thanks whenever we finish discussing the more famous people.",
+      "scriptSha256": "6e58b1412e386e6223e95fdbda5330cc08f4f889c3481a7ed42bc0ae71ff50a5",
+      "sourcePackageSha256": "2363bd157455381806946ddb802ea5887c9cebf4854799b506cd0df435649210",
+      "sourceCaptureManifest": {
+        "snapshotId": 74,
+        "capturedThrough": "2026-10-27T03:40:08.579Z",
+        "checkpointSha256": "bf669717cecaefe7a110d32907454419ce9d934f2f2d8e0e362ec1019b38ab64",
+        "providerFinality": "all6 UNDECIDED"
+      },
+      "approvalStatus": "rika_editorial_conditional_pending_provider_finality",
+      "publicationApproved": false,
+      "scriptRevision": "voice-rewrite-v2-20261027",
+      "scriptApproved": true,
+      "scriptApprovalStatus": "exact_script_approved"
+    },
+    {
+      "edition": "loog",
+      "leagueId": "65c573a0-535d-4edf-8332-2522ee13872f",
+      "teamIds": [
+        "7",
+        "12"
+      ],
+      "matchupKey": "loog-2026-week7-recap-7-12",
+      "revision": "conditional-v4-20261027",
+      "articleRegistryId": "74c8f868-521d-5a7c-a2c5-0b2160486793",
+      "articleSlug": "loog-2026-week7-recap-7-12-article-conditional-v4-20261027",
+      "scriptRegistryId": "ab646619-f4e9-5207-9b8d-04fc87266784",
+      "scriptSlug": "loog-2026-week7-recap-7-12-script-voice-rewrite-v2-20261027",
+      "writer": "sorrell",
+      "headline": "Noel got the promotion. The points went elsewhere.",
+      "paragraphs": [
+        "Jaylin Noel received the promotion and supplied 1.2 points. Last week's 25.2 remained last week's 25.2. There is no customer-service department for this particular misunderstanding, although fantasy managers continue to behave as though someone ought to honor the receipt.",
+        "On Thursday's sheet, Noel was the interesting addition to Hopkins's selected receivers while Ladd McConkey's bye removed the usual option. By the scoring sheet, the more consequential number belonged to a different assignment: Bucky Irving and Braelon Allen supplied 53.5 from the flex positions. Jonathan Taylor and Kenneth Walker added 29.9 from the running-back slots. Four backs, 83.4 points. Noel's promotion had become a much smaller department.",
+        "Matty got 15.4 from Kyler Murray while Josh Allen was on his bye. Hopkins got 5.2 from Patrick Mahomes. CeeDee Lamb also delivered 25.4, and RJ Harvey added 18.3. CeeDeep could point to the better quarterback performance and its best receiver doing the job. Its remaining seven selected slots supplied 37.9. Hopkins's two flex backs alone supplied more.",
+        "The current totals are 128.8 to 97. Kush also has Tony Pollard's 41 and KC Concepcion's 26.5 sitting unused, but Noel is the revealing comparison across weeks: twenty-five on the bench, one after promotion. A player can earn a closer look without owing his manager a repeat. Hopkins has enough running backs scoring from enough different slots that the promoted receiver's failure to reproduce his application did not become the whole team's performance review."
+      ],
+      "bodySha256": "dfd74d99576bc46844735c629549928fa0907c6d171b3c9c653a482101ff5c28",
+      "script": "Kush put Jaylin Noel in the lineup and got one point. A lesser roster might have to learn something from that. Hopkins won by thirty-two. Tony Pollard scored forty-one on the bench, where his contribution was apparently to demonstrate how much more unpleasant this could have been for Matty. Noel's performance can now be discussed in the relaxed atmosphere of six and one.",
+      "scriptSha256": "517645bde8c643d44962093b80201fbc6eabfcdd2c0dafc15e2d02fd532151b6",
+      "sourcePackageSha256": "2363bd157455381806946ddb802ea5887c9cebf4854799b506cd0df435649210",
+      "sourceCaptureManifest": {
+        "snapshotId": 74,
+        "capturedThrough": "2026-10-27T03:40:08.579Z",
+        "checkpointSha256": "bf669717cecaefe7a110d32907454419ce9d934f2f2d8e0e362ec1019b38ab64",
+        "providerFinality": "all6 UNDECIDED"
+      },
+      "approvalStatus": "rika_editorial_conditional_pending_provider_finality",
+      "publicationApproved": false,
+      "scriptRevision": "voice-rewrite-v2-20261027",
+      "scriptApproved": true,
+      "scriptApprovalStatus": "exact_script_approved"
+    },
+    {
+      "edition": "loog",
+      "leagueId": "65c573a0-535d-4edf-8332-2522ee13872f",
+      "teamIds": [
+        "9",
+        "11"
+      ],
+      "matchupKey": "loog-2026-week7-recap-9-11",
+      "revision": "conditional-v4-20261027",
+      "articleRegistryId": "59d724c7-fc13-53e2-9602-1b1cbf02118d",
+      "articleSlug": "loog-2026-week7-recap-9-11-article-conditional-v4-20261027",
+      "scriptRegistryId": "38e0af0a-cbe6-5224-bda8-cd7535025acd",
+      "scriptSlug": "loog-2026-week7-recap-9-11-script-voice-rewrite-v2-20261027",
+      "writer": "kells",
+      "headline": "The apology scored. So did the other team.",
+      "paragraphs": [
+        "Lloyd's apology for last week arrived with 31.7 points from Zay Flowers. This is a considerably more persuasive format than a statement promising to learn lessons. Dak Prescott contributed 24.48, Emanuel Wilson 24.9, and the current total is 137.18. Kraft has 153.98. The apology has been received. It has not been accepted as payment.",
+        "Thursday's lineup had Emeka Egbuka at flex. The game-week sheet has him in IR, with Jordan Mason selected instead. Wilson supplied the large flex performance, Flowers the large receiving one. Lloyd had two players over twenty-four before counting Prescott. Compared with the previous week's demolition, there are now several names whose presence does not require an explanation afterward.",
+        "Kraft was supposed to provide the difficult receiver comparison. Puka Nacua and Luther Burden obliged with 49.8 between them. Nico Collins supplied 1.6. That left a conspicuous gap in the glamorous part of the arrangement, which D'Andre Swift and Blake Corum covered rather efficiently: 42 combined from the running-back slots. Lloyd's Chase Brown and Derrick Henry supplied 18.5. The running-back difference was 23.5; the overall difference is 16.8.",
+        "Joe Burrow added 30.08 for Kraft, so the receiver-heavy threat arrived with an excellent quarterback and a more useful pair of running backs than Lloyd could match. Flowers could be the highest scorer in either lineup and still not get to make the final decision. Lloyd's improvement is real enough to keep. Kraft's particular discourtesy was finding the extra points somewhere other than the place Lloyd had most successfully improved."
+      ],
+      "bodySha256": "a8d6f4abef7fcb84b31b13a567356fc62a3a8ddcd4cf3bbc2f40ad4c01a76126",
+      "script": "Zay Flowers outscored everyone in this matchup. I'd like him to know that before we tell him how it ended. The Katz brothers got a genuinely good performance this week. They lost to Kraft anyway. Last week's demolition at least spared everyone the tedious business of identifying positive signs. Now there are positive signs, and still no win. Lloyd has made exactly enough progress for losing to become irritating again.",
+      "scriptSha256": "aa18d8069ec9075101681af66a378ee71f7520cbaa48940b5f6c65cdc71e4c81",
+      "sourcePackageSha256": "2363bd157455381806946ddb802ea5887c9cebf4854799b506cd0df435649210",
+      "sourceCaptureManifest": {
+        "snapshotId": 74,
+        "capturedThrough": "2026-10-27T03:40:08.579Z",
+        "checkpointSha256": "bf669717cecaefe7a110d32907454419ce9d934f2f2d8e0e362ec1019b38ab64",
+        "providerFinality": "all6 UNDECIDED"
+      },
+      "approvalStatus": "rika_editorial_conditional_pending_provider_finality",
+      "publicationApproved": false,
+      "scriptRevision": "voice-rewrite-v2-20261027",
+      "scriptApproved": true,
+      "scriptApprovalStatus": "exact_script_approved"
+    },
+    {
+      "edition": "sunday-crew",
+      "leagueId": "1146fb6b-b5ea-4981-93c2-790be3b993ab",
+      "teamIds": [
+        "1",
+        "8"
+      ],
+      "matchupKey": "sunday-crew-2026-week7-recap-1-8",
+      "revision": "conditional-v3-20261027",
+      "articleRegistryId": "3aaabc50-a650-58e1-9441-8bf41b8556eb",
+      "articleSlug": "sunday-crew-2026-week7-recap-1-8-article-conditional-v3-20261027",
+      "scriptRegistryId": "e0171a41-6163-53d5-b070-d754066a3462",
+      "scriptSlug": "sunday-crew-2026-week7-recap-1-8-script-voice-rewrite-v2-20261027",
+      "writer": "march",
+      "headline": "First place, at ordinary distance",
+      "paragraphs": [
+        "Nipun arrived with five wins to Sandy’s three, having scored just 22.30 more points across six weeks. First place had acquired a certain grandeur that the scoring column did not entirely support. ZAYWATCH’s 130.46–81.52 win has made introductions considerably easier. Sandy no longer needs to explain how close they were.",
+        "He did not arrive with precisely Thursday’s arrangement. Jordan Love replaced Jared Goff, and Quinshon Judkins replaced Rico Dowdle. Those changes were not equally consequential: Love finished six hundredths below Goff, while Judkins supplied 22.9 against Dowdle’s 11.6. It would be a small social crime to make the quarterback choice the interesting part. Josh Jacobs added 17.6 beside Judkins; Sandy’s two running backs produced 40.5 without requiring anyone to admire their reputations first.",
+        "Amon-Ra St. Brown supplied 26.7 from the flex, more than Sandy’s three designated starting receivers combined. Nipun’s Derrick Henry and Aaron Jones, meanwhile, produced 8.5 between them. Ashton Jeanty contributed 17.6, but one substantial running-back afternoon could not make the other two look more sociable. The leader’s lineup had very recognizable names giving one another remarkably little assistance.",
+        "Sandy lost by 3.38 last week. This time the margin was 48.94, which permits a different relationship with the details. Kendrick Bourne’s 2.4 can be an unhelpful contribution rather than the beginning of an inquiry. Goff’s extra six hundredths can stay on the bench. Sandy has spent enough time explaining small differences. He is entitled to enjoy a large one."
+      ],
+      "bodySha256": "34dc837960c177625302e354b8d33645baf5253277a03de47b8cd5170094f0f5",
+      "script": "First place does a wonderful job of making a small difference look like a social hierarchy. Poon arrived with five wins to Sandy’s three. Their season totals were only twenty-two points apart. Sandy then beat him by forty-nine, which was a rather expansive way to introduce himself. I am not suggesting the standings apologize. They have rules. But anyone who had mistaken the seating arrangement for the quality of the guests has now had a very awkward evening.",
+      "scriptSha256": "1cea98580d7b5e447cf509e973445750a0f215fe1613175acba2fbdd29c0e977",
+      "sourcePackageSha256": "c8a8d00ba7ae1233f290b49c210b79782df67ade063c66f22ef89bb9b0a3e883",
+      "sourceCaptureManifest": {
+        "snapshotId": 188,
+        "capturedThrough": "2026-10-27T03:40:09.629Z",
+        "checkpointSha256": "2474947eb4ff0b6b179c345f4f68b3d00a3b60f81b4c6cf1ae70cd6b4bc2c3ab",
+        "providerFinality": "all6 in_progress"
+      },
+      "approvalStatus": "rika_editorial_conditional_pending_provider_finality",
+      "publicationApproved": false,
+      "scriptRevision": "voice-rewrite-v2-20261027",
+      "scriptApproved": true,
+      "scriptApprovalStatus": "exact_script_approved"
+    },
+    {
+      "edition": "sunday-crew",
+      "leagueId": "1146fb6b-b5ea-4981-93c2-790be3b993ab",
+      "teamIds": [
+        "2",
+        "10"
+      ],
+      "matchupKey": "sunday-crew-2026-week7-recap-2-10",
+      "revision": "conditional-v3-20261027",
+      "articleRegistryId": "b0b12ff2-d389-55d2-bdeb-b5851d1615b0",
+      "articleSlug": "sunday-crew-2026-week7-recap-2-10-article-conditional-v3-20261027",
+      "scriptRegistryId": "caac7293-aa28-529e-bafb-662add09e480",
+      "scriptSlug": "sunday-crew-2026-week7-recap-2-10-script-voice-rewrite-v2-20261027",
+      "writer": "crane",
+      "headline": "The part that kept working",
+      "paragraphs": [
+        "Four receivers had answered for Cody last week. Jaxon Smith-Njigba and Luther Burden apparently decided to answer a second time, more loudly, before anyone else could be consulted. Their combined 57.5 came within 4.9 of Andrew’s entire lineup. CHANE GANG won 133.92–62.40. For two players, this was an unusually comprehensive afternoon’s work.",
+        "The receiving quartet did not repeat its neat row of double figures. Tet McMillan scored six; Carnell Tate supplied 7.4. Together with Smith-Njigba and Burden, though, they produced 70.9, up from last week’s 62.5. Last time all four kept handing something back. This time Smith-Njigba brought 33.8 and Burden 23.7, and the other two were permitted a considerably less memorable Sunday.",
+        "The reinforcements arrived too. Ollie Gordon scored 18.8 from Thursday’s newly selected running-back pairing, while Kyle Pitts supplied 10.7 at tight end. Last week a zero there made the receivers’ work feel like emergency assistance. This time Pitts joined them. Tyler Allgeier’s 6.4 was modest, but Gordon and Pitts alone supplied almost thirty points beyond the receiving group. The same useful core suddenly had company.",
+        "Across the matchup, Andrew’s two-tight-end arrangement produced 5.3 from Pat Freiermuth and Sam LaPorta. Kyler Murray led his lineup with 13.9; nobody else reached ten. Even his highest-scoring contribution was smaller than either of Cody’s leading receivers by a very noticeable distance. Cody’s winning lineup last week depended on four different receiving spots doing their share. This week two of them nearly covered the opponent by themselves. McMillan and Tate still got to count."
+      ],
+      "bodySha256": "c3af6227f4d1db28382fae8149b2b5f463dc3d547b4531b503a39dc8faefd4ef",
+      "script": "The league requires one tight end. Andrew brought two. Cody brought Kyle Pitts, part of last week’s three-name journey to zero. This time Pitts outscored Andrew’s pair by more than two to one. Cody also won the actual matchup by seventy-two, although I remain chiefly concerned with the smaller experiment inside it. In the preview I said at least one of these men should be allowed to stop discussing tight ends afterward. Cody, you’re free to go.",
+      "scriptSha256": "4c1c3ca978c1b2483e637f281419d379b341bad7eae46477ea6bd851a19dba1a",
+      "sourcePackageSha256": "c8a8d00ba7ae1233f290b49c210b79782df67ade063c66f22ef89bb9b0a3e883",
+      "sourceCaptureManifest": {
+        "snapshotId": 188,
+        "capturedThrough": "2026-10-27T03:40:09.629Z",
+        "checkpointSha256": "2474947eb4ff0b6b179c345f4f68b3d00a3b60f81b4c6cf1ae70cd6b4bc2c3ab",
+        "providerFinality": "all6 in_progress"
+      },
+      "approvalStatus": "rika_editorial_conditional_pending_provider_finality",
+      "publicationApproved": false,
+      "scriptRevision": "voice-rewrite-v2-20261027",
+      "scriptApproved": true,
+      "scriptApprovalStatus": "exact_script_approved"
+    },
+    {
+      "edition": "sunday-crew",
+      "leagueId": "1146fb6b-b5ea-4981-93c2-790be3b993ab",
+      "teamIds": [
+        "3",
+        "4"
+      ],
+      "matchupKey": "sunday-crew-2026-week7-recap-3-4",
+      "revision": "conditional-v3-20261027",
+      "articleRegistryId": "3b5af814-ad63-5292-b6ab-03698e0a12fd",
+      "articleSlug": "sunday-crew-2026-week7-recap-3-4-article-conditional-v3-20261027",
+      "scriptRegistryId": "99034ce0-6d6d-5dc8-a34f-15e2e64f9cec",
+      "scriptSlug": "sunday-crew-2026-week7-recap-3-4-script-voice-rewrite-v2-20261027",
+      "writer": "pike",
+      "headline": "The useful names",
+      "paragraphs": [
+        "Lamar Jackson occupied Patrick’s quarterback slot on Thursday. By the scoring lineup, Dak Prescott had the job and supplied 23.28. Saquon Barkley moved from the bench into the flex and delivered 14.1. Rhamondre – A Cautionary Tale beat Croatian Sensation 121.78–112.04 without the expensive-looking version of the lineup becoming the actual one.",
+        "The last column distinguished valuable names from usable inventory. Barkley’s contribution changes that account, but the larger improvement came from the two running backs who were already working. Rhamondre Stevenson and Kenny Gainwell combined for 6.5 in Week 6. This week they supplied 30.8, with Stevenson responsible for twenty-two. Patrick did not need to replace that pairing to recover twenty-four points from it.",
+        "He did replace the receiver slot Thursday’s selection had assigned to Jakobi Meyers during Jacksonville’s bye. Devaughn Vele produced 13.9, more than enough to matter in a 9.74-point win. Add Puka Nacua’s 17.8 and Patrick’s receiving contribution starts to look less like a place for the lineup to wait while its famous reserves become useful. Vele was not the most prestigious name involved. He was quite a substantial part of the return.",
+        "Paul had 30.44 from Drake Maye and 25.8 from Tee Higgins. Two players supplied just over half his total, but A.J. Brown and Xavier Worthy combined for 8.9, and Harrison Butker and the Chiefs defense added 6.3. Patrick got 15.7 from his kicker and defense. That difference was almost the margin itself. The quarterback and Barkley changes draw the eye. The less glamorous end of Patrick’s lineup was making the numbers work."
+      ],
+      "bodySha256": "09175e330358e6f4a92d4d4b8ee683ec474a817df85a5cf8a5a454cb3b2d273d",
+      "script": "Patrick needed usable players, not a reunion. Barkley was back, but Devaughn Vele filled the receiver opening and contributed more than the entire winning margin over Paul. That is what a temporary solution is for. It does not have to become someone you build your team around. It has to keep one missing player from turning into a missing win. Barkley can have the headline. Vele did the supposedly minor job that Patrick could not afford to leave undone.",
+      "scriptSha256": "92caf440dc99a48753805c8f00fa96c99785b27b69f0a1ff643aa15d10208298",
+      "sourcePackageSha256": "c8a8d00ba7ae1233f290b49c210b79782df67ade063c66f22ef89bb9b0a3e883",
+      "sourceCaptureManifest": {
+        "snapshotId": 188,
+        "capturedThrough": "2026-10-27T03:40:09.629Z",
+        "checkpointSha256": "2474947eb4ff0b6b179c345f4f68b3d00a3b60f81b4c6cf1ae70cd6b4bc2c3ab",
+        "providerFinality": "all6 in_progress"
+      },
+      "approvalStatus": "rika_editorial_conditional_pending_provider_finality",
+      "publicationApproved": false,
+      "scriptRevision": "voice-rewrite-v2-20261027",
+      "scriptApproved": true,
+      "scriptApprovalStatus": "exact_script_approved"
+    },
+    {
+      "edition": "sunday-crew",
+      "leagueId": "1146fb6b-b5ea-4981-93c2-790be3b993ab",
+      "teamIds": [
+        "5",
+        "12"
+      ],
+      "matchupKey": "sunday-crew-2026-week7-recap-5-12",
+      "revision": "conditional-v3-20261027",
+      "articleRegistryId": "a2714d4b-5575-5cda-9eb3-e8fb663b5026",
+      "articleSlug": "sunday-crew-2026-week7-recap-5-12-article-conditional-v3-20261027",
+      "scriptRegistryId": "5974965c-4d7e-5b68-9a7e-aff4a4fc15a5",
+      "scriptSlug": "sunday-crew-2026-week7-recap-5-12-script-voice-rewrite-v2-20261027",
+      "writer": "kells",
+      "headline": "The repair was real",
+      "paragraphs": [
+        "Matt replaced the idle Omarion Hampton with Blake Corum and received 16.6 points for doing it. Jonathan Taylor added eighteen. Those are useful running-back contributions. They deserve to survive the temptation to describe a 162.28–76.00 loss to RBs are Overrated as an uninterrupted sequence of terrible ideas.",
+        "The trouble is where the lineup went next. Josh Downs, Nico Collins and Wan’Dale Robinson combined for 7.1. Brandon Aubrey supplied fourteen from the kicker slot. The three designated receivers needed almost another copy of themselves to catch the kicker. Each had a score, a decimal, the appearance of participation. Together they were still asking the man with one job to lower his expectations.",
+        "Tucker Kraft’s 12.8 from the flex helped. Isaiah Likely supplied 2.2 at tight end, leaving the arrangement with one contributing member and one excellent view of it. Mahomes scored seven. Between the quarterback and three receivers, Matt had 14.1: Aubrey plus a tenth. The running backs had not wandered into a bad afternoon. They had wandered into a different team’s afternoon and were apparently expected to carry both.",
+        "Runit offered a demonstration of what happens when the help keeps arriving. Tony Pollard scored thirty-seven, Bucky Irving 25.5 and Chuba Hubbard eight. Then Zay Flowers added 27.7, George Pickens 13.7 and Brock Bowers 10.3. Matt’s runners could be useful and still be outscored by Runit’s trio by 35.9. His receivers did not need to make things worse. They had already done enough by failing, collectively, to become one Brandon Aubrey."
+      ],
+      "bodySha256": "ad7235af7dcabc78bd19a28e77da28f424f5ae618ed980d2732841d3654ce969",
+      "script": "Matt’s quarterback and three receivers outscored his kicker, Brandon Aubrey. Combined. By a tenth of a point. I want all four names on the certificate, in the same size type. Nobody gets to quietly shorten this to “the offense won.” Matt lost to Runit by eighty-six.",
+      "scriptSha256": "14774a8e68f3c5c03e31af89e222e48118f582cb3b26c3b9ebf81dbbb33c69cd",
+      "sourcePackageSha256": "c8a8d00ba7ae1233f290b49c210b79782df67ade063c66f22ef89bb9b0a3e883",
+      "sourceCaptureManifest": {
+        "snapshotId": 188,
+        "capturedThrough": "2026-10-27T03:40:09.629Z",
+        "checkpointSha256": "2474947eb4ff0b6b179c345f4f68b3d00a3b60f81b4c6cf1ae70cd6b4bc2c3ab",
+        "providerFinality": "all6 in_progress"
+      },
+      "approvalStatus": "rika_editorial_conditional_pending_provider_finality",
+      "publicationApproved": false,
+      "scriptRevision": "voice-rewrite-v2-20261027",
+      "scriptApproved": true,
+      "scriptApprovalStatus": "exact_script_approved"
+    },
+    {
+      "edition": "sunday-crew",
+      "leagueId": "1146fb6b-b5ea-4981-93c2-790be3b993ab",
+      "teamIds": [
+        "6",
+        "9"
+      ],
+      "matchupKey": "sunday-crew-2026-week7-recap-6-9",
+      "revision": "conditional-v3-20261027",
+      "articleRegistryId": "45caf446-7515-5d55-a1b7-7373be03d1b7",
+      "articleSlug": "sunday-crew-2026-week7-recap-6-9-article-conditional-v3-20261027",
+      "scriptRegistryId": "ed9db4f0-83db-5a19-839e-67d957879935",
+      "scriptSlug": "sunday-crew-2026-week7-recap-6-9-script-voice-rewrite-v2-20261027",
+      "writer": "sorrell",
+      "headline": "Ravi found a quarterback",
+      "paragraphs": [
+        "Ravi’s Thursday lineup had Justin Herbert selected during the Chargers’ bye and no second quarterback in the retrieved roster. The team that actually played had Bo Nix and his 30.28 points. It’s always sunny in ALLENtown beat Scrump 155.78–100.62. The most obvious problem on Thursday became Ravi’s highest-scoring position.",
+        "He changed more than the quarterback. Jameson Williams moved from the flex into a receiver slot and supplied 23.6. T.J. Hockenson occupied the flex and added 11.5. With CeeDee Lamb’s 21.9 and Drake London’s 16.1, Ravi’s three designated receivers combined for 61.6. Last week his receiving group had done good work in a losing lineup. This week the work no longer stopped at the edge of that department.",
+        "Jaylen Warren scored 17.2. The kicker and defense supplied another 22.8. Mark Andrews’ 3.8 was hardly imposing, and Woody Marks’ 8.6 was modest, but there were no zeroes to turn the rest into an emergency. Nix was the largest contribution, not the only thing preventing the afternoon from collapsing. There is a difference between finding a quarterback and making everybody else unnecessary. Ravi did the first.",
+        "Drew’s best receiving return came from Omar Cooper’s twenty-two. Bijan Robinson and Jahmyr Gibbs supplied 31.5 together; the remaining offensive selections all stayed below fifteen. I spent the last column conceding that Drew could accept a narrow win without maintaining his complaint about the schedule. There is nothing similarly mysterious to negotiate here. Ravi found a quarterback, rearranged the receiving work and got help from the rest. Drew’s two running backs combined barely cleared the replacement quarterback."
+      ],
+      "bodySha256": "076190fb35d0b2ddbd903aa2937a3a03ca937e142bafeea939bf774f5d08a5f9",
+      "script": "My case for Drew was relatively simple: good team, bad record. Then he won with ninety points. Now he has scored more and lost by fifty-five to Ravi. At some point I have to stop rearranging the explanation and acknowledge the actual opponent. Ravi filled his quarterback spot with Bo Nix and got his highest score there. Drew’s case can remain open. Ravi is not obliged to sit through it.",
+      "scriptSha256": "55baa84201cde1c079f8a5f9c166ad9b14d5c46415f0290a7de5c16f4db51f67",
+      "sourcePackageSha256": "c8a8d00ba7ae1233f290b49c210b79782df67ade063c66f22ef89bb9b0a3e883",
+      "sourceCaptureManifest": {
+        "snapshotId": 188,
+        "capturedThrough": "2026-10-27T03:40:09.629Z",
+        "checkpointSha256": "2474947eb4ff0b6b179c345f4f68b3d00a3b60f81b4c6cf1ae70cd6b4bc2c3ab",
+        "providerFinality": "all6 in_progress"
+      },
+      "approvalStatus": "rika_editorial_conditional_pending_provider_finality",
+      "publicationApproved": false,
+      "scriptRevision": "voice-rewrite-v2-20261027",
+      "scriptApproved": true,
+      "scriptApprovalStatus": "exact_script_approved"
+    },
+    {
+      "edition": "sunday-crew",
+      "leagueId": "1146fb6b-b5ea-4981-93c2-790be3b993ab",
+      "teamIds": [
+        "7",
+        "11"
+      ],
+      "matchupKey": "sunday-crew-2026-week7-recap-7-11",
+      "revision": "conditional-v3-20261027",
+      "articleRegistryId": "5d386409-2565-54b2-8fa7-b903b69e3345",
+      "articleSlug": "sunday-crew-2026-week7-recap-7-11-article-conditional-v3-20261027",
+      "scriptRegistryId": "93258e54-a3de-532c-aca9-d7e8f4459756",
+      "scriptSlug": "sunday-crew-2026-week7-recap-7-11-script-voice-rewrite-v2-20261027",
+      "writer": "gannon",
+      "headline": "The bench was not the margin",
+      "paragraphs": [
+        "Tre Tucker scored 20.8 on Joe’s bench after appearing alongside Denzel Boston in Thursday’s selected lineup. Jordan Mason took the flex spot instead. Tolbert’s Cookies beat J Bird 164.80–110.88, which invites a familiar diagnosis until the subtraction begins: Tucker over Mason adds fourteen, and Tucker over Boston adds 16.6. The margin was 53.92.",
+        "Last week Joe led the league while leaving an even larger Tucker improvement unused. This time the points accompany a defeat. They have not become more explanatory because the result is less pleasant. Tucker’s selection is worth reviewing; asking it to account for nearly fifty-four points is requesting a service the decision cannot provide.",
+        "Greg supplied the more consequential development. Javonte Williams, Trey McBride and KC Concepcion combined for 73.8. Kyren Williams and Braelon Allen each added at least seventeen, while Makai Lemon supplied 16.2. Matthew Stafford’s 18.5 did useful work without needing to carry the account. Last week several benched alternatives could have reversed Greg’s 1.48-point defeat. This week none of his recorded reserves scored. Almost all the interesting arithmetic was already in his lineup.",
+        "Joe did get 28.88 from Burrow, nineteen from McCaffrey and at least sixteen from Nabers and Loveland. He also replaced the idle Tyler Bass with Trey Smack, who returned minus one. The coverage problem was fixed; the kicker result was not. Joe had real production, an unused receiving improvement and a dreadful kicker score. Greg had seven offensive starters above sixteen. Start the explanation there."
+      ],
+      "bodySha256": "93d9da15494cbc3da3c072a9e0d3be13b483d585768a1d929afa45902aaf7c65",
+      "script": "Last week Greg lost by less than two, with several winning versions of his lineup available afterward. An excellent time to become infallible. This week he beat Joe with seven offensive starters above sixteen. His reserves scored nothing. There is no improved edition to assemble once you know the answers; the useful points were already playing. That does not make Greg clairvoyant. I will have to assess the team he actually fielded. No substitutions from the comfort of Tuesday morning. How inconvenient.",
+      "scriptSha256": "facaa0344b05bc4c111f244adf0fb8a449ecaa2702054de53458dbeb40489aa5",
+      "sourcePackageSha256": "c8a8d00ba7ae1233f290b49c210b79782df67ade063c66f22ef89bb9b0a3e883",
+      "sourceCaptureManifest": {
+        "snapshotId": 188,
+        "capturedThrough": "2026-10-27T03:40:09.629Z",
+        "checkpointSha256": "2474947eb4ff0b6b179c345f4f68b3d00a3b60f81b4c6cf1ae70cd6b4bc2c3ab",
+        "providerFinality": "all6 in_progress"
+      },
+      "approvalStatus": "rika_editorial_conditional_pending_provider_finality",
+      "publicationApproved": false,
+      "scriptRevision": "voice-rewrite-v2-20261027",
+      "scriptApproved": true,
+      "scriptApprovalStatus": "exact_script_approved"
+    }
+  ],
+  "approvedScriptManifestSha256": "0c172475c7736d1648cc944e49c4cbdcaad9d960c9873697ae77920ad8b39f29"
+}

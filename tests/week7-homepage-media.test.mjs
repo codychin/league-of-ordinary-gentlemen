@@ -1,17 +1,38 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import {createHash} from 'node:crypto';
+import {validateWeek7RecapMediaBatch} from '../scripts/operations/validate-week7-recap-draft.mjs';
 const read=p=>fs.readFileSync(p,'utf8');
 const items=JSON.parse(read('data/week7-approved-homepage-media.json'));
 const pairs={loog:['2-5','7-12','4-10','3-8','9-11','1-6'],'sunday-crew':['1-8','2-10','3-4','5-12','6-9','7-11'],doge:['1-6','2-7','3-8','4-12','5-10','9-11']};
-test('Week 7 has exactly six independently approved packaged clips per edition',()=>{
+const packet=JSON.parse(read('qa/week7-recap-draft.json'));
+const originals=JSON.parse(read('qa/week7-owner-playback-exception.json')).assets;
+test('recap source wiring preserves shelf order and binds all 18 approved originals',()=>{
+ const previous=JSON.parse(read('data/week7-preview-homepage-media.json'));
+ assert.equal(items.length,18);
+ assert.deepEqual(items.map(r=>[r.edition,r.teamIds,r.short,r.matchup,r.left,r.right]),previous.map(r=>[r.edition,r.teamIds,r.short,r.matchup,r.left,r.right]));
+ for(const r of items){
+  const exact=originals.find(a=>a.matchupKey===r.matchupKey);
+  const script=packet.entries.find(a=>a.matchupKey===r.matchupKey);
+  assert.equal(r.id,exact.videoId);assert.equal(r.scriptSha256,exact.scriptSha256);
+  assert.equal(r.writer,script.writer);assert.equal(r.scriptRegistryId,script.scriptRegistryId);
+  assert.equal(r.sourceSha256,exact.sourceSha256);assert.equal(r.kind,'recap');
+  assert.equal(createHash('sha256').update(fs.readFileSync(`public/reels/${r.id}.mp4`)).digest('hex'),exact.sourceSha256);
+  assert.equal(r.qaStatus,'technical_pass_owner_playback_exception');
+  for(const key of ['fullPlaybackInspection','independentAuditoryListening','performanceApproval'])assert.equal(r[key],false);
+  assert.ok(!JSON.stringify(r).match(/https?:\/\/|signed|budget|billing|\/workspace\//i));
+ }
+});
+test('Week 7 has exactly six authorized packaged recaps per edition',()=>{
  assert.equal(items.length,18);assert.equal(new Set(items.map(r=>r.id)).size,18);
  for(const [edition,expected] of Object.entries(pairs)){
   const rows=items.filter(r=>r.edition===edition);assert.equal(rows.length,6);
+  validateWeek7RecapMediaBatch(packet,edition,rows);
   assert.deepEqual(rows.map(r=>r.teamIds.map(Number).sort((a,b)=>a-b).join('-')).sort(),expected.sort());
   for(const r of rows){
-   assert.match(r.id,/^[a-f0-9]{32}$/);assert.equal(r.season,2026);assert.equal(r.week,7);assert.equal(r.kind,'preview');
-   assert.equal(r.qaStatus,'media_qa_passed');assert.ok(r.approvalSource);assert.match(r.scriptSha256,/^[a-f0-9]{64}$/);assert.ok(r.voiceId);assert.ok(r.sourceRevision);
+   assert.match(r.id,/^[a-f0-9]{32}$/);assert.equal(r.season,2026);assert.equal(r.week,7);assert.equal(r.kind,'recap');
+   assert.equal(r.qaStatus,'technical_pass_owner_playback_exception');assert.ok(r.approvalSource);assert.match(r.scriptSha256,/^[a-f0-9]{64}$/);assert.ok(r.voiceId||r.sourceAudio?.sha256);assert.ok(r.sourceRevision);
    assert.ok(!r.videoUrl,'Use durable packaged playback, not temporary provider URLs');
    const base=`public/reels-hls/${r.id}/`;
    const m=read(base+'index.m3u8');assert.match(m,/^#EXTM3U/m);assert.match(m,/#EXT-X-ENDLIST/);
@@ -24,7 +45,7 @@ test('Week 7 has exactly six independently approved packaged clips per edition',
 });
 test('Week 7 release binds only homepages; matchup text and historic assets remain separate',()=>{
  const page=read('app/page.js'),config=read('lib/edition-content.js');
- assert.match(page,/week7Reels\('loog'\)/);assert.match(page,/loog-week7-preview-v2/);
- for(const e of ['sunday-crew','doge']){assert.ok(config.includes(`week7Reels('${e}')`));assert.ok(config.includes(`${e}-week7-preview-v2`));}
+ assert.match(page,/week7Reels\('loog'\)/);assert.match(page,/loog-week7-recap-v2/);
+ for(const e of ['sunday-crew','doge']){assert.ok(config.includes(`week7Reels('${e}')`));assert.ok(config.includes(`${e}-week7-recap-v2`));}
  for(const p of ['app/matchups/[a]/[b]/page.js','app/components/editions/Matchup.js'])assert.ok(!read(p).includes('<video'));
 });

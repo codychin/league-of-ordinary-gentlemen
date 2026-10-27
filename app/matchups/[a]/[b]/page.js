@@ -1,5 +1,11 @@
 import latestScores from '../../../../data/latest-loog-scores.json';
+import completedScores from '../../../../data/completed-loog-scores.json';
+import {selectLoogScores} from '../../../../lib/select-loog-scores.mjs';
 import closeout from '../../../../data/week6-loog-closeout.json';
+import rosters1 from '../../../../data/week7-loog-source/02-rosters-1-4.json';
+import rosters2 from '../../../../data/week7-loog-source/03-rosters-5-8.json';
+import rosters3 from '../../../../data/week7-loog-source/04-rosters-9-12.json';
+const week7Rosters=[...rosters1.rosters,...rosters2.rosters,...rosters3.rosters];
 import matchupColumnsWeek6 from '../../../../data/week6-matchup-columns.json';
 import matchupColumnsWeek7 from '../../../../data/week7-matchup-columns.json';
 const matchupColumns=[...matchupColumnsWeek6,...matchupColumnsWeek7];
@@ -35,14 +41,15 @@ export default async function MatchupPreview({params}){
 
   // Current-week scores are provider snapshots. The static leagueSnapshot below remains historical.
   // Never recycle last week's finalized roster or score into a new matchup.
-  let latest=latestScores;
+  let provider;
   try{
     const res=await fetch('https://dnzdbqycuuoonewcowis.supabase.co/functions/v1/brief-sunday-engine?action=scores',{cache:'no-store'});
     if(res.ok){
       const value=await res.json();
-      if(value?.ok&&Array.isArray(value.matchups)&&(Number(value.week)>Number(latest.week)||(Number(value.week)===Number(latest.week)&&Date.parse(value.updatedAt)>Date.parse(latest.updatedAt))))latest=value;
+      if(value?.ok&&Array.isArray(value.matchups))provider=value;
     }
   }catch{}
+  const latest=selectLoogScores({provider,latest:latestScores,completed:completedScores});
   if(latest){
     const idA=Number(left.teamId),idB=Number(right.teamId);
     const game=latest.matchups.find(g=>[Number(g.home?.id),Number(g.away?.id)].includes(idA)&&[Number(g.home?.id),Number(g.away?.id)].includes(idB));
@@ -52,7 +59,7 @@ export default async function MatchupPreview({params}){
     const final=Boolean(game.winner&&game.winner!=='UNDECIDED');
     const pregame=!final&&Number(ls.score||0)===0&&Number(rs.score||0)===0;
     const phase=final?'FINAL':game.closeoutPending?'AWAITING PROVIDER FINAL':pregame?'PREGAME':'LIVE';
-    const verified=Number(latest.week)===closeout.week?closeout.loog.details.flatMap(g=>[g.home,g.away]):[];
+    const verified=Number(latest.week)===7?week7Rosters:Number(latest.week)===closeout.week?closeout.loog.details.flatMap(g=>[g.home,g.away]):[];
     const verifiedLeft=verified.find(t=>t.teamId===idA)?.players.filter(p=>p.started)||[];
     const fallbackLeft=activeRoster(left).map(p=>({lineupSlot:p.slot,name:p.name,points:null}));
     const leftPlayers=verifiedLeft.length?verifiedLeft:fallbackLeft;

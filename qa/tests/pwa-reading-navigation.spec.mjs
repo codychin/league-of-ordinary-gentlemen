@@ -1,5 +1,10 @@
 import {test,expect} from '@playwright/test';
 import {isSundayLiveWindow} from '../../lib/live-desk-state.js';
+import {readFileSync} from 'node:fs';
+import {leagueSnapshot} from '../../app/teams/league-data.js';
+const loogFixture=JSON.parse(readFileSync(new URL('../../data/latest-loog-scores.json',import.meta.url))).matchups[0];
+const teamSlug=id=>Object.keys(leagueSnapshot.teams).find(slug=>leagueSnapshot.teams[slug].teamId===id);
+const loogMatchupPath=`/matchups/${teamSlug(loogFixture.home.id)}/${teamSlug(loogFixture.away.id)}`;
 
 const liveDeskFixture=()=>({posts:Array.from({length:5},(_,i)=>({id:'live-layout-fixture-'+i,writer:'gannon',subject:'Live layout fixture '+i,text:'Fixture reporting used only to exercise document layout. '.repeat(8),published_at:new Date().toISOString(),source_url:'https://example.com'}))});
 async function settleInitialLiveDesk(page){
@@ -29,7 +34,7 @@ for(const root of ['','/sunday-crew','/doge']){
  test(`production document-scroll navigation: ${root||'LOOG'}`,async({page,context,browserName},testInfo)=>{
   test.skip(testInfo.project.name==='desktop','Mobile shell is inactive on desktop.');
   await page.addInitScript(()=>Object.defineProperty(navigator,'standalone',{get:()=>true}));
-  if(!root)testInfo.annotations.push({type:'fixture',description:'LOOG long matchup uses the committed Week 6 score snapshot via QA-only server preload; this tests layout, not live provider correctness.'});
+  if(!root)testInfo.annotations.push({type:'fixture',description:'LOOG long matchup uses the committed completed-week score snapshot via QA-only server preload; this tests layout, not live provider correctness.'});
   const samples=[],content=page.locator('html');
   const check=async(label)=>{
    const s=await page.locator('.appTabBar').evaluate(el=>{
@@ -78,10 +83,10 @@ for(const root of ['','/sunday-crew','/doge']){
    await page.getByRole('navigation',{name:'App navigation'}).getByRole('link',{name:'Scores',exact:true}).click();await expect(page).toHaveURL(/#scores$/);
    // The QA server pins the committed LOOG score snapshot so the original
    // long matchup flow does not turn into a short "not this week" provider response.
-   const matchup=root?await page.locator('a[href*="/matchups/"]').first().getAttribute('href'):'/matchups/skatt/hopkins-opus';
+   const matchup=root?await page.locator('a[href*="/matchups/"]').first().getAttribute('href'):loogMatchupPath;
    expect((await page.goto(matchup)).status()).toBe(200);await expect(page.locator('main.matchupPage')).toBeVisible();await expect(page.locator('.matchupColumn')).toBeVisible();
    if(!root){
-    await expect(page.locator('.matchupHeroSide h1')).toHaveText(["I'm a Skatt man",'Mr Hopkins Opus']);
+    await expect(page.locator('.matchupHeroSide h1')).toHaveText([loogFixture.home.name,loogFixture.away.name]);
     expect((await page.locator('.matchupColumn').innerText()).length).toBeGreaterThan(300);
     expect(await content.evaluate(e=>e.scrollHeight-e.clientHeight)).toBeGreaterThan(500);
    }

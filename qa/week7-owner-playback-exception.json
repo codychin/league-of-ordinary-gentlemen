@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 1,
+  "exceptionId": "week7-2026-owner-playback-exception",
+  "authorizedAt": "2026-10-27T22:47:03Z",
+  "authorizedBy": "Cody",
+  "scope": "Only these 18 original videos and exact approved scripts; no future batches or replacements.",
+  "scriptRevision": "voice-rewrite-v2-20261027",
+  "publicationApproved": true,
+  "fullPlaybackInspection": false,
+  "independentAuditoryListening": false,
+  "performanceApproval": false,
+  "waivedReview": [
+    "auditoryPronunciationAndCadence",
+    "continuousMotionAndLipSync",
+    "fullPerformanceReview"
+  ],
+  "assets": [
+    {
+      "matchupKey": "doge-2026-week7-recap-1-6",
+      "videoId": "767a690ca578a94b37551670f196948c",
+      "sourceSha256": "4a46f6c974fe58aaa46bdef4a911fef9bf774da3208fd172a9e493e12a4d466e",
+      "scriptSha256": "cfc9d67a06ab2d0ba45502e93c2dae9990acf0b88c6ddd322237e46323c44006"
+    },
+    {
+      "matchupKey": "doge-2026-week7-recap-2-7",
+      "videoId": "f1f50af7659bd9dc184584ccfbe371f7",
+      "sourceSha256": "909cb152a2769f919191362e19a537ce55a6cec4fddf799358df1bda1f2f55a6",
+      "scriptSha256": "a39894412f062c3a80d2670cb5856dbee50e43ba5624d496383758745dd05da4"
+    },
+    {
+      "matchupKey": "doge-2026-week7-recap-3-8",
+      "videoId": "bae3db100a8b889418b3a7586bbc6c57",
+      "sourceSha256": "f3bd53d4d6622a5d43045cdde31dbbf36651c35d3a96a0a62483c300b6f5fbb9",
+      "scriptSha256": "301c553552db8dead724f432c7729d243c14b159594cf96fb9e637aaa4e5ed92"
+    },
+    {
+      "matchupKey": "doge-2026-week7-recap-4-12",
+      "videoId": "c4fd9f1825cb0fbd4124f6da057519fa",
+      "sourceSha256": "aba32c4d93e3f7befb6bc2b459d0fc00418e63468a8400b0460857aed8645a54",
+      "scriptSha256": "c623164da85df1c7df6807d5378392d9d221e1ce2914261f4266429e744e8329"
+    },
+    {
+      "matchupKey": "doge-2026-week7-recap-5-10",
+      "videoId": "7933be525a78f092953085f927b669db",
+      "sourceSha256": "f5a3459b1222796247b0cd04848e33a9833936604d9d5d87dc8cdbadd3af34ec",
+      "scriptSha256": "db59847e4e0145faf4bdcb3b25c6eeb2f79e80529405e0d58554ca5e063b832e"
+    },
+    {
+      "matchupKey": "doge-2026-week7-recap-9-11",
+      "videoId": "9fb0773e01f5ceef619b45a3a47b62ce",
+      "sourceSha256": "900c1018d9e0af9dde0a165ddefb52c603c457656a468af5213c0dbcb872862d",
+      "scriptSha256": "650b3e56d1c358ee332c1fb80db9814e9a56c008958aaa6f13598a70ce1a597f"
+    },
+    {
+      "matchupKey": "loog-2026-week7-recap-1-6",
+      "videoId": "77fdb818ebdba6c6d4992a6995bceb21",
+      "sourceSha256": "09968c27cfed1ffa8a08d2833c6b604cabca4453c9c9d4430e9252aeccc9ac4e",
+      "scriptSha256": "3954697d2eb0f7557c054d9e20b9e8c7fb9ace0c479b1fa35749ccc84658003a"
+    },
+    {
+      "matchupKey": "loog-2026-week7-recap-2-5",
+      "videoId": "706fc56d2a83e7a534dd9af5fdbc3ba7",
+      "sourceSha256": "c141e6cbba6eee6dd81cc3308be46897aba788df76484486873e1ca9de6c886b",
+      "scriptSha256": "c8058b42b5a92d29676d8dc15e269c86988f9828d0b915b17b7bd1022d387577",
+      "sourceAudio": {
+        "inputType": "supplied_audio",
+        "requestId": "06bba8ba05024952a82e6915ddff18d1",
+        "assetId": "3a01f115-ec68-4e0b-b88d-f9c165830f74",
+        "sha256": "f3fa9830c31d91ca98b2616ef03b471d701795af2a3d1c301a0bf4887f3e2810",
+        "avatarId": "9b32dab9eed447a681b4240ad1a5569c",
+        "sceneEditVersion": "7dfbf9ba3cf68602d8cbbda00f05b7333466521df16c2e230c6d6d452c5c2bc4"
+      },
+      "voiceId": "6567750df960424fb6556202d7206640",
+      "voiceIdProvenance": "original_provider_audio_path_independently_matched_to_current_video_scene"
+    },
+    {
+      "matchupKey": "loog-2026-week7-recap-3-8",
+      "videoId": "0acbc3ddc05e75befc4e2b1ac574ed22",
+      "sourceSha256": "de98c961719cc41e6e79246e165c091e435a5c66b47fc463cc7dc44daf58ad49",
+      "scriptSha256": "125bccd7e81fb6eedaeaf4f4cfb3a47c56ef3b0fd54296970138723e67b57810"
+    },
+    {
+      "matchupKey": "loog-2026-week7-recap-4-10",
+      "videoId": "d34541194289c66007a7dd97e41a6a31",
+      "sourceSha256": "e876d1696c420f6c677080605e41796200a2b2ccebbefd57d96926d1853e6d54",
+      "scriptSha256": "6e58b1412e386e6223e95fdbda5330cc08f4f889c3481a7ed42bc0ae71ff50a5"
+    },
+    {
+      "matchupKey": "loog-2026-week7-recap-7-12",
+      "videoId": "585d911cd4985732d63653d81bdc7bed",
+      "sourceSha256": "993d09636224b4a1a9f1b3e00037db08741818283b299aaf6a50ade9419333db",
+      "scriptSha256": "517645bde8c643d44962093b80201fbc6eabfcdd2c0dafc15e2d02fd532151b6"
+    },
+    {
+      "matchupKey": "loog-2026-week7-recap-9-11",
+      "videoId": "1467964260cf0fa4511dee31e1c398d4",
+      "sourceSha256": "3d3bae719b2d94ddae2853b933d5c97e20d6d130ace560402482f60ba4279a3e",
+      "scriptSha256": "aa18d8069ec9075101681af66a378ee71f7520cbaa48940b5f6c65cdc71e4c81"
+    },
+    {
+      "matchupKey": "sunday-crew-2026-week7-recap-1-8",
+      "videoId": "63f10c551eaeafff23ee5b90cc4200e5",
+      "sourceSha256": "fcc51a4fbc1db17a399be947d2e2d2845708cfc0745214aff3f03d8146cf0790",
+      "scriptSha256": "1cea98580d7b5e447cf509e973445750a0f215fe1613175acba2fbdd29c0e977"
+    },
+    {
+      "matchupKey": "sunday-crew-2026-week7-recap-2-10",
+      "videoId": "fda44a9d5121ed3be7b187e30c15530c",
+      "sourceSha256": "66acbfb8ad7bb8346abe22fc9c0565d35f12dcc9e88234ce09246259b2685c1f",
+      "scriptSha256": "4c1c3ca978c1b2483e637f281419d379b341bad7eae46477ea6bd851a19dba1a"
+    },
+    {
+      "matchupKey": "sunday-crew-2026-week7-recap-3-4",
+      "videoId": "1d80c62dc341a00dd6e271e66642a3f4",
+      "sourceSha256": "bcd49f8142ef0d0397952222d1e1d5bd839b4c88139c226284bf55bc89309086",
+      "scriptSha256": "92caf440dc99a48753805c8f00fa96c99785b27b69f0a1ff643aa15d10208298"
+    },
+    {
+      "matchupKey": "sunday-crew-2026-week7-recap-5-12",
+      "videoId": "ac82c6f0b55b39cd3d6a87e6dfba88ab",
+      "sourceSha256": "29cd49c35411fec3bab4588ca8489c2d17b5ce533c1c987dae9799f7808c9947",
+      "scriptSha256": "14774a8e68f3c5c03e31af89e222e48118f582cb3b26c3b9ebf81dbbb33c69cd"
+    },
+    {
+      "matchupKey": "sunday-crew-2026-week7-recap-6-9",
+      "videoId": "ffe537632fdcd4e50907256cc2669549",
+      "sourceSha256": "511dce2e0edb792b4dda0205b55b453c1e948912a8c170df1c2284550e508e5f",
+      "scriptSha256": "55baa84201cde1c079f8a5f9c166ad9b14d5c46415f0290a7de5c16f4db51f67"
+    },
+    {
+      "matchupKey": "sunday-crew-2026-week7-recap-7-11",
+      "videoId": "74f647b9a80ec002eda1bdeb27ad58b0",
+      "sourceSha256": "c2aaf39493583ba84582425a6eb8f3a840f1bf87a045fff14ab37c04bb3452c5",
+      "scriptSha256": "facaa0344b05bc4c111f244adf0fb8a449ecaa2702054de53458dbeb40489aa5"
+    }
+  ]
+}
