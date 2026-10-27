@@ -2,7 +2,7 @@ export const detroitSchoolArticle = {
   "week": 8,
   "section": "MATTERS OF CULTURE • ART HISTORY",
   "title": "A Study in Movement: The Detroit School, 2026",
-  "dek": "On the spontaneous birth of an artistic movement, the evolution of human expression, and fifteen seconds that threaten to render centuries of choreographic theory obsolete.",
+  "dek": "On the spontaneous birth of an artistic movement, and the evolution of human expression.",
   "date": "OCTOBER 26, 2026",
   "author": "kells",
   "tweetId": "2114509149681627494",
