@@ -7,6 +7,8 @@ export const detroitSchoolArticle = {
   "author": "kells",
   "tweetId": "2114509149681627494",
   "tweetUrl": "https://x.com/NFL/status/2114509149681627494?s=20",
+  "clipSrc": "/videos/editorial/detroit-school.mp4",
+  "clipPoster": "/images/editorial/detroit-school/hero.webp",
   "clipCaption": "The Detroit School in performance.",
   "imageAlt": "Detroit Lions celebrate together after an offside penalty against the Green Bay Packers.",
   "body": [
