@@ -43,6 +43,13 @@ detectors independently of live content.
 
 ## Reports
 
+`mobile-header-navigation.spec.mjs` runs an explicit 360/390/430/760/761/1440px
+matrix in the desktop Chromium project. It checks all three editions' home,
+Scores and shared article routes, collapsed header-menu space, preserved branding,
+bottom navigation and More access, and desktop navigation. Run it with
+`QA_BASE_URL=http://127.0.0.1:3000 npx playwright test qa/tests/mobile-header-navigation.spec.mjs --project=desktop`.
+Release integrity includes this regression alongside its existing browser checks.
+
 - `qa/reports/browser-html/index.html`: HTML report (`npx playwright show-report qa/reports/browser-html`).
 - `qa/reports/browser-results.json`: machine-readable Playwright results.
 - `qa/test-results/`: failure screenshots, traces and diagnostic attachments.

@@ -818,6 +818,8 @@
 
 /* Mobile web navigation contract: always visible. PWA-only behavior is handled in JS, not visibility CSS. */
 @media(max-width:760px){
+  /* The bottom bar replaces every edition's header menu, including its layout box. */
+  .siteNav{display:none!important}
   .appTabBar{
     display:grid!important;
     visibility:visible!important;
