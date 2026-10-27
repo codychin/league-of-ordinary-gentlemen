@@ -41,7 +41,7 @@ export const detroitSchoolArticle = {
     },
     {
       "type": "image",
-      "src": "/images/editorial/detroit-school/formation.webp",
+      "src": "/images/editorial/detroit-school/composition.webp",
       "alt": "Detroit teammates assembling into a shared celebration.",
       "caption": "Plate II. The Formation of a School.",
       "credit": {
@@ -157,8 +157,8 @@ export const detroitSchoolArticle = {
     },
     {
       "type": "image",
-      "src": "/images/editorial/detroit-school/composition.webp",
-      "alt": "Jameson Williams and Detroit teammates celebrating simultaneously in the wider frame.",
+      "src": "/images/editorial/detroit-school/completed-composition-selected.png",
+      "alt": "Detroit teammates perform separate celebratory movements together in the wider composition.",
       "caption": "Plate VII. The Completed Composition.",
       "credit": {
         "label": "NFL / still from the supplied video",
