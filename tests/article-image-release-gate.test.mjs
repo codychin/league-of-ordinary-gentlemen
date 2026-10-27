@@ -12,7 +12,7 @@ const block = workflow.split(marker)[1]?.split('      - uses:')[0]
 test('Release integrity requires geometry before successful automatic promotion', () => {
   assert.ok(block, 'mandatory browser step exists')
   assert.ok(workflow.indexOf('- run: npm run build') < workflow.indexOf(marker))
-  assert.match(workflow, /npx playwright install --with-deps chromium/)
+  assert.match(workflow, /node scripts\/operations\/assert-playwright-container\.mjs/)
   assert.doesNotMatch(workflow, /continue-on-error:/)
   assert.match(block, /QA_BASE_URL=http:\/\/127\.0\.0\.1:3000 npx playwright test qa\/tests\/article-image-framing\.spec\.mjs/)
   assert.match(promotion, /workflows: \["Release integrity", "Article image release gate"\]/)

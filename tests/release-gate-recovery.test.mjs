@@ -11,6 +11,10 @@ for(const html of ['<h1>The Brief</h1><p>Story not found.</p>','<h1>The Brief</h
 test('HTTP errors remain failures',()=>assert.throws(()=>validatePublicPage(404,good)));
 test('wrong article title remains failure',()=>assert.throws(()=>validatePublicPage(200,good,{article:true,expectedTitle:'Wrong story'})));
 test('article headline remains required',()=>assert.throws(()=>validatePublicPage(200,'The Brief',{article:true})));
+const detroit=JSON.parse(readFileSync('app/articles/marnie-detroit-school.js','utf8').replace(/^export const detroitSchoolArticle = /,'').replace(/;\s*$/,''));
+const plateHtml=detroit.body.filter(p=>p.type==='image').map(p=>'<figure class="articleInlineFigure"><img src="'+p.src+'" alt="'+p.alt+'"/><figcaption>'+p.caption+'</figcaption></figure>').join('');
+const detroitHtml='<h1>'+detroit.title+'</h1><p>The Brief</p><p>'+detroit.dek+'</p><div class="articleBylineShare">Marnie</div><figure>The Detroit School in performance.</figure><article class="articleBody">'+plateHtml+'</article>';
+function homepageFixture(root){return '<p>The Brief</p><section aria-label="Lead story: '+detroit.title+'"><a href="'+root+'/articles/marnie-detroit-school"><img src="/images/editorial/detroit-school/hero.webp" alt="Detroit Lions teammates celebrate together on the field."/></a></section><section aria-label="Recent stories"><h3>Allow Me to Reintroduce Myself</h3><h3>The Delicate Etiquette of a Sporting Pat</h3><h3>The Medical Clearance Industrial Complex</h3></section>';}
 const sha='a'.repeat(40);
 const project='prj_h89MCmxn3Mr3O0wRpnwstM917E0l';
 const team='team_hU7RX1oX9Ea0W2U9ieHwNxzL';
@@ -20,7 +24,7 @@ function simulate(mode,extra={}){
   const log=join(dir,'calls.jsonl');
   const preload=join(dir,'mock.mjs');
   writeFileSync(preload,`
-   import {appendFileSync} from 'node:fs';
+   import {appendFileSync,readFileSync} from 'node:fs';
    const mode=${JSON.stringify(mode)};
    const sha='${sha}';
    let branchReads=0,aliasReads=0,detailReads=0,autoAssign=mode==='interrupted-policy',promoted=mode==='interrupted-policy';
@@ -34,6 +38,9 @@ function simulate(mode,extra={}){
     if(u.hostname==='candidate.vercel.app'){
      if(options.headers?.['x-vercel-trusted-oidc-idp-token']!=='test-oidc')throw Error('Missing scoped identity');
      if(options.redirect!=='manual')throw Error('Credential-bearing redirects must be disabled');
+     if(path.startsWith('/images/'))return new Response(mode==='bad-detroit-image'?Buffer.alloc(5000):readFileSync('public'+path),{status:200,headers:{'content-type':'image/webp'}});
+     if(path.endsWith('/articles/marnie-detroit-school'))return new Response(mode==='bad-detroit-plate'?${JSON.stringify(detroitHtml.replace('Jahmyr Gibbs extends','Wrong athlete extends'))}:${JSON.stringify(detroitHtml)},{status:200});
+     if(!path.includes('/articles/'))return new Response(mode==='bad-detroit-lead'?'The Brief':({'/':${JSON.stringify(homepageFixture(''))},'/doge':${JSON.stringify(homepageFixture('/doge'))},'/sunday-crew':${JSON.stringify(homepageFixture('/sunday-crew'))}})[path],{status:mode==='bad-routes'?403:200});
      return new Response(${JSON.stringify(good)},{status:mode==='bad-routes'?403:200});
     }
     if(u.hostname==='api.github.com'){
@@ -83,7 +90,7 @@ test('default verification mode never requests promotion',()=>{const r=simulate(
 test('intentional staging canary fails without promotion',()=>{const r=simulate('success',{RELEASE_CANARY_FAIL:'1'});assert.notEqual(r.status,0);assert.equal(r.calls.filter(c=>c.method==='POST').length,0)});
 test('failed promotion still restores manual assignment',()=>{const r=simulate('promote-error');assert.notEqual(r.status,0);const post=r.calls.findIndex(c=>c.method==='POST');assert.equal(r.calls[post+1].method,'PATCH');assert.doesNotMatch(r.stdout,/VERIFIED production domain/)});
 test('failed policy restoration cannot be marked verified',()=>{const r=simulate('restore-fails');assert.notEqual(r.status,0);assert.doesNotMatch(r.stdout,/VERIFIED production domain/)});
-test('manual mode without attached provider checks still requires exact QA and staged routes',()=>{const r=simulate('no-provider');assert.equal(r.status,0,r.stderr);assert.match(r.stdout,/VERIFIED production domain/);assert.equal(r.calls.filter(c=>c.host==='candidate.vercel.app').length,6)});
+test('manual mode without attached provider checks still requires exact QA and staged routes',()=>{const r=simulate('no-provider');assert.equal(r.status,0,r.stderr);assert.match(r.stdout,/VERIFIED production domain/);assert.equal(r.calls.filter(c=>c.host==='candidate.vercel.app').length,20)});
 test('missing provider checks never permit failed GitHub QA',()=>{const r=simulate('no-provider-failed-qa');assert.notEqual(r.status,0);assert.equal(r.calls.filter(c=>c.method==='POST').length,0)});
 for(const mode of ['empty-get','invalid-json'])test('inspection fails closed without disclosing bodies: '+mode,()=>{const r=simulate(mode);assert.notEqual(r.status,0);assert.equal(r.calls.filter(c=>c.method==='POST').length,0)});
 
@@ -92,3 +99,4 @@ test('lost response reconciles applied alias without repeating request',()=>{con
 
 test('interrupted applied promotion restores only the known candidate policy and does not repeat POST',()=>{const r=simulate('interrupted-policy');assert.equal(r.status,0,r.stderr);assert.equal(r.calls.filter(c=>c.method==='POST').length,0);assert.ok(r.calls.some(c=>c.method==='PATCH'));assert.match(r.stdout,/policy-restored-after-interruption/)});
 test('active provider operation blocks new POST through bounded reconciliation',()=>{const r=simulate('provider-active');assert.notEqual(r.status,0);assert.equal(r.calls.filter(c=>c.method==='POST').length,0);assert.match(r.stdout,/waiting-for-provider-operation/)});
+for(const mode of ['bad-detroit-lead','bad-detroit-plate','bad-detroit-image'])test('Detroit release fails closed before promotion: '+mode,()=>{const r=simulate(mode);assert.notEqual(r.status,0);assert.equal(r.calls.filter(c=>c.method==='POST').length,0)});
