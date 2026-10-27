@@ -7,10 +7,10 @@ const scope=readFileSync('lib/editorial-scope.js','utf8');
 const source=readFileSync('app/articles/marnie-delicate-etiquette-sporting-pat.js','utf8');
 const article=JSON.parse(source.replace(/^export const sportingPatArticle = /,'').replace(/;\s*$/,''));
 const slug='marnie-delicate-etiquette-sporting-pat';
-test('previous Marnie lead is preserved as first chronological card',()=>{
+test('previous Marnie lead remains in approved chronological cards',()=>{
  const recent=front.match(/<section className=\{front\.recent\}[^>]*>([\s\S]*?)<\/section>/)[1];
  assert.equal((recent.match(/<article className=\{front\.card\}/g)||[]).length,3);
- assert.deepEqual([...recent.matchAll(/href=\{root\+"\/articles\/([^"]+)"\}/g)].map(m=>m[1]),['marnie-delicate-etiquette-sporting-pat','conrad-jalen-hurts-too-sick-to-sleep','hollis-rams-kicker-weight']);
+ assert.deepEqual([...recent.matchAll(/href=\{root\+"\/articles\/([^"]+)"\}/g)].map(m=>m[1]),['conrad-allow-me-to-reintroduce-myself','marnie-delicate-etiquette-sporting-pat','conrad-jalen-hurts-too-sick-to-sleep']);
  assert.ok(recent.includes(article.dek));
  assert.match(recent,/theme="GOOD INTENTIONS"/);
  assert.ok(existsSync('public/images/editorial/allen-wolfson-interview-thumbnail.jpg'));
@@ -61,7 +61,7 @@ test('restored lead uses the established template and preserves the Oregon unlin
 test('homepage lead subtitle gets a responsive type step without changing article copy',()=>{
  const css=readFileSync('app/components/SharedEditorialFront.module.css','utf8');
  const lead=front.slice(front.indexOf('<section'),front.indexOf('<section className={front.recent}'));
- assert.match(lead,/<p className=\{front\.leadDek\}>Finding someone equal to the occasion is easier when you consider yourself the occasion\.<\/p>/);
+ assert.match(lead,/<p className=\{front\.leadDek\}>On the spontaneous birth of an artistic movement, and the evolution of human expression\.<\/p>/);
  assert.equal((front.match(/className=\{front\.leadDek\}/g)||[]).length,1);
  assert.match(css,/:global\(\.sundayFeatureCopy\) \.leadDek \{ font-size: 20px; line-height: 1\.45; \}/);
  assert.match(css,/@media \(max-width: 760px\) \{\s*:global\(\.sundayFeatureCopy\) \.leadDek \{ font-size: 18px; \}/);

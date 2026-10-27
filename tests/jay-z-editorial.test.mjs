@@ -18,15 +18,19 @@ test('approved Jay-Z title, subtitle, rumor attribution and exact selection/endi
  assert.ok(!article.body[9].caption);
  assert.ok(!JSON.stringify(article).includes('Steady, Jay'));
 });
-test('new approved lead is globally routed; prior lead shifts into exactly three cards and overflow stays visible',()=>{
+test('previous Jay-Z lead remains globally routed and first in three chronological cards with visible overflow',()=>{
  assert.ok(read('lib/editorial-scope.js').includes("'conrad-allow-me-to-reintroduce-myself'"));
  assert.ok(read('app/articles/data.js').includes("'conrad-allow-me-to-reintroduce-myself': jayZArticle"));
  const lead=front.slice(front.indexOf('<section'),front.indexOf('<section className={front.recent}'));
- assert.ok(lead.includes(article.title)&&lead.includes(article.dek));
+ assert.ok(lead.includes("A Study in Movement: The Detroit School, 2026"));
  assert.match(lead,/sundayFeatureImage storylink \$\{front\.tourHero\}/);
  const recent=front.match(/<section className=\{front\.recent\}[^>]*>([\s\S]*?)<\/section>/)[1];
+ assert.ok(recent.includes(article.title)&&recent.includes(article.dek));
+ assert.ok(recent.indexOf('/articles/conrad-allow-me-to-reintroduce-myself')<recent.indexOf('/articles/marnie-delicate-etiquette-sporting-pat'));
  assert.equal((recent.match(/<article className=\{front\.card\}/g)||[]).length,3);
  const rest=front.slice(front.indexOf(recent)+recent.length);
+ assert.ok(rest.includes('/articles/hollis-rams-kicker-weight'));
+ assert.ok(rest.indexOf('/articles/hollis-rams-kicker-weight')<rest.indexOf('/articles/maude-nfc-east-declines-winner'));
  assert.ok(rest.indexOf('/articles/maude-nfc-east-declines-winner')<rest.indexOf('/articles/sabine-and-you-are'));
 });
 test('Jay-Z and meme are local readable assets, never remote runtime placeholders',()=>{
