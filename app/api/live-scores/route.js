@@ -1,5 +1,6 @@
 import latestScores from '../../../data/latest-loog-scores.json';
 import completedScores from '../../../data/completed-loog-scores.json';
+import {selectLoogScores} from '../../../lib/select-loog-scores.mjs';
 export const dynamic='force-dynamic'
 
 const SCORES='https://dnzdbqycuuoonewcowis.supabase.co/functions/v1/brief-sunday-engine?action=scores'
@@ -14,11 +15,7 @@ const readScores=async()=>{
 
 export async function GET(){
   try{
-    let data=await readScores()
-    if(Number(data.week)<latestScores.week||(Number(data.week)===latestScores.week&&Date.parse(data.updatedAt)<Date.parse(latestScores.updatedAt))) data=latestScores
-    if(Number(data.week)<=completedScores.week){
-      return Response.json({...completedScores,stale:true},{headers:{'Cache-Control':'no-store'}})
-    }
+    const data=selectLoogScores({provider:await readScores(),latest:latestScores,completed:completedScores})
     let ageSeconds=Math.max(0,Math.round((Date.now()-new Date(data.updatedAt).getTime())/1000))
 
     // Snapshot-only read: authenticated scheduled refreshes own score writes.
@@ -26,6 +23,7 @@ export async function GET(){
 
     return Response.json({...data,ageSeconds,stale:!final&&ageSeconds>MAX_AGE_SECONDS},{headers:{'Cache-Control':'no-store, max-age=0'}})
   }catch(error){
-    return Response.json({...latestScores,stale:true},{headers:{'Cache-Control':'no-store'}})
+    const data=selectLoogScores({latest:latestScores,completed:completedScores})
+    return Response.json({...data,stale:true},{headers:{'Cache-Control':'no-store'}})
   }
 }

@@ -1,13 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {leagueSnapshot as current} from '../app/teams/league-data.js';
 const read=f=>JSON.parse(fs.readFileSync('data/'+f));
-const prior=read('week5-loog-snapshot.json'), evidence=read('week6-loog-closeout.json'), scores=read('latest-loog-scores.json');
+const current=read('week6-loog-snapshot.json'),prior=read('week5-loog-snapshot.json'), evidence=read('week6-loog-closeout.json'), scores=read('week6-loog-scores.json');
 const round=n=>Math.round(n*100)/100;
-test('Week6 is final and remains the displayed completed week despite provider Week7',()=>{
+test('archived Week6 snapshot preserves its final scores and provider Week7 identity',()=>{
  assert.equal(current.week,6);assert.equal(scores.week,6);assert.equal(scores.status,'FINAL');assert.equal(current.sourceEvidence.providerCurrentWeek,7);
- assert.deepEqual(scores,read('completed-loog-scores.json'));
  assert.equal(scores.matchups.length,6);
 });
 test('all twelve records, cumulative totals and six actual starting lineups reconcile',()=>{

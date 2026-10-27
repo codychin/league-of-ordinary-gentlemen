@@ -1658,7 +1658,20 @@
       "libraryFileId": "libfile_160985595df48191b4efa5b58828a892",
       "libraryVersion": 0,
       "sourcePackageSha256": "4bd77ccab00685d14570eca5868945c661422c84a7198d82b6ff766e501aa0b4",
-      "verification": "Parent final source audit: all 18 pairings, 36 scores/records/PFPA and 568 players unchanged from reviewed copy. Local source package materialization pending."
+      "verification": "Exact plain-text source handoff materialized and all four file hashes verified against the supplied manifest.",
+      "path": "data/week7-loog-source/manifest.json",
+      "capturedAt": "2026-10-27T08:01:19.133Z",
+      "scores": [
+        {
+          "teamId": "6",
+          "points": 164.04
+        },
+        {
+          "teamId": "1",
+          "points": 135.92
+        }
+      ],
+      "sourceCheckpointSha256": "9420efc75ce2082620c53adbfd43830212310e74a3dd2ab1a3d6769cf505fe9d"
     }
   },
   {
@@ -1682,7 +1695,20 @@
       "libraryFileId": "libfile_160985595df48191b4efa5b58828a892",
       "libraryVersion": 0,
       "sourcePackageSha256": "4bd77ccab00685d14570eca5868945c661422c84a7198d82b6ff766e501aa0b4",
-      "verification": "Parent final source audit: all 18 pairings, 36 scores/records/PFPA and 568 players unchanged from reviewed copy. Local source package materialization pending."
+      "verification": "Exact plain-text source handoff materialized and all four file hashes verified against the supplied manifest.",
+      "path": "data/week7-loog-source/manifest.json",
+      "capturedAt": "2026-10-27T08:01:19.133Z",
+      "scores": [
+        {
+          "teamId": "2",
+          "points": 95.37
+        },
+        {
+          "teamId": "5",
+          "points": 128.82
+        }
+      ],
+      "sourceCheckpointSha256": "9420efc75ce2082620c53adbfd43830212310e74a3dd2ab1a3d6769cf505fe9d"
     }
   },
   {
@@ -1706,7 +1732,20 @@
       "libraryFileId": "libfile_160985595df48191b4efa5b58828a892",
       "libraryVersion": 0,
       "sourcePackageSha256": "4bd77ccab00685d14570eca5868945c661422c84a7198d82b6ff766e501aa0b4",
-      "verification": "Parent final source audit: all 18 pairings, 36 scores/records/PFPA and 568 players unchanged from reviewed copy. Local source package materialization pending."
+      "verification": "Exact plain-text source handoff materialized and all four file hashes verified against the supplied manifest.",
+      "path": "data/week7-loog-source/manifest.json",
+      "capturedAt": "2026-10-27T08:01:19.133Z",
+      "scores": [
+        {
+          "teamId": "3",
+          "points": 131.92
+        },
+        {
+          "teamId": "8",
+          "points": 123.58
+        }
+      ],
+      "sourceCheckpointSha256": "9420efc75ce2082620c53adbfd43830212310e74a3dd2ab1a3d6769cf505fe9d"
     }
   },
   {
@@ -1730,7 +1769,20 @@
       "libraryFileId": "libfile_160985595df48191b4efa5b58828a892",
       "libraryVersion": 0,
       "sourcePackageSha256": "4bd77ccab00685d14570eca5868945c661422c84a7198d82b6ff766e501aa0b4",
-      "verification": "Parent final source audit: all 18 pairings, 36 scores/records/PFPA and 568 players unchanged from reviewed copy. Local source package materialization pending."
+      "verification": "Exact plain-text source handoff materialized and all four file hashes verified against the supplied manifest.",
+      "path": "data/week7-loog-source/manifest.json",
+      "capturedAt": "2026-10-27T08:01:19.133Z",
+      "scores": [
+        {
+          "teamId": "4",
+          "points": 93.4
+        },
+        {
+          "teamId": "10",
+          "points": 110.3
+        }
+      ],
+      "sourceCheckpointSha256": "9420efc75ce2082620c53adbfd43830212310e74a3dd2ab1a3d6769cf505fe9d"
     }
   },
   {
@@ -1754,7 +1806,20 @@
       "libraryFileId": "libfile_160985595df48191b4efa5b58828a892",
       "libraryVersion": 0,
       "sourcePackageSha256": "4bd77ccab00685d14570eca5868945c661422c84a7198d82b6ff766e501aa0b4",
-      "verification": "Parent final source audit: all 18 pairings, 36 scores/records/PFPA and 568 players unchanged from reviewed copy. Local source package materialization pending."
+      "verification": "Exact plain-text source handoff materialized and all four file hashes verified against the supplied manifest.",
+      "path": "data/week7-loog-source/manifest.json",
+      "capturedAt": "2026-10-27T08:01:19.133Z",
+      "scores": [
+        {
+          "teamId": "7",
+          "points": 128.8
+        },
+        {
+          "teamId": "12",
+          "points": 97
+        }
+      ],
+      "sourceCheckpointSha256": "9420efc75ce2082620c53adbfd43830212310e74a3dd2ab1a3d6769cf505fe9d"
     }
   },
   {
@@ -1778,7 +1843,20 @@
       "libraryFileId": "libfile_160985595df48191b4efa5b58828a892",
       "libraryVersion": 0,
       "sourcePackageSha256": "4bd77ccab00685d14570eca5868945c661422c84a7198d82b6ff766e501aa0b4",
-      "verification": "Parent final source audit: all 18 pairings, 36 scores/records/PFPA and 568 players unchanged from reviewed copy. Local source package materialization pending."
+      "verification": "Exact plain-text source handoff materialized and all four file hashes verified against the supplied manifest.",
+      "path": "data/week7-loog-source/manifest.json",
+      "capturedAt": "2026-10-27T08:01:19.133Z",
+      "scores": [
+        {
+          "teamId": "9",
+          "points": 153.98
+        },
+        {
+          "teamId": "11",
+          "points": 137.18
+        }
+      ],
+      "sourceCheckpointSha256": "9420efc75ce2082620c53adbfd43830212310e74a3dd2ab1a3d6769cf505fe9d"
     }
   },
   {

@@ -1,128 +1,119 @@
 {
   "ok": true,
   "source": "flaim-authenticated-refresh",
-  "week": 6,
-  "updatedAt": "2026-10-20T08:03:20+00:00",
+  "week": 7,
+  "season": 2026,
+  "status": "FINAL",
+  "updatedAt": "2026-10-27T08:01:19.133Z",
+  "displayCompletedUntil": "2026-10-29T04:00:00Z",
+  "displayTimeZone": "America/New_York",
   "matchups": [
     {
-      "id": 1,
-      "away": {
-        "id": 7,
-        "name": "Mr Hopkins Opus",
-        "score": 121.78,
-        "projection": 157.82267153
-      },
-      "home": {
-        "id": 5,
-        "name": "I'm a Skatt man",
-        "score": 108.34,
-        "projection": 138.50202642
-      },
-      "status": "FINAL",
-      "winner": "AWAY"
-    },
-    {
-      "id": 2,
-      "away": {
-        "id": 4,
-        "name": "The Route 22 Clubhouse",
-        "score": 133.18,
-        "projection": 152.75204438
-      },
+      "id": "loog:2026:7:2:5",
       "home": {
         "id": 2,
         "name": "DarkHorse Danir",
-        "score": 123.86,
-        "projection": 110.52754276
+        "score": 95.37
+      },
+      "away": {
+        "id": 5,
+        "name": "I'm a Skatt man",
+        "score": 128.82
       },
       "status": "FINAL",
       "winner": "AWAY"
     },
     {
-      "id": 3,
-      "away": {
-        "id": 3,
-        "name": "The All Ugly Team",
-        "score": 134.1,
-        "projection": 123.77501765
-      },
+      "id": "loog:2026:7:7:12",
       "home": {
+        "id": 7,
+        "name": "Mr Hopkins Opus",
+        "score": 128.8
+      },
+      "away": {
         "id": 12,
         "name": "CeeDeep Shaheeded Rivalry",
-        "score": 132.65,
-        "projection": 138.6869656
-      },
-      "status": "FINAL",
-      "winner": "AWAY"
-    },
-    {
-      "id": 4,
-      "away": {
-        "id": 9,
-        "name": "For the Love of the Kraft",
-        "score": 145.18,
-        "projection": 141.25590308
-      },
-      "home": {
-        "id": 10,
-        "name": "Royrek Tishmeshulam",
-        "score": 106.97,
-        "projection": 123.02591904
-      },
-      "status": "FINAL",
-      "winner": "AWAY"
-    },
-    {
-      "id": 5,
-      "away": {
-        "id": 6,
-        "name": "Pollard Greens",
-        "score": 121.04,
-        "projection": 142.55628488
-      },
-      "home": {
-        "id": 8,
-        "name": "Shake 'N Baker",
-        "score": 131.3,
-        "projection": 141.20670625
+        "score": 97
       },
       "status": "FINAL",
       "winner": "HOME"
     },
     {
-      "id": 6,
-      "away": {
-        "id": 1,
-        "name": "Chat GPT's Chosen Ones",
-        "score": 175.48,
-        "projection": 144.26744767
-      },
+      "id": "loog:2026:7:4:10",
       "home": {
-        "id": 11,
-        "name": "Lloyd of the Rings",
-        "score": 72.32,
-        "projection": 143.87327179
+        "id": 4,
+        "name": "The Route 22 Clubhouse",
+        "score": 93.4
+      },
+      "away": {
+        "id": 10,
+        "name": "Royrek Tishmeshulam",
+        "score": 110.3
       },
       "status": "FINAL",
       "winner": "AWAY"
+    },
+    {
+      "id": "loog:2026:7:3:8",
+      "home": {
+        "id": 3,
+        "name": "The All Ugly Team",
+        "score": 131.92
+      },
+      "away": {
+        "id": 8,
+        "name": "Shake 'N Baker",
+        "score": 123.58
+      },
+      "status": "FINAL",
+      "winner": "HOME"
+    },
+    {
+      "id": "loog:2026:7:9:11",
+      "home": {
+        "id": 9,
+        "name": "For the Love of the Kraft",
+        "score": 153.98
+      },
+      "away": {
+        "id": 11,
+        "name": "Lloyd of the Rings",
+        "score": 137.18
+      },
+      "status": "FINAL",
+      "winner": "HOME"
+    },
+    {
+      "id": "loog:2026:7:1:6",
+      "home": {
+        "id": 6,
+        "name": "Pollard Greens",
+        "score": 164.04
+      },
+      "away": {
+        "id": 1,
+        "name": "Chat GPT's Chosen Ones",
+        "score": 135.92
+      },
+      "status": "FINAL",
+      "winner": "HOME"
     }
   ],
-  "status": "FINAL",
-  "season": 2026,
   "sourceEvidence": {
-    "source": "flaim-authenticated-refresh",
-    "capturedAt": "2026-10-20T08:04:59Z",
+    "completedWeek": 7,
+    "edition": "loog",
+    "leagueUuid": "65c573a0-535d-4edf-8332-2522ee13872f",
+    "liveScoreStateId": 75,
+    "matchupPeriod": 7,
+    "provider": "espn",
+    "providerCurrentWeek": 8,
+    "providerLeagueId": "310731",
+    "scoresStandingsRetrievedAt": "2026-10-27T08:01:19.133Z",
+    "scoringPeriod": 7,
     "season": 2026,
-    "matchupPeriod": 6,
-    "providerCurrentWeek": 7,
-    "corrections": [
-      {
-        "teamId": 1,
-        "previousName": "Kupp Kupp Doubs",
-        "providerName": "Chat GPT's Chosen Ones",
-        "stableSlug": "kupp-doubs"
-      }
-    ],
-    "rosterCumulativeNote": "Individual starts and points while rostered retained through Week 5; newly appearing players unknown, not zero."
+    "source": "authenticated Flaim ESPN",
+    "sourceCheckpointSha256": "9420efc75ce2082620c53adbfd43830212310e74a3dd2ab1a3d6769cf505fe9d",
+    "standingsUpdateDate": 1793087320018,
+    "status": "FINAL"
   }
 }

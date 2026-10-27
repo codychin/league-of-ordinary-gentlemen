@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 test('stale score reads never tick the unauthenticated engine',async()=>{
  let source=fs.readFileSync(new URL('../app/api/live-scores/route.js',import.meta.url),'utf8');
+ source=source.replace("'../../../lib/select-loog-scores.mjs'",JSON.stringify(new URL('../lib/select-loog-scores.mjs',import.meta.url).href));
  assert.doesNotMatch(source,/action=tick|isSundayLiveWindow/);
  source=source.replace(/import latestScores[^;]+;/,"const latestScores={week:6,updatedAt:'2026-10-15T00:00:00Z'};").replace(/import completedScores[^;]+;/,"const completedScores={week:5};");
  const {GET}=await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'));

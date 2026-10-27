@@ -22,11 +22,11 @@ async function baselinePixels(page){
 }
 
 // Use real route markup and available player portraits as well as the deterministic
-// pixel negative control above. The QA server's LOOG Week 6 snapshot is labelled;
+// pixel negative control above. The QA server's LOOG completed-week snapshot is labelled;
 // images are neither generated nor substituted. Other editions use their data.
 for(const root of ['','/sunday-crew','/doge']){
  test(`real edition portraits remain uncropped at divider: ${root||'LOOG'}`,async({page},testInfo)=>{
-  if(!root)testInfo.annotations.push({type:'fixture',description:'The existing QA-only server preload pins LOOG scores to committed Week 6; player image responses are real.'});
+  if(!root)testInfo.annotations.push({type:'fixture',description:'The existing QA-only server preload pins LOOG scores to the committed completed week; player image responses are real.'});
   expect((await page.goto((root||'/')+'?app-preview=1&tab=scores')).status()).toBe(200);
   const card=page.locator('.briefMatchupCard').filter({has:page.locator('.briefMatchupPortraits img')}).first();
   await expect(card).toBeVisible();await card.scrollIntoViewIfNeeded();
