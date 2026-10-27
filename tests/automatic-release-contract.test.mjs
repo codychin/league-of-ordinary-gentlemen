@@ -1,0 +1,44 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {candidateDecision} from '../scripts/operations/release-candidate.mjs';
+import {promotionDecision,rollbackDecision} from '../scripts/operations/promotion-state.mjs';
+import {assessRelease} from '../scripts/operations/monitor-release-state.mjs';
+const sha='a'.repeat(40),now=Date.parse('2026-10-26T01:00:00Z');
+const checks=['integrity','article-image-qa'].map((name,i)=>({id:i,name,head_sha:sha,app:{slug:'github-actions'},status:'completed',conclusion:'success',completed_at:'2026-10-26T00:00:00Z'}));
+const live={id:'candidate',readyState:'READY',meta:{githubCommitSha:sha}};
+test('current main with both exact service checks is eligible',()=>assert.equal(candidateDecision({sha,main:sha,checks}).eligible,true));
+test('obsolete queued candidate is ineligible',()=>assert.equal(candidateDecision({sha,main:'b'.repeat(40),checks}).reason,'superseded'));
+test('first check completion waits; second naturally enables same candidate',()=>{
+ assert.equal(candidateDecision({sha,main:sha,checks:checks.slice(0,1)}).reason,'checks-pending');
+ assert.equal(candidateDecision({sha,main:sha,checks}).eligible,true);
+});
+test('new failed check supersedes old success',()=>assert.equal(candidateDecision({sha,main:sha,checks:[...checks,{...checks[0],id:10,conclusion:'failure'}]}).reason,'checks-failed'));
+test('wrong SHA or app cannot satisfy check',()=>assert.equal(candidateDecision({sha,main:sha,checks:checks.map(c=>({...c,app:{slug:'foreign'}}))}).reason,'checks-pending'));
+for(const jobStatus of ['pending','in-progress'])test('concurrent '+jobStatus+' provider work holds new mutation',()=>{
+ assert.equal(promotionDecision({request:{jobStatus,toDeploymentId:'older'},live,candidateId:'candidate',sha}).action,'wait');
+});
+test('uncertain provider status is a stop, never a retry',()=>assert.throws(()=>promotionDecision({request:{jobStatus:'unknown'},live,candidateId:'candidate',sha}),/Unknown/));
+test('failed previous provider mutation requires reconciliation',()=>assert.equal(promotionDecision({request:{jobStatus:'failed'},live,candidateId:'candidate',sha}).action,'stop'));
+test('completed same candidate verifies without another POST',()=>assert.equal(promotionDecision({request:{jobStatus:'succeeded',toDeploymentId:'candidate'},live,candidateId:'candidate',sha}).action,'verify'));
+test('existing request with wrong alias never duplicates promotion',()=>assert.equal(promotionDecision({request:{jobStatus:'succeeded',toDeploymentId:'candidate'},live:{...live,id:'other'},candidateId:'candidate',sha}).action,'stop'));
+test('wrong live SHA is rejected',()=>assert.throws(()=>promotionDecision({live:{...live,meta:{githubCommitSha:'wrong'}},candidateId:'candidate',sha}),/SHA/));
+const rollback={authorized:true,receipt:{state:'verified',candidateId:'candidate',previousId:'previous',projectId:'project'},live,target:{id:'previous',projectId:'project',target:'production',readyState:'READY'}};
+test('isolated rollback is limited to recorded predecessor',()=>assert.deepEqual(rollbackDecision(rollback),{action:'rollback',from:'candidate',to:'previous'}));
+for(const patch of [{authorized:false},{target:{...rollback.target,id:'arbitrary'}},{live:{...live,id:'newer'}},{providerRequest:{jobStatus:'in-progress'}}])test('rollback refuses invalid scope '+JSON.stringify(patch),()=>assert.throws(()=>rollbackDecision({...rollback,...patch})));
+test('healthy public site cannot hide eligible release missing for an hour',()=>assert.equal(assessRelease({sha,checks,now,commitTime:'2026-10-26T00:00:00Z'}).ok,false));
+test('promotion queue over deadline produces incident',()=>assert.equal(assessRelease({sha,checks:[...checks,{...checks[0],id:10,name:'promote',status:'queued',conclusion:null,started_at:'2026-10-26T00:00:00Z'}],now}).ok,false));
+test('completed production job records pipeline recovery',()=>assert.equal(assessRelease({sha,checks:[...checks,{...checks[0],id:10,name:'promote'}],now}).reason,'release-verified'));
+test('PR completions cannot consume promotion concurrency; permissions unchanged',()=>{
+ const y=readFileSync('.github/workflows/promote-verified-production.yml','utf8');
+ assert.ok(!/^concurrency:/m.test(y));
+ assert.match(y,/workflow_run.event == 'push'/);
+ assert.match(y,/head_branch == 'main'/);
+ assert.match(y,/needs: candidate/);
+ assert.match(y,/needs.candidate.outputs.eligible == 'true'/);
+ assert.match(y,/cancel-in-progress: false/);
+ assert.match(y,/environment: production/);
+ assert.ok(!/actions: write|deployments: write/.test(y));
+ assert.ok(!y.includes('reject-obsolete'));
+ assert.match(y,/workflows: \["Release integrity", "Article image release gate"\]/);
+});
