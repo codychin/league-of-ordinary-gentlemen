@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-27",
+  "main": "1055efb",
+  "renderer": "9eSIhd9ZTLE16O5DNmhVY",
+  "kind": "local-real-postgres-synthetic-auth-not-hosted",
+  "unit": {
+    "passed": 237,
+    "failed": 0
+  },
+  "databaseGroups": 15,
+  "existingBrowserGroups": 10,
+  "sessionBrowserChecks": [
+    "wrong-origin",
+    "revoked-bootstrap-no-cookie",
+    "expired-bootstrap",
+    "page-read",
+    "proxy-refresh-cookie-persistence",
+    "explicit-refresh"
+  ],
+  "otherPassed": [
+    "next-compile-build",
+    "disabled-and-production-target-guards",
+    "precommit-backend-crash",
+    "timeout-outage-recovery",
+    "cold-start",
+    "bounded-verifier-six-route-attestation"
+  ],
+  "notRun": [
+    "hosted-Auth-RLS",
+    "protected-hosted-browser",
+    "hosted-publication-rollback",
+    "normal-local-npm-run-build"
+  ],
+  "initialFailures": [
+    "session unit fixture used invalid JWT header; replaced with well-formed synthetic JWT, all 12 new tests then passed",
+    "Docker replacement raced automatic container deletion; verified old container absent then created replacement"
+  ],
+  "preservation": "No editorial source, media or workflow changes relative to current main; article renderer retains Detroit hero suppression and section-heading rules alongside existing pilot overrides."
+}

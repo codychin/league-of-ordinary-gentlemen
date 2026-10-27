@@ -1,0 +1,31 @@
+{
+  "schema": "original faaa10f disposable local database",
+  "findings": [
+    {
+      "issue": 1,
+      "expected": "reject restricted verifier for global activation",
+      "observed": {
+        "state": "verified-live",
+        "digest": "7d8eeeaf370f66454bbe9e7708d34ef026b8ed144c98da02414337a14c291cfa"
+      }
+    },
+    {
+      "issue": 2,
+      "expected": "renew QA then approve baseline",
+      "preflightResponse": {
+        "preflight": true
+      },
+      "observed": "ERROR:  valid exact preflight required\nCONTEXT:  PL/pgSQL function brief_pilot.command(text,jsonb) line 93 at RAISE\nSQL function \"brief_pilot_command\" statement 1"
+    },
+    {
+      "issue": 3,
+      "expected": "owner can revoke historical approval",
+      "observed": "ERROR:  edition permission denied\nCONTEXT:  PL/pgSQL function brief_pilot.command(text,jsonb) line 57 at RAISE\nSQL function \"brief_pilot_command\" statement 1"
+    },
+    {
+      "issue": 5,
+      "expected": "reject combined verifier and publisher/approver capability",
+      "observed": "INSERT succeeded"
+    }
+  ]
+}
