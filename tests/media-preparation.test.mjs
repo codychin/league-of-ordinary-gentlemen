@@ -78,7 +78,13 @@ test('real small and >16 MiB connector-expanded originals preserve exact bytes',
 test('immutable Git transport and ordered chunk recovery preserve original without changing branch',t=>{
   for(const kind of ['git','chunk-recovery']) {
     const o=setup(t);const id=o.request.row.metadata.videoGeneration.videoId;
-    if(kind==='git') o.request.source={kind,repository:repo,commit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),path:`public/reels/${id}.mp4`};
+    if(kind==='git') {
+      const sourceRepo=path.join(o.root,'git-source'),sourcePath=`public/reels/${id}.mp4`;
+      fs.mkdirSync(path.join(sourceRepo,'public/reels'),{recursive:true});fs.copyFileSync(o.request.source.path,path.join(sourceRepo,sourcePath));
+      const git=args=>execFileSync('git',['-C',sourceRepo,...args],{encoding:'utf8',stdio:['pipe','pipe','pipe']}).trim();
+      git(['init']);git(['config','user.name','Fixture']);git(['config','user.email','fixture@example.invalid']);git(['add',sourcePath]);git(['commit','-m','immutable original fixture']);
+      o.request.source={kind,repository:sourceRepo,commit:git(['rev-parse','HEAD']),path:sourcePath};
+    }
     else {
       const bytes=fs.readFileSync(o.request.source.path),chunks=[];
       for(let i=0;i<bytes.length;i+=4*1024*1024){const part=bytes.subarray(i,i+4*1024*1024),p=path.join(o.root,`chunk${i}`);fs.writeFileSync(p,part);chunks.push({path:p,identity:assetIdentity(part)});}
@@ -149,7 +155,7 @@ test('three leagues assemble cumulatively, idempotently, preserving chronology a
   const request=fixture(row.id);expected.push(binding(request.row,request.identity));
   prepared.push(prepare({...o,request,current:()=>({observedAt:at,row:request.row})}).shelf);
  }
- const all=expected.map(preparationBinding),main=execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
+ const all=expected.map(preparationBinding),main='a'.repeat(40);
  const baseSha=assetIdentity(fs.readFileSync('data/week7-approved-homepage-media.json')).sha256;
  const makeEvidence=edition=>{
   const batch=expected.filter(x=>x.edition===edition),keys=batch.map(preparationBinding);
