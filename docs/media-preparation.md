@@ -294,14 +294,20 @@ Config (all paths belong to that same native executor):
   "throughStage": "shelf",
   "root": "/tmp/brief-native-candidate",
   "receipts": "/tmp/brief-native-receipts",
-  "preparationApproval": {"status": "approved", "binding": "EXACT_COMPUTED_BINDING", "evidence": "EXISTING_APPLICABLE_AUTHORIZATION", "expiresAt": "APPLICABLE_EXPIRY"}
+  "preparationApproval": {"status": "approved", "binding": "EXACT_COMPUTED_BINDING", "evidence": "EXISTING_APPLICABLE_AUTHORIZATION", "expiresAt": "EXECUTION_CUTOFF", "expiryProvenance": "owner-stated expiry or explicitly narrower orchestrator execution limit"}
 }
 ```
 
 Use a new temporary candidate root and preserve its receipts for resume. Compute
 that exact binding from the fresh row and actual materialized bytes with
 `nativeStageCallbacks({root,receipts}).inspectOriginal({row,path})`; do not invent
-an approval, expiry, or binding. For the existing-artifact rehearsal, include the
+an approval or binding. `expiresAt` is an execution cutoff: if the owner's grant
+has no stated expiry, the existing orchestrator may narrow this no-write rehearsal
+to a recorded completion deadline without inventing an owner-stated expiry. Keep
+that distinction in `expiryProvenance` and the authorization evidence. For example,
+the parent limited the October 28 read-only rehearsal to completion and no later
+than `2026-10-28T04:00:00Z`; that historical limit is not permission for another run.
+For the existing-artifact rehearsal, include the
 existing `existingPackage` descriptor (videoId, sourceSha256, absolute path and
 all file identities from `qa/week7-recap-assets.json`) so no encoding is needed.
 The immutable published originals and HLS are fixtures; no new generation/spend.

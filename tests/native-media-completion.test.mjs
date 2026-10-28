@@ -29,7 +29,8 @@ function harness(t) {
     compareAndSwapPreparation:async({previousRow,nextPreparation})=>{
       // Mock write boundary only. No test invokes connected production writes.
       writes++;assert.deepEqual(previousRow.metadata,row.metadata);
-      row.metadata={...row.metadata,mediaPreparation:nextPreparation};return [structuredClone(row)];
+      // Model JSONB's key-order changes across every connected read/write.
+      row.metadata=JSON.parse(JSON.stringify({...row.metadata,mediaPreparation:nextPreparation},(_,v)=>v && typeof v==='object' && !Array.isArray(v)?Object.fromEntries(Object.keys(v).sort().map(k=>[k,v[k]])):v));return [structuredClone(row)];
     }
   };
   return {request,root,event,adapters,native,journal,get row(){return row;},set row(v){row=v;},get writes(){return writes;},get reads(){return reads;},get decodes(){return decodes;}};
