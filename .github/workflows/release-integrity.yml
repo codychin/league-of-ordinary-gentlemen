@@ -7,7 +7,21 @@ on:
   workflow_dispatch:
 
 jobs:
+  media-preparation:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Ensure runner media prerequisites
+        timeout-minutes: 5
+        run: bash scripts/operations/ensure-media-tools.sh
+      - name: Verify real preparation and shelf delivery contracts without spending
+        run: node --test qa/operations/media-preparation.test.mjs
   integrity:
+    needs: media-preparation
     runs-on: ubuntu-24.04
     container:
       image: mcr.microsoft.com/playwright:v1.64.1-noble@sha256:47b510dd9230bf0b9bfc9b20102241e577ea7a99334ab4c3ca19f19770e9b8ea

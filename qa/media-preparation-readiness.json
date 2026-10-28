@@ -1,0 +1,54 @@
+{
+  "scope": "staging-first engineering upgrade; no publication or generation",
+  "baseMain": "ecbc1cadf0ed09aa2c147b649419c25b05ff24ba",
+  "canonicalPackagerBlob": "6db3011d41830f14305c994e03fd57574fe231c3",
+  "canonicalPackagerChanged": false,
+  "inspection": {
+    "rootAgentsFile": "absent in checkout and workspace",
+    "localAgentSkills": "none present",
+    "registry": "brief_publication_articles",
+    "projectId": "dnzdbqycuuoonewcowis",
+    "activeAndLockedRulesRead": true,
+    "registryWritesPerformed": false
+  },
+  "demonstrated": {
+    "existingGitTransport": "git fetch origin main succeeded; exact immutable original read with git show; no branch switch for ingest",
+    "realRegistryCompletion": {
+      "registryId": "f013e594-212e-56d3-9d8a-b7447beeb49c",
+      "videoId": "767a690ca578a94b37551670f196948c",
+      "sourceRevision": "520da1d8ee1cf34a3c5232fdd869965059f58308f409f5562683acaef0405984",
+      "scriptRevision": "voice-rewrite-v2-20261027",
+      "result": "prepared-review-required",
+      "method": "fresh read-only registry export; actual CLI; exact Git original; real original/HLS decode; isolated executor candidate"
+    },
+    "realLargeOriginalBytes": 12824307,
+    "realLargeConnectorExpandedBytes": 17099076,
+    "fixtureOriginalCount": 18,
+    "fixtureHlsFileCount": 250,
+    "originalAndHlsDecoded": true,
+    "canonicalFfmpegRun": true,
+    "noOpRestart": true,
+    "isolatedConsumerAssembly": "actual static manifest consumer; complete six; local HTTP HEAD/native HLS/MP4 contracts; no additional transcode plan",
+    "cumulativeAssembly": "all three leagues sequentially; earlier cohorts/order preserved; idempotent replay; prior/concurrent source revision rejection",
+    "nativeCompletionAdapter": "Actual CLI exercised with mock connected callbacks and real immutable media; full-metadata CAS collision/uncertain outcome and per-stage resume tested. No real registry writes."
+  },
+  "limits": {
+    "normalProviderToExecutorIngest": "not demonstrated; prior direct HeyGen/public-site CONNECT403 and failed Library MP4 transfer retained as blocked evidence; no denied-route retry or egress change",
+    "fullAuditoryReview": "not demonstrated in this executor; future batch preflight must fail",
+    "fullMotionReview": "not demonstrated in this executor; future batch preflight must fail",
+    "activeWorkflowInventory": "gh run list returned Forbidden; connector only offers first-page PR-filtered workflow lookup; complete active-writer scan remains required before release writes",
+    "concurrency": "optimistic source checks and immutable receipts, not a distributed lock; single existing release owner required",
+    "durability": "local receipts must be retained through existing Git/artifact handoff before executor disposal",
+    "approvalToLiveTiming": "not measured; 10\u201315 minutes remains a target",
+    "productionMutation": "not authorized or performed",
+    "week7Exception": "not reusable by preparation, assembly or future batch preflight",
+    "automaticCompletionCaller": "Agent-operated JSON-lines completion entrypoint implemented; connected callbacks supplied by existing native turn. No unattended subscription. Connected rehearsal and real receipt writes not yet demonstrated in this executor.",
+    "smallestIntegrationPrerequisite": "Run documented native read-only callback rehearsal with connected provider status, exact registry SELECT and official Library materialization. Before future batches separately prove fresh provider durable ingress and actual auditory/full-motion review. No new credentials or schedules required for agent-operated adapter."
+  },
+  "validation": {
+    "tests": 278,
+    "passed": 278,
+    "fullBuild": "passed",
+    "buildLimits": "Six existing upstream images unavailable; original URLs retained by existing build. Generated unrelated cache changes excluded."
+  }
+}

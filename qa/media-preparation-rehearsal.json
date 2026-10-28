@@ -1,0 +1,177 @@
+{
+  "scope": "existing-approved-artifact-engineering-replay",
+  "sourceCommit": "ecbc1cadf0ed09aa2c147b649419c25b05ff24ba",
+  "registryId": "f013e594-212e-56d3-9d8a-b7447beeb49c",
+  "preparationBinding": "016988e6179163a15bbb7b502dc939a37d77f1e2455cd209ede522ca1de6974d",
+  "stages": {
+    "binding": {
+      "registryId": "f013e594-212e-56d3-9d8a-b7447beeb49c",
+      "edition": "doge",
+      "season": 2026,
+      "week": 7,
+      "kind": "recap",
+      "pair": [
+        "1",
+        "6"
+      ],
+      "matchupKey": "doge-2026-week7-recap-1-6",
+      "writer": "sorrell",
+      "voiceId": null,
+      "avatarId": "8c5e6ff8d0df4799ad203b13d13be808",
+      "sourceAudioSha256": null,
+      "sourceRevision": "520da1d8ee1cf34a3c5232fdd869965059f58308f409f5562683acaef0405984",
+      "scriptRevision": "voice-rewrite-v2-20261027",
+      "scriptSha256": "cfc9d67a06ab2d0ba45502e93c2dae9990acf0b88c6ddd322237e46323c44006",
+      "videoId": "767a690ca578a94b37551670f196948c",
+      "identity": {
+        "bytes": 9593598,
+        "sha256": "4a46f6c974fe58aaa46bdef4a911fef9bf774da3208fd172a9e493e12a4d466e",
+        "gitBlobSha": "d80e14feb5b9cf644c22c1fe33b269d88ebb0fd5"
+      }
+    },
+    "ingest": {
+      "binding": "016988e6179163a15bbb7b502dc939a37d77f1e2455cd209ede522ca1de6974d",
+      "identity": {
+        "bytes": 9593598,
+        "sha256": "4a46f6c974fe58aaa46bdef4a911fef9bf774da3208fd172a9e493e12a4d466e",
+        "gitBlobSha": "d80e14feb5b9cf644c22c1fe33b269d88ebb0fd5"
+      },
+      "scope": "local-original-only"
+    },
+    "package": {
+      "binding": "016988e6179163a15bbb7b502dc939a37d77f1e2455cd209ede522ca1de6974d",
+      "files": [
+        {
+          "name": "index.m3u8",
+          "bytes": 499,
+          "sha256": "6922852fc2a385960cae11d90afeecde7a64187bc2fe7500021a5012cf6603ba",
+          "gitBlobSha": "8e1396ec1239bc9fbf532375f469ba83dabea648"
+        },
+        {
+          "name": "init.mp4",
+          "bytes": 1373,
+          "sha256": "ed21de25c2906f55804ad4641a179bcf72248f8e50c2431b7a818422dbc1a7aa",
+          "gitBlobSha": "c4848913ffd3f552092d1b86f2a521dadb364990"
+        },
+        {
+          "name": "poster.jpg",
+          "bytes": 59164,
+          "sha256": "f122272a5dd1d8553d551903e6ea49a5c12c33072230ceedbd4fee562091374b",
+          "gitBlobSha": "0a5f82ebb9ece5ea0695c1bddc6d532023f5ba64"
+        },
+        {
+          "name": "seg_000.m4s",
+          "bytes": 490705,
+          "sha256": "4debc872a420210922ca16b3f60fdf69000cfc34b098a46fbcd886dcb47edcea",
+          "gitBlobSha": "feb5e03b191c301e5d9775a9c02fa6b1943d47ec"
+        },
+        {
+          "name": "seg_001.m4s",
+          "bytes": 777305,
+          "sha256": "7ba6986ac6d75d6b31b36de746996d41727aff5c21d979bab87956b37f643d10",
+          "gitBlobSha": "5316271ffcf20bee524a1ebcc1fd7d7d5dd2ea74"
+        },
+        {
+          "name": "seg_002.m4s",
+          "bytes": 786977,
+          "sha256": "08d0fc980e493a207bee7e5aef66aeb21fcac22149a7bac1dcbd67e4ce427f51",
+          "gitBlobSha": "b8946213be31694b846b7004a46c9204f25682a7"
+        },
+        {
+          "name": "seg_003.m4s",
+          "bytes": 683552,
+          "sha256": "153e07e25ec4f6e181d2b2cc9b53ceaaf2b567840136254da8005e4a7d9c690d",
+          "gitBlobSha": "e9d6da15b72219f386d6217bc1bec2557a0648e0"
+        },
+        {
+          "name": "seg_004.m4s",
+          "bytes": 683338,
+          "sha256": "09890d951f1d21860417f6ba50f9f5f8842622eee30f5f892dc5adbc9412f186",
+          "gitBlobSha": "cc553513ff14b2234fc3a992b60dc9b0926393e0"
+        },
+        {
+          "name": "seg_005.m4s",
+          "bytes": 678636,
+          "sha256": "9bc5945016d162f0a6bfc1bc427e995ce3b11c0b94110628a6d8d5d6a1134e8f",
+          "gitBlobSha": "9237592562695dc8dca8450247d32530b609bda3"
+        },
+        {
+          "name": "seg_006.m4s",
+          "bytes": 747476,
+          "sha256": "6b4f9c1797745fa0e4834ad8a7d97ee8e2987213af31354d5d65ea570746c89f",
+          "gitBlobSha": "4edd30e5f10da3eddea5235fa81582af94630baf"
+        },
+        {
+          "name": "seg_007.m4s",
+          "bytes": 707216,
+          "sha256": "592e42a65ce9d2169ae8da7fee0407f9835e4126fcc09ff7b269a754fe51a103",
+          "gitBlobSha": "b5abc3cbd69d44bd60245fd512070162c89739ab"
+        },
+        {
+          "name": "seg_008.m4s",
+          "bytes": 707301,
+          "sha256": "96d6809804fa95a02b510ac7d363c1bacc794ef9e8dd4211f89034cada39f624",
+          "gitBlobSha": "c7604dc2cdc8b2c09f3bde277b65e9dd955fc25d"
+        },
+        {
+          "name": "seg_009.m4s",
+          "bytes": 641906,
+          "sha256": "195215391f594454dff4612dd9663b0398958718155880c210a5baa1e48cc39f",
+          "gitBlobSha": "1f63162ee1e3ba5398b08d6709abd5635a2b889c"
+        },
+        {
+          "name": "seg_010.m4s",
+          "bytes": 704299,
+          "sha256": "b829fafc34fed38b91ee1fbbfdc0b1474d285d7709d17a64f9cc0fcd5e2131a8",
+          "gitBlobSha": "b7512e55ec4f6d97704493517efd72c7e7a3b066"
+        },
+        {
+          "name": "seg_011.m4s",
+          "bytes": 492540,
+          "sha256": "0a6f87edc4074223ca54eabc8127ce8c1b34df68aeb1419015d1320df7e441d2",
+          "gitBlobSha": "6a0cc0963e906189e97f5e396dd3d1471c2a53a5"
+        }
+      ]
+    },
+    "technical": {
+      "binding": "016988e6179163a15bbb7b502dc939a37d77f1e2455cd209ede522ca1de6974d",
+      "packageHash": "569bbe3c77bd97c7fbc08d6d07109fb1a59e78e807757b1991f3bfc6e17d3efc",
+      "checks": {
+        "durationSeconds": 28.12,
+        "width": 1080,
+        "height": 1920,
+        "originalAndHlsDecode": true,
+        "fullAuditoryReviewPerformed": false,
+        "fullMotionReviewPerformed": false,
+        "performanceApproval": false
+      }
+    },
+    "shelf": {
+      "id": "767a690ca578a94b37551670f196948c",
+      "edition": "doge",
+      "season": 2026,
+      "week": 7,
+      "kind": "recap",
+      "teamIds": [
+        "1",
+        "6"
+      ],
+      "matchupKey": "doge-2026-week7-recap-1-6",
+      "writer": "sorrell",
+      "voiceId": null,
+      "scriptRegistryId": "f013e594-212e-56d3-9d8a-b7447beeb49c",
+      "scriptSha256": "cfc9d67a06ab2d0ba45502e93c2dae9990acf0b88c6ddd322237e46323c44006",
+      "sourceRevision": "voice-rewrite-v2-20261027",
+      "sourcePackageSha256": "520da1d8ee1cf34a3c5232fdd869965059f58308f409f5562683acaef0405984",
+      "sourceSha256": "4a46f6c974fe58aaa46bdef4a911fef9bf774da3208fd172a9e493e12a4d466e",
+      "preparationBinding": "016988e6179163a15bbb7b502dc939a37d77f1e2455cd209ede522ca1de6974d",
+      "qaStatus": "technical_only_review_required",
+      "publicationApproved": false
+    }
+  },
+  "publicationApproved": false,
+  "fullAuditoryReviewPerformed": false,
+  "fullMotionReviewPerformed": false,
+  "normalProviderIngestProven": false,
+  "automaticCompletionCallerConnected": false
+}
