@@ -8,6 +8,8 @@ import {pathToFileURL} from 'node:url';
 import {assetIdentity, checkPreflight, resumeDecision, recordReceipt} from './release-preflight.mjs';
 import {generateMissing, validatePackage} from './package-missing-hls.mjs';
 
+const canonicalJson = value => JSON.stringify(value, (_, v) => v && typeof v === 'object' && !Array.isArray(v) ? Object.fromEntries(Object.keys(v).sort().map(k => [k, v[k]])) : v);
+const sameJson = (a, b) => canonicalJson(a) === canonicalJson(b);
 const digest = value => createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const need = (ok, message) => { if (!ok) throw Error(message); };
 const read = file => JSON.parse(fs.readFileSync(file, 'utf8'));
@@ -16,7 +18,7 @@ const hex = /^[a-f0-9]{64}$/;
 function syncDir(dir) { const fd = fs.openSync(dir, 'r'); try { fs.fsyncSync(fd); } finally { fs.closeSync(fd); } }
 // Immutable checkpoints: atomic create-if-absent, never replace another writer's evidence.
 export function saveOnce(file, value) {
-  if(fs.existsSync(file)) {need(digest(read(file))===digest(value),`Conflicting checkpoint: ${file}`);return;}
+  if(fs.existsSync(file)) {need(sameJson(read(file),value),`Conflicting checkpoint: ${file}`);return;}
   fs.mkdirSync(path.dirname(file), {recursive:true});
   const tmp = `${file}.${randomUUID()}.tmp`;
   const fd = fs.openSync(tmp, 'wx', 0o600);
@@ -24,7 +26,7 @@ export function saveOnce(file, value) {
   try {
     try { fs.linkSync(tmp,file); } catch (e) {
       if (e.code !== 'EEXIST') throw e;
-      need(digest(read(file)) === digest(value), `Conflicting checkpoint: ${file}`);
+      need(sameJson(read(file), value), `Conflicting checkpoint: ${file}`);
     }
     syncDir(path.dirname(file));
   } finally { fs.unlinkSync(tmp); }

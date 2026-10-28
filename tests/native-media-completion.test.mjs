@@ -134,3 +134,17 @@ test('post-stage source changes stop; unrelated fresh metadata is preserved in C
     else{await task;assert.deepEqual(h.row.metadata.newEvidence,{keep:true});assert.equal(h.writes,1);}
   }
 });
+test('existing JSONB-ordered local cheap checkpoints resume without rewrite; real content conflicts still stop',async t=>{
+  const h=harness(t),first=await handleHeygenCompletion({event:h.event,mode:'persist'},h.adapters),files=[];
+  for(const stage of ['ingest','package','shelf']) {
+    const file=path.join(h.root,'receipts',first.binding,`${stage}.json`);
+    const sorted=JSON.stringify(JSON.parse(fs.readFileSync(file)),(_,v)=>v && typeof v==='object' && !Array.isArray(v)?Object.fromEntries(Object.keys(v).sort().map(k=>[k,v[k]])):v);
+    fs.writeFileSync(file,sorted);files.push({file,sorted,mtime:fs.statSync(file).mtimeMs});
+  }
+  await handleHeygenCompletion({event:h.event,mode:'persist'},h.adapters);
+  assert.equal(h.decodes,1);assert.equal(h.writes,4);
+  for(const f of files){assert.equal(fs.readFileSync(f.file,'utf8'),f.sorted);assert.equal(fs.statSync(f.file).mtimeMs,f.mtime);}
+  const poisoned=JSON.parse(files[0].sorted);poisoned.scope='different-content';fs.writeFileSync(files[0].file,JSON.stringify(poisoned));
+  await assert.rejects(handleHeygenCompletion({event:h.event,mode:'persist'},h.adapters),/Conflicting/);
+  assert.equal(h.writes,4);
+});
