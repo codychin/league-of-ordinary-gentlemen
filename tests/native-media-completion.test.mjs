@@ -125,9 +125,9 @@ test('actual completion CLI invokes connected callbacks over JSON lines in dry-r
   assert.equal(output.at(-1).result.registryWriteAttempts,0);assert.equal(output.at(-1).result.completedStages[0],'ingest');
 });
 test('post-stage source changes stop; unrelated fresh metadata is preserved in CAS',async t=>{
-  for(const sourceChanged of [true,false]) {
+  for(const sourceChanged of [true,false,'matchup']) {
     const h=harness(t),run=h.adapters.runStage;
-    h.adapters.runStage=async input=>{const result=await run(input);if(sourceChanged)h.row.metadata.sourcePackageSha256='e'.repeat(64);else h.row.metadata.newEvidence={keep:true};return result;};
+    h.adapters.runStage=async input=>{const result=await run(input);if(sourceChanged==='matchup')h.row.metadata.matchupKey='superseded';else if(sourceChanged)h.row.metadata.sourcePackageSha256='e'.repeat(64);else h.row.metadata.newEvidence={keep:true};return result;};
     const task=handleHeygenCompletion({event:h.event,mode:'persist',throughStage:'ingest'},h.adapters);
     if(sourceChanged){await assert.rejects(task,/superseded after stage/);assert.equal(h.writes,0);}
     else{await task;assert.deepEqual(h.row.metadata.newEvidence,{keep:true});assert.equal(h.writes,1);}

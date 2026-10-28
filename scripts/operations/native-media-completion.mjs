@@ -14,7 +14,7 @@ function librarySource(row) {
 }
 function sourceState(row) {
   const m=row.metadata,g=m?.videoGeneration;
-  return {id:row.id,writer:row.writer_slug,edition:m?.edition,season:m?.season,week:m?.week,kind:m?.kind,pair:m?.matchupTeamIds,
+  return {id:row.id,writer:row.writer_slug||m?.writer||null,matchupKey:m?.matchupKey,videoGenerationId:m?.videoGenerationId,edition:m?.edition,season:m?.season,week:m?.week,kind:m?.kind,pair:m?.matchupTeamIds,
     source:m?.sourcePackageSha256,script:m?.scriptSha256,scriptRevision:m?.scriptRevision,scriptApproved:m?.scriptApproved,
     approvalStatus:m?.approvalStatus,videoId:g?.videoId,status:g?.status,voiceId:m?.voiceId||g?.voiceId,
     avatarId:g?.avatarId,sourceAudioSha256:g?.sourceAudioSha256,library:librarySource(row)};
