@@ -1,0 +1,95 @@
+{
+  "loog": {
+    "week": 7,
+    "season": 2026,
+    "status": "FINAL",
+    "picks": [
+      {
+        "type": "start",
+        "team": "The All Ugly Team",
+        "player": "Ollie Gordon II",
+        "playerId": "4711533",
+        "points": 23.8,
+        "slot": "RB",
+        "gap": 10.85,
+        "headline": "Admire the running back who actually played.",
+        "body": "The bench audit can wait a moment. Gordon’s 23.8 counted toward Cody and Ferret’s second win. Dameon Pierce had 12.95 in reserve; use that score instead and All Ugly loses by 2.51. An 8.34-point win does not leave much room to improve the lineup by making it worse."
+      },
+      {
+        "type": "sit",
+        "team": "Shake 'N Baker",
+        "player": "Rico Dowdle",
+        "playerId": "4038815",
+        "points": 16.5,
+        "slot": "Bench",
+        "gap": 8.8,
+        "headline": "The winning swap was at FLEX.",
+        "body": "We can stop rearranging Norm’s quarterbacks. Brissett over Rodgers still leaves him short; Dowdle over Allgeier does not. The latter adds 8.8 to a team that lost by 8.34. In the hindsight replay, Norm wins by 0.46. That is a very small winning margin to leave attached to the word Bench."
+      }
+    ],
+    "reviewStatus": "APPROVED_REVISION_2",
+    "evidenceNote": "Completed-week retrospective. These comparisons do not establish pre-lock availability, intent or the optimal decision with information then available."
+  },
+  "sunday-crew": {
+    "week": 7,
+    "season": 2026,
+    "status": "FINAL",
+    "picks": [
+      {
+        "type": "start",
+        "team": "RBs are Overrated",
+        "player": "Tony Pollard",
+        "playerId": "31960",
+        "points": 37,
+        "slot": "W/R/T",
+        "gap": 22,
+        "headline": "Runit gave the argument an extra running-back slot.",
+        "body": "Runit had a flex spot where he could have declined another running back. He chose Pollard, who supplied 37, twenty-two more than reserve RJ Harvey. Pollard, Irving and Hubbard combined for 70.5. RBs are Overrated has taken an admirably practical approach to its own argument."
+      },
+      {
+        "type": "sit",
+        "team": "J Bird",
+        "player": "Tre Tucker",
+        "playerId": "40114",
+        "points": 20.8,
+        "slot": "BN",
+        "gap": 17.2,
+        "headline": "A bench score with limits.",
+        "body": "Joe’s unused 20.8 from Tucker looks particularly cruel beside Garrett Wilson’s 3.6. Take the 17.2-point improvement; J Bird still loses to Tolbert’s Cookies by 36.72. Tucker can make the lineup look better without making the result remotely delicate."
+      }
+    ],
+    "reviewStatus": "APPROVED_REVISION_2",
+    "evidenceNote": "Completed-week retrospective. These comparisons do not establish pre-lock availability, intent or the optimal decision with information then available."
+  },
+  "doge": {
+    "week": 7,
+    "season": 2026,
+    "status": "FINAL",
+    "picks": [
+      {
+        "type": "start",
+        "team": "Nix in 5",
+        "player": "Amon-Ra St. Brown",
+        "playerId": "33500",
+        "points": 23.7,
+        "slot": "WR",
+        "gap": 15.1,
+        "headline": "Leave this receiver out of the complaint.",
+        "body": "A review of Patrick’s lineup can get distracted by Bo Nix and Tony Pollard sitting out the fantasy scoring. St. Brown’s 23.7 actually counted. Substitute reserve receiver Michael Wilson’s 8.6 and Patrick’s 1.72-point win disappears into a 13.38-point defeat. Leave this part of the lineup alone."
+      },
+      {
+        "type": "sit",
+        "team": "El Niño Grande",
+        "player": "Jordan Addison",
+        "playerId": "40042",
+        "points": 3.3,
+        "slot": "BN",
+        "gap": 1.9,
+        "headline": "Three-point-three would have been enough.",
+        "body": "Addison for Jalen Coker would have put Corey eighteen hundredths ahead of Patrick. The winning hindsight alternative scored all of 3.3. There was no enormous performance to uncover, just a modest one that cleared the necessary margin. That is an unusually small score to make such an objectionable difference."
+      }
+    ],
+    "reviewStatus": "APPROVED_REVISION_2",
+    "evidenceNote": "Completed-week retrospective. These comparisons do not establish pre-lock availability, intent or the optimal decision with information then available."
+  }
+}

@@ -1,4 +1,4 @@
-import selections from '../../data/week6-start-sit.json';
+import selections from '../../data/week7-start-sit.json';
 const names={loog:'LOOG','sunday-crew':'SUNDAY CREW',doge:'DOGE4'};
 const points=n=>Number(n).toFixed(2).replace(/\.00$/, '');
 export default function StartSitOfWeek({edition='loog',headshots={}}) {

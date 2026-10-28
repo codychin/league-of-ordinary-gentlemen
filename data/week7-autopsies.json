@@ -1,0 +1,152 @@
+{
+  "loog": {
+    "week": 7,
+    "season": 2026,
+    "status": "FINAL",
+    "edition": "loog",
+    "findings": [
+      {
+        "writer": "gannon",
+        "label": "The smaller quarterback problem",
+        "title": "An improved quarterback score still leaves Norm losing.",
+        "body": "I can improve Norm’s quarterback score and still not explain the defeat. Brissett supplies 1.8 extra; the deficit was 8.34. Finding a higher-scoring reserve is easy. Establishing what that changes requires another subtraction. Dowdle at FLEX crosses the margin; Brissett at quarterback does not. I would prefer that these stop being treated as the same discovery.",
+        "receipt": "ALL UGLY 131.92 • NORM 123.58",
+        "teams": [
+          "3",
+          "8"
+        ]
+      },
+      {
+        "writer": "gannon",
+        "label": "The correction and the result",
+        "title": "Pitts started. Credit the improvement by one tenth.",
+        "body": "Last week, leaving Pitts out cost Sherm 19.1 points against the tight end he selected. This week Pitts started and beat reserve Fannin by 0.1. Sherm’s total was 164.04. The change is visible, and the hindsight improvement is measurable. I am crediting it by exactly one tenth. The other positions need not surrender their contributions because we recognize the tight end’s name.",
+        "receipt": "POLLARD 164.04 • PITTS OVER FANNIN 0.10",
+        "teams": [
+          "6"
+        ]
+      }
+    ],
+    "pending": false,
+    "reviewStatus": "APPROVED_REVISION_2"
+  },
+  "sunday-crew": {
+    "week": 7,
+    "season": 2026,
+    "status": "FINAL",
+    "edition": "sunday-crew",
+    "findings": [
+      {
+        "writer": "gannon",
+        "label": "The recurring seat",
+        "title": "The win made last week’s bench easier to forgive.",
+        "body": "Joe led Sunday Crew last week with Tucker’s 26.2 unused. This week Tucker sat again, and Joe lost. Convenient conditions for calling the second decision worse. Except Tucker over Wilson still leaves J Bird 36.72 short. The outcomes changed the volume of the complaint; the recorded lineups do not tell us what Joe knew before either lock.",
+        "receipt": "COOKIES 164.80 • J BIRD 110.88",
+        "teams": [
+          "7",
+          "11"
+        ]
+      },
+      {
+        "writer": "crane",
+        "label": "The repair that reached the field",
+        "title": "Let one good selection survive this mess.",
+        "body": "Corum’s 16.6 counted. Good. Leave those points alone. Across the matchup, Runit got 70.5 from three running backs; Matt got 76 from the whole team. You can keep poking at Ditka’s bench for a better afternoon, but the largest quarterback improvement adds 15.12 to an 86.28-point defeat. Corum did something useful in the middle of that wreck. He gets to keep it.",
+        "receipt": "RBs 162.28 • DITKA 76.00",
+        "teams": [
+          "5",
+          "12"
+        ]
+      },
+      {
+        "writer": "pike",
+        "label": "The usable inventory",
+        "title": "Patrick finally had running-back points to allocate.",
+        "body": "Last week Patrick could rearrange his running backs and still have almost nothing: 6.5 from the starters, zero from every recorded reserve. This week he put 44.9 into the two RB positions and FLEX. Rhamondre won by 9.74. Before arguing about the best way to use a roster, it helps to have more than one way that does anything.",
+        "receipt": "RHAMONDRE 121.78 • CROATIA 112.04",
+        "teams": [
+          "3",
+          "4"
+        ]
+      }
+    ],
+    "pending": false,
+    "reviewStatus": "APPROVED_REVISION_2"
+  },
+  "doge": {
+    "week": 7,
+    "season": 2026,
+    "status": "FINAL",
+    "edition": "doge",
+    "findings": [
+      {
+        "writer": "sorrell",
+        "label": "The supporting production",
+        "title": "Keep the running-back improvement. Criticize the rest.",
+        "body": "Cody improves his running-back production, and the flex spots give back even more. Chase Brown and Kaelon Black supplied 18.2, up from last week’s 7.6; the flex fell from 30.3 to 11.4. Sandy won by 30.10. No, improving the running backs did not fix the team. We can criticize the rest without requiring Cody to have done nothing right.",
+        "receipt": "SANDY 136.32 • CODY 106.22",
+        "teams": [
+          "1",
+          "6"
+        ]
+      },
+      {
+        "writer": "pike",
+        "label": "The active allocation",
+        "title": "First name the player who comes out.",
+        "body": "Bennett used both flex positions on running backs. Along with the two RB slots, that put Williams, Gibbs, Irving and Jacobs to work for 77 points. Tucker’s 20.8 remained on the bench. I am happy to consider an alternative; first name who leaves the lineup. A conspicuous reserve score is not free extra production.",
+        "receipt": "TRANIMAL 135.22 • GIMOTHY 118.22",
+        "teams": [
+          "2",
+          "7"
+        ]
+      },
+      {
+        "writer": "gannon",
+        "label": "The changed consequence",
+        "title": "The tight-end gap shrank. It did not change sides.",
+        "body": "T. Ocellus won, but the tight-end evidence has not switched sides. Pitts outscored Higbee again. The unused gap fell from 18.3 to 8.3; it did not become negative. Bryan’s 28.26-point victory gives the comparison rather more comfortable surroundings. I see no reason to remove it.",
+        "receipt": "OCELLUS 137.08 • BEARS 108.82",
+        "teams": [
+          "3",
+          "8"
+        ]
+      },
+      {
+        "writer": "pike",
+        "label": "The small available improvement",
+        "title": "Corey could not use Patrick’s bench.",
+        "body": "Bo Nix and Tony Pollard left 67.28 unused for Patrick. Interesting, but Corey could not spend any of it. His own Addison-for-Coker improvement was 1.9, and that was enough. Last week Corey’s second-highest score ran into DOGE’s highest. This time the winning hindsight swap was on his own roster. No transaction with Patrick required.",
+        "receipt": "NIX IN 5 116.80 • EL NIÑO 115.08",
+        "teams": [
+          "4",
+          "12"
+        ]
+      },
+      {
+        "writer": "march",
+        "label": "The unfilled position",
+        "title": "The occupied places deserve a mention.",
+        "body": "Moe’s unfilled kicker slot has the advantage of being easy to notice. KC Concepcion and CeeDee Lamb deserve some of that attention: 41.1 between them in a 26.46-point win. Even Andrew’s better flex swap leaves 18.76 to find. The empty place may be mentioned. It need not be made the guest of honor.",
+        "receipt": "MOE 108.76 • ANDREW 82.30",
+        "teams": [
+          "5",
+          "10"
+        ]
+      },
+      {
+        "writer": "kells",
+        "label": "The unglamorous separation",
+        "title": "Four receivers, all below nine.",
+        "body": "Four receivers give a lineup a certain air of extravagance. Pete got fewer than nine from each. Ordway’s Drake Maye and Will Reichard outscored Pete’s quarterback-kicker pair by 26.42, most of a 34.32-point win. I realize the kicker is not usually the aspirational purchase. Neither is four separate versions of the same disappointing afternoon.",
+        "receipt": "ORDWAY 114.94 • PETE 80.62",
+        "teams": [
+          "9",
+          "11"
+        ]
+      }
+    ],
+    "pending": false,
+    "reviewStatus": "APPROVED_REVISION_2"
+  }
+}
