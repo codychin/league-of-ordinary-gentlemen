@@ -120,7 +120,8 @@ function technical(original, playlist) {
 
 // current() must re-read the existing registry export/checkpoint before every stage.
 // This is optimistic revision checking, not a DB lock or a replacement for release-time re-read.
-export function prepare({request,current,root,receipts,afterStage=()=>{},runTechnical=technical,packageMedia=generateMissing,now=()=>Date.now()}) {
+export function prepare({request,current,root,receipts,afterStage=()=>{},runTechnical=technical,packageMedia=generateMissing,throughStage='shelf',now=()=>Date.now()}) {
+  need(['ingest','package','technical','shelf'].includes(throughStage),'Unknown preparation stage boundary');
   let b;
   try {b=binding(request.row,request.identity);} catch(e) {
     saveOnce(path.join(receipts,`blocked-${randomUUID()}.json`),{registryId:request.row?.id,videoId:request.row?.metadata?.videoGeneration?.videoId,stage:'render',status:'blocked',reason:e.message,at:new Date(now()).toISOString()});throw e;
@@ -136,6 +137,7 @@ export function prepare({request,current,root,receipts,afterStage=()=>{},runTech
     need(a?.status==='approved' && a.binding===key && a.evidence && Date.parse(a.expiresAt)>now(),'Preparation approval pending/denied/expired or wrong revision');
   };
   const event=(status,reason)=>saveOnce(path.join(dir,`event-${randomUUID()}.json`),{binding:key,videoId:b.videoId,stage,status,reason,at:new Date(now()).toISOString()});
+  const boundary=name=>({status:`prepared-through-${name}`,completedStage:name,binding:key,checkpointDirectory:dir,checkpoint:read(path.join(dir,`${name}.json`))});
   const checkpoint=(name,value)=>{
     guard();saveOnce(path.join(dir,`${name}.json`),value);afterStage(name);
   };
@@ -145,6 +147,7 @@ export function prepare({request,current,root,receipts,afterStage=()=>{},runTech
     saveOnce(path.join(receipts,`video-${b.videoId}.json`),{binding:key});
     stage='ingest';if(!fs.existsSync(path.join(dir,'ingest.json')))event('incomplete','Reconciling exact original before any copy');
     ingest(request.source,original,b.identity);checkpoint('ingest',{binding:key,identity:b.identity,scope:'local-original-only'});
+    if(throughStage==='ingest')return boundary('ingest');
     stage='package';if(!fs.existsSync(path.join(dir,'package.json')))event('incomplete','Reconciling immutable package before ffmpeg');
     if(!fs.existsSync(packaged)) {
       const work=fs.mkdtempSync(path.join(root,'.prepare-'));
@@ -169,17 +172,19 @@ export function prepare({request,current,root,receipts,afterStage=()=>{},runTech
     const provenance=read(path.join(packaged,'preparation-source.json'));
     need(provenance.binding===key && digest(provenance.files)===digest(identities(packaged)),'Package provenance/hash mismatch');
     checkpoint('package',{binding:key,files:provenance.files});
+    if(throughStage==='package')return boundary('package');
     stage='technical';
     const technicalFile=path.join(dir,'technical.json');
     if(!fs.existsSync(technicalFile)) {event('incomplete','Independent original and HLS decode pending');checkpoint('technical',{binding:key,packageHash:digest(provenance.files),checks:runTechnical(original,path.join(packaged,'index.m3u8'))});}
     const qa=read(technicalFile);
     need(qa.binding===key && qa.packageHash===digest(provenance.files) && qa.checks.originalAndHlsDecode===true,'Technical checkpoint mismatch');
+    guard();if(throughStage==='technical')return boundary('technical');
     stage='shelf';
     const shelf={id:b.videoId,edition:b.edition,season:b.season,week:b.week,kind:b.kind,teamIds:b.pair,matchupKey:b.matchupKey,
       writer:b.writer,voiceId:b.voiceId,scriptRegistryId:b.registryId,scriptSha256:b.scriptSha256,sourceRevision:b.scriptRevision,sourcePackageSha256:b.sourceRevision,
       sourceSha256:b.identity.sha256,preparationBinding:key,qaStatus:'technical_only_review_required',publicationApproved:false};
     checkpoint('shelf',shelf);
-    return {status:'prepared-review-required',binding:key,checkpointDirectory:dir,shelf};
+    return {status:'prepared-review-required',completedStage:'shelf',binding:key,checkpointDirectory:dir,checkpoint:shelf,shelf};
   } catch(e) {event(stage==='authorization' || /approval|superseded|stale|Unsupported/.test(e.message)?'blocked':'failed',e.message);throw e;}
 }
 
@@ -229,7 +234,11 @@ if(process.argv[1] && import.meta.url===pathToFileURL(path.resolve(process.argv[
   try {
     const [command,file,currentFile,root,receipts]=process.argv.slice(2);
     if(command==='preflight') {const errors=batchPreflight(read(file));console.log(JSON.stringify({ok:!errors.length,errors},null,2));if(errors.length)process.exitCode=1;}
-    else if(command==='prepare') console.log(JSON.stringify(prepare({request:read(file),current:()=>read(currentFile),root:path.resolve(root),receipts:path.resolve(receipts)}),null,2));
+    else if(command==='prepare') {
+      const extra=process.argv.slice(7);
+      need(extra.length===0 || (extra.length===2 && extra[0]==='--through-stage'),'Expected --through-stage ingest|package|technical|shelf');
+      console.log(JSON.stringify(prepare({request:read(file),current:()=>read(currentFile),root:path.resolve(root),receipts:path.resolve(receipts),throughStage:extra[1]||'shelf'}),null,2));
+    }
     else if(command==='resume-delivery') {const result=recordDeliveryReconciliation(currentFile,read(file));console.log(JSON.stringify(result,null,2));if(!['already-present','eligible-for-authorized-upload'].includes(result.decision))process.exitCode=1;}
     else if(command==='league-gate') console.log(JSON.stringify(leagueGate(read(file)),null,2));
     else throw Error('Usage: prepare-media.mjs preflight SNAPSHOT | prepare REQUEST CURRENT_REGISTRY_EXPORT CANDIDATE_ROOT RECEIPTS | league-gate EVIDENCE | resume-delivery EVIDENCE RECEIPTS');

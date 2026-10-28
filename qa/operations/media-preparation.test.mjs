@@ -74,3 +74,27 @@ test('real ffmpeg interruption leaves no package and resumes exact original',t=>
  assert.equal(fs.existsSync(path.join(o.root,'public/reels-hls',id)),false);
  o.request.existingPackage=existing;assert.equal(prepare(o).status,'prepared-review-required');
 });
+test('native completion adapter decodes real media through all stages, resumes, and never writes registry in dry-run',async t=>{
+  const {handleHeygenCompletion}=await import('../../scripts/operations/native-media-completion.mjs');
+  const {nativeStageCallbacks}=await import('../../scripts/operations/native-media-stage.mjs');
+  const root=fs.mkdtempSync(path.join(os.tmpdir(),'brief-native-decode-'));t.after(()=>fs.rmSync(root,{recursive:true,force:true}));
+  const request=fixture();request.preparationApproval.expiresAt=new Date(Date.now()+3600000).toISOString();
+  request.row.metadata.privateVideoLibrary={status:'succeeded',library_file_id:'mock-library-real-fixture',current_version_number:0,...request.identity};
+  const event={registryId:request.row.id,videoId:request.row.metadata.videoGeneration.videoId};
+  // Mock connected reads/materialization only; production writes never called.
+  const adapters={...nativeStageCallbacks({root,receipts:path.join(root,'receipts'),existingPackage:request.existingPackage}),
+    confirmExistingVideo:async()=>({videoId:event.videoId,status:'completed',observedAt:new Date().toISOString()}),
+    readRegistry:async()=>({row:structuredClone(request.row),observedAt:new Date().toISOString()}),
+    materializeLibrary:async source=>({...source,status:'succeeded',path:request.source.path}),
+    approvalFor:async()=>request.preparationApproval,
+    compareAndSwapPreparation:async()=>{throw Error('Dry-run must not write');}};
+  const before=JSON.stringify(request.row),start=Date.now();
+  const first=await handleHeygenCompletion({event,mode:'dry-run'},adapters);
+  const preparedMs=Date.now()-start,technical=path.join(root,'receipts',first.binding,'technical.json'),mtime=fs.statSync(technical).mtimeMs;
+  const resumeStart=Date.now();await handleHeygenCompletion({event,mode:'dry-run'},adapters);
+  assert.equal(fs.statSync(technical).mtimeMs,mtime);assert.equal(JSON.stringify(request.row),before);
+  assert.equal(first.registryWriteAttempts,0);assert.equal(first.completedStages.length,4);
+  const checks=JSON.parse(fs.readFileSync(technical)).checks;
+  assert.equal(checks.originalAndHlsDecode,true);assert.equal(checks.fullAuditoryReviewPerformed,false);assert.equal(checks.fullMotionReviewPerformed,false);
+  t.diagnostic(JSON.stringify({scope:'real-local-media/mock-connected-callbacks',preparedMs,resumeMs:Date.now()-resumeStart}));
+});

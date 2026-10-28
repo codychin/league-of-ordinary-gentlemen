@@ -29,7 +29,8 @@
     "canonicalFfmpegRun": true,
     "noOpRestart": true,
     "isolatedConsumerAssembly": "actual static manifest consumer; complete six; local HTTP HEAD/native HLS/MP4 contracts; no additional transcode plan",
-    "cumulativeAssembly": "all three leagues sequentially; earlier cohorts/order preserved; idempotent replay; prior/concurrent source revision rejection"
+    "cumulativeAssembly": "all three leagues sequentially; earlier cohorts/order preserved; idempotent replay; prior/concurrent source revision rejection",
+    "nativeCompletionAdapter": "Actual CLI exercised with mock connected callbacks and real immutable media; full-metadata CAS collision/uncertain outcome and per-stage resume tested. No real registry writes."
   },
   "limits": {
     "normalProviderToExecutorIngest": "not demonstrated; prior direct HeyGen/public-site CONNECT403 and failed Library MP4 transfer retained as blocked evidence; no denied-route retry or egress change",
@@ -41,12 +42,12 @@
     "approvalToLiveTiming": "not measured; 10\u201315 minutes remains a target",
     "productionMutation": "not authorized or performed",
     "week7Exception": "not reusable by preparation, assembly or future batch preflight",
-    "automaticCompletionCaller": "PARTIAL: no live render-completion caller or runtime registry adapter is wired. Supabase connector read works interactively; executor has no SUPABASE_SERVICE_ROLE_KEY, SUPABASE_ACCESS_TOKEN or SUPABASE_URL. No new credentials are authorized.",
-    "smallestIntegrationPrerequisite": "Connect the existing render owner to these entry points through an authorized registry-read bridge and prove a supported durable provider-ingest canary with real auditory/full-motion review. Do not introduce credentials, schedules or bypass denied routes."
+    "automaticCompletionCaller": "Agent-operated JSON-lines completion entrypoint implemented; connected callbacks supplied by existing native turn. No unattended subscription. Connected rehearsal and real receipt writes not yet demonstrated in this executor.",
+    "smallestIntegrationPrerequisite": "Run documented native read-only callback rehearsal with connected provider status, exact registry SELECT and official Library materialization. Before future batches separately prove fresh provider durable ingress and actual auditory/full-motion review. No new credentials or schedules required for agent-operated adapter."
   },
   "validation": {
-    "tests": 268,
-    "passed": 268,
+    "tests": 277,
+    "passed": 277,
     "fullBuild": "passed",
     "buildLimits": "Six existing upstream images unavailable; original URLs retained by existing build. Generated unrelated cache changes excluded."
   }

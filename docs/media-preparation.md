@@ -266,13 +266,89 @@ registry bodies excluded. On executor recovery, restore those records using
 fetched immutable media. Hash reconciliation still runs; successful decode and
 packaging checkpoints are reused.
 
-**Operational integration is partial.** The actual operator CLI has been invoked
-with a freshly read registry row and existing approved Git artifacts, and normal
-Git transport is implemented and exercised. There is no live render-completion
-caller or authenticated runtime registry adapter in this repository. This
-executor has no existing Supabase service/access-token runtime configuration;
-the interactive connector is not a callable Node credential. No credential or
-schedule is created to fill that gap. The existing render owner must be connected
-through an authorized registry bridge, and a normal provider-to-durable-ingest
-canary plus real review capability must pass before claiming automatic future
-batch readiness. Existing-artifact benchmarks do not prove that missing path.
+**Operational integration is partial.** Existing Git transport and local
+preparation are exercised. The native completion bridge below now supplies an
+agent-operated callback path to the connected registry and official Library;
+it does not require a new runtime credential. Its connected read-only rehearsal
+and any authorized real receipt write must be distinguished from mocked tests.
+A normal fresh-provider ingest canary and actual review capability remain required
+before claiming future batch readiness. No unattended subscription is added.
+
+## Existing native completion turn (agent operated)
+
+Invoke `npm run --silent media:completion -- /absolute/path/completion.json` from the
+existing Moxie HeyGen completion-handling turn, in an executor with the checked-out
+scripts, Node, ffmpeg, and ffprobe. This is a foreground JSON-lines bridge, not an
+unattended subscription, worker, or new schedule. The actual path is
+`native-media-completion-turn.mjs` → `handleHeygenCompletion` → authenticated
+callbacks / `nativeStageCallbacks` → `prepare({throughStage})`. Direct CLI users
+can also append `--through-stage ingest|package|technical|shelf` to the existing
+`media:prepare` arguments. Default behavior still prepares through shelf.
+
+Config (all paths belong to that same native executor):
+
+```json
+{
+  "event": {"registryId": "20595762-7bc6-5844-b51c-3b9fc1d40dec", "videoId": "706fc56d2a83e7a534dd9af5fdbc3ba7"},
+  "mode": "dry-run",
+  "throughStage": "shelf",
+  "root": "/tmp/brief-native-candidate",
+  "receipts": "/tmp/brief-native-receipts",
+  "preparationApproval": {"status": "approved", "binding": "EXACT_COMPUTED_BINDING", "evidence": "EXISTING_APPLICABLE_AUTHORIZATION", "expiresAt": "APPLICABLE_EXPIRY"}
+}
+```
+
+Use a new temporary candidate root and preserve its receipts for resume. Compute
+that exact binding from the fresh row and actual materialized bytes with
+`nativeStageCallbacks({root,receipts}).inspectOriginal({row,path})`; do not invent
+an approval, expiry, or binding. For the existing-artifact rehearsal, include the
+existing `existingPackage` descriptor (videoId, sourceSha256, absolute path and
+all file identities from `qa/week7-recap-assets.json`) so no encoding is needed.
+The immutable published originals and HLS are fixtures; no new generation/spend.
+
+Keep the process stdin open. Each stdout line of type `callback` has an integer
+`id`, `callback`, and `args`. The active authenticated native turn executes the
+specified callback, then writes one JSON line to stdin:
+`{"id":1,"result":<actual-result>}`. On denial/failure return
+`{"id":1,"error":"exact action/status/reason"}`; do not fabricate success or
+select another source. Read subsequent requests until `result` or `blocked`.
+
+* `confirmExistingVideo`: use the connected provider's **existing video status**
+  lookup for `args.videoId`; normalize to `{videoId,status:"completed",observedAt}`
+  only when confirmed. Never render/generate.
+* `executeSql`: pass `args` to the already-connected Supabase `execute_sql` tool.
+  The bridge accepts its actual MCP result envelope or decoded row array. Every
+  query in dry-run is an exact-row SELECT. If a write is denied or its outcome is
+  uncertain, pass the error; the bridge rereads before further action.
+* `materializeLibrary`: use the official Library materialization workflow for
+  the exact `libraryFileId` and version in `args`, according to the Library skill.
+  Return `{status:"succeeded",libraryFileId,version,path}` only after the file
+  exists completely in this executor. Partial/failed materialization stops; no
+  public-site or direct-provider fallback. The bridge independently checks bytes
+  and SHA before preparing anything.
+
+The read-only rehearsal must use `mode:dry-run`: it rereads the real published row
+before and after each stage, but writes only local artifacts/journal. Do not switch
+it to persist to test a published row. Parent/native can drive the callbacks with
+its existing tool runtime; no new API key, environment credential, or HTTP client
+is required. This repository cannot authenticate those callbacks by itself.
+
+For an actually authorized preparation on the existing row, persist mode appends
+technical-only receipts under `metadata.mediaPreparation.checkpoints`. The UPDATE
+compares the **entire previous metadata JSONB** and writer, not `updated_at`; all
+other metadata, approval, publication, generation and history are preserved.
+Zero updated rows trigger a fresh read and stop unless the exact receipt already
+exists. An uncertain write also rereads and never automatically repeats the
+UPDATE. A confirmed package whose bytes are absent requires exact package restore,
+not another encode. Each stage returns to the asynchronous orchestrator for a fresh
+authoritative row read before proceeding. Stage completion is not delivery or
+publication approval; review and existing complete-six release gates still apply.
+
+Tests in `tests/native-media-completion.test.mjs` execute the CLI callback protocol
+and real original/package bytes with **mock provider/Library/registry callbacks**;
+the technical decoder is stubbed in those focused tests. Existing real-media tests
+exercise actual decode. Mock CAS writes are explicitly local, not a production
+registry-write smoke test. Native connected read-only rehearsal evidence must be
+reported separately. Fresh provider-to-durable ingestion, native ordinary Git
+transport, auditory/full-motion review, and unattended subscription readiness are
+not established by this adapter.

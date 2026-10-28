@@ -12,7 +12,8 @@
     "media:preflight": "node scripts/operations/prepare-media.mjs preflight",
     "media:prepare": "node scripts/operations/prepare-media.mjs prepare",
     "media:assemble": "node scripts/operations/assemble-prepared-media.mjs",
-    "media:transport": "node scripts/operations/transport-prepared-media.mjs"
+    "media:transport": "node scripts/operations/transport-prepared-media.mjs",
+    "media:completion": "node scripts/operations/native-media-completion-turn.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "0.12.7",
