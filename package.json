@@ -11,7 +11,8 @@
     "qa:browser": "playwright test",
     "media:preflight": "node scripts/operations/prepare-media.mjs preflight",
     "media:prepare": "node scripts/operations/prepare-media.mjs prepare",
-    "media:assemble": "node scripts/operations/assemble-prepared-media.mjs"
+    "media:assemble": "node scripts/operations/assemble-prepared-media.mjs",
+    "media:transport": "node scripts/operations/transport-prepared-media.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "0.12.7",

@@ -140,3 +140,55 @@ test('a competing revision cannot reuse the same generation ID checkpoints',t=>{
  changed.preparationApproval.binding=preparationBinding(binding(changed.row,changed.identity));
  assert.throws(()=>prepare({...o,request:changed,current:()=>({observedAt:at,row:changed.row})}),/Conflicting checkpoint/);
 });
+
+test('three leagues assemble cumulatively, idempotently, preserving chronology and rejecting stale cohorts',async t=>{
+ const {assemble}=await import('../scripts/operations/assemble-prepared-media.mjs');
+ const o=setup(t),base=JSON.parse(fs.readFileSync('data/week7-approved-homepage-media.json'));
+ const expected=[],prepared=[];
+ for(const row of base) {
+  const request=fixture(row.id);expected.push(binding(request.row,request.identity));
+  prepared.push(prepare({...o,request,current:()=>({observedAt:at,row:request.row})}).shelf);
+ }
+ const all=expected.map(preparationBinding),main=execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
+ const baseSha=assetIdentity(fs.readFileSync('data/week7-approved-homepage-media.json')).sha256;
+ const makeEvidence=edition=>{
+  const batch=expected.filter(x=>x.edition===edition),keys=batch.map(preparationBinding);
+  return {expected:batch,prepared:prepared.filter(x=>x.edition===edition),currentBindings:keys,expectedMain:main,baseManifestSha256:baseSha,
+   reviews:keys.map(binding=>({binding,status:'passed',fullAuditoryReviewPerformed:true,fullMotionReviewPerformed:true,performanceApproval:true,reviewer:'TEST ONLY',evidence:'TEST ONLY'})),
+   approval:{bindings:keys,status:'approved',evidence:'TEST-ONLY',expiresAt:'2026-10-29T00:00:00Z'}};
+ };
+ const opts={repository:repo,root:o.root,receipts:o.receipts,current:()=>({observedAt:at,currentMain:main,currentBindings:all})};
+ const target=path.join(o.root,'data/week7-approved-homepage-media.json');
+ let previous;
+ for(const [index,edition] of ['doge','loog','sunday-crew'].entries()) {
+  const result=assemble({...opts,evidence:makeEvidence(edition)},now),bytes=fs.readFileSync(target),next=JSON.parse(bytes);
+  if(previous)assert.deepEqual(next.filter(x=>x.edition!==edition),previous.filter(x=>x.edition!==edition));
+  assert.deepEqual(next.map(x=>[x.matchupKey,x.short,x.matchup,x.left,x.right]),base.map(x=>[x.matchupKey,x.short,x.matchup,x.left,x.right]));
+  assert.equal(result.bindings.length,(index+1)*6);
+  const again=assemble({...opts,evidence:makeEvidence(edition)},now);
+  assert.deepEqual(result,again);assert.deepEqual(fs.readFileSync(target),bytes);previous=next;
+ }
+ assert.ok(previous.every(x=>x.qaStatus==='media_qa_passed'&&!x.playbackExceptionId));
+ const changed=all.slice(1);
+ assert.throws(()=>assemble({...opts,evidence:makeEvidence('sunday-crew'),current:()=>({observedAt:at,currentMain:main,currentBindings:changed})},now),/Earlier cohort revision superseded/);
+ // A source revision moving between the initial and final registry reads must stop.
+ let reads=0;
+ assert.throws(()=>assemble({...opts,evidence:makeEvidence('sunday-crew'),current:()=>({observedAt:at,currentMain:main,currentBindings:++reads===1?all:changed})},now),/Earlier cohort revision superseded/);
+});
+
+test('ordinary batch Git transport durably retains exact artifacts and resumes without a second commit',async t=>{
+ const {transport}=await import('../scripts/operations/transport-prepared-media.mjs');
+ const o=setup(t),work=path.join(o.root,'repo'),remote=path.join(o.root,'remote.git');fs.mkdirSync(work);
+ const git=(args,cwd=work)=>execFileSync('git',args,{cwd,encoding:'utf8',stdio:['pipe','pipe','pipe']}).trim();
+ git(['init','--bare',remote],o.root);git(['init',work],o.root);git(['config','user.name','Fixture']);git(['config','user.email','fixture@example.invalid']);
+ fs.writeFileSync(path.join(work,'README'),'fixture');git(['add','README']);git(['commit','-m','base']);git(['remote','add','origin',remote]);git(['push','origin','HEAD:refs/heads/feat/test-preparation']);
+ const parent=git(['rev-parse','HEAD']),file='qa/media-preparation-fixture.json';fs.mkdirSync(path.join(work,'qa'));fs.writeFileSync(path.join(work,file),'{}\n');
+ const artifacts=[{path:file,...assetIdentity(fs.readFileSync(path.join(work,file)))}],targetRef='refs/heads/feat/test-preparation';
+ const args={repository:work,root:work,receipts:o.receipts,repositoryFullName:'fixture/test',targetRef,parent,expectedRemote:parent,artifacts,createdAt:new Date().toISOString(),approval:{status:'approved',artifactSet:preparationBinding(artifacts),repository:'fixture/test',targetRef,evidence:'TEST ONLY',expiresAt:new Date(Date.now()+60000).toISOString()}};
+ const first=transport(args);assert.equal(first.productionVerified,false);assert.equal(git(['rev-parse','HEAD']),parent,'No branch checkout/movement');
+ assert.equal(git(['rev-parse',targetRef],remote),first.commit);assert.deepEqual(transport(args),first);
+ fs.writeFileSync(path.join(work,file),'changed');
+ const changed={...args,createdAt:new Date(Date.now()-1000).toISOString()};
+ assert.throws(()=>transport({...changed,approval:{...args.approval,expiresAt:new Date(0).toISOString()}}),/approval/);
+ assert.throws(()=>transport({...args,targetRef:'refs/heads/main'}),/never main/);
+});

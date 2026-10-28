@@ -225,3 +225,54 @@ minutes; installation or verification failure stops the job. The browser job
 does not install packages or browsers at runtime.
 The existing `integrity` job depends on this preparation job, so promotion cannot
 admit a candidate whose preparation checks failed.
+
+## Cumulative leagues and ordinary Git checkpoint transport
+
+Assembly persists immutable `cohort-<edition>.json` records under the existing
+receipt directory, bound to the original main/manifest. Subsequent leagues are
+composed with every prior cohort, preserving base ordering and unaffected rows.
+`current-release.json.currentBindings` must include current bindings for **all**
+assembled cohorts, not only the newest six. Prior expired approvals or superseded
+revisions stop assembly. Replaying a league is idempotent; a superseding revision
+requires a new candidate root. A crash after recording a cohort can be reconciled
+without losing it. Concurrent changes are detected optimistically; the existing
+single-owner constraint still applies. Returned transport hashes bind the exact
+cumulative manifest, so a later file change cannot silently ship an earlier list.
+
+`npm run media:transport -- transport-request.json` performs one normal Git push,
+then fetches and hash-verifies every artifact from the exact immutable remote
+commit without switching branches. It uses the existing Git connection and
+existing per-file receipt helper. It never force-pushes, writes main/staging,
+retries an uncertain push, generates media, or claims staging/publication.
+
+The request contains `repository`, `root`, `receipts`, `repositoryFullName`,
+`targetRef` (an existing approved `feat/` or `media-prepared/` ref), `parent`,
+`expectedRemote`, stable `createdAt`, and `artifacts` (the assembly's exact
+`transportFiles`, optionally a sanitized `qa/media-preparation-*.json` checkpoint
+archive). `approval` must contain approved status, real evidence, unexpired
+`expiresAt`, exact repository/ref, and `artifactSet` equal to
+`preparationBinding(artifacts.sort((a,b)=>a.path.localeCompare(b.path)))`.
+This is separate transport authority. Since this repository is public, it does
+not authorize placing otherwise unapproved private drafts on a public branch.
+
+A temporary Git index leaves the working index/ref untouched. The deterministic
+commit and push-attempt checkpoint are recorded before transport. A lost response
+is reconciled by reading the existing remote ref and exact commit; uncertain
+outcomes stop without another push. The confirmed receipt has `scope:
+"git-commit-only"`; it is not a verified release. Checkpoint archives must retain
+binding, ingest, package, technical and shelf records, with source URLs/private
+registry bodies excluded. On executor recovery, restore those records using
+`saveOnce`, re-read the authoritative row, and invoke preparation against the
+fetched immutable media. Hash reconciliation still runs; successful decode and
+packaging checkpoints are reused.
+
+**Operational integration is partial.** The actual operator CLI has been invoked
+with a freshly read registry row and existing approved Git artifacts, and normal
+Git transport is implemented and exercised. There is no live render-completion
+caller or authenticated runtime registry adapter in this repository. This
+executor has no existing Supabase service/access-token runtime configuration;
+the interactive connector is not a callable Node credential. No credential or
+schedule is created to fill that gap. The existing render owner must be connected
+through an authorized registry bridge, and a normal provider-to-durable-ingest
+canary plus real review capability must pass before claiming automatic future
+batch readiness. Existing-artifact benchmarks do not prove that missing path.

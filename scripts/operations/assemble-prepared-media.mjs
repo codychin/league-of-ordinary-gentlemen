@@ -3,6 +3,7 @@
 // Never writes the source repository, public registry, branch or production.
 import fs from 'node:fs';
 import path from 'node:path';
+import {randomUUID} from 'node:crypto';
 import {pathToFileURL} from 'node:url';
 import {assetIdentity} from './release-preflight.mjs';
 import {leagueGate, preparationBinding, packageIdentities, saveOnce} from './prepare-media.mjs';
@@ -17,7 +18,8 @@ export function assemble({repository,root,receipts,evidence,current,manifestPath
     const c=current(),at=Date.parse(c.observedAt);
     need(at<=now && now-at<=300000,'Fresh main/registry read required');
     need(/^[a-f0-9]{40}$/.test(evidence.expectedMain) && c.currentMain===evidence.expectedMain,'Main superseded; do not assemble stale release');
-    need(preparationBinding([...c.currentBindings].sort())===preparationBinding([...evidence.currentBindings].sort()),'Registry superseded');
+    need(evidence.currentBindings.every(key=>c.currentBindings.includes(key)),'Registry superseded');
+    return c;
   };
   assertCurrent();leagueGate(evidence,now);
   const consumer=fs.readFileSync(path.join(repository,consumerPath),'utf8');
@@ -28,7 +30,7 @@ export function assemble({repository,root,receipts,evidence,current,manifestPath
   const replaced=base.filter(x=>x.edition===edition);
   need(replaced.length===6,'Existing six-item shelf placement required');
   const paths=[];
-  const next=base.map(old=>{
+  const nextLeague=base.filter(old=>old.edition===edition).map(old=>{
     if(old.edition!==edition)return old;
     const b=batch.find(x=>x.matchupKey===old.matchupKey);
     need(b && b.season===old.season && b.week===old.week && b.kind===old.kind,'Do not change week/kind/chronology through media assembly');
@@ -54,11 +56,51 @@ export function assemble({repository,root,receipts,evidence,current,manifestPath
       fullPlaybackInspection:true,independentAuditoryListening:true,performanceApproval:true,
       durationSeconds:qa.checks.durationSeconds};
   });
-  need(planPackages(root,paths,[]).length===0,'Prepared batch must not trigger another HLS commit');
-  assertCurrent();saveOnce(path.join(root,manifestPath),next);
-  const transportFiles=[manifestPath,...paths].map(p=>({path:p,...assetIdentity(fs.readFileSync(path.join(root,p)))}));
-  const result={status:'candidate-overlay-only',expectedMain:evidence.expectedMain,manifestPath,consumerPath,transportFiles,
-    bindings:batch.map(preparationBinding),productionVerified:false};
+  const lineage={expectedMain:evidence.expectedMain,manifestPath,consumerPath,baseManifestSha256:evidence.baseManifestSha256};
+  saveOnce(path.join(receipts,'assembly-base.json'),lineage);
+  const fileRecord=p=>({path:p,...assetIdentity(fs.readFileSync(path.join(root,p)))});
+  const cohort={edition,rows:nextLeague,bindings:batch.map(preparationBinding),approvalExpiresAt:evidence.approval.expiresAt,files:paths.map(fileRecord)};
+  // One immutable record per league in this candidate. A superseding revision needs
+  // a new candidate root; it cannot silently replace an approved cohort.
+  saveOnce(path.join(receipts,`cohort-${edition}.json`),cohort);
+  const loadCohorts=()=>fs.readdirSync(receipts).filter(n=>/^cohort-(loog|doge|sunday-crew)\.json$/.test(n)).sort().map(n=>read(path.join(receipts,n)));
+  const cohorts=loadCohorts(),allBindings=cohorts.flatMap(c=>c.bindings);
+  const currentAll=assertCurrent();
+  for(const c of cohorts) {
+    need(c.bindings.every(key=>currentAll.currentBindings.includes(key)),'Earlier cohort revision superseded; reconcile whole candidate');
+    need(Date.parse(c.approvalExpiresAt)>now,'Earlier cohort approval expired');
+    for(const f of c.files)need(preparationBinding(fileRecord(f.path))===preparationBinding(f),'Earlier cohort bytes changed');
+  }
+  const next=base.map(old=>cohorts.find(c=>c.edition===old.edition)?.rows.find(r=>r.matchupKey===old.matchupKey)||old);
+  const allPaths=cohorts.flatMap(c=>c.files.map(f=>f.path));
+  need(planPackages(root,allPaths,[]).length===0,'Prepared batch must not trigger another HLS commit');
+  const destination=path.join(root,manifestPath),before=fs.existsSync(destination)?fs.readFileSync(destination):null;
+  if(before) {
+    // Recover a crash after recording a cohort but before assembling its manifest.
+    // Every existing row must be either the base or its recorded approved cohort.
+    const prior=JSON.parse(before);
+    need(prior.length===base.length && prior.every((row,i)=>preparationBinding(row)===preparationBinding(base[i]) || preparationBinding(row)===preparationBinding(next[i])),'Unrecognized candidate manifest; do not overwrite');
+  }
+  const bytes=Buffer.from(JSON.stringify(next,null,2)+'\n');
+  if(!before || !before.equals(bytes)) {
+    fs.mkdirSync(path.dirname(destination),{recursive:true});
+    const tmp=`${destination}.${randomUUID()}.tmp`,fd=fs.openSync(tmp,'wx');
+    try {fs.writeFileSync(fd,bytes);fs.fsyncSync(fd);} finally {fs.closeSync(fd);}
+    try {
+      const c=assertCurrent();need(allBindings.every(key=>c.currentBindings.includes(key)),'Earlier cohort revision superseded');
+      const actual=fs.existsSync(destination)?fs.readFileSync(destination):null;
+      need((!actual&&!before)||(actual&&before&&actual.equals(before)), 'Concurrent candidate changed; reconcile before retry');
+      fs.renameSync(tmp,destination);
+      const dir=fs.openSync(path.dirname(destination),'r');try {fs.fsyncSync(dir);} finally {fs.closeSync(dir);}
+    } finally {fs.rmSync(tmp,{force:true});}
+  }
+  // No distributed lock: a concurrent cohort must be reconciled, never reported
+  // as a complete overlay. Transport must recheck these exact returned file hashes.
+  need(preparationBinding(loadCohorts())===preparationBinding(cohorts),'Concurrent cohorts advanced; reconcile candidate');
+  need(fs.readFileSync(destination).equals(bytes),'Concurrent manifest changed; reconcile candidate');
+  const transportFiles=[manifestPath,...allPaths].map(fileRecord);
+  const result={status:'candidate-overlay-only',...lineage,transportFiles,
+    bindings:allBindings,productionVerified:false};
   saveOnce(path.join(receipts,`assembly-${preparationBinding(result)}.json`),result);
   return result;
 }
