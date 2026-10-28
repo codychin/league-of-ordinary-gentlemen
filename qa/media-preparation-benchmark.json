@@ -1,0 +1,141 @@
+{
+  "mode": "isolated-existing-artifact-replay",
+  "recordedAt": "2026-10-28T01:51:40.189Z",
+  "results": [
+    {
+      "videoId": "767a690ca578a94b37551670f196948c",
+      "bytes": 9593598,
+      "prepareMs": 2072,
+      "resumeMs": 36,
+      "status": "prepared-review-required"
+    },
+    {
+      "videoId": "f1f50af7659bd9dc184584ccfbe371f7",
+      "bytes": 11852308,
+      "prepareMs": 1997,
+      "resumeMs": 42,
+      "status": "prepared-review-required"
+    },
+    {
+      "videoId": "bae3db100a8b889418b3a7586bbc6c57",
+      "bytes": 8971271,
+      "prepareMs": 1671,
+      "resumeMs": 33,
+      "status": "prepared-review-required"
+    },
+    {
+      "videoId": "c4fd9f1825cb0fbd4124f6da057519fa",
+      "bytes": 12310686,
+      "prepareMs": 2156,
+      "resumeMs": 41,
+      "status": "prepared-review-required"
+    },
+    {
+      "videoId": "7933be525a78f092953085f927b669db",
+      "bytes": 9350665,
+      "prepareMs": 1890,
+      "resumeMs": 33,
+      "status": "prepared-review-required"
+    },
+    {
+      "videoId": "9fb0773e01f5ceef619b45a3a47b62ce",
+      "bytes": 10181226,
+      "prepareMs": 1595,
+      "resumeMs": 33,
+      "status": "prepared-review-required"
+    },
+    {
+      "videoId": "77fdb818ebdba6c6d4992a6995bceb21",
+      "bytes": 9521905,
+      "prepareMs": 1754,
+      "resumeMs": 30,
+      "status": "prepared-review-required"
+    },
+    {
+      "videoId": "706fc56d2a83e7a534dd9af5fdbc3ba7",
+      "bytes": 10788317,
+      "prepareMs": 2036,
+      "resumeMs": 36,
+      "status": "prepared-review-required"
+    },
+    {
+      "videoId": "0acbc3ddc05e75befc4e2b1ac574ed22",
+      "bytes": 12824307,
+      "prepareMs": 2246,
+      "resumeMs": 38,
+      "status": "prepared-review-required"
+    },
+    {
+      "videoId": "d34541194289c66007a7dd97e41a6a31",
+      "bytes": 10373442,
+      "prepareMs": 2140,
+      "resumeMs": 39,
+      "status": "prepared-review-required"
+    },
+    {
+      "videoId": "585d911cd4985732d63653d81bdc7bed",
+      "bytes": 6739515,
+      "prepareMs": 1493,
+      "resumeMs": 29,
+      "status": "prepared-review-required"
+    },
+    {
+      "videoId": "1467964260cf0fa4511dee31e1c398d4",
+      "bytes": 11654072,
+      "prepareMs": 1978,
+      "resumeMs": 34,
+      "status": "prepared-review-required"
+    },
+    {
+      "videoId": "63f10c551eaeafff23ee5b90cc4200e5",
+      "bytes": 10435340,
+      "prepareMs": 2034,
+      "resumeMs": 35,
+      "status": "prepared-review-required"
+    },
+    {
+      "videoId": "fda44a9d5121ed3be7b187e30c15530c",
+      "bytes": 11881646,
+      "prepareMs": 2166,
+      "resumeMs": 35,
+      "status": "prepared-review-required"
+    },
+    {
+      "videoId": "1d80c62dc341a00dd6e271e66642a3f4",
+      "bytes": 10060109,
+      "prepareMs": 4750,
+      "resumeMs": 68,
+      "status": "prepared-review-required"
+    },
+    {
+      "videoId": "ac82c6f0b55b39cd3d6a87e6dfba88ab",
+      "bytes": 7974719,
+      "prepareMs": 3168,
+      "resumeMs": 53,
+      "status": "prepared-review-required"
+    },
+    {
+      "videoId": "ffe537632fdcd4e50907256cc2669549",
+      "bytes": 8023809,
+      "prepareMs": 3018,
+      "resumeMs": 33,
+      "status": "prepared-review-required"
+    },
+    {
+      "videoId": "74f647b9a80ec002eda1bdeb27ad58b0",
+      "bytes": 11518310,
+      "prepareMs": 4039,
+      "resumeMs": 39,
+      "status": "prepared-review-required"
+    }
+  ],
+  "totalPreparationMs": 42203,
+  "totalResumeMs": 687,
+  "canonicalPackagingAndDecodeMs": 15708,
+  "canonicalResumeMs": 41,
+  "publicationPerformed": false,
+  "reviewPerformed": false,
+  "normalExternalIngestProven": false,
+  "approvalToLiveMeasured": false,
+  "conditions": "Final-code run; build and test activity overlapped on the executor. Existing artifacts only, no external ingest or deployment timing."
+}
