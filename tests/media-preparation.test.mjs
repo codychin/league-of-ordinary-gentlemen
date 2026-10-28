@@ -1,3 +1,4 @@
+import {execFileSync} from 'node:child_process';
 import {fixture} from '../qa/fixtures/media-preparation.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -77,7 +78,7 @@ test('real small and >16 MiB connector-expanded originals preserve exact bytes',
 test('immutable Git transport and ordered chunk recovery preserve original without changing branch',t=>{
   for(const kind of ['git','chunk-recovery']) {
     const o=setup(t);const id=o.request.row.metadata.videoGeneration.videoId;
-    if(kind==='git') o.request.source={kind,repository:repo,commit:'ecbc1cadf0ed09aa2c147b649419c25b05ff24ba',path:`public/reels/${id}.mp4`};
+    if(kind==='git') o.request.source={kind,repository:repo,commit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),path:`public/reels/${id}.mp4`};
     else {
       const bytes=fs.readFileSync(o.request.source.path),chunks=[];
       for(let i=0;i<bytes.length;i+=4*1024*1024){const part=bytes.subarray(i,i+4*1024*1024),p=path.join(o.root,`chunk${i}`);fs.writeFileSync(p,part);chunks.push({path:p,identity:assetIdentity(part)});}
