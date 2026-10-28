@@ -15,8 +15,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Verify runner media prerequisites
-        run: ffmpeg -version && ffprobe -version
+      - name: Ensure runner media prerequisites
+        timeout-minutes: 5
+        run: bash scripts/operations/ensure-media-tools.sh
       - name: Verify real preparation and shelf delivery contracts without spending
         run: node --test qa/operations/media-preparation.test.mjs
   integrity:

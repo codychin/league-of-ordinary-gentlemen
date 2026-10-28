@@ -219,6 +219,9 @@ Week 7 exception fail. Hosted playback remains a separate required gate.
 Real ffmpeg/HTTP integration checks run as a prerequisite job inside the existing
 Release integrity workflow, on its existing Ubuntu runner family. The pinned
 Playwright browser job and its no-runtime-browser-install rule remain intact.
-No generation credentials are used; missing ffmpeg/ffprobe fails explicitly.
+No generation credentials are used. The media job uses the existing HLS workflow's
+Ubuntu ffmpeg install path through `ensure-media-tools.sh`, bounded to five
+minutes; installation or verification failure stops the job. The browser job
+does not install packages or browsers at runtime.
 The existing `integrity` job depends on this preparation job, so promotion cannot
 admit a candidate whose preparation checks failed.
