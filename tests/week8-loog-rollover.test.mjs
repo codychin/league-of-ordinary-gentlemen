@@ -45,6 +45,7 @@ test('route gates Week 8 evidence by season and week and reports retrieval fresh
  const page=fs.readFileSync('app/matchups/[a]/[b]/page.js','utf8');
  assert.match(page,/Number\(latest.season\)===week8Verified.season&&Number\(latest.week\)===week8Verified.week/);
  assert.match(page,/week8Matches\?week8Verified.rosters/);
+ assert.equal((page.match(/SLOT_ORDER\[a.lineupSlot\]/g)||[]).length,2);
  assert.match(page,/PROVIDER-VERIFIED SELECTIONS/);assert.match(page,/Player points unavailable/);
  assert.doesNotMatch(page,/week8-matchup-columns|week8-preview/);
 });

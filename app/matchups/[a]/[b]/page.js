@@ -62,10 +62,10 @@ export default async function MatchupPreview({params}){
     const phase=final?'FINAL':game.closeoutPending?'AWAITING PROVIDER FINAL':pregame?'PREGAME':'LIVE';
     const week8Matches=Number(latest.season)===week8Verified.season&&Number(latest.week)===week8Verified.week;
     const verified=week8Matches?week8Verified.rosters:Number(latest.week)===7?week7Rosters:Number(latest.week)===closeout.week?closeout.loog.details.flatMap(g=>[g.home,g.away]):[];
-    const verifiedLeft=verified.find(t=>t.teamId===idA)?.players.filter(p=>p.started)||[];
+    const verifiedLeft=verified.find(t=>t.teamId===idA)?.players.filter(p=>p.started).sort((a,b)=>(SLOT_ORDER[a.lineupSlot]??99)-(SLOT_ORDER[b.lineupSlot]??99))||[];
     const fallbackLeft=activeRoster(left).map(p=>({lineupSlot:p.slot,name:p.name,points:null}));
     const leftPlayers=verifiedLeft.length?verifiedLeft:fallbackLeft;
-    const verifiedRight=verified.find(t=>t.teamId===idB)?.players.filter(p=>p.started)||[];
+    const verifiedRight=verified.find(t=>t.teamId===idB)?.players.filter(p=>p.started).sort((a,b)=>(SLOT_ORDER[a.lineupSlot]??99)-(SLOT_ORDER[b.lineupSlot]??99))||[];
     const fallbackRight=activeRoster(right).map(p=>({lineupSlot:p.slot,name:p.name,points:null}));
     const rightPlayers=verifiedRight.length?verifiedRight:fallbackRight;
     const column=selectMatchupColumn({previews:matchupColumns,recaps:matchupRecaps,edition:'loog',week:latest.week,a:idA,b:idB,isFinal:final});
