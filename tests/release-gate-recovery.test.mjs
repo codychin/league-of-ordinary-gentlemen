@@ -14,7 +14,7 @@ test('article headline remains required',()=>assert.throws(()=>validatePublicPag
 const detroit=JSON.parse(readFileSync('app/articles/marnie-detroit-school.js','utf8').replace(/^export const detroitSchoolArticle = /,'').replace(/;\s*$/,''));
 const plateHtml=detroit.body.filter(p=>p.type==='image').map(p=>'<figure class="articleInlineFigure"><img src="'+p.src+'" alt="'+p.alt+'"/><figcaption>'+p.caption+'</figcaption></figure>').join('');
 const detroitHtml='<h1>'+detroit.title+'</h1><p>The Brief</p><p>'+detroit.dek+'</p><div class="articleBylineShare">Marnie</div><figure>The Detroit School in performance.</figure><article class="articleBody">'+plateHtml+'</article>';
-function homepageFixture(root){return '<p>The Brief</p><section aria-label="Lead story: '+detroit.title+'"><a href="'+root+'/articles/marnie-detroit-school"><img src="/images/editorial/detroit-school/hero.webp" alt="Detroit Lions teammates celebrate together on the field."/></a></section><section aria-label="Recent stories"><h3>Allow Me to Reintroduce Myself</h3><h3>The Delicate Etiquette of a Sporting Pat</h3><h3>The Medical Clearance Industrial Complex</h3></section>';}
+function homepageFixture(root){return '<p>The Brief</p><section aria-label="Lead story: '+detroit.title+'"><a href="'+root+'/articles/marnie-detroit-school"><img src="/images/editorial/detroit-school/hero.webp" alt="Detroit Lions teammates celebrate together on the field."/></a></section><section aria-label="Recent stories"><h3>On the Saturation Bombing of Daniel Jones (née Dimes)</h3><h3>Allow Me to Reintroduce Myself</h3><h3>The Delicate Etiquette of a Sporting Pat</h3></section>';}
 const sha='a'.repeat(40);
 const project='prj_h89MCmxn3Mr3O0wRpnwstM917E0l';
 const team='team_hU7RX1oX9Ea0W2U9ieHwNxzL';
@@ -100,3 +100,12 @@ test('lost response reconciles applied alias without repeating request',()=>{con
 test('interrupted applied promotion restores only the known candidate policy and does not repeat POST',()=>{const r=simulate('interrupted-policy');assert.equal(r.status,0,r.stderr);assert.equal(r.calls.filter(c=>c.method==='POST').length,0);assert.ok(r.calls.some(c=>c.method==='PATCH'));assert.match(r.stdout,/policy-restored-after-interruption/)});
 test('active provider operation blocks new POST through bounded reconciliation',()=>{const r=simulate('provider-active');assert.notEqual(r.status,0);assert.equal(r.calls.filter(c=>c.method==='POST').length,0);assert.match(r.stdout,/waiting-for-provider-operation/)});
 for(const mode of ['bad-detroit-lead','bad-detroit-plate','bad-detroit-image'])test('Detroit release fails closed before promotion: '+mode,()=>{const r=simulate(mode);assert.notEqual(r.status,0);assert.equal(r.calls.filter(c=>c.method==='POST').length,0)});
+
+// Keep the deployment gate aligned with the independently approved placement registry.
+test('production route checker uses the approved three-card manifest order',()=>{
+ const manifest=JSON.parse(readFileSync('qa/editorial-release.json','utf8'));
+ const smoke=readFileSync('scripts/operations/check-public-routes.mjs','utf8');
+ const expected=JSON.parse(smoke.match(/const expectedCards=(\[[^\n]+\]);/)[1]);
+ assert.equal(expected.length,3);
+ assert.deepEqual(expected,manifest.carousel.map(story=>story.title));
+});
