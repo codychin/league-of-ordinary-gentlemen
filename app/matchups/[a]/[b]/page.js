@@ -1,3 +1,4 @@
+import week8Verified from '../../../../data/week8-loog-verified.json';
 import latestScores from '../../../../data/latest-loog-scores.json';
 import completedScores from '../../../../data/completed-loog-scores.json';
 import {selectLoogScores} from '../../../../lib/select-loog-scores.mjs';
@@ -59,7 +60,8 @@ export default async function MatchupPreview({params}){
     const final=Boolean(game.winner&&game.winner!=='UNDECIDED');
     const pregame=!final&&Number(ls.score||0)===0&&Number(rs.score||0)===0;
     const phase=final?'FINAL':game.closeoutPending?'AWAITING PROVIDER FINAL':pregame?'PREGAME':'LIVE';
-    const verified=Number(latest.week)===7?week7Rosters:Number(latest.week)===closeout.week?closeout.loog.details.flatMap(g=>[g.home,g.away]):[];
+    const week8Matches=Number(latest.season)===week8Verified.season&&Number(latest.week)===week8Verified.week;
+    const verified=week8Matches?week8Verified.rosters:Number(latest.week)===7?week7Rosters:Number(latest.week)===closeout.week?closeout.loog.details.flatMap(g=>[g.home,g.away]):[];
     const verifiedLeft=verified.find(t=>t.teamId===idA)?.players.filter(p=>p.started)||[];
     const fallbackLeft=activeRoster(left).map(p=>({lineupSlot:p.slot,name:p.name,points:null}));
     const leftPlayers=verifiedLeft.length?verifiedLeft:fallbackLeft;
@@ -86,7 +88,7 @@ export default async function MatchupPreview({params}){
           {(column?.body||(final?'The result is final. The correspondent recap is awaiting publication.':'The correspondent preview for this pairing is awaiting publication.')).split(/\n\n+/).map((paragraph,index)=><p key={index}>{paragraph}</p>)}
           <p className="matchupUpdated">{final?'FINAL SCORE':'LATEST SCORE'}: {fmt(ls.score)}–{fmt(rs.score)}{!final&&' • Preview analysis was written before kickoff.'}</p>
         </section>
-        <section className="lineupPreview"><div className="matchupSectionHead"><small>STARTING LINEUPS • WEEK {latest.week}</small><h2>Position by position</h2></div>{(!verifiedLeft.length||!verifiedRight.length)&&<p className="matchupUpdated">MOST RECENT STORED LINEUPS • NOT VERIFIED FOR WEEK {latest.week}</p>}{leftPlayers.length&&rightPlayers.length?<><div className="lineupTeams"><span>{left.teamName}</span><span>{right.teamName}</span></div>{Array.from({length:Math.max(leftPlayers.length,rightPlayers.length)},(_,i)=>[leftPlayers[i],rightPlayers[i]]).map(([l,r],i)=><div className="lineupRow" key={i}><div className="lineupPlayer left">{l&&<><small>{l.lineupSlot}</small><b>{l.name}</b><span>{l.points==null?'—':fmt(l.points)}</span></>}</div><div className="lineupVs">VS</div><div className="lineupPlayer right">{r&&<><small>{r.lineupSlot}</small><b>{r.name}</b><span>{r.points==null?'—':fmt(r.points)}</span></>}</div></div>)}</>:<p>Awaiting current-week roster verification.</p>}</section>
+        <section className="lineupPreview"><div className="matchupSectionHead"><small>STARTING LINEUPS • WEEK {latest.week}</small><h2>Position by position</h2></div>{week8Matches&&<p className="matchupUpdated">PROVIDER-VERIFIED SELECTIONS • SEASON {week8Verified.season} • Retrieved {week8Verified.sourceEvidence.retrievedIntervalUTC.map(value=>new Date(value).toLocaleString('en-US',{timeZone:'America/New_York'})).join(' – ')} ET • Player points unavailable</p>}{(!verifiedLeft.length||!verifiedRight.length)&&<p className="matchupUpdated">MOST RECENT STORED LINEUPS • NOT VERIFIED FOR WEEK {latest.week}</p>}{leftPlayers.length&&rightPlayers.length?<><div className="lineupTeams"><span>{left.teamName}</span><span>{right.teamName}</span></div>{Array.from({length:Math.max(leftPlayers.length,rightPlayers.length)},(_,i)=>[leftPlayers[i],rightPlayers[i]]).map(([l,r],i)=><div className="lineupRow" key={i}><div className="lineupPlayer left">{l&&<><small>{l.lineupSlot}</small><b>{l.name}</b><span>{l.points==null?'—':fmt(l.points)}</span></>}</div><div className="lineupVs">VS</div><div className="lineupPlayer right">{r&&<><small>{r.lineupSlot}</small><b>{r.name}</b><span>{r.points==null?'—':fmt(r.points)}</span></>}</div></div>)}</>:<p>Awaiting current-week roster verification.</p>}</section>
         <Link className="matchupBack" href="/#scores">← ALL WEEK {latest.week} MATCHUPS</Link>
       </main>
     </>;

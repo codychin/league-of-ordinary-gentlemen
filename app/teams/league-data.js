@@ -1,5 +1,5 @@
 export const leagueSnapshot = {
-  "updatedAt": "OCTOBER 27, 2026 • WEEK 7 FINAL",
+  "updatedAt": "OCTOBER 29, 2026 • WEEK 7 FINAL • PROVIDER CORRECTION",
   "week": 7,
   "teams": {
     "kupp-doubs": {
@@ -7,13 +7,13 @@ export const leagueSnapshot = {
       "teamName": "Chat GPT's Chosen Ones",
       "record": "5-2",
       "seed": 2,
-      "pointsFor": 989.6999999999999,
+      "pointsFor": 990.1999999999999,
       "pointsAgainst": 863.24,
       "projectedRank": 2,
       "matchup": {
         "opponent": "Pollard Greens",
         "opponentSlug": "pollard-greens",
-        "score": 135.92,
+        "score": 136.42,
         "opponentScore": 164.04,
         "status": "FINAL",
         "projection": null,
@@ -210,6 +210,7 @@ export const leagueSnapshot = {
         }
       ],
       "season": {
+        "unattributedScoreCorrection": 0.5,
         "completedGames": 7,
         "ppg": 141.39,
         "pfRank": 3,
@@ -286,7 +287,7 @@ export const leagueSnapshot = {
             "status": "FINAL",
             "opponent": "Pollard Greens",
             "opponentSlug": "pollard-greens",
-            "score": 135.92,
+            "score": 136.42,
             "opponentScore": 164.04,
             "result": "L"
           }
@@ -301,7 +302,7 @@ export const leagueSnapshot = {
       "seed": 10,
       "pointsFor": 949.16,
       "pointsAgainst": 1063.42,
-      "projectedRank": 9,
+      "projectedRank": 10,
       "matchup": {
         "opponent": "I'm a Skatt man",
         "opponentSlug": "skatt",
@@ -912,7 +913,7 @@ export const leagueSnapshot = {
       "seed": 7,
       "pointsFor": 929.07,
       "pointsAgainst": 928.42,
-      "projectedRank": 6,
+      "projectedRank": 8,
       "matchup": {
         "opponent": "Royrek Tishmeshulam",
         "opponentSlug": "royrek",
@@ -1144,7 +1145,7 @@ export const leagueSnapshot = {
         "positionTotals": {
           "RB": 279.55,
           "WR": 166.5,
-          "FLEX": 124.0,
+          "FLEX": 124,
           "TE": 110.3,
           "QB": 134.72,
           "D/ST": 56.5,
@@ -1532,13 +1533,13 @@ export const leagueSnapshot = {
       "record": "4-3",
       "seed": 3,
       "pointsFor": 1036.61,
-      "pointsAgainst": 938.4399999999999,
-      "projectedRank": 5,
+      "pointsAgainst": 938.9399999999999,
+      "projectedRank": 3,
       "matchup": {
         "opponent": "Chat GPT's Chosen Ones",
         "opponentSlug": "kupp-doubs",
         "score": 164.04,
-        "opponentScore": 135.92,
+        "opponentScore": 136.42,
         "status": "FINAL",
         "projection": null,
         "opponentProjection": null
@@ -1822,7 +1823,7 @@ export const leagueSnapshot = {
             "opponent": "Chat GPT's Chosen Ones",
             "opponentSlug": "kupp-doubs",
             "score": 164.04,
-            "opponentScore": 135.92,
+            "opponentScore": 136.42,
             "result": "W"
           }
         ]
@@ -2066,7 +2067,7 @@ export const leagueSnapshot = {
           "FLEX": 181.6,
           "TE": 81.8,
           "QB": 94.52,
-          "D/ST": 72.0,
+          "D/ST": 72,
           "K": 65.5
         },
         "weekly": [
@@ -2144,7 +2145,7 @@ export const leagueSnapshot = {
       "seed": 11,
       "pointsFor": 939.2100000000002,
       "pointsAgainst": 1002.53,
-      "projectedRank": 10,
+      "projectedRank": 11,
       "matchup": {
         "opponent": "The All Ugly Team",
         "opponentSlug": "all-ugly",
@@ -2425,7 +2426,7 @@ export const leagueSnapshot = {
       "seed": 4,
       "pointsFor": 975.2,
       "pointsAgainst": 935.94,
-      "projectedRank": 7,
+      "projectedRank": 5,
       "matchup": {
         "opponent": "Lloyd of the Rings",
         "opponentSlug": "lloyd-rings",
@@ -2647,7 +2648,7 @@ export const leagueSnapshot = {
         "positionTotals": {
           "WR": 208.6,
           "RB": 227.6,
-          "FLEX": 202.0,
+          "FLEX": 202,
           "QB": 145.6,
           "TE": 72.9,
           "D/ST": 47,
@@ -2728,7 +2729,7 @@ export const leagueSnapshot = {
       "seed": 9,
       "pointsFor": 869.46,
       "pointsAgainst": 954.4399999999999,
-      "projectedRank": 11,
+      "projectedRank": 7,
       "matchup": {
         "opponent": "The Route 22 Clubhouse",
         "opponentSlug": "route-22",
@@ -2936,7 +2937,7 @@ export const leagueSnapshot = {
           "RB": 155.4,
           "QB": 148.46,
           "TE": 66.7,
-          "FLEX": 193.0,
+          "FLEX": 193,
           "K": 80.5,
           "D/ST": 23.5
         },
@@ -3015,7 +3016,7 @@ export const leagueSnapshot = {
       "seed": 6,
       "pointsFor": 924.4000000000001,
       "pointsAgainst": 988.49,
-      "projectedRank": 3,
+      "projectedRank": 6,
       "matchup": {
         "opponent": "For the Love of the Kraft",
         "opponentSlug": "kraft",
@@ -3246,7 +3247,7 @@ export const leagueSnapshot = {
           "QB": 124.82,
           "TE": 63.8,
           "K": 52.5,
-          "D/ST": 22.0
+          "D/ST": 22
         },
         "weekly": [
           {
@@ -3323,7 +3324,7 @@ export const leagueSnapshot = {
       "seed": 8,
       "pointsFor": 896.2599999999999,
       "pointsAgainst": 934.01,
-      "projectedRank": 8,
+      "projectedRank": 9,
       "matchup": {
         "opponent": "Mr Hopkins Opus",
         "opponentSlug": "hopkins-opus",
@@ -3642,6 +3643,16 @@ export const leagueSnapshot = {
     "standingsUpdateDate": 1793087320018,
     "status": "FINAL",
     "path": "data/week7-loog-source/manifest.json",
-    "priorSnapshot": "data/week6-loog-snapshot.json"
+    "priorSnapshot": "data/week6-loog-snapshot.json",
+    "standingsRetrievedAt": "2026-10-29T12:03:16.560Z",
+    "finalsRetrievedAt": "2026-10-29T12:04:23.529Z",
+    "correctionSource": "data/week8-loog-verified.json",
+    "priorWeekCorrection": {
+      "teamId": 1,
+      "before": 135.92,
+      "after": 136.42,
+      "winnerChanged": false
+    },
+    "rosterPointsNote": "Week 7 player scores and position totals remain the October 27 snapshot; the October 29 team-total correction does not identify a player or position."
   }
 };

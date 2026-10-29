@@ -1,119 +1,291 @@
 {
   "ok": true,
   "source": "flaim-authenticated-refresh",
-  "week": 7,
+  "week": 8,
+  "updatedAt": "2026-10-29T12:03:15.221Z",
   "season": 2026,
-  "status": "FINAL",
-  "updatedAt": "2026-10-27T08:01:19.133Z",
-  "displayCompletedUntil": "2026-10-29T04:00:00Z",
-  "displayTimeZone": "America/New_York",
+  "status": "PREGAME",
+  "leagueId": "310731",
   "matchups": [
     {
-      "id": "loog:2026:7:2:5",
-      "home": {
-        "id": 2,
-        "name": "DarkHorse Danir",
-        "score": 95.37
-      },
-      "away": {
-        "id": 5,
-        "name": "I'm a Skatt man",
-        "score": 128.82
-      },
-      "status": "FINAL",
-      "winner": "AWAY"
-    },
-    {
-      "id": "loog:2026:7:7:12",
-      "home": {
-        "id": 7,
-        "name": "Mr Hopkins Opus",
-        "score": 128.8
-      },
+      "id": 1,
       "away": {
         "id": 12,
         "name": "CeeDeep Shaheeded Rivalry",
-        "score": 97
+        "score": 0,
+        "projection": 130.55871891
       },
-      "status": "FINAL",
-      "winner": "HOME"
+      "home": {
+        "id": 5,
+        "name": "I'm a Skatt man",
+        "score": 0,
+        "projection": 140.04542926
+      },
+      "status": "PREGAME",
+      "winner": "UNDECIDED"
     },
     {
-      "id": "loog:2026:7:4:10",
-      "home": {
-        "id": 4,
-        "name": "The Route 22 Clubhouse",
-        "score": 93.4
-      },
+      "id": 2,
       "away": {
+        "id": 2,
+        "name": "DarkHorse Danir",
+        "score": 0,
+        "projection": 138.5653379
+      },
+      "home": {
         "id": 10,
         "name": "Royrek Tishmeshulam",
-        "score": 110.3
+        "score": 0,
+        "projection": 115.40285295
       },
-      "status": "FINAL",
-      "winner": "AWAY"
+      "status": "PREGAME",
+      "winner": "UNDECIDED"
     },
     {
-      "id": "loog:2026:7:3:8",
-      "home": {
-        "id": 3,
-        "name": "The All Ugly Team",
-        "score": 131.92
-      },
+      "id": 3,
       "away": {
+        "id": 7,
+        "name": "Mr Hopkins Opus",
+        "score": 0,
+        "projection": 150.19772656
+      },
+      "home": {
         "id": 8,
         "name": "Shake 'N Baker",
-        "score": 123.58
+        "score": 0,
+        "projection": 144.65220073
       },
-      "status": "FINAL",
-      "winner": "HOME"
+      "status": "PREGAME",
+      "winner": "UNDECIDED"
     },
     {
-      "id": "loog:2026:7:9:11",
-      "home": {
-        "id": 9,
-        "name": "For the Love of the Kraft",
-        "score": 153.98
-      },
+      "id": 4,
       "away": {
+        "id": 4,
+        "name": "The Route 22 Clubhouse",
+        "score": 0,
+        "projection": 141.29847912
+      },
+      "home": {
         "id": 11,
         "name": "Lloyd of the Rings",
-        "score": 137.18
+        "score": 0,
+        "projection": 156.56821196
       },
-      "status": "FINAL",
-      "winner": "HOME"
+      "status": "PREGAME",
+      "winner": "UNDECIDED"
     },
     {
-      "id": "loog:2026:7:1:6",
+      "id": 5,
+      "away": {
+        "id": 3,
+        "name": "The All Ugly Team",
+        "score": 0,
+        "projection": 131.12358899
+      },
+      "home": {
+        "id": 1,
+        "name": "Chat GPT's Chosen Ones",
+        "score": 0,
+        "projection": 149.05687908
+      },
+      "status": "PREGAME",
+      "winner": "UNDECIDED"
+    },
+    {
+      "id": 6,
+      "away": {
+        "id": 9,
+        "name": "For the Love of the Kraft",
+        "score": 0,
+        "projection": 140.69665844
+      },
       "home": {
         "id": 6,
         "name": "Pollard Greens",
-        "score": 164.04
+        "score": 0,
+        "projection": 133.41752679
       },
-      "away": {
-        "id": 1,
-        "name": "Chat GPT's Chosen Ones",
-        "score": 135.92
-      },
-      "status": "FINAL",
-      "winner": "HOME"
+      "status": "PREGAME",
+      "winner": "UNDECIDED"
     }
   ],
   "sourceEvidence": {
-    "completedWeek": 7,
-    "edition": "loog",
-    "leagueUuid": "65c573a0-535d-4edf-8332-2522ee13872f",
-    "liveScoreStateId": 75,
-    "matchupPeriod": 7,
-    "provider": "espn",
-    "providerCurrentWeek": 8,
-    "providerLeagueId": "310731",
-    "scoresStandingsRetrievedAt": "2026-10-27T08:01:19.133Z",
-    "scoringPeriod": 7,
+    "week": 8,
+    "runKey": "week8-thursday-rollover-20261029-1200",
     "season": 2026,
-    "source": "authenticated Flaim ESPN",
-    "sourceCheckpointSha256": "9420efc75ce2082620c53adbfd43830212310e74a3dd2ab1a3d6769cf505fe9d",
-    "standingsUpdateDate": 1793087320018,
-    "status": "FINAL"
+    "edition": "loog",
+    "retrievedAt": "2026-10-29T12:03:15.221Z",
+    "providerAsOf": null,
+    "actualScoreSource": "currentPoints and pointsByScoringPeriod8 agree; no projections substituted",
+    "previousSnapshotId": 75,
+    "priorWeekCorrection": {
+      "after": 136.42,
+      "before": 135.92,
+      "teamId": 1,
+      "winnerChanged": false,
+      "verifiedFinalSnapshot": {
+        "data": {
+          "leagueId": "310731",
+          "matchups": [
+            {
+              "away": {
+                "teamId": 5,
+                "teamName": "I'm a Skatt man",
+                "totalPoints": 128.82,
+                "currentPoints": 128.82,
+                "totalProjectedPoints": 151.02520597,
+                "pointsByScoringPeriod": {
+                  "7": 128.82
+                }
+              },
+              "home": {
+                "teamId": 2,
+                "teamName": "DarkHorse Danir",
+                "totalPoints": 95.37,
+                "currentPoints": 95.37,
+                "totalProjectedPoints": 135.59370201,
+                "pointsByScoringPeriod": {
+                  "7": 95.37
+                }
+              },
+              "winner": "AWAY",
+              "matchupPeriodId": 7,
+              "playoffTierType": "NONE"
+            },
+            {
+              "away": {
+                "teamId": 12,
+                "teamName": "CeeDeep Shaheeded Rivalry",
+                "totalPoints": 97,
+                "currentPoints": 97,
+                "totalProjectedPoints": 125.25659002,
+                "pointsByScoringPeriod": {
+                  "7": 97
+                }
+              },
+              "home": {
+                "teamId": 7,
+                "teamName": "Mr Hopkins Opus",
+                "totalPoints": 128.8,
+                "currentPoints": 128.8,
+                "totalProjectedPoints": 143.91814154,
+                "pointsByScoringPeriod": {
+                  "7": 128.8
+                }
+              },
+              "winner": "HOME",
+              "matchupPeriodId": 7,
+              "playoffTierType": "NONE"
+            },
+            {
+              "away": {
+                "teamId": 10,
+                "teamName": "Royrek Tishmeshulam",
+                "totalPoints": 110.3,
+                "currentPoints": 110.3,
+                "totalProjectedPoints": 135.66400418,
+                "pointsByScoringPeriod": {
+                  "7": 110.3
+                }
+              },
+              "home": {
+                "teamId": 4,
+                "teamName": "The Route 22 Clubhouse",
+                "totalPoints": 93.4,
+                "currentPoints": 93.4,
+                "totalProjectedPoints": 130.05529384,
+                "pointsByScoringPeriod": {
+                  "7": 93.4
+                }
+              },
+              "winner": "AWAY",
+              "matchupPeriodId": 7,
+              "playoffTierType": "NONE"
+            },
+            {
+              "away": {
+                "teamId": 8,
+                "teamName": "Shake 'N Baker",
+                "totalPoints": 123.58,
+                "currentPoints": 123.58,
+                "totalProjectedPoints": 145.59093905,
+                "pointsByScoringPeriod": {
+                  "7": 123.58
+                }
+              },
+              "home": {
+                "teamId": 3,
+                "teamName": "The All Ugly Team",
+                "totalPoints": 131.92,
+                "currentPoints": 131.92,
+                "totalProjectedPoints": 126.44641007,
+                "pointsByScoringPeriod": {
+                  "7": 131.92
+                }
+              },
+              "winner": "HOME",
+              "matchupPeriodId": 7,
+              "playoffTierType": "NONE"
+            },
+            {
+              "away": {
+                "teamId": 11,
+                "teamName": "Lloyd of the Rings",
+                "totalPoints": 137.18,
+                "currentPoints": 137.18,
+                "totalProjectedPoints": 138.95814401,
+                "pointsByScoringPeriod": {
+                  "7": 137.18
+                }
+              },
+              "home": {
+                "teamId": 9,
+                "teamName": "For the Love of the Kraft",
+                "totalPoints": 153.98,
+                "currentPoints": 153.98,
+                "totalProjectedPoints": 147.00728768,
+                "pointsByScoringPeriod": {
+                  "7": 153.98
+                }
+              },
+              "winner": "HOME",
+              "matchupPeriodId": 7,
+              "playoffTierType": "NONE"
+            },
+            {
+              "away": {
+                "teamId": 1,
+                "teamName": "Chat GPT's Chosen Ones",
+                "totalPoints": 136.42,
+                "currentPoints": 136.42,
+                "totalProjectedPoints": 160.6880409,
+                "pointsByScoringPeriod": {
+                  "7": 136.42
+                }
+              },
+              "home": {
+                "teamId": 6,
+                "teamName": "Pollard Greens",
+                "totalPoints": 164.04,
+                "currentPoints": 164.04,
+                "totalProjectedPoints": 140.99079946,
+                "pointsByScoringPeriod": {
+                  "7": 164.04
+                }
+              },
+              "winner": "HOME",
+              "matchupPeriodId": 7,
+              "playoffTierType": "NONE"
+            }
+          ],
+          "seasonYear": 2026,
+          "matchupPeriod": 7,
+          "currentScoringPeriod": 7
+        },
+        "success": true,
+        "capturedAt": "2026-10-29T12:04:23.529Z"
+      }
+    }
   }
 }

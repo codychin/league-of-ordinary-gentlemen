@@ -28,7 +28,7 @@ export default async function Team({params}) {
         </div>
         <div className="seasonDetailGrid">
           <div><div className="hubHead">WEEKLY RESULTS</div>{ops.season.weekly.map(w=><div className="weekResult" key={w.week}><b className={w.result==='W'?'win':w.result==='L'?'loss':'live'}>{w.result==='—'?'LIVE':w.result}</b><span>WEEK {w.week}</span><Link href={`/teams/${w.opponentSlug}`}>{w.opponent}</Link><strong>{w.score}–{w.opponentScore}</strong></div>)}</div>
-          <div><div className="hubHead">STARTER PRODUCTION BY SLOT</div>{Object.entries(ops.season.positionTotals).map(([slot,points])=><div className="positionStat" key={slot}><b>{slot}</b><div><i style={{width:`${Math.max(3,(points/maxPositionPoints)*100)}%`}}/></div><strong>{points}</strong></div>)}</div>
+          <div><div className="hubHead">STARTER PRODUCTION BY SLOT</div>{ops.season.unattributedScoreCorrection>0&&<p>Provider added {ops.season.unattributedScoreCorrection.toFixed(2)} points to the Week 7 team total. Player and position allocation remains unverified; the breakdown below retains the earlier snapshot.</p>}{Object.entries(ops.season.positionTotals).map(([slot,points])=><div className="positionStat" key={slot}><b>{slot}</b><div><i style={{width:`${Math.max(3,(points/maxPositionPoints)*100)}%`}}/></div><strong>{points}</strong></div>)}</div>
         </div>
       </section>
 
