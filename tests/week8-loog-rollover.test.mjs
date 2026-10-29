@@ -49,3 +49,12 @@ test('route gates Week 8 evidence by season and week and reports retrieval fresh
  assert.match(page,/PROVIDER-VERIFIED SELECTIONS/);assert.match(page,/Player points unavailable/);
  assert.doesNotMatch(page,/week8-matchup-columns|week8-preview/);
 });
+
+test('legacy hosted score envelope retains canonical season for verified lineup selection',()=>{
+ const provider={ok:true,source:'flaim',week:8,updatedAt:'2026-10-29T12:12:06Z',matchups:latest.matchups};
+ const selected=selectLoogScores({provider,latest,completed});
+ assert.equal(selected.updatedAt,provider.updatedAt);
+ assert.equal(selected.season,source.season);assert.equal(selected.week,source.week);
+ assert.equal(selected.matchups,provider.matchups);
+ assert.equal(selectLoogScores({provider:{...provider,season:2025},latest,completed}),latest);
+});

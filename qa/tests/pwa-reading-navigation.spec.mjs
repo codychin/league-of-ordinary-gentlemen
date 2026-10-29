@@ -2,7 +2,12 @@ import {test,expect} from '@playwright/test';
 import {isSundayLiveWindow} from '../../lib/live-desk-state.js';
 import {readFileSync} from 'node:fs';
 import {leagueSnapshot} from '../../app/teams/league-data.js';
-const loogFixture=JSON.parse(readFileSync(new URL('../../data/latest-loog-scores.json',import.meta.url))).matchups[0];
+import {selectMatchupColumn} from '../../lib/select-matchup-column.mjs';
+const data=name=>JSON.parse(readFileSync(new URL('../../data/'+name,import.meta.url)));
+const loogScores=data('latest-loog-scores.json');
+const loogFixture=loogScores.matchups[0];
+const loogFinal=Boolean(loogFixture.winner&&loogFixture.winner!=='UNDECIDED');
+const loogColumn=selectMatchupColumn({previews:[...data('week6-matchup-columns.json'),...data('week7-matchup-columns.json')],recaps:data('matchup-recaps.json'),edition:'loog',week:loogScores.week,a:loogFixture.home.id,b:loogFixture.away.id,isFinal:loogFinal});
 const teamSlug=id=>Object.keys(leagueSnapshot.teams).find(slug=>leagueSnapshot.teams[slug].teamId===id);
 const loogMatchupPath=`/matchups/${teamSlug(loogFixture.home.id)}/${teamSlug(loogFixture.away.id)}`;
 
@@ -34,7 +39,7 @@ for(const root of ['','/sunday-crew','/doge']){
  test(`production document-scroll navigation: ${root||'LOOG'}`,async({page,context,browserName},testInfo)=>{
   test.skip(testInfo.project.name==='desktop','Mobile shell is inactive on desktop.');
   await page.addInitScript(()=>Object.defineProperty(navigator,'standalone',{get:()=>true}));
-  if(!root)testInfo.annotations.push({type:'fixture',description:'LOOG long matchup uses the committed completed-week score snapshot via QA-only server preload; this tests layout, not live provider correctness.'});
+  if(!root)testInfo.annotations.push({type:'fixture',description:'LOOG matchup uses the committed score snapshot via QA-only server preload; published-column or awaiting-publication state is asserted without inventing editorial content.'});
   const samples=[],content=page.locator('html');
   const check=async(label)=>{
    const s=await page.locator('.appTabBar').evaluate(el=>{
@@ -87,7 +92,25 @@ for(const root of ['','/sunday-crew','/doge']){
    expect((await page.goto(matchup)).status()).toBe(200);await expect(page.locator('main.matchupPage')).toBeVisible();await expect(page.locator('.matchupColumn')).toBeVisible();
    if(!root){
     await expect(page.locator('.matchupHeroSide h1')).toHaveText([loogFixture.home.name,loogFixture.away.name]);
-    expect((await page.locator('.matchupColumn').innerText()).length).toBeGreaterThan(300);
+    if(loogColumn){
+     await expect(page.locator('.matchupColumn h2')).toHaveText(loogColumn.headline);
+     const paragraphs=loogColumn.body.split(/\n\n+/);
+     for(let i=0;i<paragraphs.length;i++)await expect(page.locator('.matchupColumn > p').nth(i)).toHaveText(paragraphs[i]);
+     expect((await page.locator('.matchupColumn').innerText()).length).toBeGreaterThan(300);
+    }else{
+     await expect(page.locator('.matchupColumn h2')).toHaveText(loogFinal?'Awaiting correspondent recap':'Awaiting correspondent preview');
+     await expect(page.locator('.matchupColumn > p').first()).toHaveText(loogFinal?'The result is final. The correspondent recap is awaiting publication.':'The correspondent preview for this pairing is awaiting publication.');
+     await expect(page.locator('.matchupColumn > p')).toHaveCount(2);
+    }
+    if(loogScores.season===2026&&loogScores.week===8){
+     await expect(page.getByText('PROVIDER-VERIFIED SELECTIONS',{exact:false})).toBeVisible();
+     await expect(page.getByText('NOT VERIFIED FOR WEEK 8',{exact:false})).toHaveCount(0);
+     const verified=data('week8-loog-verified.json');
+     for(const [side,id] of [['left',loogFixture.home.id],['right',loogFixture.away.id]]){
+      const expected=verified.rosters.find(r=>r.teamId===id).players.filter(p=>p.started).map(p=>p.name).sort();
+      expect((await page.locator('.lineupPlayer.'+side+' b').allTextContents()).sort()).toEqual(expected);
+     }
+    }
     expect(await content.evaluate(e=>e.scrollHeight-e.clientHeight)).toBeGreaterThan(500);
    }
    for(const height of [844,500,844]){await page.setViewportSize({width:testInfo.project.use.viewport.width,height});for(const y of [0,400,100000,200,0])await scroll(y);}

@@ -37,7 +37,7 @@ export default async function Matchup({params,config}){
   const column=selectMatchupColumn({previews:matchupColumns,recaps:matchupRecaps,edition:editionSlug,week,a,b,isFinal});
   const writer=writers[column?.writer||'gannon'];
   const pregame=!isFinal&&Number(ls.points||0)===0&&Number(rs.points||0)===0;
-  const phase=isFinal?'FINAL':game.closeoutPending?'AWAITING PROVIDER FINAL':'IN PROGRESS';
+  const phase=isFinal?'FINAL':game.closeoutPending?'AWAITING PROVIDER FINAL':pregame?'PREGAME':'IN PROGRESS';
   return <>
     <header className="articleHeader"><Link href={root+""} className="miniMast">{publicationName}</Link><EditionSiteNav root={root+""}/></header>
     <main className="matchupPage">
@@ -50,7 +50,7 @@ export default async function Matchup({params,config}){
         </div>
       </section>
       <section className="matchupColumn">
-        <div className="matchupColumnByline"><img src={writer.image} alt={writer.imageAlt}/><div><small>{column?"WEEK "+week+(isFinal?" • CORRESPONDENT RECAP":" • CORRESPONDENT PREVIEW"):isFinal?"FINAL RESULT":"MATCHUP IN PROGRESS"} • {writer.title.toUpperCase()}</small><b>{writer.name}</b></div></div>
+        <div className="matchupColumnByline"><img src={writer.image} alt={writer.imageAlt}/><div><small>{column?"WEEK "+week+(isFinal?" • CORRESPONDENT RECAP":" • CORRESPONDENT PREVIEW"):isFinal?"FINAL RESULT":"MATCHUP "+phase} • {writer.title.toUpperCase()}</small><b>{writer.name}</b></div></div>
         <h2>{column?.headline||(isFinal?"Awaiting correspondent recap":"Awaiting correspondent preview")}</h2>
         {(column?.body||(isFinal?"The result is final. The correspondent recap is awaiting publication.":"The correspondent preview for this pairing is awaiting publication.")).split(/\n\n+/).map((paragraph,index)=><p key={index}>{paragraph}</p>)}
       </section>
