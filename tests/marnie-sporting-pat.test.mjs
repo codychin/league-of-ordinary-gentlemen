@@ -10,7 +10,7 @@ const slug='marnie-delicate-etiquette-sporting-pat';
 test('previous Marnie lead remains in approved chronological cards',()=>{
  const recent=front.match(/<section className=\{front\.recent\}[^>]*>([\s\S]*?)<\/section>/)[1];
  assert.equal((recent.match(/<article className=\{front\.card\}/g)||[]).length,3);
- assert.deepEqual([...recent.matchAll(/href=\{root\+"\/articles\/([^"]+)"\}/g)].map(m=>m[1]),['conrad-allow-me-to-reintroduce-myself','marnie-delicate-etiquette-sporting-pat','conrad-jalen-hurts-too-sick-to-sleep']);
+ assert.deepEqual([...recent.matchAll(/href=\{root\+"\/articles\/([^"]+)"\}/g)].map(m=>m[1]),['maude-saturation-bombing-daniel-jones','conrad-allow-me-to-reintroduce-myself','marnie-delicate-etiquette-sporting-pat']);
  assert.ok(recent.includes(article.dek));
  assert.match(recent,/theme="GOOD INTENTIONS"/);
  assert.ok(existsSync('public/images/editorial/allen-wolfson-interview-thumbnail.jpg'));
