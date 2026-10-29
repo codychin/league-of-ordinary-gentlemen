@@ -14,9 +14,9 @@ test('release uses the existing v1 manifest schema with the explicitly approved 
  assert.deepEqual(manifest.editions,[{id:'loog',path:'/'},{id:'sunday-crew',path:'/sunday-crew'},{id:'doge',path:'/doge'}]);
  assert.deepEqual(stories,[
   {slug:'marnie-detroit-school',title:'A Study in Movement: The Detroit School, 2026'},
+  {slug:'maude-saturation-bombing-daniel-jones',title:'On the Saturation Bombing of Daniel Jones (née Dimes)'},
   {slug:'conrad-allow-me-to-reintroduce-myself',title:'Allow Me to Reintroduce Myself'},
-  {slug:'marnie-delicate-etiquette-sporting-pat',title:'The Delicate Etiquette of a Sporting Pat'},
-  {slug:'conrad-jalen-hurts-too-sick-to-sleep',title:'The Medical Clearance Industrial Complex'}
+  {slug:'marnie-delicate-etiquette-sporting-pat',title:'The Delicate Etiquette of a Sporting Pat'}
  ]);
 });
 test('manifest agrees with source order while West Virginia remains archive-only and routable',()=>{
