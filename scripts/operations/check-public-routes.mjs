@@ -113,7 +113,7 @@ for(const root of ['', '/sunday-crew','/doge']){
  const hero=lead.match(/<img[^>]*src="([^"]+)"[^>]*alt="Detroit Lions teammates celebrate together on the field\."/);
  assert.ok(hero,'Detroit lead image missing');await verifyReleaseImage(hero[1]);
  const row=homeHtml.split('aria-label="Recent stories"')[1]?.split('</section>')[0];assert.ok(row,'Recent stories missing');
- const expectedCards=['Allow Me to Reintroduce Myself','The Delicate Etiquette of a Sporting Pat','The Medical Clearance Industrial Complex'];
+ const expectedCards=["On the Saturation Bombing of Daniel Jones (née Dimes)","Allow Me to Reintroduce Myself","The Delicate Etiquette of a Sporting Pat"];
  assert.deepEqual([...row.matchAll(/<h3[^>]*>([^<]+)<\/h3>/g)].map(m=>m[1]),expectedCards,'Three-card chronology changed');
  const path=root+'/articles/marnie-detroit-school';
  const response=await fetch(origin+path,{redirect:'manual',signal:AbortSignal.timeout(20000),headers:releaseHeaders});
