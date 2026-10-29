@@ -12,8 +12,8 @@ test('LOOG first four weekly results reconcile to historical authenticated stand
   assert.equal(weeks.filter(w=>w.result==='W').length,st.wins);
   assert.equal(round(weeks.reduce((n,w)=>n+w.score,0)),round(st.pointsFor));
   assert.equal(round(weeks.reduce((n,w)=>n+w.opponentScore,0)),round(st.pointsAgainst));
-  assert.equal(round(Object.values(t.season.positionTotals).reduce((n,v)=>n+v,0)),round(t.pointsFor));
-  assert.equal(round(t.roster.filter(p=>!['Bench','IR'].includes(p.slot)).reduce((n,p)=>n+p.weekPoints,0)),t.matchup.score);
+  assert.equal(round(Object.values(t.season.positionTotals).reduce((n,v)=>n+v,0)+(t.season.unattributedScoreCorrection||0)),round(t.pointsFor));
+  assert.equal(round(t.roster.filter(p=>!['Bench','IR'].includes(p.slot)).reduce((n,p)=>n+p.weekPoints,0)+(t.season.unattributedScoreCorrection||0)),t.matchup.score);
  }
 });
 test('Sunday Crew four-week history reconciles to standings for every franchise',()=>{

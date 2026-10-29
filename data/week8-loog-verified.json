@@ -1,0 +1,1967 @@
+{
+  "season": 2026,
+  "week": 8,
+  "edition": "loog",
+  "provider": "espn",
+  "leagueId": "310731",
+  "leagueUuid": "65c573a0-535d-4edf-8332-2522ee13872f",
+  "sourceSnapshotIds": {
+    "standings": 208,
+    "matchups": 209,
+    "rosters": 210,
+    "liveScores": 76
+  },
+  "sourceEvidence": {
+    "note": "Append-only Week8 provider data. All previous snapshots retained. Detailed scoring modifiers not supplied by current info tool. ESPN roster stats are season totals, not Week8 points.",
+    "week": 8,
+    "runKey": "week8-thursday-rollover-20261029-1200",
+    "season": 2026,
+    "source": "authenticated Flaim",
+    "edition": "loog",
+    "providerAsOf": null,
+    "completedWeek": 7,
+    "retrievedIntervalUTC": [
+      "2026-10-29T12:03:34.102Z",
+      "2026-10-29T12:03:36.591Z"
+    ]
+  },
+  "standings": [
+    {
+      "rank": 1,
+      "ties": 0,
+      "wins": 6,
+      "abbrev": "KUSH",
+      "losses": 1,
+      "teamId": 7,
+      "teamName": "Mr Hopkins Opus",
+      "finalRank": null,
+      "pointsFor": 999.02,
+      "playoffSeed": 1,
+      "madePlayoffs": true,
+      "pointsAgainst": 848.22,
+      "winPercentage": 0.857,
+      "playoffOutcome": null,
+      "championshipWon": null,
+      "outcomeConfidence": null,
+      "currentProjectedRank": 1,
+      "draftDayProjectedRank": 10
+    },
+    {
+      "rank": 2,
+      "ties": 0,
+      "wins": 5,
+      "abbrev": "GPT",
+      "losses": 2,
+      "teamId": 1,
+      "teamName": "Chat GPT's Chosen Ones",
+      "finalRank": null,
+      "pointsFor": 990.1999999999999,
+      "playoffSeed": 2,
+      "madePlayoffs": true,
+      "pointsAgainst": 863.24,
+      "winPercentage": 0.714,
+      "playoffOutcome": null,
+      "championshipWon": null,
+      "outcomeConfidence": null,
+      "currentProjectedRank": 2,
+      "draftDayProjectedRank": 8
+    },
+    {
+      "rank": 3,
+      "ties": 0,
+      "wins": 4,
+      "abbrev": "SHRM",
+      "losses": 3,
+      "teamId": 6,
+      "teamName": "Pollard Greens",
+      "finalRank": null,
+      "pointsFor": 1036.61,
+      "playoffSeed": 3,
+      "madePlayoffs": true,
+      "pointsAgainst": 938.9399999999999,
+      "winPercentage": 0.571,
+      "playoffOutcome": null,
+      "championshipWon": null,
+      "outcomeConfidence": null,
+      "currentProjectedRank": 3,
+      "draftDayProjectedRank": 3
+    },
+    {
+      "rank": 4,
+      "ties": 0,
+      "wins": 4,
+      "abbrev": "NYG",
+      "losses": 3,
+      "teamId": 9,
+      "teamName": "For the Love of the Kraft",
+      "finalRank": null,
+      "pointsFor": 975.2,
+      "playoffSeed": 4,
+      "madePlayoffs": true,
+      "pointsAgainst": 935.94,
+      "winPercentage": 0.571,
+      "playoffOutcome": null,
+      "championshipWon": null,
+      "outcomeConfidence": null,
+      "currentProjectedRank": 5,
+      "draftDayProjectedRank": 7
+    },
+    {
+      "rank": 5,
+      "ties": 0,
+      "wins": 4,
+      "abbrev": "JSAC",
+      "losses": 3,
+      "teamId": 5,
+      "teamName": "I'm a Skatt man",
+      "finalRank": null,
+      "pointsFor": 947.9300000000001,
+      "playoffSeed": 5,
+      "madePlayoffs": true,
+      "pointsAgainst": 870.16,
+      "winPercentage": 0.571,
+      "playoffOutcome": null,
+      "championshipWon": null,
+      "outcomeConfidence": null,
+      "currentProjectedRank": 4,
+      "draftDayProjectedRank": 6
+    },
+    {
+      "rank": 6,
+      "ties": 0,
+      "wins": 4,
+      "abbrev": "RING",
+      "losses": 3,
+      "teamId": 11,
+      "teamName": "Lloyd of the Rings",
+      "finalRank": null,
+      "pointsFor": 924.4000000000001,
+      "playoffSeed": 6,
+      "madePlayoffs": true,
+      "pointsAgainst": 988.49,
+      "winPercentage": 0.571,
+      "playoffOutcome": null,
+      "championshipWon": null,
+      "outcomeConfidence": null,
+      "currentProjectedRank": 6,
+      "draftDayProjectedRank": 12
+    },
+    {
+      "rank": 7,
+      "ties": 0,
+      "wins": 3,
+      "abbrev": "22",
+      "losses": 4,
+      "teamId": 4,
+      "teamName": "The Route 22 Clubhouse",
+      "finalRank": null,
+      "pointsFor": 929.07,
+      "playoffSeed": 7,
+      "madePlayoffs": true,
+      "pointsAgainst": 928.42,
+      "winPercentage": 0.429,
+      "playoffOutcome": null,
+      "championshipWon": null,
+      "outcomeConfidence": null,
+      "currentProjectedRank": 8,
+      "draftDayProjectedRank": 5
+    },
+    {
+      "rank": 8,
+      "ties": 0,
+      "wins": 3,
+      "abbrev": "MCG",
+      "losses": 4,
+      "teamId": 12,
+      "teamName": "CeeDeep Shaheeded Rivalry",
+      "finalRank": null,
+      "pointsFor": 896.2599999999999,
+      "playoffSeed": 8,
+      "madePlayoffs": true,
+      "pointsAgainst": 934.01,
+      "winPercentage": 0.429,
+      "playoffOutcome": null,
+      "championshipWon": null,
+      "outcomeConfidence": null,
+      "currentProjectedRank": 9,
+      "draftDayProjectedRank": 2
+    },
+    {
+      "rank": 9,
+      "ties": 0,
+      "wins": 3,
+      "abbrev": "open",
+      "losses": 4,
+      "teamId": 10,
+      "teamName": "Royrek Tishmeshulam",
+      "finalRank": null,
+      "pointsFor": 869.46,
+      "playoffSeed": 9,
+      "madePlayoffs": true,
+      "pointsAgainst": 954.4399999999999,
+      "winPercentage": 0.429,
+      "playoffOutcome": null,
+      "championshipWon": null,
+      "outcomeConfidence": null,
+      "currentProjectedRank": 7,
+      "draftDayProjectedRank": 9
+    },
+    {
+      "rank": 10,
+      "ties": 0,
+      "wins": 2,
+      "abbrev": "DD",
+      "losses": 5,
+      "teamId": 2,
+      "teamName": "DarkHorse Danir",
+      "finalRank": null,
+      "pointsFor": 949.16,
+      "playoffSeed": 10,
+      "madePlayoffs": true,
+      "pointsAgainst": 1063.42,
+      "winPercentage": 0.286,
+      "playoffOutcome": null,
+      "championshipWon": null,
+      "outcomeConfidence": null,
+      "currentProjectedRank": 10,
+      "draftDayProjectedRank": 1
+    },
+    {
+      "rank": 11,
+      "ties": 0,
+      "wins": 2,
+      "abbrev": "WALD",
+      "losses": 5,
+      "teamId": 8,
+      "teamName": "Shake 'N Baker",
+      "finalRank": null,
+      "pointsFor": 939.2100000000002,
+      "playoffSeed": 11,
+      "madePlayoffs": true,
+      "pointsAgainst": 1002.53,
+      "winPercentage": 0.286,
+      "playoffOutcome": null,
+      "championshipWon": null,
+      "outcomeConfidence": null,
+      "currentProjectedRank": 11,
+      "draftDayProjectedRank": 4
+    },
+    {
+      "rank": 12,
+      "ties": 0,
+      "wins": 2,
+      "abbrev": "AUT",
+      "losses": 5,
+      "teamId": 3,
+      "teamName": "The All Ugly Team",
+      "finalRank": null,
+      "pointsFor": 923.58,
+      "playoffSeed": 12,
+      "madePlayoffs": true,
+      "pointsAgainst": 1052.29,
+      "winPercentage": 0.286,
+      "playoffOutcome": null,
+      "championshipWon": null,
+      "outcomeConfidence": null,
+      "currentProjectedRank": 12,
+      "draftDayProjectedRank": 11
+    }
+  ],
+  "standingsRetrievedAt": "2026-10-29T12:03:16.560Z",
+  "previousWeek": {
+    "data": {
+      "leagueId": "310731",
+      "matchups": [
+        {
+          "away": {
+            "teamId": 5,
+            "teamName": "I'm a Skatt man",
+            "totalPoints": 128.82,
+            "currentPoints": 128.82,
+            "totalProjectedPoints": 151.02520597,
+            "pointsByScoringPeriod": {
+              "7": 128.82
+            }
+          },
+          "home": {
+            "teamId": 2,
+            "teamName": "DarkHorse Danir",
+            "totalPoints": 95.37,
+            "currentPoints": 95.37,
+            "totalProjectedPoints": 135.59370201,
+            "pointsByScoringPeriod": {
+              "7": 95.37
+            }
+          },
+          "winner": "AWAY",
+          "matchupPeriodId": 7,
+          "playoffTierType": "NONE"
+        },
+        {
+          "away": {
+            "teamId": 12,
+            "teamName": "CeeDeep Shaheeded Rivalry",
+            "totalPoints": 97,
+            "currentPoints": 97,
+            "totalProjectedPoints": 125.25659002,
+            "pointsByScoringPeriod": {
+              "7": 97
+            }
+          },
+          "home": {
+            "teamId": 7,
+            "teamName": "Mr Hopkins Opus",
+            "totalPoints": 128.8,
+            "currentPoints": 128.8,
+            "totalProjectedPoints": 143.91814154,
+            "pointsByScoringPeriod": {
+              "7": 128.8
+            }
+          },
+          "winner": "HOME",
+          "matchupPeriodId": 7,
+          "playoffTierType": "NONE"
+        },
+        {
+          "away": {
+            "teamId": 10,
+            "teamName": "Royrek Tishmeshulam",
+            "totalPoints": 110.3,
+            "currentPoints": 110.3,
+            "totalProjectedPoints": 135.66400418,
+            "pointsByScoringPeriod": {
+              "7": 110.3
+            }
+          },
+          "home": {
+            "teamId": 4,
+            "teamName": "The Route 22 Clubhouse",
+            "totalPoints": 93.4,
+            "currentPoints": 93.4,
+            "totalProjectedPoints": 130.05529384,
+            "pointsByScoringPeriod": {
+              "7": 93.4
+            }
+          },
+          "winner": "AWAY",
+          "matchupPeriodId": 7,
+          "playoffTierType": "NONE"
+        },
+        {
+          "away": {
+            "teamId": 8,
+            "teamName": "Shake 'N Baker",
+            "totalPoints": 123.58,
+            "currentPoints": 123.58,
+            "totalProjectedPoints": 145.59093905,
+            "pointsByScoringPeriod": {
+              "7": 123.58
+            }
+          },
+          "home": {
+            "teamId": 3,
+            "teamName": "The All Ugly Team",
+            "totalPoints": 131.92,
+            "currentPoints": 131.92,
+            "totalProjectedPoints": 126.44641007,
+            "pointsByScoringPeriod": {
+              "7": 131.92
+            }
+          },
+          "winner": "HOME",
+          "matchupPeriodId": 7,
+          "playoffTierType": "NONE"
+        },
+        {
+          "away": {
+            "teamId": 11,
+            "teamName": "Lloyd of the Rings",
+            "totalPoints": 137.18,
+            "currentPoints": 137.18,
+            "totalProjectedPoints": 138.95814401,
+            "pointsByScoringPeriod": {
+              "7": 137.18
+            }
+          },
+          "home": {
+            "teamId": 9,
+            "teamName": "For the Love of the Kraft",
+            "totalPoints": 153.98,
+            "currentPoints": 153.98,
+            "totalProjectedPoints": 147.00728768,
+            "pointsByScoringPeriod": {
+              "7": 153.98
+            }
+          },
+          "winner": "HOME",
+          "matchupPeriodId": 7,
+          "playoffTierType": "NONE"
+        },
+        {
+          "away": {
+            "teamId": 1,
+            "teamName": "Chat GPT's Chosen Ones",
+            "totalPoints": 136.42,
+            "currentPoints": 136.42,
+            "totalProjectedPoints": 160.6880409,
+            "pointsByScoringPeriod": {
+              "7": 136.42
+            }
+          },
+          "home": {
+            "teamId": 6,
+            "teamName": "Pollard Greens",
+            "totalPoints": 164.04,
+            "currentPoints": 164.04,
+            "totalProjectedPoints": 140.99079946,
+            "pointsByScoringPeriod": {
+              "7": 164.04
+            }
+          },
+          "winner": "HOME",
+          "matchupPeriodId": 7,
+          "playoffTierType": "NONE"
+        }
+      ],
+      "seasonYear": 2026,
+      "matchupPeriod": 7,
+      "currentScoringPeriod": 7
+    },
+    "success": true,
+    "capturedAt": "2026-10-29T12:04:23.529Z"
+  },
+  "rosters": [
+    {
+      "teamId": 3,
+      "teamName": "The All Ugly Team",
+      "snapshot": {
+        "type": "week",
+        "week": 8,
+        "providerScoringPeriodId": 8
+      },
+      "players": [
+        {
+          "playerId": "4685382",
+          "name": "Omarion Hampton",
+          "lineupSlot": "RB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4374302",
+          "name": "Amon-Ra St. Brown",
+          "lineupSlot": "WR",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4241478",
+          "name": "DeVonta Smith",
+          "lineupSlot": "FLEX",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4723086",
+          "name": "Colston Loveland",
+          "lineupSlot": "TE",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4685512",
+          "name": "Jadarian Price",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4248528",
+          "name": "Christian Watson",
+          "lineupSlot": "WR",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4678008",
+          "name": "Jonathon Brooks",
+          "lineupSlot": "IR",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4431611",
+          "name": "Caleb Williams",
+          "lineupSlot": "QB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4429059",
+          "name": "Woody Marks",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4429013",
+          "name": "Tank Bigsby",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "3046779",
+          "name": "Jared Goff",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4711533",
+          "name": "Ollie Gordon II",
+          "lineupSlot": "RB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "-16014",
+          "name": "Rams D/ST",
+          "lineupSlot": "D/ST",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4870847",
+          "name": "Ja'Kobi Lane",
+          "lineupSlot": "FLEX",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4635008",
+          "name": "Keon Coleman",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4686361",
+          "name": "Cam Little",
+          "lineupSlot": "K",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4428557",
+          "name": "Tyjae Spears",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        }
+      ]
+    },
+    {
+      "teamId": 1,
+      "teamName": "Chat GPT's Chosen Ones",
+      "snapshot": {
+        "type": "week",
+        "week": 8,
+        "providerScoringPeriodId": 8
+      },
+      "players": [
+        {
+          "playerId": "3117251",
+          "name": "Christian McCaffrey",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4047646",
+          "name": "A.J. Brown",
+          "lineupSlot": "WR",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4361579",
+          "name": "Javonte Williams",
+          "lineupSlot": "RB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "3915416",
+          "name": "DJ Moore",
+          "lineupSlot": "FLEX",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4426388",
+          "name": "Jameson Williams",
+          "lineupSlot": "WR",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4569987",
+          "name": "Jaylen Warren",
+          "lineupSlot": "FLEX",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4047365",
+          "name": "Josh Jacobs",
+          "lineupSlot": "RB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4695883",
+          "name": "Jalen Coker",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4361050",
+          "name": "Isaiah Likely",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4569559",
+          "name": "Devaughn Vele",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "3116406",
+          "name": "Tyreek Hill",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4430539",
+          "name": "Brenton Strange",
+          "lineupSlot": "TE",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4432577",
+          "name": "C.J. Stroud",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "17372",
+          "name": "Chris Boswell",
+          "lineupSlot": "K",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "-16004",
+          "name": "Bengals D/ST",
+          "lineupSlot": "D/ST",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "15864",
+          "name": "Geno Smith",
+          "lineupSlot": "QB",
+          "started": true,
+          "points": null
+        }
+      ]
+    },
+    {
+      "teamId": 2,
+      "teamName": "DarkHorse Danir",
+      "snapshot": {
+        "type": "week",
+        "week": 8,
+        "providerScoringPeriodId": 8
+      },
+      "players": [
+        {
+          "playerId": "4429795",
+          "name": "Jahmyr Gibbs",
+          "lineupSlot": "RB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4595348",
+          "name": "Malik Nabers",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4427366",
+          "name": "Breece Hall",
+          "lineupSlot": "RB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4882093",
+          "name": "Bhayshul Tuten",
+          "lineupSlot": "FLEX",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4431459",
+          "name": "Tyler Warren",
+          "lineupSlot": "TE",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4608686",
+          "name": "Kyle Monangai",
+          "lineupSlot": "IR",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4688813",
+          "name": "Josh Downs",
+          "lineupSlot": "WR",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4426385",
+          "name": "Zach Charbonnet",
+          "lineupSlot": "FLEX",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4426338",
+          "name": "Bo Nix",
+          "lineupSlot": "QB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4361741",
+          "name": "Brock Purdy",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "-16016",
+          "name": "Vikings D/ST",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "-16023",
+          "name": "Steelers D/ST",
+          "lineupSlot": "D/ST",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "15818",
+          "name": "Keenan Allen",
+          "lineupSlot": "WR",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4429086",
+          "name": "Michael Mayer",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4869645",
+          "name": "Caleb Douglas",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4430968",
+          "name": "Kimani Vidal",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4360234",
+          "name": "Evan McPherson",
+          "lineupSlot": "K",
+          "started": true,
+          "points": null
+        }
+      ]
+    },
+    {
+      "teamId": 4,
+      "teamName": "The Route 22 Clubhouse",
+      "snapshot": {
+        "type": "week",
+        "week": 8,
+        "providerScoringPeriodId": 8
+      },
+      "players": [
+        {
+          "playerId": "4379399",
+          "name": "James Cook III",
+          "lineupSlot": "RB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4890973",
+          "name": "Ashton Jeanty",
+          "lineupSlot": "RB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4428331",
+          "name": "Rashee Rice",
+          "lineupSlot": "WR",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4685472",
+          "name": "Tetairoa McMillan",
+          "lineupSlot": "WR",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4431299",
+          "name": "Rome Odunze",
+          "lineupSlot": "FLEX",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4371733",
+          "name": "Kenny Gainwell",
+          "lineupSlot": "FLEX",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4683062",
+          "name": "Xavier Worthy",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "12483",
+          "name": "Matthew Stafford",
+          "lineupSlot": "QB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4360689",
+          "name": "Tyler Shough",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "3045147",
+          "name": "James Conner",
+          "lineupSlot": "IR",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4832955",
+          "name": "Emmett Johnson",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4241474",
+          "name": "Brian Robinson Jr.",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4432665",
+          "name": "Brock Bowers",
+          "lineupSlot": "TE",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4682745",
+          "name": "Jaylen Wright",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "3055899",
+          "name": "Harrison Butker",
+          "lineupSlot": "K",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "5083754",
+          "name": "Ryan Flournoy",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "-16028",
+          "name": "Commanders D/ST",
+          "lineupSlot": "D/ST",
+          "started": true,
+          "points": null
+        }
+      ]
+    },
+    {
+      "teamId": 5,
+      "teamName": "I'm a Skatt man",
+      "snapshot": {
+        "type": "week",
+        "week": 8,
+        "providerScoringPeriodId": 8
+      },
+      "players": [
+        {
+          "playerId": "4362628",
+          "name": "Ja'Marr Chase",
+          "lineupSlot": "WR",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4430737",
+          "name": "Kyren Williams",
+          "lineupSlot": "RB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4361307",
+          "name": "Trey McBride",
+          "lineupSlot": "TE",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4696981",
+          "name": "Cam Skattebo",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4372016",
+          "name": "Jaylen Waddle",
+          "lineupSlot": "WR",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4871023",
+          "name": "Carnell Tate",
+          "lineupSlot": "FLEX",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4360078",
+          "name": "Alec Pierce",
+          "lineupSlot": "IR",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4241985",
+          "name": "J.K. Dobbins",
+          "lineupSlot": "RB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "3126486",
+          "name": "Deebo Samuel Sr.",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4832800",
+          "name": "Denzel Boston",
+          "lineupSlot": "FLEX",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "-16017",
+          "name": "Patriots D/ST",
+          "lineupSlot": "D/ST",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4567104",
+          "name": "Will Reichard",
+          "lineupSlot": "K",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4685720",
+          "name": "Bryce Young",
+          "lineupSlot": "QB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4432708",
+          "name": "Marvin Harrison Jr.",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4879194",
+          "name": "Josh Cameron",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "-16029",
+          "name": "Panthers D/ST",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "3122840",
+          "name": "Deshaun Watson",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        }
+      ]
+    },
+    {
+      "teamId": 7,
+      "teamName": "Mr Hopkins Opus",
+      "snapshot": {
+        "type": "week",
+        "week": 8,
+        "providerScoringPeriodId": 8
+      },
+      "players": [
+        {
+          "playerId": "4242335",
+          "name": "Jonathan Taylor",
+          "lineupSlot": "RB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4567048",
+          "name": "Kenneth Walker III",
+          "lineupSlot": "RB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4426354",
+          "name": "George Pickens",
+          "lineupSlot": "WR",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4612826",
+          "name": "Ladd McConkey",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4596448",
+          "name": "Bucky Irving",
+          "lineupSlot": "FLEX",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "3916148",
+          "name": "Tony Pollard",
+          "lineupSlot": "FLEX",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4430027",
+          "name": "Sam LaPorta",
+          "lineupSlot": "TE",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4870653",
+          "name": "KC Concepcion",
+          "lineupSlot": "WR",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4361432",
+          "name": "Romeo Doubs",
+          "lineupSlot": "IR",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4685247",
+          "name": "Braelon Allen",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "-16026",
+          "name": "Seahawks D/ST",
+          "lineupSlot": "D/ST",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "3139477",
+          "name": "Patrick Mahomes",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4571557",
+          "name": "Spencer Shrader",
+          "lineupSlot": "K",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4360423",
+          "name": "Michael Penix Jr.",
+          "lineupSlot": "QB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4036133",
+          "name": "T.J. Hockenson",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4038941",
+          "name": "Justin Herbert",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "3128429",
+          "name": "Courtland Sutton",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        }
+      ]
+    },
+    {
+      "teamId": 8,
+      "teamName": "Shake 'N Baker",
+      "snapshot": {
+        "type": "week",
+        "week": 8,
+        "providerScoringPeriodId": 8
+      },
+      "players": [
+        {
+          "playerId": "4430807",
+          "name": "Bijan Robinson",
+          "lineupSlot": "RB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4569618",
+          "name": "Garrett Wilson",
+          "lineupSlot": "WR",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4239993",
+          "name": "Tee Higgins",
+          "lineupSlot": "WR",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4426348",
+          "name": "Jayden Daniels",
+          "lineupSlot": "QB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4038815",
+          "name": "Rico Dowdle",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "2976212",
+          "name": "Stefon Diggs",
+          "lineupSlot": "FLEX",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "3916433",
+          "name": "Jakobi Meyers",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "2473037",
+          "name": "Jason Myers",
+          "lineupSlot": "K",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4373626",
+          "name": "Tyler Allgeier",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4428718",
+          "name": "Tre Tucker",
+          "lineupSlot": "FLEX",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "3054850",
+          "name": "Alvin Kamara",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4241416",
+          "name": "Chuba Hubbard",
+          "lineupSlot": "RB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "15847",
+          "name": "Travis Kelce",
+          "lineupSlot": "TE",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "2578570",
+          "name": "Jacoby Brissett",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "-16020",
+          "name": "Jets D/ST",
+          "lineupSlot": "D/ST",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "8439",
+          "name": "Aaron Rodgers",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        }
+      ]
+    },
+    {
+      "teamId": 6,
+      "teamName": "Pollard Greens",
+      "snapshot": {
+        "type": "week",
+        "week": 8,
+        "providerScoringPeriodId": 8
+      },
+      "players": [
+        {
+          "playerId": "4430878",
+          "name": "Jaxon Smith-Njigba",
+          "lineupSlot": "FLEX",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4426502",
+          "name": "Drake London",
+          "lineupSlot": "WR",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4361370",
+          "name": "Chris Olave",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4685702",
+          "name": "Quinshon Judkins",
+          "lineupSlot": "RB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4035538",
+          "name": "David Montgomery",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4431452",
+          "name": "Drake Maye",
+          "lineupSlot": "QB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "16737",
+          "name": "Mike Evans",
+          "lineupSlot": "IR",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "5083076",
+          "name": "Harold Fannin Jr.",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4569587",
+          "name": "Wan'Dale Robinson",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "3953687",
+          "name": "Brandon Aubrey",
+          "lineupSlot": "K",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4036378",
+          "name": "Jordan Love",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4360248",
+          "name": "Kyle Pitts Sr.",
+          "lineupSlot": "TE",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "3116165",
+          "name": "Chris Godwin Jr.",
+          "lineupSlot": "FLEX",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "-16034",
+          "name": "Texans D/ST",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4596334",
+          "name": "Keaton Mitchell",
+          "lineupSlot": "RB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "5081432",
+          "name": "Antonio Williams",
+          "lineupSlot": "WR",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "-16027",
+          "name": "Buccaneers D/ST",
+          "lineupSlot": "D/ST",
+          "started": true,
+          "points": null
+        }
+      ]
+    },
+    {
+      "teamId": 12,
+      "teamName": "CeeDeep Shaheeded Rivalry",
+      "snapshot": {
+        "type": "week",
+        "week": 8,
+        "providerScoringPeriodId": 8
+      },
+      "players": [
+        {
+          "playerId": "4241389",
+          "name": "CeeDee Lamb",
+          "lineupSlot": "WR",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "3918298",
+          "name": "Josh Allen",
+          "lineupSlot": "QB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4239996",
+          "name": "Travis Etienne Jr.",
+          "lineupSlot": "IR",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4432710",
+          "name": "TreVeyon Henderson",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "3040151",
+          "name": "George Kittle",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4568490",
+          "name": "RJ Harvey",
+          "lineupSlot": "RB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4373678",
+          "name": "Khalil Shakir",
+          "lineupSlot": "FLEX",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4032473",
+          "name": "Rashid Shaheed",
+          "lineupSlot": "FLEX",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4599739",
+          "name": "Kendre Miller",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "-16007",
+          "name": "Broncos D/ST",
+          "lineupSlot": "D/ST",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "3046439",
+          "name": "Hunter Henry",
+          "lineupSlot": "TE",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4697815",
+          "name": "Rachaad White",
+          "lineupSlot": "RB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4427095",
+          "name": "DeMario Douglas",
+          "lineupSlot": "WR",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4366031",
+          "name": "Tank Dell",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "3116389",
+          "name": "Samaje Perine",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "3917232",
+          "name": "Tyler Bass",
+          "lineupSlot": "K",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4567156",
+          "name": "Treylon Burks",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        }
+      ]
+    },
+    {
+      "teamId": 10,
+      "teamName": "Royrek Tishmeshulam",
+      "snapshot": {
+        "type": "week",
+        "week": 8,
+        "providerScoringPeriodId": 8
+      },
+      "players": [
+        {
+          "playerId": "4262921",
+          "name": "Justin Jefferson",
+          "lineupSlot": "WR",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "3929630",
+          "name": "Saquon Barkley",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "16800",
+          "name": "Davante Adams",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "3916387",
+          "name": "Lamar Jackson",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4569173",
+          "name": "Rhamondre Stevenson",
+          "lineupSlot": "RB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "3121023",
+          "name": "Dallas Goedert",
+          "lineupSlot": "TE",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4047650",
+          "name": "DK Metcalf",
+          "lineupSlot": "WR",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4701936",
+          "name": "Matthew Golden",
+          "lineupSlot": "FLEX",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "3042519",
+          "name": "Aaron Jones Sr.",
+          "lineupSlot": "RB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4429205",
+          "name": "Jordan Addison",
+          "lineupSlot": "FLEX",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "3116365",
+          "name": "Mark Andrews",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "2971573",
+          "name": "Ka'imi Fairbairn",
+          "lineupSlot": "K",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "3925357",
+          "name": "Calvin Ridley",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "14880",
+          "name": "Kirk Cousins",
+          "lineupSlot": "QB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "-16011",
+          "name": "Colts D/ST",
+          "lineupSlot": "D/ST",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4241457",
+          "name": "Najee Harris",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        }
+      ]
+    },
+    {
+      "teamId": 9,
+      "teamName": "For the Love of the Kraft",
+      "snapshot": {
+        "type": "week",
+        "week": 8,
+        "providerScoringPeriodId": 8
+      },
+      "players": [
+        {
+          "playerId": "4426515",
+          "name": "Puka Nacua",
+          "lineupSlot": "WR",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4258173",
+          "name": "Nico Collins",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4870808",
+          "name": "Jeremiyah Love",
+          "lineupSlot": "RB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4259545",
+          "name": "D'Andre Swift",
+          "lineupSlot": "FLEX",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4685278",
+          "name": "Luther Burden III",
+          "lineupSlot": "FLEX",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "3915511",
+          "name": "Joe Burrow",
+          "lineupSlot": "QB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4572680",
+          "name": "Tucker Kraft",
+          "lineupSlot": "TE",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4429096",
+          "name": "Blake Corum",
+          "lineupSlot": "RB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4702555",
+          "name": "Jonah Coleman",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4880281",
+          "name": "Jordyn Tyson",
+          "lineupSlot": "IR",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4697745",
+          "name": "Tyler Loop",
+          "lineupSlot": "K",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4696044",
+          "name": "Kaelon Black",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4597500",
+          "name": "Adonai Mitchell",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4569603",
+          "name": "Malik Washington",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4685261",
+          "name": "Germie Bernard",
+          "lineupSlot": "WR",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "-16005",
+          "name": "Browns D/ST",
+          "lineupSlot": "D/ST",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4360516",
+          "name": "Tyrone Tracy Jr.",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        }
+      ]
+    },
+    {
+      "teamId": 11,
+      "teamName": "Lloyd of the Rings",
+      "snapshot": {
+        "type": "week",
+        "week": 8,
+        "providerScoringPeriodId": 8
+      },
+      "players": [
+        {
+          "playerId": "4362238",
+          "name": "Chase Brown",
+          "lineupSlot": "RB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "3043078",
+          "name": "Derrick Henry",
+          "lineupSlot": "RB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4429615",
+          "name": "Zay Flowers",
+          "lineupSlot": "WR",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4567750",
+          "name": "Emeka Egbuka",
+          "lineupSlot": "FLEX",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4432620",
+          "name": "Parker Washington",
+          "lineupSlot": "FLEX",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "2577417",
+          "name": "Dak Prescott",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4360761",
+          "name": "Michael Wilson",
+          "lineupSlot": "WR",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4360569",
+          "name": "Jordan Mason",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4385690",
+          "name": "Dalton Kincaid",
+          "lineupSlot": "TE",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4686658",
+          "name": "Mike Washington Jr.",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4360310",
+          "name": "Trevor Lawrence",
+          "lineupSlot": "QB",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4887558",
+          "name": "Emanuel Wilson",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "3150744",
+          "name": "Chase McLaughlin",
+          "lineupSlot": "K",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "-16030",
+          "name": "Jaguars D/ST",
+          "lineupSlot": "D/ST",
+          "started": true,
+          "points": null
+        },
+        {
+          "playerId": "4723820",
+          "name": "Omar Cooper Jr.",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        },
+        {
+          "playerId": "4686468",
+          "name": "Seth McGowan",
+          "lineupSlot": "Bench",
+          "started": false,
+          "points": null
+        }
+      ]
+    }
+  ]
+}

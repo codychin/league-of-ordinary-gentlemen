@@ -2,6 +2,7 @@ import Link from 'next/link'
 import {teams} from '../data'
 import {leagueSnapshot} from '../league-data'
 import SiteNav from '../../components/SiteNav'
+const fmt=value=>Number(value).toFixed(2)
 
 export default async function Team({params}) {
   const {id}=await params
@@ -17,27 +18,27 @@ export default async function Team({params}) {
       <div className="eyebrow">FRANCHISE FILE • 2026</div>
       <h1>{t.team}</h1>
       <div className="ownerLine"><b>{t.owners}</b><span>{t.aliases}</span></div>
-      <div className="teamStats six"><div><b>{ops.record}</b><span>RECORD</span></div><div><b>#{ops.seed}</b><span>SEED</span></div><div><b>{ops.pointsFor}</b><span>PF</span></div><div><b>{ops.season.ppg}</b><span>PPG</span></div><div><b>#{ops.season.pfRank}</b><span>PF RANK</span></div><div><b>#{ops.season.projectedRank}</b><span>ESPN PROJ.</span></div></div>
+      <div className="teamStats six"><div><b>{ops.record}</b><span>RECORD</span></div><div><b>#{ops.seed}</b><span>SEED</span></div><div><b>{fmt(ops.pointsFor)}</b><span>PF</span></div><div><b>{fmt(ops.season.ppg)}</b><span>PPG</span></div><div><b>#{ops.season.pfRank}</b><span>PF RANK</span></div><div><b>#{ops.season.projectedRank}</b><span>ESPN PROJ.</span></div></div>
 
       <section className="seasonRead">
         <div className="operationsHead"><div><small>2026 SEASON FILE</small><h2>Season to Date</h2></div><span>OFFICIAL TOTALS THROUGH WEEK {ops.season.completedGames} • WEEK {leagueSnapshot.week} SHOWN BELOW</span></div>
         <div className="seasonSummary">
-          <div><b>{ops.pointsAgainst}</b><span>POINTS AGAINST</span><small>#{ops.season.paRank} MOST</small></div>
-          <div><b>{ops.season.startedPoints}</b><span>STARTER POINTS</span><small>THROUGH WEEK {ops.season.completedGames}</small></div>
-          <div><b>{ops.season.benchPoints}</b><span>BENCH POINTS</span><small>THROUGH WEEK {ops.season.completedGames}</small></div>
+          <div><b>{fmt(ops.pointsAgainst)}</b><span>POINTS AGAINST</span><small>#{ops.season.paRank} MOST</small></div>
+          <div><b>{fmt(ops.season.startedPoints)}</b><span>STARTER POINTS</span><small>THROUGH WEEK {ops.season.completedGames}</small></div>
+          <div><b>{fmt(ops.season.benchPoints)}</b><span>BENCH POINTS</span><small>THROUGH WEEK {ops.season.completedGames}</small></div>
         </div>
         <div className="seasonDetailGrid">
-          <div><div className="hubHead">WEEKLY RESULTS</div>{ops.season.weekly.map(w=><div className="weekResult" key={w.week}><b className={w.result==='W'?'win':w.result==='L'?'loss':'live'}>{w.result==='—'?'LIVE':w.result}</b><span>WEEK {w.week}</span><Link href={`/teams/${w.opponentSlug}`}>{w.opponent}</Link><strong>{w.score}–{w.opponentScore}</strong></div>)}</div>
-          <div><div className="hubHead">STARTER PRODUCTION BY SLOT</div>{Object.entries(ops.season.positionTotals).map(([slot,points])=><div className="positionStat" key={slot}><b>{slot}</b><div><i style={{width:`${Math.max(3,(points/maxPositionPoints)*100)}%`}}/></div><strong>{points}</strong></div>)}</div>
+          <div><div className="hubHead">WEEKLY RESULTS</div>{ops.season.weekly.map(w=><div className="weekResult" key={w.week}><b className={w.result==='W'?'win':w.result==='L'?'loss':'live'}>{w.result==='—'?'LIVE':w.result}</b><span>WEEK {w.week}</span><Link href={`/teams/${w.opponentSlug}`}>{w.opponent}</Link><strong>{fmt(w.score)}–{fmt(w.opponentScore)}</strong></div>)}</div>
+          <div><div className="hubHead">STARTER PRODUCTION BY SLOT</div>{ops.season.unattributedScoreCorrection>0&&<p>Provider added {ops.season.unattributedScoreCorrection.toFixed(2)} points to the Week 7 team total. Player and position allocation remains unverified; the breakdown below retains the earlier snapshot.</p>}{Object.entries(ops.season.positionTotals).map(([slot,points])=><div className="positionStat" key={slot}><b>{slot}</b><div><i style={{width:`${Math.max(3,(points/maxPositionPoints)*100)}%`}}/></div><strong>{fmt(points)}</strong></div>)}</div>
         </div>
       </section>
 
       <section className="liveOperations">
         <div className="operationsHead"><div><small>FOOTBALL OPERATIONS • WEEK {leagueSnapshot.week} FINAL</small><h2>Week {leagueSnapshot.week}</h2></div><span>{leagueSnapshot.updatedAt}</span></div>
         <div className="matchupBoard">
-          <div className="matchupTeam active"><small>{t.team}</small><b>{ops.matchup.score}</b><span>FINAL</span></div>
+          <div className="matchupTeam active"><small>{t.team}</small><b>{fmt(ops.matchup.score)}</b><span>FINAL</span></div>
           <div className="matchupVs">VS</div>
-          <Link href={`/teams/${ops.matchup.opponentSlug}`} className="matchupTeam"><small>{ops.matchup.opponent}</small><b>{ops.matchup.opponentScore}</b><span>FINAL</span></Link>
+          <Link href={`/teams/${ops.matchup.opponentSlug}`} className="matchupTeam"><small>{ops.matchup.opponent}</small><b>{fmt(ops.matchup.opponentScore)}</b><span>FINAL</span></Link>
         </div>
       </section>
 
