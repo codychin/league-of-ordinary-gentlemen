@@ -32,3 +32,6 @@
 @media (max-width: 760px) {
   :global(.sundayFeatureCopy) .leadDek { font-size: 18px; }
 }
+
+/* Use shared .read typography and color for the standalone lead link. */
+.leadRead { display: inline-block; text-decoration: none; }
