@@ -6,7 +6,7 @@ environments. Its `article-image-qa` dependent job preserves the existing requir
 check name. No promotion code, environment approval, permission, or branch
 protection setting changes.
 
-The dependency must succeed and emit the checked-out SHA, run ID, attempt, and
+The dependency must succeed and emit the checkout action’s verified commit output, run ID, attempt, and
 workflow ref after all validation and report uploads succeed. The dependent check
 compares every field against its own GitHub context. Missing, failed, cancelled,
 skipped, other-commit, other-run, other-attempt, or other-workflow evidence fails

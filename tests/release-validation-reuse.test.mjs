@@ -32,7 +32,19 @@ test('one install/build retains both server environments and all suites before e
     assert.ok(workflow.includes(required), required);
   }
   assert.match(workflow, /article-image-qa:\n    needs: integrity\n    if: \$\{\{ always\(\) \}\}/);
-  assert.match(workflow, /test "\$\(git rev-parse HEAD\)" = "\$EXPECTED_SHA"/);
+  assert.match(workflow, /CHECKED_OUT_SHA: \$\{\{ steps.source.outputs.commit \}\}/);
+  assert.match(workflow, /uses: actions\/checkout@v4\n        id: source/);
   assert.doesNotMatch(workflow, /download-artifact|continue-on-error/);
   assert.equal(existsSync('.github/workflows/article-image-release-gate.yml'), false);
+});
+
+const record = workflow.split('      - name: Record successful validation identity\n')[1].split('  # Preserve')[0].split('        run: |\n')[1].replace(/^          /gm, '');
+for (const checkedOut of [identity.GITHUB_SHA, '', 'b'.repeat(40)]) {
+  test(`checkout action commit output is required and exact: ${checkedOut || 'missing'}`, () => {
+    const result = spawnSync('sh', ['-e', '-c', record], {env:{...identity, CHECKED_OUT_SHA:checkedOut, GITHUB_OUTPUT:'/dev/null'}});
+    assert.equal(result.status === 0, checkedOut === identity.GITHUB_SHA);
+  });
+}
+test('identity recording does not alter Git trust configuration or depend on container ownership', () => {
+  assert.doesNotMatch(record, /git |safe.directory/);
 });
