@@ -5,6 +5,9 @@ for(const root of ['', '/sunday-crew', '/doge']){
     await page.goto(`${root}/archive`);
     await expect(page.getByRole('heading',{name:'The Crates.'})).toBeVisible();
     const search=page.getByRole('searchbox',{name:'Search the Crates'});
+    await search.fill('White Coaches');
+    await expect(page.getByRole('status')).toHaveText(root==='/doge'?/^1 story/:/^0 stories/);
+    if(root==='/doge')await expect(page.locator('main a[href="/doge/articles/conrad-white-coaches-lose-individually"] img')).toBeVisible();
     await search.fill('corgi');
     await expect(page.getByRole('status')).toHaveText(/^1 story\s+\/ All shelves$/);
     await expect(page.locator('main a[href$="/articles/marnie-corgi-he-wanted-them-to-know"]').last()).toHaveAttribute('href',`${root}/articles/marnie-corgi-he-wanted-them-to-know`);
@@ -40,14 +43,15 @@ for(const root of ['', '/sunday-crew', '/doge']){
 
 test('global Crates excludes local stories across every page and restores existing card images',async({page})=>{
   await page.goto('/archive');
-  await expect(page.getByRole('status')).toHaveText(/^40 stories/);
+  await expect(page.getByRole('status')).toHaveText(/^39 stories/);
   while(await page.getByRole('button',{name:'Keep digging'}).count())await page.getByRole('button',{name:'Keep digging'}).click();
   const cards=page.locator('main [class*="grid"] > a');
-  await expect(cards).toHaveCount(40);
+  await expect(cards).toHaveCount(39);
   const hrefs=await cards.evaluateAll(xs=>xs.map(x=>x.getAttribute('href')));
+  expect(hrefs).not.toContain('/articles/conrad-white-coaches-lose-individually');
   expect(hrefs).not.toContain('/articles/marnie-paying-retail');
   expect(hrefs).not.toContain('/articles/maude-jayden-daniels-elbow');
-  for(const slug of ['conrad-white-coaches-lose-individually','marnie-cruise-swift-football']){
+  for(const slug of ['marnie-cruise-swift-football']){
     const img=page.locator(`main a[href="/articles/${slug}"] img`);
     await img.scrollIntoViewIfNeeded();
     await expect(img).toBeVisible();
