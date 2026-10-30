@@ -20,10 +20,8 @@ export const themes = {
     selection: "#484035",
   },
 };
-export function resolveAppearance(preference, system) {
-  return preference === "Dark" || (preference !== "Light" && system === "dark")
-    ? "dark"
-    : "light";
+export function resolveAppearance(system) {
+  return system === "dark" ? "dark" : "light";
 }
 // Role-based overrides leave media, permanent black chrome and Culture colors untouched.
 export function themedStyles(base, p) {

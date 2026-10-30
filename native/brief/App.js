@@ -575,8 +575,7 @@ function EmptyLeague({ screen, select }) {
 }
 function Shell() {
   const s = useStyles();
-  const { palette, appearance, preference, setPreference } =
-    useContext(ThemeContext);
+  const { palette, appearance } = useContext(ThemeContext);
   const insets = useSafeAreaInsets();
   const store = useRef(null);
   if (!store.current)
@@ -982,53 +981,6 @@ function Shell() {
                         <Icon name="Next" size={16} />
                       </Action>
                     ))}
-                    <View style={{ marginTop: 32 }}>
-                      <Text style={s.eyebrow}>APPEARANCE</Text>
-                      <View style={{ flexDirection: "row", gap: 8 }}>
-                        {["System", "Light", "Dark"].map((value) => (
-                          <Pressable
-                            key={value}
-                            accessibilityRole="radio"
-                            accessibilityLabel={value + " appearance"}
-                            accessibilityState={{
-                              checked: preference === value,
-                            }}
-                            onPress={() => setPreference(value)}
-                            style={{
-                              flex: 1,
-                              minHeight: 48,
-                              borderRadius: 12,
-                              borderWidth: 1,
-                              borderColor:
-                                preference === value
-                                  ? palette.accent
-                                  : palette.border,
-                              backgroundColor:
-                                preference === value
-                                  ? palette.surface
-                                  : "transparent",
-                              justifyContent: "center",
-                              alignItems: "center",
-                            }}
-                          >
-                            <Text
-                              style={{
-                                color:
-                                  preference === value
-                                    ? palette.accent
-                                    : palette.text,
-                                fontWeight: "600",
-                              }}
-                            >
-                              {value}
-                            </Text>
-                          </Pressable>
-                        ))}
-                      </View>
-                      <Text style={[s.note, { marginTop: 12 }]}>
-                        System follows your device’s appearance.
-                      </Text>
-                    </View>
                   </>
                 ) : ["Scores", "Teams"].includes(screen) ? (
                   <EmptyLeague screen={screen} select={select} />
@@ -1135,29 +1087,11 @@ function Shell() {
 }
 export default function App() {
   const system = useColorScheme();
-  const [preference, updatePreference] = useState("System");
-  useEffect(() => {
-    let active = true;
-    AsyncStorage.getItem("brief:appearance")
-      .then((v) => {
-        if (active && ["System", "Light", "Dark"].includes(v))
-          updatePreference(v);
-      })
-      .catch(() => {});
-    return () => {
-      active = false;
-    };
-  }, []);
-  const setPreference = (value) => {
-    updatePreference(value);
-    AsyncStorage.setItem("brief:appearance", value).catch(() => {});
-  };
-  const appearance = resolveAppearance(preference, system);
+  // Ignore the retired manual override entirely; only OS appearance drives the theme.
+  const appearance = resolveAppearance(system);
   const palette = themes[appearance];
   return (
-    <ThemeContext.Provider
-      value={{ preference, setPreference, appearance, palette }}
-    >
+    <ThemeContext.Provider value={{ appearance, palette }}>
       <SafeAreaProvider>
         <StatusBar barStyle="light-content" />
         <Shell />

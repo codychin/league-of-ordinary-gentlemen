@@ -1,12 +1,10 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { themes, resolveAppearance, themedStyles } from "../src/theme.mjs";
-test("System tracks both device modes while explicit preferences stay stable", () => {
-  for (const system of ["dark", "light", null]) {
-    assert.equal(resolveAppearance("Dark", system), "dark");
-    assert.equal(resolveAppearance("Light", system), "light");
+test("appearance follows live OS values with a light fallback", () => {
+  for (const system of ["dark", "light", null, undefined]) {
     assert.equal(
-      resolveAppearance("System", system),
+      resolveAppearance(system),
       system === "dark" ? "dark" : "light",
     );
   }

@@ -25,7 +25,7 @@ The installed SDK 58 simulator Expo Go client runs on the authorized Mac with Xc
 - Five approved global videos have visible posters, native controls, loading/error states and natural-aspect playback. League-only Watch entries and matchup videos remain excluded.
 - Compact black masthead, safe-area-aware spacing and five glass icon tabs. Scores and Teams provide distinct no-league states with working routes into editorial content; league setup is honestly unavailable in this preview.
 - Culture is extracted from the curated CultureDesk array, retains global eligibility and source order, uses the dark desk styling and five-story pagination. It is independent of Crates filters. More includes icon-led archive, Watch, staff and corrections routes; staff/corrections use an explicitly labeled in-app browser fallback.
-- System/Light/Dark appearance in More, persisted locally; System responds to device appearance live. Semantic warm-charcoal surfaces and cream text leave media unchanged; Culture remains dark.
+- Appearance follows the device live, with no manual selection. Retired saved appearance overrides are ignored; other saved data is unchanged. Semantic warm-charcoal surfaces and cream text leave media unchanged; Culture remains dark.
 - Tab indicator and content/menu fades respect Reduce Motion. Reader position saves on Back, scroll completion and background. Restoration remains pixel-based, not revision/layout/font-size aware.
 
 ## Data and offline boundary
