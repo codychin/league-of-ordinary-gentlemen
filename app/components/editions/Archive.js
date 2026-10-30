@@ -12,5 +12,5 @@ export default async function Archive({config}){
   const editionArticles=await getEditionArticles(editionSlug);
   const stories=new Map(archive.filter(a=>isSharedArticleForEdition(a.slug,editionSlug)).map(a=>[a.slug,a]));
   for(const a of editionArticles)if(!stories.has(a.slug))stories.set(a.slug,a);
-  return <><header className={`articleHeader ${styles.header}`}><Link href={root} className="miniMast">{publicationName}</Link><EditionSiteNav root={root}/></header><Crates articles={[...stories.values()].map(a=>crateArticle(a,root))}/></>;
+  return <><header className={`articleHeader ${styles.header}`}><Link href={root} className="miniMast">{publicationName}</Link><EditionSiteNav root={root}/></header><Crates root={root} editionName={config.name} articles={[...stories.values()].map(a=>crateArticle(a,root))}/></>;
 }

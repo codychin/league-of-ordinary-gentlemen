@@ -1,6 +1,7 @@
 'use client';
 import {useState,useRef,useEffect} from 'react';
 import Link from 'next/link';
+import CratesViews from './CratesViews';
 import ResilientImage from './ResilientImage';
 import s from './WatchCrates.module.css';
 const duration=n=>Number.isFinite(n)?`${Math.floor(n/60)}:${String(Math.floor(n%60)).padStart(2,'0')}`:null;
@@ -19,7 +20,7 @@ export default function WatchCrates({features,matchups,root='',editionName='LOOG
  const card=v=><button type="button" className={s.card} data-landscape={v.posterAspectRatio>1} key={v.id} onClick={()=>select(v)} aria-label={`Watch ${v.title} by ${v.correspondent}`}><span className={s.picture}><FilmImage film={v} style={{backgroundColor:'#171614'}} alt="" loading="lazy" sizes="(max-width:600px) 100vw, (max-width:850px) 50vw, 400px"/><span className={s.play}><Play/></span>{duration(v.durationSeconds)&&<span className={s.duration}>{duration(v.durationSeconds)}</span>}</span><span className={s.tag}>{v.kind} · {v.correspondent}</span><h3>{v.title}</h3><span className={s.cardAction}>Watch film <span aria-hidden="true">→</span></span></button>;
  return <main className={s.watch}>
   <div className={s.intro}><div><span className={s.eyebrow}>Good stories. Another way in.</span><h1>The Crates<span>.</span></h1></div><p>From the field. From the desk.<br/>Worth sitting down for.</p></div>
-  <nav className={s.tabs} aria-label="The Crates views"><Link href={`${root}/archive`}>Read</Link><a href={`${root}/archive/watch`} aria-current="page">Watch <span><Play/></span></a><span className={s.edition}>{editionName} EDITION</span></nav>
+  <CratesViews root={root} editionName={editionName} current="watch"/>
   <section className={s.selection} data-portrait={(videoAspect||active.posterAspectRatio)<1} style={{'--media-ratio':videoAspect||active.posterAspectRatio||'auto'}} aria-label="Selected story" ref={player} tabIndex={-1}>
    <div className={s.screen}>{playing?<><video ref={video} key={active.id} controls playsInline autoPlay preload="metadata" poster={active.poster} src={nativeHls&&active.hls?active.hls:active.src} aria-label={active.title} onLoadedMetadata={e=>{const v=e.currentTarget;if(v.videoWidth&&v.videoHeight)setVideoAspect(v.videoWidth/v.videoHeight)}} onError={()=>setFailed(true)}/>{failed&&<p className={s.error}>This video couldn’t load. <a href={active.src}>Open the original video ↗</a></p>}</>:<button className={s.cover} onClick={()=>setPlaying(true)} aria-label={`Play ${active.title}`}><FilmImage key={active.id} film={active} alt="" loading="eager" sizes="(max-width:700px) 100vw, 850px"/><span><b><Play/></b> Play the film{duration(active.durationSeconds)&&` · ${duration(active.durationSeconds)}`}</span></button>}</div>
    <div className={s.featureCopy}><span className={s.eyebrow}>{active.week?`${editionName} · ${active.season} · Week ${active.week} · ${active.kind}`:'The screening room'}</span><h2>{active.title}</h2><p className={s.by}>{active.correspondent}</p>{active.dek&&<p className={s.dek}>{active.dek}</p>}{active.slug&&<Link href={`${root}/articles/${active.slug}`} className={s.read}>Read the dispatch ↗</Link>}</div>
