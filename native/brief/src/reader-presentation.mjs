@@ -5,10 +5,7 @@ export function storySelection(
   const sorted = [...feed.cards].sort((a, b) => b.timestamp - a.timestamp);
   if (tab === "Front page")
     return {
-      cards: [
-        feed.reader,
-        ...sorted.filter((a) => a.slug !== feed.reader.slug).slice(0, 4),
-      ],
+      cards: feed.home.flatMap(p => p.cards.map(item => ({...feed.cards.find(a => a.slug === item.slug), ...item}))),
       empty: false,
     };
   const cards = sorted.filter(

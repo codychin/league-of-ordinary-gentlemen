@@ -4,13 +4,16 @@
     "slug": "brief-reader-lab",
     "version": "0.1.0",
     "orientation": "portrait",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "ios": {
       "supportsTablet": true
     },
     "web": {
       "bundler": "metro"
     },
-    "plugins": ["expo-video"]
+    "plugins": [
+      "expo-video",
+      "expo-web-browser"
+    ]
   }
 }

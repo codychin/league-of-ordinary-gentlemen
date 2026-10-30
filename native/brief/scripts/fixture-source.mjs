@@ -1,3 +1,4 @@
+import { placements, culturePlacements } from "./placements.mjs";
 import { articles } from "../../../app/articles/data.js";
 import { isGlobalArticle } from "../../../lib/editorial-scope.js";
 import { crateArticle } from "../../../lib/crates.mjs";
@@ -9,6 +10,8 @@ export function fixtureFeed(firstParagraph) {
   if (firstParagraph) fixture[READER_SLUG].body[0] = firstParagraph;
   return createFeed({
     articles: fixture,
+    placements,
+    culturePlacements,
     isGlobalArticle,
     crateArticle,
     watchLibrary,

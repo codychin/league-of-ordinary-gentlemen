@@ -35,6 +35,33 @@ function sameIds(items, baseline, key) {
   )
     fail();
 }
+// New reader structures are typed at generation, then constrained to the exact
+// bundled structure and media inventory. Only editorial text leaves may change.
+function validateTree(value, original, key = "") {
+  if (Array.isArray(original)) {
+    if (!Array.isArray(value) || value.length !== original.length) fail();
+    original.forEach((item, i) => validateTree(value[i], item, key));
+  } else if (original && typeof original === "object") {
+    sameKeys(value, original);
+    for (const k of Object.keys(original))
+      validateTree(value[k], original[k], k);
+  } else if (
+    typeof original === "string" &&
+    [
+      "text",
+      "title",
+      "dek",
+      "caption",
+      "label",
+      "by",
+      "imageAlt",
+      "alt",
+      "receipt",
+    ].includes(key)
+  ) {
+    if (!text(value)) fail();
+  } else if (value !== original) fail();
+}
 export function validateSnapshot(candidate, bundled) {
   if (
     !candidate ||
@@ -106,6 +133,16 @@ export function validateSnapshot(candidate, bundled) {
       fail();
     for (const field of ["title", "correspondent", "kind"])
       if (!text(video[field]) || !video[field]) fail();
+  }
+  validateTree(candidate.readers, bundled.readers);
+  validateTree(candidate.home, bundled.home, "placement");
+  validateTree(candidate.culture, bundled.culture, "culture");
+  for (const article of candidate.readers) {
+    const matching = candidate.cards.find((c) => c.slug === article.slug);
+    if (!matching) fail();
+    for (const key of Object.keys(matching))
+      if (JSON.stringify(article[key]) !== JSON.stringify(matching[key]))
+        fail();
   }
   return candidate;
 }
