@@ -1,0 +1,12 @@
+THE CRATES — VISUAL WORKSHOP, NOT AN APPROVED ARCHIVE REPLACEMENT
+
+Based on main b5a3916851c5836e8b4d2c3ad5327cd9b551b6f0 (October 30, 2026).
+All 63 archive article titles, subtitles, bylines, dates and routes come from repository content. No original routes or content changed. No homepage changes included.
+
+Illustrative and unapproved: The Crates name, page introduction, curated Corgi/Jameis/Asset Class entry selection, broad topic assignments, and browse ordering. Topic assignments are provisional, largely based on correspondent beats; these need article-by-article editorial review. Cards with existing local images are prioritized in this visual prototype. Missing remote images collapse gracefully; no substitute photos invented.
+
+Local Chromium checks passed: 63 stories initially; corgi search returns one; no-match search and reset work; Money & Power returns six; Marnie Kells returns seventeen; Keep Digging expands nine cards to eighteen; no page JavaScript errors; no horizontal page overflow at 390px; initial twelve displayed images decoded. Every card slug is from the source archive and uses the existing /articles/[slug] route. Live checks of the three featured article URLs were blocked by the environment proxy (403), not reported as passing.
+
+Screenshots: The-Crates-desktop.png (1440px wide); The-Crates-mobile.png (390px wide); The-Crates-mobile-browse.png (390px wide). Screenshots are viewport excerpts, not the entire 63-story page.
+
+Library upload failed before tool discovery: hosted apps tools/list request failed: network. No Library file IDs were returned. Staging fallback authorized by Cody.
