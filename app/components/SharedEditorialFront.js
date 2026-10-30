@@ -116,7 +116,7 @@ export default function SharedEditorialFront({archiveHref='/archive',root=''}){
 
 <div className={styles.archiveCta}>
   <div><span className={styles.label}>THE PERMANENT RECORD</span><p>Every take. Every receipt.</p></div>
-  <Link className={styles.link} href={archiveHref}>BROWSE THE ARCHIVE <span aria-hidden="true">→</span></Link>
+  <Link className={styles.link} href={archiveHref}>DIG INTO THE CRATES <span aria-hidden="true">→</span></Link>
 </div>
   </>;
 }

@@ -284,15 +284,15 @@ function MobileAppNav(){
     else scrollSection(item.hash.slice(1))
   }
 
-  const overflowLabel=pathname.startsWith('/staff')?'Staff':pathname.startsWith('/archive')?'Archive':pathname.startsWith('/corrections')?'Corrections':'More'
+  const overflowLabel=pathname.startsWith('/staff')?'Staff':pathname.endsWith('/archive')?'The Crates':pathname.startsWith('/corrections')?'Corrections':'More'
   const headerLabel=moreOpen?'More':pathname.includes('/matchups/')?'Matchup':activeTab==='scores'?'Scores':activeTab==='teams'?'Teams':activeTab==='culture'?'The Culture':activeTab==='more'?overflowLabel:activeTab==='detail'?'The Brief':''
   return <>
     <div className="appSectionHeader" aria-hidden="true"><span>{headerLabel}</span></div>
     {moreOpen&&<aside className="appMoreSheet" aria-label="More and settings">
       <div className="appMoreHead"><small>THE BRIEF</small><b>More</b><button type="button" onClick={()=>setMoreOpen(false)} aria-label="Close more menu">×</button></div>
       <div className="appSettings"><small>SETTINGS</small><ArticleAlertSettings edition={edition}/></div>
-      <div className="appMoreLinks">{editionRoot?<><Link href={editionRoot+"/archive"} onClick={()=>setMoreOpen(false)}><MoreMenuIcon name="Archive"/><span>Archive</span></Link><Link href={editionRoot+"/newsroom"} onClick={()=>setMoreOpen(false)}><MoreMenuIcon name="Staff"/><span>{edition.name} newsroom</span></Link></>:<>
-        <Link href="/archive"><MoreMenuIcon name="Archive"/><span>Archive</span></Link>
+      <div className="appMoreLinks">{editionRoot?<><Link href={editionRoot+"/archive"} onClick={()=>setMoreOpen(false)}><MoreMenuIcon name="Archive"/><span>The Crates</span></Link><Link href={editionRoot+"/newsroom"} onClick={()=>setMoreOpen(false)}><MoreMenuIcon name="Staff"/><span>{edition.name} newsroom</span></Link></>:<>
+        <Link href="/archive"><MoreMenuIcon name="Archive"/><span>The Crates</span></Link>
         <Link href="/staff"><MoreMenuIcon name="Staff"/><span>Staff</span></Link>
         <Link href="/corrections"><MoreMenuIcon name="Corrections"/><span>Corrections</span></Link></>}
       </div>
