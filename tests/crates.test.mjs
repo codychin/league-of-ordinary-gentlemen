@@ -24,3 +24,15 @@ test('search and filters intersect, normalize accents, sort without changing inp
  assert.deepEqual(filterCrateArticles(a).map(x=>x.slug),['b','a']);
  assert.deepEqual(filterCrateArticles(a,{order:'oldest'}).map(x=>x.slug),['a','b']);assert.equal(a[0].slug,'a');
 });
+
+test('global eligibility keeps reviewed shared work and excludes league-local matchups',async()=>{
+ const {GLOBAL_ARTICLE_SLUGS,isGlobalArticle}=await import('../lib/editorial-scope.js');
+ assert.equal(GLOBAL_ARTICLE_SLUGS.size,40);
+ for(const slug of ['conrad-white-coaches-lose-individually','maude-jordan-love-alibis','hollis-body-keeps-score'])assert.equal(isGlobalArticle(slug),true);
+ for(const slug of ['marnie-paying-retail','maude-jayden-daniels-elbow','route-22-phones','danir-bench-crime','unknown-new-story'])assert.equal(isGlobalArticle(slug),false);
+});
+test('cards reuse verified existing photos and retain imageless stories without fabricated media',()=>{
+ for(const slug of ['conrad-white-coaches-lose-individually','marnie-cruise-swift-football'])assert.match(crateArticle({slug,title:'Story'}).image,/^\/images\/cache\//);
+ assert.equal(crateArticle({slug:'marnie-tee-higgins-ankles',title:'Story'}).image,null);
+ assert.equal(crateArticle({slug:'marnie-cruise-swift-football',image:'/original.webp'}).image,'/original.webp');
+});

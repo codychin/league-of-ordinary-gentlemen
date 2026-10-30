@@ -37,3 +37,24 @@ for(const root of ['', '/sunday-crew', '/doge']){
     await expect(page.locator('.appMoreLinks').getByRole('link',{name:'The Crates'})).toHaveAttribute('href',`${root}/archive`);
   });
 }
+
+test('global Crates excludes local stories across every page and restores existing card images',async({page})=>{
+  await page.goto('/archive');
+  await expect(page.getByRole('status')).toHaveText(/^40 stories/);
+  while(await page.getByRole('button',{name:'Keep digging'}).count())await page.getByRole('button',{name:'Keep digging'}).click();
+  const cards=page.locator('main [class*="grid"] > a');
+  await expect(cards).toHaveCount(40);
+  const hrefs=await cards.evaluateAll(xs=>xs.map(x=>x.getAttribute('href')));
+  expect(hrefs).not.toContain('/articles/marnie-paying-retail');
+  expect(hrefs).not.toContain('/articles/maude-jayden-daniels-elbow');
+  for(const slug of ['conrad-white-coaches-lose-individually','marnie-cruise-swift-football']){
+    const img=page.locator(`main a[href="/articles/${slug}"] img`);
+    await img.scrollIntoViewIfNeeded();
+    await expect(img).toBeVisible();
+    await expect.poll(()=>img.evaluate(x=>x.complete&&x.naturalWidth>0)).toBe(true);
+  }
+  const textCard=page.locator('main a[href="/articles/marnie-tee-higgins-ankles"]');
+  await expect(textCard).toHaveClass(/textStory/);
+  await expect(textCard.locator('img')).toHaveCount(0);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+});
