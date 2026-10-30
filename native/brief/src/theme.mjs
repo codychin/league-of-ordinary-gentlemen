@@ -13,7 +13,7 @@ export const themes = {
     canvas: "#201e1a",
     text: "#f3efe5",
     muted: "#c3bbaf",
-    accent: "#ed9487",
+    accent: "#df8175",
     surface: "#36322c",
     border: "#70685b",
     glass: "rgba(38,35,30,.85)",
@@ -33,7 +33,15 @@ export function themedStyles(base, p) {
       s[k] = { ...base[k], ...values };
     });
   apply(
-    ["headline", "title", "byline", "body", "sectionHeading", "menuTitle"],
+    [
+      "headline",
+      "leadHeadline",
+      "title",
+      "byline",
+      "body",
+      "sectionHeading",
+      "menuTitle",
+    ],
     { color: p.text },
   );
   apply(["dek", "note"], { color: p.muted });
@@ -47,6 +55,6 @@ export function themedStyles(base, p) {
   apply(["emptyIcon", "menuIcon"], { backgroundColor: p.surface });
   apply(["nav"], { backgroundColor: p.glass, borderColor: p.border });
   apply(["glider"], { backgroundColor: p.selection, borderColor: p.border });
-  apply(["flag"], {borderColor:p.text});
+  apply(["flag"], { borderColor: p.text });
   return s;
 }

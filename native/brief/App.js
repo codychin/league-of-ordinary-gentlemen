@@ -418,7 +418,13 @@ function Reader({ article: a, close, play }) {
       >
         {a.heroMode === "first" && hero}
         <Text style={s.eyebrow}>{a.section}</Text>
-        <Text style={s.headline}>{a.title}</Text>
+        <Text
+          style={
+            a.slug === "marnie-detroit-school" ? s.leadHeadline : s.headline
+          }
+        >
+          {a.title}
+        </Text>
         <Text style={s.dek}>{a.dek}</Text>
         <Text style={s.byline}>
           {a.by} · {a.date}
@@ -519,7 +525,7 @@ function StoryCard({ a, open, lead = false, compact = false }) {
         cover={!a.slug.includes("saturation-bombing")}
       />
       <Text style={[s.eyebrow, { marginTop: 20 }]}>{a.section}</Text>
-      <Text style={lead ? s.headline : s.title}>{a.title}</Text>
+      <Text style={lead ? s.leadHeadline : s.title}>{a.title}</Text>
       <Text style={s.dek}>{a.dek}</Text>
       <Text style={s.byline}>{a.by}</Text>
       <Text style={s.read}>READ {a.by?.split(" ")[0]?.toUpperCase()} →</Text>
@@ -1203,6 +1209,15 @@ const baseStyles = StyleSheet.create({
     fontSize: 40,
     lineHeight: 39,
     letterSpacing: -1.5,
+    color: "#11100e",
+    marginBottom: 4,
+  },
+  leadHeadline: {
+    fontFamily: serif,
+    fontWeight: "700",
+    fontSize: 34,
+    lineHeight: 36,
+    letterSpacing: -1,
     color: "#11100e",
     marginBottom: 4,
   },
