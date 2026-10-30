@@ -18,18 +18,21 @@ test('Release integrity requires geometry before successful automatic promotion'
   assert.match(promotion, /workflows: \["Release integrity", "Article image release gate"\]/)
   assert.match(promotion, /github\.event\.workflow_run\.conclusion == 'success'/)
 })
-for (const exitCode of [0, 17]) {
-  test('geometry command exit ' + exitCode + ' propagates through release step', () => {
-    assert.ok(block)
+for (const stepName of ['Verify article image geometry before release', 'Verify article images without score fixture']) {
+ const testedBlock = workflow.split(`      - name: ${stepName}\n        run: |\n`)[1]?.split('      - uses:')[0];
+ for (const exitCode of [0, 17]) {
+  test(stepName + ' command exit ' + exitCode + ' propagates through release step', () => {
+    assert.ok(testedBlock)
     const dir = mkdtempSync(join(tmpdir(), 'brief-gate-'))
     try {
       for (const [name, body] of Object.entries({npm:'exit 0', curl:'exit 0', npx:'exit ' + exitCode})) {
         writeFileSync(join(dir, name), '#!/bin/sh\n' + body + '\n', {mode:0o755})
       }
-      const result = spawnSync('bash', ['-e', '-c', block.split('\n').map(line => line.replace(/^          /, '')).join('\n')], {
+      const result = spawnSync('bash', ['-e', '-c', testedBlock.split('\n').map(line => line.replace(/^          /, '')).join('\n')], {
         env:{...process.env, PATH:dir + ':' + process.env.PATH}, encoding:'utf8'
       })
       assert.equal(result.status, exitCode, result.stderr)
     } finally { rmSync(dir, {recursive:true, force:true}) }
   })
+}
 }

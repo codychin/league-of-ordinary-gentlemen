@@ -22,6 +22,8 @@ jobs:
         run: node --test qa/operations/media-preparation.test.mjs
   integrity:
     needs: media-preparation
+    outputs:
+      evidence: ${{ steps.evidence.outputs.identity }}
     runs-on: ubuntu-24.04
     container:
       image: mcr.microsoft.com/playwright:v1.64.1-noble@sha256:47b510dd9230bf0b9bfc9b20102241e577ea7a99334ab4c3ca19f19770e9b8ea
@@ -37,6 +39,28 @@ jobs:
       - run: npm run build
       - name: Verify pinned Playwright browsers
         run: node scripts/operations/assert-playwright-container.mjs
+      # Keep the former standalone gate's unmocked server coverage on this build.
+      - name: Verify article images without score fixture
+        run: |
+          npm run start -- -p 3001 > /tmp/brief-unmocked-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          ready=false
+          for i in $(seq 1 60); do
+            if curl -fsS http://127.0.0.1:3001/articles/maude-nfc-east-declines-winner > /dev/null; then ready=true; break; fi
+            sleep 2
+          done
+          test "$ready" = true
+          QA_BASE_URL=http://127.0.0.1:3001 npx playwright test qa/tests/article-image-framing.spec.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: article-image-qa-report
+          path: |
+            qa/reports/browser-html
+            qa/reports/browser-results.json
+            qa/test-results
+            /tmp/brief-unmocked-server.log
       - name: Verify article image geometry before release
         run: |
           NODE_OPTIONS="--require=$PWD/qa/fixtures/pwa-shell-scores.cjs" npm run start -- -p 3000 > /tmp/brief-server.log 2>&1 &
@@ -58,3 +82,28 @@ jobs:
             qa/reports/browser-results.json
             qa/test-results
             /tmp/brief-server.log
+      # Job outputs are scoped to this dependency graph; no downloaded evidence.
+      - name: Record successful validation identity
+        id: evidence
+        env:
+          EXPECTED_SHA: ${{ github.sha }}
+        run: |
+          test "$(git rev-parse HEAD)" = "$EXPECTED_SHA"
+          echo "identity=$GITHUB_SHA:$GITHUB_RUN_ID:$GITHUB_RUN_ATTEMPT:$GITHUB_WORKFLOW_REF" >> "$GITHUB_OUTPUT"
+  # Preserve the required check name while reusing only this run's completed work.
+  article-image-qa:
+    needs: integrity
+    if: ${{ always() }}
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Require successful validation of this exact run
+        env:
+          VALIDATION_RESULT: ${{ needs.integrity.result }}
+          VALIDATION_IDENTITY: ${{ needs.integrity.outputs.evidence }}
+        run: |
+          test "$VALIDATION_RESULT" = success
+          test -n "$GITHUB_SHA"
+          test -n "$GITHUB_RUN_ID"
+          test -n "$GITHUB_RUN_ATTEMPT"
+          test -n "$GITHUB_WORKFLOW_REF"
+          test "$VALIDATION_IDENTITY" = "$GITHUB_SHA:$GITHUB_RUN_ID:$GITHUB_RUN_ATTEMPT:$GITHUB_WORKFLOW_REF"
