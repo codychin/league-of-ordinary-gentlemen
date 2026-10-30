@@ -16,7 +16,7 @@ function ImageLabel({byline,theme}){
 
 export default function SharedEditorialFront({archiveHref='/archive',root=''}){
   return <>
-<section className="morningBriefPreview sundayFront" style={{paddingTop:0}} aria-label="Lead story: A Study in Movement: The Detroit School, 2026"><div className="morningBriefFlag"><span>THE BRIEF • LEAD STORY</span><small>MARNIE KELLS • OCTOBER 26</small></div><div className="sundayFrontGrid"><article className="sundayFeature sabinePackage"><Link href={root+"/articles/marnie-detroit-school"} className={`sundayFeatureImage storylink ${front.tourHero}`}><ResilientImage loading="eager" decoding="async" src="/images/editorial/detroit-school/homepage-gibbs-dance.webp" style={{objectFit:"cover",objectPosition:"center"}} alt="Detroit Lions teammates celebrate together on the field."/><ImageLabel byline="MARNIE KELLS • CULTURE" theme="THE DETROIT SCHOOL · 2026"/></Link><div className="sundayFeatureCopy"><div className="sabinePackageIntro"><small>MATTERS OF CULTURE • ART HISTORY</small><Link href={root+"/articles/marnie-detroit-school"} className="sabinePackageTitle storylink"><h2>A Study in Movement: The Detroit School, 2026</h2></Link><p className={front.leadDek}>On the spontaneous birth of an artistic movement, and the evolution of human expression.</p><PreviewAuthor slug="marnie-detroit-school"/></div><Link href={root+"/articles/marnie-detroit-school"} className="sabinePackageCta">READ MARNIE →</Link></div></article></div></section>
+<section className="morningBriefPreview sundayFront" style={{paddingTop:0}} aria-label="Lead story: A Study in Movement: The Detroit School, 2026"><div className="morningBriefFlag"><span>THE BRIEF • LEAD STORY</span><small>MARNIE KELLS • OCTOBER 26</small></div><div className="sundayFrontGrid"><article className="sundayFeature sabinePackage"><Link href={root+"/articles/marnie-detroit-school"} className={`sundayFeatureImage storylink ${front.tourHero}`}><ResilientImage loading="eager" decoding="async" src="/images/editorial/detroit-school/homepage-gibbs-dance.webp" style={{objectFit:"cover",objectPosition:"center"}} alt="Detroit Lions teammates celebrate together on the field."/><ImageLabel byline="MARNIE KELLS • CULTURE" theme="THE DETROIT SCHOOL · 2026"/></Link><div className="sundayFeatureCopy"><div className="sabinePackageIntro"><small>MATTERS OF CULTURE • ART HISTORY</small><Link href={root+"/articles/marnie-detroit-school"} className="sabinePackageTitle storylink"><h2>A Study in Movement: The Detroit School, 2026</h2></Link><p className={front.leadDek}>On the spontaneous birth of an artistic movement, and the evolution of human expression.</p><PreviewAuthor slug="marnie-detroit-school"/></div><Link href={root+"/articles/marnie-detroit-school"} className={`read ${front.leadRead}`}>READ MARNIE →</Link></div></article></div></section>
 
 <section className={front.recent} aria-label="Recent stories">
 <article className={front.card} aria-label="Maude Gannon on Daniel Jones"><Link className={front.story} href={root+"/articles/maude-saturation-bombing-daniel-jones"}><div className={front.image} role="img" aria-label="Dallas Turner and a Vikings teammate sack Daniel Jones." style={{backgroundImage:imageBackground('https://static.clubs.nfl.com/image/upload/t_new_photo_album/f_auto/vikings/kv8vl4woo5h0q5asdhm3.jpg',640),backgroundPosition:"center",backgroundSize:"contain",backgroundRepeat:"no-repeat",backgroundColor:"#111"}}><ImageLabel byline="MAUDE GANNON • FOOTBALL" theme="85.2 PERCENT"/></div><div className="eyebrow">FOOTBALL • STRATEGY &amp; BAD PROCESS</div><h3>On the Saturation Bombing of Daniel Jones (née Dimes)</h3><PreviewAuthor slug="maude-saturation-bombing-daniel-jones"/><p className={front.dek}>How Brian Flores declined all pleas for a ceasefire and continued carpet-blitzing the shit out of the Colts.</p><div className="read">READ MAUDE →</div></Link></article>
@@ -81,30 +81,7 @@ export default function SharedEditorialFront({archiveHref='/archive',root=''}){
   </Link>
   <div className={front.clip}><ArticleClip tweetId="2106801789630919072" url="https://x.com/fballforeverhq/status/2106801789630919072" showCaption={false}/></div>
 </section>
-<section className="hero heroStack" aria-label="Featured Conrad Sorrell column">
-  <Link className="hero-copy storylink" href={root+"/articles/conrad-deshaun-watson-cleveland-hope"}>
-    <div className="photoHero" style={{backgroundImage:`linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.08)),${imageBackground('https://img.ksl.com/slc/3198/319896/31989626.jpg?filter=kslv2%2Fresponsive_story_lg&v=1787444404',640)}`,backgroundPosition:"center 34%"}}>
-      <ImageLabel byline="CONRAD SORRELL • COLUMN" theme="WHAT WINNING DOES TO A FAN’S CONSCIENCE"/>
-    </div>
-    <div className="eyebrow">COLUMN • POWER & AMERICAN ARRANGEMENTS</div>
-    <h2>Groper Cleveland <em>Is 3–1.</em></h2>
-    <PreviewAuthor slug="conrad-deshaun-watson-cleveland-hope"/>
-    <p className="standfirst">A column on Browns fandom, quarterback play, and the moral tension created by winning.</p>
-    <div className="read">READ CONRAD SORRELL →</div>
-  </Link>
-</section>
-<section className="hero heroStack" aria-label="Featured Hollis Crane investigation">
-  <Link className="hero-copy storylink" href={root+"/articles/hollis-jameis-winston-turing-test"}>
-    <div className="photoHero" style={{backgroundImage:`linear-gradient(0deg,rgba(0,0,0,.58),rgba(0,0,0,.08)),${imageBackground('/images/editorial/jameis-winston.webp',640)}`,backgroundPosition:"center 34%"}}>
-      <ImageLabel byline="HOLLIS CRANE • INVESTIGATIONS" theme="THE WORDS SOUND IMPORTANT. DO THEY MEAN ANYTHING?"/>
-    </div>
-    <div className="eyebrow">INVESTIGATIONS • PERSONHOOD & INTELLIGENCE</div>
-    <h2>The Jameis Winston <em>Turing Test.</em></h2>
-    <PreviewAuthor slug="hollis-jameis-winston-turing-test"/>
-    <p className="standfirst">After a decade of motivational philosophy, recursive metaphors and sentences that sound important without technically containing information, Jameis Winston has become an unexpectedly interesting case study in intelligence.</p>
-    <div className="read">READ HOLLIS CRANE →</div>
-  </Link>
-</section>
+
 
 
 
