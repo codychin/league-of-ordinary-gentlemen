@@ -14,6 +14,11 @@ import {
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { VideoView, useVideoPlayer } from "expo-video";
+import {
+  storySelection,
+  creditUrl,
+  openImageCredit,
+} from "./src/reader-presentation.mjs";
 import bundledFeed from "./src/generated/feed.json";
 import { createContentStore } from "./src/content-store.mjs";
 const origin = "https://www.ordinarybrief.com";
@@ -175,7 +180,23 @@ function Reader({ close, article }) {
           {a.by} · {a.date}
         </Text>
         <Picture source={a.image} alt={a.imageAlt} />
-        <Text style={s.note}>{a.imageCredit?.label}</Text>
+        {creditUrl(a.imageCredit) ? (
+          <Pressable
+            accessibilityRole="link"
+            accessibilityLabel={`Image credit: ${a.imageCredit.label}`}
+            style={{ minHeight: 44, justifyContent: "center" }}
+            onPress={async () => {
+              if (!(await openImageCredit(a.imageCredit, Linking.openURL)))
+                setNotice("Could not open the image credit.");
+            }}
+          >
+            <Text style={[s.note, { textDecorationLine: "underline" }]}>
+              {a.imageCredit.label} ↗
+            </Text>
+          </Pressable>
+        ) : (
+          <Text style={s.note}>{a.imageCredit?.label}</Text>
+        )}
         {a.blocks.map((b) => (
           <View key={b.id}>
             {b.type === "paragraph" ? (
@@ -245,15 +266,7 @@ export default function App() {
     [topic, setTopic] = useState("Everything"),
     [playing, setPlaying] = useState(null),
     [notice, setNotice] = useState("");
-  const cards = [...feed.cards]
-    .sort((a, b) => b.timestamp - a.timestamp)
-    .filter(
-      (a) =>
-        (topic === "Everything" || a.topic === topic) &&
-        `${a.title} ${a.by} ${a.dek}`
-          .toLowerCase()
-          .includes(query.toLowerCase()),
-    );
+  const selection = storySelection(feed, { tab, query, topic });
   const open = (a) =>
     a.nativeReader
       ? setReader(true)
@@ -339,15 +352,7 @@ export default function App() {
                       </ScrollView>
                     </>
                   ) : null}
-                  {(tab === "Front page"
-                    ? [
-                        feed.reader,
-                        ...cards
-                          .filter((a) => a.slug !== feed.reader.slug)
-                          .slice(0, 4),
-                      ]
-                    : cards
-                  ).map((a, i) => (
+                  {selection.cards.map((a, i) => (
                     <Pressable
                       accessibilityRole="button"
                       accessibilityLabel={`${a.title}. ${a.nativeReader ? "Read in app" : "Read on website"}`}
@@ -375,7 +380,7 @@ export default function App() {
                       </Text>
                     </Pressable>
                   ))}
-                  {!cards.length ? (
+                  {selection.empty ? (
                     <Text style={s.dek}>
                       No stories match. Try another search or topic.
                     </Text>

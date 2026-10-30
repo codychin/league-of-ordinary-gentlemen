@@ -40,7 +40,7 @@ Only this reader's own text is bundled. Images and videos are remote and have er
 
 ## Verification and next Mac handoff
 
-Container checks: eleven adapter/runtime tests (including an actual loopback HTTP source correction, persistent-cache restart, malformed/partial/wrong-scope responses, network/HTTP/cache failure, timeout and concurrency); existing five Crates tests; Metro/Hermes export for iOS, Android and web. Bundling is not an installed native build. No screenshots: Playwright Chromium download was blocked by network policy (`cdn.playwright.dev`, 403 Domain forbidden). No browser or native runtime QA completed.
+Container checks: fourteen adapter/runtime/presentation tests (including an actual loopback HTTP source correction, persistent-cache restart, malformed/partial/wrong-scope responses, network/HTTP/cache failure, timeout and concurrency); existing five Crates tests; Metro/Hermes export for iOS, Android and web. Bundling is not an installed native build. No screenshots: Playwright Chromium download was blocked by network policy (`cdn.playwright.dev`, 403 Domain forbidden). No browser or native runtime QA completed.
 
 On an authorized Mac with Xcode 26.4+, iOS 16.4+ simulator and Node:
 
@@ -80,3 +80,16 @@ The fixture server binds only to loopback and derives each response from a memor
 4. Clear this prototype's simulator app data after the fixture exercise so fixture writing is not mistaken for approved content. Remove the environment override for normal bundled review.
 
 The HTTP test proves the running **model**, not native screen repaint, physical-device networking or simulator storage behavior. Those checks remain pending Mac access. The planned hosted source must provide complete authorized global snapshots and an explicit revision/withdrawal policy before production use; nothing here claims live publishing parity.
+
+## Explicit prototype limits before hosted delivery
+
+Reading position is a pixel offset, **not revision- or layout-aware**. It is saved on scroll completion and Back only: there is no background/termination save hook, and reliable continuity across app lifecycle events, content corrections, font changes or device layouts is not claimed.
+
+Only the trusted local fixture is approved for runtime delivery. Before any hosted source or production rollout, resolve these boundaries:
+
+- Article images currently accept arbitrary HTTPS origins; establish approved media origins and ownership rules.
+- Configured content endpoints are not currently constrained to HTTPS outside explicit loopback; add endpoint/transport validation before hosting.
+- There is no source-revision ordering or withdrawal protocol. A stale but structurally valid response can replace newer content; inventory changes are rejected rather than interpreted as withdrawals.
+- The response-size limit runs **after** the response body has been allocated. Add bounded transport/body handling before accepting hosted input.
+
+These are pre-hosting blockers, not claims of production parity. No hosted API or production publishing changes are part of this prototype.
