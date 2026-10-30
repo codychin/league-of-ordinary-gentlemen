@@ -14,7 +14,8 @@ import {
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { VideoView, useVideoPlayer } from "expo-video";
-import feed from "./src/generated/feed.json";
+import bundledFeed from "./src/generated/feed.json";
+import { createContentStore } from "./src/content-store.mjs";
 const origin = "https://www.ordinarybrief.com";
 const uri = (value) => (value?.startsWith("/") ? origin + value : value);
 const serif = Platform.select({
@@ -36,6 +37,7 @@ function Button({ children, onPress, selected = false }) {
 }
 function Picture({ source, alt }) {
   const [failed, setFailed] = useState(false);
+  useEffect(() => setFailed(false), [source]);
   return source && !failed ? (
     <Image
       accessibilityLabel={alt}
@@ -92,8 +94,8 @@ function Player({ video }) {
     </View>
   );
 }
-function Reader({ close }) {
-  const a = feed.reader,
+function Reader({ close, article }) {
+  const a = article,
     scroll = useRef(null),
     offset = useRef(0),
     ready = useRef(false),
@@ -207,6 +209,36 @@ function Reader({ close }) {
   );
 }
 export default function App() {
+  const storeRef = useRef(null);
+  if (!storeRef.current)
+    storeRef.current = createContentStore({
+      bundled: bundledFeed,
+      endpoint: process.env.EXPO_PUBLIC_BRIEF_CONTENT_URL,
+      storage: AsyncStorage,
+    });
+  const [feed, setFeed] = useState(() => storeRef.current.get());
+  useEffect(() => {
+    let mounted = true;
+    storeRef.current.restore().then((next) => {
+      if (mounted) setFeed(next);
+    });
+    return () => {
+      mounted = false;
+    };
+  }, []);
+  const refresh = async () => {
+    setNotice("Checking for corrections…");
+    const result = await storeRef.current.refresh();
+    setFeed(result.feed);
+    setNotice(
+      {
+        updated: "Content refreshed.",
+        retained: "Could not refresh. Your saved content is still available.",
+        unconfigured: "This prototype has no live content source configured.",
+        busy: "Content is already loading.",
+      }[result.status],
+    );
+  };
   const [tab, setTab] = useState("Front page"),
     [reader, setReader] = useState(false),
     [query, setQuery] = useState(""),
@@ -232,7 +264,7 @@ export default function App() {
     <SafeAreaProvider>
       <SafeAreaView style={s.shell}>
         {reader ? (
-          <Reader close={() => setReader(false)} />
+          <Reader article={feed.reader} close={() => setReader(false)} />
         ) : (
           <>
             <View style={s.masthead}>
@@ -244,7 +276,7 @@ export default function App() {
                 <Text style={s.eyebrow}>
                   {tab === "Front page" ? "THE FRONT PAGE" : tab.toUpperCase()}
                 </Text>
-                <Text style={s.note}>READER LAB</Text>
+                <Button onPress={refresh}>Refresh stories</Button>
               </View>
               {tab === "Watch" ? (
                 <>
