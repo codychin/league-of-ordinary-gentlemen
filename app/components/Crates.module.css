@@ -10,3 +10,6 @@
 @media(prefers-reduced-motion:reduce){.crates{scroll-behavior:auto}}
 
 @media(max-width:760px){.header :global(.siteNav){display:none!important}}
+
+/* Stories without a verified still keep an intentional newspaper text treatment. */
+.grid .textStory{border-top:3px solid var(--ink);background:rgba(165,42,34,.035);padding:20px 20px 25px}.grid .textStory .copy{padding-top:0}.grid .textStory h3{font-size:36px;line-height:1.1}.grid .textStory p{font-size:18px}

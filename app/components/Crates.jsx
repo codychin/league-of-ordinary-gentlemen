@@ -7,7 +7,7 @@ import styles from './Crates.module.css';
 
 function Arrow({down=false}) {return <svg className={styles.arrow} viewBox="0 0 20 20" aria-hidden="true" focusable="false" style={down?{transform:'rotate(90deg)'}:undefined}><path d="M3 10h13M11 4l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="1.5"/></svg>}
 function Story({story,lead=false}) {
-  return <Link className={`${styles.story} ${lead?styles.lead:''}`} href={story.href}>
+  return <Link className={`${styles.story} ${lead?styles.lead:''} ${!story.image?styles.textStory:''}`} href={story.href}>
     {story.image&&<ResilientImage className={styles.image} src={story.image} alt={story.imageAlt} sizes={lead?'(max-width:700px) 100vw, 640px':'(max-width:700px) 100vw, 380px'} loading={lead?'eager':'lazy'} style={story.imageObjectPosition?{objectPosition:story.imageObjectPosition}:undefined}/>}
     <div className={styles.copy}><span className={styles.topic}>{story.topic||story.section||'From the newsroom'}</span><h3>{story.title}</h3><p>{story.dek}</p><div className={styles.meta}>{story.by}{story.date&&<> <span>· <time dateTime={story.isoDate||undefined}>{story.date}</time></span></>}{story.week&&<span> · Week {story.week}</span>}</div><span className={styles.read}>Read the story <Arrow/></span></div>
   </Link>;
