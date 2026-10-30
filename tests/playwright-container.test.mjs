@@ -17,8 +17,8 @@ test('mutable image references are rejected', () => {
   assert.throws(() => assertCompatibility(workflow.replace(/@sha256:[a-f0-9]{64}/, ''), lock), /digest-pinned/);
 });
 
-const imageWorkflow = readFileSync(new URL('../.github/workflows/article-image-release-gate.yml', import.meta.url), 'utf8');
-test('both browser jobs use the same matching image and require the guard without installing browsers', () => {
+const imageWorkflow = workflow;
+test('consolidated browser job uses the matching image and require the guard without installing browsers', () => {
   assertWorkflowCompatibility([workflow, imageWorkflow], lock);
   for (const source of [workflow, imageWorkflow]) {
     assert.match(source, /run: node scripts\/operations\/assert-playwright-container\.mjs/);

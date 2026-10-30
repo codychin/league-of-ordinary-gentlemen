@@ -30,7 +30,7 @@ export async function assertBrowsers(browserTypes, executableExists = existsSync
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
-  const workflows = ['release-integrity', 'article-image-release-gate'].map(name =>
+  const workflows = ['release-integrity'].map(name =>
     readFileSync(new URL(`../../.github/workflows/${name}.yml`, import.meta.url), 'utf8'));
   const lock = JSON.parse(readFileSync(new URL('../../package-lock.json', import.meta.url), 'utf8'));
   const image = assertWorkflowCompatibility(workflows, lock, require('playwright/package.json').version);
