@@ -1,9 +1,12 @@
 /* Copy remains in normal flow; bottom padding follows its final rendered line. */
+/* The category uses multiply ink against the actual photo/paper composite, preserving
+   the red token and contrast without a separate backing panel. The copy must not
+   create a stacking context that prevents this blend; the hero isolates it. */
 /* Immersive photography fades into the same paper as the light-only website. */
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] {
   --paper:#f5f1e8;--ink:#26241f;--muted:#746d62;--red:#a43d31;
   width:calc(100% + 44px);margin:12px -22px 0;padding:0 0 40px;
-  background:var(--paper);color:var(--ink);
+  background:var(--paper);color:var(--ink);isolation:isolate;
 }
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFrontGrid { display:block;border:0;margin:0; }
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeature.sabinePackage { display:block;border:0;overflow:visible; }
@@ -16,14 +19,14 @@ html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout
 }
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeatureImage::after {
   content:'';position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(to bottom,transparent 0%,rgba(245,241,232,.04) 25%,rgba(245,241,232,.16) 38%,rgba(245,241,232,.34) 45%,rgba(245,241,232,.55) 53%,rgba(245,241,232,.76) 60%,rgba(245,241,232,.9) 65%,rgba(245,241,232,.9) 85%,rgba(245,241,232,.91) 92%,rgba(245,241,232,.94) 97%,#f5f1e8 100%);
+  background:linear-gradient(to bottom,transparent 0%,transparent 35%,rgba(245,241,232,.12) 45%,rgba(245,241,232,.4) 55%,rgba(245,241,232,.74) 65%,rgba(245,241,232,.78) 85%,rgba(245,241,232,.9) 95%,#f5f1e8 100%);
 }
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeature.sabinePackage > .sundayFeatureCopy {
-  position:relative;z-index:1;width:auto;max-width:800px;margin:calc(-1 * clamp(112px,14vw,160px)) 48px 0;
+  position:relative;z-index:auto;width:auto;max-width:800px;margin:calc(-1 * clamp(112px,14vw,160px)) 48px 0;
   padding:0!important;min-height:0!important;background:transparent;
 }
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sabinePackageIntro { padding:0!important; }
-html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sabinePackageIntro > small { display:table;color:#a43d31;opacity:1;margin:0;padding:2px 6px;background:transparent; }
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sabinePackageIntro > small { display:table;color:#a43d31;mix-blend-mode:multiply;opacity:1;margin:0;padding:2px 6px;background:transparent; }
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sabinePackageTitle { display:block;margin:16px 0 20px; }
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sabinePackageTitle h2 { color:#26241f;margin:0;padding:0;font-size:clamp(36px,3.8vw,52px);line-height:1.1; }
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .previewAuthor { margin:0 0 20px; }
