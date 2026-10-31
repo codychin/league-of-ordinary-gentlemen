@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // No provider writes, generation, registry writes, publication, or promotion.
 import fs from 'node:fs';
+import {playbackAttestation,assertWeek8ApprovedBinding,week8WaiverId} from './week8-playback-waiver.mjs';
 import path from 'node:path';
 import {createHash, randomUUID} from 'node:crypto';
 import {spawnSync} from 'node:child_process';
@@ -43,10 +44,17 @@ export function binding(row, identity) {
   need(m.scriptApproved===true && m.approvalStatus==='exact_script_approved', 'Exact script approval missing');
   need(m.videoGeneration?.status==='completed' && /^[a-f0-9]{32}$/.test(m.videoGeneration.videoId), 'Exact completed generation required; never rerender');
   need(!m.videoGenerationId || m.videoGenerationId===m.videoGeneration.videoId, 'Generation IDs disagree');
+  if(m.season===2026 && m.week===8 && m.kind==='preview') {
+    need(m.videoGeneration.scriptSha256===m.scriptSha256 && m.videoGeneration.sourcePackageSha256===m.sourcePackageSha256 &&
+      m.audioGeneration?.scriptSha256===m.scriptSha256 && m.audioGeneration?.sourcePackageSha256===m.sourcePackageSha256 &&
+      m.audioGeneration?.voiceId,'Week 8 audio/video must bind to exact script/source and registered voice');
+    if(m.voiceId)need(m.voiceId===m.audioGeneration.voiceId,'Week 8 voice IDs disagree');
+    if(m.videoGeneration.voiceId)need(m.videoGeneration.voiceId===m.audioGeneration.voiceId,'Week 8 video voice IDs disagree');
+  }
   need(identity && Number.isSafeInteger(identity.bytes) && identity.bytes>0 && hex.test(identity.sha256) && /^[a-f0-9]{40}$/.test(identity.gitBlobSha), 'Original identity required');
   return {registryId:row.id, edition:m.edition,season:m.season,week:m.week,kind:m.kind,pair,
-    matchupKey:m.matchupKey,writer:row.writer_slug||m.writer||null,voiceId:m.voiceId||m.videoGeneration.voiceId||null,
-    avatarId:m.videoGeneration.avatarId||null,sourceAudioSha256:m.videoGeneration.sourceAudioSha256||null,sourceRevision:m.sourcePackageSha256,scriptRevision:m.scriptRevision,
+    matchupKey:m.matchupKey,writer:row.writer_slug||m.writer||null,voiceId:m.voiceId||m.videoGeneration.voiceId||m.audioGeneration?.voiceId||null,
+    avatarId:m.videoGeneration.avatarId||m.videoGeneration.payload?.avatarId||null,sourceAudioSha256:m.videoGeneration.sourceAudioSha256||null,sourceRevision:m.sourcePackageSha256,scriptRevision:m.scriptRevision,
     scriptSha256:m.scriptSha256,videoId:m.videoGeneration.videoId,identity};
 }
 export function batchPreflight(evidence, now=Date.now()) {
@@ -190,7 +198,7 @@ export function prepare({request,current,root,receipts,afterStage=()=>{},runTech
   } catch(e) {event(stage==='authorization' || /approval|superseded|stale|Unsupported/.test(e.message)?'blocked':'failed',e.message);throw e;}
 }
 
-export function leagueGate({expected,prepared,reviews,approval,currentBindings},now=Date.now()) {
+export function leagueGate({expected,prepared,reviews=[],approval,currentBindings,ownerPlaybackWaiver},now=Date.now()) {
   need(expected.length===6 && prepared.length===6,'Complete six-per-league required');
   need(new Set(expected.map(x=>x.matchupKey)).size===6,'Six distinct matchups required');
   const scope=x=>`${x.edition}/${x.season}/${x.week}/${x.kind}`;
@@ -203,7 +211,7 @@ export function leagueGate({expected,prepared,reviews,approval,currentBindings},
     const s=prepared.find(x=>x.preparationBinding===digest(b));
     need(s.id===b.videoId && s.matchupKey===b.matchupKey && scope(s)===scope(b) && s.sourceSha256===b.identity.sha256 && s.scriptSha256===b.scriptSha256,'Shelf binding mismatch');
     const r=reviews.find(x=>x.binding===digest(b));
-    need(r?.status==='passed' && r.fullAuditoryReviewPerformed===true && r.fullMotionReviewPerformed===true && r.performanceApproval===true && r.reviewer && r.evidence,'Full auditory/motion review required; Week 7 exception is not reusable');
+    playbackAttestation(b,r,ownerPlaybackWaiver);
   }
   need(approval?.status==='approved' && approval.evidence && Date.parse(approval.expiresAt)>now && digest([...approval.bindings].sort())===digest(keys),'Exact unexpired publication approval required');
   return {status:'eligible-for-existing-staging-gates',bindings:keys,productionVerified:false};
@@ -220,16 +228,24 @@ export function recordDeliveryReconciliation(directory,input,now=Date.now()) {
   if(decision==='already-present')recordReceipt(directory,input,now);
   return {status,decision};
 }
-export function verifyDeliveryProof({sha,receipt,alias,routes,expectedRoutes,expectedDomain,expectedProjectId},now=Date.now()) {
+export function verifyDeliveryProof({sha,receipt,alias,routes,expectedRoutes,expectedDomain,expectedProjectId,ownerPlaybackWaiver,expected},now=Date.now()) {
   need(/^[a-f0-9]{40}$/.test(sha) && receipt?.sha===sha && receipt.state==='verified','Existing verified release receipt for exact SHA required');
   need(expectedDomain && expectedProjectId && receipt.projectId===expectedProjectId && alias?.projectId===expectedProjectId && alias?.domain===expectedDomain,'Exact requested domain/project required');
   need(alias?.sha===sha && alias.readyState==='READY' && alias.deploymentId===receipt.candidateId && fresh(alias.observedAt,now),'Fresh exact live domain identity required');
   need(expectedRoutes?.length===6 && new Set(expectedRoutes).size===6,'All six matchup routes required');
+  if(ownerPlaybackWaiver!=null) {
+    need(ownerPlaybackWaiver===week8WaiverId && expected?.length===6 && new Set(expected.map(b=>b.matchupKey)).size===6 && new Set(expected.map(b=>b.edition)).size===1 && new Set(expected.flatMap(b=>b.pair)).size===12,'Exact complete Week 8 waiver cohort required');
+    expected.forEach(assertWeek8ApprovedBinding);
+    need(new Set(routes.map(r=>r.binding)).size===6,'Distinct exact live media bindings required');
+  }
   for(const route of expectedRoutes) {
     const r=routes.find(x=>x.path===route);
-    need(r?.sha===sha && r.status===200 && r.mediaBytesMatched===true && r.playbackReviewed===true && r.evidence && fresh(r.observedAt,now),'Exact live route/media proof incomplete');
+    const waived=ownerPlaybackWaiver===week8WaiverId && r?.playbackReviewed===false &&
+      r.ownerPlaybackWaiver===ownerPlaybackWaiver && r.originalAndHlsDecode===true && r.playbackMechanicsVerified===true &&
+      expected.some(b=>digest(b)===r.binding);
+    need(r?.sha===sha && r.status===200 && r.mediaBytesMatched===true && (r.playbackReviewed===true || waived) && r.evidence && fresh(r.observedAt,now),'Exact live route/media proof incomplete');
   }
-  return {status:'production_verified',sha};
+  return {status:'production_verified',sha,...(ownerPlaybackWaiver?{ownerPlaybackWaiver,actualPlaybackReviewed:routes.every(r=>r.playbackReviewed===true)}:{})};
 }
 export {digest as preparationBinding, identities as packageIdentities};
 if(process.argv[1] && import.meta.url===pathToFileURL(path.resolve(process.argv[1])).href) {

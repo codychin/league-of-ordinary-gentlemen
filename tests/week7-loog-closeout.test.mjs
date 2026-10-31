@@ -9,7 +9,8 @@ const prior=read('week6-loog-snapshot.json');
 const source=read('week7-loog-source/01-final-standings-history.json');
 const manifest=read('week7-loog-source/manifest.json');
 const rosters=manifest.files.slice(1).flatMap(f=>read('week7-loog-source/'+f.file).rosters);
-const latest=read('latest-loog-scores.json'),completed=read('completed-loog-scores.json');
+// Week 7 historical assertions use the preserved completed snapshot.
+const latest=read('completed-loog-scores.json'),completed=read('completed-loog-scores.json');
 const round=n=>Math.round(n*100)/100;
 const byId=id=>Object.values(current.teams).find(t=>t.teamId===id);
 
