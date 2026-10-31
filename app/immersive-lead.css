@@ -1,6 +1,6 @@
-/* One intentional dark editorial panel within the light-only website. */
+/* Immersive photography fades into the same paper as the light-only website. */
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] {
-  --paper:#0d0c0b;--ink:#f4efe4;--muted:#b5ada0;--red:#d65b4c;
+  --paper:#f5f1e8;--ink:#26241f;--muted:#746d62;--red:#a43d31;
   width:calc(100% + 44px);margin:12px -22px 0;padding:0 0 32px;
   background:var(--paper);color:var(--ink);
 }
@@ -15,21 +15,21 @@ html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout
 }
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeatureImage::after {
   content:'';position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(to bottom,transparent 0%,rgba(13,12,11,.05) 35%,rgba(13,12,11,.55) 52%,rgba(13,12,11,.96) 65%,rgba(13,12,11,.98) 80%,#0d0c0b 100%);
+  background:linear-gradient(to bottom,transparent 0%,rgba(245,241,232,.05) 35%,rgba(245,241,232,.55) 52%,rgba(245,241,232,.96) 65%,rgba(245,241,232,.98) 80%,#f5f1e8 100%);
 }
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeature.sabinePackage > .sundayFeatureCopy {
   position:relative;z-index:1;width:auto;max-width:800px;margin:calc(-1 * clamp(112px,14vw,160px)) 48px 0;
   padding:0!important;min-height:0!important;background:transparent;
 }
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sabinePackageIntro { padding:0!important; }
-html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sabinePackageIntro > small { display:block;color:#d65b4c;opacity:1;margin:0; }
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sabinePackageIntro > small { display:block;color:#a43d31;opacity:1;margin:0; }
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sabinePackageTitle { display:block;margin:16px 0 20px; }
-html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sabinePackageTitle h2 { color:#f4efe4;margin:0;padding:0;font-size:clamp(36px,3.8vw,52px);line-height:1.1; }
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sabinePackageTitle h2 { color:#26241f;margin:0;padding:0;font-size:clamp(36px,3.8vw,52px);line-height:1.1; }
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .previewAuthor { margin:0 0 20px; }
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .previewAuthor strong,
-html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .previewAuthor time { color:#b5ada0; }
-html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sabinePackageIntro > p { margin:0;max-width:65ch;color:#f4efe4;font-style:normal; }
-html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] a:focus-visible { outline:2px solid #f4efe4;outline-offset:-3px; }
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .previewAuthor time { color:#746d62; }
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sabinePackageIntro > p { margin:0;max-width:65ch;color:#26241f;font-style:normal; }
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] a:focus-visible { outline:2px solid #26241f;outline-offset:-3px; }
 @media(max-width:760px) {
   html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] {
     width:calc(100% + 40px);margin:0 -20px 0;padding-bottom:32px;
@@ -46,3 +46,6 @@ html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout
   html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeature.sabinePackage > .sundayFeatureImage { aspect-ratio:1.8/1; }
   html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeature.sabinePackage > .sundayFeatureCopy { margin:-112px 32px 0; }
 }
+
+/* The original dark photo retains a contrasting keyboard-focus ring. */
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeatureImage:focus-visible { outline-color:#f5f1e8; }
