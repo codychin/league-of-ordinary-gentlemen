@@ -4,10 +4,11 @@ This is engineering preparation for the authorized 2026 Week 8 batch, not a
 publication receipt. Parent owns generation and the shared credit budget.
 
 `qa/week8-owner-playback-waiver.json` binds the delegated owner direction
-`Sentinel_eff74c86cd40819183d134d8f60f0b5e` to the exact 18 v2 spoken scripts,
-registry IDs, writer assignments and source hashes. The three held scripts
-remain blocked until their corrected wording and exact new hashes receive
-owner approval. Editing this file is not a substitute for that evidence.
+`Sentinel_eff74c86cd40819183d134d8f60f0b5e` to the exact 18 spoken scripts,
+registry IDs, writer assignments and source hashes. Three revision 3 corrections
+were explicitly approved on October 31 at 16:35 UTC; their superseded bindings
+remain recorded and cannot authorize release. Editing this file is not a substitute
+for owner evidence.
 
 Use current registry records, exact original bytes and normal `prepare-media`
 checkpoints. Week 8 preparation binds both audio and video receipts to the

@@ -70,3 +70,11 @@ test('all homepage shelves put gated previews above unchanged recap shelves with
   assert.match(consumer,/selectWeek8PreviewCohort/);
   assert.match(consumer,/catch \{return \[\];\}/);
 });
+
+test('assembled production manifest has exactly six verified previews per edition',()=>{
+  const manifest=JSON.parse(fs.readFileSync('data/week8-approved-homepage-media.json','utf8'));
+  assert.equal(manifest.length,18);
+  for(const edition of ['loog','doge','sunday-crew'])assert.equal(selectWeek8PreviewCohort(manifest,edition,realAuthority).length,6);
+  assert.equal(new Set(manifest.map(r=>r.id)).size,18);
+  assert.ok(manifest.every(r=>r.fullPlaybackInspection===false&&r.independentAuditoryListening===false));
+});
