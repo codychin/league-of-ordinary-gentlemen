@@ -65,20 +65,22 @@ test('native failure offers manual copy when clipboard access fails',async({page
 
 test('editorial refinements retain focal crop, open layout and inline sharing',async({page})=>{
   await page.goto('/');
-  const read=page.locator('.sundayFeatureCopy > .read').first();
-  await expect(read).toHaveCSS('color','rgb(164, 61, 49)');
-  await expect(read).toHaveCSS('border-bottom-width','0px');
-  expect(await read.evaluate(e=>getComputedStyle(e,'::after').content)).toBe('none');
   await expect(page.locator('.leadStoryFlag')).toHaveCount(0);
   const carousel=page.locator('[aria-label="Recent stories"]');
-  const footers=await carousel.locator(':scope > article .read').evaluateAll(es=>es.map(e=>e.getBoundingClientRect().bottom));
-  expect(footers).toHaveLength(3);
-  expect(Math.max(...footers)-Math.min(...footers)).toBeLessThanOrEqual(1);
+  await expect(carousel.locator(':scope > article')).toHaveCount(3);
+  await expect(carousel.locator('.read')).toHaveCount(0);
+  await expect(page.getByText(/^READ (?:MAUDE|CONRAD|MARNIE|HOLLIS|SABINE|DASHIELL)(?: →)?$/)).toHaveCount(0);
+  const story=carousel.locator(':scope > article > a').first();
+  await expect(story).toHaveAttribute('href','/articles/maude-saturation-bombing-daniel-jones');
+  await expect(story.locator('h3')).toHaveText('On the Saturation Bombing of Daniel Jones (née Dimes)');
+  await expect(story.locator('.previewAuthor img')).toBeVisible();
+  await page.keyboard.press('Tab');await story.focus();
+  await expect(story).toHaveCSS('outline-width','2px');
+  await expect(story).toHaveCSS('display','block');
+  const storyHeights=await carousel.locator(':scope > article > a').evaluateAll(es=>es.map(e=>e.getBoundingClientRect().height));
+  expect(Math.max(...storyHeights)-Math.min(...storyHeights)).toBeGreaterThan(5);
   await expect(carousel).toHaveCSS('border-bottom-width','0px');
   await expect(carousel.locator(':scope > article').first()).toHaveCSS('border-bottom-width','0px');
-  await expect(read).toHaveCSS('font-size','14px');
-  await expect(read).toHaveCSS('font-weight','400');
-  expect((await read.boundingBox()).height).toBeGreaterThanOrEqual(44);
   if(page.viewportSize().width<=900){
     await expect(carousel).toHaveCSS('gap','16px');
     const card=carousel.locator(':scope > article').first();

@@ -1,5 +1,6 @@
 'use client'
 import ImageWarmup from './ImageWarmup'
+import useCompactMobileNav from './useCompactMobileNav'
 
 import Link from 'next/link'
 import {scrollToSection} from '../../lib/scroll-to-section.mjs'
@@ -182,6 +183,7 @@ function MobileAppNav(){
   const isEditionTeams=pathname.startsWith(teamsPath)
   const [activeTab,setActiveTab]=useState(isEditionTeams?'teams':pathname.includes('/matchups/')?'scores':['/staff','/archive','/corrections'].some(path=>pathname.startsWith(path))?'more':isEditionHome?'home':'detail')
   const [moreOpen,setMoreOpen]=useState(false)
+  const [compactNav,expandNav]=useCompactMobileNav(pathname,moreOpen)
   const [sundayLive,setSundayLive]=useState(false)
   const pendingScroll=useRef(null)
   const tabFor=hash=>{
@@ -224,6 +226,7 @@ function MobileAppNav(){
     const priorRestoration=window.history.scrollRestoration
     window.history.scrollRestoration='manual'
     const scrollToLocation=()=>{
+      expandNav()
       pendingScroll.current?.()
       const queryTab=new URLSearchParams(window.location.search).get('tab')
       const hash=window.location.hash||(isEditionHome&&['scores','culture'].includes(queryTab)?'#'+queryTab:'')
@@ -239,6 +242,7 @@ function MobileAppNav(){
       if(!link||link.target==='_blank')return
       const url=new URL(link.href,window.location.origin)
       if(url.origin!==window.location.origin||url.pathname!==homePath)return
+      expandNav()
       event.preventDefault()
       if(!isEditionHome){router.push(url.pathname+url.search+url.hash,{scroll:false});return}
       pendingScroll.current?.()
@@ -257,7 +261,7 @@ function MobileAppNav(){
       window.removeEventListener('popstate',scrollToLocation)
       window.history.scrollRestoration=priorRestoration
     }
-  },[pathname])
+  },[pathname,expandNav])
 
   const items=[
     {href:editionRoot?homePath:(sundayLive?'/#live-desk':'/'),label:editionRoot?'Home':(sundayLive?'Live':'Home'),icon:'Home',tab:'home',hash:editionRoot?undefined:(sundayLive?'#live-desk':undefined),active:activeTab==='home'||activeTab==='detail'},
@@ -267,6 +271,7 @@ function MobileAppNav(){
   ]
   const navigate=(event,item)=>{
     if(event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return
+    expandNav()
     event.preventDefault()
     setMoreOpen(false)
     pendingScroll.current?.()
@@ -297,7 +302,7 @@ function MobileAppNav(){
         <Link href="/corrections"><MoreMenuIcon name="Corrections"/><span>Corrections</span></Link></>}
       </div>
     </aside>}
-    <nav className="appTabBar" data-active-tab={moreOpen?'more':activeTab==='detail'?'home':activeTab} aria-label="App navigation">
+    <nav className="appTabBar" data-compact={compactNav} data-active-tab={moreOpen?'more':activeTab==='detail'?'home':activeTab} aria-label="App navigation">
       <span className="appTabGlider" aria-hidden="true"/>
       {items.map(item=><Link
       key={item.label}

@@ -177,3 +177,8 @@ main > section[aria-label$=" videos"]:has(+ [data-editorial-layout="open-top"]) 
   }
 }
 main:has(> [data-editorial-layout="open-top"]) { background-color: #f5f1e8; }
+
+/* Article image/headline links retain a clear keyboard affordance without CTA footers. */
+main > [data-editorial-system="a"] a[href*='/articles/']:focus-visible {
+  outline: 2px solid var(--red); outline-offset: -2px;
+}
