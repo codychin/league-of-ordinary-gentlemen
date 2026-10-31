@@ -87,3 +87,6 @@
 
 /* No decorative rule above the mobile weekly preview shelf. */
 @media(max-width:760px){.wrap{border-top:0;}}
+/* At the desktop breakpoint, retain all six cards inside a scrollable rail
+   instead of allowing their minimum widths to widen the whole page. */
+@media(min-width:761px) and (max-width:820px){.rail{overflow-x:auto;}}

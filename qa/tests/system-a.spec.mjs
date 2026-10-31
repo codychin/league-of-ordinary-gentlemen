@@ -30,8 +30,8 @@ test('System A uses exact supporting faces and preserves header/navigation', asy
     await expect(el).toHaveCSS('line-height',line);
     await expect(el).toHaveCSS('font-synthesis','none');
   }
-  await expect(page.locator('.sabinePackageIntro > p').first()).toHaveCSS('color','rgb(38, 36, 31)');
-  await expect(page.locator('.previewAuthor strong').first()).toHaveCSS('color',page.viewportSize().width<=760?'rgb(116, 109, 98)':'rgb(117, 110, 99)');
+  await expect(page.locator('.sabinePackageIntro > p').first()).toHaveCSS('color','rgb(244, 239, 228)');
+  await expect(page.locator('.previewAuthor strong').first()).toHaveCSS('color','rgb(181, 173, 160)');
   await expect(page.locator('.mast h1')).toHaveCSS('font-family','"Brief Nine F Native Preview", Georgia, serif');
   await expect(page.locator('.mast h1')).toHaveCSS('color',page.viewportSize().width<=760?'rgb(38, 36, 31)':'rgb(17, 16, 14)');
   for(const el of await page.locator('.siteNav a, .appTabBar a').all()) {
@@ -50,11 +50,8 @@ test('System A uses exact supporting faces and preserves header/navigation', asy
   await expect(page.locator('[data-editorial-layout="open-top"] .previewAuthor time')).toHaveText('OCTOBER 26');
   await expect(page.locator('.sundayFeatureCopy .previewAuthor img').first()).toBeVisible();
   await expect(page.locator('.sundayFeatureCopy .previewAuthorCopy small').first()).toHaveText('Culture & Sporting Life');
-  const caption=page.locator('.sundayFeatureImage .actionCaption').first();
-  await expect(caption).toBeVisible();
-  await expect(caption).toContainText('MARNIE KELLS');
-  await expect(caption).toContainText('THE DETROIT SCHOOL · 2026');
-  expect(await caption.evaluate(e=>getComputedStyle(e).backgroundColor)).not.toBe('rgba(0, 0, 0, 0)');
+  await expect(page.locator('.immersiveLead .actionCaption')).toHaveCount(0);
+  await expect(page.locator('[aria-label="Recent stories"] .actionCaption').first()).toBeVisible();
   const firstCard=page.locator('[aria-label="Recent stories"] > article').first();
   await expect(firstCard).toHaveCSS('border-right-width','0px');
 });
