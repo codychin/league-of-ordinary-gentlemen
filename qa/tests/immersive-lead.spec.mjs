@@ -7,7 +7,7 @@ test('immersive lead preserves content, photo overlap, accessible backing and ca
  await expect(lead.locator('.actionCaption')).toHaveCount(0);await expect(author.locator('time')).toHaveText('OCTOBER 26');await expect(author.locator('img')).toBeVisible();
  const [p,c,t,a,d,l,next]=await Promise.all([photo.boundingBox(),category.boundingBox(),title.boundingBox(),author.boundingBox(),deck.boundingBox(),lead.boundingBox(),page.locator('[aria-label="Recent stories"]').boundingBox()]);
  expect((c.y-p.y)/p.height).toBeGreaterThanOrEqual(.65);expect(c.y).toBeLessThan(p.y+p.height);expect(t.y).toBeLessThan(p.y+p.height);expect(a.y-t.y-t.height).toBeCloseTo(20,0);expect(d.y-a.y-a.height).toBeCloseTo(20,0);expect(next.y-l.y-l.height).toBeCloseTo(0,0);expect(next.y-d.y-d.height).toBeCloseTo(40,0);
- await expect(category).toHaveCSS('color','rgb(164, 61, 49)');await expect(category).toHaveCSS('opacity','1');await expect(title).toHaveCSS('color','rgb(38, 36, 31)');
+ await expect(category).toHaveCSS('color','rgb(164, 61, 49)');await expect(category).toHaveCSS('opacity','1');await expect(category).toHaveCSS('background-color','rgba(0, 0, 0, 0)');expect(await category.evaluate(e=>getComputedStyle(e,'::before').maskImage)).toContain('linear-gradient');await expect(title).toHaveCSS('color','rgb(38, 36, 31)');
  const gradient=await photo.evaluate(e=>getComputedStyle(e,'::after').backgroundImage);expect(gradient).toContain('rgba(245, 241, 232, 0.68) 65%');
  await expect.poll(()=>page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),{timeout:5000}).toBe(true);
  if(page.viewportSize().width<=760){expect(p.x).toBeCloseTo(0,0);expect(p.width).toBe(page.viewportSize().width);await expect(page.locator('html')).toHaveCSS('color-scheme','light only');}else expect(p.width/p.height).toBeGreaterThan(1.7);
@@ -22,7 +22,8 @@ test('immersive lead reflows at narrow, tablet and wide desktop boundaries',asyn
   await page.setViewportSize({width,height:1000});await page.goto('/');await page.evaluate(()=>document.fonts.ready);
   const lead=page.locator('.immersiveLead');const photo=await lead.locator('.sundayFeatureImage').boundingBox(),category=await lead.locator('.sabinePackageIntro > small').boundingBox(),title=await lead.locator('h2').boundingBox();
   expect((category.y-photo.y)/photo.height).toBeGreaterThanOrEqual(.65);expect(title.y).toBeLessThan(photo.y+photo.height);await expect.poll(()=>page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),{timeout:5000}).toBe(true);
-  expect(await lead.locator('.sundayFeatureCopy').evaluate(e=>e.scrollWidth<=e.clientWidth)).toBe(true);
+  // The local feather intentionally paints outside the copy inset; text must still fit.
+  for(const selector of ['h2','.sabinePackageIntro > p']) expect(await lead.locator(selector).evaluate(e=>e.scrollWidth<=e.clientWidth)).toBe(true);
   await lead.screenshot({path:`/workspace/font-qa/immersive-boundary-${width}.png`,animations:'disabled'});
  }
 });
