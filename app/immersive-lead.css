@@ -23,13 +23,7 @@ html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout
   padding:0!important;min-height:0!important;background:transparent;
 }
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sabinePackageIntro { padding:0!important; }
-html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sabinePackageIntro > small { display:table;color:#a43d31;opacity:1;margin:0;padding:2px 6px;background:transparent;position:relative;isolation:isolate; }
-/* Feather only the category's local contrast support; no bounded label panel. */
-html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sabinePackageIntro > small::before {
-  content:'';position:absolute;inset:-20px -16px;z-index:-1;pointer-events:none;
-  background:linear-gradient(to bottom,transparent,rgba(245,241,232,.9) 20px,rgba(245,241,232,.9) calc(100% - 20px),transparent);
-  mask-image:linear-gradient(to right,transparent,#000 16px,#000 calc(100% - 16px),transparent);
-}
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sabinePackageIntro > small { display:table;color:#64241c;opacity:1;margin:0;padding:2px 6px;background:transparent; }
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sabinePackageTitle { display:block;margin:16px 0 20px; }
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sabinePackageTitle h2 { color:#26241f;margin:0;padding:0;font-size:clamp(36px,3.8vw,52px);line-height:1.1; }
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .previewAuthor { margin:0 0 20px; }

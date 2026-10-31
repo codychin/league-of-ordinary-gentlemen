@@ -23,7 +23,7 @@ test('selected 06 renders roman listing decks, reader italics and bold authors w
  await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));
  await page.screenshot({path:`/workspace/font-qa/selected-06-reader-${page.viewportSize().width}.png`});
  await page.goto('/');await page.evaluate(()=>document.fonts.ready);
- const category=page.locator('.sabinePackageIntro > small').first();await expect(category).toHaveCSS('color','rgb(164, 61, 49)');
+ const category=page.locator('.sabinePackageIntro > small').first();await expect(category).toHaveCSS('color','rgb(100, 36, 28)');
  await expect(category).toHaveCSS('opacity','1');
  for(const deck of await page.locator('[data-editorial-system="a"] :is(.standfirst,.editorialDeck,.sabinePackageIntro > p,.cultureGrid .card > p)').all()){await expect(deck).toHaveCSS('font-style','normal');await expect(deck).toHaveCSS('font-family','"Brief Body Reference 5", serif');}
  for(const el of await page.locator('.mobileStoryRows .standfirst,.mobileStoryRows .sabinePackageIntro > p').all())if(page.viewportSize().width<=760){await expect(el).toHaveCSS('font-style','normal');await expect(el).toHaveCSS('font-size','14px');await expect(el).toHaveCSS('line-height','20px');}
