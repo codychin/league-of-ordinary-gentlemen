@@ -1,0 +1,129 @@
+/* System A editorial roles. Header, navigation and controls are outside this scope. */
+@font-face {
+  font-family: 'Brief Editorial Sans';
+  src: url('/fonts/liberation-sans/LiberationSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Brief Editorial Sans';
+  src: url('/fonts/liberation-sans/LiberationSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+[data-editorial-system="a"] {
+  --ink: #26241f;
+  --paper: #f5f1e8;
+  --red: #a43d31;
+  --muted: #756e63;
+  color: var(--ink);
+  background-color: var(--paper);
+}
+[data-editorial-system="a"] :is(.editorialSectionLabel, .morningBriefFlag > span, .affairsHead h2, .articleSectionHead) {
+  display: block;
+  font: 700 20px/24px 'Brief Editorial Sans', sans-serif;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+[data-editorial-system="a"] :is(.editorialSectionLabel, .morningBriefFlag > span, .affairsHead h2, .articleSectionHead)::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  margin-top: 5px;
+  background: var(--red);
+}
+[data-editorial-system="a"] :is(.eyebrow, .tag, .editorialCategory, .sabinePackageIntro > small, .affairsHead > span) {
+  font: 400 14px/20px 'Brief Editorial Sans', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  color: var(--red);
+}
+[data-editorial-system="a"] :is(.previewAuthor strong, .bylineWriter strong, .editorialByline) {
+  font: 700 14px/20px 'Brief Editorial Sans', sans-serif;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+[data-editorial-system="a"] :is(.read, .editorialStoryLink) {
+  font: 700 16px/24px 'Brief Editorial Sans', sans-serif;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: var(--ink);
+  position: relative;
+  padding-bottom: 8px;
+}
+[data-editorial-system="a"] :is(.read, .editorialStoryLink)::after {
+  content: '';
+  position: absolute;
+  width: 112px;
+  height: 1px;
+  left: 0;
+  bottom: 0;
+  background: var(--ink);
+}
+[data-editorial-system="a"] :is(.standfirst, .articleDek, .editorialDeck, .hero-copy > p, .sundayFeatureCopy p, .cultureGrid .card > p),
+[data-editorial-system="a"] a[href*='/articles/'] > p {
+  font: 400 17px/24px 'Brief Editorial Sans', sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--muted);
+}
+[data-editorial-system="a"] .articleBody p { font: 400 17px/24px 'Brief Editorial Sans', sans-serif; color: var(--ink); }
+[data-editorial-system="a"] .previewAuthor { letter-spacing: 0; max-width: 100%; }
+@media(max-width:760px) {
+  [data-editorial-system="a"] :is(.articleTitle, .editionArticleTitle),
+  main [data-editorial-system="a"] a[href*='/articles/'] h2,
+  main[data-editorial-system="a"] a[href*='/articles/'] .editorialLeadTitle {
+    font-size: 31px;
+    line-height: 35px;
+    letter-spacing: 0;
+  }
+  main [data-editorial-system="a"] a[href*='/articles/'] h3,
+  main[data-editorial-system="a"] a[href*='/articles/'] .editorialCardTitle {
+    font-size: 23px;
+    line-height: 26px;
+    letter-spacing: 0;
+  }
+}
+
+[data-editorial-system="a"] .editionArticleTitle { font-size: clamp(38px,7vw,64px); line-height: 1.12; letter-spacing: -1.5px; }
+
+/* Explicit roles cover module-styled cards without styling Crates controls. */
+[data-editorial-system="a"] .editorialDeck,
+[data-editorial-system="a"] .editorialBody,
+[data-editorial-system="a"] .editorialBody p,
+[data-editorial-system="a"] .editorialIntro p {
+  font: 400 17px/24px 'Brief Editorial Sans', sans-serif;
+  color: var(--muted);
+}
+[data-editorial-system="a"] .editorialBody, [data-editorial-system="a"] .editorialBody p { color: var(--ink); }
+[data-editorial-system="a"] .editorialByline { font-synthesis: none; }
+[data-editorial-system="a"] .editorialCardTitle { font-size: 28px; line-height: 32px; letter-spacing: 0; }
+[data-editorial-system="a"] .editorialSectionLabel { margin-bottom: 12px; }
+[data-editorial-system="a"] .affairsHead h2 { border: 0; }
+[data-editorial-system="a"] .bylineWriter em { color: var(--muted); }
+[data-editorial-system="a"] .articleBody p:first-of-type:first-letter {
+  float: none; font-size: inherit; line-height: inherit; padding: 0; font-weight: inherit;
+}
+@media(max-width:760px) {
+  main:has(> [data-editorial-system="a"]), main[data-editorial-system="a"] { padding-left: 20px; padding-right: 20px; }
+  [data-editorial-system="a"] .editionArticleTitle { font-size: 31px; line-height: 35px; letter-spacing: 0; }
+  [data-editorial-system="a"] .editorialCardTitle { font-size: 23px; line-height: 26px; }
+  [data-editorial-system="a"] .morningBriefFlag { align-items: start; }
+  [data-editorial-system="a"] .morningBriefFlag small { white-space: normal; max-width: 130px; }
+}
+/* Functional UI keeps its existing palette even inside editorial containers. */
+[data-editorial-system="a"] :is(nav, button, input, select, .comments, .articleReactions, .articleShareRow) {
+  --ink: #11100e;
+  --paper: #f3efe5;
+  --red: #a52a22;
+  --muted: #6e6a61;
+}
+
+[data-editorial-system="a"] :is(.editorialSectionLabel, .articleSectionHead, .eyebrow, .tag, .editorialCategory, .editorialByline, .editorialDeck, .editorialBody, .read, .editorialStoryLink, .previewAuthor strong, .bylineWriter strong, .articleBody p, .standfirst, .articleDek, .sundayFeatureCopy p, .sabinePackageIntro > small) { font-synthesis: none; }
+
+[data-editorial-system="a"] :is(nav, .comments, .articleReactions, .articleShareRow) { color: #11100e; }
