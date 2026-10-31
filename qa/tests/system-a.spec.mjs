@@ -30,8 +30,8 @@ test('System A uses exact supporting faces and preserves header/navigation', asy
     await expect(el).toHaveCSS('line-height',line);
     await expect(el).toHaveCSS('font-synthesis','none');
   }
-  await expect(page.locator('.sabinePackageIntro > p').first()).toHaveCSS('color','rgb(38, 36, 31)');
-  await expect(page.locator('.previewAuthor strong').first()).toHaveCSS('color','rgb(117, 110, 99)');
+  await expect(page.locator('.sabinePackageIntro > p').first()).toHaveCSS('color',page.viewportSize().width<=760?'rgb(244, 239, 228)':'rgb(38, 36, 31)');
+  await expect(page.locator('.previewAuthor strong').first()).toHaveCSS('color',page.viewportSize().width<=760?'rgb(181, 173, 160)':'rgb(117, 110, 99)');
   await expect(page.locator('.mast h1')).toHaveCSS('font-family','"Brief Nine F Native Preview", Georgia, serif');
   await expect(page.locator('.mast h1')).toHaveCSS('color','rgb(17, 16, 14)');
   for(const el of await page.locator('.siteNav a, .appTabBar a').all()) {
@@ -64,7 +64,7 @@ test('System A article prose remains sentence case, 19/28, and uses real bold by
   await expect(body).toHaveCSS('font-size','19px');
   await expect(body).toHaveCSS('line-height','28px');
   await expect(body).toHaveCSS('font-weight','400');
-  await expect(body).toHaveCSS('color','rgb(38, 36, 31)');
+  await expect(body).toHaveCSS('color',page.viewportSize().width<=760?'rgb(244, 239, 228)':'rgb(38, 36, 31)');
   await expect(body).toHaveCSS('text-transform','none');
   await expect(page.locator('.bylineWriter strong')).toHaveCSS('font-weight','700');
   await expect(page.locator('.bylineWriter strong')).toHaveCSS('text-transform','uppercase');

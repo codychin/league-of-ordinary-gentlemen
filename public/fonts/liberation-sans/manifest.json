@@ -29,6 +29,19 @@
       "sha256": "1b5f2da6f4cadce4c05b9ecebe3a6fcd374eb95ae443605e799f4c3287978939",
       "source_path": "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
       "copyright": "Digitized data copyright (c) 2010 Google Corporation.\nCopyright (c) 2012 Red Hat, Inc."
+    },
+    {
+      "filename": "LiberationSans-Italic.ttf",
+      "family": "Liberation Sans",
+      "style": "Italic",
+      "postscript": "LiberationSans-Italic",
+      "version": "Version 2.1.5",
+      "weight": 400,
+      "fsType": 0,
+      "bytes": 415920,
+      "sha256": "93ff5260834141b6f9d8f2b846d427f3a5dc492dbdce8ebdad406e38a38f34bb",
+      "source_path": "/usr/share/fonts/truetype/liberation/LiberationSans-Italic.ttf",
+      "copyright": "Digitized data copyright (c) 2010 Google Corporation.\nCopyright (c) 2012 Red Hat, Inc."
     }
   ]
 }

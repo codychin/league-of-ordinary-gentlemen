@@ -22,8 +22,11 @@ test('share fallback preserves edition, copies on request and exposes destinatio
   await expect(options.getByLabel('Article link')).toHaveValue(expected);
   for(const name of ['Facebook','X','WhatsApp','Email'])expect(decodeURIComponent(await options.getByRole('link',{name,exact:true}).getAttribute('href'))).toContain(expected);
   expect(await page.evaluate(()=>window.copies)).toEqual([]);
+  const before=await options.boundingBox();
   await options.getByRole('button',{name:'Copy link'}).click();
   await expect(options.getByRole('status')).toHaveText('Link copied');
+  expect(await options.boundingBox()).toEqual(before);
+  await expect(options.getByRole('status')).toHaveCSS('clip-path','inset(50%)');
   expect(await page.evaluate(()=>window.copies)).toEqual([expected]);
   await page.keyboard.press('Escape');
   await expect(options).toHaveCount(0);
@@ -39,7 +42,7 @@ test('native share success and cancellation do not silently copy or open destina
   await page.goto(path);
   const button=page.getByRole('button',{name:'Share this article'});
   await button.click();
-  await expect(page.locator('.articleShareStatus')).toHaveText('Shared');
+  await expect(page.locator('.articleShareAnnouncement')).toHaveText('Shared');
   expect((await page.evaluate(()=>window.shares))[0].url).toBe(new URL(path,page.url()).href);
   await page.evaluate(()=>Object.defineProperty(navigator,'share',{configurable:true,value:async()=>{throw new DOMException('Canceled','AbortError')}}));
   await button.click();

@@ -44,9 +44,9 @@ export default function ShareArticle({slug,title}){
       <svg className="articleShareIcon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15V3m-4.5 4.5L12 3l4.5 4.5M5 11v8h14v-8"/></svg>
       <span>Share</span>
     </button>
-    {!open&&<small className="articleShareStatus" role="status" aria-live="polite">{status}</small>}
+    {!open&&<small className="articleShareAnnouncement" role="status" aria-live="polite">{status}</small>}
     {open&&<div ref={panel} id={id} className="articleShareOptions" role="group" aria-label="Share options">
-      <small className="articleShareFeedback" role="status" aria-live="polite">{status}</small>
+      <small className={status.startsWith("Copy unavailable")?"articleShareFeedback":"articleShareAnnouncement"} role="status" aria-live="polite">{status}</small>
       <button type="button" onClick={copy}>Copy link</button>
       <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`} target="_blank" rel="noopener noreferrer">Facebook</a>
       <a href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title||'')}`} target="_blank" rel="noopener noreferrer">X</a>

@@ -289,10 +289,8 @@ function MobileAppNav(){
     else scrollSection(item.hash.slice(1))
   }
 
-  const overflowLabel=pathname.startsWith('/staff')?'Staff':pathname.endsWith('/archive')?'The Crates':pathname.startsWith('/corrections')?'Corrections':'More'
-  const headerLabel=moreOpen?'More':pathname.includes('/matchups/')?'Matchup':activeTab==='scores'?'Scores':activeTab==='teams'?'Teams':activeTab==='culture'?'The Culture':activeTab==='more'?overflowLabel:activeTab==='detail'?'The Brief':''
   return <>
-    <div className="appSectionHeader" aria-hidden="true"><span>{headerLabel}</span></div>
+    <div className="appSectionHeader"><Link className="mobileBriefLogo" href={items[0].href} onClick={event=>navigate(event,items[0])} aria-label="The Brief home"><b>The</b><img src="/icons/ordinary-brief-v3.svg" alt=""/><b>Brief</b></Link></div>
     {moreOpen&&<aside className="appMoreSheet" aria-label="More and settings">
       <div className="appMoreHead"><small>THE BRIEF</small><b>More</b><button type="button" onClick={()=>setMoreOpen(false)} aria-label="Close more menu">×</button></div>
       <div className="appSettings"><small>SETTINGS</small><ArticleAlertSettings edition={edition}/></div>

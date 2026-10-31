@@ -32,10 +32,13 @@ export default function SharedEditorialFront({archiveHref='/archive',root=''}){
 </section>
 <section className="hero heroStack" data-editorial-system="a" aria-label="Conrad Sorrell on medical clearance"><Link className="hero-copy storylink" href={root+"/articles/conrad-jalen-hurts-too-sick-to-sleep"}><div className="photoHero" role="img" aria-label="Philadelphia Eagles quarterback Jalen Hurts" style={{backgroundImage:imageBackground('https://static.www.nfl.com/image/upload/t_editorial_landscape_12_desktop/league/yvnjwaq0gvfpmx7hmatz',640),backgroundPosition:"center 30%"}}><ImageLabel byline="CONRAD SORRELL • COLUMN" theme="WHEN MEDICAL CLEARANCE BECOMES NEGOTIABLE"/></div><div className="eyebrow">COLUMN • POWER & AMERICAN ARRANGEMENTS</div><h2>The Medical Clearance Industrial Complex</h2><PreviewAuthor slug="conrad-jalen-hurts-too-sick-to-sleep"/><p className="standfirst">Thirty-six hours without sleep. A blood clot. And somehow, a starting quarterback.</p></Link></section>
 <section className="hero heroStack" data-editorial-system="a" aria-label="Hollis Crane on the Rams kicker swap"><Link className="hero-copy storylink" href={root+"/articles/hollis-rams-kicker-weight"}><div className="photoHero" role="img" aria-label="Blake Grupe kicks a football for New Orleans" style={{backgroundImage:imageBackground('https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/saints/m2jfru6egwyvkpypfj8r',640),backgroundPosition:"center 40%"}}><ImageLabel byline="HOLLIS CRANE • INVESTIGATIONS" theme="A CONSIDERABLE REDUCTION IN PERSONNEL"/></div><div className="eyebrow">THE FOOTBALL DESK • PERSONNEL</div><h2>The Rams Have Lost 89 Pounds at Kicker</h2><PreviewAuthor slug="hollis-rams-kicker-weight"/><p className="standfirst">The NFL's largest kicker is out. One of its smallest has arrived. The equipment department has been given quite a lot of room.</p></Link></section>
+<div className="mobileLowerCarousel" aria-label="More editorial stories">
 <section className="hero heroStack" data-editorial-system="a" aria-label="Maude Gannon on the NFC East"><Link className="hero-copy storylink" href={root+"/articles/maude-nfc-east-declines-winner"}><div className="photoHero" role="img" aria-label="Giants defenders celebrate the tie with Washington." style={{backgroundImage:`${imageBackground('https://sportshub.cbsistatic.com/i/r/2026/10/11/830be0b3-3807-40dd-b003-6e64d0d49615/thumbnail/1200x675/7fba8e6037ce9a83e03b456a120f5a57/commanders-giants.jpg',640)}`}}><ImageLabel byline="MAUDE GANNON • FOOTBALL" theme="A WINNING KICK, NEVER ATTEMPTED"/></div><div className="eyebrow">THE FOOTBALL DESK</div><h2>The NFC East Declines to Name a Winner</h2><PreviewAuthor slug="maude-nfc-east-declines-winner"/><p className="standfirst">The Giants and Commanders spent the afternoon reducing the requirements for victory. Neither could meet the final version.</p></Link></section>
 
 <section className="hero heroStack" data-editorial-system="a" aria-label="Sabine March on recognition"><Link className="hero-copy storylink" href={root+"/articles/sabine-and-you-are"}><div className="photoHero" style={{backgroundImage:imageBackground('/images/and-you-are/evans.jpg',640),backgroundPosition:"center"}}><ImageLabel byline="SABINE MARCH • SOCIETY" theme="FAME MEETS A SELECTIVE MEMORY"/></div><div className="eyebrow">INTERNATIONAL & PUBLIC LIFE</div><h2>And You Are?</h2><PreviewAuthor slug="sabine-and-you-are"/><p className="standfirst">Ten great moments in the sporting art of withholding recognition.</p></Link></section>
 <section className="hero heroStack" data-editorial-system="a" aria-label="Marnie Kells on Marvin Harrison Jr."><Link className="hero-copy storylink" href={root+"/articles/marnie-marvin-harrison-somewhere-else"}><div className="photoHero" style={{backgroundImage:imageBackground('https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/cardinals/whbhqzxotle5uja93jv1',640),backgroundPosition:"left center"}}><ImageLabel byline="MARNIE KELLS • CULTURE" theme="FOURTH OVERALL. FORWARDING ADDRESS PENDING."/></div><div className="eyebrow">MATTERS OF CULTURE • SPORTING LIFE</div><h2>Marvin Harrison Jr. Will Be Playing Somewhere Else. The Important Part Is Else.</h2><PreviewAuthor slug="marnie-marvin-harrison-somewhere-else"/><p className="standfirst">The destination remains unreported. The departure has received considerably more clarity.</p></Link></section>
+</div>
+<div className="mobileStoryRows" aria-label="Further reading">
 <section className="hero heroStack" data-editorial-system="a" aria-label="Marnie Kells on Jeremy Hecklinski">
   <Link className="hero-copy storylink" href={root+"/articles/marnie-hecklinski-use-your-words"}>
     <div className="photoHero" style={{backgroundImage:imageBackground('https://images2.minutemediacdn.com/image/upload/c_crop%2Cx_0%2Cy_275%2Cw_4659%2Ch_2620/c_fill%2Cw_1440%2Car_1440%3A810%2Cf_auto%2Cq_auto%2Cg_auto/images/ImagnImages/mmsport/inside_the_hawkeyes/01kt4afzsc00k8hwtpfv.jpg',900),backgroundPosition:"center 27%"}}><div><small>MARNIE KELLS • CULTURE</small><b>ONE QUARTERBACK REACHES HIS EMOTIONAL LIMIT</b></div></div>
@@ -80,7 +83,7 @@ export default function SharedEditorialFront({archiveHref='/archive',root=''}){
     <p className="standfirst">The family is contesting Travis Hunter’s appointment as executor.</p>
 
   </Link>
-  <div className={front.clip}><ArticleClip tweetId="2106801789630919072" url="https://x.com/fballforeverhq/status/2106801789630919072" showCaption={false}/></div>
+  <div className={front.clip} data-feature-media><ArticleClip tweetId="2106801789630919072" url="https://x.com/fballforeverhq/status/2106801789630919072" showCaption={false}/></div>
 </section>
 
 
@@ -115,6 +118,7 @@ export default function SharedEditorialFront({archiveHref='/archive',root=''}){
   </div>
 </section>
 
+</div>
 <div className={styles.archiveCta}>
   <div><span className={styles.label}>THE PERMANENT RECORD</span><p>Every take. Every receipt.</p></div>
   <Link className={styles.link} href={archiveHref}>DIG INTO THE CRATES <span aria-hidden="true">→</span></Link>
