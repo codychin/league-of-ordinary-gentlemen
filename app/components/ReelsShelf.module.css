@@ -114,3 +114,10 @@
  .compact .head{padding:0 20px;}
  .compact .rail{padding:3px 20px;scroll-padding-inline:20px;}
 }
+/* Desktop uses the editorial width; narrow desktops retain horizontal access to
+   all six cards rather than shrinking labels or changing the mobile rail. */
+@media(min-width:761px){
+ .compact .rail{display:grid;grid-template-columns:repeat(6,minmax(156px,1fr));gap:12px;}
+ .compact .story{width:100%;min-width:0;}
+ .compact .thumb{height:112px;}
+}
