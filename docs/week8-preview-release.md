@@ -23,7 +23,7 @@ those reviews were not performed. It never records a passed personal review.
 
 To assemble the first new cohort, keep the source repository's
 `data/week8-approved-homepage-media.json` absent. In the isolated candidate,
-create a consumer importing that manifest. Supply its path as `consumerPath`,
+copy the committed `lib/week8-reels.js` consumer into the candidate. Supply its path as `consumerPath`,
 the new manifest path as `manifestPath`, `baseManifestSha256: null`, and
 `bootstrap: {consumerSha256, placements}`. Placements contain exactly six
 records matching the expected bindings (edition, season, week, kind,
@@ -32,8 +32,13 @@ layout records, not an approved empty baseline. The assembler verifies every
 record against the exact approved Week 8 script set and packages, then writes
 only complete cohorts. It includes the consumer in the transport file hashes.
 
-Once actual complete cohorts exist, wire their shelf above the unchanged Week
-7 recaps. No empty Week 8 manifest or shelf is installed by this preparation.
+The consumer is wired above the unchanged Week 7 recap shelves on all three
+homepages. It returns no rows for absent, malformed, incomplete, held or
+unverified cohorts. Only presentation fields reach the client. Separate
+preview viewing state preserves recap history and existing recap query links.
+No empty Week 8 manifest or placeholder shelf is installed. The manifest is
+explicitly included in the three server route traces when the final build
+contains it; rebuild and verify deployed traces after real media assembly.
 Do not publish partial editions or change the preserved completed-week data.
 
 Live verification still requires the exact verified release receipt, READY

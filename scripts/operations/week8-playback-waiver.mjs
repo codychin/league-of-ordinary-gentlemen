@@ -6,7 +6,7 @@ export const week8WaiverId=authority.exceptionId;
 export function assertWeek8ApprovedBinding(b) {
   const a=authority.assets.find(a=>a.registryId===b.registryId);
   need(a && !a.hold,'Week 8 exact script missing or held for correction approval');
-  need(b.season===2026 && b.week===8 && b.kind==='preview' && b.scriptRevision===2 &&
+  need(b.season===2026 && b.week===8 && b.kind==='preview' && b.scriptRevision===(a.scriptRevision??2) &&
     b.matchupKey===a.matchupKey && b.matchupKey===`${b.edition}-2026-week8-preview-${b.pair.join('-')}` &&
     b.writer===a.writer && b.scriptSha256===a.scriptSha256 && b.sourceRevision===a.sourcePackageSha256 &&
     createHash('sha256').update(a.script).digest('hex')===a.scriptSha256,'Week 8 exact approved script/source binding mismatch');

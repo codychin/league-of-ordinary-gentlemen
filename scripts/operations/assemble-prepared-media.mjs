@@ -31,7 +31,7 @@ export function assemble({repository,root,receipts,evidence,current,manifestPath
   }
   const consumer=fs.readFileSync(path.join(bootstrap?root:repository,consumerPath),'utf8');
   if(bootstrap)need(assetIdentity(Buffer.from(consumer)).sha256===bootstrap.consumerSha256,'Bootstrap consumer changed');
-  need(consumer.includes(`'../${manifestPath}'`) || consumer.includes(`"../${manifestPath}"`),'Manifest is not wired to the existing consumer');
+  need(consumer.includes(`'../${manifestPath}'`) || consumer.includes(`"../${manifestPath}"`) || consumer.includes(`path.join(process.cwd(),'${manifestPath}')`),'Manifest is not wired to the existing consumer');
   const baseBytes=bootstrap?null:fs.readFileSync(sourceManifest);
   if(!bootstrap)need(assetIdentity(baseBytes).sha256===evidence.baseManifestSha256,'Base shelf changed; re-read before assembly');
   const base=bootstrap?[]:JSON.parse(baseBytes),batch=evidence.expected,edition=batch[0].edition;
@@ -64,7 +64,7 @@ export function assemble({repository,root,receipts,evidence,current,manifestPath
       sourceVideoSha256:b.identity.sha256,voiceId:b.voiceId,
       approvalSource:evidence.approval.evidence,publicationApproved:true,
       ...playbackAttestation(b,evidence.reviews?.find(r=>r.binding===key),evidence.ownerPlaybackWaiver),
-      durationSeconds:qa.checks.durationSeconds};
+      technicalQaPassed:qa.checks.originalAndHlsDecode===true,durationSeconds:qa.checks.durationSeconds};
   });
   const lineage={expectedMain:evidence.expectedMain,manifestPath,consumerPath,baseManifestSha256:evidence.baseManifestSha256,...(bootstrap?{bootstrapConsumerSha256:bootstrap.consumerSha256}: {})};
   saveOnce(path.join(receipts,'assembly-base.json'),lineage);
