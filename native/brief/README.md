@@ -63,3 +63,13 @@ The HTTP test proves the running **model**, not native screen repaint, physical-
 
 
 The fixture's HTTP tests prove the model refresh, not simulator repaint or persistent storage behavior. The duplicate DJ `reader` alias is retained for the original fixture contract; the other complete articles are in `readers`.
+
+## Custom direction-07 type prototype
+
+The original The Brief Seven Medium TTF is bundled under assets/fonts with its provenance note. SHA256 b7a72a5c97ecb562b55aa38c07ad6469f0b50c293789aabfb6da089f0397943e; Library libfile_ac1abecbf06481919e7fde83876ed493 version 0. Runtime expo-font loading works in Expo Go; registration is versioned to avoid stale font caching. The existing installed/locked expo-font package is now declared directly; no package installation is needed.
+
+All app-owned Text and TextInput use the single Medium 500 master while retaining existing sizes, line heights, spacing, colors and accessibility scaling. SVG navigation and PNG branding are unchanged. Authored strong/em remain temporary renderer-synthesized bold/oblique; no designed Bold/Italic face is claimed. Provider embeds and OS-owned playback controls retain their own fonts. Font loading has a spinner and explicit retry error gate rather than silently displaying another typeface. Error-gate text deliberately uses the system font so a broken font cannot hide recovery controls.
+
+This is an original prototype, not a finished professionally hinted family. Small 8–11pt labels, optical spacing, synthetic emphasis, line clipping and large accessibility text require native visual assessment. Typography may reflow despite unchanged layout values.
+
+Native font QA (2026-10-31): Expo logged the versioned custom family as loaded. Actual iPhone 18 Pro simulator screens checked: Home, Detroit reader, Crates/search placeholder and the long Daniel Jones title with née, More, and cream-on-dark Culture. No obvious clipping at the observed default text size; 8–11pt labels look delicate and are not an accessibility acceptance pass. User interaction interrupted further navigation. Watch typography, full OS-dark mode, enlarged Dynamic Type, interactive search entry and synthetic emphasis still require visual verification. All 25 automated tests and iOS/Android/web exports passed; the font cmap includes every current feed and literal UI character. No production changes.

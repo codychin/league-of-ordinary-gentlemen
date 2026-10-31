@@ -1,0 +1,11 @@
+THE BRIEF SEVEN — PROJECT PROVENANCE / PROTOTYPE USE NOTE
+
+Created for the user's The Brief project on 2026-10-31 from original, newly authored Bézier letterforms. The direction-07 drawings created in this conversation are the starting material; new uppercase, lowercase, numeral, punctuation and accent drawings extend those originals.
+
+No third-party font outlines were imported, traced, relabelled, or modified in creating this font. In particular this font is NOT a derivative conversion of Literata, Newsreader, Fraunces, Source Sans or DejaVu. The proof's explanatory labels use DejaVu Sans separately; those label outlines are not in the font software.
+
+The font, drawings and build sources are supplied for use and modification in The Brief project, including its local/native/web previews and later refinement. No open-source/OFL release, foundry contract, public publication or third-party exclusive-rights agreement has been made. This provenance note does not represent a trademark clearance, guarantee of legal exclusivity, or legal determination concerning copyrightability of AI-assisted work.
+
+Development tools (FontTools, Pillow, Inkscape and system Brotli) retain their respective software licenses; their font outlines were not used because those tools provide no source letterforms in this workflow.
+
+STATUS: original single-weight prototype; technical and optical limitations are documented in README.md. Not a professionally hinted, fully kerned, multi-weight production family.

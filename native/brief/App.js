@@ -7,11 +7,11 @@ import React, {
 } from "react";
 import {
   View,
-  Text,
+  Text as NativeText,
   ScrollView,
   Pressable,
   Image,
-  TextInput,
+  TextInput as NativeTextInput,
   StyleSheet,
   Platform,
   Modal,
@@ -41,6 +41,89 @@ import { themes, resolveAppearance, themedStyles } from "./src/theme.mjs";
 const ThemeContext = createContext(null);
 const useStyles = () =>
   themedStyles(baseStyles, useContext(ThemeContext).palette);
+import * as Font from "expo-font";
+import { FONT_FAMILY, fontStyle, loadTypeface } from "./src/typography.mjs";
+const EmphasisContext = createContext(false);
+function Text({ style, strong, ...props }) {
+  const inherited = useContext(EmphasisContext);
+  const emphasized = strong === undefined ? inherited : strong;
+  return (
+    <EmphasisContext.Provider value={emphasized}>
+      <NativeText
+        {...props}
+        style={fontStyle(StyleSheet.flatten(style), emphasized)}
+      />
+    </EmphasisContext.Provider>
+  );
+}
+function TextInput({ style, ...props }) {
+  return (
+    <NativeTextInput {...props} style={fontStyle(StyleSheet.flatten(style))} />
+  );
+}
+function FontGate({ children }) {
+  const [state, setState] = useState(
+    Font.isLoaded(FONT_FAMILY) ? "ready" : "loading",
+  );
+  const load = () => {
+    setState("loading");
+    loadTypeface(
+      Font.loadAsync,
+      require("./assets/fonts/TheBriefSeven-Medium.ttf"),
+      Font.isLoaded,
+    )
+      .then(() => {
+        console.info(
+          "Brief custom font loaded:",
+          FONT_FAMILY,
+          Font.isLoaded(FONT_FAMILY),
+        );
+        setState("ready");
+      })
+      .catch(() => setState("error"));
+  };
+  useEffect(() => {
+    if (state !== "ready") load();
+  }, []);
+  if (state === "ready") return children;
+  return (
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: "#11100e",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 24,
+      }}
+    >
+      <StatusBar barStyle="light-content" />
+      {state === "loading" ? (
+        <ActivityIndicator
+          color="#f3efe5"
+          accessibilityLabel="Loading The Brief typeface"
+        />
+      ) : (
+        <>
+          <NativeText
+            accessibilityRole="alert"
+            style={{ color: "#f3efe5", fontSize: 16 }}
+          >
+            The custom typeface could not load.
+          </NativeText>
+          <Pressable
+            accessibilityRole="button"
+            onPress={load}
+            style={{ padding: 20, minHeight: 44 }}
+          >
+            <NativeText style={{ color: "#f3efe5", fontSize: 16 }}>
+              Retry
+            </NativeText>
+          </Pressable>
+        </>
+      )}
+    </View>
+  );
+}
 const origin = "https://www.ordinarybrief.com";
 const uri = (v) => (v?.startsWith("/") ? origin + v : v);
 const serif = Platform.OS === "android" ? "serif" : "Georgia";
@@ -164,6 +247,7 @@ function Inline({ nodes }) {
     ) : (
       <Text
         key={i}
+        strong={["strong", "b"].includes(n.kind) ? true : undefined}
         accessibilityRole={n.kind === "a" ? "link" : undefined}
         onPress={n.url ? () => openSource(n.url) : undefined}
         style={{
@@ -1094,7 +1178,9 @@ export default function App() {
     <ThemeContext.Provider value={{ appearance, palette }}>
       <SafeAreaProvider>
         <StatusBar barStyle="light-content" />
-        <Shell />
+        <FontGate>
+          <Shell />
+        </FontGate>
       </SafeAreaProvider>
     </ThemeContext.Provider>
   );
