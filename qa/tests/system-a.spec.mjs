@@ -1,4 +1,9 @@
 import {test, expect} from '../helpers/browser.mjs';
+
+// Isolate editorial/share QA from the unavailable external comments service.
+test.beforeEach(async ({page}) => {
+  await page.route('**/functions/v1/brief-comments?**', route => route.fulfill({json:{comments:[],votes:[]}}));
+});
 import {createHash} from 'node:crypto';
 
 test('System A uses exact supporting faces and preserves header/navigation', async ({page}) => {

@@ -6,7 +6,7 @@ export const jayZArticle = {
   "date": "OCTOBER 21, 2026",
   "author": "sorrell",
   "image": "/images/editorial/jay-z-lead.webp",
-  "imageObjectPosition": "50% 15%",
+  "imageObjectPosition": "50% 0%",
   "imageAlt": "Jay-Z at the Shawn Carter Foundation Carnival in 2011.",
   "body": [
     {

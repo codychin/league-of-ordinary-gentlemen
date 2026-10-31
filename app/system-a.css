@@ -21,7 +21,7 @@
   color: var(--ink);
   background-color: var(--paper);
 }
-[data-editorial-system="a"] :is(.editorialSectionLabel, .morningBriefFlag > span, .affairsHead h2, .articleSectionHead) {
+[data-editorial-system="a"] :is(.editorialSectionLabel, .morningBriefFlag > span, .affairsHead h2) {
   display: block;
   font: 700 20px/24px 'Brief Editorial Sans', sans-serif;
   font-synthesis: none;
@@ -29,7 +29,7 @@
   text-transform: uppercase;
   color: var(--ink);
 }
-[data-editorial-system="a"] :is(.editorialSectionLabel, .morningBriefFlag > span, .affairsHead h2, .articleSectionHead)::after {
+[data-editorial-system="a"] :is(.editorialSectionLabel, .morningBriefFlag > span, .affairsHead h2)::after {
   content: '';
   display: block;
   width: 40px;
@@ -51,21 +51,10 @@
 }
 [data-editorial-system="a"] :is(.read, .editorialStoryLink) {
   font: 700 16px/24px 'Brief Editorial Sans', sans-serif;
-  letter-spacing: 0;
-  text-transform: uppercase;
-  color: var(--ink);
-  position: relative;
-  padding-bottom: 8px;
+  letter-spacing: 0; text-transform: uppercase; color: var(--red);
+  padding-bottom: 0; border-bottom: 0; text-decoration: none;
 }
-[data-editorial-system="a"] :is(.read, .editorialStoryLink)::after {
-  content: '';
-  position: absolute;
-  width: 112px;
-  height: 1px;
-  left: 0;
-  bottom: 0;
-  background: var(--ink);
-}
+[data-editorial-system="a"] :is(.read, .editorialStoryLink)::after { content: none; }
 [data-editorial-system="a"] :is(.standfirst, .articleDek, .editorialDeck, .hero-copy > p, .sundayFeatureCopy p, .cultureGrid .card > p),
 [data-editorial-system="a"] a[href*='/articles/'] > p {
   font: 400 17px/24px 'Brief Editorial Sans', sans-serif;
@@ -142,3 +131,14 @@
   letter-spacing: 0;
   color: var(--muted);
 }
+
+/* Keep the accent without reinstating the removed lead label. */
+[data-editorial-system="a"] .leadStoryFlag::before {
+  content: ''; display: block; width: 40px; height: 1px; background: var(--red); align-self: center;
+}
+[data-editorial-system="a"] .articleBody .articleSectionHead {
+  font: 700 clamp(26px, 3vw, 34px)/1.2 'Brief Nine F Native Preview', Georgia, serif;
+  font-synthesis: none; letter-spacing: 0; text-transform: none; color: var(--ink);
+  margin: 38px 0 18px; padding-top: 20px;
+}
+[data-editorial-system="a"] .articleBody .articleSectionHead::after { content: none; }

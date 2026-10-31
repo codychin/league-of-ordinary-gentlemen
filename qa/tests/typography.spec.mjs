@@ -1,5 +1,10 @@
 import {test, expect} from '../helpers/browser.mjs';
 
+// Isolate editorial/share QA from the unavailable external comments service.
+test.beforeEach(async ({page}) => {
+  await page.route('**/functions/v1/brief-comments?**', route => route.fulfill({json:{comments:[],votes:[]}}));
+});
+
 const family = 'Brief Nine F Native Preview';
 const fontPath = '/fonts/brief-nine-f/BriefNineFNativePreview-Bold.ttf';
 for (const root of ['', '/sunday-crew', '/doge']) {
