@@ -13,11 +13,11 @@ for(const edition of ['loog','doge','sunday-crew']){
   expect(await cards.evaluateAll(es=>es.map(e=>e.getAttribute('aria-label')))).toEqual(rows.map(r=>`Watch ${r.matchup} by ${writers[r.writer].name}`));
   for(let i=0;i<6;i++){
    await expect(cards.nth(i)).toContainText(rows[i].short);
-   const b=await cards.nth(i).boundingBox();expect(b.height).toBeGreaterThanOrEqual(44);expect(b.height).toBeLessThanOrEqual(100);expect(b.width).toBeGreaterThan(b.height*1.5);
+   const b=await cards.nth(i).boundingBox();expect(b.height).toBeGreaterThanOrEqual(44);expect(b.height).toBeLessThanOrEqual(160);expect(b.width).toBeGreaterThanOrEqual(94);
   }
   await expect(page.locator('section[aria-label$=" videos"]')).toHaveCount(1);
   const first=await cards.first().boundingBox(),second=await cards.nth(1).boundingBox(),heading=await shelf.locator('h2').boundingBox(),hero=await page.locator('.immersiveLead').boundingBox();
-  expect(first.height).toBeCloseTo(64,0);expect(second.x-first.x-first.width).toBeCloseTo(8,0);expect(first.y-heading.y-heading.height).toBeCloseTo(8,0);expect(hero.y-first.y-first.height).toBeCloseTo(8,0);
+  expect(first.height).toBeCloseTo(133,0);const photo=cards.first().locator(':scope > span').first();expect((await photo.boundingBox()).height).toBeCloseTo(88,0);await expect(photo.locator('img')).not.toHaveCount(0);await expect(photo).toHaveCSS('outline-style','none');await expect(photo).toHaveCSS('box-shadow','none');expect(second.x-first.x-first.width).toBeCloseTo(8,0);expect(first.y-heading.y-heading.height).toBeCloseTo(8,0);expect(hero.y-first.y-first.height).toBeCloseTo(8,0);
   if(page.viewportSize().width<=760){const rail=cards.first().locator('..');expect(await rail.evaluate(e=>e.scrollWidth>e.clientWidth)).toBe(true);await rail.hover();await page.mouse.wheel(220,0);await expect.poll(()=>rail.evaluate(e=>e.scrollLeft)).toBeGreaterThan(0);}
 
   await expect.poll(()=>page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
