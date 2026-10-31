@@ -221,3 +221,14 @@ for(const growth of [0,528,1900]){
   expect(await page.locator('body').evaluate(el=>getComputedStyle(el).overflowY)).not.toBe('hidden');
  });
 }
+
+for (const root of ['', '/sunday-crew', '/doge']) {
+  test(`current previews replace the active recap shelf: ${root || 'LOOG'}`, async ({page}) => {
+    expect((await page.goto(root || '/')).status()).toBe(200);
+    const shelf=page.locator('section[aria-label="Week 8, the previews. videos"]');
+    await expect(shelf).toHaveCount(1);
+    await expect(shelf.getByRole('button', {name:/^Watch /})).toHaveCount(6);
+    await expect(page.locator('section[aria-label="Week 7, the recaps. videos"]')).toHaveCount(0);
+    await expect(page.locator('section[aria-label$=" videos"]')).toHaveCount(1);
+  });
+}
