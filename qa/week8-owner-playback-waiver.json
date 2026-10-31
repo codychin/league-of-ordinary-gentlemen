@@ -4,16 +4,31 @@
   "sourceTimestamp": "2026-10-31T14:40:54Z",
   "owner": "Cody",
   "quote": "approve all the videos and get them to prod",
-  "scope": "Exact 18 Week 8 v2 spoken scripts only. Owner waives another personal playback review round; technical checks, exact asset approval, source freshness, complete-six, staging and production integrity remain required.",
+  "scope": "Exact 18 Week 8 spoken scripts, including the three explicitly approved revision 3 corrections. Owner waives another personal playback review round; technical checks, exact asset approval, source freshness, complete-six, staging and production integrity remain required.",
   "assets": [
     {
       "registryId": "64e990c5-b7e1-5e9c-ae9d-43186341bfde",
       "matchupKey": "doge-2026-week8-preview-1-3",
       "writer": "sorrell",
-      "script": "Tucker Kraft has already outscored Cody’s entire flex pair from last week. By himself. On Thursday. This is excellent news for Cody and an appalling performance review for the arrangement that lost to Sandy. Tate and Egbuka are back together against the Bears now. They helped rescue him two weeks ago; apparently rescue work comes with repeat business. Kraft has provided a head start. The others are welcome to join in; there is no rule requiring each useful performance to happen in a separate week.",
-      "scriptSha256": "01311696b75fe5bdd70f28ed24c83e91f7fbc5694dd154c83f12b463f92afa30",
-      "sourcePackageSha256": "aaccbc9bb8be686398cfc8256a1fd17e9182cabce0652e9537ac9091f4f4edc1",
-      "hold": "Pending owner approval of corrected wording"
+      "script": "Tucker Kraft has already outscored Cody’s entire flex pair from last week. By himself. On Thursday. This is excellent news for Cody and an appalling performance review for the arrangement that lost to Sandy. Tate and Egbuka helped rescue him two weeks ago. Both are out this week; apparently rescue work does not come with a warranty. Kraft has provided a head start. The others are welcome to join in; there is no rule requiring each useful performance to happen in a separate week.",
+      "scriptSha256": "81b647efa76727a37b9a88284607fb6763b41fe258163fef7ffe2f27c98ac895",
+      "sourcePackageSha256": "46776726ef566c0dbf3ed69ac07614826239b6fcff2f9c402030a3e93287db2f",
+      "hold": null,
+      "supersededBinding": {
+        "script": "Tucker Kraft has already outscored Cody’s entire flex pair from last week. By himself. On Thursday. This is excellent news for Cody and an appalling performance review for the arrangement that lost to Sandy. Tate and Egbuka are back together against the Bears now. They helped rescue him two weeks ago; apparently rescue work comes with repeat business. Kraft has provided a head start. The others are welcome to join in; there is no rule requiring each useful performance to happen in a separate week.",
+        "scriptSha256": "01311696b75fe5bdd70f28ed24c83e91f7fbc5694dd154c83f12b463f92afa30",
+        "sourcePackageSha256": "aaccbc9bb8be686398cfc8256a1fd17e9182cabce0652e9537ac9091f4f4edc1",
+        "scriptRevision": 2
+      },
+      "scriptRevision": 3,
+      "correctionApproval": {
+        "scope": "Exact three replacements approved; remainder unchanged.",
+        "reviewer": "Cody",
+        "revision": "voice-rewrite-v2-correction-v3-20261031",
+        "scriptSha256": "81b647efa76727a37b9a88284607fb6763b41fe258163fef7ffe2f27c98ac895",
+        "sourceMessageId": "Sentinel_b04ee4b7df84819189838e35bbc0aa4a",
+        "sourceTimestamp": "2026-10-31T16:35:11Z"
+      }
     },
     {
       "registryId": "f0a5552f-bc97-5670-ae14-a41d8ef2e3b0",
@@ -82,10 +97,25 @@
       "registryId": "a9f5bec4-3e18-5642-9839-e0f1911c3707",
       "matchupKey": "loog-2026-week8-preview-4-11",
       "writer": "kells",
-      "script": "The app thinks the Katz brothers should win this week. How lovely. It has watched Lloyd get demolished, then lose respectably, and decided what these people need is another reason to check their phones. Now they’re projected to beat Route Twenty-Two by twenty-one. That is not a result. That is a particularly detailed invitation to get hurt again. Zay Flowers just led an entire matchup in scoring and still lost. He can probably explain why nobody should buy the balloons yet.",
-      "scriptSha256": "06a1a67a638b54ba5fa7de6c985b405c2429d010baadaaabb15903fcd1d36d45",
-      "sourcePackageSha256": "cfab4a23c2848ad1c624845707b1d5ba959942000a92b0593afb4dc75f2278ba",
-      "hold": "Pending owner approval of corrected wording"
+      "script": "The app thinks the Katz brothers should win this week. How lovely. It has watched Lloyd get demolished, then lose respectably, and decided what these people need is another reason to check their phones. Now they’re projected to beat Route Twenty-Two by eighteen. That is not a result. That is a particularly detailed invitation to get hurt again. Zay Flowers just led an entire matchup in scoring and still lost. He can probably explain why nobody should buy the balloons yet.",
+      "scriptSha256": "d7bfec26bbce429b8716416d55b4acc1c3baf2d318be0e22eaba0776a9d9b279",
+      "sourcePackageSha256": "b4c893f58c79461373c182fadd13e6cf66bb9bb91eaa9d13a26290fac4d76a0c",
+      "hold": null,
+      "supersededBinding": {
+        "script": "The app thinks the Katz brothers should win this week. How lovely. It has watched Lloyd get demolished, then lose respectably, and decided what these people need is another reason to check their phones. Now they’re projected to beat Route Twenty-Two by twenty-one. That is not a result. That is a particularly detailed invitation to get hurt again. Zay Flowers just led an entire matchup in scoring and still lost. He can probably explain why nobody should buy the balloons yet.",
+        "scriptSha256": "06a1a67a638b54ba5fa7de6c985b405c2429d010baadaaabb15903fcd1d36d45",
+        "sourcePackageSha256": "cfab4a23c2848ad1c624845707b1d5ba959942000a92b0593afb4dc75f2278ba",
+        "scriptRevision": 2
+      },
+      "scriptRevision": 3,
+      "correctionApproval": {
+        "scope": "Exact three replacements approved; remainder unchanged.",
+        "reviewer": "Cody",
+        "revision": "voice-rewrite-v2-correction-v3-20261031",
+        "scriptSha256": "d7bfec26bbce429b8716416d55b4acc1c3baf2d318be0e22eaba0776a9d9b279",
+        "sourceMessageId": "Sentinel_b04ee4b7df84819189838e35bbc0aa4a",
+        "sourceTimestamp": "2026-10-31T16:35:11Z"
+      }
     },
     {
       "registryId": "94273c5e-756e-5654-a4c9-0732738c3fe7",
@@ -118,10 +148,25 @@
       "registryId": "2c80587f-3aa5-5baf-994c-87d6e33cd70a",
       "matchupKey": "sunday-crew-2026-week8-preview-1-4",
       "writer": "march",
-      "script": "Sandy has given Paul forty-three points to think about before the weekend. Love and Jacobs did that on Thursday. Chase and Saint Brown have yet to trouble him. There is something deeply inconsiderate about making a man spend his Friday recovering from a Sunday that hasn’t happened. Paul has scored more over the season; they have the same record. He is quite entitled to consider himself the better team. Sandy has merely made that a less relaxing opinion to hold.",
-      "scriptSha256": "f4b05d48fc2b00ecaead2be42621d711950c6dbb7e223148a1bda0591a6df7af",
-      "sourcePackageSha256": "901a6e30d9cf63a2be4a10cf66adff2016a0951a48adade0ca043b6946fe9ab3",
-      "hold": "Pending owner approval of corrected wording"
+      "script": "Sandy has given Paul forty-three points to think about before the weekend. Love and Jacobs did that on Thursday. Chase and Saint Brown have yet to trouble him. There is something deeply inconsiderate about making a man spend his Saturday recovering from a Sunday that hasn’t happened. Paul has scored more over the season; they have the same record. He is quite entitled to consider himself the better team. Sandy has merely made that a less relaxing opinion to hold.",
+      "scriptSha256": "7fb928264f86483c834603bbb7e93ccc0a6f9042c95e682d8f685932eada514b",
+      "sourcePackageSha256": "d38f870b77dc86f19b711ea46e5de5e979e86cfe11358a684e91a2c7345deb89",
+      "hold": null,
+      "supersededBinding": {
+        "script": "Sandy has given Paul forty-three points to think about before the weekend. Love and Jacobs did that on Thursday. Chase and Saint Brown have yet to trouble him. There is something deeply inconsiderate about making a man spend his Friday recovering from a Sunday that hasn’t happened. Paul has scored more over the season; they have the same record. He is quite entitled to consider himself the better team. Sandy has merely made that a less relaxing opinion to hold.",
+        "scriptSha256": "f4b05d48fc2b00ecaead2be42621d711950c6dbb7e223148a1bda0591a6df7af",
+        "sourcePackageSha256": "901a6e30d9cf63a2be4a10cf66adff2016a0951a48adade0ca043b6946fe9ab3",
+        "scriptRevision": 2
+      },
+      "scriptRevision": 3,
+      "correctionApproval": {
+        "scope": "Exact three replacements approved; remainder unchanged.",
+        "reviewer": "Cody",
+        "revision": "voice-rewrite-v2-correction-v3-20261031",
+        "scriptSha256": "7fb928264f86483c834603bbb7e93ccc0a6f9042c95e682d8f685932eada514b",
+        "sourceMessageId": "Sentinel_b04ee4b7df84819189838e35bbc0aa4a",
+        "sourceTimestamp": "2026-10-31T16:35:11Z"
+      }
     },
     {
       "registryId": "cad4d73a-8bf1-5655-8e77-d3db2ad3b45f",

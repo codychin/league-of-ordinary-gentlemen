@@ -200,7 +200,7 @@ test('ordinary batch Git transport durably retains exact artifacts and resumes w
 });
 
 test('new Week 8 cohort bootstraps from exact records; empty baselines and partial cohorts never authorize publication',async t=>{
- // Synthetic authority exists only in an isolated module tree. Production holds stay closed.
+ // Synthetic authority exists only in an isolated module tree. Production approval is never inferred from this fixture.
  const o=setup(t),code=path.join(o.root,'fixture-code'),source=path.join(o.root,'source');
  fs.cpSync(path.join(repo,'scripts'),path.join(code,'scripts'),{recursive:true});
  fs.mkdirSync(path.join(code,'qa'),{recursive:true});fs.mkdirSync(source);
@@ -214,7 +214,7 @@ test('new Week 8 cohort bootstraps from exact records; empty baselines and parti
  for(const [i,a] of assets.entries()){
   const r=fixture(ids[i]),m=r.row.metadata;
   r.row.id=a.registryId;r.row.writer_slug=a.writer;
-  Object.assign(m,{week:8,kind:'preview',matchupKey:a.matchupKey,matchupTeamIds:a.matchupKey.split('-preview-')[1].split('-'),scriptRevision:2,scriptSha256:a.scriptSha256,sourcePackageSha256:a.sourcePackageSha256});
+  Object.assign(m,{week:8,kind:'preview',matchupKey:a.matchupKey,matchupTeamIds:a.matchupKey.split('-preview-')[1].split('-'),scriptRevision:a.scriptRevision??2,scriptSha256:a.scriptSha256,sourcePackageSha256:a.sourcePackageSha256});
   m.audioGeneration={voiceId:m.voiceId,scriptSha256:a.scriptSha256,sourcePackageSha256:a.sourcePackageSha256};
   Object.assign(m.videoGeneration,{scriptSha256:a.scriptSha256,sourcePackageSha256:a.sourcePackageSha256});
   const b=binding(r.row,r.identity);expected.push(b);r.preparationApproval.binding=preparationBinding(b);

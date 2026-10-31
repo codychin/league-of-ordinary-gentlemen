@@ -8,11 +8,12 @@ const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const authority=read('qa/week8-owner-playback-waiver.json');
 const binding=a=>({registryId:a.registryId,matchupKey:a.matchupKey,edition:a.matchupKey.split('-2026')[0],
   season:2026,week:8,kind:'preview',pair:a.matchupKey.split('-preview-')[1].split('-'),writer:a.writer,
-  scriptRevision:2,scriptSha256:a.scriptSha256,sourceRevision:a.sourcePackageSha256});
-test('waiver is bound to 18 exact scripts and keeps all three correction holds closed',()=>{
+  scriptRevision:a.scriptRevision??2,scriptSha256:a.scriptSha256,sourceRevision:a.sourcePackageSha256});
+test('waiver binds 18 exact scripts including three approved corrections without claiming playback',()=>{
   assert.equal(authority.assets.length,18);
   assert.equal(new Set(authority.assets.map(a=>a.registryId)).size,18);
-  assert.equal(authority.assets.filter(a=>a.hold).length,3);
+  assert.equal(authority.assets.filter(a=>a.hold).length,0);
+  assert.equal(authority.assets.filter(a=>a.scriptRevision===3).length,3);
   for(const a of authority.assets){
     assert.equal(createHash('sha256').update(a.script).digest('hex'),a.scriptSha256);
     if(a.hold){assert.throws(()=>playbackAttestation(binding(a),null,week8WaiverId),/held/);continue;}
@@ -29,9 +30,10 @@ test('waiver cannot authorize another script, source, season, writer, edition or
     assert.throws(()=>assertWeek8ApprovedBinding({...b,[key]:value}));
   assert.throws(()=>playbackAttestation(b,null,'week7-2026-owner-playback-exception'),/Unknown/);
   assert.throws(()=>playbackAttestation(b,null),/review required/);
-  const held=binding(authority.assets.find(a=>a.hold));
+  const corrected=authority.assets.find(a=>a.scriptRevision===3);
+  const superseded={...binding(corrected),scriptRevision:2,scriptSha256:corrected.supersededBinding.scriptSha256,sourceRevision:corrected.supersededBinding.sourcePackageSha256};
   const review={status:'passed',fullAuditoryReviewPerformed:true,fullMotionReviewPerformed:true,performanceApproval:true,reviewer:'fixture',evidence:'fixture'};
-  assert.throws(()=>playbackAttestation(held,review,week8WaiverId),/held/);
+  assert.throws(()=>playbackAttestation(superseded,review,week8WaiverId),/binding mismatch/);
   assert.equal(playbackAttestation(b,review).fullPlaybackInspection,true);
 });
 test('Week 8 fallback preserves twelve current pairings and corroborated actuals, never zero totals or projections',()=>{
@@ -53,4 +55,16 @@ test('Week 8 fallback preserves twelve current pairings and corroborated actuals
   }
   const oldProvider={...latest,updatedAt:'2026-10-29T12:00:00Z'};
   assert.equal(selectLoogScores({provider:oldProvider,latest,completed,now:Date.parse('2026-10-31T15:00:00Z')}),latest);
+});
+
+test('three corrected bindings retain superseded history and exact correction approval',()=>{
+  for(const a of authority.assets.filter(a=>a.scriptRevision===3)){
+    assert.equal(a.correctionApproval.sourceMessageId,'Sentinel_b04ee4b7df84819189838e35bbc0aa4a');
+    assert.equal(a.correctionApproval.scriptSha256,a.scriptSha256);
+    assert.equal(createHash('sha256').update(a.supersededBinding.script).digest('hex'),a.supersededBinding.scriptSha256);
+    assert.notEqual(a.scriptSha256,a.supersededBinding.scriptSha256);
+    assert.notEqual(a.sourcePackageSha256,a.supersededBinding.sourcePackageSha256);
+    assert.throws(()=>assertWeek8ApprovedBinding({...binding(a),scriptRevision:2}));
+    assertWeek8ApprovedBinding(binding(a));
+  }
 });

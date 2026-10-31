@@ -9,7 +9,7 @@ function fixture(edition='sunday-crew') {
   const authority=structuredClone(realAuthority);
   authority.assets.forEach(a=>a.hold=null);
   const rows=authority.assets.filter(a=>a.matchupKey.startsWith(`${edition}-`)).map((a,i)=>({
-    edition,season:2026,week:8,kind:'preview',sourceRevision:2,teamIds:a.matchupKey.split('-preview-')[1].split('-'),
+    edition,season:2026,week:8,kind:'preview',sourceRevision:a.scriptRevision??2,teamIds:a.matchupKey.split('-preview-')[1].split('-'),
     id:(edition==='loog'?'a':edition==='doge'?'b':'c')+String(i).padStart(31,'0'),
     scriptRegistryId:a.registryId,matchupKey:a.matchupKey,writer:a.writer,scriptSha256:a.scriptSha256,
     sourcePackageSha256:a.sourcePackageSha256,sourceSha256:'1'.repeat(64),sourceVideoSha256:'1'.repeat(64),
@@ -20,11 +20,13 @@ function fixture(edition='sunday-crew') {
   }));
   return {authority,rows};
 }
-test('absent, empty, malformed, partial and real held editions render no preview shelf',()=>{
+test('absent, empty, malformed, partial and explicitly held editions render no preview shelf',()=>{
   const {authority,rows}=fixture();
   for(const input of [undefined,null,{},[],rows.slice(1),[...rows,rows[0]]])
     assert.deepEqual(selectWeek8PreviewCohort(input,'sunday-crew',authority),[]);
-  assert.deepEqual(selectWeek8PreviewCohort(rows,'sunday-crew',realAuthority),[]);
+  const held=structuredClone(authority);
+  held.assets.find(a=>a.matchupKey.startsWith('sunday-crew-')).hold='Test pending correction';
+  assert.deepEqual(selectWeek8PreviewCohort(rows,'sunday-crew',held),[]);
   assert.deepEqual(selectWeek8PreviewCohort(rows,'unknown',authority),[]);
 });
 test('complete verified cohorts render independently without exposing another incomplete edition',()=>{
