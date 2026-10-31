@@ -95,3 +95,31 @@
   main .mobileStoryRows .hero-copy:has(.photoHero) { position:relative;min-height:72px;grid-template-rows:min-content min-content;align-content:start; }
   main .mobileStoryRows .hero.heroStack .photoHero { position:absolute!important;left:0;top:0; }
 }
+/* Owner's final reading order is shared by every editorial module. */
+@media(max-width:760px) {
+  main .hero.heroStack h2 { margin-bottom:12px; }
+  main .hero.heroStack .previewAuthor { order:3;margin:0 0 12px;gap:8px; }
+  main .hero.heroStack .standfirst { order:4;margin:0; }
+  main > [data-editorial-layout="open-top"] .sabinePackageTitle { margin-bottom:12px; }
+  main > [data-editorial-layout="open-top"] .previewAuthor { margin:0 0 12px; }
+  main > [data-editorial-layout="open-top"] .sabinePackageIntro > p { margin:0; }
+  main .mobileStoryRows .hero.heroStack .hero-copy > h2,main .mobileStoryRows .sabinePackageTitle { margin-bottom:12px; }
+  main .mobileStoryRows .hero-copy:has(.photoHero) { grid-template-rows:min-content min-content min-content; }
+  main .mobileStoryRows .hero-copy > .previewAuthor,main .mobileStoryRows .sabinePackageIntro > .previewAuthor { display:flex;grid-column:2;grid-row:2;margin:0 0 12px;gap:8px; }
+  main .mobileStoryRows .previewAuthor img { display:block;width:24px;height:24px;flex:0 0 24px; }
+  main .mobileStoryRows .hero.heroStack .standfirst,main .mobileStoryRows .sabinePackageIntro > p { display:block;grid-column:2;grid-row:3;margin:0;font:400 14px/20px 'Brief Editorial Sans',sans-serif; }
+  main .mobileStoryRows .sabineInlineVideo { grid-row:4; }
+  main.articleMain[data-editorial-system="a"] > .articleBylineShare { margin:12px 0; }
+  main.articleMain[data-editorial-system="a"] > .articleDek { margin:0 0 24px; }
+  main.articleMain[data-editorial-system="a"] > .articleDek + .articleImage { margin-top:0; }
+}
+/* Compact-row exception: full title, then subtitle with a small right-hand image. */
+@media(max-width:760px) {
+  main .mobileStoryRows .hero-copy:has(.photoHero),main .mobileStoryRows .sundayFeature { grid-template-columns:minmax(0,1fr) 64px;grid-template-rows:min-content min-content auto;min-height:0;column-gap:16px; }
+  main .mobileStoryRows .hero.heroStack .hero-copy > h2,main .mobileStoryRows .sabinePackageTitle { grid-column:1 / -1;grid-row:1;margin:0 0 12px; }
+  main .mobileStoryRows .hero.heroStack .photoHero,
+  main .mobileStoryRows .morningBriefPreview.sundayFront .sundayFeature.sabinePackage > .sundayFeatureImage { position:relative!important;grid-column:2;grid-row:2;width:64px!important;height:48px!important;aspect-ratio:4/3; }
+  main .mobileStoryRows .hero-copy > .previewAuthor,main .mobileStoryRows .sabinePackageIntro > .previewAuthor { display:none; }
+  main .mobileStoryRows .hero.heroStack .standfirst,main .mobileStoryRows [data-editorial-system="a"] .sabinePackageIntro > p { grid-column:1;grid-row:2;margin:0;font:400 14px/20px 'Brief Editorial Sans',sans-serif; }
+  main .mobileStoryRows .sabineInlineVideo { grid-column:1 / -1;grid-row:3; }
+}
