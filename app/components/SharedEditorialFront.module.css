@@ -3,7 +3,7 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
   padding: 22px 0;
-  border-bottom: 0;
+  border-bottom: 1px solid var(--ink);
 }
 .card { min-width: 0; padding-right: 24px; border-right: 1px solid var(--line); }
 .card:last-child { padding-right: 0; border-right: 0; }
@@ -36,5 +36,5 @@
 /* Use shared .read typography and color for the standalone lead link. */
 .leadRead { display: inline-block; text-decoration: none; }
 
-/* Editorial carousel cards keep only their vertical separators. */
+/* One whole-shelf rule; cards keep only their vertical separators. */
 .recent .card { border-bottom: 0; }

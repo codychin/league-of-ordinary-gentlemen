@@ -22,7 +22,7 @@ test('System A uses exact supporting faces and preserves header/navigation', asy
     ['.sabinePackageIntro > small','14px','700','20px'],
     ['.sabinePackageIntro > p','17px','400','24px'],
     ['.previewAuthor strong','14px','700','20px'],
-    ['.sundayFeatureCopy > .read','16px','700','24px'],
+    ['.sundayFeatureCopy > .read','14px','400','20px'],
   ]) {
     const el=page.locator(selector).first();
     await expect(el).toHaveCSS('font-family','"Brief Editorial Sans", sans-serif');

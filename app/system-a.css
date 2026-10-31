@@ -50,8 +50,9 @@
   color: var(--muted);
 }
 [data-editorial-system="a"] :is(.read, .editorialStoryLink) {
-  font: 700 16px/24px 'Brief Editorial Sans', sans-serif;
+  font: 400 14px/20px 'Brief Editorial Sans', sans-serif;
   letter-spacing: 0; text-transform: uppercase; color: var(--red);
+  display: inline-flex; align-items: center; min-height: 44px;
   padding-bottom: 0; border-bottom: 0; text-decoration: none;
 }
 [data-editorial-system="a"] :is(.read, .editorialStoryLink)::after { content: none; }

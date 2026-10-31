@@ -72,7 +72,19 @@ test('editorial refinements retain focal crop, vertical dividers and inline shar
   const accent=await page.locator('.leadStoryFlag').evaluate(e=>{const s=getComputedStyle(e,'::before');return {width:s.width,height:s.height,color:s.backgroundColor}});
   expect(accent).toEqual({width:'40px',height:'1px',color:'rgb(164, 61, 49)'});
   const carousel=page.locator('[aria-label="Recent stories"]');
-  await expect(carousel).toHaveCSS('border-bottom-width','0px');
+  await expect(carousel).toHaveCSS('border-bottom-width','1px');
+  await expect(carousel).toHaveCSS('border-bottom-color','rgb(38, 36, 31)');
+  await expect(carousel.locator(':scope > article').first()).toHaveCSS('border-bottom-width','0px');
+  await expect(read).toHaveCSS('font-size','14px');
+  await expect(read).toHaveCSS('font-weight','400');
+  expect((await read.boundingBox()).height).toBeGreaterThanOrEqual(44);
+  if(page.viewportSize().width<=900){
+    await expect(carousel).toHaveCSS('gap','16px');
+    const card=carousel.locator(':scope > article').first();
+    const shelfBox=await carousel.boundingBox(),cardBox=await card.boundingBox();
+    expect(cardBox.width).toBeCloseTo(Math.max(shelfBox.width*.82,280),0);
+    await expect(card.locator('[role="img"]')).toHaveCSS('height','150px');
+  }
   await expect(carousel.locator(':scope > article').first()).toHaveCSS('border-right-width','1px');
   await expect(page.getByRole('img',{name:'Jay-Z at the Shawn Carter Foundation Carnival in 2011.'})).toHaveCSS('background-position',/^50% 0%(, 50% 0%)*$/);
   await page.goto('/articles/marnie-detroit-school');
