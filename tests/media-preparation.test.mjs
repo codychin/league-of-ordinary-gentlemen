@@ -198,3 +198,50 @@ test('ordinary batch Git transport durably retains exact artifacts and resumes w
  assert.throws(()=>transport({...changed,approval:{...args.approval,expiresAt:new Date(0).toISOString()}}),/approval/);
  assert.throws(()=>transport({...args,targetRef:'refs/heads/main'}),/never main/);
 });
+
+test('new Week 8 cohort bootstraps from exact records; empty baselines and partial cohorts never authorize publication',async t=>{
+ // Synthetic authority exists only in an isolated module tree. Production approval is never inferred from this fixture.
+ const o=setup(t),code=path.join(o.root,'fixture-code'),source=path.join(o.root,'source');
+ fs.cpSync(path.join(repo,'scripts'),path.join(code,'scripts'),{recursive:true});
+ fs.mkdirSync(path.join(code,'qa'),{recursive:true});fs.mkdirSync(source);
+ const authority=JSON.parse(fs.readFileSync('qa/week8-owner-playback-waiver.json'));
+ const assets=authority.assets.filter(a=>a.matchupKey.startsWith('sunday-crew-'));
+ const synthetic={...authority,assets:assets.map(a=>({...a,hold:null}))};
+ fs.writeFileSync(path.join(code,'qa/week8-owner-playback-waiver.json'),JSON.stringify(synthetic));
+ const {assemble}=await import(path.join(code,'scripts/operations/assemble-prepared-media.mjs'));
+ const {verifyDeliveryProof:verifySyntheticDelivery}=await import(path.join(code,'scripts/operations/prepare-media.mjs'));
+ const ids=manifest.bindings.filter(b=>b.edition==='sunday-crew').map(b=>b.videoId),expected=[],prepared=[];
+ for(const [i,a] of assets.entries()){
+  const r=fixture(ids[i]),m=r.row.metadata;
+  r.row.id=a.registryId;r.row.writer_slug=a.writer;
+  Object.assign(m,{week:8,kind:'preview',matchupKey:a.matchupKey,matchupTeamIds:a.matchupKey.split('-preview-')[1].split('-'),scriptRevision:a.scriptRevision??2,scriptSha256:a.scriptSha256,sourcePackageSha256:a.sourcePackageSha256});
+  m.audioGeneration={voiceId:m.voiceId,scriptSha256:a.scriptSha256,sourcePackageSha256:a.sourcePackageSha256};
+  Object.assign(m.videoGeneration,{scriptSha256:a.scriptSha256,sourcePackageSha256:a.sourcePackageSha256});
+  const b=binding(r.row,r.identity);expected.push(b);r.preparationApproval.binding=preparationBinding(b);
+  prepared.push(prepare({...o,request:r,current:()=>({observedAt:at,row:r.row})}).shelf);
+ }
+ const manifestPath='data/week8-approved-homepage-media.json',consumerPath='lib/week8-reels.js';
+ const consumer=`import manifest from '../${manifestPath}';\nexport default manifest;\n`;
+ fs.mkdirSync(path.join(o.root,'lib'));fs.writeFileSync(path.join(o.root,consumerPath),consumer);
+ const keys=expected.map(preparationBinding),main='a'.repeat(40);
+ const evidence={expected,prepared,currentBindings:keys,expectedMain:main,baseManifestSha256:null,ownerPlaybackWaiver:authority.exceptionId,
+  bootstrap:{consumerSha256:assetIdentity(Buffer.from(consumer)).sha256,placements:expected.map(b=>({...b,short:'Fixture',matchup:'Fixture vs Fixture',left:b.pair[0],right:b.pair[1]}))},
+  approval:{status:'approved',bindings:keys,evidence:'SYNTHETIC TEST ONLY',expiresAt:'2026-10-29T00:00:00Z'}};
+ const opts={repository:source,root:o.root,receipts:o.receipts,manifestPath,consumerPath,evidence,current:()=>({observedAt:at,currentMain:main,currentBindings:keys})};
+ assert.throws(()=>assemble({...opts,evidence:{...evidence,prepared:prepared.slice(1)}},now),/six/);
+ const result=assemble(opts,now),rows=JSON.parse(fs.readFileSync(path.join(o.root,manifestPath)));
+ assert.equal(rows.length,6);assert.ok(rows.every(r=>!r.fullPlaybackInspection&&!r.independentAuditoryListening&&!r.performanceApproval));
+ assert.ok(rows.every(r=>r.publicationApproved&&r.playbackExceptionId===authority.exceptionId));
+ assert.deepEqual(assemble(opts,now),result);
+ assert.ok(result.transportFiles.some(f=>f.path===consumerPath));
+ const expectedRoutes=expected.map(b=>`/sunday-crew/matchups/${b.pair.join('/')}`);
+ const delivery={sha:main,expectedDomain:'fixture.example',expectedProjectId:'project',expected,ownerPlaybackWaiver:authority.exceptionId,
+  receipt:{sha:main,state:'verified',candidateId:'deployment',projectId:'project'},alias:{sha:main,domain:'fixture.example',projectId:'project',readyState:'READY',deploymentId:'deployment',observedAt:at},expectedRoutes,
+  routes:expectedRoutes.map((path,i)=>({path,sha:main,status:200,mediaBytesMatched:true,playbackReviewed:false,ownerPlaybackWaiver:authority.exceptionId,originalAndHlsDecode:true,playbackMechanicsVerified:true,binding:keys[i],evidence:'SYNTHETIC TEST ONLY',observedAt:at}))};
+ assert.equal(verifySyntheticDelivery(delivery,now).actualPlaybackReviewed,false);
+ assert.throws(()=>verifySyntheticDelivery({...delivery,routes:delivery.routes.map(r=>({...r,playbackMechanicsVerified:false}))},now),/incomplete/);
+ assert.throws(()=>verifySyntheticDelivery({...delivery,routes:delivery.routes.map(r=>({...r,binding:keys[0]}))},now),/Distinct/);
+ assert.throws(()=>verifySyntheticDelivery({...delivery,ownerPlaybackWaiver:'other'},now),/cohort/);
+ fs.mkdirSync(path.join(source,'data'));fs.writeFileSync(path.join(source,manifestPath),'[]');
+ assert.throws(()=>assemble(opts,now),/absent new Week 8 manifest/);
+});

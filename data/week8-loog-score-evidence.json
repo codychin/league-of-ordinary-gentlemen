@@ -1,0 +1,164 @@
+{
+  "provider": "espn",
+  "leagueId": "310731",
+  "season": 2026,
+  "week": 8,
+  "capturedAt": "2026-10-31T14:33:00Z",
+  "currentScoringPeriod": 8,
+  "matchupPeriod": 8,
+  "provisional": true,
+  "source": "Authenticated provider evidence supplied by parent via delegation text",
+  "matchups": [
+    {
+      "matchupPeriodId": 8,
+      "home": {
+        "teamId": 5,
+        "teamName": "I'm a Skatt man",
+        "totalPoints": 0,
+        "currentPoints": 9.86,
+        "totalProjectedPoints": 134.65255001,
+        "pointsByScoringPeriod": {
+          "8": 9.86
+        }
+      },
+      "away": {
+        "teamId": 12,
+        "teamName": "CeeDeep Shaheeded Rivalry",
+        "totalPoints": 0,
+        "currentPoints": 0,
+        "totalProjectedPoints": 129.61788284,
+        "pointsByScoringPeriod": {
+          "8": 0
+        }
+      },
+      "winner": "UNDECIDED",
+      "playoffTierType": "NONE"
+    },
+    {
+      "matchupPeriodId": 8,
+      "home": {
+        "teamId": 10,
+        "teamName": "Royrek Tishmeshulam",
+        "totalPoints": 0,
+        "currentPoints": 21.9,
+        "totalProjectedPoints": 127.75004531,
+        "pointsByScoringPeriod": {
+          "8": 21.9
+        }
+      },
+      "away": {
+        "teamId": 2,
+        "teamName": "DarkHorse Danir",
+        "totalPoints": 0,
+        "currentPoints": 0,
+        "totalProjectedPoints": 138.18385278,
+        "pointsByScoringPeriod": {
+          "8": 0
+        }
+      },
+      "winner": "UNDECIDED",
+      "playoffTierType": "NONE"
+    },
+    {
+      "matchupPeriodId": 8,
+      "home": {
+        "teamId": 8,
+        "teamName": "Shake 'N Baker",
+        "totalPoints": 0,
+        "currentPoints": 26.1,
+        "totalProjectedPoints": 153.78856881,
+        "pointsByScoringPeriod": {
+          "8": 26.1
+        }
+      },
+      "away": {
+        "teamId": 7,
+        "teamName": "Mr Hopkins Opus",
+        "totalPoints": 0,
+        "currentPoints": 0,
+        "totalProjectedPoints": 151.5644489,
+        "pointsByScoringPeriod": {
+          "8": 0
+        }
+      },
+      "winner": "UNDECIDED",
+      "playoffTierType": "NONE"
+    },
+    {
+      "matchupPeriodId": 8,
+      "home": {
+        "teamId": 11,
+        "teamName": "Lloyd of the Rings",
+        "totalPoints": 0,
+        "currentPoints": 0,
+        "totalProjectedPoints": 154.44672351,
+        "pointsByScoringPeriod": {
+          "8": 0
+        }
+      },
+      "away": {
+        "teamId": 4,
+        "teamName": "The Route 22 Clubhouse",
+        "totalPoints": 0,
+        "currentPoints": 10.8,
+        "totalProjectedPoints": 135.99539785,
+        "pointsByScoringPeriod": {
+          "8": 10.8
+        }
+      },
+      "winner": "UNDECIDED",
+      "playoffTierType": "NONE"
+    },
+    {
+      "matchupPeriodId": 8,
+      "home": {
+        "teamId": 1,
+        "teamName": "Chat GPT's Chosen Ones",
+        "totalPoints": 0,
+        "currentPoints": 35.4,
+        "totalProjectedPoints": 150.96398172,
+        "pointsByScoringPeriod": {
+          "8": 35.4
+        }
+      },
+      "away": {
+        "teamId": 3,
+        "teamName": "The All Ugly Team",
+        "totalPoints": 0,
+        "currentPoints": 20.3,
+        "totalProjectedPoints": 127.58957551,
+        "pointsByScoringPeriod": {
+          "8": 20.3
+        }
+      },
+      "winner": "UNDECIDED",
+      "playoffTierType": "NONE"
+    },
+    {
+      "matchupPeriodId": 8,
+      "home": {
+        "teamId": 6,
+        "teamName": "Pollard Greens",
+        "totalPoints": 0,
+        "currentPoints": 0,
+        "totalProjectedPoints": 135.19326255,
+        "pointsByScoringPeriod": {
+          "8": 0
+        }
+      },
+      "away": {
+        "teamId": 9,
+        "teamName": "For the Love of the Kraft",
+        "totalPoints": 0,
+        "currentPoints": 18.3,
+        "totalProjectedPoints": 150.79190366,
+        "pointsByScoringPeriod": {
+          "8": 18.3
+        }
+      },
+      "winner": "UNDECIDED",
+      "playoffTierType": "NONE"
+    }
+  ],
+  "actualScoreRule": "Use currentPoints corroborated by pointsByScoringPeriod[8]; totalPoints=0 is not authority. These are provisional scores, not final."
+}

@@ -5,7 +5,7 @@ import {createPortal,flushSync} from 'react-dom';
 import styles from './ReelsShelf.module.css';
 import ResilientImage from './ResilientImage';
 
-export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1',storageKey='brief-week3-roundup-viewed-v1',weekLabel='THE BRIEF • WEEK 3',title='Week 3, roundup.',modeLabel='WEEK 3 • ROUNDUP'}){
+export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1',storageKey='brief-week3-roundup-viewed-v1',weekLabel='THE BRIEF • WEEK 3',title='Week 3, roundup.',modeLabel='WEEK 3 • ROUNDUP',mediaKind='recap',autoOpenFromQuery=true}){
   const [active,setActive]=useState(null);
   const [viewed,setViewed]=useState({});
   const [showMeta,setShowMeta]=useState(true);
@@ -30,6 +30,7 @@ export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1',storag
 
   useEffect(()=>{
     if(!reels.length)return;
+    if(!autoOpenFromQuery)return;
     const params=new URLSearchParams(window.location.search);
     const requested=Number(params.get('reel'));
     if(!Number.isFinite(requested)||requested<1||requested>reels.length)return;
@@ -38,7 +39,7 @@ export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1',storag
     params.delete('reel');
     const query=params.toString();
     window.history.replaceState(window.history.state,'',window.location.pathname+(query?'?'+query:'')+window.location.hash);
-  },[reels,releaseId]);
+  },[reels,releaseId,autoOpenFromQuery]);
 
   useEffect(()=>{
     if(!reels.length)return;
@@ -178,7 +179,7 @@ export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1',storag
     </div>
 
     {reel&&createPortal(<div className={styles.viewer}
-      role="dialog" aria-modal="true" aria-label={`${reel.matchup} video recap`}
+      role="dialog" aria-modal="true" aria-label={`${reel.matchup} video ${mediaKind}`}
       onTouchStart={e=>{touchStart.current=e.touches[0].clientX}}
       onTouchEnd={e=>{if(touchStart.current===null)return;const d=e.changedTouches[0].clientX-touchStart.current;if(Math.abs(d)>55)move(d<0?1:-1);touchStart.current=null;}}>
       <button className={styles.close} onClick={()=>setActive(null)} aria-label="Close video">×</button>

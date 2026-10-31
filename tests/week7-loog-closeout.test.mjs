@@ -9,7 +9,8 @@ const prior=read('week6-loog-snapshot.json');
 const source=read('week7-loog-source/01-final-standings-history.json');
 const manifest=read('week7-loog-source/manifest.json');
 const rosters=manifest.files.slice(1).flatMap(f=>read('week7-loog-source/'+f.file).rosters);
-const latest=read('latest-loog-scores.json'),completed=read('completed-loog-scores.json');
+// Week 7 historical assertions use the preserved completed snapshot.
+const latest=read('completed-loog-scores.json'),completed=read('completed-loog-scores.json');
 const round=n=>Math.round(n*100)/100;
 const byId=id=>Object.values(current.teams).find(t=>t.teamId===id);
 
@@ -104,8 +105,14 @@ test('same-week corrections win; older, wrong-season and malformed responses nev
 });
 
 test('API and matchup pages share week selection and use exact-week lineup evidence',()=>{
-  for (const p of ['app/api/live-scores/route.js','app/matchups/[a]/[b]/page.js'])
+  for (const p of ['app/page.js','app/api/live-scores/route.js','app/matchups/[a]/[b]/page.js'])
     assert.match(fs.readFileSync(p,'utf8'),/selectLoogScores\(\{provider/);
   const page=fs.readFileSync('app/matchups/[a]/[b]/page.js','utf8');
   assert.match(page,/Number\(latest.week\)===7\?week7Rosters/);
+});
+
+ test('homepage renders selected current scores before hydration instead of historical pairings',()=>{
+  const page=fs.readFileSync('app/page.js','utf8');
+  assert.match(page,/initialData=\{currentScores\}/);
+  assert.doesNotMatch(page,/initialData=\{completedScores\}/);
 });
