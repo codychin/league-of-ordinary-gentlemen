@@ -2,7 +2,9 @@ import {week7Reels} from '../lib/week7-reels';
 const recapReels=week7Reels('loog');
 import LoogAutopsy from './components/LoogAutopsy';
 import StartSitOfWeek from './components/StartSitOfWeek';
-import completedScores from '../data/latest-loog-scores.json';
+import latestScores from '../data/latest-loog-scores.json';
+import completedScores from '../data/completed-loog-scores.json';
+import {selectLoogScores} from '../lib/select-loog-scores.mjs';
 import {loogArticleVideos as alsoVideos} from '../lib/article-videos';
 import {isSundayLiveWindow} from '../lib/live-desk-state';
 import Link from 'next/link';import SiteNav from './components/SiteNav';import Standings from './components/Standings';import TransactionFeed from './components/TransactionFeed';import CultureDesk from './components/CultureDesk';import PreviewAuthor from './components/PreviewAuthor';import {leagueSnapshot} from './teams/league-data';import {writers} from './articles/writers';import ReelsShelf from './components/ReelsShelf';import AlsoShelf from './components/AlsoShelf';import SundayLiveDesk from './components/SundayLiveDesk';import SundayScoreStrip from './components/SundayScoreStrip';import SharedEditorialFront from './components/SharedEditorialFront';import LiveWeek3Surfaces from './components/LiveWeek3Surfaces'
@@ -22,7 +24,14 @@ const publishedReels=recapReels.map(reel=>{
 
 const MEDIA='https://dnzdbqycuuoonewcowis.supabase.co/storage/v1/object/public/brief-media';
 export const dynamic='force-dynamic';
-export default function Home(){const sundayLive=isSundayLiveWindow();return <><header><div className="utility"><span className="utilityMain">JOURNALISM WITHOUT PURPOSE <i>•</i> WRITTEN BY ROBOTS</span></div><div className="mast"><h1>The Brief of Ordinary Gentleman</h1><div className="dek">Fantasy football, personal grievances, forensic accounting and other matters of irrelevance.</div></div><SiteNav/></header><main>
+export default async function Home(){
+let provider;
+try {
+ const response=await fetch('https://dnzdbqycuuoonewcowis.supabase.co/functions/v1/brief-sunday-engine?action=scores',{cache:'no-store'});
+ if(response.ok)provider=await response.json();
+}catch{}
+const currentScores=selectLoogScores({provider,latest:latestScores,completed:completedScores});
+const sundayLive=isSundayLiveWindow();return <><header><div className="utility"><span className="utilityMain">JOURNALISM WITHOUT PURPOSE <i>•</i> WRITTEN BY ROBOTS</span></div><div className="mast"><h1>The Brief of Ordinary Gentleman</h1><div className="dek">Fantasy football, personal grievances, forensic accounting and other matters of irrelevance.</div></div><SiteNav/></header><main>
 {sundayLive&&<><SundayScoreStrip/><SundayLiveDesk/></>}
 <ReelsShelf reels={publishedReels} releaseId="loog-week7-recap-v2" storageKey="brief-loog-week7-recap-viewed-v2" weekLabel="THE BRIEF • WEEK 7" title="Week 7, the recaps." modeLabel="WEEK 7 • RECAPS"/>
 <SharedEditorialFront/>
@@ -33,7 +42,7 @@ export default function Home(){const sundayLive=isSundayLiveWindow();return <><h
 <StartSitOfWeek/>
 <section className="wire section" id="transactions"><div className="sectionhead"><div><small className="deskLabel">THE WIRE</small><h2>Transactions</h2></div><span>LIVE LEAGUE ACTIVITY / VERIFIED AGAINST ESPN</span></div><TransactionFeed/><div className="parodyNote">PARODY DESK • RECENT COMPLETED TRANSACTIONS PULLED DIRECTLY FROM LEAGUE ACTIVITY</div></section>
 <CultureDesk/>
-<LiveWeek3Surfaces initialData={completedScores} finalWeek={false} matchupPairs={matchupPairs} teamVisuals={Object.fromEntries(Object.entries(leagueSnapshot.teams).map(([slug,team])=>{const player=featuredPlayer(team);return [slug,{image:playerHeadshot(player),player:player.name}]}))}/>
+<LiveWeek3Surfaces initialData={currentScores} finalWeek={false} matchupPairs={matchupPairs} teamVisuals={Object.fromEntries(Object.entries(leagueSnapshot.teams).map(([slug,team])=>{const player=featuredPlayer(team);return [slug,{image:playerHeadshot(player),player:player.name}]}))}/>
 <section className="section scoreSection" id="scores-week3"><div className="sectionhead"><div><small className="deskLabel">THE BRIEF • SCOREBOARD</small><h2>Week 3 Final</h2></div><span>FINAL SCORES</span></div><div className="scores">{week3FinalScores.map((s,i)=><div className="match" key={i}><div><b>{s[0]}</b><strong>{s[1]}</strong></div><div><span>{s[2]}</span><strong>{s[3]}</strong></div></div>)}</div></section>
 <AlsoShelf videos={alsoVideos}/>
 <section className="section scoreSection"><div className="sectionhead"><h2>Week 2 Final</h2><span>FINAL SCORES • MONDAY CLOSED THE BOOK</span></div><div className="scores">{week2Scores.map((s,i)=><div className={`match ${s[4]?'notable':''}`} key={i}>{s[4]&&<small className="scoreNote">{s[4]}</small>}<div><b>{s[0]}</b><strong>{s[1]}</strong></div><div><span>{s[2]}</span><strong>{s[3]}</strong></div></div>)}</div></section>

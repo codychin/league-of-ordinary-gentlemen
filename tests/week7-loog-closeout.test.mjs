@@ -104,8 +104,14 @@ test('same-week corrections win; older, wrong-season and malformed responses nev
 });
 
 test('API and matchup pages share week selection and use exact-week lineup evidence',()=>{
-  for (const p of ['app/api/live-scores/route.js','app/matchups/[a]/[b]/page.js'])
+  for (const p of ['app/page.js','app/api/live-scores/route.js','app/matchups/[a]/[b]/page.js'])
     assert.match(fs.readFileSync(p,'utf8'),/selectLoogScores\(\{provider/);
   const page=fs.readFileSync('app/matchups/[a]/[b]/page.js','utf8');
   assert.match(page,/Number\(latest.week\)===7\?week7Rosters/);
+});
+
+ test('homepage renders selected current scores before hydration instead of historical pairings',()=>{
+  const page=fs.readFileSync('app/page.js','utf8');
+  assert.match(page,/initialData=\{currentScores\}/);
+  assert.doesNotMatch(page,/initialData=\{completedScores\}/);
 });
