@@ -1,7 +1,8 @@
+/* Copy remains in normal flow; bottom padding follows its final rendered line. */
 /* Immersive photography fades into the same paper as the light-only website. */
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] {
   --paper:#f5f1e8;--ink:#26241f;--muted:#746d62;--red:#a43d31;
-  width:calc(100% + 44px);margin:12px -22px 0;padding:0 0 32px;
+  width:calc(100% + 44px);margin:12px -22px 0;padding:0 0 40px;
   background:var(--paper);color:var(--ink);
 }
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFrontGrid { display:block;border:0;margin:0; }
@@ -32,7 +33,7 @@ html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] a:focus-visible { outline:2px solid #26241f;outline-offset:-3px; }
 @media(max-width:760px) {
   html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] {
-    width:calc(100% + 40px);margin:0 -20px 0;padding-bottom:32px;
+    width:calc(100% + 40px);margin:0 -20px 0;padding-bottom:40px;
   }
   html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeature.sabinePackage > .sundayFeatureImage {
     aspect-ratio:auto;height:clamp(340px,100vw,480px)!important;
