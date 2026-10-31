@@ -1,5 +1,5 @@
 import {test,expect} from '../helpers/browser.mjs';
-test.beforeEach(async({page})=>page.route('**/functions/v1/brief-comments?**',r=>r.fulfill({json:{comments:[],votes:[]}})));
+test.beforeEach(async({page})=>{await page.route('**/functions/v1/brief-comments?**',r=>r.fulfill({json:{comments:[],votes:[]}}));await page.route('https://a.espncdn.com/**',r=>r.abort());});
 test('immersive lead preserves content, photo overlap, accessible backing and carousel rhythm',async({page})=>{
  await page.emulateMedia({colorScheme:'dark',reducedMotion:'reduce'});await page.goto('/');await page.evaluate(()=>document.fonts.ready);
  const lead=page.locator('.immersiveLead'),photo=lead.locator('.sundayFeatureImage'),category=lead.locator('.sabinePackageIntro > small'),title=lead.locator('h2'),author=lead.locator('.previewAuthor'),deck=lead.locator('.sabinePackageIntro > p');

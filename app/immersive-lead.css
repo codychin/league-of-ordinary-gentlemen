@@ -16,7 +16,7 @@ html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout
 }
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeatureImage::after {
   content:'';position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(to bottom,transparent 0%,rgba(245,241,232,.05) 35%,rgba(245,241,232,.15) 52%,rgba(245,241,232,.9) 65%,rgba(245,241,232,.92) 80%,#f5f1e8 100%);
+  background:linear-gradient(to bottom,transparent 0%,rgba(245,241,232,.04) 25%,rgba(245,241,232,.16) 38%,rgba(245,241,232,.34) 45%,rgba(245,241,232,.55) 53%,rgba(245,241,232,.76) 60%,rgba(245,241,232,.9) 65%,rgba(245,241,232,.9) 85%,rgba(245,241,232,.91) 92%,rgba(245,241,232,.94) 97%,#f5f1e8 100%);
 }
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeature.sabinePackage > .sundayFeatureCopy {
   position:relative;z-index:1;width:auto;max-width:800px;margin:calc(-1 * clamp(112px,14vw,160px)) 48px 0;

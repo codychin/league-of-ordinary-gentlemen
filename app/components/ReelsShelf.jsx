@@ -166,7 +166,7 @@ export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1',storag
       <span>{reels.length} MATCHUPS • {new Set(reels.map(r=>r.correspondent)).size} CORRESPONDENTS</span>
     </div>
     <div className={styles.rail}>
-      {reels.map((r,i)=><button className={`${styles.story} ${viewed[r.id]?styles.seen:styles.unseen}`} key={r.id} onClick={event=>openReel(i,event.currentTarget)} aria-label={`Watch ${r.matchup} by ${r.correspondent}`}>
+      {reels.map((r,i)=><button className={`${styles.story} ${viewed[r.id]?styles.seen:styles.unseen}`} key={r.id} onClick={event=>openReel(i,event.currentTarget)} aria-label={`Watch ${r.matchup} by ${r.correspondent}`} aria-describedby={`reel-state-${releaseId}-${r.id}`}>
         <span className={styles.thumb}>
           {r.leftImage&&<span className={styles.playerLeft}><ResilientImage loading="lazy" decoding="async" src={r.leftImage} alt=""/></span>}
           {r.rightImage&&<span className={styles.playerRight}><ResilientImage loading="lazy" decoding="async" src={r.rightImage} alt=""/></span>}
@@ -176,6 +176,7 @@ export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1',storag
           {mediaKind!=='preview'&&<span className={styles.storyCopy}><b>{r.short}</b><small>{r.correspondent.split(' ')[0]}</small></span>}
         </span>
         {mediaKind==='preview'&&<span className={styles.compactLabels}><b className={styles.compactPair}>{r.short}</b><span className={styles.compactAuthor}>{r.correspondent.split(' ')[0]}</span></span>}
+        <span id={`reel-state-${releaseId}-${r.id}`} className={styles.viewState}>{viewed[r.id]?'Opened':'Not opened'}</span>
       </button>)}
     </div>
 
