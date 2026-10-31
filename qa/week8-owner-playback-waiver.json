@@ -1,0 +1,217 @@
+{
+  "exceptionId": "week8-2026-v2-owner-playback-waiver",
+  "sourceMessageId": "Sentinel_eff74c86cd40819183d134d8f60f0b5e",
+  "sourceTimestamp": "2026-10-31T14:40:54Z",
+  "owner": "Cody",
+  "quote": "approve all the videos and get them to prod",
+  "scope": "Exact 18 Week 8 spoken scripts, including the three explicitly approved revision 3 corrections. Owner waives another personal playback review round; technical checks, exact asset approval, source freshness, complete-six, staging and production integrity remain required.",
+  "assets": [
+    {
+      "registryId": "64e990c5-b7e1-5e9c-ae9d-43186341bfde",
+      "matchupKey": "doge-2026-week8-preview-1-3",
+      "writer": "sorrell",
+      "script": "Tucker Kraft has already outscored Cody’s entire flex pair from last week. By himself. On Thursday. This is excellent news for Cody and an appalling performance review for the arrangement that lost to Sandy. Tate and Egbuka helped rescue him two weeks ago. Both are out this week; apparently rescue work does not come with a warranty. Kraft has provided a head start. The others are welcome to join in; there is no rule requiring each useful performance to happen in a separate week.",
+      "scriptSha256": "81b647efa76727a37b9a88284607fb6763b41fe258163fef7ffe2f27c98ac895",
+      "sourcePackageSha256": "46776726ef566c0dbf3ed69ac07614826239b6fcff2f9c402030a3e93287db2f",
+      "hold": null,
+      "supersededBinding": {
+        "script": "Tucker Kraft has already outscored Cody’s entire flex pair from last week. By himself. On Thursday. This is excellent news for Cody and an appalling performance review for the arrangement that lost to Sandy. Tate and Egbuka are back together against the Bears now. They helped rescue him two weeks ago; apparently rescue work comes with repeat business. Kraft has provided a head start. The others are welcome to join in; there is no rule requiring each useful performance to happen in a separate week.",
+        "scriptSha256": "01311696b75fe5bdd70f28ed24c83e91f7fbc5694dd154c83f12b463f92afa30",
+        "sourcePackageSha256": "aaccbc9bb8be686398cfc8256a1fd17e9182cabce0652e9537ac9091f4f4edc1",
+        "scriptRevision": 2
+      },
+      "scriptRevision": 3,
+      "correctionApproval": {
+        "scope": "Exact three replacements approved; remainder unchanged.",
+        "reviewer": "Cody",
+        "revision": "voice-rewrite-v2-correction-v3-20261031",
+        "scriptSha256": "81b647efa76727a37b9a88284607fb6763b41fe258163fef7ffe2f27c98ac895",
+        "sourceMessageId": "Sentinel_b04ee4b7df84819189838e35bbc0aa4a",
+        "sourceTimestamp": "2026-10-31T16:35:11Z"
+      }
+    },
+    {
+      "registryId": "f0a5552f-bc97-5670-ae14-a41d8ef2e3b0",
+      "matchupKey": "doge-2026-week8-preview-2-10",
+      "writer": "march",
+      "script": "Moe’s spare quarterback has scored twice as much as Alan’s actual quarterback. This is not yet an advantage; Jordan Love did it on the bench. It is, however, an extraordinary way to make your opponent uncomfortable while technically losing. Last week Moe beat Andrew without a kicker. Now he has a kicker and a very expensive-looking unused Thursday. Moe is banking on Lamar to distinguish depth from self-sabotage. Alan would prefer that distinction remain unresolved.",
+      "scriptSha256": "523ce0b900c5247ef3fc9139d85ff0c17b87a661e0e51d662f5ddfd86c23c311",
+      "sourcePackageSha256": "b3824287e161f6516e18df7f7b7d4b8de5bb3f62671390a7606a0220e3c6e937",
+      "hold": null
+    },
+    {
+      "registryId": "fa9e7d44-69c5-54f9-98b3-fb668215f9b8",
+      "matchupKey": "doge-2026-week8-preview-4-5",
+      "writer": "pike",
+      "script": "Coker has done more than enough to win Corey last week’s game. Unfortunately, Andrew insists on playing this week’s. Nearly nine from Coker would have transformed that tiny defeat; now Christian Watson has answered with fifteen for the opponent. Corey has improved the exact little thing that hurt him and still trails. This is how a man with the league’s third-highest scoring team ends up two and five: even his corrections require somebody else to stop being helpful.",
+      "scriptSha256": "a74e1e8eeee8c7b1cd426a62ddfc6625242651db1700091b3fba6520b9905b28",
+      "sourcePackageSha256": "838315ba948d15c79a0a846939dc75c9981d742d17f0cb5beb6f371f2f4456ca",
+      "hold": null
+    },
+    {
+      "registryId": "171c2fd4-bda3-5e74-af44-8f2d7060efaa",
+      "matchupKey": "doge-2026-week8-preview-6-7",
+      "writer": "crane",
+      "script": "Bennett brought four running backs last week. Not one scored fewer than sixteen. Josh Jacobs has now started the next installment with twenty, before Sandy’s team has scored anything. Sandy just beat Cody by thirty; ordinarily that buys you a few days of feeling dangerous. Instead, he gets three more running backs waiting behind Jacobs. Beating one man convincingly has earned him the right to watch another man’s running backs arrive in shifts. There ought to be a little longer between congratulations and whatever this is.",
+      "scriptSha256": "ee53352526cd3f8868f0a0cfd8b066b2604b3d7d4e66462ab6fda75bd1330844",
+      "sourcePackageSha256": "476ac1799be96c1be954968b54747c2e18c5c85296b48734b3dd363d89b24de6",
+      "hold": null
+    },
+    {
+      "registryId": "3425e4d8-4eec-5ed2-9ec5-63104cef4ebf",
+      "matchupKey": "doge-2026-week8-preview-8-11",
+      "writer": "gannon",
+      "script": "Jason’s four-running-back lineup won last week largely because of his quarterback and kicker. Chuba Hubbard has apparently taken that personally: twenty-one on Thursday, all of Jason’s points so far. Bryan now has to catch the league leader before Drake Maye has contributed anything. Last week the running backs got to stand beside the quarterback and share the applause. This week one has done the work himself. An annoying development for anyone hoping Jason was running out of ways to win.",
+      "scriptSha256": "479a6015cf243d2a555a1c8791d97c97044c6ecedd1e0f913594be6de026940d",
+      "sourcePackageSha256": "d112ba871d26c9cc8c0f10295b1011317a2757d8b2fd2f5be924f1a179f8b67a",
+      "hold": null
+    },
+    {
+      "registryId": "b4722fbf-fdac-5041-9df0-b543055bee97",
+      "matchupKey": "doge-2026-week8-preview-9-12",
+      "writer": "kells",
+      "script": "Nix and Pollard are off Patrick’s bench and into the lineup. Last week they scored sixty-seven while he won without them, which is a deeply irritating way to own things. Pete has gone from four receivers to four running backs after losing. Sensible to reconsider. Patrick has changed his team after winning, which is considerably less reassuring for Pete: the man who could afford to leave sixty-seven unused has decided to stop being so generous. Golden has already added seventeen.",
+      "scriptSha256": "422b7f3a4266bc5ba9d34feb551fc6a6ce1087858411c1eea84b7c0d27d51149",
+      "sourcePackageSha256": "d57bb90cf8deca6994510f0413138afa0ebe9f90465ca371b79af0fb705ab0f2",
+      "hold": null
+    },
+    {
+      "registryId": "909d39fa-1617-5c41-9744-852efcc22bd9",
+      "matchupKey": "loog-2026-week8-preview-1-3",
+      "writer": "crane",
+      "script": "All Ugly has won twice. One win, you can enjoy. Two, and suddenly the season is making suggestions. Christian Watson has already supplied twenty points this week, which is frankly irresponsible encouragement for a team that opened with five straight losses. Roy is five and two and has started even faster. Sensible expectations would therefore suggest caution. Cody and Ferret have had quite enough opportunities to practice that. May Roy have an absolutely rotten remainder of the weekend.",
+      "scriptSha256": "b49a57c8b034318dfef265046901b07d8ef47afe6b5f8b73609fdf8ee622598b",
+      "sourcePackageSha256": "55a5302560fce8040ccc0a22abf57b2c38a2688eb1bbb681ec99838ed4e38dd4",
+      "hold": null
+    },
+    {
+      "registryId": "b2113841-1f09-5075-8f92-bf5f1a0862c7",
+      "matchupKey": "loog-2026-week8-preview-2-10",
+      "writer": "gannon",
+      "script": "Danny has scored eighty more points than Royrek this season and won one fewer game. Thursday’s contribution to that little indignity was twenty-two from Matthew Golden. Losing to Justin Jefferson at least offers the dignity of being beaten by Justin Jefferson. Danny is already chasing Royrek and Jefferson hasn’t contributed a thing yet. Bo Nix gets his turn this weekend. Excellent. Perhaps he can also explain why playing Danny keeps improving everybody else’s football team.",
+      "scriptSha256": "337811ca960699bae826db16e3320f643af8d5ed14d5bcb081cffd429e9cff1f",
+      "sourcePackageSha256": "f3a21b69d7f795c6f59119c6fe520b2166ee1e6697b501d9a92c13fb8f6f6de3",
+      "hold": null
+    },
+    {
+      "registryId": "a9f5bec4-3e18-5642-9839-e0f1911c3707",
+      "matchupKey": "loog-2026-week8-preview-4-11",
+      "writer": "kells",
+      "script": "The app thinks the Katz brothers should win this week. How lovely. It has watched Lloyd get demolished, then lose respectably, and decided what these people need is another reason to check their phones. Now they’re projected to beat Route Twenty-Two by eighteen. That is not a result. That is a particularly detailed invitation to get hurt again. Zay Flowers just led an entire matchup in scoring and still lost. He can probably explain why nobody should buy the balloons yet.",
+      "scriptSha256": "d7bfec26bbce429b8716416d55b4acc1c3baf2d318be0e22eaba0776a9d9b279",
+      "sourcePackageSha256": "b4c893f58c79461373c182fadd13e6cf66bb9bb91eaa9d13a26290fac4d76a0c",
+      "hold": null,
+      "supersededBinding": {
+        "script": "The app thinks the Katz brothers should win this week. How lovely. It has watched Lloyd get demolished, then lose respectably, and decided what these people need is another reason to check their phones. Now they’re projected to beat Route Twenty-Two by twenty-one. That is not a result. That is a particularly detailed invitation to get hurt again. Zay Flowers just led an entire matchup in scoring and still lost. He can probably explain why nobody should buy the balloons yet.",
+        "scriptSha256": "06a1a67a638b54ba5fa7de6c985b405c2429d010baadaaabb15903fcd1d36d45",
+        "sourcePackageSha256": "cfab4a23c2848ad1c624845707b1d5ba959942000a92b0593afb4dc75f2278ba",
+        "scriptRevision": 2
+      },
+      "scriptRevision": 3,
+      "correctionApproval": {
+        "scope": "Exact three replacements approved; remainder unchanged.",
+        "reviewer": "Cody",
+        "revision": "voice-rewrite-v2-correction-v3-20261031",
+        "scriptSha256": "d7bfec26bbce429b8716416d55b4acc1c3baf2d318be0e22eaba0776a9d9b279",
+        "sourceMessageId": "Sentinel_b04ee4b7df84819189838e35bbc0aa4a",
+        "sourceTimestamp": "2026-10-31T16:35:11Z"
+      }
+    },
+    {
+      "registryId": "94273c5e-756e-5654-a4c9-0732738c3fe7",
+      "matchupKey": "loog-2026-week8-preview-5-12",
+      "writer": "march",
+      "script": "Bryce Young has finished with ten for Skatt. Matty still has Josh Allen to come. This ought to provide some reassurance, except Skatt won last week with six from Young while Matty lost despite getting the better quarterback performance. There is a particular indignity available here: Matty could get another perfectly good afternoon from a very good quarterback and lose to a man whose quarterback has been doing the absolute minimum. Skatt has already made the necessary arrangements.",
+      "scriptSha256": "b116a5631efd6a16a66bd5266982e1c82ec32f675f17ba207fde27ae2abca0db",
+      "sourcePackageSha256": "4d151de2428cff6f048030d09d3e4d10a2fbe2d6964202746fb7c20fb6b872c8",
+      "hold": null
+    },
+    {
+      "registryId": "02802236-1e91-58f2-a50c-a029ffc50b95",
+      "matchupKey": "loog-2026-week8-preview-6-9",
+      "writer": "pike",
+      "script": "Sherm has built LOOG’s highest-scoring team. Tish has reached exactly the same record with sixty-one fewer points, which is an excellent arrangement unless you’re Sherm. Now Tucker Kraft has opened their meeting with eighteen for the team named after him. Even the branding is doing useful work. Both came in four and three. A fifth win is available; Sherm’s season-long scoring lead won’t count toward it. A wonderfully efficient competition for making extra effort feel personally insulting.",
+      "scriptSha256": "487b888eea2d3db643f05a0016ed09410cb001f83adfcc1ac86e0fa4b3dc8ec6",
+      "sourcePackageSha256": "008c18cf8c6dfc589271b362a3e898a736d52051e54896cae641b330053b0a31",
+      "hold": null
+    },
+    {
+      "registryId": "60ca5d65-9074-5c87-a965-8bbbc7684048",
+      "matchupKey": "loog-2026-week8-preview-7-8",
+      "writer": "sorrell",
+      "script": "Chuba Hubbard has given Norm twenty-six points before Kush has got going. Good. First place should occasionally have to sit up. Last week Kush left forty-one from Tony Pollard on the bench and won anyway; Norm left a possible victory there and lost. Six and one makes a man’s mistakes look charming. Two and five makes them look like his personality. Norm has supplied the unpleasant opening. Now let’s see whether Hopkins can spend the weekend looking slightly less pleased with itself.",
+      "scriptSha256": "21da23842c47723616efddd77d8e34fc7ca5115a917c0231e8e52b58d347d84f",
+      "sourcePackageSha256": "7db621f7946776e65dc2789e17a3bed1757ecc4390e36ed15d5fbd78e9f1c668",
+      "hold": null
+    },
+    {
+      "registryId": "2c80587f-3aa5-5baf-994c-87d6e33cd70a",
+      "matchupKey": "sunday-crew-2026-week8-preview-1-4",
+      "writer": "march",
+      "script": "Sandy has given Paul forty-three points to think about before the weekend. Love and Jacobs did that on Thursday. Chase and Saint Brown have yet to trouble him. There is something deeply inconsiderate about making a man spend his Saturday recovering from a Sunday that hasn’t happened. Paul has scored more over the season; they have the same record. He is quite entitled to consider himself the better team. Sandy has merely made that a less relaxing opinion to hold.",
+      "scriptSha256": "7fb928264f86483c834603bbb7e93ccc0a6f9042c95e682d8f685932eada514b",
+      "sourcePackageSha256": "d38f870b77dc86f19b711ea46e5de5e979e86cfe11358a684e91a2c7345deb89",
+      "hold": null,
+      "supersededBinding": {
+        "script": "Sandy has given Paul forty-three points to think about before the weekend. Love and Jacobs did that on Thursday. Chase and Saint Brown have yet to trouble him. There is something deeply inconsiderate about making a man spend his Friday recovering from a Sunday that hasn’t happened. Paul has scored more over the season; they have the same record. He is quite entitled to consider himself the better team. Sandy has merely made that a less relaxing opinion to hold.",
+        "scriptSha256": "f4b05d48fc2b00ecaead2be42621d711950c6dbb7e223148a1bda0591a6df7af",
+        "sourcePackageSha256": "901a6e30d9cf63a2be4a10cf66adff2016a0951a48adade0ca043b6946fe9ab3",
+        "scriptRevision": 2
+      },
+      "scriptRevision": 3,
+      "correctionApproval": {
+        "scope": "Exact three replacements approved; remainder unchanged.",
+        "reviewer": "Cody",
+        "revision": "voice-rewrite-v2-correction-v3-20261031",
+        "scriptSha256": "7fb928264f86483c834603bbb7e93ccc0a6f9042c95e682d8f685932eada514b",
+        "sourceMessageId": "Sentinel_b04ee4b7df84819189838e35bbc0aa4a",
+        "sourceTimestamp": "2026-10-31T16:35:11Z"
+      }
+    },
+    {
+      "registryId": "cad4d73a-8bf1-5655-8e77-d3db2ad3b45f",
+      "matchupKey": "sunday-crew-2026-week8-preview-11-12",
+      "writer": "gannon",
+      "script": "Runit’s team is called Running Backs Are Overrated. His three backs scored more than seventy last week. Hubbard, the least productive of the three, has already put up twenty-one this week. At this point the name is less a football opinion than advice you should decline from a man who wants your players. Greg comes in tied with him at five and two. Beating Runit would be useful. Making him admit what keeps winning these games might require a separate competition.",
+      "scriptSha256": "3d099bfb13846783a9aa5a96e31e5242e0c6f1129ad66ffe7a9f79b84a67b588",
+      "sourcePackageSha256": "b9bce09162f43e756a45d6a77518cef3f2fa99432397d57feff26e4940cec7ac",
+      "hold": null
+    },
+    {
+      "registryId": "ea56dfcd-0a6d-558c-9b80-19a5913eabb8",
+      "matchupKey": "sunday-crew-2026-week8-preview-2-5",
+      "writer": "kells",
+      "script": "Andrew and Matt lost by a combined hundred and fifty-eight points last week. This week they get each other, which is thoughtful scheduling. No need to explain what happened; the other man knows the smell. Matt has fourteen from Tucker Kraft already. Andrew has two from MarShawn Lloyd. There is still plenty of football left for either to reclaim some dignity. Unless they tie, which would be an extraordinarily committed refusal to let either man have a nice thing.",
+      "scriptSha256": "cc49c800b73e2dfdc2b25706d9a0449a1cd4b2edc446a7c2aebe48f0f98cb93d",
+      "sourcePackageSha256": "e8e547e589a407dc7206912d6690d2b66f0dfe3f9eb76f6aad7592660ecf819b",
+      "hold": null
+    },
+    {
+      "registryId": "4579a154-0f55-55c0-b726-010aa334e008",
+      "matchupKey": "sunday-crew-2026-week8-preview-3-9",
+      "writer": "sorrell",
+      "script": "Drew has scored a hundred and sixty-one more points than Patrick. Both are two and five. That is a splendid foundation for feeling superior, provided you never have to play Patrick. Unfortunately, here he is. Drew already has nearly twenty-nine from Thursday; Patrick has Lamar at quarterback. This is the week the hard-luck argument stops being an explanation and becomes a dare. Beat the man you’ve substantially outscored. Otherwise Patrick gets the win and the pleasure of not caring why.",
+      "scriptSha256": "acc1da1c692c3ba0fe5dfbefe292a9718dcecb2b53dd2d5bacacc1f72fffa520",
+      "sourcePackageSha256": "9db7ac9c1602201631eede7df040b6cbd55a04beadcbc098f7fbb3618bb21f5a",
+      "hold": null
+    },
+    {
+      "registryId": "286a0925-57dd-56cf-a1f7-f1b5dcd0fbf8",
+      "matchupKey": "sunday-crew-2026-week8-preview-6-7",
+      "writer": "pike",
+      "script": "Joe could use last week’s Tre Tucker points and next week’s McCaffrey. Unfortunately, the league insists on everyone doing the work during the same week. Tucker is playing for him now; McCaffrey and Nabers are on bye. Meanwhile Ravi gets to bring back Bo Nix after fixing his quarterback problem with thirty points. Joe’s replacements don’t have to become stars. They have to make Ravi pay for the win before the expensive help comes back. Nobody should get a discount just because you’re short-staffed.",
+      "scriptSha256": "9e6b6cff7b0e7b637a4ed4ee85560a7c58a32c3d681c38cec7bfa820c5a3f4e5",
+      "sourcePackageSha256": "5026f1bfa84bb0c0956173aba1f0e197f76db664414da0fb4d533826d7da9119",
+      "hold": null
+    },
+    {
+      "registryId": "2588512e-d2f1-5b6b-b432-25ac998f41cf",
+      "matchupKey": "sunday-crew-2026-week8-preview-8-10",
+      "writer": "crane",
+      "script": "Poon got eight and a half from Jalen Coker on Thursday. Cody got almost exactly the same from Tet McMillan. Two men playing receiver for Carolina, conducting a tiny, largely pointless argument inside our larger one. Then Christian Watson gave Poon fifteen more. That’s the part Cody has to answer now. Last week Smith-Njigba and Burden did most of his shouting. They haven’t played yet. Poon has a lead, but the quiet is not entirely reassuring.",
+      "scriptSha256": "bfef517db7008bb83d706c2575222a7ec8103cc4447b6f23ee9d565e9c4ae8b2",
+      "sourcePackageSha256": "a7842a8efc0b52b997704dbbaf60808d26798b8bd00a873a3b482cdebabff8a8",
+      "hold": null
+    }
+  ]
+}
