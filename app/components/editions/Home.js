@@ -34,7 +34,7 @@ export default async function Home({config}){
       <div className="mast"><h1>{edition.tenant.publication_name}</h1><div className="dek">Fantasy football, personal grievances, forensic accounting and other matters of irrelevance.</div></div>
       <nav className="siteNav" aria-label="Primary navigation"><Link href={root+""}>HOME</Link>{LIVE_DESK_ENABLED&&<Link href={root+"#live-desk"}>LIVE DESK</Link>}<Link href={root+"#league"}>THE LEAGUE</Link><Link href={root+"/teams"}>FRANCHISES</Link><Link href={root+"#standings"}>STANDINGS</Link><Link href={root+"#transactions"}>THE WIRE</Link><Link href={root+"#scores"}>SCORES</Link></nav>
     </header>
-    <main>
+    <main data-weekly-media={previewReels.length===6||reels.length>0?"present":"absent"}>
       <SundayLiveDesk editionSlug={slug} editionLabel={name.toUpperCase()} staffPath={root+"/newsroom"}/>
       {previewReels.length===6&&<ReelsShelf reels={previewReels} releaseId={`${slug}-week8-preview-v2`} storageKey={`brief-${slug}-week8-preview-viewed-v2`} weekLabel={`${name.toUpperCase()} • WEEK 8`} title="Week 8, the previews." modeLabel="WEEK 8 • PREVIEWS" mediaKind="preview" autoOpenFromQuery={false}/>}
       {previewReels.length!==6&&reels.length>0&&<ReelsShelf reels={reels} releaseId={config.reelRelease} storageKey={config.reelStorage||config.reelRelease+"-viewed"} weekLabel={config.reelLabel} title={config.reelTitle} modeLabel={config.reelLabel}/>}

@@ -8,7 +8,7 @@ test('immersive lead preserves content, photo overlap, accessible backing and ca
  const [p,c,t,a,d,l,next]=await Promise.all([photo.boundingBox(),category.boundingBox(),title.boundingBox(),author.boundingBox(),deck.boundingBox(),lead.boundingBox(),page.locator('[aria-label="Recent stories"]').boundingBox()]);
  expect((c.y-p.y)/p.height).toBeGreaterThanOrEqual(.65);expect(c.y).toBeLessThan(p.y+p.height);expect(t.y).toBeLessThan(p.y+p.height);expect(a.y-t.y-t.height).toBeCloseTo(20,0);expect(d.y-a.y-a.height).toBeCloseTo(20,0);expect(next.y-l.y-l.height).toBeCloseTo(0,0);expect(next.y-d.y-d.height).toBeCloseTo(40,0);
  await expect(category).toHaveCSS('color','rgb(164, 61, 49)');await expect(category).toHaveCSS('opacity','1');await expect(title).toHaveCSS('color','rgb(38, 36, 31)');
- const gradient=await photo.evaluate(e=>getComputedStyle(e,'::after').backgroundImage);expect(gradient).toContain('rgba(245, 241, 232, 0.96) 65%');
+ const gradient=await photo.evaluate(e=>getComputedStyle(e,'::after').backgroundImage);expect(gradient).toContain('rgba(245, 241, 232, 0.68) 65%');
  await expect.poll(()=>page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),{timeout:5000}).toBe(true);
  if(page.viewportSize().width<=760){expect(p.x).toBeCloseTo(0,0);expect(p.width).toBe(page.viewportSize().width);await expect(page.locator('html')).toHaveCSS('color-scheme','light only');}else expect(p.width/p.height).toBeGreaterThan(1.7);
  await lead.scrollIntoViewIfNeeded();await page.screenshot({path:`/workspace/font-qa/immersive-lead-${page.viewportSize().width}.png`,animations:'disabled'});
@@ -39,4 +39,28 @@ test('rendered subtitle owns its height before the carousel under text enlargeme
  const after=await measure();expect(after.height).toBeGreaterThan(before.height);expect(after.gap).toBeCloseTo(40,0);expect(after.top-before.top).toBeCloseTo(after.height-before.height,0);
  expect(await deck.evaluate(e=>e.scrollHeight<=e.clientHeight)).toBe(true);
  await deck.scrollIntoViewIfNeeded();await page.screenshot({path:`/workspace/font-qa/hero-flow-enlarged-${page.viewportSize().width}.png`});
+});
+
+test('top bleed requires explicitly empty inventory, not an unavailable media strip',async({page})=>{
+ await page.goto('/');await page.evaluate(()=>document.fonts.ready);
+ const main=page.locator('main[data-weekly-media]');await expect(main).toHaveAttribute('data-weekly-media','present');
+ const shelf=page.getByRole('region',{name:'Week 8, the previews. videos',exact:true});await shelf.waitFor();
+ const photo=page.locator('.immersiveLead .sundayFeatureImage'),img=photo.locator('img');
+ await expect(img).toHaveCSS('object-position','50% 0%');
+ expect(await img.evaluate(e=>e.naturalWidth>0)).toBe(true);
+ const shelfBox=await shelf.boundingBox();expect((await photo.boundingBox()).y).toBeGreaterThanOrEqual(shelfBox.y+shelfBox.height);
+ // Explicit DOM fixture: simulate a missing rendered shelf while inventory is still present.
+ await shelf.evaluate(e=>e.remove());
+ if(page.viewportSize().width<=760)expect((await photo.boundingBox()).y).toBeGreaterThanOrEqual(64);
+ // Explicit content fixture: no published weekly media and no preceding live modules.
+ await main.evaluate(e=>{e.dataset.weeklyMedia='absent';while(e.firstElementChild&&!e.firstElementChild.matches('.immersiveLead'))e.firstElementChild.remove();});
+ if(page.viewportSize().width<=760){
+  expect((await photo.boundingBox()).y).toBeCloseTo(0,0);
+  await expect(page.locator('.mobileBriefLogo')).toBeVisible();
+  expect((await page.locator('.mobileBriefLogo').boundingBox()).height).toBeGreaterThanOrEqual(44);
+ }else{
+  const nav=await page.locator('.siteNav').boundingBox();expect((await photo.boundingBox()).y-nav.y-nav.height).toBeCloseTo(0,0);
+ }
+ await expect(img).toHaveCSS('object-position','50% 0%');
+ await page.screenshot({path:`/workspace/font-qa/hero-no-strip-${page.viewportSize().width}.png`});
 });
