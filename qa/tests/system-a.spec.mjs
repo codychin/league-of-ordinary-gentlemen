@@ -26,6 +26,8 @@ test('System A uses exact supporting faces and preserves header/navigation', asy
     await expect(el).toHaveCSS('line-height',line);
     await expect(el).toHaveCSS('font-synthesis','none');
   }
+  await expect(page.locator('.sabinePackageIntro > p').first()).toHaveCSS('color','rgb(38, 36, 31)');
+  await expect(page.locator('.previewAuthor strong').first()).toHaveCSS('color','rgb(117, 110, 99)');
   await expect(page.locator('.mast h1')).toHaveCSS('font-family','"Brief Nine F Native Preview", Georgia, serif');
   await expect(page.locator('.mast h1')).toHaveCSS('color','rgb(17, 16, 14)');
   for(const el of await page.locator('.siteNav a, .appTabBar a').all()) {

@@ -46,7 +46,7 @@
   font: 700 14px/20px 'Brief Editorial Sans', sans-serif;
   letter-spacing: 0;
   text-transform: uppercase;
-  color: var(--ink);
+  color: var(--muted);
 }
 [data-editorial-system="a"] :is(.read, .editorialStoryLink) {
   font: 700 16px/24px 'Brief Editorial Sans', sans-serif;
@@ -70,7 +70,7 @@
   font: 400 17px/24px 'Brief Editorial Sans', sans-serif;
   letter-spacing: 0;
   text-transform: none;
-  color: var(--muted);
+  color: var(--ink);
 }
 [data-editorial-system="a"] .articleBody p { font: 400 17px/24px 'Brief Editorial Sans', sans-serif; color: var(--ink); }
 [data-editorial-system="a"] .previewAuthor { letter-spacing: 0; max-width: 100%; }
