@@ -36,12 +36,21 @@ main.articleMain[data-editorial-system="a"] .articleBody .articleSectionHead { b
   .appMoreSheet { max-height:calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 100px);overflow-y:auto;overscroll-behavior:contain; }
 }
 
-/* Culture now shares the editorial paper surface, including its foreground. */
+/* Culture is an intentional inverse editorial surface, not system dark mode. */
+html #culture.affairs[data-editorial-system="a"] {
+  --ink:#f5f1e8;--paper:#f5f1e8;--muted:#bdb5a8;--red:#d65b4c;
+  background:#171613;color:var(--ink);margin-top:24px;padding-top:24px;
+  scroll-margin-top:0!important;
+}
+html main > .wire:has(+ #culture.affairs) { padding-bottom:0; }
 html #culture.affairs[data-editorial-system="a"] .cultureGrid .card h3,
 html.standaloneApp[data-app-tab='culture'] #culture.affairs[data-editorial-system="a"] .cultureGrid .card h3 {
   color:var(--ink)!important;-webkit-text-fill-color:var(--ink)!important;
 }
-#culture.affairs[data-editorial-system="a"] .affairsIntro { color:var(--muted); }
+html #culture.affairs[data-editorial-system="a"] :is(.affairsIntro,.previewAuthor,.previewAuthor strong,.previewAuthor small,.previewAuthor time,.culturePagination span) { color:var(--muted); }
+html #culture.affairs[data-editorial-system="a"] .culturePagination :is(button,span) { color:var(--ink); }
+html #culture.affairs[data-editorial-system="a"] .culturePagination button { min-height:44px; }
+html #culture.affairs[data-editorial-system="a"] :is(a,button):focus-visible { outline:2px solid var(--red);outline-offset:3px; }
 
 @media(max-width:760px) {
   /* Keep the glass treatment, with enough opacity to protect icon contrast over images. */

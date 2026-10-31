@@ -5,6 +5,7 @@
 /* Immersive photography fades into the same paper as the light-only website. */
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] {
   --paper:#f5f1e8;--ink:#26241f;--muted:#746d62;--red:#a43d31;
+  --hero-overlap:clamp(160px,16vw,200px);
   width:calc(100% + 44px);margin:12px -22px 0;padding:0 0 40px;
   background:var(--paper);color:var(--ink);isolation:isolate;
 }
@@ -19,10 +20,10 @@ html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout
 }
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeatureImage::after {
   content:'';position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(to bottom,transparent 0%,transparent 35%,rgba(245,241,232,.12) 45%,rgba(245,241,232,.4) 55%,rgba(245,241,232,.74) 65%,rgba(245,241,232,.78) 85%,rgba(245,241,232,.9) 95%,#f5f1e8 100%);
+  background:linear-gradient(to bottom,transparent 0%,transparent calc(100% - var(--hero-overlap) - 180px),rgba(245,241,232,.03) calc(100% - var(--hero-overlap) - 140px),rgba(245,241,232,.12) calc(100% - var(--hero-overlap) - 100px),rgba(245,241,232,.28) calc(100% - var(--hero-overlap) - 65px),rgba(245,241,232,.49) calc(100% - var(--hero-overlap) - 30px),rgba(245,241,232,.73) calc(100% - var(--hero-overlap)),rgba(245,241,232,.8) calc(100% - var(--hero-overlap) + 48px),rgba(245,241,232,.88) calc(100% - var(--hero-overlap) + 96px),rgba(245,241,232,.96) calc(100% - 24px),#f5f1e8 100%);
 }
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeature.sabinePackage > .sundayFeatureCopy {
-  position:relative;z-index:auto;width:auto;max-width:800px;margin:calc(-1 * clamp(112px,14vw,160px)) 48px 0;
+  position:relative;z-index:auto;width:auto;max-width:800px;margin:calc(-1 * var(--hero-overlap)) 48px 0;
   padding:0!important;min-height:0!important;background:transparent;
 }
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sabinePackageIntro { padding:0!important; }
@@ -42,13 +43,13 @@ html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout
     aspect-ratio:auto;height:clamp(340px,100vw,480px)!important;
   }
   html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeature.sabinePackage > .sundayFeatureCopy {
-    margin:-112px 20px 0;max-width:none;
+    margin:calc(-1 * var(--hero-overlap)) 20px 0;max-width:none;
   }
   html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sabinePackageTitle h2 { font-size:31px;line-height:35px; }
 }
 @media(min-width:761px) and (max-width:1000px) {
   html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeature.sabinePackage > .sundayFeatureImage { aspect-ratio:1.8/1; }
-  html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeature.sabinePackage > .sundayFeatureCopy { margin:-112px 32px 0; }
+  html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeature.sabinePackage > .sundayFeatureCopy { margin:calc(-1 * var(--hero-overlap)) 32px 0; }
 }
 
 /* The original dark photo retains a contrasting keyboard-focus ring. */
