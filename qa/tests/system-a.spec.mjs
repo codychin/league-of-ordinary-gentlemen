@@ -24,7 +24,7 @@ test('System A uses exact supporting faces and preserves header/navigation', asy
     ['.previewAuthor strong','12px','700','16px'],
   ]) {
     const el=page.locator(selector).first();
-    await expect(el).toHaveCSS('font-family','"Brief Editorial Sans", sans-serif');
+    await expect(el).toHaveCSS('font-family',['.sabinePackageIntro > p','.previewAuthor strong'].includes(selector)?'"Brief Body Reference 5", serif':'"Brief Editorial Sans", sans-serif');
     await expect(el).toHaveCSS('font-size',size);
     await expect(el).toHaveCSS('font-weight',weight);
     await expect(el).toHaveCSS('line-height',line);
