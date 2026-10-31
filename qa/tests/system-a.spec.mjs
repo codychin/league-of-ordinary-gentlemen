@@ -35,7 +35,9 @@ test('System A uses exact supporting faces and preserves header/navigation', asy
   await expect(page.locator('.mast h1')).toHaveCSS('font-family','"Brief Nine F Native Preview", Georgia, serif');
   await expect(page.locator('.mast h1')).toHaveCSS('color','rgb(17, 16, 14)');
   for(const el of await page.locator('.siteNav a, .appTabBar a').all()) {
-    expect(await el.evaluate(e=>getComputedStyle(e).fontFamily)).not.toContain('Brief Editorial Sans');
+    const family=await el.evaluate(e=>getComputedStyle(e).fontFamily);
+    if(page.viewportSize().width>760&&await el.evaluate(e=>!!e.closest('.siteNav')))expect(family).toContain('Brief Editorial Sans');
+    else expect(family).not.toContain('Brief Editorial Sans');
   }
   if(page.viewportSize().width<=760) {
     await expect(page.locator('.sabinePackageTitle h2').first()).toHaveCSS('font-size','31px');

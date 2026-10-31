@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 export default function EditionSiteNav({root='/'}){
-  return <nav className="siteNav">
+  return <nav className="siteNav" aria-label="Primary navigation">
     <Link href={root}>HOME</Link>
     <Link href={root+'#league'}>THE LEAGUE</Link>
     <Link href={root+'/teams'}>FRANCHISES</Link>
