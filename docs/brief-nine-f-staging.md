@@ -22,12 +22,13 @@ retain their larger established hierarchy. Editorial colors are paper
 #F5F1E8, ink #26241F, red #A43D31, muted #756E63. Mobile content margins are
 20px. Header/navigation retain their existing sizes, fonts, palette, icons,
 structure and behavior. Media, article order and factual prose are unchanged;
-the redundant home LEAD STORY text is removed while its short red accent remains. Homepage bylines now include
+the redundant home LEAD STORY text and short red accent are removed. Homepage bylines now include
 the existing correspondent-role metadata beside the original portraits.
 Share controls, author roles, carousel dividers and dark photo-caption plaques
 remain present and are checked in the browser suite. One darker horizontal rule sits beneath the whole carousel; cards have no
 bottom rules and vertical dividers remain. Production card widths (82% mobile),
-16px mobile gutters and 150px image heights are preserved. Jay-Z uses the canonical top focal position
+16px mobile gutters and 150px image heights are preserved. Equal-height flex
+cards push Read footers to a shared bottom edge without truncating titles or decks. Jay-Z uses the canonical top focal position
 to preserve his head. Sharing is a compact inline control beside the writer
 row, with native share and explicit Copy Link, Facebook, X, WhatsApp and Email
 fallback options. No destination is posted to automatically.

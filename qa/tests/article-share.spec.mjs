@@ -69,9 +69,11 @@ test('editorial refinements retain focal crop, vertical dividers and inline shar
   await expect(read).toHaveCSS('color','rgb(164, 61, 49)');
   await expect(read).toHaveCSS('border-bottom-width','0px');
   expect(await read.evaluate(e=>getComputedStyle(e,'::after').content)).toBe('none');
-  const accent=await page.locator('.leadStoryFlag').evaluate(e=>{const s=getComputedStyle(e,'::before');return {width:s.width,height:s.height,color:s.backgroundColor}});
-  expect(accent).toEqual({width:'40px',height:'1px',color:'rgb(164, 61, 49)'});
+  expect(await page.locator('.leadStoryFlag').evaluate(e=>getComputedStyle(e,'::before').content)).toBe('none');
   const carousel=page.locator('[aria-label="Recent stories"]');
+  const footers=await carousel.locator(':scope > article .read').evaluateAll(es=>es.map(e=>e.getBoundingClientRect().bottom));
+  expect(footers).toHaveLength(3);
+  expect(Math.max(...footers)-Math.min(...footers)).toBeLessThanOrEqual(1);
   await expect(carousel).toHaveCSS('border-bottom-width','1px');
   await expect(carousel).toHaveCSS('border-bottom-color','rgb(38, 36, 31)');
   await expect(carousel.locator(':scope > article').first()).toHaveCSS('border-bottom-width','0px');

@@ -122,7 +122,7 @@
 /* Reading-size and preservation feedback: keep the existing components intact. */
 [data-editorial-system="a"] .editorialBody,
 [data-editorial-system="a"] .editorialBody p { font-size: 19px; line-height: 28px; }
-[data-editorial-system="a"] .leadStoryFlag > small { grid-column: 2; }
+[data-editorial-system="a"] .leadStoryFlag { display: flex; justify-content: flex-end; gap: 0; }
 .previewAuthorCopy { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
 .previewAuthorCopy small { display: block; font: 400 11px/15px Arial, sans-serif; letter-spacing: 0; }
 [data-editorial-system="a"] .previewAuthorCopy small,
@@ -133,10 +133,6 @@
   color: var(--muted);
 }
 
-/* Keep the accent without reinstating the removed lead label. */
-[data-editorial-system="a"] .leadStoryFlag::before {
-  content: ''; display: block; width: 40px; height: 1px; background: var(--red); align-self: center;
-}
 [data-editorial-system="a"] .articleBody .articleSectionHead {
   font: 700 clamp(26px, 3vw, 34px)/1.2 'Brief Nine F Native Preview', Georgia, serif;
   font-synthesis: none; letter-spacing: 0; text-transform: none; color: var(--ink);
