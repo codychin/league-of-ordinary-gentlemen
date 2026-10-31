@@ -63,19 +63,18 @@ test('native failure offers manual copy when clipboard access fails',async({page
   await expect(options).toHaveCount(0);
 });
 
-test('editorial refinements retain focal crop, vertical dividers and inline sharing',async({page})=>{
+test('editorial refinements retain focal crop, open layout and inline sharing',async({page})=>{
   await page.goto('/');
   const read=page.locator('.sundayFeatureCopy > .read').first();
   await expect(read).toHaveCSS('color','rgb(164, 61, 49)');
   await expect(read).toHaveCSS('border-bottom-width','0px');
   expect(await read.evaluate(e=>getComputedStyle(e,'::after').content)).toBe('none');
-  expect(await page.locator('.leadStoryFlag').evaluate(e=>getComputedStyle(e,'::before').content)).toBe('none');
+  await expect(page.locator('.leadStoryFlag')).toHaveCount(0);
   const carousel=page.locator('[aria-label="Recent stories"]');
   const footers=await carousel.locator(':scope > article .read').evaluateAll(es=>es.map(e=>e.getBoundingClientRect().bottom));
   expect(footers).toHaveLength(3);
   expect(Math.max(...footers)-Math.min(...footers)).toBeLessThanOrEqual(1);
-  await expect(carousel).toHaveCSS('border-bottom-width','1px');
-  await expect(carousel).toHaveCSS('border-bottom-color','rgb(38, 36, 31)');
+  await expect(carousel).toHaveCSS('border-bottom-width','0px');
   await expect(carousel.locator(':scope > article').first()).toHaveCSS('border-bottom-width','0px');
   await expect(read).toHaveCSS('font-size','14px');
   await expect(read).toHaveCSS('font-weight','400');
@@ -87,8 +86,19 @@ test('editorial refinements retain focal crop, vertical dividers and inline shar
     expect(cardBox.width).toBeCloseTo(Math.max(shelfBox.width*.82,280),0);
     await expect(card.locator('[role="img"]')).toHaveCSS('height','150px');
   }
-  await expect(carousel.locator(':scope > article').first()).toHaveCSS('border-right-width','1px');
+  await expect(carousel.locator(':scope > article').first()).toHaveCSS('border-right-width','0px');
   await expect(page.getByRole('img',{name:'Jay-Z at the Shawn Carter Foundation Carnival in 2011.'})).toHaveCSS('background-position',/^50% 0%(, 50% 0%)*$/);
+  const lead=page.locator('[data-editorial-layout="open-top"]');
+  for(const e of [lead,lead.locator('.sundayFrontGrid'),lead.locator('.sundayFeature')]) {
+    await expect(e).toHaveCSS('border-top-width','0px');
+    await expect(e).toHaveCSS('border-bottom-width','0px');
+  }
+  await expect(page.locator('section[aria-label="Week 8, the previews. videos"]')).toHaveCSS('border-bottom-width','0px');
+  if(page.viewportSize().width>760){
+    const image=await lead.locator('.sundayFeatureImage').boundingBox();
+    const category=await lead.locator('.sabinePackageIntro > small').boundingBox();
+    expect(Math.abs(image.y-category.y)).toBeLessThanOrEqual(2);
+  }
   await page.goto('/articles/marnie-detroit-school');
   await page.evaluate(()=>document.fonts.ready);
   const subtitle=page.getByRole('heading',{name:'I. Genesis: The Gibbs Proposition'});

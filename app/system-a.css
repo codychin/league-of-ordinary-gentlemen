@@ -122,7 +122,6 @@
 /* Reading-size and preservation feedback: keep the existing components intact. */
 [data-editorial-system="a"] .editorialBody,
 [data-editorial-system="a"] .editorialBody p { font-size: 19px; line-height: 28px; }
-[data-editorial-system="a"] .leadStoryFlag { display: flex; justify-content: flex-end; gap: 0; }
 .previewAuthorCopy { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
 .previewAuthorCopy small { display: block; font: 400 11px/15px Arial, sans-serif; letter-spacing: 0; }
 [data-editorial-system="a"] .previewAuthorCopy small,
@@ -139,3 +138,42 @@
   margin: 38px 0 18px; padding-top: 20px;
 }
 [data-editorial-system="a"] .articleBody .articleSectionHead::after { content: none; }
+
+/* Option 3: homepage lead and carousel only; functional borders stay intact. */
+main > section[aria-label$=" videos"]:has(+ [data-editorial-layout="open-top"]) { border-bottom: 0; }
+[data-editorial-layout="open-top"].morningBriefPreview.sundayFront {
+  border: 0; margin-top: 12px; padding-bottom: 12px;
+}
+[data-editorial-layout="open-top"].morningBriefPreview.sundayFront .sundayFrontGrid {
+  border: 0; margin-top: 0;
+}
+[data-editorial-layout="open-top"].morningBriefPreview.sundayFront .sundayFeature.sabinePackage {
+  border: 0; align-items: start !important;
+}
+[data-editorial-layout="open-top"].morningBriefPreview.sundayFront .sundayFeature.sabinePackage > .sundayFeatureImage {
+  min-height: 0 !important; height: auto !important; align-self: start !important;
+}
+[data-editorial-layout="open-top"].morningBriefPreview.sundayFront .sundayFeature.sabinePackage > .sundayFeatureCopy {
+  min-height: 0 !important; height: auto !important; align-self: start !important;
+  justify-content: flex-start !important; padding: 0 !important;
+}
+[data-editorial-layout="open-top"] .previewAuthorCopy time {
+  font: 400 11px/16px 'Brief Editorial Sans', sans-serif; letter-spacing: 0;
+  color: var(--muted);
+}
+@media(max-width:760px) {
+  [data-editorial-layout="open-top"].morningBriefPreview.sundayFront .sundayFeature.sabinePackage > .sundayFeatureCopy {
+    padding: 18px 0 0 !important;
+  }
+}
+
+@media(min-width:761px) {
+  [data-editorial-layout="open-top"].morningBriefPreview.sundayFront .sundayFeature.sabinePackage {
+    grid-template-columns: minmax(0,612fr) minmax(0,480fr); column-gap: 28px;
+  }
+  [data-editorial-layout="open-top"] .sundayFeatureImage { aspect-ratio: 612 / 488; }
+  [data-editorial-layout="open-top"] .sabinePackageTitle h2 {
+    font-size: 45px; line-height: 46px; letter-spacing: 0; padding-block: 3px;
+  }
+}
+main:has(> [data-editorial-layout="open-top"]) { background-color: #f5f1e8; }

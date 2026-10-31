@@ -24,9 +24,9 @@ retain their larger established hierarchy. Editorial colors are paper
 structure and behavior. Media, article order and factual prose are unchanged;
 the redundant home LEAD STORY text and short red accent are removed. Homepage bylines now include
 the existing correspondent-role metadata beside the original portraits.
-Share controls, author roles, carousel dividers and dark photo-caption plaques
-remain present and are checked in the browser suite. One darker horizontal rule sits beneath the whole carousel; cards have no
-bottom rules and vertical dividers remain. Production card widths (82% mobile),
+Share controls, author roles and dark photo-caption plaques remain present
+and are checked in the browser suite. Option 3 removes decorative hero and
+carousel rules, including card dividers. Production card widths (82% mobile),
 16px mobile gutters and 150px image heights are preserved. Equal-height flex
 cards push Read footers to a shared bottom edge without truncating titles or decks. Jay-Z uses the canonical top focal position
 to preserve his head. Sharing is a compact inline control beside the writer
@@ -44,3 +44,11 @@ This branch is a dedicated preview only. No production promotion or shared
 staging alias reassignment is included. Protected deployed visual QA is
 performed separately in the owner's existing authenticated browser; no new
 public share link is authorized.
+
+Option 3 adds a scoped open-paper homepage lead/carousel treatment. Decorative
+hero/carousel rules and the preceding weekly shelf's bottom separator are removed;
+header/navigation/table borders, focus outlines and player controls remain intact.
+The desktop lead uses a 28px gutter, top-aligned image/category and the reference
+612:488 top-focused image proportion. Publication date moves into the existing
+writer treatment. All three full canonical carousel stories and bottom-aligned
+Read footers remain. Mobile stacks image and copy without clipping or fixed heights.

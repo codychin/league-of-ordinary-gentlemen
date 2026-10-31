@@ -45,7 +45,8 @@ test('System A uses exact supporting faces and preserves header/navigation', asy
     await expect(page.locator('[aria-label="Recent stories"] h3').first()).toHaveCSS('line-height','26px');
   }
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
-  await expect(page.locator('.leadStoryFlag')).not.toContainText('LEAD STORY');
+  await expect(page.locator('.leadStoryFlag')).toHaveCount(0);
+  await expect(page.locator('[data-editorial-layout="open-top"] .previewAuthor time')).toHaveText('OCTOBER 26');
   await expect(page.locator('.sundayFeatureCopy .previewAuthor img').first()).toBeVisible();
   await expect(page.locator('.sundayFeatureCopy .previewAuthorCopy small').first()).toHaveText('Culture & Sporting Life');
   const caption=page.locator('.sundayFeatureImage .actionCaption').first();
@@ -54,8 +55,7 @@ test('System A uses exact supporting faces and preserves header/navigation', asy
   await expect(caption).toContainText('THE DETROIT SCHOOL · 2026');
   expect(await caption.evaluate(e=>getComputedStyle(e).backgroundColor)).not.toBe('rgba(0, 0, 0, 0)');
   const firstCard=page.locator('[aria-label="Recent stories"] > article').first();
-  await expect(firstCard).toHaveCSS('border-right-width','1px');
-  await expect(firstCard).toHaveCSS('border-right-style','solid');
+  await expect(firstCard).toHaveCSS('border-right-width','0px');
 });
 
 test('System A article prose remains sentence case, 19/28, and uses real bold bylines',async({page})=>{
