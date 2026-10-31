@@ -37,7 +37,7 @@ export default async function Home({config}){
     <main>
       <SundayLiveDesk editionSlug={slug} editionLabel={name.toUpperCase()} staffPath={root+"/newsroom"}/>
       {previewReels.length===6&&<ReelsShelf reels={previewReels} releaseId={`${slug}-week8-preview-v2`} storageKey={`brief-${slug}-week8-preview-viewed-v2`} weekLabel={`${name.toUpperCase()} • WEEK 8`} title="Week 8, the previews." modeLabel="WEEK 8 • PREVIEWS" mediaKind="preview" autoOpenFromQuery={false}/>}
-      {reels.length>0&&<ReelsShelf reels={reels} releaseId={config.reelRelease} storageKey={config.reelStorage||config.reelRelease+"-viewed"} weekLabel={config.reelLabel} title={config.reelTitle} modeLabel={config.reelLabel}/>}
+      {previewReels.length!==6&&reels.length>0&&<ReelsShelf reels={reels} releaseId={config.reelRelease} storageKey={config.reelStorage||config.reelRelease+"-viewed"} weekLabel={config.reelLabel} title={config.reelTitle} modeLabel={config.reelLabel}/>}
       <SharedEditorialFront root={root} archiveHref={root+"/archive"}/>
       {localArticles.length>0&&<section data-editorial-system="a" style={{padding:'28px 0',borderTop:'2px solid #11100e'}}><div className="editorialSectionLabel">FROM THE {name.toUpperCase()} BUREAU</div><div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(240px,1fr))',gap:24,marginTop:20}}>{localArticles.map(article=><article key={article.id}><Link href={(root+'/articles/')+article.slug} style={{color:'#11100e',textDecoration:'none'}}><h2 className="editorialCardTitle">{article.title}</h2><p className="editorialDeck">{article.dek}</p></Link></article>)}</div></section>}
       <EditionLeagueSurfaces edition={edition} headshots={headshots} config={config}/>

@@ -39,7 +39,7 @@ const previewReels=week8Reels('loog').map(r=>{
 const sundayLive=isSundayLiveWindow();return <><header><div className="utility"><span className="utilityMain">JOURNALISM WITHOUT PURPOSE <i>•</i> WRITTEN BY ROBOTS</span></div><div className="mast"><h1>The Brief of Ordinary Gentleman</h1><div className="dek">Fantasy football, personal grievances, forensic accounting and other matters of irrelevance.</div></div><SiteNav/></header><main>
 {sundayLive&&<><SundayScoreStrip/><SundayLiveDesk/></>}
 {previewReels.length===6&&<ReelsShelf reels={previewReels} releaseId="loog-week8-preview-v2" storageKey="brief-loog-week8-preview-viewed-v2" weekLabel="THE BRIEF • WEEK 8" title="Week 8, the previews." modeLabel="WEEK 8 • PREVIEWS" mediaKind="preview" autoOpenFromQuery={false}/>}
-<ReelsShelf reels={publishedReels} releaseId="loog-week7-recap-v2" storageKey="brief-loog-week7-recap-viewed-v2" weekLabel="THE BRIEF • WEEK 7" title="Week 7, the recaps." modeLabel="WEEK 7 • RECAPS"/>
+{previewReels.length!==6&&<ReelsShelf reels={publishedReels} releaseId="loog-week7-recap-v2" storageKey="brief-loog-week7-recap-viewed-v2" weekLabel="THE BRIEF • WEEK 7" title="Week 7, the recaps." modeLabel="WEEK 7 • RECAPS"/>}
 <SharedEditorialFront/>
 {!sundayLive&&<SundayLiveDesk/>}
 
