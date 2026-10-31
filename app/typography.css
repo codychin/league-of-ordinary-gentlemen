@@ -1,0 +1,24 @@
+/* Exact approved 9F derivative; source and OFL provenance live beside the face. */
+@font-face {
+  font-family: 'Brief Nine F Native Preview';
+  src: url('/fonts/brief-nine-f/BriefNineFNativePreview-Bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+
+/* Article links cover shared front-page and Crates cards without changing
+   section labels, archive controls, body copy, navigation or UI arrows. */
+.mast h1,
+.miniMast,
+.articleTitle,
+.editionArticleTitle,
+main a[href*='/articles/'] :is(h2, h3, h4) {
+  font-family: 'Brief Nine F Native Preview', Georgia, serif;
+  font-weight: 700;
+  font-synthesis: none;
+  line-height: 1.12;
+}
