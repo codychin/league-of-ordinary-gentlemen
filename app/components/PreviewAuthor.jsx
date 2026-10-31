@@ -6,6 +6,6 @@ export default function PreviewAuthor({slug}){
 
   return <span className="previewAuthor">
     <Image src={writer.image} alt="" width={28} height={28}/>
-    <strong>{writer.name}</strong>
+    <span className="previewAuthorCopy"><strong>{writer.name}</strong><small>{writer.title}</small></span>
   </span>
 }

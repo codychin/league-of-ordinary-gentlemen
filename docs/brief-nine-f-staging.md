@@ -14,14 +14,17 @@ Bold 700 assets, copyright and OFL are in `public/fonts/liberation-sans`.
 Their hashes are verified in the browser tests. No synthetic bold is used.
 
 Mobile editorial roles: 9F headlines 31/35 and cards 23/26; Liberation Sans
-body/decks 17/24, uppercase categories 14 regular, bylines 14 bold, section
+decks 17/24 and article prose 19/28, uppercase categories 14 bold, bylines 14 bold, section
 headings 20 bold without tracking, and story links 16 bold. Section labels
 have a 40px red rule; story links have a 112px ink rule. Desktop headlines
 retain their larger established hierarchy. Editorial colors are paper
 #F5F1E8, ink #26241F, red #A43D31, muted #756E63. Mobile content margins are
 20px. Header/navigation retain their existing sizes, fonts, palette, icons,
 structure and behavior. Media, article order and factual prose are unchanged;
-only the redundant lead label is shortened to LEAD STORY.
+the redundant home LEAD STORY text is removed. Homepage bylines now include
+the existing correspondent-role metadata beside the original portraits.
+Share controls, author roles, carousel dividers and dark photo-caption plaques
+remain present and are checked in the browser suite.
 
 Run `qa/tests/typography.spec.mjs` and `qa/tests/system-a.spec.mjs` against an
 explicit local or preview origin. They check served font hashes, computed

@@ -13,8 +13,8 @@ test('System A uses exact supporting faces and preserves header/navigation', asy
     expect(createHash('sha256').update(await response.body()).digest('hex')).toBe(hash);
   }
   for(const [selector,size,weight,line] of [
-    ['.editorialSectionLabel','20px','700','24px'],
-    ['.sabinePackageIntro > small','14px','400','20px'],
+    ['.affairsHead h2','20px','700','24px'],
+    ['.sabinePackageIntro > small','14px','700','20px'],
     ['.sabinePackageIntro > p','17px','400','24px'],
     ['.previewAuthor strong','14px','700','20px'],
     ['.sundayFeatureCopy > .read','16px','700','24px'],
@@ -40,17 +40,31 @@ test('System A uses exact supporting faces and preserves header/navigation', asy
     await expect(page.locator('[aria-label="Recent stories"] h3').first()).toHaveCSS('line-height','26px');
   }
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  await expect(page.locator('.leadStoryFlag')).not.toContainText('LEAD STORY');
+  await expect(page.locator('.sundayFeatureCopy .previewAuthor img').first()).toBeVisible();
+  await expect(page.locator('.sundayFeatureCopy .previewAuthorCopy small').first()).toHaveText('Culture & Sporting Life');
+  const caption=page.locator('.sundayFeatureImage .actionCaption').first();
+  await expect(caption).toBeVisible();
+  await expect(caption).toContainText('MARNIE KELLS');
+  await expect(caption).toContainText('THE DETROIT SCHOOL · 2026');
+  expect(await caption.evaluate(e=>getComputedStyle(e).backgroundColor)).not.toBe('rgba(0, 0, 0, 0)');
+  const firstCard=page.locator('[aria-label="Recent stories"] > article').first();
+  await expect(firstCard).toHaveCSS('border-right-width','1px');
+  await expect(firstCard).toHaveCSS('border-right-style','solid');
 });
 
-test('System A article prose remains sentence case, 17/24, and uses real bold bylines',async({page})=>{
+test('System A article prose remains sentence case, 19/28, and uses real bold bylines',async({page})=>{
   await page.goto('/articles/maude-saturation-bombing-daniel-jones');
   await page.evaluate(()=>document.fonts.ready);
   const body=page.locator('.articleBody p').first();
-  await expect(body).toHaveCSS('font-size','17px');
-  await expect(body).toHaveCSS('line-height','24px');
+  await expect(body).toHaveCSS('font-size','19px');
+  await expect(body).toHaveCSS('line-height','28px');
   await expect(body).toHaveCSS('font-weight','400');
   await expect(body).toHaveCSS('color','rgb(38, 36, 31)');
   await expect(body).toHaveCSS('text-transform','none');
   await expect(page.locator('.bylineWriter strong')).toHaveCSS('font-weight','700');
   await expect(page.locator('.bylineWriter strong')).toHaveCSS('text-transform','uppercase');
+  await expect(page.locator('.bylineWriter img')).toBeVisible();
+  await expect(page.locator('.bylineWriter em')).toHaveText('Football Strategy & Bad Process');
+  await expect(page.getByRole('button',{name:'Share this article'})).toBeVisible();
 });
