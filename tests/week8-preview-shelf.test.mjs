@@ -56,12 +56,13 @@ test('actual complete reviews remain distinguishable from waived personal playba
   rows.forEach(r=>Object.assign(r,{qaStatus:'media_qa_passed',fullPlaybackInspection:true,independentAuditoryListening:true,performanceApproval:true}));
   assert.equal(selectWeek8PreviewCohort(rows,'sunday-crew',authority).length,6);
 });
-test('all homepage shelves put gated previews above unchanged recap shelves with separate viewing state',()=>{
+test('all homepages replace the recap shelf only when a complete preview cohort is available',()=>{
   for(const file of ['app/page.js','app/components/editions/Home.js']) {
     const source=fs.readFileSync(file,'utf8');
     const preview=source.indexOf('<ReelsShelf reels={previewReels}');
     const recap=source.indexOf(file==='app/page.js'?'<ReelsShelf reels={publishedReels}':'<ReelsShelf reels={reels}');
     assert.ok(preview>0&&recap>preview);
+    assert.match(source,/previewReels.length!==6&&(?:reels.length>0&&)?<ReelsShelf reels=\{(?:publishedReels|reels)\}/);
     assert.match(source,/previewReels.length===6/);
     assert.match(source,/week8-preview-viewed-v2/);
     assert.match(source,/mediaKind="preview" autoOpenFromQuery=\{false\}/);
