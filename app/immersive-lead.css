@@ -57,3 +57,5 @@ html main[data-weekly-media="absent"] > .morningBriefPreview.sundayFront.immersi
 @media(max-width:760px) {
   html body:has(main[data-weekly-media="absent"] > .immersiveLead:first-child) { padding-top:0; }
 }
+/* Match the selected compact rail's 8px transition into the hero on desktop too. */
+html main > [data-matchup-layout="compact"] + .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] { margin-top:0; }
