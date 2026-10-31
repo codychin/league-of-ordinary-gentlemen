@@ -2,7 +2,6 @@ import {imageSrc,imageBackground} from '../../lib/editorial-images';
 import Link from 'next/link';
 import styles from './ArchiveCta.module.css';
 import front from './SharedEditorialFront.module.css';
-import ArticleClip from './ArticleClip';
 import PreviewAuthor from './PreviewAuthor';
 import {jayZArticle} from '../articles/conrad-allow-me-to-reintroduce-myself';
 import ResilientImage from './ResilientImage';
@@ -75,16 +74,7 @@ export default function SharedEditorialFront({archiveHref='/archive',root=''}){
 
   </Link>
 </section>
-<section className="hero heroStack" data-editorial-system="a" aria-label="Marnie Kells on Tee Higgins">
-  <Link className="hero-copy storylink" href={root+"/articles/marnie-tee-higgins-ankles"}>
-    <div className="eyebrow">MATTERS OF CULTURE • IN MEMORIAM • OCTOBER 4</div>
-    <h2>Tee Higgins’ Ankles Have Asked to Be Buried Separately</h2>
-    <PreviewAuthor slug="marnie-tee-higgins-ankles"/>
-    <p className="standfirst">The family is contesting Travis Hunter’s appointment as executor.</p>
 
-  </Link>
-  <div className={front.clip} data-feature-media><ArticleClip tweetId="2106801789630919072" url="https://x.com/fballforeverhq/status/2106801789630919072" showCaption={false}/></div>
-</section>
 
 
 

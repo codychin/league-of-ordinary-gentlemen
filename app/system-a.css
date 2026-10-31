@@ -197,3 +197,16 @@ main.articleMain[data-editorial-system="a"] > .articleBylineShare { margin:12px 
 main.articleMain[data-editorial-system="a"] > .articleTitle { margin-bottom:0; }
 main.articleMain[data-editorial-system="a"] > .articleDek { font-style:italic;margin-top:0;margin-bottom:24px; }
 main.articleMain[data-editorial-system="a"] > .articleDek + .articleImage { margin-top:0; }
+/* Equal breathing room around the shared author credit. */
+[data-editorial-system="a"] .previewAuthor { margin:0 0 20px; }
+[data-editorial-system="a"] :is(h2,h3,h4):has(+ .previewAuthor) { margin-bottom:20px; }
+[data-editorial-system="a"] .previewAuthor + p { margin-top:0; }
+[data-editorial-system="a"] .sabinePackageTitle { display:block;margin-bottom:20px; }
+[data-editorial-system="a"] .sabinePackageTitle h2 { margin-bottom:0; }
+[data-editorial-system="a"] .cultureGrid h3 { margin-bottom:20px!important; }
+[data-editorial-system="a"] .cultureGrid .previewAuthor { margin:0 0 20px!important; }
+[data-editorial-system="a"] .cultureGrid p { margin-top:0!important; }
+[data-editorial-system="a"] h3:has(+ div > .editorialByline) { margin-bottom:0; }
+[data-editorial-system="a"] div:has(> .editorialByline) { margin-block:20px; }
+[data-editorial-system="a"] div:has(> .editorialByline) + p { margin-top:0; }
+main.articleMain[data-editorial-system="a"] > .articleBylineShare { margin:20px 0; }

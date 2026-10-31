@@ -30,7 +30,7 @@ const stories=[
 ]
 
 function Story({story,root}){
-  const body=<><div className={`culturePhoto ${story.photoClass||''}`}>{story.image&&<ResilientImage src={story.image} alt={story.title} sizes="(max-width: 600px) 100vw, 480px" style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:story.photoClass==='sabineCulturePhoto'?'center top':'center'}}/>}</div><div className="tag">{story.tag}</div><h3>{story.title}</h3>{story.slug&&<PreviewAuthor slug={story.slug}/>}<p>{story.dek}</p>{story.read&&<div className="read">{story.read}</div>}</>
+  const body=<><div className={`culturePhoto ${story.photoClass||''}`}>{story.image&&<ResilientImage src={story.image} alt={story.title} sizes="(max-width: 600px) 100vw, 480px" style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:story.photoClass==='sabineCulturePhoto'?'center top':'center'}}/>}</div><div className="tag">{story.tag}</div><h3>{story.title}</h3>{story.slug&&<PreviewAuthor slug={story.slug}/>}<p>{story.dek}</p></>
   return story.href?<Link href={root+story.href} className="card storylink">{body}</Link>:<article className="card">{body}</article>
 }
 
