@@ -13,3 +13,6 @@
 
 /* Stories without a verified still keep an intentional newspaper text treatment. */
 .grid .textStory{border-top:3px solid var(--ink);background:rgba(165,42,34,.035);padding:20px 20px 25px}.grid .textStory .copy{padding-top:0}.grid .textStory h3{font-size:36px;line-height:1.1}.grid .textStory p{font-size:18px}
+
+/* A deliberate UI link, not a tiny editorial footnote. */
+.introCopy a{font:700 14px/20px 'Brief Editorial Sans',Arial,sans-serif;letter-spacing:0;min-height:44px;max-width:none;padding-block:10px;}

@@ -84,3 +84,6 @@
   z-index:2;
   pointer-events:none;
 }
+
+/* No decorative rule above the mobile weekly preview shelf. */
+@media(max-width:760px){.wrap{border-top:0;}}

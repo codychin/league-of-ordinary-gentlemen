@@ -2,7 +2,7 @@ import {test,expect} from '../helpers/browser.mjs';
 import {createHash} from 'node:crypto';
 import {readFileSync} from 'node:fs';
 const manifest=JSON.parse(readFileSync(new URL('../../public/fonts/source-serif-06/manifest.json',import.meta.url)));
-test('selected 06 exact faces render body, italic decks and bold authors without fallback',async({page})=>{
+test('selected 06 renders roman listing decks, reader italics and bold authors without fallback',async({page})=>{
  await page.route('**/functions/v1/brief-comments?**',r=>r.fulfill({json:{comments:[],votes:[]}}));
  await page.goto('/articles/marnie-detroit-school');await page.evaluate(()=>document.fonts.ready);
  for(const f of Object.values(manifest.fonts)){
@@ -23,9 +23,9 @@ test('selected 06 exact faces render body, italic decks and bold authors without
  await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));
  await page.screenshot({path:`/workspace/font-qa/selected-06-reader-${page.viewportSize().width}.png`});
  await page.goto('/');await page.evaluate(()=>document.fonts.ready);
- const category=page.locator('.sabinePackageIntro > small').first();await expect(category).toHaveCSS('color',page.viewportSize().width<=760?'rgb(214, 91, 76)':'rgb(164, 61, 49)');
+ const category=page.locator('.sabinePackageIntro > small').first();await expect(category).toHaveCSS('color','rgb(164, 61, 49)');
  await expect(category).toHaveCSS('opacity','1');
- await expect(page.locator('.sabinePackageIntro > p').first()).toHaveCSS('font-style','italic');
- for(const el of await page.locator('.mobileStoryRows .standfirst,.mobileStoryRows .sabinePackageIntro > p').all())if(page.viewportSize().width<=760){await expect(el).toHaveCSS('font-size','14px');await expect(el).toHaveCSS('line-height','20px');}
+ for(const deck of await page.locator('[data-editorial-system="a"] :is(.standfirst,.editorialDeck,.sabinePackageIntro > p,.cultureGrid .card > p)').all()){await expect(deck).toHaveCSS('font-style','normal');await expect(deck).toHaveCSS('font-family','"Brief Body Reference 5", serif');}
+ for(const el of await page.locator('.mobileStoryRows .standfirst,.mobileStoryRows .sabinePackageIntro > p').all())if(page.viewportSize().width<=760){await expect(el).toHaveCSS('font-style','normal');await expect(el).toHaveCSS('font-size','14px');await expect(el).toHaveCSS('line-height','20px');}
  await page.screenshot({path:`/workspace/font-qa/selected-06-home-${page.viewportSize().width}.png`});
 });

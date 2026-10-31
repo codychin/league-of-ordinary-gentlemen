@@ -55,7 +55,7 @@ test('mobile editorial parity keeps cohorts, fullbleed features, spacing and per
   const previous=await rowElements.nth(index-1).boundingBox(),current=await rowElements.nth(index).boundingBox();
   expect(current.y-previous.y-previous.height).toBeCloseTo(32,0);
   const rule=await rowElements.nth(index).evaluate(e=>{const s=getComputedStyle(e,'::before');return {content:s.content,color:s.backgroundColor}});
-  expect(rule.content).toBe('""');expect(rule.color).toBe('rgba(243, 239, 229, 0.22)');
+  expect(rule.content).toBe('""');expect(rule.color).toBe('rgba(38, 36, 31, 0.2)');
  }
  await expect(page.locator('.mobileStoryRows .sundayFeatureImage')).toHaveCSS('height','48px');
  await page.screenshot({path:`/workspace/font-qa/mobile-parity-rows-${page.viewportSize().width}.png`});

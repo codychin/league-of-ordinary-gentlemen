@@ -8,22 +8,16 @@ main [data-editorial-system="a"] :is(.editorialBody,.editorialBody p,.articleBod
 main[data-editorial-system="a"] :is(.editorialBody,.editorialBody p,.articleBody p) {
   font-family:'Brief Body Reference 5',serif;font-synthesis:none;
 }
-main [data-editorial-system="a"] :is(.standfirst,.articleDek,.editorialDeck,.hero-copy > p,.sundayFeatureCopy p,.cultureGrid .card > p,.editorialIntro p),
-main[data-editorial-system="a"] :is(.standfirst,.articleDek,.editorialDeck,.hero-copy > p,.sundayFeatureCopy p,.cultureGrid .card > p,.editorialIntro p),
+main [data-editorial-system="a"] :is(.standfirst,.editorialDeck,.hero-copy > p,.sundayFeatureCopy p,.cultureGrid .card > p,.editorialIntro p),
+main[data-editorial-system="a"] :is(.standfirst,.editorialDeck,.hero-copy > p,.sundayFeatureCopy p,.cultureGrid .card > p,.editorialIntro p),
 main [data-editorial-system="a"] a[href*='/articles/'] > p,
 main .mobileStoryRows .hero.heroStack .standfirst,
 main .mobileStoryRows [data-editorial-system="a"] .sabinePackageIntro > p {
-  font-family:'Brief Body Reference 5',serif;font-style:italic;font-synthesis:none;
+  font-family:'Brief Body Reference 5',serif;font-style:normal;font-synthesis:none;
 }
 main [data-editorial-system="a"] :is(.previewAuthor strong,.bylineWriter strong,.editorialByline),
 main[data-editorial-system="a"] :is(.previewAuthor strong,.bylineWriter strong,.editorialByline) {
   font-family:'Brief Body Reference 5',serif;font-weight:700;font-synthesis:none;
 }
-@media(max-width:760px) {
-  /* These category roles sit on the existing opaque #0d0c0b editorial surface.
-     Do not change glass navigation, photo plaques, controls or the global red. */
-  main [data-editorial-system="a"] :is(.eyebrow,.tag,.editorialCategory,.sabinePackageIntro > small,.affairsHead > span):not(.photoHero *,.photoStrip *,.sundayFeatureImage *),
-  main[data-editorial-system="a"] :is(.eyebrow,.tag,.editorialCategory):not(.articleImage *) {
-    color:#d65b4c;opacity:1;
-  }
-}
+/* Listing decks are roman; only the opened article subtitle is italic. */
+main.articleMain[data-editorial-system="a"] > .articleDek { font-family:'Brief Body Reference 5',serif;font-style:italic;font-synthesis:none; }

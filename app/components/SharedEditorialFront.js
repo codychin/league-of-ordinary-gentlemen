@@ -111,7 +111,7 @@ export default function SharedEditorialFront({archiveHref='/archive',root=''}){
 </div>
 <div className={styles.archiveCta}>
   <div><span className={styles.label}>THE PERMANENT RECORD</span><p>Every take. Every receipt.</p></div>
-  <Link className={styles.link} href={archiveHref}>DIG INTO THE CRATES <span aria-hidden="true">→</span></Link>
+  <Link className={styles.link} href={archiveHref}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><path d="M3 7h18v14H3zM3 7l3-4h12l3 4M7 11h10M7 15h10"/></svg>DIG INTO THE CRATES <span aria-hidden="true">→</span></Link>
 </div>
   </>;
 }

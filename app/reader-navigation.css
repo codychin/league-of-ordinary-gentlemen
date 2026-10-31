@@ -48,25 +48,31 @@ html.standaloneApp[data-app-tab='culture'] #culture.affairs[data-editorial-syste
   .appTabBar { --muted:#59554e;--red:#a43d31;background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(224,217,205,.96));border-color:#777168; }
   .appMoreSheet { --ink:#26241f;--paper:#f5f1e8;--muted:#59554e;--line:#777168; }
 }
-@media(max-width:760px) and (prefers-color-scheme:dark) {
-  .appTabBar,.appMoreSheet {
-    --ink:#f4efe4;--paper:#0d0c0b;--muted:#b5ada0;--red:#d57865;--line:#827d73;
-  }
-  .appTabBar {
-    background:linear-gradient(145deg,rgba(38,36,31,.96),rgba(13,12,11,.96));border-color:#827d73;
-    box-shadow:inset 0 1px 0 rgba(244,239,228,.12),0 8px 28px rgba(0,0,0,.3);
-  }
-  .appTabGlider:after {
-    background:radial-gradient(circle at 30% 15%,#403b34,#292620);border-color:#b5ada0;
-    box-shadow:inset 0 1px 1px rgba(244,239,228,.12),0 3px 11px rgba(0,0,0,.2);
-  }
-  .appMoreSheet { background:rgba(13,12,11,.98);border-color:var(--line); }
-  .appMoreIcon { background:rgba(244,239,228,.04); }
-  body:has(main.matchupPage),main.matchupPage {
-    --paper:#0d0c0b;--ink:#f4efe4;--muted:#b5ada0;--red:#d57865;--line:#827d73;
-    background:var(--paper);color:var(--ink);
-  }
-  .matchupPage .matchupColumn p { color:var(--ink); }
-  .matchupPage :is(.matchupHeroCenter small,.matchupCenter small,.trendBadge.hot) { color:#0d0c0b; }
-  .matchupPage .trendBadge.cold { background:#403b34;color:var(--ink); }
+
+/* Owner-selected light-only mobile web, independent of device appearance. */
+@media(max-width:760px) {
+  html { color-scheme:only light; }
+  main[data-editorial-system="a"] { --muted:#746d62; }
+  body { --ink:#26241f;--paper:#f5f1e8;--muted:#746d62;--red:#a43d31;background:var(--paper);color:var(--ink); }
+  .appMoreSheet { --red:#a43d31; }
+  .appTabGlider:after { background:#f5f1e8;border-color:#777168; }
+  main.matchupPage { background:var(--paper);color:var(--ink); }
+  main.articleMain[data-editorial-system="a"] .articleShareRow :is(a,button,input) { --ink:#26241f;--paper:#f5f1e8;--muted:#746d62;--red:#a43d31; }
 }
+
+/* Historical score grids: notes occupy their own row instead of offsetting
+   inline text into the first team name. Live cards and portraits are separate. */
+html .scoreSection .scores.archiveScores > .match {
+  display:grid;grid-template-rows:minmax(20px,auto) auto auto;gap:6px;
+  align-content:start;min-width:0;padding:16px;
+}
+.scores.archiveScores > .match > .scoreNote {
+  position:static;display:block;grid-row:1;margin:0;padding:0;line-height:14px;
+}
+.scores.archiveScores > .match > div {
+  grid-template-columns:minmax(0,1fr) max-content;align-items:baseline;padding:0;min-width:0;
+}
+.scores.archiveScores > .match > div:first-of-type { grid-row:2; }
+.scores.archiveScores > .match > div:last-of-type { grid-row:3; }
+.scores.archiveScores > .match > div :is(b,span) { overflow-wrap:anywhere; }
+.scores.archiveScores > .match strong { white-space:nowrap; }

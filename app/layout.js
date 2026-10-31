@@ -26,7 +26,7 @@ export const metadata={
   applicationName:'The Brief',
   manifest:'/manifest.webmanifest',
   formatDetection:{telephone:false},
-  appleWebApp:{capable:true,statusBarStyle:'black-translucent',title:'The Brief'},
+  appleWebApp:{capable:true,statusBarStyle:'default',title:'The Brief'},
   icons:{
     icon:[
       {url:'/icons/ordinary-brief-v3-32.png',sizes:'32x32',type:'image/png'},
@@ -37,7 +37,7 @@ export const metadata={
   },
 }
 
-export const viewport={width:'device-width',initialScale:1,viewportFit:'cover',themeColor:'#11100e'}
+export const viewport={width:'device-width',initialScale:1,viewportFit:'cover',themeColor:[{media:'(max-width:760px)',color:'#f5f1e8'},{media:'(min-width:761px)',color:'#11100e'}]}
 
 const standaloneBoot=`try{var q=new URLSearchParams(location.search),preview=q.get('app-preview')==='1';if(preview||matchMedia('(display-mode: standalone)').matches||navigator.standalone===true){document.documentElement.classList.add('standaloneApp');if(preview)document.documentElement.classList.add('appPreview');var p=location.pathname,h=location.hash,t=q.get('tab'),root=['/sunday-crew','/doge'].find(function(r){return p===r||p.startsWith(r+'/')})||'',home=root||'/',teams=root+'/teams';document.documentElement.dataset.appTab=p.startsWith(teams)?'teams':p.includes('/matchups/')?'scores':p!==home?(['/staff','/archive','/corrections','/sunday-crew/newsroom','/sunday-crew/archive','/doge/newsroom','/doge/archive'].some(function(x){return p.startsWith(x)})?'more':'detail'):(h==='#scores'||h==='#week4'?'scores':h==='#culture'?'culture':t==='scores'||t==='culture'?t:'home')}}catch(e){}`
 
