@@ -124,13 +124,11 @@
   main .mobileStoryRows .sabineInlineVideo { grid-column:1 / -1;grid-row:3; }
 }
 @media(max-width:760px) {
-  .mobileStoryRows { --compact-row-rule:rgba(38,36,31,.20);--compact-row-hairline:1px; }
+  .mobileStoryRows { --compact-row-rule:rgba(38,36,31,.35);--compact-row-hairline:1px; }
   main .mobileStoryRows > section.hero.heroStack,main .mobileStoryRows > section.morningBriefPreview.sundayFront { position:relative;margin-bottom:0; }
   main .mobileStoryRows > section + section { margin-top:32px!important; }
   .mobileStoryRows > section + section::before { content:'';position:absolute;left:0;right:0;top:-16px;height:var(--compact-row-hairline);transform:translateY(-50%);background:var(--compact-row-rule);pointer-events:none; }
 }
-@media(max-width:760px) and (min-resolution:2dppx) { .mobileStoryRows { --compact-row-hairline:.5px; } }
-@media(max-width:760px) and (min-resolution:3dppx) { .mobileStoryRows { --compact-row-hairline:.333333px; } }
 @media(max-width:760px) {
   main > .hero.heroStack h2,main .mobileLowerCarousel .hero.heroStack h2 { margin-bottom:20px; }
   main > .hero.heroStack .previewAuthor,main .mobileLowerCarousel .hero.heroStack .previewAuthor { margin:0 0 20px; }
@@ -149,4 +147,10 @@ main .mobileStoryRows > section:first-child::before {
 @media(max-width:760px) {
   /* Standalone story photography leads directly into its category label. */
   main > .hero.heroStack .photoHero { margin-bottom:24px; }
+}
+
+/* The dispatch clip belongs to the last story, not a detached new module. */
+@media(max-width:760px) {
+ main .mobileStoryRows .dashiellLondonVideo:is([data-edition="/doge"],[data-edition="/sunday-crew"]) { margin-top:12px;padding-top:0;border-top:0; }
+ main .mobileStoryRows .dashiellLondonVideo:is([data-edition="/doge"],[data-edition="/sunday-crew"]) .sabineVideoLabel { margin-bottom:8px; }
 }
