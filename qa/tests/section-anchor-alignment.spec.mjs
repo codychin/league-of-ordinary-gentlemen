@@ -103,6 +103,10 @@ test('Culture pagination and floating masthead remain readable while the feed ch
    await page.locator('#scores').evaluate(e=>scrollTo({top:scrollY+e.getBoundingClientRect().top,behavior:'instant'}));
    await expect(page.locator('.appTabBar')).toHaveAttribute('data-active-tab','scores');
    await expect(page.locator('.appSectionHeader')).toHaveAttribute('data-surface','paper');
+   // Scrolling scores into view starts Next matchup prefetches. Let those
+   // finish before the next hard edition navigation tears down this document;
+   // WebKit otherwise reports an aborted RSC fetch as an access-control error.
+   await page.waitForLoadState('networkidle');
   }
  }
 });
