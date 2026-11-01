@@ -96,8 +96,8 @@ export default function SharedEditorialFront({archiveHref='/archive',root=''}){
           <PreviewAuthor slug="dashiell-jaguars-london-future"/>
           <p>The Jacksonville Jaguars spent years looking like an NFL problem to be solved. In London, they may have accidentally become something else.</p>
         </div>
-        <div className="sabineInlineVideo dashiellLondonVideo">
-          <div className="sabineVideoLabel"><small><span className="sabineDesktopLabel">ON ASSIGNMENT • LONDON</span><span className="sabineMobileLabel">FROM LONDON</span></small><span>0:29</span></div>
+        <div className="sabineInlineVideo dashiellLondonVideo" data-edition={root}>
+          <div className="sabineVideoLabel"><small><span className="sabineDesktopLabel">ON ASSIGNMENT • LONDON</span><span className="sabineMobileLabel">{root ? "DASHIELL PIKE • LONDON DISPATCH" : "FROM LONDON"}</span></small><span>0:29</span></div>
           <div className="sabineVideoBody">
             <video controls playsInline preload="none" poster={imageSrc('https://cdn.openart.ai/openart/thumbnail/production/2026-10/create-video/TLTpmJfydK54x1UaTK6G/cgt-20261008002242-mexhp_1791390729765_82dc1525.webp',640)} src="https://cdn.openart.ai/openart-ai/production/2026-10/create-video/TLTpmJfydK54x1UaTK6G/cgt-20261008002242-mexhp_1791390692996_b5b0afba.mp4"/>
           </div>
@@ -111,7 +111,7 @@ export default function SharedEditorialFront({archiveHref='/archive',root=''}){
 </div>
 <div className={styles.archiveCta}>
   <div><span className={styles.label}>THE PERMANENT RECORD</span><p>Every take. Every receipt.</p></div>
-  <Link className={styles.link} href={archiveHref}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><path d="M3 7h18v14H3zM3 7l3-4h12l3 4M7 11h10M7 15h10"/></svg>DIG INTO THE CRATES <span aria-hidden="true">→</span></Link>
+  <Link className={styles.link} href={archiveHref}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true"><path d="M3 7h18v14H3zM3 7l3-4h12l3 4M7 11h10M7 15h10"/></svg>DIG INTO THE CRATES</Link>
 </div>
   </>;
 }
