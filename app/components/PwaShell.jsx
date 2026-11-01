@@ -300,7 +300,7 @@ function MobileAppNav(){
   }
 
   return <>
-    <div className="appSectionHeader"><Link className="mobileBriefLogo" href={items[0].href} onClick={event=>navigate(event,items[0])} aria-label="The Brief home"><b>The</b><img src="/icons/ordinary-brief-v3.svg" alt=""/><b>Brief</b></Link></div>
+    <div className="appSectionHeader"><Link className="mobileBriefLogo" href={items[0].href} onClick={event=>navigate(event,items[0])} aria-label="The Brief home"><b>The</b><img src="/icons/ordinary-brief-masthead.svg" width="30" height="30" alt=""/><b>Brief</b></Link></div>
     {moreOpen&&<aside className="appMoreSheet" aria-label="More and settings">
       <div className="appMoreHead"><small>THE BRIEF</small><b>More</b><button type="button" onClick={()=>setMoreOpen(false)} aria-label="Close more menu">×</button></div>
       <div className="appSettings"><small>SETTINGS</small><ArticleAlertSettings edition={edition}/></div>

@@ -10,7 +10,7 @@ test('floating text logo stays visible across browser and installed-web navigati
   await expect(header).toHaveCSS('background-color','rgba(0, 0, 0, 0)');await expect(header).toHaveCSS('border-bottom-width','0px');await expect(header).toHaveCSS('position','fixed');
   const bounds=await logo.boundingBox();expect(bounds.height).toBeGreaterThanOrEqual(44);expect(bounds.y).toBeGreaterThanOrEqual(0);
   expect(await logo.evaluate(e=>{const r=e.getBoundingClientRect();return e.contains(document.elementFromPoint(r.x+r.width/2,r.y+r.height/2))})).toBe(true);
-  await expect(logo.locator('img')).toBeHidden();await expect(page.getByRole('navigation',{name:'App navigation'})).toHaveCount(1);
+  await expect(logo.locator('img')).toBeVisible();await expect(page.getByRole('navigation',{name:'App navigation'})).toHaveCount(1);
   expect(await header.evaluate(e=>getComputedStyle(e).backgroundImage)).toContain('0.64');
  };
  for(const mode of ['', '?app-preview=1']){
