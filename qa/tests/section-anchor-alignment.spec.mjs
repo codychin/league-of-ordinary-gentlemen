@@ -1,5 +1,12 @@
 import {test,expect} from '../helpers/browser.mjs';
 
+// Hard edition changes must not tear down an in-flight Next prefetch. WebKit
+// reports those artificial aborts as access-control JavaScript errors.
+async function navigate(page,url,options){
+ if(page.url()!=='about:blank')await page.waitForLoadState('networkidle');
+ await page.goto(url,options);
+}
+
 async function userScroll(page,dy,testInfo){
  if(testInfo.project.use.isMobile&&testInfo.project.use.hasTouch){
   // Mobile WebKit has no wheel driver. Deliver genuine touch input to an
@@ -28,7 +35,7 @@ test('section taps, hashes and history align with the actual header in every edi
  await page.route('https://a.espncdn.com/**',r=>r.abort());
  for(const root of ['/','/doge','/sunday-crew'])for(const standalone of mobile?[false,true]:[false]){
   const home=root+(standalone?'?app-preview=1':'');
-  await page.goto(home,{waitUntil:'domcontentloaded'});await expect(page.locator('html')).toHaveAttribute('data-app-tab','home');await page.evaluate(()=>document.fonts.ready);
+  await navigate(page,home,{waitUntil:'domcontentloaded'});await expect(page.locator('html')).toHaveAttribute('data-app-tab','home');await page.evaluate(()=>document.fonts.ready);
   const nav=page.getByRole('navigation',{name:mobile?'App navigation':'Primary navigation',exact:true});
   // Begin with downward scrolling so the compact bottom-nav state is exercised.
   if(mobile){await userScroll(page,500,testInfo);await expect.poll(()=>page.evaluate(()=>scrollY)).toBeGreaterThan(0);}
@@ -45,7 +52,7 @@ test('section taps, hashes and history align with the actual header in every edi
    await expectLanding(page,'league',true);
   }
   for(const id of ['scores','culture']){
-   await page.goto(home+'#'+id,{waitUntil:'domcontentloaded'});await page.evaluate(()=>document.fonts.ready);await expectLanding(page,id,mobile);
+   await navigate(page,home+'#'+id,{waitUntil:'domcontentloaded'});await page.evaluate(()=>document.fonts.ready);await expectLanding(page,id,mobile);
   }
  }
 });
@@ -55,7 +62,7 @@ test('late image layout changes retain the selected mobile section until user in
  await page.route('https://a.espncdn.com/**',r=>r.abort());
  await page.route('**/qa-anchor-delayed.svg',async r=>{await new Promise(resolve=>setTimeout(resolve,700));await r.fulfill({contentType:'image/svg+xml',body:'<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><rect width="300" height="300" fill="gray"/></svg>'});});
  for(const root of ['/','/doge','/sunday-crew']){
-  await page.goto(root,{waitUntil:'domcontentloaded'});await expect(page.locator('html')).toHaveAttribute('data-app-tab','home');await page.evaluate(()=>document.fonts.ready);
+  await navigate(page,root,{waitUntil:'domcontentloaded'});await expect(page.locator('html')).toHaveAttribute('data-app-tab','home');await page.evaluate(()=>document.fonts.ready);
   await page.evaluate(()=>{const wrapper=document.createElement('div');wrapper.id='qa-delayed-layout';const img=document.createElement('img');img.style.cssText='display:block;width:300px';img.src='/qa-anchor-delayed.svg';wrapper.append(img);document.querySelector('main').prepend(wrapper);});
   await page.getByRole('navigation',{name:'App navigation'}).getByRole('link',{name:'Culture',exact:true}).click();
   await expect.poll(()=>page.locator('#qa-delayed-layout img').evaluate(i=>i.complete&&i.naturalHeight===300)).toBe(true);await expectLanding(page,'culture',true);
@@ -71,7 +78,7 @@ test('late image layout changes retain the selected mobile section until user in
 test('the first lower story has one separator above Use Your Words',async({page},testInfo)=>{
  await page.route('https://a.espncdn.com/**',r=>r.abort());
  for(const root of ['/','/doge','/sunday-crew']){
-  await page.goto(root,{waitUntil:'domcontentloaded'});
+  await navigate(page,root,{waitUntil:'domcontentloaded'});
   const first=page.locator('.mobileStoryRows > section').first();
   await expect(first.locator('h2')).toHaveText('Use Your Words.');
   await first.evaluate(e=>scrollTo({top:scrollY+e.getBoundingClientRect().top-150,behavior:'instant'}));
@@ -85,7 +92,7 @@ test('Culture pagination and floating masthead remain readable while the feed ch
  const mobile=page.viewportSize().width<=760;
  await page.route('https://a.espncdn.com/**',r=>r.abort());
  for(const root of ['/','/doge','/sunday-crew']){
-  await page.goto(root,{waitUntil:'domcontentloaded'});await expect(page.locator('html')).toHaveAttribute('data-app-tab','home');
+  await navigate(page,root,{waitUntil:'domcontentloaded'});await expect(page.locator('html')).toHaveAttribute('data-app-tab','home');
   const pagination=page.getByRole('navigation',{name:'Culture stories pagination'});
   await pagination.evaluate(e=>scrollTo({top:scrollY+e.getBoundingClientRect().top-400,behavior:'instant'}));
   await expect(pagination.getByRole('button',{name:'OLDER',exact:false})).toHaveCSS('color','rgb(245, 241, 232)');
@@ -103,17 +110,13 @@ test('Culture pagination and floating masthead remain readable while the feed ch
    await page.locator('#scores').evaluate(e=>scrollTo({top:scrollY+e.getBoundingClientRect().top,behavior:'instant'}));
    await expect(page.locator('.appTabBar')).toHaveAttribute('data-active-tab','scores');
    await expect(page.locator('.appSectionHeader')).toHaveAttribute('data-surface','paper');
-   // Scrolling scores into view starts Next matchup prefetches. Let those
-   // finish before the next hard edition navigation tears down this document;
-   // WebKit otherwise reports an aborted RSC fetch as an access-control error.
-   await page.waitForLoadState('networkidle');
   }
  }
 });
 
 test('standalone feature category follows the photo with a compact gap',async({page},testInfo)=>{
  test.skip(page.viewportSize().width>760,'Mobile feature spacing');
- await page.goto('/',{waitUntil:'domcontentloaded'});await page.evaluate(()=>document.fonts.ready);
+ await navigate(page,'/',{waitUntil:'domcontentloaded'});await page.evaluate(()=>document.fonts.ready);
  const feature=page.locator('main > .hero.heroStack').filter({has:page.getByRole('heading',{name:'The Medical Clearance Industrial Complex',exact:true})});
  const gap=await feature.evaluate(e=>e.querySelector('.eyebrow').getBoundingClientRect().top-e.querySelector('.photoHero').getBoundingClientRect().bottom);
  expect(gap).toBe(24);
