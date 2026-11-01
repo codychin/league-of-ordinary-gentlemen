@@ -76,7 +76,7 @@ test('the first lower story has one separator above Use Your Words',async({page}
   await expect(first.locator('h2')).toHaveText('Use Your Words.');
   await first.evaluate(e=>scrollTo({top:scrollY+e.getBoundingClientRect().top-150,behavior:'instant'}));
   const rule=await first.evaluate(e=>{const s=getComputedStyle(e,'::before');return{content:s.content,height:parseFloat(s.height),top:parseFloat(s.top),color:s.backgroundColor}});
-  expect(rule.content).toBe('""');expect(rule.height).toBeGreaterThan(0);expect(rule.height).toBeLessThanOrEqual(1);expect(rule.top).toBe(-16);expect(rule.color).toBe('rgba(38, 36, 31, 0.2)');
+  expect(rule.content).toBe('""');expect(rule.height).toBeGreaterThan(0);expect(rule.height).toBeLessThanOrEqual(1);expect(rule.top).toBe(-16);expect(rule.color).toBe(page.viewportSize().width<=760?'rgba(38, 36, 31, 0.35)':'rgba(38, 36, 31, 0.2)');
   await page.screenshot({path:testInfo.outputPath(`first-row-${root==='/'?'loog':root.slice(1)}-${page.viewportSize().width}.png`)});
  }
 });
