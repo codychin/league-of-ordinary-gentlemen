@@ -20,10 +20,13 @@ async function userScroll(page,dy,testInfo){
 }
 
 async function expectLanding(page,id,mobile){
- await expect.poll(()=>page.locator('#'+id).evaluate((target,mobile)=>{
+ try{await expect.poll(()=>page.locator('#'+id).evaluate((target,mobile)=>{
   const header=document.querySelector(mobile?'.appSectionHeader':'.siteNav');
   return Math.abs(target.getBoundingClientRect().top-header.getBoundingClientRect().bottom-(mobile?0:16+(parseFloat(getComputedStyle(target).scrollMarginTop)||0)));
- },mobile)).toBeLessThanOrEqual(1);
+ },mobile)).toBeLessThanOrEqual(1);}catch(error){
+  console.error('anchor landing diagnostic',await page.locator('#'+id).evaluate((target,mobile)=>({url:location.href,tab:document.documentElement.dataset.appTab,standalone:document.documentElement.classList.contains('standaloneApp'),scrollY,targetTop:target.getBoundingClientRect().top,headerBottom:document.querySelector(mobile?'.appSectionHeader':'.siteNav').getBoundingClientRect().bottom,padding:getComputedStyle(document.documentElement).scrollPaddingTop,margin:getComputedStyle(target).scrollMarginTop}),mobile));
+  throw error;
+ }
  if(mobile)expect(await page.locator('#'+id).evaluate(target=>{
   const header=document.querySelector('.appSectionHeader').getBoundingClientRect();
   return target.contains(document.elementFromPoint(innerWidth/2,header.bottom+2));
@@ -38,7 +41,18 @@ test('section taps, hashes and history align with the actual header in every edi
   await navigate(page,home,{waitUntil:'domcontentloaded'});await expect(page.locator('html')).toHaveAttribute('data-app-tab','home');await page.evaluate(()=>document.fonts.ready);
   const nav=page.getByRole('navigation',{name:mobile?'App navigation':'Primary navigation',exact:true});
   // Begin with downward scrolling so the compact bottom-nav state is exercised.
-  if(mobile){await userScroll(page,500,testInfo);await expect.poll(()=>page.evaluate(()=>scrollY)).toBeGreaterThan(0);}
+  if(mobile){
+   // SSR markup and fonts can be ready before the client navigation effect
+   // finishes its initial scroll reset. Confirm real client interaction first.
+   const more=nav.getByRole('button',{name:'More',exact:true});
+   await more.click();await expect(more).toHaveAttribute('aria-expanded','true');
+   await more.click();await expect(more).toHaveAttribute('aria-expanded','false');
+   await userScroll(page,500,testInfo);
+   try{await expect.poll(()=>page.evaluate(()=>scrollY)).toBeGreaterThan(0);}catch(error){
+    console.error('initial scroll diagnostic',await page.evaluate(()=>({url:location.href,tab:document.documentElement.dataset.appTab,scrollY,height:document.documentElement.scrollHeight,viewport:innerHeight,standalone:document.documentElement.classList.contains('standaloneApp')})));
+    throw error;
+   }
+  }
   const second=mobile||root==='/'?'culture':'league';
   for(const id of ['scores',second]){
    await nav.getByRole('link',{name:new RegExp('^(THE )?'+id+'$','i')}).click();await expectLanding(page,id,mobile);
