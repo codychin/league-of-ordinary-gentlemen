@@ -184,17 +184,44 @@ function MobileAppNav(){
   const isEditionTeams=pathname.startsWith(teamsPath)
   const [activeTab,setActiveTab]=useState(isEditionTeams?'teams':pathname.includes('/matchups/')?'scores':['/staff','/archive','/corrections'].some(path=>pathname.startsWith(path))?'more':isEditionHome?'home':'detail')
   const [moreOpen,setMoreOpen]=useState(false)
+  const [headerOnCulture,setHeaderOnCulture]=useState(false)
   const [compactNav,expandNav]=useCompactMobileNav(pathname,moreOpen)
   const [sundayLive,setSundayLive]=useState(false)
   const pendingScroll=useRef(null)
   useEffect(()=>{
     const nav=document.querySelector('.siteNav')
-    if(!nav)return
-    const update=()=>document.documentElement.style.setProperty('--desktop-nav-height',`${nav.getBoundingClientRect().height}px`)
+    const mobileHeader=document.querySelector('.appSectionHeader')
+    const update=()=>{
+      if(nav)document.documentElement.style.setProperty('--desktop-nav-height',`${nav.getBoundingClientRect().height}px`)
+      if(mobileHeader)document.documentElement.style.setProperty('--mobile-header-height',`${mobileHeader.getBoundingClientRect().height}px`)
+    }
     const observer=new ResizeObserver(update)
-    update();observer.observe(nav)
+    update();if(nav)observer.observe(nav);if(mobileHeader)observer.observe(mobileHeader,{box:'border-box'})
     return()=>observer.disconnect()
   },[pathname])
+  useEffect(()=>{
+    let frame=0
+    const update=()=>{
+      frame=0
+      const header=document.querySelector('.appSectionHeader')
+      if(!header)return
+      const boundary=header.getBoundingClientRect().bottom
+      const culture=document.getElementById('culture')?.getBoundingClientRect()
+      setHeaderOnCulture(Boolean(culture&&culture.top<boundary/2&&culture.bottom>boundary/2))
+      if(!isEditionHome||innerWidth>760||document.documentElement.classList.contains('standaloneApp'))return
+      const scores=document.getElementById('scores')?.getBoundingClientRect()
+      const y=boundary+2
+      const within=rect=>rect&&rect.top<=y&&rect.bottom>y
+      setActiveTab(within(culture)?'culture':within(scores)?'scores':'home')
+    }
+    const schedule=()=>{if(!frame)frame=requestAnimationFrame(update)}
+    window.addEventListener('scroll',schedule,{passive:true})
+    window.addEventListener('resize',schedule)
+    const resize=new ResizeObserver(schedule)
+    resize.observe(document.body)
+    schedule()
+    return()=>{cancelAnimationFrame(frame);resize.disconnect();window.removeEventListener('scroll',schedule);window.removeEventListener('resize',schedule)}
+  },[pathname,isEditionHome])
   const tabFor=hash=>{
     if(isEditionTeams) return 'teams'
     if(pathname.includes('/matchups/')) return 'scores'
@@ -300,7 +327,7 @@ function MobileAppNav(){
   }
 
   return <>
-    <div className="appSectionHeader"><Link className="mobileBriefLogo" href={items[0].href} onClick={event=>navigate(event,items[0])} aria-label="The Brief home"><b>The</b><img src="/icons/ordinary-brief-masthead.svg" width="30" height="30" alt=""/><b>Brief</b></Link></div>
+    <div className="appSectionHeader" data-surface={headerOnCulture?'culture':'paper'}><Link className="mobileBriefLogo" href={items[0].href} onClick={event=>navigate(event,items[0])} aria-label="The Brief home"><b>The</b><img src={headerOnCulture?'/icons/ordinary-brief-masthead-light.svg':'/icons/ordinary-brief-masthead.svg'} width="30" height="30" alt=""/><b>Brief</b></Link></div>
     {moreOpen&&<aside className="appMoreSheet" aria-label="More and settings">
       <div className="appMoreHead"><small>THE BRIEF</small><b>More</b><button type="button" onClick={()=>setMoreOpen(false)} aria-label="Close more menu">×</button></div>
       <div className="appSettings"><small>SETTINGS</small><ArticleAlertSettings edition={edition}/></div>

@@ -138,3 +138,15 @@
   main > [data-editorial-layout="open-top"] .previewAuthor { margin:0 0 20px; }
   main.articleMain[data-editorial-system="a"] > .articleBylineShare { margin:20px 0; }
 }
+
+/* The first compact story also separates from the preceding editorial module. */
+main .mobileStoryRows > section:first-child { position:relative; }
+main .mobileStoryRows > section:first-child::before {
+  content:'';position:absolute;left:0;right:0;top:-16px;
+  height:var(--compact-row-hairline,1px);transform:translateY(-50%);
+  background:var(--compact-row-rule,rgba(38,36,31,.20));pointer-events:none;
+}
+@media(max-width:760px) {
+  /* Standalone story photography leads directly into its category label. */
+  main > .hero.heroStack .photoHero { margin-bottom:24px; }
+}
