@@ -16,3 +16,12 @@
 
 /* A deliberate UI link, not a tiny editorial footnote. */
 .introCopy a{font:700 14px/20px 'Brief Editorial Sans',Arial,sans-serif;letter-spacing:0;min-height:44px;max-width:none;padding-block:10px;}
+
+/* Mobile introduction: title, description and action each own a readable row. */
+@media(max-width:700px){
+  .intro h1{font-size:clamp(2rem,11.5vw,3.25rem);line-height:1.1;letter-spacing:-1.5px;}
+  .introCopy{display:flex;flex-direction:column;align-items:flex-start;gap:16px;margin:24px 0 0;}
+  .introCopy p{margin:0;}
+  .introCopy a{max-width:100%;min-height:44px;}
+  .sectionLabel{flex-direction:column;align-items:flex-start;gap:10px;padding:24px 0;}
+}

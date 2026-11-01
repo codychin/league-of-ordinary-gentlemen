@@ -32,7 +32,14 @@ main.articleMain[data-editorial-system="a"] .articleBody .articleSectionHead { b
 }
 @media(max-width:760px) {
   .siteNav { display:none!important; }
-  html:has(.siteNav),html.standaloneApp:has(.siteNav) { scroll-padding-top:calc(env(safe-area-inset-top) + 76px); }
+  html:has(.siteNav),html.standaloneApp:has(.siteNav) { scroll-padding-top:var(--mobile-header-height,calc(env(safe-area-inset-top) + 52px)); }
+  html main > [id],html.standaloneApp main > [id] { scroll-margin-top:0; }
+  /* Standalone tabs hide preceding sections instead of scrolling the full feed.
+     Their first visible section must use the same measured header boundary. */
+  html.standaloneApp:is([data-app-tab='scores'],[data-app-tab='culture']) body:has(.mobileBriefLogo) {
+    padding-top:var(--mobile-header-height,calc(env(safe-area-inset-top) + 52px));
+  }
+  html.standaloneApp[data-app-tab='culture'] #culture.affairs[data-editorial-system='a'] { margin-top:0; }
   .appMoreSheet { max-height:calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 100px);overflow-y:auto;overscroll-behavior:contain; }
 }
 
@@ -85,3 +92,19 @@ html .scoreSection .scores.archiveScores > .match {
 .scores.archiveScores > .match > div:last-of-type { grid-row:3; }
 .scores.archiveScores > .match > div :is(b,span) { overflow-wrap:anywhere; }
 .scores.archiveScores > .match strong { white-space:nowrap; }
+
+/* Culture keeps its intentional inverse palette inside functional pagination. */
+html #culture.affairs[data-editorial-system="a"] .culturePagination {
+  --ink:#f5f1e8;--paper:#f5f1e8;--red:#d65b4c;border-top:0;
+}
+html #culture.affairs[data-editorial-system="a"] .culturePagination button {
+  --ink:#f5f1e8;--paper:#f5f1e8;--red:#d65b4c;color:#f5f1e8;
+}
+html #culture.affairs[data-editorial-system="a"] .culturePagination button:disabled { color:#bdb5a8;opacity:1;border-color:#5a554c; }
+@media(max-width:760px) {
+  html body .appSectionHeader[data-surface="culture"],html.standaloneApp body .appSectionHeader[data-surface="culture"] {
+    background:linear-gradient(to bottom,rgba(23,22,19,.88),rgba(23,22,19,.74) calc(env(safe-area-inset-top) + 32px),transparent);
+  }
+  .appSectionHeader[data-surface="culture"] .mobileBriefLogo { color:#f5f1e8; }
+  .appSectionHeader[data-surface="culture"] .mobileBriefLogo:focus-visible { outline-color:#f5f1e8; }
+}
