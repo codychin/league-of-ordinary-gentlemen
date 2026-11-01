@@ -8,6 +8,9 @@ test('preview widths, row boundary and dispatch ownership survive standalone ren
   await expect(cards).toHaveCount(6);
   const widths=await cards.evaluateAll(nodes=>nodes.map(n=>n.getBoundingClientRect().width));
   expect(Math.max(...widths)-Math.min(...widths)).toBeLessThan(1);
+  const geometry=await cards.evaluateAll(nodes=>nodes.map(n=>({top:n.firstElementChild.getBoundingClientRect().top,overflow:n.scrollWidth>n.clientWidth+1})));
+  expect(Math.max(...geometry.map(x=>x.top))-Math.min(...geometry.map(x=>x.top))).toBeLessThan(1);
+  expect(geometry.some(x=>x.overflow)).toBe(false);
   const rows=page.locator('.mobileStoryRows');
   const first=rows.locator(':scope > section').first();
   expect(await first.locator('a[href*="marnie-hecklinski-use-your-words"]').count()).toBeGreaterThan(0);
