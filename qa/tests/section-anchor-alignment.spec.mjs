@@ -1,5 +1,17 @@
 import {test,expect} from '../helpers/browser.mjs';
 
+async function userScroll(page,dy,testInfo){
+ if(testInfo.project.use.isMobile&&testInfo.project.use.hasTouch){
+  // Mobile WebKit has no wheel driver. Deliver genuine touch input to an
+  // inert fixed fixture, then move document scroll; this tests cancellation,
+  // not OS gesture physics. The desktop-input projects retain wheel coverage.
+  await page.evaluate(()=>{const pad=document.createElement('div');pad.id='qa-touch-pad';pad.style.cssText='position:fixed;left:0;top:120px;width:44px;height:44px;z-index:2147483647';document.body.append(pad)});
+  await page.locator('#qa-touch-pad').tap();
+  await page.locator('#qa-touch-pad').evaluate(e=>e.remove());
+  await page.evaluate(amount=>scrollBy({top:amount,behavior:'instant'}),dy);
+ }else await page.mouse.wheel(0,dy);
+}
+
 async function expectLanding(page,id,mobile){
  await expect.poll(()=>page.locator('#'+id).evaluate((target,mobile)=>{
   const header=document.querySelector(mobile?'.appSectionHeader':'.siteNav');
@@ -19,7 +31,7 @@ test('section taps, hashes and history align with the actual header in every edi
   await page.goto(home,{waitUntil:'domcontentloaded'});await expect(page.locator('html')).toHaveAttribute('data-app-tab','home');await page.evaluate(()=>document.fonts.ready);
   const nav=page.getByRole('navigation',{name:mobile?'App navigation':'Primary navigation',exact:true});
   // Begin with downward scrolling so the compact bottom-nav state is exercised.
-  if(mobile){await page.mouse.wheel(0,500);await expect.poll(()=>page.evaluate(()=>scrollY)).toBeGreaterThan(0);}
+  if(mobile){await userScroll(page,500,testInfo);await expect.poll(()=>page.evaluate(()=>scrollY)).toBeGreaterThan(0);}
   const second=mobile||root==='/'?'culture':'league';
   for(const id of ['scores',second]){
    await nav.getByRole('link',{name:new RegExp('^(THE )?'+id+'$','i')}).click();await expectLanding(page,id,mobile);
@@ -49,7 +61,7 @@ test('late image layout changes retain the selected mobile section until user in
   await expect.poll(()=>page.locator('#qa-delayed-layout img').evaluate(i=>i.complete&&i.naturalHeight===300)).toBe(true);await expectLanding(page,'culture',true);
   // Safe-area/header resizing changes the fixed header without requiring body growth.
   await page.locator('.appSectionHeader').evaluate(h=>h.style.paddingTop='59px');await expectLanding(page,'culture',true);
-  await page.mouse.wheel(0,180);await page.waitForTimeout(150);
+  await userScroll(page,180,testInfo);await page.waitForTimeout(150);
   await page.locator('#qa-delayed-layout').evaluate(e=>e.style.height='600px');
   await expect.poll(()=>page.locator('#culture').evaluate(e=>Math.abs(e.getBoundingClientRect().top-document.querySelector('.appSectionHeader').getBoundingClientRect().bottom))).toBeGreaterThan(20);
  }
