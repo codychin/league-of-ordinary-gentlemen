@@ -41,7 +41,7 @@ export default function SundayLiveDesk({editionSlug=null,editionLabel='THE NEWSR
 
   if(!isLive)return null
 
-  return <section className="sundayDesk section" id="live-desk" aria-label="Sunday Live Desk">
+  return <section className="sundayDesk section" data-editorial-system="a" id="live-desk" aria-label="Sunday Live Desk">
     <div className="sundayDeskBrand" aria-label="The Brief Sunday Live Desk">
       <span className="sundayDeskBrandLine"/>
       <div className="sundayDeskBrandLockup">
@@ -60,7 +60,7 @@ export default function SundayLiveDesk({editionSlug=null,editionLabel='THE NEWSR
       {activeWriters.map(key=><button key={key} className={filter===key?'active':''} onClick={()=>{setFilter(key);setPage(1)}}>{writers[key]?.name.split(' ')[0]?.toUpperCase()}</button>)}
     </div>
     <div className="sundayDeskFeed">
-      {normalized.length===0&&<p className="deskEmpty" role="status" style={{padding:'24px 0',fontSize:'1rem',lineHeight:1.5}}>{loadState==='loading'?'Loading the live desk…':loadState==='error'?'The live desk is temporarily unavailable. We’ll retry shortly.':'The Sunday Live Desk is open. Coverage will appear here as reports come in.'}</p>}
+      {normalized.length===0&&<p className="deskEmpty" role="status">{loadState==='loading'?'Loading the live desk…':loadState==='error'?'The live desk is temporarily unavailable. We’ll retry shortly.':'The Sunday Live Desk is open. Coverage will appear here as reports come in.'}</p>}
       {displayed.map(post=>{
         const writer=writers[post.writer]
         if(!writer)return null
