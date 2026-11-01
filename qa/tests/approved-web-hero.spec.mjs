@@ -2,13 +2,13 @@ import fs from 'node:fs';
 import crypto from 'node:crypto';
 import {test,expect} from '../helpers/browser.mjs';
 const reference=JSON.parse(fs.readFileSync(new URL('../fixtures/approved-web-hero.json',import.meta.url)));
-test('approved hero composition is preserved across editions and system appearances',async({page})=>{
- test.skip(page.viewportSize().width<=760,'One explicit mobile and desktop edition sweep');
+test('approved mobile hero composition is preserved across editions and system appearances',async({page})=>{
+ test.skip(page.viewportSize().width<=760,'One explicit mobile edition and breakpoint sweep');
  const bytes=fs.readFileSync(new URL('../../'+reference.sourceImage,import.meta.url));
  expect(crypto.createHash('sha256').update(bytes).digest('hex')).toBe(reference.sourceImageSha256);
  await page.route('https://a.espncdn.com/**',r=>r.abort());
  await page.route('**/functions/v1/brief-comments?**',r=>r.fulfill({json:{comments:[],votes:[]}}));
- for(const width of [440,1440]){
+ for(const width of [320,440,760]){
   await page.setViewportSize({width,height:1000});let expected;
   for(const route of ['/','/doge','/sunday-crew'])for(const colorScheme of ['light','dark']){
    await page.emulateMedia({colorScheme,reducedMotion:'reduce'});await page.goto(route);await page.evaluate(()=>document.fonts.ready);

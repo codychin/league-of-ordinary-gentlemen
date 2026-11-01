@@ -63,3 +63,13 @@ html main[data-weekly-media="absent"] > .morningBriefPreview.sundayFront.immersi
 }
 /* Match the selected compact rail's 8px transition into the hero on desktop too. */
 html main > [data-matchup-layout="compact"] + .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] { margin-top:0; }
+@media(min-width:761px){
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeature.sabinePackage { position:relative; }
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeature.sabinePackage > .sundayFeatureImage { position:absolute;inset:0 0 0 auto;width:min(72%,780px)!important;height:100%!important;aspect-ratio:auto; }
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeatureImage::after { background:linear-gradient(to right,#f5f1e8 0%,rgba(245,241,232,.85) 28%,rgba(245,241,232,.4) 60%,transparent 90%),linear-gradient(to bottom,transparent 65%,#f5f1e8 100%); }
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeature.sabinePackage > .sundayFeatureCopy { margin:0 48px;max-width:680px;width:62%;padding:64px 0 0!important; }
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sabinePackageIntro > p { max-width:48ch; }
+}
+@media(min-width:761px) and (max-width:1000px){
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeature.sabinePackage > .sundayFeatureCopy { margin-inline:32px;width:65%;padding-top:48px!important; }
+}
