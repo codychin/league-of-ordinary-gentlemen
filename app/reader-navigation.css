@@ -103,7 +103,7 @@ html #culture.affairs[data-editorial-system="a"] .culturePagination button {
 html #culture.affairs[data-editorial-system="a"] .culturePagination button:disabled { color:#bdb5a8;opacity:1;border-color:#5a554c; }
 @media(max-width:760px) {
   html body .appSectionHeader[data-surface="culture"],html.standaloneApp body .appSectionHeader[data-surface="culture"] {
-    background:linear-gradient(to bottom,rgba(23,22,19,.88),rgba(23,22,19,.74) calc(env(safe-area-inset-top) + 32px),transparent);
+    background:transparent;
   }
   .appSectionHeader[data-surface="culture"] .mobileBriefLogo { color:#f5f1e8; }
   .appSectionHeader[data-surface="culture"] .mobileBriefLogo:focus-visible { outline-color:#f5f1e8; }

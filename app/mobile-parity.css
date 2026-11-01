@@ -6,7 +6,7 @@
   html body .appSectionHeader,html.standaloneApp body .appSectionHeader {
     display:flex;position:fixed;inset:0 0 auto;z-index:80;box-sizing:content-box;
     height:44px;padding:env(safe-area-inset-top) 58px 8px;align-items:flex-start;justify-content:center;
-    border:0;background:linear-gradient(to bottom,rgba(245,241,232,.78) 0%,rgba(245,241,232,.64) calc(env(safe-area-inset-top) + 32px),transparent 100%);pointer-events:none;
+    border:0;background:transparent;pointer-events:none;
   }
   .mobileBriefLogo { pointer-events:auto;display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;color:#26241f;text-decoration:none; }
   .mobileBriefLogo b { font:700 20px/1 'Brief Nine F Native Preview',Georgia,serif;letter-spacing:-.7px;font-synthesis:none; }

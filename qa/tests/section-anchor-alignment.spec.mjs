@@ -95,6 +95,8 @@ test('Culture pagination and floating masthead remain readable while the feed ch
   if(mobile){
    await expect(page.locator('.appTabBar')).toHaveAttribute('data-active-tab','culture');
    await expect(page.locator('.appSectionHeader')).toHaveAttribute('data-surface','culture');
+   await expect(page.locator('.appSectionHeader')).toHaveCSS('background-image','none');
+   await expect(page.locator('.appSectionHeader')).toHaveCSS('background-color','rgba(0, 0, 0, 0)');
    await expect(page.locator('.mobileBriefLogo')).toHaveCSS('color','rgb(245, 241, 232)');
    await expect(page.locator('.mobileBriefLogo img')).toHaveAttribute('src','/icons/ordinary-brief-masthead-light.svg');
    await page.screenshot({path:testInfo.outputPath(`culture-after-${root==='/'?'loog':root.slice(1)}-${page.viewportSize().width}.png`)});
