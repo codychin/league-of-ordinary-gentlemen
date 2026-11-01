@@ -1,0 +1,65 @@
+/* Copy remains in normal flow; bottom padding follows its final rendered line. */
+/* The category uses multiply ink against the actual photo/paper composite, preserving
+   the red token and contrast without a separate backing panel. The copy must not
+   create a stacking context that prevents this blend; the hero isolates it. */
+/* Immersive photography fades into the same paper as the light-only website. */
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] {
+  --paper:#f5f1e8;--ink:#26241f;--muted:#746d62;--red:#a43d31;
+  --hero-overlap:clamp(160px,16vw,200px);
+  width:calc(100% + 44px);margin:12px -22px 0;padding:0 0 40px;
+  background:var(--paper);color:var(--ink);isolation:isolate;
+}
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFrontGrid { display:block;border:0;margin:0; }
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeature.sabinePackage { display:block;border:0;overflow:visible; }
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeature.sabinePackage > .sundayFeatureImage {
+  position:relative;display:block;width:100%!important;height:auto!important;min-height:0!important;
+  margin:0!important;aspect-ratio:2.2/1;overflow:hidden;isolation:isolate;
+}
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeatureImage img {
+  display:block;width:100%;height:100%;object-fit:cover;object-position:center top;
+}
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeatureImage::after {
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to bottom,transparent 0%,transparent calc(100% - var(--hero-overlap) - 180px),rgba(245,241,232,.03) calc(100% - var(--hero-overlap) - 140px),rgba(245,241,232,.12) calc(100% - var(--hero-overlap) - 100px),rgba(245,241,232,.28) calc(100% - var(--hero-overlap) - 65px),rgba(245,241,232,.49) calc(100% - var(--hero-overlap) - 30px),rgba(245,241,232,.73) calc(100% - var(--hero-overlap)),rgba(245,241,232,.8) calc(100% - var(--hero-overlap) + 48px),rgba(245,241,232,.88) calc(100% - var(--hero-overlap) + 96px),rgba(245,241,232,.96) calc(100% - 24px),#f5f1e8 100%);
+}
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeature.sabinePackage > .sundayFeatureCopy {
+  position:relative;z-index:auto;width:auto;max-width:800px;margin:calc(-1 * var(--hero-overlap)) 48px 0;
+  padding:0!important;min-height:0!important;background:transparent;
+}
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sabinePackageIntro { padding:0!important; }
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sabinePackageIntro > small { display:table;color:#a43d31;mix-blend-mode:multiply;opacity:1;margin:0;padding:2px 6px;background:transparent; }
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sabinePackageTitle { display:block;margin:16px 0 20px; }
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sabinePackageTitle h2 { color:#26241f;margin:0;padding:0;font-size:clamp(36px,3.8vw,52px);line-height:1.1; }
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .previewAuthor { margin:0 0 20px; }
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .previewAuthor strong,
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .previewAuthor time { color:#746d62; }
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sabinePackageIntro > p { margin:0;max-width:65ch;color:#26241f;font-style:normal; }
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] a:focus-visible { outline:2px solid #26241f;outline-offset:-3px; }
+@media(max-width:760px) {
+  html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] {
+    width:calc(100% + 40px);margin:0 -20px 0;padding-bottom:40px;
+  }
+  html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeature.sabinePackage > .sundayFeatureImage {
+    aspect-ratio:auto;height:clamp(340px,100vw,480px)!important;
+  }
+  html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeature.sabinePackage > .sundayFeatureCopy {
+    margin:calc(-1 * var(--hero-overlap)) 20px 0;max-width:none;
+  }
+  html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sabinePackageTitle h2 { font-size:31px;line-height:35px; }
+}
+@media(min-width:761px) and (max-width:1000px) {
+  html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeature.sabinePackage > .sundayFeatureImage { aspect-ratio:1.8/1; }
+  html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeature.sabinePackage > .sundayFeatureCopy { margin:calc(-1 * var(--hero-overlap)) 32px 0; }
+}
+
+/* The original dark photo retains a contrasting keyboard-focus ring. */
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeatureImage:focus-visible { outline-color:#f5f1e8; }
+
+/* Only authoritative empty inventory enables bleed, never a loading/failed media check.
+   A live score/desk module before the hero also retains its normal document position. */
+html main[data-weekly-media="absent"] > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"]:first-child { margin-top:0; }
+@media(max-width:760px) {
+  html body:has(main[data-weekly-media="absent"] > .immersiveLead:first-child) { padding-top:0; }
+}
+/* Match the selected compact rail's 8px transition into the hero on desktop too. */
+html main > [data-matchup-layout="compact"] + .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] { margin-top:0; }

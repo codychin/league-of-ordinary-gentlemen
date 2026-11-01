@@ -1,0 +1,23 @@
+/* Exact option 06 static Source Serif 4 instances, optical size 19.
+   Internal RFN-safe family names and source/OFL provenance retained beside assets. */
+@font-face { font-family:'Brief Body Reference 5';src:url('/fonts/source-serif-06/sourceserif4-400.ttf') format('truetype');font-weight:400;font-style:normal;font-display:swap; }
+@font-face { font-family:'Brief Body Reference 5';src:url('/fonts/source-serif-06/sourceserif4-italic400.ttf') format('truetype');font-weight:400;font-style:italic;font-display:swap; }
+@font-face { font-family:'Brief Body Reference 5';src:url('/fonts/source-serif-06/sourceserif4-700.ttf') format('truetype');font-weight:700;font-style:normal;font-display:swap; }
+@font-face { font-family:'Brief Body Reference 5';src:url('/fonts/source-serif-06/sourceserif4-600.ttf') format('truetype');font-weight:600;font-style:normal;font-display:swap; }
+main [data-editorial-system="a"] :is(.editorialBody,.editorialBody p,.articleBody p),
+main[data-editorial-system="a"] :is(.editorialBody,.editorialBody p,.articleBody p) {
+  font-family:'Brief Body Reference 5',serif;font-synthesis:none;
+}
+main [data-editorial-system="a"] :is(.standfirst,.editorialDeck,.hero-copy > p,.sundayFeatureCopy p,.cultureGrid .card > p,.editorialIntro p),
+main[data-editorial-system="a"] :is(.standfirst,.editorialDeck,.hero-copy > p,.sundayFeatureCopy p,.cultureGrid .card > p,.editorialIntro p),
+main [data-editorial-system="a"] a[href*='/articles/'] > p,
+main .mobileStoryRows .hero.heroStack .standfirst,
+main .mobileStoryRows [data-editorial-system="a"] .sabinePackageIntro > p {
+  font-family:'Brief Body Reference 5',serif;font-style:normal;font-synthesis:none;
+}
+main [data-editorial-system="a"] :is(.previewAuthor strong,.bylineWriter strong,.editorialByline),
+main[data-editorial-system="a"] :is(.previewAuthor strong,.bylineWriter strong,.editorialByline) {
+  font-family:'Brief Body Reference 5',serif;font-weight:700;font-synthesis:none;
+}
+/* Listing decks are roman; only the opened article subtitle is italic. */
+main.articleMain[data-editorial-system="a"] > .articleDek { font-family:'Brief Body Reference 5',serif;font-style:italic;font-synthesis:none; }

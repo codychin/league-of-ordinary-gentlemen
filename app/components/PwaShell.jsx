@@ -1,5 +1,7 @@
 'use client'
 import ImageWarmup from './ImageWarmup'
+import useCompactMobileNav from './useCompactMobileNav'
+import {LIVE_DESK_ENABLED} from '../../lib/live-desk-state'
 
 import Link from 'next/link'
 import {scrollToSection} from '../../lib/scroll-to-section.mjs'
@@ -182,8 +184,17 @@ function MobileAppNav(){
   const isEditionTeams=pathname.startsWith(teamsPath)
   const [activeTab,setActiveTab]=useState(isEditionTeams?'teams':pathname.includes('/matchups/')?'scores':['/staff','/archive','/corrections'].some(path=>pathname.startsWith(path))?'more':isEditionHome?'home':'detail')
   const [moreOpen,setMoreOpen]=useState(false)
+  const [compactNav,expandNav]=useCompactMobileNav(pathname,moreOpen)
   const [sundayLive,setSundayLive]=useState(false)
   const pendingScroll=useRef(null)
+  useEffect(()=>{
+    const nav=document.querySelector('.siteNav')
+    if(!nav)return
+    const update=()=>document.documentElement.style.setProperty('--desktop-nav-height',`${nav.getBoundingClientRect().height}px`)
+    const observer=new ResizeObserver(update)
+    update();observer.observe(nav)
+    return()=>observer.disconnect()
+  },[pathname])
   const tabFor=hash=>{
     if(isEditionTeams) return 'teams'
     if(pathname.includes('/matchups/')) return 'scores'
@@ -224,27 +235,30 @@ function MobileAppNav(){
     const priorRestoration=window.history.scrollRestoration
     window.history.scrollRestoration='manual'
     const scrollToLocation=()=>{
+      expandNav()
       pendingScroll.current?.()
       const queryTab=new URLSearchParams(window.location.search).get('tab')
       const hash=window.location.hash||(isEditionHome&&['scores','culture'].includes(queryTab)?'#'+queryTab:'')
       activate(hash)
-      if(standalone&&isEditionHome)resetAppScroll()
+      if(standalone&&isEditionHome&&['','#scores','#culture'].includes(hash))resetAppScroll()
       else if(hash)scrollSection(hash.slice(1))
       else resetAppScroll()
     }
     scrollToLocation()
     const onNavClick=event=>{
       if(event.defaultPrevented||event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return
-      const link=event.target.closest?.('.siteNav a')
+      const link=event.target.closest?.('.siteNav a, .appMoreLinks a[data-section-link]')
       if(!link||link.target==='_blank')return
       const url=new URL(link.href,window.location.origin)
       if(url.origin!==window.location.origin||url.pathname!==homePath)return
+      expandNav()
+      setMoreOpen(false)
       event.preventDefault()
       if(!isEditionHome){router.push(url.pathname+url.search+url.hash,{scroll:false});return}
       pendingScroll.current?.()
       window.history.pushState(window.history.state,'',url.pathname+url.search+url.hash)
       activate(url.hash)
-      if(standalone||!url.hash)resetAppScroll()
+      if((standalone&&['','#scores','#culture'].includes(url.hash))||!url.hash)resetAppScroll()
       else scrollSection(url.hash.slice(1))
     }
     document.addEventListener('click',onNavClick,true)
@@ -257,7 +271,7 @@ function MobileAppNav(){
       window.removeEventListener('popstate',scrollToLocation)
       window.history.scrollRestoration=priorRestoration
     }
-  },[pathname])
+  },[pathname,expandNav])
 
   const items=[
     {href:editionRoot?homePath:(sundayLive?'/#live-desk':'/'),label:editionRoot?'Home':(sundayLive?'Live':'Home'),icon:'Home',tab:'home',hash:editionRoot?undefined:(sundayLive?'#live-desk':undefined),active:activeTab==='home'||activeTab==='detail'},
@@ -267,6 +281,7 @@ function MobileAppNav(){
   ]
   const navigate=(event,item)=>{
     if(event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return
+    expandNav()
     event.preventDefault()
     setMoreOpen(false)
     pendingScroll.current?.()
@@ -284,20 +299,18 @@ function MobileAppNav(){
     else scrollSection(item.hash.slice(1))
   }
 
-  const overflowLabel=pathname.startsWith('/staff')?'Staff':pathname.endsWith('/archive')?'The Crates':pathname.startsWith('/corrections')?'Corrections':'More'
-  const headerLabel=moreOpen?'More':pathname.includes('/matchups/')?'Matchup':activeTab==='scores'?'Scores':activeTab==='teams'?'Teams':activeTab==='culture'?'The Culture':activeTab==='more'?overflowLabel:activeTab==='detail'?'The Brief':''
   return <>
-    <div className="appSectionHeader" aria-hidden="true"><span>{headerLabel}</span></div>
+    <div className="appSectionHeader"><Link className="mobileBriefLogo" href={items[0].href} onClick={event=>navigate(event,items[0])} aria-label="The Brief home"><b>The</b><img src="/icons/ordinary-brief-v3.svg" alt=""/><b>Brief</b></Link></div>
     {moreOpen&&<aside className="appMoreSheet" aria-label="More and settings">
       <div className="appMoreHead"><small>THE BRIEF</small><b>More</b><button type="button" onClick={()=>setMoreOpen(false)} aria-label="Close more menu">×</button></div>
       <div className="appSettings"><small>SETTINGS</small><ArticleAlertSettings edition={edition}/></div>
-      <div className="appMoreLinks">{editionRoot?<><Link href={editionRoot+"/archive"} onClick={()=>setMoreOpen(false)}><MoreMenuIcon name="Archive"/><span>The Crates</span></Link><Link href={editionRoot+"/newsroom"} onClick={()=>setMoreOpen(false)}><MoreMenuIcon name="Staff"/><span>{edition.name} newsroom</span></Link></>:<>
+      <div className="appMoreLinks"><Link href={homePath+"#league"} data-section-link><MoreMenuIcon name="Staff"/><span>The League</span></Link>{editionRoot&&<><Link href={homePath+"#standings"} data-section-link><MoreMenuIcon name="Archive"/><span>Standings</span></Link><Link href={homePath+"#transactions"} data-section-link><MoreMenuIcon name="Archive"/><span>The Wire</span></Link>{LIVE_DESK_ENABLED&&<Link href={homePath+"#live-desk"} data-section-link><MoreMenuIcon name="Archive"/><span>Live Desk</span></Link>}</>}{editionRoot?<><Link href={editionRoot+"/archive"} onClick={()=>setMoreOpen(false)}><MoreMenuIcon name="Archive"/><span>The Crates</span></Link><Link href={editionRoot+"/newsroom"} onClick={()=>setMoreOpen(false)}><MoreMenuIcon name="Staff"/><span>{edition.name} newsroom</span></Link></>:<>
         <Link href="/archive"><MoreMenuIcon name="Archive"/><span>The Crates</span></Link>
         <Link href="/staff"><MoreMenuIcon name="Staff"/><span>Staff</span></Link>
         <Link href="/corrections"><MoreMenuIcon name="Corrections"/><span>Corrections</span></Link></>}
       </div>
     </aside>}
-    <nav className="appTabBar" data-active-tab={moreOpen?'more':activeTab==='detail'?'home':activeTab} aria-label="App navigation">
+    <nav className="appTabBar" data-compact={compactNav} data-active-tab={moreOpen?'more':activeTab==='detail'?'home':activeTab} aria-label="App navigation">
       <span className="appTabGlider" aria-hidden="true"/>
       {items.map(item=><Link
       key={item.label}

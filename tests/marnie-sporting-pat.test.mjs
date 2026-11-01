@@ -44,7 +44,7 @@ test('restored lead uses the established template and preserves the Oregon unlin
  const css=readFileSync('app/components/SharedEditorialFront.module.css','utf8');
  const canonical=readFileSync('app/home-pass.css','utf8');
  const lead=front.slice(front.indexOf('<section'),front.indexOf('<section className={front.recent}'));
- assert.match(lead,/className="morningBriefPreview sundayFront"/);
+ assert.match(lead,/className="morningBriefPreview sundayFront(?: [^"]+)?"/);
  assert.match(lead,/sundayFeatureImage storylink \$\{front\.tourHero\}/);
  assert.ok(!css.includes('sportingPatHero'));
  assert.ok(!css.includes('sportingPatLead'));

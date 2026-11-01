@@ -1,0 +1,137 @@
+{
+  "name": "Source Serif 4",
+  "source": "https://github.com/google/fonts/tree/main/ofl/sourceserif4",
+  "license": "SIL OFL 1.1",
+  "license_path": "OFL.txt",
+  "fonts": {
+    "400": {
+      "actual_weight": 400,
+      "axes": {
+        "wght": 400,
+        "opsz": 19
+      },
+      "sha256": "d97bfdf3221691c7d2ff5933b053c022c123c20b9be9ab59e76c4b1d1d287c90",
+      "file": "sourceserif4-400.ttf",
+      "names": {
+        "1": [
+          "Brief Body Reference 5"
+        ],
+        "2": [
+          "Regular"
+        ],
+        "4": [
+          "Brief Body Reference 5400"
+        ],
+        "6": [
+          "BriefBodyReference5-400"
+        ],
+        "16": [
+          "Brief Body Reference 5"
+        ],
+        "17": [
+          "Regular"
+        ]
+      }
+    },
+    "600": {
+      "actual_weight": 600,
+      "axes": {
+        "wght": 600,
+        "opsz": 19
+      },
+      "sha256": "3fc1e3e0e643db5f7b12eace2375321d5dc5636378c35b9d612c4cef94a1b96d",
+      "file": "sourceserif4-600.ttf",
+      "names": {
+        "1": [
+          "Brief Body Reference 5"
+        ],
+        "2": [
+          "SemiBold"
+        ],
+        "4": [
+          "Brief Body Reference 5600"
+        ],
+        "6": [
+          "BriefBodyReference5-600"
+        ],
+        "16": [
+          "Brief Body Reference 5"
+        ],
+        "17": [
+          "SemiBold"
+        ]
+      }
+    },
+    "700": {
+      "actual_weight": 700,
+      "style": "normal",
+      "axes": {
+        "wght": 700,
+        "opsz": 19
+      },
+      "sha256": "cd222e027c65d27f89aabebf30c19b31aa49eb8825912c237c866d00fb886df8",
+      "file": "sourceserif4-700.ttf",
+      "names": {
+        "1": [
+          "Brief Body Reference 5"
+        ],
+        "2": [
+          "Bold"
+        ],
+        "4": [
+          "Brief Body Reference 5 Bold"
+        ],
+        "6": [
+          "BriefBodyReference5-Bold"
+        ],
+        "16": [
+          "Brief Body Reference 5"
+        ],
+        "17": [
+          "Bold"
+        ]
+      }
+    },
+    "italic400": {
+      "actual_weight": 400,
+      "style": "italic",
+      "axes": {
+        "wght": 400,
+        "opsz": 19
+      },
+      "sha256": "b9c10adb1e234b20d6d69721ca2ec9da41bc4de2efd7f05a3b29de6ae7d057f3",
+      "file": "sourceserif4-italic400.ttf",
+      "names": {
+        "1": [
+          "Brief Body Reference 5"
+        ],
+        "2": [
+          "Italic"
+        ],
+        "4": [
+          "Brief Body Reference 5 Italic"
+        ],
+        "6": [
+          "BriefBodyReference5-Italic"
+        ],
+        "16": [
+          "Brief Body Reference 5"
+        ],
+        "17": [
+          "Italic"
+        ]
+      }
+    }
+  },
+  "selection": "Option06 Source Serif4 + BrickC; ownerselected2026-10-31",
+  "fonts_exactly_as_rendered": true,
+  "brick": {
+    "hex": "#D65B4C",
+    "canvas": "#0D0C0B",
+    "canvas_contrast": 5.0812926790782695,
+    "surface": "#1B1916",
+    "surface_contrast": 4.560507980665415,
+    "minimum": 4.5,
+    "scope": "opaque text on these solid backgrounds only; no glass/photo claim"
+  }
+}

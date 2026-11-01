@@ -1,0 +1,22 @@
+import {test,expect} from '../helpers/browser.mjs';
+test('Culture keeps its inverse canvas and compact entry without changing Home',async({page})=>{
+ await page.route('https://a.espncdn.com/**',r=>r.abort());
+ await page.route('**/functions/v1/brief-comments?**',r=>r.fulfill({json:{comments:[],votes:[]}}));
+ await page.emulateMedia({colorScheme:'dark',reducedMotion:'reduce'});
+ await page.goto('/?tab=culture');await page.evaluate(()=>document.fonts.ready);
+ const culture=page.locator('#culture');await expect(culture).toHaveCSS('background-color','rgb(23, 22, 19)');
+ await expect(culture.locator('h2')).toHaveCSS('color','rgb(245, 241, 232)');
+ const card=culture.locator('.card').first();await expect(card.locator('h3')).toHaveCSS('color','rgb(245, 241, 232)');await expect(card.locator('p')).toHaveCSS('color','rgb(245, 241, 232)');await expect(card.locator('.tag')).toHaveCSS('color','rgb(214, 91, 76)');
+ await expect(card.locator('.previewAuthor strong')).toHaveCSS('color','rgb(189, 181, 168)');
+ await expect(culture.locator('.read')).toHaveCount(0);
+ await expect.poll(()=>culture.evaluate(e=>Math.abs(e.getBoundingClientRect().top-parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop))),{timeout:10000}).toBeLessThan(2);
+ const geometry=await culture.evaluate(e=>{const s=getComputedStyle(e),prev=e.previousElementSibling;return{padding:parseFloat(s.paddingTop),gap:e.getBoundingClientRect().top-prev.getBoundingClientRect().bottom,previousPadding:parseFloat(getComputedStyle(prev).paddingBottom)}});
+ expect(geometry).toEqual({padding:24,gap:24,previousPadding:0});
+ await expect(page.locator('.immersiveLead')).toHaveCSS('background-color','rgb(245, 241, 232)');
+ await expect.poll(()=>page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ await page.screenshot({path:`/workspace/font-qa/culture-after-${page.viewportSize().width}.png`});
+ const oldTitle=await card.locator('h3').textContent();const older=culture.getByRole('button',{name:'OLDER →'});await older.click();await expect(card.locator('h3')).not.toHaveText(oldTitle);await expect(culture).toHaveCSS('background-color','rgb(23, 22, 19)');
+ await culture.getByRole('button',{name:'← NEWER'}).click();await expect(card.locator('h3')).toHaveText(oldTitle);
+ await page.keyboard.press('Tab');await card.focus();await expect(card).toHaveCSS('outline-color','rgb(214, 91, 76)');
+ await card.click();await expect(page).toHaveURL(/\/articles\//);
+});

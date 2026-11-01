@@ -1,0 +1,47 @@
+{
+  "license": "SIL OFL 1.1",
+  "source": "Installed fonts-liberation package; fonts unchanged",
+  "embedding": "OFL permits embedding and redistribution with software, including web and native apps; retain font copyright and OFL with distributions. Do not sell fonts by themselves.",
+  "usage": "Regular400 body17/24; actual Bold700 labels14. No synthetic600. Header/nav unchanged.",
+  "fonts": [
+    {
+      "filename": "LiberationSans-Regular.ttf",
+      "family": "Liberation Sans",
+      "style": "Regular",
+      "postscript": "LiberationSans",
+      "weight": 400,
+      "fsType": 0,
+      "version": "Version 2.1.5",
+      "bytes": 410820,
+      "sha256": "bade59d822652f76e6941aa87b40a87c13d1cc70db98ededb5011127efafd1d3",
+      "source_path": "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf",
+      "copyright": "Digitized data copyright (c) 2010 Google Corporation. \nCopyright (c) 2012 Red Hat, Inc."
+    },
+    {
+      "filename": "LiberationSans-Bold.ttf",
+      "family": "Liberation Sans",
+      "style": "Bold",
+      "postscript": "LiberationSans-Bold",
+      "weight": 700,
+      "fsType": 0,
+      "version": "Version 2.1.5",
+      "bytes": 414568,
+      "sha256": "1b5f2da6f4cadce4c05b9ecebe3a6fcd374eb95ae443605e799f4c3287978939",
+      "source_path": "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
+      "copyright": "Digitized data copyright (c) 2010 Google Corporation.\nCopyright (c) 2012 Red Hat, Inc."
+    },
+    {
+      "filename": "LiberationSans-Italic.ttf",
+      "family": "Liberation Sans",
+      "style": "Italic",
+      "postscript": "LiberationSans-Italic",
+      "version": "Version 2.1.5",
+      "weight": 400,
+      "fsType": 0,
+      "bytes": 415920,
+      "sha256": "93ff5260834141b6f9d8f2b846d427f3a5dc492dbdce8ebdad406e38a38f34bb",
+      "source_path": "/usr/share/fonts/truetype/liberation/LiberationSans-Italic.ttf",
+      "copyright": "Digitized data copyright (c) 2010 Google Corporation.\nCopyright (c) 2012 Red Hat, Inc."
+    }
+  ]
+}

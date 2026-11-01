@@ -1,0 +1,3 @@
+Copyright 2012 The Libre Baskerville Project Authors (https://github.com/impallari/Libre-Baskerville)
+Source: https://github.com/google/fonts/tree/main/ofl/librebaskerville
+Modified derivative; not an original exclusive typeface.

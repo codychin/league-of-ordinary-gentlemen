@@ -1,0 +1,87 @@
+/* Legacy reader decoration only; source content and interactive borders stay intact. */
+main.articleMain[data-editorial-system="a"] > .articleRule { display:none; }
+main.articleMain[data-editorial-system="a"] .articleImage { border-block:0; }
+main.articleMain[data-editorial-system="a"] .articleBody .articleSectionHead { border-top:0; }
+
+@media(min-width:761px) {
+  html:has(.siteNav) { scroll-padding-top:calc(var(--desktop-nav-height,57px) + 16px); }
+  /* Removing the header's layout box lets sticky navigation span the entire page.
+     The masthead and navigation retain their own normal-flow boxes, so no spacer
+     or scroll-triggered positioning change is required. */
+  header:has(> .siteNav) { display:contents; }
+  header .siteNav {
+    position:sticky;top:0;z-index:90;display:flex;flex-wrap:wrap;align-items:center;
+    justify-content:center;gap:0 8px;min-height:57px;margin:0;padding:6px 24px;
+    background:#f5f1e8;color:#26241f;border:0;border-bottom:1px solid rgba(38,36,31,.16);
+  }
+  .siteNav a,.siteNav summary {
+    font:700 12px/16px 'Brief Editorial Sans',sans-serif;font-synthesis:none;letter-spacing:0;
+    color:#26241f;text-decoration:none;display:flex;align-items:center;justify-content:center;
+    min-height:44px;padding:0 14px;
+  }
+  .siteNav > .navMore { display:block;height:auto;min-height:44px; }
+  .siteNav a:hover,.siteNav summary:hover,.siteNav a[aria-current] { color:#a43d31; }
+  .siteNav a[aria-current] { text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px; }
+  .siteNav :is(a,summary):focus-visible { outline:2px solid #a43d31;outline-offset:2px; }
+  .siteNav .navMore[open] > div {
+    top:100%;right:0;left:auto;transform:none;min-width:180px;padding:8px;
+    background:#f5f1e8;border:1px solid rgba(38,36,31,.16);box-shadow:none;
+  }
+  .siteNav .navMore div a { justify-content:flex-start; }
+  .siteNav .navMore div a:hover { background:rgba(38,36,31,.05); }
+}
+@media(max-width:760px) {
+  .siteNav { display:none!important; }
+  html:has(.siteNav),html.standaloneApp:has(.siteNav) { scroll-padding-top:calc(env(safe-area-inset-top) + 76px); }
+  .appMoreSheet { max-height:calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 100px);overflow-y:auto;overscroll-behavior:contain; }
+}
+
+/* Culture is an intentional inverse editorial surface, not system dark mode. */
+html #culture.affairs[data-editorial-system="a"] {
+  --ink:#f5f1e8;--paper:#f5f1e8;--muted:#bdb5a8;--red:#d65b4c;
+  background:#171613;color:var(--ink);margin-top:24px;padding-top:24px;
+  scroll-margin-top:0!important;
+}
+html main > .wire:has(+ #culture.affairs) { padding-bottom:0; }
+html #culture.affairs[data-editorial-system="a"] .cultureGrid .card h3,
+html.standaloneApp[data-app-tab='culture'] #culture.affairs[data-editorial-system="a"] .cultureGrid .card h3 {
+  color:var(--ink)!important;-webkit-text-fill-color:var(--ink)!important;
+}
+html #culture.affairs[data-editorial-system="a"] :is(.affairsIntro,.previewAuthor,.previewAuthor strong,.previewAuthor small,.previewAuthor time,.culturePagination span) { color:var(--muted); }
+html #culture.affairs[data-editorial-system="a"] .culturePagination :is(button,span) { color:var(--ink); }
+html #culture.affairs[data-editorial-system="a"] .culturePagination button { min-height:44px; }
+html #culture.affairs[data-editorial-system="a"] :is(a,button):focus-visible { outline:2px solid var(--red);outline-offset:3px; }
+
+@media(max-width:760px) {
+  /* Keep the glass treatment, with enough opacity to protect icon contrast over images. */
+  .appTabBar { --muted:#59554e;--red:#a43d31;background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(224,217,205,.96));border-color:#777168; }
+  .appMoreSheet { --ink:#26241f;--paper:#f5f1e8;--muted:#59554e;--line:#777168; }
+}
+
+/* Owner-selected light-only mobile web, independent of device appearance. */
+@media(max-width:760px) {
+  html { color-scheme:only light; }
+  main[data-editorial-system="a"] { --muted:#746d62; }
+  body { --ink:#26241f;--paper:#f5f1e8;--muted:#746d62;--red:#a43d31;background:var(--paper);color:var(--ink); }
+  .appMoreSheet { --red:#a43d31; }
+  .appTabGlider:after { background:#f5f1e8;border-color:#777168; }
+  main.matchupPage { background:var(--paper);color:var(--ink); }
+  main.articleMain[data-editorial-system="a"] .articleShareRow :is(a,button,input) { --ink:#26241f;--paper:#f5f1e8;--muted:#746d62;--red:#a43d31; }
+}
+
+/* Historical score grids: notes occupy their own row instead of offsetting
+   inline text into the first team name. Live cards and portraits are separate. */
+html .scoreSection .scores.archiveScores > .match {
+  display:grid;grid-template-rows:minmax(20px,auto) auto auto;gap:6px;
+  align-content:start;min-width:0;padding:16px;
+}
+.scores.archiveScores > .match > .scoreNote {
+  position:static;display:block;grid-row:1;margin:0;padding:0;line-height:14px;
+}
+.scores.archiveScores > .match > div {
+  grid-template-columns:minmax(0,1fr) max-content;align-items:baseline;padding:0;min-width:0;
+}
+.scores.archiveScores > .match > div:first-of-type { grid-row:2; }
+.scores.archiveScores > .match > div:last-of-type { grid-row:3; }
+.scores.archiveScores > .match > div :is(b,span) { overflow-wrap:anywhere; }
+.scores.archiveScores > .match strong { white-space:nowrap; }
