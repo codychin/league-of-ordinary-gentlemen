@@ -8,6 +8,8 @@ test('all edition mastheads show the brand mark with a compact content gap',asyn
   await page.evaluate(()=>document.fonts.ready);
   const logo=page.getByRole('link',{name:'The Brief home',exact:true}),mark=logo.locator('img');
   await expect(mark).toBeVisible();
+  await expect(page.locator('.appSectionHeader')).toHaveCSS('background-image','none');
+  await expect(page.locator('.appSectionHeader')).toHaveCSS('background-color','rgba(0, 0, 0, 0)');
   await expect.poll(()=>mark.evaluate(i=>i.complete&&i.naturalWidth>0)).toBe(true);
   await expect(mark).toHaveAttribute('src','/icons/ordinary-brief-masthead.svg');
   const heading=page.getByRole('region',{name:/videos$/}).first().locator('h2');await expect(heading).toBeVisible();await expect(heading).toHaveCSS('font-size','18px');await expect(heading).toHaveCSS('line-height','24px');
