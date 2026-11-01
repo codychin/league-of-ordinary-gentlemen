@@ -1,0 +1,16 @@
+/* Scoped newsroom typography; no provider, polling or edition changes. */
+.sundayDesk[data-editorial-system="a"] { margin-top:24px; padding-top:18px!important; padding-bottom:18px!important; border-top:0; border-bottom:0; }
+.sundayLiveStrip + .sundayDesk[data-editorial-system="a"] { margin-top:0; }
+.sundayDesk[data-editorial-system="a"] .sundayDeskBrand h2 { font-family:'Brief Nine F Native Preview',serif; font-weight:700; font-synthesis:none; line-height:1.2; }
+.sundayDesk[data-editorial-system="a"] .sundayDeskBrand + .sundayDeskHead { border-top:0; margin-top:0; }
+.sundayDesk[data-editorial-system="a"] .deskFilters { border-bottom:0; }
+.sundayDesk[data-editorial-system="a"] .deskPostBody > b { font:700 20px/26px 'Brief Nine F Native Preview',serif; font-synthesis:none; margin-bottom:12px; overflow-wrap:anywhere; }
+.sundayDesk[data-editorial-system="a"] :is(.deskPostBody p,.deskEmpty) { font:400 19px/28px 'Brief Body Reference 5',serif; font-synthesis:none; color:var(--ink); }
+.sundayDesk[data-editorial-system="a"] .deskEmpty { margin:0; padding:24px 0; }
+.sundayDesk[data-editorial-system="a"] .deskWriter b { font:700 12px/16px 'Brief Body Reference 5',serif; white-space:normal; }
+.sundayDesk[data-editorial-system="a"] .deskWriter small { line-height:1.4; }
+.sundayDesk[data-editorial-system="a"] .deskPostBody { min-width:0; overflow-wrap:anywhere; }
+.sundayDesk[data-editorial-system="a"] .deskPagination { position:static; top:auto; border-top:0; }
+.sundayDesk[data-editorial-system="a"] .deskPagination button:disabled { opacity:1; color:var(--muted); }
+.sundayDesk[data-editorial-system="a"] :is(.deskFilters button,.deskPagination button) { min-height:44px; }
+.sundayLiveStrip .scoreLoading { margin:0; padding:16px 0; font:400 17px/24px 'Brief Body Reference 5',serif; }
