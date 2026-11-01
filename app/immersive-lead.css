@@ -20,7 +20,7 @@ html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout
 }
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeatureImage::after {
   content:'';position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(to bottom,transparent 0%,transparent calc(100% - var(--hero-overlap) - 120px),rgba(245,241,232,.02) calc(100% - var(--hero-overlap) - 100px),rgba(245,241,232,.12) calc(100% - var(--hero-overlap) - 80px),rgba(245,241,232,.32) calc(100% - var(--hero-overlap) - 60px),rgba(245,241,232,.52) calc(100% - var(--hero-overlap) - 40px),rgba(245,241,232,.66) calc(100% - var(--hero-overlap) - 20px),rgba(245,241,232,.73) calc(100% - var(--hero-overlap)),rgba(245,241,232,.8) calc(100% - var(--hero-overlap) + 48px),rgba(245,241,232,.88) calc(100% - var(--hero-overlap) + 96px),rgba(245,241,232,.96) calc(100% - 24px),#f5f1e8 100%);
+  background:linear-gradient(to bottom,transparent 0%,transparent calc(100% - var(--hero-overlap) - 180px),rgba(245,241,232,.03) calc(100% - var(--hero-overlap) - 140px),rgba(245,241,232,.12) calc(100% - var(--hero-overlap) - 100px),rgba(245,241,232,.28) calc(100% - var(--hero-overlap) - 65px),rgba(245,241,232,.49) calc(100% - var(--hero-overlap) - 30px),rgba(245,241,232,.73) calc(100% - var(--hero-overlap)),rgba(245,241,232,.8) calc(100% - var(--hero-overlap) + 48px),rgba(245,241,232,.88) calc(100% - var(--hero-overlap) + 96px),rgba(245,241,232,.96) calc(100% - 24px),#f5f1e8 100%);
 }
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeature.sabinePackage > .sundayFeatureCopy {
   position:relative;z-index:auto;width:auto;max-width:800px;margin:calc(-1 * var(--hero-overlap)) 48px 0;

@@ -1,0 +1,21 @@
+{
+  "referenceLibraryId": "libfile_9cf180ec66fc819191fc60735a988064",
+  "sourceCommit": "7f372f8b8dc967565464189fc55a030de4a7c860",
+  "sourceImage": "public/images/editorial/detroit-school/homepage-gibbs-dance.webp",
+  "sourceImageSha256": "c643af0e71b0e99a1a8122146e2c6a7c00ab72cc01eefc013cade22cb850e1e2",
+  "sourceDimensions": [454, 364],
+  "referenceViewport": 440,
+  "photoHeight": 440,
+  "copyOverlap": 160,
+  "categoryTopFromPhoto": 280,
+  "headlineTopFromPhoto": 320,
+  "headlineSize": "31px",
+  "headlineLineHeight": "35px",
+  "sideInset": 20,
+  "subtitleGap": 40,
+  "gradientOffsetsFromCopy": [-180, -140, -100, -65, -30, 0, 48, 96],
+  "gradientAlpha": [0, 0.03, 0.12, 0.28, 0.49, 0.73, 0.8, 0.88],
+  "gradientTailFromBottom": [24, 0],
+  "gradientTailAlpha": [0.96, 1],
+  "notes": "Approved mobile-web reference geometry at440CSSpx. Screenshot resizing/JPEG prevents byte-identical comparison. This approval supersedes the earlier pending77% start interpretation. Desktop adapts the same source/crop/relative fade; native dark keeps geometry and independently verifies contrast. Web currently has no dark theme; mobile remains explicitly light-only."
+}
