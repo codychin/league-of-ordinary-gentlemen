@@ -2,13 +2,13 @@ import fs from 'node:fs';
 import crypto from 'node:crypto';
 import {test,expect} from '../helpers/browser.mjs';
 const reference=JSON.parse(fs.readFileSync(new URL('../fixtures/approved-web-hero.json',import.meta.url)));
-test('approved hero composition is preserved across editions and system appearances',async({page})=>{
- test.skip(page.viewportSize().width<=760,'One explicit mobile and desktop edition sweep');
+test('approved mobile hero composition is preserved across editions and system appearances',async({page})=>{
+ test.skip(page.viewportSize().width<=760,'One explicit mobile edition and breakpoint sweep');
  const bytes=fs.readFileSync(new URL('../../'+reference.sourceImage,import.meta.url));
  expect(crypto.createHash('sha256').update(bytes).digest('hex')).toBe(reference.sourceImageSha256);
  await page.route('https://a.espncdn.com/**',r=>r.abort());
  await page.route('**/functions/v1/brief-comments?**',r=>r.fulfill({json:{comments:[],votes:[]}}));
- for(const width of [440,1440]){
+ for(const width of [320,440,760]){
   await page.setViewportSize({width,height:1000});let expected;
   for(const route of ['/','/doge','/sunday-crew'])for(const colorScheme of ['light','dark']){
    await page.emulateMedia({colorScheme,reducedMotion:'reduce'});await page.goto(route);await page.evaluate(()=>document.fonts.ready);
@@ -18,7 +18,7 @@ test('approved hero composition is preserved across editions and system appearan
    expect(state.categoryColor).toBe('rgb(164, 61, 49)');expect(state.headlineColor).toBe('rgb(38, 36, 31)');expect(state.paper).toBe('rgb(245, 241, 232)');
    for(const offset of reference.gradientOffsetsFromCopy)expect(state.gradient).toContain(`calc(100% - ${state.overlap-offset}px)`);
    expect(state.gradient).toContain('rgba(245, 241, 232, 0.49)');expect(state.gradient).toContain('rgba(245, 241, 232, 0.73)');
-   if(width===440){await expect(page.locator('.mobileBriefLogo img')).toBeHidden();await expect(page.locator('.appSectionHeader')).toHaveCSS('background-color','rgba(0, 0, 0, 0)');expect(await page.locator('.appSectionHeader').evaluate(e=>getComputedStyle(e).backgroundImage)).toContain('0.35');expect(state.photoHeight).toBe(440);expect(state.overlap).toBe(160);expect(state.categoryTop).toBe(280);expect(state.titleTop).toBe(320);expect(state.copyInset).toBe(20);expect(state.headlineSize).toBe('31px');expect(state.headlineLeading).toBe('35px');await expect(page.locator('html')).toHaveCSS('color-scheme','light only');}
+   if(width===440){await expect(page.locator('.mobileBriefLogo img')).toBeVisible();await expect(page.locator('.appSectionHeader')).toHaveCSS('background-color','rgba(0, 0, 0, 0)');expect(await page.locator('.appSectionHeader').evaluate(e=>getComputedStyle(e).backgroundImage)).toContain('0.64');expect(state.photoHeight).toBe(440);expect(state.overlap).toBe(160);expect(state.categoryTop).toBe(280);expect(state.titleTop).toBe(320);expect(state.copyInset).toBe(20);expect(state.headlineSize).toBe('31px');expect(state.headlineLeading).toBe('35px');await expect(page.locator('html')).toHaveCSS('color-scheme','light only');}
    if(expected)expect(state).toEqual(expected);else expected=state;
    await expect(hero.locator('.sabinePackageIntro > small')).toHaveCSS('background-color','rgba(0, 0, 0, 0)');
   }

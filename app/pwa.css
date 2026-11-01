@@ -106,10 +106,6 @@
   html.standaloneApp[data-app-tab='home'] .utilityMain i{display:none}
   html.standaloneApp[data-app-tab='home'] .mast{display:none}
   html.standaloneApp[data-app-tab='home'] main{padding-top:0}
-  html.standaloneApp[data-app-tab='home'] .hero{padding-top:16px}
-  html.standaloneApp[data-app-tab='home'] .hero h2{font-size:36px;line-height:.98;letter-spacing:-1.4px}
-  html.standaloneApp[data-app-tab='home'] .hero h2 em{color:inherit}
-  html.standaloneApp[data-app-tab='home'] .hero .standfirst{font-size:16px;line-height:1.42}
   html.standaloneApp[data-app-tab='detail'] .articleMain,
   html.standaloneApp[data-app-tab='culture'] .articleMain{padding-top:calc(env(safe-area-inset-top) + 42px)}
   html.standaloneApp[data-app-tab='scores'] .upcoming{padding:14px 0 24px!important;border-top:0!important}
@@ -217,11 +213,6 @@
   html.standaloneApp[data-app-tab='culture'] .articleMain{
     padding-top:14px!important;
   }
-}
-
-@media(max-width:760px){
-  html.standaloneApp[data-app-tab='home'] .hero{padding-bottom:22px}
-  html.standaloneApp[data-app-tab='home'] .hero .read{margin-top:12px}
 }
 
 @media(max-width:760px){

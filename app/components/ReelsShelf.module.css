@@ -95,7 +95,7 @@
 .compact.wrap{margin:8px 0 0;padding:0 0 5px;border:0;}
 .compact .head{margin:0 0 5px;padding:0;}
 .compact .head small,.compact .head>span{display:none;}
-.compact .head h2{margin:0;font:700 24px/29px 'Brief Nine F Native Preview',Georgia,serif;letter-spacing:0;color:#26241f;}
+.compact .head h2{margin:0;font:700 18px/24px 'Brief Nine F Native Preview',Georgia,serif;letter-spacing:0;color:#26241f;}
 .compact .rail{display:flex;justify-content:flex-start;gap:8px;overflow-x:auto;padding:3px 0;scroll-snap-type:x proximity;scrollbar-width:none;}
 .compact .story{flex:0 0 auto;width:max-content;min-width:94px;scroll-snap-align:start;border-radius:0;}
 .compact .story:focus-visible{outline:2px solid #a43d31;outline-offset:2px;}
@@ -121,3 +121,5 @@
  .compact .story{width:100%;min-width:0;}
  .compact .thumb{height:112px;}
 }
+
+@media(min-width:761px){.compact .head h2{font-size:20px;line-height:26px;}}

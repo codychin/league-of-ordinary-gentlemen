@@ -156,6 +156,9 @@ test('normal browser keeps document navigation and reel restoration',async({page
  await settleInitialLiveDesk(page);
  await page.route('**/reels-hls/**',route=>route.request().method()==='HEAD'?route.fulfill({status:200,body:''}):route.abort());
  expect((await page.goto('/')).status()).toBe(200);await waitForInitialLiveDesk(page);
+ // The server document can load before the shell's initial location reset.
+ // Exercise navigation after hydration, rather than racing that reset in WebKit.
+ await expect(page.locator('html')).toHaveAttribute('data-app-tab','home');
  expect(await page.locator('html').evaluate(e=>e.classList.contains('standaloneApp'))).toBe(false);
  await expect(page.locator('.appScrollContent')).toHaveCount(0);
  await page.evaluate(()=>window.scrollTo(0,400));await expect.poll(()=>page.evaluate(()=>scrollY)).toBeGreaterThan(0);
