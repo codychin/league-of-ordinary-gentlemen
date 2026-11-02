@@ -53,3 +53,35 @@ test('spread breakpoint and long-copy growth remain contained',async({page})=>{
  expect(growth.deckBottom).toBeLessThanOrEqual(growth.bottom);
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });
+const readingOrder=['marnie-detroit-school','maude-saturation-bombing-daniel-jones','conrad-allow-me-to-reintroduce-myself','marnie-delicate-etiquette-sporting-pat','conrad-jalen-hurts-too-sick-to-sleep','hollis-rams-kicker-weight','maude-nfc-east-declines-winner','sabine-and-you-are','marnie-marvin-harrison-somewhere-else','marnie-hecklinski-use-your-words','marnie-time-traveling-goblin-paradox','conrad-tomlin-minecraft-cvs','marnie-corgi-he-wanted-them-to-know','dashiell-jaguars-london-future'];
+for(const root of ['', '/doge', '/sunday-crew']){
+ test(`${root||'Brief'} complete feed keeps ordered unique stories and operable secondary carousel`,async({page})=>{
+  await page.route('**/functions/v1/brief-comments?*',r=>r.fulfill({json:{comments:[],votes:[]}}));
+  await page.goto(root||'/');await page.evaluate(()=>document.fonts.ready);
+  const actual=await page.locator('main > [data-editorial-layout] a[href*="/articles/"], [aria-label="Recent stories"] a[href*="/articles/"], main > .hero a[href*="/articles/"], .mobileLowerCarousel a[href*="/articles/"], .mobileStoryRows a[href*="/articles/"]').evaluateAll(es=>[...new Set(es.map(e=>e.pathname.split('/').pop()))]);expect(actual).toEqual(readingOrder);
+  const containers=page.locator('main > [data-editorial-layout], [aria-label="Recent stories"] > article, main > .hero, .mobileLowerCarousel > section, .mobileStoryRows > section');
+  expect(await containers.evaluateAll(es=>es.map(e=>e.querySelector('a[href*="/articles/"]').pathname.split('/').pop()))).toEqual(readingOrder);
+  const rail=page.locator('.mobileLowerCarousel'),cards=rail.locator(':scope > section');await expect(cards).toHaveCount(3);
+  await expect(page.locator('.mobileStoryRows > section')).toHaveCount(5);
+  const desktop=page.viewportSize().width>=980;
+  if(desktop){
+   const next=page.getByRole('button',{name:'Next editorial stories',exact:true}),prev=page.getByRole('button',{name:'Previous editorial stories',exact:true});
+   await expect(next).toBeVisible();await expect(prev).toBeDisabled();await expect(next).toBeEnabled();
+   await cards.last().locator('a').focus();await expect(cards.last().locator('a')).toBeFocused();await expect(cards.last().locator('a')).toHaveCSS('outline-style','solid');
+   await rail.focus();await page.keyboard.press('Home');await expect(prev).toBeDisabled();
+   await next.click();await expect(next).toBeDisabled();await expect(prev).toBeEnabled();
+   const end=await rail.evaluate(e=>e.scrollWidth-e.clientWidth-e.scrollLeft);expect(Math.abs(end)).toBeLessThan(2);
+   await prev.click();await expect(prev).toBeDisabled();
+   await rail.focus();await page.keyboard.press('End');await expect(next).toBeDisabled();await page.keyboard.press('Home');await expect(prev).toBeDisabled();
+   await page.emulateMedia({reducedMotion:'reduce'});await rail.focus();await page.keyboard.press('ArrowRight');await expect(next).toBeDisabled();
+   const row=page.locator('.mobileStoryRows > section.hero').first();const rb=await row.boundingBox();expect(rb.height).toBeLessThan(450);
+   const title=await row.locator('h2').boundingBox(),photo=await row.locator('.photoHero').boundingBox();expect(title.x+title.width).toBeLessThan(photo.x);
+  }else{
+   await expect(page.getByRole('button',{name:'Next editorial stories',exact:true})).toBeHidden();
+   await expect(rail).toHaveCSS('display',page.viewportSize().width<=760?'flex':'contents');
+  }
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  const dispatch=page.locator('.mobileStoryRows > section').last();await expect(dispatch.locator('video')).toHaveAttribute('controls','');
+  const link=dispatch.locator('a.sabinePackageTitle');await link.click();await expect(page).toHaveURL(new RegExp(`${root}/articles/dashiell-jaguars-london-future$`));await page.waitForLoadState('networkidle');
+ });
+}
