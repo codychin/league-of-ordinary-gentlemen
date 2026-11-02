@@ -1,0 +1,27 @@
+/* White web/PWA paper; intentional inverse Culture keeps its own palette. */
+  :root { --paper:#fff;--muted:#626262;--line:#d4d4d4; }
+  html body,html body:has(main > [data-editorial-layout="open-top"]),html body:has(main.articleMain[data-editorial-system="a"]) { --paper:#fff;--muted:#626262;background:#fff; }
+  html main:has(> [data-editorial-layout="open-top"]) { background:#fff; }
+  html main.articleMain[data-editorial-system="a"],html main[data-editorial-system="a"],html main [data-editorial-system="a"]:not(#culture),
+  main .autopsySection,main .standingsWrap {
+    --paper:#fff;--muted:#626262;--line:#d4d4d4;
+  }
+  header .siteNav,.siteNav .navMore[open] > div { background:#fff;border-color:#d4d4d4; }
+  html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] {
+    --paper:#fff;--muted:#626262;
+  }
+  html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .previewAuthor strong,
+  html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .previewAuthor time { color:#626262; }
+
+html [data-editorial-system="a"]:not(#culture) :is(nav,button,input,select,.comments,.articleReactions,.articleShareRow) { --paper:#fff; }
+html main.articleMain[data-editorial-system="a"] .articleShareRow,
+html main.articleMain[data-editorial-system="a"] .articleShareRow :is(a,button,input) { --paper:#fff; }
+@media(max-width:760px) {
+  html .appTabBar { background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(238,238,238,.96)); }
+  html .appMoreSheet { --paper:#fff;background:rgba(255,255,255,.97); }
+  html .appTabGlider:after { background:#fff; }
+  html .pullRefresh { background:rgba(255,255,255,.82); }
+  html .articleAlertBell { background:rgba(255,255,255,.72); }
+  html.standaloneApp[data-app-tab='scores'] .playerHeadlineMatchup .matchupOpen { background:rgba(255,255,255,.7); }
+}
+html .playerHeadlineMatchup .matchupOpen { background:rgba(255,255,255,.78); }

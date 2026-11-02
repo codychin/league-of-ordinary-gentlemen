@@ -4,7 +4,7 @@
    create a stacking context that prevents this blend; the hero isolates it. */
 /* Immersive photography fades into the same paper as the light-only website. */
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] {
-  --paper:#f5f1e8;--ink:#26241f;--muted:#746d62;--red:#a43d31;
+  --paper:#ffffff;--ink:#26241f;--muted:#746d62;--red:#a43d31;
   --hero-overlap:clamp(160px,16vw,200px);
   width:calc(100% + 44px);margin:12px -22px 0;padding:0 0 40px;
   background:var(--paper);color:var(--ink);isolation:isolate;
@@ -20,7 +20,7 @@ html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout
 }
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeatureImage::after {
   content:'';position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(to bottom,transparent 0%,transparent calc(100% - var(--hero-overlap) - 180px),rgba(245,241,232,.03) calc(100% - var(--hero-overlap) - 140px),rgba(245,241,232,.12) calc(100% - var(--hero-overlap) - 100px),rgba(245,241,232,.28) calc(100% - var(--hero-overlap) - 65px),rgba(245,241,232,.49) calc(100% - var(--hero-overlap) - 30px),rgba(245,241,232,.73) calc(100% - var(--hero-overlap)),rgba(245,241,232,.8) calc(100% - var(--hero-overlap) + 48px),rgba(245,241,232,.88) calc(100% - var(--hero-overlap) + 96px),rgba(245,241,232,.96) calc(100% - 24px),#f5f1e8 100%);
+  background:linear-gradient(to bottom,transparent 0%,transparent calc(100% - var(--hero-overlap) - 180px),rgba(255,255,255,.03) calc(100% - var(--hero-overlap) - 140px),rgba(255,255,255,.12) calc(100% - var(--hero-overlap) - 100px),rgba(255,255,255,.28) calc(100% - var(--hero-overlap) - 65px),rgba(255,255,255,.49) calc(100% - var(--hero-overlap) - 30px),rgba(255,255,255,.73) calc(100% - var(--hero-overlap)),rgba(255,255,255,.8) calc(100% - var(--hero-overlap) + 48px),rgba(255,255,255,.88) calc(100% - var(--hero-overlap) + 96px),rgba(255,255,255,.96) calc(100% - 24px),#ffffff 100%);
 }
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeature.sabinePackage > .sundayFeatureCopy {
   position:relative;z-index:auto;width:auto;max-width:800px;margin:calc(-1 * var(--hero-overlap)) 48px 0;
@@ -53,7 +53,7 @@ html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout
 }
 
 /* The original dark photo retains a contrasting keyboard-focus ring. */
-html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeatureImage:focus-visible { outline-color:#f5f1e8; }
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeatureImage:focus-visible { outline-color:#ffffff; }
 
 /* Only authoritative empty inventory enables bleed, never a loading/failed media check.
    A live score/desk module before the hero also retains its normal document position. */
@@ -66,7 +66,7 @@ html main > [data-matchup-layout="compact"] + .morningBriefPreview.sundayFront.i
 @media(min-width:761px){
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeature.sabinePackage { position:relative; }
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeature.sabinePackage > .sundayFeatureImage { position:absolute;inset:0 0 0 auto;width:min(72%,780px)!important;height:100%!important;aspect-ratio:auto; }
-html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeatureImage::after { background:linear-gradient(to right,#f5f1e8 0%,rgba(245,241,232,.85) 28%,rgba(245,241,232,.4) 60%,transparent 90%),linear-gradient(to bottom,transparent 65%,#f5f1e8 100%); }
+html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeatureImage::after { background:linear-gradient(to right,#ffffff 0%,rgba(255,255,255,.85) 28%,rgba(255,255,255,.4) 60%,transparent 90%),linear-gradient(to bottom,transparent 65%,#ffffff 100%); }
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeature.sabinePackage > .sundayFeatureCopy { margin:0 48px;max-width:680px;width:62%;padding:64px 0 0!important; }
 html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sabinePackageIntro > p { max-width:48ch; }
 }

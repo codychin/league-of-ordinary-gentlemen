@@ -14,23 +14,23 @@ test('mobile web stays light through system appearance changes on all three matc
   await page.emulateMedia({colorScheme:'light'});expect((await page.goto(path)).status()).toBe(200);await expect(page.locator('.matchupColumn')).toBeVisible();
   const nav=page.getByRole('navigation',{name:'App navigation'});const surface=await nav.evaluate(e=>getComputedStyle(e).backgroundImage);
   await page.emulateMedia({colorScheme:'dark'});await expect(page.locator('html')).toHaveCSS('color-scheme','light only');
-  await expect(nav).toHaveCSS('background-image',surface);await expect(page.locator('main.matchupPage')).toHaveCSS('background-color','rgb(245, 241, 232)');
-  for(const selector of ['.matchupColumn p','.matchupHeroSide small','.matchupColumnByline small','.lineupPlayer b','.matchupUpdated'])for(const el of await page.locator(selector).all())if(await el.isVisible())expect(contrast(await el.evaluate(e=>getComputedStyle(e).color),'rgb(245,241,232)'),selector).toBeGreaterThanOrEqual(4.5);
+  await expect(nav).toHaveCSS('background-image',surface);await expect(page.locator('main.matchupPage')).toHaveCSS('background-color','rgb(255, 255, 255)');
+  for(const selector of ['.matchupColumn p','.matchupHeroSide small','.matchupColumnByline small','.lineupPlayer b','.matchupUpdated'])for(const el of await page.locator(selector).all())if(await el.isVisible())expect(contrast(await el.evaluate(e=>getComputedStyle(e).color),'rgb(255,255,255)'),selector).toBeGreaterThanOrEqual(4.5);
   await page.screenshot({path:`/workspace/font-qa/light-only-matchup-${index}-${page.viewportSize().width}.png`,fullPage:true,animations:'disabled'});
  }
 });
 test('light-only Home, Culture, Crates and reader retain controls and no preview top rule',async({page})=>{
  test.skip(page.viewportSize().width>760,'Mobile-only appearance decision');await page.emulateMedia({colorScheme:'dark'});await page.goto('/');
- await expect(page.locator('meta[name="theme-color"][media="(max-width:760px)"]')).toHaveAttribute('content','#f5f1e8');
+ await expect(page.locator('meta[name="theme-color"]')).toHaveAttribute('content','#ffffff');
  await expect(page.locator('section[aria-label$=" videos"]').first()).toHaveCSS('border-top-width','0px');
  const category=page.locator('.immersiveLead .sabinePackageIntro > small');await expect(category).toHaveCSS('color','rgb(164, 61, 49)');
  const nav=page.getByRole('navigation',{name:'App navigation'});await expect(nav.locator('a').first()).toHaveCSS('color','rgb(164, 61, 49)');
  await page.screenshot({path:`/workspace/font-qa/light-only-home-${page.viewportSize().width}.png`,animations:'disabled'});
  const link=page.getByRole('link',{name:'DIG INTO THE CRATES'});await link.scrollIntoViewIfNeeded();await expect(link).toHaveCSS('font-size','16px');await expect(link).toHaveCSS('line-height','22px');expect((await link.boundingBox()).height).toBeGreaterThanOrEqual(48);await expect(link.locator('svg')).toBeVisible();
  await page.screenshot({path:`/workspace/font-qa/light-only-crates-link-${page.viewportSize().width}.png`,animations:'disabled'});
- await link.click();await expect(page).toHaveURL(/\/archive$/);await expect(page.locator('main')).toHaveCSS('background-color','rgb(245, 241, 232)');await expect(page.locator('.editorialCategory').first()).toHaveCSS('color','rgb(164, 61, 49)');
+ await link.click();await expect(page).toHaveURL(/\/archive$/);await expect(page.locator('main')).toHaveCSS('background-color','rgb(255, 255, 255)');await expect(page.locator('.editorialCategory').first()).toHaveCSS('color','rgb(164, 61, 49)');
  await page.screenshot({path:`/workspace/font-qa/light-only-crates-${page.viewportSize().width}.png`,animations:'disabled'});
- await page.goto('/articles/marnie-detroit-school');await expect(page.locator('main')).toHaveCSS('background-color','rgb(245, 241, 232)');await expect(page.locator('.articleBody p').first()).toHaveCSS('color','rgb(38, 36, 31)');await expect(page.locator('.articleDek')).toHaveCSS('font-style','italic');
+ await page.goto('/articles/marnie-detroit-school');await expect(page.locator('main')).toHaveCSS('background-color','rgb(255, 255, 255)');await expect(page.locator('.articleBody p').first()).toHaveCSS('color','rgb(38, 36, 31)');await expect(page.locator('.articleDek')).toHaveCSS('font-style','italic');
  await expect(page.locator('.bylineWriter img')).toBeVisible();await expect(page.getByRole('button',{name:'Share this article'})).toHaveCSS('color','rgb(164, 61, 49)');
  await page.screenshot({path:`/workspace/font-qa/light-only-reader-${page.viewportSize().width}.png`,animations:'disabled'});
 });

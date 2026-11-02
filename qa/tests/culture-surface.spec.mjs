@@ -12,7 +12,7 @@ test('Culture keeps its inverse canvas and compact entry without changing Home',
  await expect.poll(()=>culture.evaluate(e=>Math.abs(e.getBoundingClientRect().top-parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop))),{timeout:10000}).toBeLessThan(2);
  const geometry=await culture.evaluate(e=>{const s=getComputedStyle(e),prev=e.previousElementSibling;return{padding:parseFloat(s.paddingTop),gap:e.getBoundingClientRect().top-prev.getBoundingClientRect().bottom,previousPadding:parseFloat(getComputedStyle(prev).paddingBottom)}});
  expect(geometry).toEqual({padding:24,gap:24,previousPadding:0});
- await expect(page.locator('.immersiveLead')).toHaveCSS('background-color','rgb(245, 241, 232)');
+ await expect(page.locator('.immersiveLead')).toHaveCSS('background-color','rgb(255, 255, 255)');
  await expect.poll(()=>page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  await page.screenshot({path:`/workspace/font-qa/culture-after-${page.viewportSize().width}.png`});
  const oldTitle=await card.locator('h3').textContent();const older=culture.getByRole('button',{name:'OLDER →'});await older.click();await expect(card.locator('h3')).not.toHaveText(oldTitle);await expect(culture).toHaveCSS('background-color','rgb(23, 22, 19)');
