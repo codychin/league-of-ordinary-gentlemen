@@ -23,7 +23,7 @@ test('previous Jay-Z lead remains globally routed in three chronological cards w
  assert.ok(read('app/articles/data.js').includes("'conrad-allow-me-to-reintroduce-myself': jayZArticle"));
  const lead=front.slice(front.indexOf('<section'),front.indexOf('<section className={front.recent}'));
  assert.ok(lead.includes("Baker Mayfield and the Comparative Merits of Abstention"));
- assert.match(lead,/sundayFeatureImage storylink \$\{front\.tourHero\}/);
+ assert.match(lead,/sundayFeatureImage storylink \$\{front\.archiveImage\}/);
  const recent=front.match(/<section className=\{front\.recent\}[^>]*>([\s\S]*?)<\/section>/)[1];
  assert.ok(recent.includes(article.title)&&recent.includes(article.dek));
  assert.ok(recent.indexOf('/articles/maude-saturation-bombing-daniel-jones')<recent.indexOf('/articles/conrad-allow-me-to-reintroduce-myself'));

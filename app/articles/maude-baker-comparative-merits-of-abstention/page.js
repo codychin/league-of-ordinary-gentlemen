@@ -3,6 +3,8 @@ import SiteNav from '../../components/SiteNav'
 import EditionSiteNav from '../../components/EditionSiteNav'
 import AuthorByline from '../../components/AuthorByline'
 import draft from './draft.json'
+import ResilientImage from '../../components/ResilientImage'
+import {bakerPhoto} from './photo'
 
 export const metadata={
   title:`${draft.title} • Draft • The Brief`,
@@ -19,8 +21,7 @@ function inline(text){
   })
 }
 
-// Standalone preservation route only: intentionally absent from article inventory,
-// Home and Crates. This staging snapshot must not publish a future rewrite.
+// Approved staging headline; preserve the copy and keep production publication separate.
 export default function BakerDraft({editionRoot=""}){
   return <>
     <header className="articleHeader"><Link href={editionRoot||"/"} className="miniMast">The Brief of Ordinary Gentleman</Link>{editionRoot?<EditionSiteNav root={editionRoot}/>:<SiteNav/>}</header>
@@ -29,7 +30,7 @@ export default function BakerDraft({editionRoot=""}){
       <h1 className="articleTitle">{draft.title}</h1>
       <div className="articleBylineShare"><AuthorByline root={editionRoot} slug="maude-baker-comparative-merits-of-abstention" date="Preserved draft"/></div>
       <p className="articleDek">{draft.subtitle}</p>
-      <p className="articleSource" role="note">Draft image pending — archive reference not yet attached.</p>
+      <figure style={{margin:0}}><ResilientImage className="articleImage" src={bakerPhoto.src} alt={bakerPhoto.alt} loading="eager" style={{display:"block",width:"100%",height:"auto",aspectRatio:"3 / 2",objectFit:"contain"}}/><figcaption className="articleSource"><a href={bakerPhoto.source} target="_blank" rel="noreferrer">{bakerPhoto.caption}</a></figcaption></figure>
       <article className="articleBody">{draft.paragraphs.map((text,i)=><p key={i}>{inline(text)}</p>)}</article>
       <Link className="back" href={editionRoot||"/"}>← RETURN TO THE FRONT PAGE</Link>
     </main>

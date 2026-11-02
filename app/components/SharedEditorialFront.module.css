@@ -36,6 +36,19 @@
 /* Option 3 keeps the editorial carousel on one open paper surface. */
 .recent .card { border-bottom: 0; }
 
-/* Explicit draft placeholder until the authorized archive image can materialize. */
-.pendingImage { background:#eee; color:#595959; }
-.pendingImage > span { position:absolute;top:24px;left:20px;right:20px;text-align:center;font:14px/20px Arial,sans-serif;z-index:1; }
+/* Preserve the archive photograph's full composition, including the ball at left. */
+.archiveFigure { margin: 0; min-width: 0; }
+.archiveFigure .archiveImage { display: block; position: relative; min-height: 0 !important; height: auto !important; aspect-ratio: 3 / 2; }
+.archiveImage > img { display: block; width: 100%; height: auto !important; aspect-ratio: 3 / 2; object-fit: contain !important; filter: none !important; }
+.archiveImage::after { display: none !important; }
+.archiveCaption { margin-top: 8px; font: 12px/1.5 Arial, sans-serif; color: var(--muted); }
+.archiveCaption a { color: inherit; }
+
+/* Archive credit and headline stay below the complete photo at every width. */
+:global(html main) > .archiveLead:global(.morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"]) :global(.sundayFeature.sabinePackage) > :global(.sundayFeatureCopy) {
+  margin: 24px 48px 0 !important; width: auto !important; padding: 0 !important;
+}
+@media (max-width: 760px) {
+  :global(html main) > .archiveLead:global(.morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"]) :global(.sundayFeature.sabinePackage) > :global(.sundayFeatureCopy) { margin: 24px 20px 0 !important; }
+  .archiveCaption { margin-inline: 20px; }
+}
