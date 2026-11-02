@@ -46,7 +46,8 @@ async function expectArchivePhoto(img){
  expect(geometry.source).toMatch(/\/images\/(cache|editorial\/baker-abstention)\//);
 }
 const orderedSlugs=['maude-baker-comparative-merits-of-abstention','marnie-detroit-school','maude-saturation-bombing-daniel-jones','conrad-allow-me-to-reintroduce-myself','marnie-delicate-etiquette-sporting-pat','conrad-jalen-hurts-too-sick-to-sleep','hollis-rams-kicker-weight','maude-nfc-east-declines-winner','sabine-and-you-are','marnie-marvin-harrison-somewhere-else','marnie-hecklinski-use-your-words','marnie-time-traveling-goblin-paradox','conrad-tomlin-minecraft-cvs','marnie-corgi-he-wanted-them-to-know','dashiell-jaguars-london-future'];
-for(const root of ['', '/doge','/sunday-crew'])test(`Baker staging headline preserves complete chronology ${root||'loog'}`,async({page})=>{
+for(const root of ['', '/doge','/sunday-crew'])for(const scheme of ['light','dark'])test(`Baker shared hero preserves design and chronology ${root||'loog'} ${scheme}`,async({page})=>{
+ await page.emulateMedia({colorScheme:scheme});
  await page.goto(root||'/');
  const headings=page.locator('main > .immersiveLead h2, [aria-label="Recent stories"] h3, main > .hero.heroStack h2, .mobileLowerCarousel h2, .mobileStoryRows h2');
  const paths=await headings.evaluateAll(nodes=>nodes.map(n=>n.closest('a').getAttribute('href')));
@@ -54,11 +55,29 @@ for(const root of ['', '/doge','/sunday-crew'])test(`Baker staging headline pres
  expect(new Set(paths).size).toBe(15);
  await expect(page.locator('[aria-label="Recent stories"] > article')).toHaveCount(3);
  await expect(page.locator('.immersiveLead h2')).toHaveText('Baker Mayfield and the Comparative Merits of Abstention');
- await expectArchivePhoto(page.locator('.immersiveLead .sundayFeatureImage img'));
- await expect(page.locator('.immersiveLead figcaption')).toHaveText(caption);
- const credit=await page.locator('.immersiveLead figcaption').boundingBox();
- const heading=await page.locator('.immersiveLead h2').boundingBox();
- expect(heading.y).toBeGreaterThan(credit.y+credit.height);
+ const hero=page.locator('.immersiveLead');
+ const img=hero.locator('.sundayFeatureImage img');
+ await expect.poll(()=>img.evaluate(i=>i.complete&&i.naturalWidth>0)).toBe(true);
+ await expect(img).toHaveCSS('object-fit','cover');
+ const geometry=await hero.evaluate(h=>{
+  const frame=h.querySelector('.sundayFeatureImage'), title=h.querySelector('h2'), credit=h.querySelector('[class*="heroCredit"]');
+  const f=frame.getBoundingClientRect(),t=title.getBoundingClientRect(),c=credit.getBoundingClientRect(),fade=getComputedStyle(frame,'::after');
+  return {frame:{x:f.x,y:f.y,width:f.width,height:f.height,bottom:f.bottom},title:{x:t.x,y:t.y,right:t.right,bottom:t.bottom},creditY:c.y,position:getComputedStyle(frame).position,fade:fade.backgroundImage,fadeDisplay:fade.display,figureCount:h.querySelectorAll('figure').length};
+ });
+ expect(geometry.figureCount).toBe(0);
+ expect(geometry.fade).toContain('linear-gradient');
+ expect(geometry.fadeDisplay).not.toBe('none');
+ expect(geometry.title.y).toBeLessThan(geometry.frame.bottom);
+ expect(geometry.title.right).toBeGreaterThan(geometry.frame.x);
+ expect(geometry.creditY).toBeGreaterThan(geometry.title.bottom);
+ if(page.viewportSize().width>760){
+  expect(geometry.position).toBe('absolute');
+  expect(geometry.frame.width).toBeLessThanOrEqual(780);
+ }else{
+  expect(geometry.frame.height).toBeGreaterThanOrEqual(340);
+  expect(geometry.frame.height).toBeLessThanOrEqual(480);
+ }
+ await expect(hero.locator('[class*="heroCredit"]')).toHaveText(caption);
  await page.locator('.immersiveLead h2').click();
  await expect(page).toHaveURL(new RegExp(`${root}${path}$`));
  await expect(page.locator('.articleBody > p')).toHaveCount(29);

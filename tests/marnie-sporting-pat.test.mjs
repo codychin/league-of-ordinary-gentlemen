@@ -46,12 +46,12 @@ test('restored lead uses the established template and preserves the Oregon unlin
  const css=readFileSync('app/components/SharedEditorialFront.module.css','utf8');
  const canonical=readFileSync('app/home-pass.css','utf8');
  const lead=front.slice(front.indexOf('<section'),front.indexOf('<section className={front.recent}'));
- assert.match(lead,/className=\{`morningBriefPreview sundayFront immersiveLead/);
- assert.match(lead,/sundayFeatureImage storylink \$\{front\.archiveImage\}/);
+ assert.match(lead,/className="morningBriefPreview sundayFront(?: [^"]+)?"/);
+ assert.match(lead,/sundayFeatureImage storylink \$\{front\.tourHero\}/);
  assert.ok(!css.includes('sportingPatHero'));
  assert.ok(!css.includes('sportingPatLead'));
- assert.match(css,/\.archiveFigure \.archiveImage[^}]+aspect-ratio: 3 \/ 2/);
- assert.match(css,/\.archiveImage > img[^}]+object-fit: contain/);
+ assert.match(css,/\.tourHero \{ min-height: 0 !important; aspect-ratio: 16 \/ 9; \}/);
+ assert.match(css,/\.tourHero > img[^}]+object-fit: cover/);
  assert.match(canonical,/min-height:520px!important/);
  assert.match(css,/\.image \{ height: 170px;/);
  assert.match(css,/\.image \{ height: 150px;/);
