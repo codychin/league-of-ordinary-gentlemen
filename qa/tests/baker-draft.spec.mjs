@@ -4,6 +4,7 @@ import {createHash} from 'node:crypto';
 const snapshot=readFileSync(new URL('../../drafts/baker-abstention-snapshot.md',import.meta.url),'utf8');
 const plain=p=>p.replace(/\*([^*]+)\*/g,'$1').replace(/\[([^\]]+)\]\(https:\/\/[^)]+\)/g,'$1');
 const paragraphs=snapshot.split('---',3)[2].trim().split('\n\n').map(plain);
+paragraphs[0]='Baker Mayfield played an entire NFL game on Sunday, attempted three passes, completed none, and finished with zero passing yards.';
 const additions=readFileSync(new URL('../../drafts/baker-abstention-approved-additions.md',import.meta.url),'utf8').trim().split('\n\n');
 paragraphs.splice(paragraphs.indexOf('A surprise ending.')+1,0,...additions);
 const path='/articles/maude-baker-comparative-merits-of-abstention';
