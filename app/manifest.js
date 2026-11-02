@@ -12,8 +12,8 @@ export default function manifest() {
     launch_handler: { client_mode: 'navigate-existing' },
     handle_links: 'preferred',
     orientation: 'portrait-primary',
-    background_color: '#f3efe5',
-    theme_color: '#11100e',
+    background_color: '#ffffff',
+    theme_color: '#ffffff',
     categories: ['sports', 'news', 'entertainment'],
     icons: [
       {
