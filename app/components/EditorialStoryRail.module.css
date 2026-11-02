@@ -2,8 +2,10 @@
 @media(min-width:980px) {
   :global(main) .rail {
     display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x proximity;
-    padding:4px 0 16px;margin:40px 0 0;
+    padding:4px 0 8px;margin:40px 0 0;scrollbar-width:none;
   }
+  .rail::-webkit-scrollbar { display:none; }
+  .rail[data-animating] { scroll-snap-type:none; }
   :global(main) .rail > :global(.hero.heroStack) {
     flex:0 0 calc((100% - 48px) / 2.75);min-width:0;border:0;padding:0;margin:0;
     scroll-snap-align:start;
@@ -16,8 +18,11 @@
   :global(main) .rail :global(.standfirst) { margin:0; }
   .rail:focus-visible { outline:2px solid #a43d31;outline-offset:4px; }
   .rail a:focus-visible { outline:2px solid #a43d31;outline-offset:-2px; }
-  .controls { display:flex;justify-content:flex-end;gap:8px;margin:4px 0 48px; }
-  .controls button { display:grid;place-items:center;width:44px;height:44px;border:1px solid #b8b0a1;background:transparent;color:#26241f;font:400 22px/1 Arial,sans-serif;cursor:pointer; }
+  .controls { display:flex;align-items:center;justify-content:center;gap:12px;margin:8px 0 24px; }
+  .controls button { display:grid;place-items:center;width:44px;height:44px;border:0;background:transparent;color:#26241f;cursor:pointer;transition:color .15s ease; }
+  .controls button:hover:not(:disabled) { color:#a43d31; }
   .controls button:disabled { opacity:.35;cursor:default; }
   .controls button:focus-visible { outline:2px solid #a43d31;outline-offset:3px; }
+  .progress { width:64px;height:2px;background:rgba(38,36,31,.18);overflow:hidden; }
+  .progress > span { display:block;width:50%;height:100%;background:#a43d31; }
 }

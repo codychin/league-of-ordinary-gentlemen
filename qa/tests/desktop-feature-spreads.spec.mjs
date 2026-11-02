@@ -85,3 +85,28 @@ for(const root of ['', '/doge', '/sunday-crew']){
   const link=dispatch.locator('a.sabinePackageTitle');await link.click();await expect(page).toHaveURL(new RegExp(`${root}/articles/dashiell-jaguars-london-future$`));await page.waitForLoadState('networkidle');
  });
 }
+for(const root of ['', '/doge', '/sunday-crew']){
+ test(`${root||'Brief'} desktop league continuation uses current typography without changing table semantics`,async({page})=>{
+  test.skip(page.viewportSize().width<980,'Desktop-only league styling');
+  await page.goto(root||'/');await page.evaluate(()=>document.fonts.ready);
+  const autopsy=page.locator('.autopsySection'),table=page.locator('.standingsTable');
+  await expect(autopsy.locator('h2')).toHaveCSS('font-family',/Brief Nine F/);await expect(autopsy.locator('h2')).toHaveCSS('font-size','32px');
+  await expect(autopsy.locator('.autopsyLead > p')).toHaveCSS('font-family',/Brief Body Reference 5/);await expect(autopsy.locator('.autopsyLead > p')).toHaveCSS('line-height','28px');
+  await expect(autopsy).toHaveCSS('border-top-width','1px');await expect(autopsy.locator('.autopsyLead')).toHaveCSS('border-bottom-width','0px');
+  await expect(page.locator('.standingsWrap')).toHaveCSS('border-top-width','1px');
+  expect(await table.locator('tbody tr').count()).toBeGreaterThan(0);
+  for(const header of ['FRANCHISE','W-L','PF','PA'])await expect(table.getByRole('columnheader',{name:header,exact:true})).toBeVisible();
+  await expect(table.locator('tbody tr').first().locator('td').nth(1)).toHaveCSS('font-family',/Brief Body Reference 5/);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ });
+}
+test('desktop rail animates continuously and reduced motion is immediate',async({page})=>{
+ test.skip(page.viewportSize().width<980,'Desktop-only controls');await page.goto('/');await page.evaluate(()=>document.fonts.ready);
+ const rail=page.locator('.mobileLowerCarousel'),next=page.getByRole('button',{name:'Next editorial stories',exact:true});
+ await page.emulateMedia({reducedMotion:'no-preference'});
+ await rail.evaluate(e=>{e.__motion=[];e.__record=true;const sample=()=>{e.__motion.push(e.scrollLeft);if(e.__record)requestAnimationFrame(sample);};requestAnimationFrame(sample);});
+ await next.click();await expect(next).toBeDisabled();
+ const motion=await rail.evaluate(e=>{e.__record=false;return {positions:e.__motion,max:e.scrollWidth-e.clientWidth};});expect(motion.positions.some(x=>x>0&&x<motion.max-1)).toBe(true);
+ await rail.focus();await page.keyboard.press('Home');await expect(next).toBeEnabled();await page.emulateMedia({reducedMotion:'reduce'});await next.click();
+ expect(await rail.evaluate(e=>({end:e.scrollLeft>=e.scrollWidth-e.clientWidth-1,animating:e.hasAttribute('data-animating')}))).toEqual({end:true,animating:false});
+});

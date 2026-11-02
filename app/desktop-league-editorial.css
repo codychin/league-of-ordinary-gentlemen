@@ -1,0 +1,42 @@
+/* Desktop continuation of the editorial system; league records and mobile stay intact. */
+@media(min-width:980px) {
+  main .autopsySection,main .standingsWrap {
+    --ink:#26241f;--red:#a43d31;--muted:#756e63;
+    border-top:1px solid rgba(38,36,31,.25)!important;
+    padding-top:32px!important;padding-bottom:40px;
+  }
+  main .autopsyHeader { align-items:center;margin-bottom:24px; }
+  main .autopsyHeader h2,main .standingsWrap .sectionhead h2 {
+    font:700 32px/1.2 'Brief Nine F Native Preview',Georgia,serif;
+    font-synthesis:none;letter-spacing:-.4px;margin:0;
+  }
+  main .autopsyHeader > div > small,main .standingsWrap .deskLabel {
+    font:700 12px/18px 'Brief Editorial Sans',sans-serif;letter-spacing:.4px;color:var(--red);margin-bottom:8px;
+  }
+  main .autopsyHeader > span,main .standingsWrap .sectionhead > span {
+    font:400 12px/18px 'Brief Editorial Sans',sans-serif;letter-spacing:0;color:var(--muted);
+  }
+  main .autopsyLead { border:0;padding:0 0 24px; }
+  main .autopsyLead h3,main .autopsyNewsroom h3 {
+    font:700 26px/1.2 'Brief Nine F Native Preview',Georgia,serif;
+    font-synthesis:none;letter-spacing:0;margin:20px 0 16px;
+  }
+  main .autopsyLead > p,main .autopsyNewsroom p {
+    font:400 19px/28px 'Brief Body Reference 5',serif;color:var(--ink);max-width:72ch;margin:0;
+  }
+  main .autopsyByline { gap:8px; }
+  main .autopsyByline img { width:24px;height:24px;flex:0 0 24px;border:0; }
+  main .autopsyByline small { font:700 11px/16px 'Brief Editorial Sans',sans-serif;letter-spacing:0; }
+  main .autopsyByline b { font:700 12px/16px 'Brief Body Reference 5',serif; }
+  main .autopsyLead > strong,main .autopsyNewsroom article > strong {
+    display:block;margin-top:16px;font:700 12px/18px 'Brief Editorial Sans',sans-serif;letter-spacing:0;color:var(--red);
+  }
+  main .autopsyNewsroom { border:0;gap:32px; }
+  main .autopsyNewsroom:empty { display:none; }
+  main .autopsyNewsroom article { margin:0;padding:24px 0 0;border:0;border-top:1px solid rgba(38,36,31,.2); }
+  main .standingsWrap .sectionhead { border:0;padding:0;margin-bottom:24px;align-items:end; }
+  main .standingsTable { font-family:'Brief Editorial Sans',sans-serif; }
+  main .standingsTable th { font-size:12px;line-height:18px;letter-spacing:.3px;padding:12px;border-bottom:1px solid var(--ink); }
+  main .standingsTable td { font-size:14px;line-height:22px;padding:14px 12px; }
+  main .standingsTable td:nth-child(2) { font:700 17px/24px 'Brief Body Reference 5',serif; }
+}

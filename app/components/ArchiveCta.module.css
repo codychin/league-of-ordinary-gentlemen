@@ -5,3 +5,4 @@
 .link:hover{background:var(--ink);color:var(--paper)}
 .link:focus-visible{outline:2px solid var(--red);outline-offset:4px}
 @media(max-width:540px){.archiveCta{padding:20px 0;gap:16px}.link{width:100%;justify-content:space-between}}
+@media(min-width:980px){.archiveCta{border-bottom:0;margin-bottom:16px}.archiveCta p{font:400 17px/24px 'Brief Body Reference 5',serif}.label{font:700 12px/18px 'Brief Editorial Sans',sans-serif;letter-spacing:.4px}}
