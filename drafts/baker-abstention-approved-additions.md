@@ -1,0 +1,3 @@
+There is, admittedly, a case for Baker’s abstention. Tampa Bay could run, Atlanta could not stop it, and Penix was providing regular demonstrations of the alternative. Why should Baker risk a perfectly serviceable victory merely to furnish evidence that he had participated? His teammates needed a win. The audience’s desire to see a completed pass was apparently a separate matter.
+
+This is sound competitive reasoning. So is every child’s decision to join the enormous group already surrounding the soccer ball. The ball is important; everyone would like it. Understanding how we arrived here does not oblige anyone to enjoy watching it.

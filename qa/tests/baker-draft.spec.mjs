@@ -4,11 +4,13 @@ import {createHash} from 'node:crypto';
 const snapshot=readFileSync(new URL('../../drafts/baker-abstention-snapshot.md',import.meta.url),'utf8');
 const plain=p=>p.replace(/\*([^*]+)\*/g,'$1').replace(/\[([^\]]+)\]\(https:\/\/[^)]+\)/g,'$1');
 const paragraphs=snapshot.split('---',3)[2].trim().split('\n\n').map(plain);
+const additions=readFileSync(new URL('../../drafts/baker-abstention-approved-additions.md',import.meta.url),'utf8').trim().split('\n\n');
+paragraphs.splice(paragraphs.indexOf('A surprise ending.')+1,0,...additions);
 const path='/articles/maude-baker-comparative-merits-of-abstention';
 
 test('Baker preservation route retains exact approved copy and inline formatting',async({page})=>{
  expect(createHash('sha256').update(snapshot).digest('hex')).toBe('3b5b89384958ff874989f43b02c7c6ae25486ea44bbe2d91f02c766633641c07');
- expect(paragraphs).toHaveLength(27);
+ expect(paragraphs).toHaveLength(29);
  expect((await page.goto(path)).status()).toBe(200);
  await page.evaluate(()=>document.fonts.ready);
  await expect(page.locator('h1')).toHaveText('Baker Mayfield and the Comparative Merits of Abstention');
@@ -24,6 +26,7 @@ test('Baker preservation route retains exact approved copy and inline formatting
  await expect(page.locator('.articleDek')).toHaveCSS('font-style','italic');
  expect(await page.locator('main').evaluate(e=>e.scrollWidth>e.clientWidth)).toBe(false);
  await expect(page.locator('.articleImage')).toHaveCount(0);
+ await expect(page.getByRole('note')).toHaveText('Draft image pending — archive reference not yet attached.');
  for(const route of ['/','/archive']){
   await page.goto(route);
   await expect(page.locator(`a[href="${path}"]`)).toHaveCount(0);

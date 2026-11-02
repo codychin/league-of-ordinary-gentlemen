@@ -28,6 +28,7 @@ export default function BakerDraft(){
       <h1 className="articleTitle">{draft.title}</h1>
       <div className="articleBylineShare"><AuthorByline slug="maude-baker-comparative-merits-of-abstention" date="Preserved draft"/></div>
       <p className="articleDek">{draft.subtitle}</p>
+      <p className="articleSource" role="note">Draft image pending — archive reference not yet attached.</p>
       <article className="articleBody">{draft.paragraphs.map((text,i)=><p key={i}>{inline(text)}</p>)}</article>
       <Link className="back" href="/">← RETURN TO THE FRONT PAGE</Link>
     </main>
