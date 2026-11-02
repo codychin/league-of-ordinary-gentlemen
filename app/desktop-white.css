@@ -1,0 +1,19 @@
+/* Desktop staging paper trial. Tablet/mobile and inverse Culture retain their palette. */
+@media (min-width:980px) {
+  :root { --paper:#fff;--muted:#626262;--line:#d4d4d4; }
+  body { background:#fff; }
+  html main:has(> [data-editorial-layout="open-top"]) { background:#fff; }
+  html [data-editorial-system="a"]:not(#culture),
+  main .autopsySection,main .standingsWrap {
+    --paper:#fff;--muted:#626262;--line:#d4d4d4;
+  }
+  header .siteNav,.siteNav .navMore[open] > div { background:#fff;border-color:#d4d4d4; }
+  html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] {
+    --paper:#fff;--muted:#626262;
+  }
+  html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .sundayFeatureImage::after {
+    background:linear-gradient(to right,#fff 0%,rgba(255,255,255,.85) 28%,rgba(255,255,255,.4) 60%,transparent 90%),linear-gradient(to bottom,transparent 65%,#fff 100%);
+  }
+  html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .previewAuthor strong,
+  html main > .morningBriefPreview.sundayFront.immersiveLead[data-editorial-layout="open-top"] .previewAuthor time { color:#626262; }
+}

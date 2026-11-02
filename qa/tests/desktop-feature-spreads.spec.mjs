@@ -110,3 +110,22 @@ test('desktop rail animates continuously and reduced motion is immediate',async(
  await rail.focus();await page.keyboard.press('Home');await expect(next).toBeEnabled();await page.emulateMedia({reducedMotion:'reduce'});await next.click();
  expect(await rail.evaluate(e=>({end:e.scrollLeft>=e.scrollWidth-e.clientWidth-1,animating:e.hasAttribute('data-animating')}))).toEqual({end:true,animating:false});
 });
+
+for(const root of ['', '/doge', '/sunday-crew']){
+ test(`${root||'Brief'} white desktop paper preserves inverse Culture and mobile cream`,async({page})=>{
+  await page.goto(root||'/');
+  const desktop=page.viewportSize().width>=980;
+  const paper=desktop?'rgb(255, 255, 255)':'rgb(245, 241, 232)';
+  await expect(page.locator('.immersiveLead')).toHaveCSS('background-color',paper);
+  await expect(page.locator('#culture')).toHaveCSS('background-color','rgb(23, 22, 19)');
+  await expect(page.locator('#culture')).toHaveCSS('color','rgb(245, 241, 232)');
+  if(desktop){
+   await expect(page.locator('body')).toHaveCSS('background-color',paper);
+   await expect(page.locator('.siteNav')).toHaveCSS('background-color',paper);
+   const fade=await page.locator('.immersiveLead .sundayFeatureImage').evaluate(e=>getComputedStyle(e,'::after').backgroundImage);
+   expect(fade).toContain('255, 255, 255');expect(fade).not.toContain('245, 241, 232');
+   const cream=await page.locator('main [data-editorial-system="a"]:not(#culture)').evaluateAll(es=>es.filter(e=>!e.closest('#culture')&&getComputedStyle(e).backgroundColor==='rgb(245, 241, 232)').length);
+   expect(cream).toBe(0);
+  }
+ });
+}
