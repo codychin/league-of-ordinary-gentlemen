@@ -20,23 +20,23 @@ test('Baker preservation route retains exact approved copy and inline formatting
  expect(await page.locator('.articleBody > p').allTextContents()).toEqual(paragraphs);
  await expect(page.locator('.articleBody em')).toHaveText('passer');
  await expect(page.getByRole('link',{name:'Scott Smith’s account for the Buccaneers'})).toHaveAttribute('href','https://www.buccaneers.com/news/falcons-bucs-week-8-recap-postgame-report-2026');
- await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content',/noindex/);
- await expect(page.locator('.eyebrow')).toHaveText('Unpublished draft');
+ await expect(page.locator('meta[name="robots"]')).toHaveCount(0);
+ await expect(page.locator('.eyebrow')).toHaveText('FOOTBALL • STRATEGY & BAD PROCESS');
  await expect(page.locator('h1')).toHaveCSS('font-family',/Brief Nine F Native Preview/);
  await expect(page.locator('.articleBody > p').first()).toHaveCSS('font-family',/Brief Body Reference 5/);
  await expect(page.locator('.articleDek')).toHaveCSS('font-style','italic');
  expect(await page.locator('main').evaluate(e=>e.scrollWidth>e.clientWidth)).toBe(false);
- await expectArchivePhoto(page.locator('.articleImage'));
+ await expectGamePhoto(page.locator('.articleImage'));
  await expect(page.locator('figcaption')).toHaveText(caption);
- await expect(page.locator('figcaption a')).toHaveAttribute('href','https://www.news4jax.com/sports/2026/01/04/baker-mayfield-and-the-buccaneers-beat-the-panthers-16-7-and-stay-alive-in-chase-for-nfc-south-title/');
+ await expect(page.locator('figcaption a')).toHaveAttribute('href','https://www.gettyimages.com/detail/news-photo/baker-mayfield-of-the-tampa-bay-buccaneers-runs-against-the-news-photo/2302575816');
  for(const route of ['/archive']){
   await page.goto(route);
-  await expect(page.locator(`a[href="${path}"]`)).toHaveCount(0);
+  await expect(page.locator(`a[href="${path}"]`)).toHaveCount(1);
  }
 });
 
-const caption='Archive photo: Baker Mayfield against Carolina in Tampa, January 3, 2026. AP Photo/Chris O’Meara.';
-async function expectArchivePhoto(img){
+const caption='Baker Mayfield runs against Atlanta during the first half in Tampa, November 1, 2026. Mike Carlson/Getty Images.';
+async function expectGamePhoto(img){
  await expect(img).toBeVisible();
  await expect.poll(()=>img.evaluate(i=>i.complete&&i.naturalWidth>0)).toBe(true);
  const geometry=await img.evaluate(i=>{const r=i.getBoundingClientRect();return {ratio:r.width/r.height,natural:i.naturalWidth/i.naturalHeight,fit:getComputedStyle(i).objectFit,source:i.currentSrc}});
@@ -82,8 +82,8 @@ for(const root of ['', '/doge','/sunday-crew'])for(const scheme of ['light','dar
  await expect(page).toHaveURL(new RegExp(`${root}${path}$`));
  await expect(page.locator('.articleBody > p')).toHaveCount(29);
  await expect(page.locator('.articleBody > p').first()).toHaveText(paragraphs[0]);
- await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content',/noindex/);
- await expectArchivePhoto(page.locator('.articleImage'));
+ await expect(page.locator('meta[name="robots"]')).toHaveCount(0);
+ await expectGamePhoto(page.locator('.articleImage'));
  await expect(page.locator('figcaption')).toHaveText(caption);
  await expect(page.locator('a.back')).toHaveAttribute('href',root||'/');
 });

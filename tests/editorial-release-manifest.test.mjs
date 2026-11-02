@@ -5,12 +5,12 @@ const read=p=>readFileSync(p,'utf8');
 const manifest=JSON.parse(read('qa/editorial-staging.json'));
 const front=read('app/components/SharedEditorialFront.js');
 const stories=[manifest.lead,...manifest.carousel];
-test('release uses the existing v1 manifest schema with the explicitly approved staging placement',()=>{
+test('release uses the existing v1 manifest schema with the explicitly approved production placement',()=>{
  assert.deepEqual(Object.keys(manifest).sort(),['baseline','carousel','editions','lead','schemaVersion']);
  assert.equal(manifest.schemaVersion,1);
- assert.equal(manifest.baseline.status,'staging-approved');
+ assert.equal(manifest.baseline.status,'editorially-approved');
  assert.equal(manifest.baseline.approval.approvedBy,'Cody Chin');
- assert.match(manifest.baseline.approval.scope,/Staging-only Baker headline placement/);
+ assert.match(manifest.baseline.approval.scope,/Production publication of Baker headline/);
  assert.deepEqual(manifest.editions,[{id:'loog',path:'/'},{id:'sunday-crew',path:'/sunday-crew'},{id:'doge',path:'/doge'}]);
  assert.deepEqual(stories,[
   {slug:'maude-baker-comparative-merits-of-abstention',title:'Baker Mayfield and the Comparative Merits of Abstention'},

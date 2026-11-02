@@ -8,7 +8,7 @@ import {hollisWestVirginiaMedicalAssistance} from './hollis-west-virginia-medica
 import {andYouAreArticle} from './sabine-and-you-are'
 import {ramsKickerArticle} from './hollis-rams-kicker-weight'
 export const articles = {
-'maude-baker-comparative-merits-of-abstention': {title:bakerDraft.title,dek:bakerDraft.subtitle,body:bakerDraft.paragraphs,section:'FOOTBALL • STRATEGY & BAD PROCESS',author:'gannon',date:'UNPUBLISHED DRAFT',week:8,stagingOnly:true,image:'/images/editorial/baker-abstention/baker-archive-ap-20260103.jpg'},
+'maude-baker-comparative-merits-of-abstention': {title:bakerDraft.title,dek:bakerDraft.subtitle,body:bakerDraft.paragraphs,section:'FOOTBALL • STRATEGY & BAD PROCESS',author:'gannon',date:'NOVEMBER 2, 2026',week:8,image:'/images/editorial/baker-abstention/baker-falcons-20261101-mike-carlson.jpg'},
 'maude-saturation-bombing-daniel-jones': danielJonesArticle,
 'marnie-detroit-school': detroitSchoolArticle,
 'conrad-allow-me-to-reintroduce-myself': jayZArticle,

@@ -5,9 +5,9 @@
     "source": "app/components/SharedEditorialFront.js",
     "approval": {
       "approvedBy": "Cody Chin",
-      "recordedAt": "2026-10-29T02:25:07Z",
-      "scope": "Production publication of the approved Maude Daniel Jones column first in the three-card carousel across all three editions; preserve Detroit School lead, all existing stories and chronological overflow.",
-      "instruction": "Sentinel_f9bae9bc324081919c0b7294f4bb4a56: Cody requested the post-video paragraph move below 85.2% with no period, removal of “Finally, ” from the last sentence, and explicitly said “Make those small edits and we are good to go to prod”. This approval includes the preceding staged copy revisions. Preserve working photo and YouTube embed; no unrelated changes."
+      "recordedAt": "2026-11-02",
+      "scope": "Production publication of Baker headline across all three editions with the selected November 1 game photo, preserved shared gradients and overlay, 29 paragraphs and chronological pushdown.",
+      "instruction": "Sentinel_7c684eabd0788191a54bda5cc2d600d3: just use the one from the game and ignore the licensing issue for now. publish to prod"
     },
     "historicalRotation": "October 6 and October 21 Conrad named lead/card placements are superseded by this approved production publication. Standing rotation rules and historical documentation are retained in docs/HOMEPAGE-ROTATION.md. The October 22 Jay-Z approval supersedes only current lead/card expectations; prior approvals are preserved in approvalHistory and docs/HOMEPAGE-ROTATION.md. The October 27 Detroit School approval supersedes current lead/card expectations only; the October 22 approval remains in approvalHistory.",
     "approvalHistory": [
@@ -27,7 +27,7 @@
         "approvedBy": "Cody Chin",
         "recordedAt": "2026-10-23T04:01:00Z",
         "scope": "Season 2026 Week 7: eighteen matchup-page text previews across LOOG, Sunday Crew and DOGE. Existing homepage placements and prior media unchanged.",
-        "instruction": "Owner messages directly verified through connected conversation reader: 2026-10-23T03:18:26Z, 3f310f1c-515e-455d-989e-0c1a4df4839f: “Yes let’s build this but for now we need to just go live with matchup previews. Let’s start with the matchup pages”. 2026-10-23T03:30:38Z, f4fa1859-1044-4ee0-b851-b67a8ed89fa3: “Ok do it. It’s still harmless enough to go generation, staging, validation, manifest upgrade, production. I need tl see what it will look like if it happens without me intervening”. Source: https://chatgpt.com/c/6adad049-473c-83e9-a3a3-eb32d9f8b934?messageId=f4fa1859-1044-4ee0-b851-b67a8ed89fa3. This documents the exact eighteen text previews imported at the content commit below, matching the final corrected Thursday packet. Video scope was authorized separately at 03:28, but rendering-credit authorization remains pending; no generation or completion is asserted.",
+        "instruction": "Owner messages directly verified through connected conversation reader: 2026-10-23T03:18:26Z, 3f310f1c-515e-455d-989e-0c1a4df4839f: \u201cYes let\u2019s build this but for now we need to just go live with matchup previews. Let\u2019s start with the matchup pages\u201d. 2026-10-23T03:30:38Z, f4fa1859-1044-4ee0-b851-b67a8ed89fa3: \u201cOk do it. It\u2019s still harmless enough to go generation, staging, validation, manifest upgrade, production. I need tl see what it will look like if it happens without me intervening\u201d. Source: https://chatgpt.com/c/6adad049-473c-83e9-a3a3-eb32d9f8b934?messageId=f4fa1859-1044-4ee0-b851-b67a8ed89fa3. This documents the exact eighteen text previews imported at the content commit below, matching the final corrected Thursday packet. Video scope was authorized separately at 03:28, but rendering-credit authorization remains pending; no generation or completion is asserted.",
         "source": "data/week7-matchup-columns.json",
         "contentCommit": "a83ad2a0a34bdf007034cbe9c78d22beaf4220d7",
         "packetSha256": "568c4a875265e3e741913a2d176f1db8e817e29a136febe09df227fa57d67447",
@@ -49,7 +49,19 @@
         "approvedBy": "Cody Chin",
         "recordedAt": "2026-10-29T01:49:28Z",
         "scope": "Staging only: approved Maude article first in the three-card carousel across all three editions; preserve Detroit School lead and all existing stories. Medical Clearance continues immediately below the row. No production promotion or PR authorized.",
-        "instruction": "Sentinel_9e852e275ba481918204f08ee800be2a: “perfect can you publish the whoel thing to staging? It shouldnt take over the main article but we should put it in first carousel position. And an image of dj getting sacked would be great”. Approved copy includes “Marshawn’s explanation was more candid.” and “DJ finally spared him the trouble of arranging transportation.” Title, subtitle and body supplied by parent. UK Packers reupload SyYsE_rVZ6g metadata/embed verified by parent; actual playback remains to be checked. Photo: official October 25 gallery image 32/157, AR1_7585, Alli Rusco / Minnesota Vikings; public availability does not establish license clearance. No paid licensing authorized."
+        "instruction": "Sentinel_9e852e275ba481918204f08ee800be2a: \u201cperfect can you publish the whoel thing to staging? It shouldnt take over the main article but we should put it in first carousel position. And an image of dj getting sacked would be great\u201d. Approved copy includes \u201cMarshawn\u2019s explanation was more candid.\u201d and \u201cDJ finally spared him the trouble of arranging transportation.\u201d Title, subtitle and body supplied by parent. UK Packers reupload SyYsE_rVZ6g metadata/embed verified by parent; actual playback remains to be checked. Photo: official October 25 gallery image 32/157, AR1_7585, Alli Rusco / Minnesota Vikings; public availability does not establish license clearance. No paid licensing authorized."
+      },
+      {
+        "approvedBy": "Cody Chin",
+        "recordedAt": "2026-10-29T02:25:07Z",
+        "scope": "Production publication of the approved Maude Daniel Jones column first in the three-card carousel across all three editions; preserve Detroit School lead, all existing stories and chronological overflow.",
+        "instruction": "Sentinel_f9bae9bc324081919c0b7294f4bb4a56: Cody requested the post-video paragraph move below 85.2% with no period, removal of \u201cFinally, \u201d from the last sentence, and explicitly said \u201cMake those small edits and we are good to go to prod\u201d. This approval includes the preceding staged copy revisions. Preserve working photo and YouTube embed; no unrelated changes."
+      },
+      {
+        "approvedBy": "Cody Chin",
+        "recordedAt": "2026-11-02T19:25:00Z",
+        "scope": "Staging-only Baker headline placement across all three editions, with chronological pushdown and exactly three primary cards. No production publication.",
+        "instruction": "Sentinel_6dbfa52f99708191adafe541ccce0193: ok can you publish this to staging with an image as well in headline form. Image remains pending supported transfer; do not represent the partial preview as image-complete."
       }
     ],
     "copyRevisions": [
@@ -57,19 +69,19 @@
         "recordedAt": "2026-10-22T03:09:54Z",
         "approvedBy": "Cody Chin",
         "scope": "Jay-Z article copy fix on staging and production",
-        "change": "Use “finding a man who happens to use the same toothbrush as you.” and join “Quite the contribution to the distinguished internet tradition of being deeply moved by your own selection.” to the same paragraph. All other copy and placements unchanged."
+        "change": "Use \u201cfinding a man who happens to use the same toothbrush as you.\u201d and join \u201cQuite the contribution to the distinguished internet tradition of being deeply moved by your own selection.\u201d to the same paragraph. All other copy and placements unchanged."
       },
       {
         "recordedAt": "2026-10-29T02:13:37Z",
         "approvedBy": "Cody Chin",
         "scope": "Staging-only Maude Daniel Jones article copy and post-video statistic styling",
-        "change": "Sentinel_daa3595e48048191827d7794eb1965ad: opening “This, it turns out, was his most effective response to Minnesota’s pass rush.”; standalone Daniel becomes DJ, preserving Daniel Jones/title; interception lane “had already very comfortably been occupied by Harrison Smith for what seemed like a while”; final sentence “Finally, for the first time all game, Flores encountered something he could not send his defensive line through.” Only the post-video leading 85.2% becomes large red type. Other copy and homepage placements unchanged."
+        "change": "Sentinel_daa3595e48048191827d7794eb1965ad: opening \u201cThis, it turns out, was his most effective response to Minnesota\u2019s pass rush.\u201d; standalone Daniel becomes DJ, preserving Daniel Jones/title; interception lane \u201chad already very comfortably been occupied by Harrison Smith for what seemed like a while\u201d; final sentence \u201cFinally, for the first time all game, Flores encountered something he could not send his defensive line through.\u201d Only the post-video leading 85.2% becomes large red type. Other copy and homepage placements unchanged."
       },
       {
         "recordedAt": "2026-10-29T02:25:07Z",
         "approvedBy": "Cody Chin",
         "scope": "Final Maude copy revision for approved production publication",
-        "change": "Post-video red statistic is exactly 85.2% with no period, in its own paragraph before the AKA paragraph. Final sentence: “For the first time all game, Flores encountered something he could not send his defensive line through.” All other copy and placements unchanged."
+        "change": "Post-video red statistic is exactly 85.2% with no period, in its own paragraph before the AKA paragraph. Final sentence: \u201cFor the first time all game, Flores encountered something he could not send his defensive line through.\u201d All other copy and placements unchanged."
       }
     ]
   },
@@ -88,21 +100,21 @@
     }
   ],
   "lead": {
-    "slug": "marnie-detroit-school",
-    "title": "A Study in Movement: The Detroit School, 2026"
+    "slug": "maude-baker-comparative-merits-of-abstention",
+    "title": "Baker Mayfield and the Comparative Merits of Abstention"
   },
   "carousel": [
     {
+      "slug": "marnie-detroit-school",
+      "title": "A Study in Movement: The Detroit School, 2026"
+    },
+    {
       "slug": "maude-saturation-bombing-daniel-jones",
-      "title": "On the Saturation Bombing of Daniel Jones (née Dimes)"
+      "title": "On the Saturation Bombing of Daniel Jones (n\u00e9e Dimes)"
     },
     {
       "slug": "conrad-allow-me-to-reintroduce-myself",
       "title": "Allow Me to Reintroduce Myself"
-    },
-    {
-      "slug": "marnie-delicate-etiquette-sporting-pat",
-      "title": "The Delicate Etiquette of a Sporting Pat"
     }
   ]
 }

@@ -7,9 +7,8 @@ import ResilientImage from '../../components/ResilientImage'
 import {bakerPhoto} from './photo'
 
 export const metadata={
-  title:`${draft.title} • Draft • The Brief`,
+  title:`${draft.title} • The Brief`,
   description:draft.subtitle,
-  robots:{index:false,follow:false},
 }
 
 function inline(text){
@@ -21,14 +20,14 @@ function inline(text){
   })
 }
 
-// Approved staging headline; preserve the copy and keep production publication separate.
+// Approved production article; preserve the complete editorial copy.
 export default function BakerDraft({editionRoot=""}){
   return <>
     <header className="articleHeader"><Link href={editionRoot||"/"} className="miniMast">The Brief of Ordinary Gentleman</Link>{editionRoot?<EditionSiteNav root={editionRoot}/>:<SiteNav/>}</header>
     <main className="articleMain" data-editorial-system="a" data-app-section="league">
-      <div className="eyebrow">Unpublished draft</div>
+      <div className="eyebrow">FOOTBALL • STRATEGY &amp; BAD PROCESS</div>
       <h1 className="articleTitle">{draft.title}</h1>
-      <div className="articleBylineShare"><AuthorByline root={editionRoot} slug="maude-baker-comparative-merits-of-abstention" date="Preserved draft"/></div>
+      <div className="articleBylineShare"><AuthorByline root={editionRoot} slug="maude-baker-comparative-merits-of-abstention" date="NOVEMBER 2, 2026"/></div>
       <p className="articleDek">{draft.subtitle}</p>
       <figure style={{margin:0}}><ResilientImage className="articleImage" src={bakerPhoto.src} alt={bakerPhoto.alt} loading="eager" style={{display:"block",width:"100%",height:"auto",aspectRatio:"3 / 2",objectFit:"contain"}}/><figcaption className="articleSource"><a href={bakerPhoto.source} target="_blank" rel="noreferrer">{bakerPhoto.caption}</a></figcaption></figure>
       <article className="articleBody">{draft.paragraphs.map((text,i)=><p key={i}>{inline(text)}</p>)}</article>
