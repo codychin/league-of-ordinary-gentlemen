@@ -28,8 +28,25 @@ test('Baker preservation route retains exact approved copy and inline formatting
  expect(await page.locator('main').evaluate(e=>e.scrollWidth>e.clientWidth)).toBe(false);
  await expect(page.locator('.articleImage')).toHaveCount(0);
  await expect(page.getByRole('note')).toHaveText('Draft image pending — archive reference not yet attached.');
- for(const route of ['/','/archive']){
+ for(const route of ['/archive']){
   await page.goto(route);
   await expect(page.locator(`a[href="${path}"]`)).toHaveCount(0);
  }
+});
+
+const orderedSlugs=['maude-baker-comparative-merits-of-abstention','marnie-detroit-school','maude-saturation-bombing-daniel-jones','conrad-allow-me-to-reintroduce-myself','marnie-delicate-etiquette-sporting-pat','conrad-jalen-hurts-too-sick-to-sleep','hollis-rams-kicker-weight','maude-nfc-east-declines-winner','sabine-and-you-are','marnie-marvin-harrison-somewhere-else','marnie-hecklinski-use-your-words','marnie-time-traveling-goblin-paradox','conrad-tomlin-minecraft-cvs','marnie-corgi-he-wanted-them-to-know','dashiell-jaguars-london-future'];
+for(const root of ['', '/doge','/sunday-crew'])test(`Baker staging headline preserves complete chronology ${root||'loog'}`,async({page})=>{
+ await page.goto(root||'/');
+ const headings=page.locator('main > .immersiveLead h2, [aria-label="Recent stories"] h3, main > .hero.heroStack h2, .mobileLowerCarousel h2, .mobileStoryRows h2');
+ const paths=await headings.evaluateAll(nodes=>nodes.map(n=>n.closest('a').getAttribute('href')));
+ expect(paths).toEqual(orderedSlugs.map(slug=>`${root}/articles/${slug}`));
+ expect(new Set(paths).size).toBe(15);
+ await expect(page.locator('[aria-label="Recent stories"] > article')).toHaveCount(3);
+ await expect(page.locator('.immersiveLead h2')).toHaveText('Baker Mayfield and the Comparative Merits of Abstention');
+ await page.locator('.immersiveLead h2').click();
+ await expect(page).toHaveURL(new RegExp(`${root}${path}$`));
+ await expect(page.locator('.articleBody > p')).toHaveCount(29);
+ await expect(page.locator('.articleBody > p').first()).toHaveText(paragraphs[0]);
+ await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content',/noindex/);
+ await expect(page.locator('a.back')).toHaveAttribute('href',root||'/');
 });

@@ -35,3 +35,7 @@
 
 /* Option 3 keeps the editorial carousel on one open paper surface. */
 .recent .card { border-bottom: 0; }
+
+/* Explicit draft placeholder until the authorized archive image can materialize. */
+.pendingImage { background:#eee; color:#595959; }
+.pendingImage > span { position:absolute;top:24px;left:20px;right:20px;text-align:center;font:14px/20px Arial,sans-serif;z-index:1; }

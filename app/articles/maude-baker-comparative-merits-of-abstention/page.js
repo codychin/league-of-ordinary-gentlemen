@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import SiteNav from '../../components/SiteNav'
+import EditionSiteNav from '../../components/EditionSiteNav'
 import AuthorByline from '../../components/AuthorByline'
 import draft from './draft.json'
 
@@ -20,17 +21,17 @@ function inline(text){
 
 // Standalone preservation route only: intentionally absent from article inventory,
 // Home and Crates. This staging snapshot must not publish a future rewrite.
-export default function BakerDraft(){
+export default function BakerDraft({editionRoot=""}){
   return <>
-    <header className="articleHeader"><Link href="/" className="miniMast">The Brief of Ordinary Gentleman</Link><SiteNav/></header>
+    <header className="articleHeader"><Link href={editionRoot||"/"} className="miniMast">The Brief of Ordinary Gentleman</Link>{editionRoot?<EditionSiteNav root={editionRoot}/>:<SiteNav/>}</header>
     <main className="articleMain" data-editorial-system="a" data-app-section="league">
       <div className="eyebrow">Unpublished draft</div>
       <h1 className="articleTitle">{draft.title}</h1>
-      <div className="articleBylineShare"><AuthorByline slug="maude-baker-comparative-merits-of-abstention" date="Preserved draft"/></div>
+      <div className="articleBylineShare"><AuthorByline root={editionRoot} slug="maude-baker-comparative-merits-of-abstention" date="Preserved draft"/></div>
       <p className="articleDek">{draft.subtitle}</p>
       <p className="articleSource" role="note">Draft image pending — archive reference not yet attached.</p>
       <article className="articleBody">{draft.paragraphs.map((text,i)=><p key={i}>{inline(text)}</p>)}</article>
-      <Link className="back" href="/">← RETURN TO THE FRONT PAGE</Link>
+      <Link className="back" href={editionRoot||"/"}>← RETURN TO THE FRONT PAGE</Link>
     </main>
   </>
 }

@@ -7,12 +7,14 @@ const scope=readFileSync('lib/editorial-scope.js','utf8');
 const source=readFileSync('app/articles/marnie-delicate-etiquette-sporting-pat.js','utf8');
 const article=JSON.parse(source.replace(/^export const sportingPatArticle = /,'').replace(/;\s*$/,''));
 const slug='marnie-delicate-etiquette-sporting-pat';
-test('previous Marnie lead remains in approved chronological cards',()=>{
+test('previous Marnie lead continues immediately below the three chronological cards',()=>{
  const recent=front.match(/<section className=\{front\.recent\}[^>]*>([\s\S]*?)<\/section>/)[1];
  assert.equal((recent.match(/<article className=\{front\.card\}/g)||[]).length,3);
- assert.deepEqual([...recent.matchAll(/href=\{root\+"\/articles\/([^"]+)"\}/g)].map(m=>m[1]),['maude-saturation-bombing-daniel-jones','conrad-allow-me-to-reintroduce-myself','marnie-delicate-etiquette-sporting-pat']);
- assert.ok(recent.includes(article.dek));
- assert.match(recent,/theme="GOOD INTENTIONS"/);
+ assert.deepEqual([...recent.matchAll(/href=\{root\+"\/articles\/([^"]+)"\}/g)].map(m=>m[1]),['marnie-detroit-school','maude-saturation-bombing-daniel-jones','conrad-allow-me-to-reintroduce-myself']);
+ const rest=front.slice(front.indexOf(recent)+recent.length);
+ assert.ok(rest.indexOf('/articles/'+slug)<rest.indexOf('/articles/conrad-jalen-hurts-too-sick-to-sleep'));
+ assert.ok(rest.includes(article.dek));
+ assert.match(rest,/theme="GOOD INTENTIONS"/);
  assert.ok(existsSync('public/images/editorial/allen-wolfson-interview-thumbnail.jpg'));
  assert.ok(!front.includes('hollis-west-virginia-medical-assistance'));
 });
@@ -61,7 +63,7 @@ test('restored lead uses the established template and preserves the Oregon unlin
 test('homepage lead subtitle gets a responsive type step without changing article copy',()=>{
  const css=readFileSync('app/components/SharedEditorialFront.module.css','utf8');
  const lead=front.slice(front.indexOf('<section'),front.indexOf('<section className={front.recent}'));
- assert.match(lead,/<p className=\{front\.leadDek\}>On the spontaneous birth of an artistic movement, and the evolution of human expression\.<\/p>/);
+ assert.match(lead,/<p className=\{front\.leadDek\}>An afternoon that satisfied the league’s scheduling requirements\.<\/p>/);
  assert.equal((front.match(/className=\{front\.leadDek\}/g)||[]).length,1);
  assert.match(css,/:global\(\.sundayFeatureCopy\) \.leadDek \{ font-size: 20px; line-height: 1\.45; \}/);
  assert.match(css,/@media \(max-width: 760px\) \{\s*:global\(\.sundayFeatureCopy\) \.leadDek \{ font-size: 18px; \}/);
