@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 const read=p=>readFileSync(p,'utf8');
-const manifest=JSON.parse(read('qa/editorial-release.json'));
+const manifest=JSON.parse(read('qa/editorial-staging.json'));
 const front=read('app/components/SharedEditorialFront.js');
 const stories=[manifest.lead,...manifest.carousel];
 test('release uses the existing v1 manifest schema with the explicitly approved production placement',()=>{
@@ -10,13 +10,13 @@ test('release uses the existing v1 manifest schema with the explicitly approved 
  assert.equal(manifest.schemaVersion,1);
  assert.equal(manifest.baseline.status,'editorially-approved');
  assert.equal(manifest.baseline.approval.approvedBy,'Cody Chin');
- assert.match(manifest.baseline.approval.scope,/Production publication/);
+ assert.match(manifest.baseline.approval.scope,/Production publication of Baker headline/);
  assert.deepEqual(manifest.editions,[{id:'loog',path:'/'},{id:'sunday-crew',path:'/sunday-crew'},{id:'doge',path:'/doge'}]);
  assert.deepEqual(stories,[
+  {slug:'maude-baker-comparative-merits-of-abstention',title:'Baker Mayfield and the Comparative Merits of Abstention'},
   {slug:'marnie-detroit-school',title:'A Study in Movement: The Detroit School, 2026'},
   {slug:'maude-saturation-bombing-daniel-jones',title:'On the Saturation Bombing of Daniel Jones (née Dimes)'},
-  {slug:'conrad-allow-me-to-reintroduce-myself',title:'Allow Me to Reintroduce Myself'},
-  {slug:'marnie-delicate-etiquette-sporting-pat',title:'The Delicate Etiquette of a Sporting Pat'}
+  {slug:'conrad-allow-me-to-reintroduce-myself',title:'Allow Me to Reintroduce Myself'}
  ]);
 });
 test('manifest agrees with source order while West Virginia remains archive-only and routable',()=>{

@@ -1,0 +1,3 @@
+Admittedly, a case could be made for Baker’s seemingly strategic decision to remain in the game without becoming involved in it. Tampa Bay could run, Atlanta could not stop it, and Penix was providing regular demonstrations of the alternative. Why should Baker risk a perfectly serviceable victory merely to furnish evidence that he had participated? His teammates needed a win. The audience’s desire to see a completed pass was apparently a separate matter.
+
+This is sound competitive reasoning. It is also possible for a children’s soccer game to produce a legitimate winner after forty minutes of one large group following the ball around. The parents watch because they love someone in it. The NFL cannot reasonably expect that arrangement to cover everyone.

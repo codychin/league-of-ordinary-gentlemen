@@ -35,3 +35,7 @@
 
 /* Option 3 keeps the editorial carousel on one open paper surface. */
 .recent .card { border-bottom: 0; }
+
+/* Archive attribution follows the summary without interrupting the shared overlay. */
+.heroCredit { margin-top: 12px; font: 11px/1.4 Arial, sans-serif; color: var(--muted); }
+.heroCredit a { color: inherit; }

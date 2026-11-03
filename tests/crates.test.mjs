@@ -27,7 +27,7 @@ test('search and filters intersect, normalize accents, sort without changing inp
 
 test('global eligibility keeps reviewed shared work and excludes league-local matchups',async()=>{
  const {GLOBAL_ARTICLE_SLUGS,isGlobalArticle,isSharedArticleForEdition}=await import('../lib/editorial-scope.js');
- assert.equal(GLOBAL_ARTICLE_SLUGS.size,39);
+ assert.equal(GLOBAL_ARTICLE_SLUGS.size,40);
  for(const slug of ['maude-jordan-love-alibis','hollis-body-keeps-score'])assert.equal(isGlobalArticle(slug),true);
  assert.equal(isGlobalArticle('conrad-white-coaches-lose-individually'),false);
  assert.equal(isSharedArticleForEdition('conrad-white-coaches-lose-individually','doge'),true);

@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { test, expect, expectImages } from '../helpers/browser.mjs';
 
-const release = JSON.parse(readFileSync(new URL('../editorial-release.json', import.meta.url), 'utf8'));
+const release = JSON.parse(readFileSync(new URL('../editorial-staging.json', import.meta.url), 'utf8'));
 if (release.schemaVersion !== 1 || release.carousel.length !== 3 || !release.editions.length) throw new Error('Invalid editorial release manifest');
 const stories = [release.lead, ...release.carousel];
 if (new Set(stories.map(story => story.slug)).size !== 4) throw new Error('Lead/carousel slugs must be unique');
