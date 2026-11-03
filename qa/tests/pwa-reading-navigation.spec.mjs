@@ -3,8 +3,11 @@ import {isSundayLiveWindow} from '../../lib/live-desk-state.js';
 import {readFileSync} from 'node:fs';
 import {leagueSnapshot} from '../../app/teams/league-data.js';
 import {selectMatchupColumn} from '../../lib/select-matchup-column.mjs';
+import {selectLoogScores} from '../../lib/select-loog-scores.mjs';
 const data=name=>JSON.parse(readFileSync(new URL('../../data/'+name,import.meta.url)));
-const loogScores=data('latest-loog-scores.json');
+// Match the app's selection, including the completed-week hold and later corrections.
+const latestLoogScores=data('latest-loog-scores.json');
+const loogScores=selectLoogScores({provider:latestLoogScores,latest:latestLoogScores,completed:data('completed-loog-scores.json')});
 const loogFixture=loogScores.matchups[0];
 const loogFinal=Boolean(loogFixture.winner&&loogFixture.winner!=='UNDECIDED');
 const loogColumn=selectMatchupColumn({previews:[...data('week6-matchup-columns.json'),...data('week7-matchup-columns.json')],recaps:data('matchup-recaps.json'),edition:'loog',week:loogScores.week,a:loogFixture.home.id,b:loogFixture.away.id,isFinal:loogFinal});
