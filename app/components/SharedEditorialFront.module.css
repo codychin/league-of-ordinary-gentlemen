@@ -36,6 +36,103 @@
 /* Option 3 keeps the editorial carousel on one open paper surface. */
 .recent .card { border-bottom: 0; }
 
+/* Desktop feature spreads: copy stays together; mobile retains its image-first flow. */
+@media (min-width: 980px) {
+  :global(main) .featureSpread {
+    padding: 40px 0;
+    border: 0;
+  }
+  :global(main) .featureSpread > :global(.hero-copy) {
+    display: grid;
+    grid-template-columns: minmax(0, 45fr) minmax(0, 55fr);
+    grid-template-rows: 1fr repeat(4, auto) 1fr;
+    column-gap: 36px;
+    align-items: start;
+    text-align: center;
+  }
+  :global(main) .featureSpread :global(.photoHero) {
+    grid-column: 2;
+    grid-row: 1 / 7;
+    align-self: stretch;
+    width: 100%;
+    min-height: 460px;
+    aspect-ratio: 1 / 1;
+    margin: 0;
+    text-align: left;
+  }
+  :global(main) .featureSpread :global(.eyebrow) {
+    grid-column: 1;
+    grid-row: 2;
+    margin: 0 auto 16px;
+    max-width: 32ch;
+  }
+  :global(main) .featureSpread h2 {
+    grid-column: 1;
+    grid-row: 3;
+    font-size: clamp(30px, 3.2vw, 40px);
+    line-height: 1.14;
+    letter-spacing: -.5px;
+    max-width: 18ch;
+    margin: 0 auto 20px;
+  }
+  :global(main) .featureSpread :global(.previewAuthor) {
+    grid-column: 1;
+    grid-row: 4;
+    justify-self: center;
+    justify-content: center;
+    margin: 0 0 20px;
+  }
+  :global(main) .featureSpread :global(.standfirst) {
+    grid-column: 1;
+    grid-row: 5;
+    max-width: 38ch;
+    margin: 0 auto;
+  }
+  :global(main) .featureReverse > :global(.hero-copy) {
+    grid-template-columns: minmax(0, 55fr) minmax(0, 45fr);
+  }
+  :global(main) .featureReverse :global(.photoHero) { grid-column: 1; }
+  :global(main) .featureReverse :global(.eyebrow),
+  :global(main) .featureReverse h2,
+  :global(main) .featureReverse :global(.previewAuthor),
+  :global(main) .featureReverse :global(.standfirst) { grid-column: 2; }
+}
+
+/* A compact reading index leads into the final photo-and-dispatch package.
+   Grouping follows the existing contiguous feed containers, not article IDs. */
+@media(min-width:980px) {
+  :global(main) .lowerFeed { display:block; }
+  .lowerFeed a:focus-visible { outline:2px solid #a43d31;outline-offset:-2px; }
+  :global(main) .lowerFeed > :global(.hero.heroStack) {
+    padding:28px 0;margin:0;border:0;border-bottom:1px solid rgba(38,36,31,.2);
+  }
+  :global(main) .lowerFeed > :global(.hero.heroStack) > :global(.hero-copy) {
+    display:grid;grid-template-columns:minmax(0,1fr) 260px;
+    grid-template-rows:auto auto auto auto;column-gap:40px;align-content:center;
+    min-height:180px;
+  }
+  :global(main) .lowerFeed :global(.heroStack) :global(.photoHero) {
+    grid-column:2;grid-row:1 / 5;align-self:center;
+    width:260px;min-height:0;aspect-ratio:4/3;margin:0;padding:10px;
+  }
+  :global(main) .lowerFeed :global(.heroStack) :global(.eyebrow) { grid-column:1;grid-row:1;margin:0 0 12px; }
+  :global(main) .lowerFeed :global(.heroStack) h2 { grid-column:1;grid-row:2;font-size:28px;line-height:1.18;letter-spacing:0;margin:0 0 20px; }
+  :global(main) .lowerFeed :global(.heroStack) :global(.previewAuthor) { grid-column:1;grid-row:3;margin:0 0 20px; }
+  :global(main) .lowerFeed :global(.heroStack) :global(.standfirst) { grid-column:1;grid-row:4;margin:0;max-width:68ch; }
+  :global(main) .lowerFeed > :global(.morningBriefPreview.sundayFront) { margin:48px 0 0;border:0;padding-bottom:32px; }
+  :global(main) .lowerFeed :global(.sundayFrontGrid) { border:0;margin:0; }
+  :global(main) .lowerFeed :global(.morningBriefPreview.sundayFront .sundayFeature.sabinePackage) {
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;border:0;
+  }
+  :global(main) .lowerFeed :global(.morningBriefPreview.sundayFront .sundayFeature.sabinePackage > .sundayFeatureImage) {
+    min-height:0!important;height:auto!important;aspect-ratio:4/5;align-self:start!important;
+  }
+  :global(main) .lowerFeed :global(.morningBriefPreview.sundayFront .sundayFeature.sabinePackage > .sundayFeatureCopy) {
+    min-height:0!important;height:auto!important;padding:0!important;align-self:start!important;
+  }
+  :global(main) .lowerFeed :global(.sabinePackageTitle) h2 { font-size:34px;line-height:1.18;letter-spacing:0;margin:0; }
+  :global(main) .lowerFeed :global(.morningBriefPreview.sundayFront .sundayFeature.sabinePackage .sabineInlineVideo) { margin-top:24px!important; }
+}
 /* Archive attribution follows the summary without interrupting the shared overlay. */
 .heroCredit { margin-top: 12px; font: 11px/1.4 Arial, sans-serif; color: var(--muted); }
 .heroCredit a { color: inherit; }
