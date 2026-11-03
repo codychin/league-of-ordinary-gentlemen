@@ -3760,6 +3760,18 @@ export const leagueSnapshot = {
         "source": "authenticated Flaim ESPN",
         "retrievedAt": "2026-11-03T09:16:23Z",
         "evidence": "data/week8-loog-final-evidence.json#week7Correction"
+      },
+      {
+        "week": 1,
+        "teamId": 5,
+        "opponentTeamId": 1,
+        "surface": "homepage Week 1 archive",
+        "previousScore": 130.72,
+        "providerScore": 131.22,
+        "reason": "The homepage archive lagged the authenticated provider and preserved team histories; no season totals changed.",
+        "source": "authenticated Flaim ESPN",
+        "retrievedAt": "2026-11-03T10:29:19Z",
+        "evidence": "data/week8-loog-final-evidence.json#week1DisplayCorrection"
       }
     ],
     "rosterCumulativeNote": "Individual starts and points while rostered retained through Week 5; newly appearing players unknown, not zero.",
