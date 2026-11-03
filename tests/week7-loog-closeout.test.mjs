@@ -2,15 +2,15 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {createHash} from 'node:crypto';
-import {leagueSnapshot as current} from '../app/teams/league-data.js';
 import {selectLoogScores} from '../lib/select-loog-scores.mjs';
 const read=p=>JSON.parse(fs.readFileSync('data/'+p,'utf8'));
+const current=read('week7-loog-snapshot.json');
 const prior=read('week6-loog-snapshot.json');
 const source=read('week7-loog-source/01-final-standings-history.json');
 const manifest=read('week7-loog-source/manifest.json');
 const rosters=manifest.files.slice(1).flatMap(f=>read('week7-loog-source/'+f.file).rosters);
 // Week 7 historical assertions use the preserved completed snapshot.
-const latest=read('completed-loog-scores.json'),completed=read('completed-loog-scores.json');
+const latest=read('week7-loog-scores.json'),completed=read('week7-loog-scores.json');
 const round=n=>Math.round(n*100)/100;
 const byId=id=>Object.values(current.teams).find(t=>t.teamId===id);
 

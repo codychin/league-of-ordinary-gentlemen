@@ -37,7 +37,7 @@ test('waiver cannot authorize another script, source, season, writer, edition or
   assert.equal(playbackAttestation(b,review).fullPlaybackInspection,true);
 });
 test('Week 8 fallback preserves twelve current pairings and corroborated actuals, never zero totals or projections',()=>{
-  const raw=read('data/week8-loog-score-evidence.json'),latest=read('data/latest-loog-scores.json'),completed=read('data/completed-loog-scores.json');
+  const raw=read('data/week8-loog-score-evidence.json'),latest=read('data/week8-loog-provisional-scores.json'),completed=read('data/week7-loog-scores.json');
   assert.equal(completed.week,7);assert.equal(completed.status,'FINAL');
   assert.equal(latest.week,8);assert.equal(latest.provisional,true);
   assert.equal(latest.updatedAt,raw.capturedAt);assert.equal(raw.leagueId,'310731');
