@@ -27,15 +27,13 @@ test('Baker preservation route retains exact approved copy and inline formatting
  await expect(page.locator('.articleDek')).toHaveCSS('font-style','italic');
  expect(await page.locator('main').evaluate(e=>e.scrollWidth>e.clientWidth)).toBe(false);
  await expectGamePhoto(page.locator('.articleImage'));
- await expect(page.locator('figcaption')).toHaveText(caption);
- await expect(page.locator('figcaption a')).toHaveAttribute('href','https://www.gettyimages.com/detail/news-photo/baker-mayfield-of-the-tampa-bay-buccaneers-runs-against-the-news-photo/2302575816');
+ await expect(page.locator('figcaption')).toHaveCount(0);
  for(const route of ['/archive']){
   await page.goto(route);
   await expect(page.locator(`a[href="${path}"]`)).toHaveCount(1);
  }
 });
 
-const caption='Baker Mayfield runs against Atlanta during the first half in Tampa, November 1, 2026. Mike Carlson/Getty Images.';
 async function expectGamePhoto(img){
  await expect(img).toBeVisible();
  await expect.poll(()=>img.evaluate(i=>i.complete&&i.naturalWidth>0)).toBe(true);
@@ -60,16 +58,15 @@ for(const root of ['', '/doge','/sunday-crew'])for(const scheme of ['light','dar
  await expect.poll(()=>img.evaluate(i=>i.complete&&i.naturalWidth>0)).toBe(true);
  await expect(img).toHaveCSS('object-fit','cover');
  const geometry=await hero.evaluate(h=>{
-  const frame=h.querySelector('.sundayFeatureImage'), title=h.querySelector('h2'), credit=h.querySelector('[class*="heroCredit"]');
-  const f=frame.getBoundingClientRect(),t=title.getBoundingClientRect(),c=credit.getBoundingClientRect(),fade=getComputedStyle(frame,'::after');
-  return {frame:{x:f.x,y:f.y,width:f.width,height:f.height,bottom:f.bottom},title:{x:t.x,y:t.y,right:t.right,bottom:t.bottom},creditY:c.y,position:getComputedStyle(frame).position,fade:fade.backgroundImage,fadeDisplay:fade.display,figureCount:h.querySelectorAll('figure').length};
+  const frame=h.querySelector('.sundayFeatureImage'), title=h.querySelector('h2');
+  const f=frame.getBoundingClientRect(),t=title.getBoundingClientRect(),fade=getComputedStyle(frame,'::after');
+  return {frame:{x:f.x,y:f.y,width:f.width,height:f.height,bottom:f.bottom},title:{x:t.x,y:t.y,right:t.right,bottom:t.bottom},position:getComputedStyle(frame).position,fade:fade.backgroundImage,fadeDisplay:fade.display,figureCount:h.querySelectorAll('figure').length};
  });
  expect(geometry.figureCount).toBe(0);
  expect(geometry.fade).toContain('linear-gradient');
  expect(geometry.fadeDisplay).not.toBe('none');
  expect(geometry.title.y).toBeLessThan(geometry.frame.bottom);
  expect(geometry.title.right).toBeGreaterThan(geometry.frame.x);
- expect(geometry.creditY).toBeGreaterThan(geometry.title.bottom);
  if(page.viewportSize().width>760){
   expect(geometry.position).toBe('absolute');
   expect(geometry.frame.width).toBeLessThanOrEqual(780);
@@ -77,13 +74,13 @@ for(const root of ['', '/doge','/sunday-crew'])for(const scheme of ['light','dar
   expect(geometry.frame.height).toBeGreaterThanOrEqual(340);
   expect(geometry.frame.height).toBeLessThanOrEqual(480);
  }
- await expect(hero.locator('[class*="heroCredit"]')).toHaveText(caption);
+ await expect(hero.locator('[class*="heroCredit"]')).toHaveCount(0);
  await page.locator('.immersiveLead h2').click();
  await expect(page).toHaveURL(new RegExp(`${root}${path}$`));
  await expect(page.locator('.articleBody > p')).toHaveCount(29);
  await expect(page.locator('.articleBody > p').first()).toHaveText(paragraphs[0]);
  await expect(page.locator('meta[name="robots"]')).toHaveCount(0);
  await expectGamePhoto(page.locator('.articleImage'));
- await expect(page.locator('figcaption')).toHaveText(caption);
+ await expect(page.locator('figcaption')).toHaveCount(0);
  await expect(page.locator('a.back')).toHaveAttribute('href',root||'/');
 });
