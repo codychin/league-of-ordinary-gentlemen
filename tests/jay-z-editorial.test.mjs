@@ -18,15 +18,16 @@ test('approved Jay-Z title, subtitle, rumor attribution and exact selection/endi
  assert.ok(!article.body[9].caption);
  assert.ok(!JSON.stringify(article).includes('Steady, Jay'));
 });
-test('previous Jay-Z lead remains globally routed and first in three chronological cards with visible overflow',()=>{
+test('previous Jay-Z lead remains globally routed in three chronological cards with visible overflow',()=>{
  assert.ok(read('lib/editorial-scope.js').includes("'conrad-allow-me-to-reintroduce-myself'"));
  assert.ok(read('app/articles/data.js').includes("'conrad-allow-me-to-reintroduce-myself': jayZArticle"));
  const lead=front.slice(front.indexOf('<section'),front.indexOf('<section className={front.recent}'));
- assert.ok(lead.includes("A Study in Movement: The Detroit School, 2026"));
+ assert.ok(lead.includes("Baker Mayfield and the Comparative Merits of Abstention"));
  assert.match(lead,/sundayFeatureImage storylink \$\{front\.tourHero\}/);
  const recent=front.match(/<section className=\{front\.recent\}[^>]*>([\s\S]*?)<\/section>/)[1];
  assert.ok(recent.includes(article.title)&&recent.includes(article.dek));
- assert.ok(recent.indexOf('/articles/conrad-allow-me-to-reintroduce-myself')<recent.indexOf('/articles/marnie-delicate-etiquette-sporting-pat'));
+ assert.ok(recent.indexOf('/articles/maude-saturation-bombing-daniel-jones')<recent.indexOf('/articles/conrad-allow-me-to-reintroduce-myself'));
+ assert.ok(!recent.includes('/articles/marnie-delicate-etiquette-sporting-pat'));
  assert.equal((recent.match(/<article className=\{front\.card\}/g)||[]).length,3);
  const rest=front.slice(front.indexOf(recent)+recent.length);
  assert.ok(rest.includes('/articles/hollis-rams-kicker-weight'));

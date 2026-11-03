@@ -14,7 +14,7 @@ test('article headline remains required',()=>assert.throws(()=>validatePublicPag
 const detroit=JSON.parse(readFileSync('app/articles/marnie-detroit-school.js','utf8').replace(/^export const detroitSchoolArticle = /,'').replace(/;\s*$/,''));
 const plateHtml=detroit.body.filter(p=>p.type==='image').map(p=>'<figure class="articleInlineFigure"><img src="'+p.src+'" alt="'+p.alt+'"/><figcaption>'+p.caption+'</figcaption></figure>').join('');
 const detroitHtml='<h1>'+detroit.title+'</h1><p>The Brief</p><p>'+detroit.dek+'</p><div class="articleBylineShare">Marnie</div><figure>The Detroit School in performance.</figure><article class="articleBody">'+plateHtml+'</article>';
-function homepageFixture(root){return '<p>The Brief</p><section aria-label="Lead story: '+detroit.title+'"><a href="'+root+'/articles/marnie-detroit-school"><img src="/images/editorial/detroit-school/hero.webp" alt="Detroit Lions teammates celebrate together on the field."/></a></section><section aria-label="Recent stories"><h3>On the Saturation Bombing of Daniel Jones (née Dimes)</h3><h3>Allow Me to Reintroduce Myself</h3><h3>The Delicate Etiquette of a Sporting Pat</h3></section>';}
+function homepageFixture(root){return '<p>The Brief</p><section aria-label="Lead story: '+'Baker Mayfield and the Comparative Merits of Abstention'+'"><a href="'+root+'/articles/maude-baker-comparative-merits-of-abstention"><img src="/images/editorial/baker-abstention/baker-falcons-20261101-mike-carlson.jpg" alt="Baker Mayfield carries the football in the rain against Atlanta in Tampa, November 1, 2026."/></a></section><section aria-label="Recent stories"><h3>A Study in Movement: The Detroit School, 2026</h3><h3>On the Saturation Bombing of Daniel Jones (née Dimes)</h3><h3>Allow Me to Reintroduce Myself</h3></section>';}
 const sha='a'.repeat(40);
 const project='prj_h89MCmxn3Mr3O0wRpnwstM917E0l';
 const team='team_hU7RX1oX9Ea0W2U9ieHwNxzL';
@@ -41,7 +41,7 @@ function simulate(mode,extra={}){
      if(path.startsWith('/images/'))return new Response(mode==='bad-detroit-image'?Buffer.alloc(5000):readFileSync('public'+path),{status:200,headers:{'content-type':'image/webp'}});
      if(path.endsWith('/articles/marnie-detroit-school'))return new Response(mode==='bad-detroit-plate'?${JSON.stringify(detroitHtml.replace('Jahmyr Gibbs extends','Wrong athlete extends'))}:${JSON.stringify(detroitHtml)},{status:200});
      if(!path.includes('/articles/'))return new Response(mode==='bad-detroit-lead'?'The Brief':({'/':${JSON.stringify(homepageFixture(''))},'/doge':${JSON.stringify(homepageFixture('/doge'))},'/sunday-crew':${JSON.stringify(homepageFixture('/sunday-crew'))}})[path],{status:mode==='bad-routes'?403:200});
-     return new Response(${JSON.stringify(good)},{status:mode==='bad-routes'?403:200});
+     return new Response(${JSON.stringify(good.replace("The Juice Box Guy","Baker Mayfield and the Comparative Merits of Abstention"))},{status:mode==='bad-routes'?403:200});
     }
     if(u.hostname==='api.github.com'){
      if(path.endsWith('/branches/main'))return Response.json({commit:{sha:mode==='obsolete'||(mode==='changed-main'&&++branchReads>1)?'b'.repeat(40):sha}});

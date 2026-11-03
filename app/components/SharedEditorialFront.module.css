@@ -133,3 +133,6 @@
   :global(main) .lowerFeed :global(.sabinePackageTitle) h2 { font-size:34px;line-height:1.18;letter-spacing:0;margin:0; }
   :global(main) .lowerFeed :global(.morningBriefPreview.sundayFront .sundayFeature.sabinePackage .sabineInlineVideo) { margin-top:24px!important; }
 }
+/* Archive attribution follows the summary without interrupting the shared overlay. */
+.heroCredit { margin-top: 12px; font: 11px/1.4 Arial, sans-serif; color: var(--muted); }
+.heroCredit a { color: inherit; }
