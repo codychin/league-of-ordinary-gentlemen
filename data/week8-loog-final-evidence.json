@@ -2242,5 +2242,166 @@
         }
       ]
     }
+  },
+  "week1DisplayCorrection": {
+    "success": true,
+    "data": {
+      "leagueId": "310731",
+      "seasonYear": 2026,
+      "currentScoringPeriod": 1,
+      "matchupPeriod": 1,
+      "matchups": [
+        {
+          "matchupPeriodId": 1,
+          "home": {
+            "teamId": 1,
+            "teamName": "Chat GPT's Chosen Ones",
+            "totalPoints": 143.16,
+            "currentPoints": 143.16,
+            "totalProjectedPoints": 138.2852319,
+            "pointsByScoringPeriod": {
+              "1": 143.16
+            }
+          },
+          "away": {
+            "teamId": 5,
+            "teamName": "I'm a Skatt man",
+            "totalPoints": 131.22,
+            "currentPoints": 131.22,
+            "totalProjectedPoints": 143.1037848,
+            "pointsByScoringPeriod": {
+              "1": 131.22
+            }
+          },
+          "winner": "HOME",
+          "playoffTierType": "NONE"
+        },
+        {
+          "matchupPeriodId": 1,
+          "home": {
+            "teamId": 11,
+            "teamName": "Lloyd of the Rings",
+            "totalPoints": 166.3,
+            "currentPoints": 166.3,
+            "totalProjectedPoints": 138.86012937,
+            "pointsByScoringPeriod": {
+              "1": 166.3
+            }
+          },
+          "away": {
+            "teamId": 6,
+            "teamName": "Pollard Greens",
+            "totalPoints": 139.62,
+            "currentPoints": 139.62,
+            "totalProjectedPoints": 138.23650338,
+            "pointsByScoringPeriod": {
+              "1": 139.62
+            }
+          },
+          "winner": "HOME",
+          "playoffTierType": "NONE"
+        },
+        {
+          "matchupPeriodId": 1,
+          "home": {
+            "teamId": 8,
+            "teamName": "Shake 'N Baker",
+            "totalPoints": 105.54,
+            "currentPoints": 105.54,
+            "totalProjectedPoints": 128.72816731,
+            "pointsByScoringPeriod": {
+              "1": 105.54
+            }
+          },
+          "away": {
+            "teamId": 9,
+            "teamName": "For the Love of the Kraft",
+            "totalPoints": 148.16,
+            "currentPoints": 148.16,
+            "totalProjectedPoints": 135.78587898,
+            "pointsByScoringPeriod": {
+              "1": 148.16
+            }
+          },
+          "winner": "AWAY",
+          "playoffTierType": "NONE"
+        },
+        {
+          "matchupPeriodId": 1,
+          "home": {
+            "teamId": 10,
+            "teamName": "Royrek Tishmeshulam",
+            "totalPoints": 160.91,
+            "currentPoints": 160.91,
+            "totalProjectedPoints": 143.4790247,
+            "pointsByScoringPeriod": {
+              "1": 160.91
+            }
+          },
+          "away": {
+            "teamId": 3,
+            "teamName": "The All Ugly Team",
+            "totalPoints": 152.86,
+            "currentPoints": 152.86,
+            "totalProjectedPoints": 143.13500494,
+            "pointsByScoringPeriod": {
+              "1": 152.86
+            }
+          },
+          "winner": "HOME",
+          "playoffTierType": "NONE"
+        },
+        {
+          "matchupPeriodId": 1,
+          "home": {
+            "teamId": 12,
+            "teamName": "CeeDeep Shaheeded Rivalry",
+            "totalPoints": 129.81,
+            "currentPoints": 129.81,
+            "totalProjectedPoints": 136.04605097,
+            "pointsByScoringPeriod": {
+              "1": 129.81
+            }
+          },
+          "away": {
+            "teamId": 4,
+            "teamName": "The Route 22 Clubhouse",
+            "totalPoints": 147.9,
+            "currentPoints": 147.9,
+            "totalProjectedPoints": 144.25924715,
+            "pointsByScoringPeriod": {
+              "1": 147.9
+            }
+          },
+          "winner": "AWAY",
+          "playoffTierType": "NONE"
+        },
+        {
+          "matchupPeriodId": 1,
+          "home": {
+            "teamId": 2,
+            "teamName": "DarkHorse Danir",
+            "totalPoints": 121.14,
+            "currentPoints": 121.14,
+            "totalProjectedPoints": 143.80000294,
+            "pointsByScoringPeriod": {
+              "1": 121.14
+            }
+          },
+          "away": {
+            "teamId": 7,
+            "teamName": "Mr Hopkins Opus",
+            "totalPoints": 181.6,
+            "currentPoints": 181.6,
+            "totalProjectedPoints": 145.71898117,
+            "pointsByScoringPeriod": {
+              "1": 181.6
+            }
+          },
+          "winner": "AWAY",
+          "playoffTierType": "NONE"
+        }
+      ]
+    }
   }
 }
