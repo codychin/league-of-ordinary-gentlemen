@@ -229,12 +229,32 @@ for(const growth of [0,528,1900]){
 }
 
 for (const root of ['', '/sunday-crew', '/doge']) {
-  test(`current previews replace the active recap shelf: ${root || 'LOOG'}`, async ({page}) => {
+  test(`current recaps replace previews while preserving archive history: ${root || 'LOOG'}`, async ({page}) => {
+    const edition=root.slice(1)||'loog';
+    const recaps=data('week8-recap-approved-homepage-media.json').filter(r=>r.edition===edition);
+    const previews=data('week8-approved-homepage-media.json').filter(r=>r.edition===edition);
+    expect(recaps).toHaveLength(6);expect(previews).toHaveLength(6);
     expect((await page.goto(root || '/')).status()).toBe(200);
-    const shelf=page.locator('section[aria-label="Week 8, the previews. videos"]');
+    const shelf=page.locator('section[aria-label="Week 8, the recaps. videos"]');
     await expect(shelf).toHaveCount(1);
-    await expect(shelf.getByRole('button', {name:/^Watch /})).toHaveCount(6);
+    const buttons=shelf.getByRole('button', {name:/^Watch /});
+    await expect(buttons).toHaveCount(6);
+    expect(await buttons.evaluateAll(elements=>elements.map(el=>el.getAttribute('aria-describedby')))).toEqual(recaps.map(r=>`reel-state-${edition}-week8-recap-v1-${r.id}`));
+    await expect(page.locator('section[aria-label="Week 8, the previews. videos"]')).toHaveCount(0);
     await expect(page.locator('section[aria-label="Week 7, the recaps. videos"]')).toHaveCount(0);
     await expect(page.locator('section[aria-label$=" videos"]')).toHaveCount(1);
+    expect((await page.goto(root+'/archive/watch')).status()).toBe(200);
+    const archive=page.locator('section[aria-labelledby="games-heading"]');
+    await expect(archive.getByRole('status')).toContainText('Week 8 · 12 videos');
+    await page.getByLabel('Coverage',{exact:false}).selectOption('preview');
+    await expect(archive.getByRole('button',{name:/^Watch /})).toHaveCount(6);
+    for(const row of previews)await expect(archive.locator(`img[src*="${row.id}"]`)).toHaveCount(1);
+    await page.getByLabel('Coverage',{exact:false}).selectOption('recap');
+    await expect(archive.getByRole('button',{name:/^Watch /})).toHaveCount(6);
+    for(const row of recaps)await expect(archive.locator(`img[src*="${row.id}"]`)).toHaveCount(1);
+    await page.getByRole('combobox',{name:/^Week/}).selectOption('7');
+    await page.getByLabel('Coverage',{exact:false}).selectOption('');
+    await expect(archive.getByRole('status')).toContainText('Week 7 · 12 videos');
+    await expect(archive.getByRole('button',{name:/^Watch /})).toHaveCount(12);
   });
 }

@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // No provider writes, generation, registry writes, publication, or promotion.
 import fs from 'node:fs';
-import {playbackAttestation,assertWeek8ApprovedBinding,week8WaiverId} from './week8-playback-waiver.mjs';
+import {assertWeek8RecapRenderScript} from './week8-recap-playback-waiver.mjs';
+import {playbackAttestation,assertWeek8ApprovedBinding,week8WaiverId,knownWeek8Waiver,assertApprovedMediaBinding} from './week8-playback-waiver.mjs';
 import path from 'node:path';
 import {createHash, randomUUID} from 'node:crypto';
 import {spawnSync} from 'node:child_process';
@@ -44,12 +45,22 @@ export function binding(row, identity) {
   need(m.scriptApproved===true && m.approvalStatus==='exact_script_approved', 'Exact script approval missing');
   need(m.videoGeneration?.status==='completed' && /^[a-f0-9]{32}$/.test(m.videoGeneration.videoId), 'Exact completed generation required; never rerender');
   need(!m.videoGenerationId || m.videoGenerationId===m.videoGeneration.videoId, 'Generation IDs disagree');
-  if(m.season===2026 && m.week===8 && m.kind==='preview') {
+  if(m.season===2026 && m.week===8 && ['preview','recap'].includes(m.kind)) {
     need(m.videoGeneration.scriptSha256===m.scriptSha256 && m.videoGeneration.sourcePackageSha256===m.sourcePackageSha256 &&
       m.audioGeneration?.scriptSha256===m.scriptSha256 && m.audioGeneration?.sourcePackageSha256===m.sourcePackageSha256 &&
       m.audioGeneration?.voiceId,'Week 8 audio/video must bind to exact script/source and registered voice');
     if(m.voiceId)need(m.voiceId===m.audioGeneration.voiceId,'Week 8 voice IDs disagree');
     if(m.videoGeneration.voiceId)need(m.videoGeneration.voiceId===m.audioGeneration.voiceId,'Week 8 video voice IDs disagree');
+  }
+  if(m.season===2026 && m.week===8 && m.kind==='recap') {
+    need(hex.test(m.renderScriptSha256||'') && typeof m.renderScript==='string' &&
+      createHash('sha256').update(m.renderScript).digest('hex')===m.renderScriptSha256 &&
+      m.audioGeneration.renderScriptSha256===m.renderScriptSha256 &&
+      m.videoGeneration.renderScriptSha256===m.renderScriptSha256 &&
+      hex.test(m.audioGeneration.sha256||'') && m.videoGeneration.sourceAudioSha256===m.audioGeneration.sha256 &&
+      (m.videoGeneration.avatarId||m.videoGeneration.payload?.avatarId)===m.canonicalRenderBinding?.avatarId,
+      'Week 8 recap render text, source audio and avatar provenance required');
+    assertWeek8RecapRenderScript(row.id,m.renderScriptSha256);
   }
   need(identity && Number.isSafeInteger(identity.bytes) && identity.bytes>0 && hex.test(identity.sha256) && /^[a-f0-9]{40}$/.test(identity.gitBlobSha), 'Original identity required');
   return {registryId:row.id, edition:m.edition,season:m.season,week:m.week,kind:m.kind,pair,
@@ -234,13 +245,13 @@ export function verifyDeliveryProof({sha,receipt,alias,routes,expectedRoutes,exp
   need(alias?.sha===sha && alias.readyState==='READY' && alias.deploymentId===receipt.candidateId && fresh(alias.observedAt,now),'Fresh exact live domain identity required');
   need(expectedRoutes?.length===6 && new Set(expectedRoutes).size===6,'All six matchup routes required');
   if(ownerPlaybackWaiver!=null) {
-    need(ownerPlaybackWaiver===week8WaiverId && expected?.length===6 && new Set(expected.map(b=>b.matchupKey)).size===6 && new Set(expected.map(b=>b.edition)).size===1 && new Set(expected.flatMap(b=>b.pair)).size===12,'Exact complete Week 8 waiver cohort required');
-    expected.forEach(assertWeek8ApprovedBinding);
+    need(knownWeek8Waiver(ownerPlaybackWaiver) && expected?.length===6 && new Set(expected.map(b=>b.matchupKey)).size===6 && new Set(expected.map(b=>b.edition)).size===1 && new Set(expected.flatMap(b=>b.pair)).size===12,'Exact complete Week 8 waiver cohort required');
+    expected.forEach(b=>assertApprovedMediaBinding(b,ownerPlaybackWaiver));
     need(new Set(routes.map(r=>r.binding)).size===6,'Distinct exact live media bindings required');
   }
   for(const route of expectedRoutes) {
     const r=routes.find(x=>x.path===route);
-    const waived=ownerPlaybackWaiver===week8WaiverId && r?.playbackReviewed===false &&
+    const waived=knownWeek8Waiver(ownerPlaybackWaiver) && r?.playbackReviewed===false &&
       r.ownerPlaybackWaiver===ownerPlaybackWaiver && r.originalAndHlsDecode===true && r.playbackMechanicsVerified===true &&
       expected.some(b=>digest(b)===r.binding);
     need(r?.sha===sha && r.status===200 && r.mediaBytesMatched===true && (r.playbackReviewed===true || waived) && r.evidence && fresh(r.observedAt,now),'Exact live route/media proof incomplete');

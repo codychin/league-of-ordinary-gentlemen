@@ -14,7 +14,7 @@ export function transport({repository,root,receipts,repositoryFullName,targetRef
   need(Date.parse(createdAt)<=now,'Stable commit timestamp required');
   const files=[...artifacts].sort((a,b)=>a.path.localeCompare(b.path));
   need(files.length>0 && new Set(files.map(f=>f.path)).size===files.length,'Distinct exact artifact paths required');
-  for(const f of files)need(/^(?:public\/reels\/[a-f0-9]{32}\.mp4|public\/reels-hls\/[a-f0-9]{32}\/[a-zA-Z0-9_.-]+|data\/week\d+-approved-homepage-media\.json|qa\/media-preparation-[a-z0-9-]+\.json)$/.test(f.path) && !f.path.includes('..') && !f.path.endsWith('/preparation-source.json'),'Only reviewed public artifacts and sanitized preparation checkpoints');
+  for(const f of files)need(/^(?:public\/reels\/[a-f0-9]{32}\.mp4|public\/reels-hls\/[a-f0-9]{32}\/[a-zA-Z0-9_.-]+|data\/week\d+-(?:recap-)?approved-homepage-media\.json|qa\/media-preparation-[a-z0-9-]+\.json|media-sources\/week8-recap\/(?:manifest\.json|(?:[a-f0-9]{32}|hls)\/part_\d{3}\.bin))$/.test(f.path) && !f.path.includes('..') && !f.path.endsWith('/preparation-source.json'),'Only reviewed public artifacts and sanitized preparation checkpoints');
   const artifactSet=preparationBinding(files),key=preparationBinding({repositoryFullName,targetRef,parent,expectedRemote,artifactSet,createdAt});
   const git=(args,options={})=>execFileSync('git',['-C',repository,...args],{encoding:'utf8',maxBuffer:64*1024*1024,...options});
   const authorized=()=>need(approval?.status==='approved' && approval.artifactSet===artifactSet && approval.targetRef===targetRef && approval.repository===repositoryFullName && approval.evidence && Date.parse(approval.expiresAt)>Date.now(),'Exact current transport approval required');

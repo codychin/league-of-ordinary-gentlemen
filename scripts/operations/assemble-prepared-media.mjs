@@ -2,7 +2,7 @@
 // Assemble an immutable candidate overlay for the existing static shelf consumer.
 // Never writes the source repository, public registry, branch or production.
 import fs from 'node:fs';
-import {playbackAttestation,assertWeek8ApprovedBinding} from './week8-playback-waiver.mjs';
+import {playbackAttestation,assertWeek8ApprovedBinding,assertApprovedMediaBinding} from './week8-playback-waiver.mjs';
 import path from 'node:path';
 import {randomUUID} from 'node:crypto';
 import {pathToFileURL} from 'node:url';
@@ -13,7 +13,7 @@ const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
 const need=(ok,message)=>{if(!ok)throw Error(message);};
 export function assemble({repository,root,receipts,evidence,current,manifestPath='data/week7-approved-homepage-media.json',consumerPath='lib/week7-reels.js'},now=Date.now()) {
   need(path.resolve(repository)!==path.resolve(root),'Candidate must be isolated from source checkout');
-  need(/^data\/week\d+-approved-homepage-media\.json$/.test(manifestPath),'Existing approved shelf manifest required');
+  need(/^data\/week\d+-(?:recap-)?approved-homepage-media\.json$/.test(manifestPath),'Existing approved shelf manifest required');
   need(/^lib\/[a-z0-9-]+\.js$/.test(consumerPath),'Existing shelf consumer required');
   const assertCurrent=()=>{
     const c=current(),at=Date.parse(c.observedAt);
@@ -26,8 +26,9 @@ export function assemble({repository,root,receipts,evidence,current,manifestPath
   const bootstrap=evidence.bootstrap;
   const sourceManifest=path.join(repository,manifestPath);
   if(bootstrap) {
-    need(manifestPath==='data/week8-approved-homepage-media.json' && !fs.existsSync(sourceManifest) && evidence.baseManifestSha256===null,'Bootstrap requires absent new Week 8 manifest, never an empty approved baseline');
-    evidence.expected.forEach(assertWeek8ApprovedBinding);
+    need(['data/week8-approved-homepage-media.json','data/week8-recap-approved-homepage-media.json'].includes(manifestPath) && !fs.existsSync(sourceManifest) && evidence.baseManifestSha256===null,'Bootstrap requires absent new Week 8 manifest, never an empty approved baseline');
+    evidence.expected.forEach(b=>assertApprovedMediaBinding(b,evidence.ownerPlaybackWaiver));
+    need(evidence.expected.every(b=>b.kind===(manifestPath.includes('-recap-')?'recap':'preview')),'Manifest kind must match exact bootstrap cohort');
   }
   const consumer=fs.readFileSync(path.join(bootstrap?root:repository,consumerPath),'utf8');
   if(bootstrap)need(assetIdentity(Buffer.from(consumer)).sha256===bootstrap.consumerSha256,'Bootstrap consumer changed');
@@ -62,6 +63,8 @@ export function assemble({repository,root,receipts,evidence,current,manifestPath
       matchupKey:b.matchupKey,scriptRegistryId:b.registryId,scriptSha256:b.scriptSha256,
       sourceRevision:b.scriptRevision,sourcePackageSha256:b.sourceRevision,sourceSha256:b.identity.sha256,
       sourceVideoSha256:b.identity.sha256,voiceId:b.voiceId,
+      ...(b.kind==='recap' && b.week===8?{avatarId:b.avatarId,sourceAudioSha256:b.sourceAudioSha256,
+        renderScriptSha256:assertApprovedMediaBinding(b,evidence.ownerPlaybackWaiver).renderScriptSha256}:{}),
       approvalSource:evidence.approval.evidence,publicationApproved:true,
       ...playbackAttestation(b,evidence.reviews?.find(r=>r.binding===key),evidence.ownerPlaybackWaiver),
       technicalQaPassed:qa.checks.originalAndHlsDecode===true,durationSeconds:qa.checks.durationSeconds};

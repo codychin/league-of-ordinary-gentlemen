@@ -1,3 +1,4 @@
+import {week8RecapReels} from '../../../lib/week8-recap-reels';
 import EditionBureau from '../EditionBureau';
 import {week8Reels} from '../../../lib/week8-reels';
 import StartSitOfWeek from '../StartSitOfWeek';
@@ -29,16 +30,22 @@ export default async function Home({config}){
     const a=teamFor(r.teamIds[0]),b=teamFor(r.teamIds[1]);
     return {...r,leftImage:headshot(featured(a?.teamName)),rightImage:headshot(featured(b?.teamName))};
   });
+  const currentRecapReels=week8RecapReels(slug).map(r=>{
+    const teamFor=id=>rosters.find(t=>String(t.teamKey).split('.t.')[1]===String(id));
+    const a=teamFor(r.teamIds[0]),b=teamFor(r.teamIds[1]);
+    return {...r,leftImage:headshot(featured(a?.teamName)),rightImage:headshot(featured(b?.teamName))};
+  });
   return <>
     <header>
       <div className="utility"><span className="utilityMain">{name.toUpperCase()} EDITION <i>•</i> JOURNALISM WITHOUT PURPOSE</span></div>
       <div className="mast"><h1>{edition.tenant.publication_name}</h1><div className="dek">Fantasy football, personal grievances, forensic accounting and other matters of irrelevance.</div></div>
       <nav className="siteNav" aria-label="Primary navigation"><Link href={root+""}>HOME</Link>{LIVE_DESK_ENABLED&&<Link href={root+"#live-desk"}>LIVE DESK</Link>}<Link href={root+"#league"}>THE LEAGUE</Link><Link href={root+"/teams"}>FRANCHISES</Link><Link href={root+"#standings"}>STANDINGS</Link><Link href={root+"#transactions"}>THE WIRE</Link><Link href={root+"#scores"}>SCORES</Link></nav>
     </header>
-    <main data-weekly-media={previewReels.length===6||reels.length>0?"present":"absent"}>
+    <main data-weekly-media={currentRecapReels.length===6||previewReels.length===6||reels.length>0?"present":"absent"}>
       <SundayLiveDesk editionSlug={slug} editionLabel={name.toUpperCase()} staffPath={root+"/newsroom"}/>
-      {previewReels.length===6&&<ReelsShelf reels={previewReels} releaseId={`${slug}-week8-preview-v2`} storageKey={`brief-${slug}-week8-preview-viewed-v2`} weekLabel={`${name.toUpperCase()} • WEEK 8`} title="Week 8, the previews." modeLabel="WEEK 8 • PREVIEWS" mediaKind="preview" autoOpenFromQuery={false}/>}
-      {previewReels.length!==6&&reels.length>0&&<ReelsShelf reels={reels} releaseId={config.reelRelease} storageKey={config.reelStorage||config.reelRelease+"-viewed"} weekLabel={config.reelLabel} title={config.reelTitle} modeLabel={config.reelLabel}/>}
+      {currentRecapReels.length===6&&<ReelsShelf reels={currentRecapReels} releaseId={`${slug}-week8-recap-v1`} storageKey={`brief-${slug}-week8-recap-viewed-v1`} weekLabel={`${name.toUpperCase()} • WEEK 8`} title="Week 8, the recaps." modeLabel="WEEK 8 • RECAPS" mediaKind="recap"/>}
+      {currentRecapReels.length!==6&&previewReels.length===6&&<ReelsShelf reels={previewReels} releaseId={`${slug}-week8-preview-v2`} storageKey={`brief-${slug}-week8-preview-viewed-v2`} weekLabel={`${name.toUpperCase()} • WEEK 8`} title="Week 8, the previews." modeLabel="WEEK 8 • PREVIEWS" mediaKind="preview" autoOpenFromQuery={false}/>}
+      {currentRecapReels.length!==6&&previewReels.length!==6&&reels.length>0&&<ReelsShelf reels={reels} releaseId={config.reelRelease} storageKey={config.reelStorage||config.reelRelease+"-viewed"} weekLabel={config.reelLabel} title={config.reelTitle} modeLabel={config.reelLabel}/>}
       <SharedEditorialFront root={root} archiveHref={root+"/archive"}/>
       <EditionBureau articles={localArticles} root={root} name={name}/>
       <EditionLeagueSurfaces edition={edition} headshots={headshots} config={config}/>

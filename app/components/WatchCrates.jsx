@@ -1,5 +1,6 @@
 'use client';
 import {useState,useRef,useEffect} from 'react';
+import {latestWatchWeek} from '../../lib/latest-watch-week.mjs';
 import Link from 'next/link';
 import CratesViews from './CratesViews';
 import ResilientImage from './ResilientImage';
@@ -10,7 +11,7 @@ function FilmImage({film,...props}){
  return <ResilientImage {...props} src={film.fallbackPoster||film.poster}/>;
 }
 export default function WatchCrates({features,matchups,root='',editionName='LOOG'}){
- const [active,setActive]=useState(features[0]),[playing,setPlaying]=useState(false),[voice,setVoice]=useState(''),[query,setQuery]=useState(''),[type,setType]=useState(''),[kind,setKind]=useState(''),[week,setWeek]=useState('7'),[season,setSeason]=useState('2026'),[nativeHls,setNativeHls]=useState(false),[failed,setFailed]=useState(false),[videoAspect,setVideoAspect]=useState(null);
+ const [active,setActive]=useState(features[0]),[playing,setPlaying]=useState(false),[voice,setVoice]=useState(''),[query,setQuery]=useState(''),[type,setType]=useState(''),[kind,setKind]=useState(''),[week,setWeek]=useState(()=>latestWatchWeek(matchups).week),[season,setSeason]=useState(()=>latestWatchWeek(matchups).season),[nativeHls,setNativeHls]=useState(false),[failed,setFailed]=useState(false),[videoAspect,setVideoAspect]=useState(null);
  const player=useRef(null),video=useRef(null);
  useEffect(()=>{setNativeHls(!!document.createElement('video').canPlayType('application/vnd.apple.mpegurl'))},[]);
  const select=v=>{setActive(v);setVideoAspect(null);setPlaying(true);setFailed(false);player.current?.scrollIntoView({behavior:'instant',block:'start'});player.current?.focus({preventScroll:true})};
