@@ -1,4 +1,5 @@
 import { defineConfig } from '@playwright/test';
+import { releaseBrowserPolicy } from './qa/helpers/release-policy.mjs';
 
 // Never infer a remote target or start/deploy a server as a side effect.
 const target = process.env.QA_BASE_URL;
@@ -17,8 +18,7 @@ export default defineConfig({
   outputDir: './qa/test-results',
   timeout: 120_000,
   expect: { timeout: 10_000 },
-  workers: 1,
-  retries: 0,
+  ...releaseBrowserPolicy(),
   reporter: [
     ['list'],
     ['html', { outputFolder: 'qa/reports/browser-html', open: 'never' }],

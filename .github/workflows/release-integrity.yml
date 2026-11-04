@@ -6,12 +6,51 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
+# Superseded PR work has no release authority. Main/dispatch runs keep unique
+# groups so they never cancel a release that may already be under verification.
+concurrency:
+  group: release-integrity-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   media-preparation:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          # actions/checkout uses blob:none for sparse checkout. A separate filter
+          # overrides that fetch optimization, so leave it unset.
+          sparse-checkout-cone-mode: false
+          # Regenerate with node scripts/operations/media-ci-inputs.mjs.
+          sparse-checkout: |
+            /scripts/operations/
+            /qa/operations/media-preparation.test.mjs
+            /qa/fixtures/media-preparation.mjs
+            /qa/week7-recap-assets.json
+            /qa/week7-recap-draft.json
+            /qa/week8-owner-playback-waiver.json
+            /qa/week8-recap-owner-playback-waiver.json
+            /data/week7-approved-homepage-media.json
+            /lib/week7-reels.js
+            /app/articles/writers.js
+            /app/components/ReelsShelf.jsx
+            /public/reels/767a690ca578a94b37551670f196948c.mp4
+            /public/reels-hls/767a690ca578a94b37551670f196948c/
+            /public/reels/7933be525a78f092953085f927b669db.mp4
+            /public/reels-hls/7933be525a78f092953085f927b669db/
+            /public/reels/9fb0773e01f5ceef619b45a3a47b62ce.mp4
+            /public/reels-hls/9fb0773e01f5ceef619b45a3a47b62ce/
+            /public/reels/bae3db100a8b889418b3a7586bbc6c57.mp4
+            /public/reels-hls/bae3db100a8b889418b3a7586bbc6c57/
+            /public/reels/c4fd9f1825cb0fbd4124f6da057519fa.mp4
+            /public/reels-hls/c4fd9f1825cb0fbd4124f6da057519fa/
+            /public/reels/f1f50af7659bd9dc184584ccfbe371f7.mp4
+            /public/reels-hls/f1f50af7659bd9dc184584ccfbe371f7/
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -25,12 +64,15 @@ jobs:
     outputs:
       evidence: ${{ steps.evidence.outputs.identity }}
     runs-on: ubuntu-24.04
+    timeout-minutes: 30
     container:
       image: mcr.microsoft.com/playwright:v1.64.1-noble@sha256:47b510dd9230bf0b9bfc9b20102241e577ea7a99334ab4c3ca19f19770e9b8ea
       options: --ipc=host --init
     steps:
       - uses: actions/checkout@v4
         id: source
+        with:
+          persist-credentials: false
       - uses: actions/setup-node@v4
         with:
           node-version: 22

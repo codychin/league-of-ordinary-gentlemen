@@ -102,10 +102,12 @@ test('the first lower story has one separator above Use Your Words',async({page}
  }
 });
 
-test('Culture pagination and floating masthead remain readable while the feed changes sections',async({page},testInfo)=>{
+// Each edition gets a fresh page: this styling/scroll contract does not test
+// hard document transitions. Reusing a page can abort late Next prefetches even
+// after its historical networkidle event fired. Navigation tests remain separate.
+for(const root of ['/','/doge','/sunday-crew'])test(`Culture pagination and floating masthead remain readable while the feed changes sections: ${root}`,async({page},testInfo)=>{
  const mobile=page.viewportSize().width<=760;
  await page.route('https://a.espncdn.com/**',r=>r.abort());
- for(const root of ['/','/doge','/sunday-crew']){
   await navigate(page,root,{waitUntil:'domcontentloaded'});await expect(page.locator('html')).toHaveAttribute('data-app-tab','home');
   const pagination=page.getByRole('navigation',{name:'Culture stories pagination'});
   await pagination.evaluate(e=>scrollTo({top:scrollY+e.getBoundingClientRect().top-400,behavior:'instant'}));
@@ -125,7 +127,6 @@ test('Culture pagination and floating masthead remain readable while the feed ch
    await expect(page.locator('.appTabBar')).toHaveAttribute('data-active-tab','scores');
    await expect(page.locator('.appSectionHeader')).toHaveAttribute('data-surface','paper');
   }
- }
 });
 
 test('standalone feature category follows the photo with a compact gap',async({page},testInfo)=>{
