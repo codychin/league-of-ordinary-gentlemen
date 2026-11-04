@@ -1,8 +1,9 @@
 # Release workflow: performance and access boundaries
 
 This CI-only patch is rebased on the verified Week 8 video release, main
-`2421c13d84758699d6dd93aaf84e63065959fe72`. Its seven-file diff does not change
-application behavior, media, approval waivers, or browser expectations. Historical
+`2421c13d84758699d6dd93aaf84e63065959fe72`. Its eight-file diff does not change
+application behavior, media or approval waivers. A test-isolation correction
+retains its assertions and reports each edition separately. Historical
 measurements below describe the cited candidates, not release approval for a new
 head. A rebuilt or retargeted candidate requires fresh CI.
 
@@ -167,3 +168,23 @@ separately from CI. A green check, broader app setting, or faster runner cannot
 change those decisions. Escalate inconsistent authorization handling with the
 exact action, timestamp, result and relevant approval, rather than relaxing gates
 or promising that another repeated confirmation will permanently fix it.
+
+## Exact-head regression found during the refreshed trial
+
+[Run 41902336662](https://github.com/codychin/league-of-ordinary-gentlemen/actions/runs/41902336662)
+correctly failed closed. All real-media, unit, build and unmocked-image checks
+passed; the browser suite stopped on a collected WebKit JavaScript error. Its
+trace showed the Culture styling test's `networkidle` wait returning immediately
+because that lifecycle event had already fired. A hard `/doge` to `/sunday-crew`
+navigation then overlapped Next prefetch traffic. The error happened during
+navigation, not during the final error assertion. There is no evidence that two
+workers caused it, and the individual failing request lacked a network snapshot.
+
+The correction gives each edition its own normal Playwright page fixture for
+this Culture styling/scrolling test. Every original visual, scrolling, masthead,
+screenshot and JavaScript-error assertion remains. Dedicated navigation/history
+coverage is unchanged. This removes only an artificial cross-edition document
+transition unrelated to the styling contract. A test-list regression checks all
+three editions in all five projects. The browser matrix now has 250 cases rather
+than 240 because the three edition checks report separately. No error filtering,
+prefetch disabling, fixed sleep or retry-to-green is introduced.

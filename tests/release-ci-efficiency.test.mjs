@@ -55,3 +55,15 @@ test('real Playwright fail-fast returns failure and does not run the remaining c
     assert.ok(report.stats.skipped>0,'Unrun cases must not count as passed');
   } finally {rmSync(dir,{recursive:true,force:true});}
 });
+test('Culture styling is independently checked for every edition and browser project',()=>{
+  const result=spawnSync(process.execPath,[join(dirname(require.resolve('@playwright/test/package.json')),'cli.js'),'test','qa/tests/section-anchor-alignment.spec.mjs','--list','--reporter=json'],{encoding:'utf8',timeout:30000,env:{...process.env,QA_BASE_URL:'http://127.0.0.1:3000'}});
+  assert.equal(result.error,undefined,result.error?.message);
+  assert.equal(result.status,0,result.stdout+result.stderr);
+  const report=JSON.parse(result.stdout);
+  const specs=report.suites.flatMap(s=>s.specs||[]).filter(s=>s.title.startsWith('Culture pagination and floating masthead'));
+  const projects=['webkit-mobile-390','webkit-input-390','desktop','mobile-390','mobile-360'];
+  assert.equal(specs.length,15,'Each of three editions must get its own fixture in all five projects');
+  for(const project of projects)for(const root of ['/','/doge','/sunday-crew']){
+    assert.equal(specs.filter(s=>s.title.endsWith(`sections: ${root}`)&&s.tests.some(t=>t.projectName===project)).length,1);
+  }
+});
