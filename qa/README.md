@@ -53,6 +53,12 @@ automatic retries conceal intermittent defects. The full Phase One suite remains
 independent; the focused article-image release check is integrated as described below.
 Machine-specific monitors and the earlier standalone diagnostics are not included.
 
+Release CI uses two file-level browser workers and stops on the first failure;
+unrun cases never satisfy the release gate. Local runs remain serial and report
+all failures. The test list, five browser projects, exact-commit evidence and zero
+retries are unchanged. See `docs/release-workflow-performance.md` for measurements,
+the real-media sparse checkout, access boundaries and rollback guidance.
+
 Phase One does not automate editorial approval, complete overflow chronology,
 all archive routes, video playback, visual crop quality, installed-PWA behavior,
 Safari/Firefox, deployed SHA identity or production readiness. A local pass is
