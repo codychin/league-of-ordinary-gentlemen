@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/operations/assert-production-boundary.mjs && node --test tests/production-release-rules.test.mjs tests/global-routing-completeness.test.mjs && node scripts/restore-approved-reels.mjs && node scripts/assets/prepare-images.mjs && next build",
+    "build": "node scripts/operations/assert-production-boundary.mjs && node --test tests/production-release-rules.test.mjs tests/global-routing-completeness.test.mjs && node scripts/restore-approved-reels.mjs && node scripts/restore-week8-recaps.mjs && node scripts/assets/prepare-images.mjs && next build",
     "start": "next start",
     "test": "node --test tests/*.test.mjs",
     "assets:images": "node scripts/assets/prepare-images.mjs",
@@ -13,7 +13,8 @@
     "media:prepare": "node scripts/operations/prepare-media.mjs prepare",
     "media:assemble": "node scripts/operations/assemble-prepared-media.mjs",
     "media:transport": "node scripts/operations/transport-prepared-media.mjs",
-    "media:completion": "node scripts/operations/native-media-completion-turn.mjs"
+    "media:completion": "node scripts/operations/native-media-completion-turn.mjs",
+    "pretest": "node scripts/restore-approved-reels.mjs && node scripts/restore-week8-recaps.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "0.12.7",

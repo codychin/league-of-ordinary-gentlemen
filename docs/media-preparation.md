@@ -358,3 +358,9 @@ registry-write smoke test. Native connected read-only rehearsal evidence must be
 reported separately. Fresh provider-to-durable ingestion, native ordinary Git
 transport, auditory/full-motion review, and unattended subscription readiness are
 not established by this adapter.
+
+## Week 8 recap turnover
+
+The eighteen Week 8 recap renders use a separate approved manifest and exact final-file playback waiver. A partial or changed batch does not replace any homepage preview shelf. Existing previews remain in The Crates alongside the Week 7 history. The waiver records permission to publish without full end-to-end listening or viewing; all three perceptual-review flags remain false. Original and HLS decode, file identity, and sampled-frame checks remain separate evidence.
+
+The approved originals and HLS packages are losslessly retained under `media-sources/week8-recap/`. `restore-week8-recaps.mjs` verifies ordered part lengths and SHA-256 hashes, reconstructs exact originals and every HLS file, and rejects unsafe paths, unexpected offsets, missing package files, or changed output bytes. Both `npm test` and `npm run build` restore these assets before use. No provider URL is needed at build time. The generated public originals and HLS files are intentionally not duplicated in Git.

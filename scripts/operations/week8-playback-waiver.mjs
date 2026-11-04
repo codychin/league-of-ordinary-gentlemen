@@ -1,8 +1,15 @@
+import {week8RecapWaiverId,assertWeek8RecapApprovedBinding,recapPlaybackAttestation} from './week8-recap-playback-waiver.mjs';
 import fs from 'node:fs';
 import {createHash} from 'node:crypto';
 const authority=JSON.parse(fs.readFileSync(new URL('../../qa/week8-owner-playback-waiver.json',import.meta.url),'utf8'));
 const need=(ok,message)=>{if(!ok)throw Error(message);};
 export const week8WaiverId=authority.exceptionId;
+export const knownWeek8Waiver=id=>id===week8WaiverId || id===week8RecapWaiverId;
+export function assertApprovedMediaBinding(b,id) {
+  if(id===week8RecapWaiverId)return assertWeek8RecapApprovedBinding(b);
+  need(id===week8WaiverId,'Unknown owner playback waiver');
+  return assertWeek8ApprovedBinding(b);
+}
 export function assertWeek8ApprovedBinding(b) {
   const a=authority.assets.find(a=>a.registryId===b.registryId);
   need(a && !a.hold,'Week 8 exact script missing or held for correction approval');
@@ -13,6 +20,7 @@ export function assertWeek8ApprovedBinding(b) {
   return a;
 }
 export function playbackAttestation(b,review,waiverId) {
+  if(waiverId===week8RecapWaiverId)return recapPlaybackAttestation(b,waiverId);
   if(waiverId!=null) {
     need(waiverId===authority.exceptionId,'Unknown owner playback waiver');
     assertWeek8ApprovedBinding(b);
