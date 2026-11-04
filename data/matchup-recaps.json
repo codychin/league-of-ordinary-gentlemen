@@ -2002,5 +2002,581 @@
       "sourcePackageSha256": "4bd77ccab00685d14570eca5868945c661422c84a7198d82b6ff766e501aa0b4",
       "verification": "Parent final source audit: all 18 pairings, 36 scores/records/PFPA and 568 players unchanged from reviewed copy. Local source package materialization pending."
     }
+  },
+  {
+    "edition": "loog",
+    "season": 2026,
+    "week": 8,
+    "teamIds": [
+      "1",
+      "3"
+    ],
+    "writer": "crane",
+    "headline": "Roy declines the invitation",
+    "body": "Before the weekend, I wished Roy an absolutely rotten time. He has returned with a 49-point win. The man is not taking correspondence.\n\nJaylen Warren scored 27 and Josh Jacobs 26.3 for the Chosen Ones. Geno Smith, a two-dollar waiver pickup on Wednesday, supplied 17.1 in the starting quarterback spot. Roy's team is 6–2 and ESPN has it first in the standings. A useful answer to the question of whether a waiver quarterback can keep a good team moving: apparently yes, especially when the running backs do this much of the moving.\n\nChristian Watson's 20.3 had encouraged Cody and Ferret early. He finished as All Ugly's leading starter, but their two flex players combined for 4.45. One was Keon Coleman, acquired for two dollars; the other was Ja'Kobi Lane. The two-game winning streak ends, and All Ugly falls to 2–6.\n\nRoy also spent six waiver dollars on the Bengals defense, which returned six points in the lineup. The two midweek purchases did not need to be spectacular; Jacobs and Warren provided the spectacle. All Ugly’s Chris Bell, added Sunday, scored six on the bench. That was more than either flex starter, but no single swap there could recover forty-nine points. I shall have to send Roy a less polite letter.",
+    "kind": "recap",
+    "editorialVersion": "reviewed-v1-20261103",
+    "source": {
+      "status": "FINAL",
+      "leagueId": "65c573a0-535d-4edf-8332-2522ee13872f",
+      "articleRegistryId": "1d85c506-8cc4-5291-8e62-b733caf77089",
+      "bodySha256": "96442986ebf4e3b82dfab148a089a9ba74fb20dd73870fc2053edcd16e031f85",
+      "capturedAt": "2026-11-04T03:18:30Z",
+      "scores": [
+        {
+          "teamId": "1",
+          "points": 147.8
+        },
+        {
+          "teamId": "3",
+          "points": 98.53
+        }
+      ],
+      "verification": "Authenticated ESPN Week 8 winners and totals rechecked November 4; twelve weekly starter sums reconciled November 3; exact staged body hash matched."
+    }
+  },
+  {
+    "edition": "loog",
+    "season": 2026,
+    "week": 8,
+    "teamIds": [
+      "2",
+      "10"
+    ],
+    "writer": "gannon",
+    "headline": "Danny gets his points back",
+    "body": "Danny had spent the season scoring more than Royrek and winning less. This week he arranged for the points and the victory to arrive together. DarkHorse beat Royrek 148–113.28 and both teams are now 3–5.\n\nBhayshul Tuten scored 35.5 and Jahmyr Gibbs 31.1. The Steelers defense added 21. After Tuten's bye in Week 7, Danny was able to put him back to work; the two running backs produced 66.6 between them.\n\nRoyrek got 29.68 from Kirk Cousins and 21.9 from Matthew Golden, whose Thursday start had already made Danny uncomfortable. Justin Tucker, added on Thursday and started at kicker, finished with zero. Danny also made a late quarterback change: he added Kyler Murray on Sunday and started him for 18.3. It was not the biggest number in the lineup.\n\nDanny’s waiver spending had also brought in Caleb Douglas for sixteen dollars and Kimani Vidal for two. Both started, combining for 12.1. They did not have to carry this one: Tuten and Gibbs produced more than five times that figure. It is the sort of week in which new help can settle in quietly rather than be asked to justify the entire budget on Sunday. For once, the biggest numbers belonged to the side that won.",
+    "kind": "recap",
+    "editorialVersion": "reviewed-v1-20261103",
+    "source": {
+      "status": "FINAL",
+      "leagueId": "65c573a0-535d-4edf-8332-2522ee13872f",
+      "articleRegistryId": "393c497d-044e-56e1-8392-70c59ccddac6",
+      "bodySha256": "8f0dfe24b66d66da1c11a00427c43e89138f62bb12f60701592586a0f59e6d02",
+      "capturedAt": "2026-11-04T03:18:30Z",
+      "scores": [
+        {
+          "teamId": "2",
+          "points": 148
+        },
+        {
+          "teamId": "10",
+          "points": 113.28
+        }
+      ],
+      "verification": "Authenticated ESPN Week 8 winners and totals rechecked November 4; twelve weekly starter sums reconciled November 3; exact staged body hash matched."
+    }
+  },
+  {
+    "edition": "loog",
+    "season": 2026,
+    "week": 8,
+    "teamIds": [
+      "4",
+      "11"
+    ],
+    "writer": "kells",
+    "headline": "The projection can put the balloons away",
+    "body": "The app had Lloyd favored before the weekend. Route 22 has relieved it of the need to explain why.\n\nChoe and Stone won 155.98–140.30 with 29.2 from Brock Bowers, 21.2 from James Cook and 21 from Kenny Gainwell. Their Wednesday waiver pickup, the Commanders defense, cost two dollars and scored 16.5. That is a pleasant return on a small administrative task.\n\nThe Katz brothers got 29.9 from Michael Wilson and 21.5 from the Jaguars defense, enough to make this a substantial losing score. Zay Flowers and flex starter Omar Cooper Jr. finished at minus one apiece. Five Lloyd starters reached at least 18.8, and their total outscored seven other teams this week. Lloyd also had 12.7 from Pat Freiermuth on the bench. Replacing Cooper in the flex with Freiermuth would have recovered 13.7 of the 15.68-point margin, still leaving Lloyd 1.98 short. That is hindsight, not a claim the change was obvious beforehand.\n\nThe defenses made their own case: Jacksonville scored 21.5 for Lloyd and Washington 16.5 for Route 22. But Bowers outscored Dalton Kincaid by 9.6 at tight end, and Route 22 got contributions from across the lineup. Both teams are 4–4. The projection may keep the balloons; Route 22 takes the win.",
+    "kind": "recap",
+    "editorialVersion": "reviewed-v1-20261103",
+    "source": {
+      "status": "FINAL",
+      "leagueId": "65c573a0-535d-4edf-8332-2522ee13872f",
+      "articleRegistryId": "797ad069-520e-540c-b697-ca96a6f12c30",
+      "bodySha256": "a360dd70282b631a7596e62be8fabbc08979ea8ec453172f73a9067c76b06cc9",
+      "capturedAt": "2026-11-04T03:18:30Z",
+      "scores": [
+        {
+          "teamId": "4",
+          "points": 155.98
+        },
+        {
+          "teamId": "11",
+          "points": 140.3
+        }
+      ],
+      "verification": "Authenticated ESPN Week 8 winners and totals rechecked November 4; twelve weekly starter sums reconciled November 3; exact staged body hash matched."
+    }
+  },
+  {
+    "edition": "loog",
+    "season": 2026,
+    "week": 8,
+    "teamIds": [
+      "5",
+      "12"
+    ],
+    "writer": "march",
+    "headline": "Matty finally gets the quarterback advantage to count",
+    "body": "Matty had the better quarterback score in Week 7 and lost. Skatt won that week despite a modest return from Bryce Young. Their Week 8 meeting offered another quarterback gap, and this time Matty got the result to go with it.\n\nJosh Allen scored 28.26 to Young's 9.86 as CeeDeep won 134.56–128.96, a margin of 5.6. Tyler Bass added 19.5 at kicker after Matty acquired him on waivers for two dollars. Treylon Burks, also added Wednesday, started in a flex and scored 12.1. Neither move had to save the entire team; both helped in a game where five points mattered.\n\nSkatt got 34.6 from Ja'Marr Chase and 21.2 from Trey McBride. The effort was enough to stay close, but not enough to overcome CeeDeep's spread of contributors. Skatt had an alternative at quarterback: Deshaun Watson scored 12.46 on the bench. Replacing Young with that return would have gained 2.6, still three points short. Skatt also added Makai Lemon on Friday and got 10.7 from him in the flex. Matty’s Burks contributed 12.1 from the same slot on the other side. Those are useful moves, not evidence either manager could see the final margin coming.\n\nBoth teams leave 4–4. Matty may now enjoy a good quarterback performance without having to explain the loss underneath it.",
+    "kind": "recap",
+    "editorialVersion": "reviewed-v1-20261103",
+    "source": {
+      "status": "FINAL",
+      "leagueId": "65c573a0-535d-4edf-8332-2522ee13872f",
+      "articleRegistryId": "6bc725eb-5bdc-53c9-b50c-643f4bf267f0",
+      "bodySha256": "4d5ec38bb4601051502625307a6a63653b8a2325d9d6a9abd68a61960885911e",
+      "capturedAt": "2026-11-04T03:18:30Z",
+      "scores": [
+        {
+          "teamId": "5",
+          "points": 128.96
+        },
+        {
+          "teamId": "12",
+          "points": 134.56
+        }
+      ],
+      "verification": "Authenticated ESPN Week 8 winners and totals rechecked November 4; twelve weekly starter sums reconciled November 3; exact staged body hash matched."
+    }
+  },
+  {
+    "edition": "loog",
+    "season": 2026,
+    "week": 8,
+    "teamIds": [
+      "6",
+      "9"
+    ],
+    "writer": "pike",
+    "headline": "The branding, and everything else, works",
+    "body": "Tucker Kraft opened the week with 18.3 for the team bearing his name. The branding was useful. The rest of Tish's lineup supplied plenty more.\n\nJoe Burrow scored 44.78, D'Andre Swift 31.6 and Puka Nacua 26 in a 185.88–109.66 win over Sherm. Jonah Coleman added 22.5. Kraft was the highest-scoring team in the league this week and moved to 5–3; Pollard Greens is 4–4. Kraft also now leads the league in season points according to ESPN's standings.\n\nSherm got 28.26 from Drake Maye and 27.8 from Jaxon Smith-Njigba. His Week 8 waiver additions Keaton Mitchell and Antonio Williams were both on the bench; neither of their individual scores would have changed a 76.22-point defeat. Last week Sherm had the league's highest-scoring team. This week Tish took the scoring lead and the win in the same meeting.\n\nSherm spent eleven waiver dollars on Mitchell and seven on Williams during the week. They gave him options, but this particular problem would have required far more than a substitution: Williams’s 11.4 was the larger return from those two additions, and Tish had Adonai Mitchell’s 28.2 unused himself. Kraft did not need every point at his disposal. That is an efficient way to settle an argument.",
+    "kind": "recap",
+    "editorialVersion": "reviewed-v1-20261103",
+    "source": {
+      "status": "FINAL",
+      "leagueId": "65c573a0-535d-4edf-8332-2522ee13872f",
+      "articleRegistryId": "5956f651-d977-5ad2-b814-bea0c8b27424",
+      "bodySha256": "080f44dceeaab0ab210ac70cbe3c3b18674dfdaf6bc611878da50f98fbd2d2cc",
+      "capturedAt": "2026-11-04T03:18:30Z",
+      "scores": [
+        {
+          "teamId": "6",
+          "points": 109.66
+        },
+        {
+          "teamId": "9",
+          "points": 185.88
+        }
+      ],
+      "verification": "Authenticated ESPN Week 8 winners and totals rechecked November 4; twelve weekly starter sums reconciled November 3; exact staged body hash matched."
+    }
+  },
+  {
+    "edition": "loog",
+    "season": 2026,
+    "week": 8,
+    "teamIds": [
+      "7",
+      "8"
+    ],
+    "writer": "sorrell",
+    "headline": "First place sits up",
+    "body": "Chuba Hubbard gave Norm a 26.1-point start on Thursday. Tee Higgins followed with 40.5, and Shake 'N Baker beat Mr Hopkins Opus 124.58–92.80. Norm improves to 3–5; Kush is 6–2 and second in ESPN's standings.\n\nBoth managers left a substantial performance on the bench. Norm's Tyler Allgeier scored 45.2 there. Kush's Tony Pollard scored 36.8, while Patrick Mahomes had 28.64 behind starting quarterback Michael Penix Jr.'s minus 2.4. Swapping Mahomes alone into the lineup would have left Hopkins 0.74 points short. Pollard could have supplied the extra help, depending on the rest of the lineup.\n\nLast week Kush left Pollard's big score unused and won anyway, while Norm left a possible victory on his bench and lost. This week the unused scores belonged to both men, but the victory went to Norm.\n\nKush still got 27.7 from Bucky Irving and 27.4 from Braelon Allen. His starting quarterback’s negative score is the conspicuous difference from Mahomes, but even that large one-for-one change leaves the result intact. Pollard as an additional change at a compatible running back or flex spot could have supplied the rest. That is a reconstruction after the games, not a verdict on what Kush should have known beforehand. First place has indeed had to sit up.",
+    "kind": "recap",
+    "editorialVersion": "reviewed-v1-20261103",
+    "source": {
+      "status": "FINAL",
+      "leagueId": "65c573a0-535d-4edf-8332-2522ee13872f",
+      "articleRegistryId": "22e20c7f-2047-5257-8758-946e033292ec",
+      "bodySha256": "4ae1e1a5ddd1a679959226ad33329c1ddedd8f4e2d4121ca8b9a00b83949ec91",
+      "capturedAt": "2026-11-04T03:18:30Z",
+      "scores": [
+        {
+          "teamId": "7",
+          "points": 92.8
+        },
+        {
+          "teamId": "8",
+          "points": 124.58
+        }
+      ],
+      "verification": "Authenticated ESPN Week 8 winners and totals rechecked November 4; twelve weekly starter sums reconciled November 3; exact staged body hash matched."
+    }
+  },
+  {
+    "edition": "doge",
+    "season": 2026,
+    "week": 8,
+    "teamIds": [
+      "1",
+      "3"
+    ],
+    "writer": "sorrell",
+    "headline": "The help arrived separately",
+    "body": "Tucker Kraft gave Cody 14.3. Luther Burden III added 15.1, and the Jaguars defense supplied twenty. The preview had asked whether useful performances could occur in the same week. They did. RFK Jr’s Bears still won 137.16–99.68. Both teams are 4–4.\n\nThe difference is not that Cody received nothing. Chase Brown added 12.1, Caleb Williams 13.98 and Tetairoa McMillan 8.8. Those contributions are all present and accounted for. But Chris Bell and Ja’Kobi Lane combined for 6.7 across the two flex positions, and Omarion Hampton returned 3.7. The distribution of help was not quite generous enough to cover what the Bears were assembling.\n\nJosh Allen led the Bears with 29.56. Puka Nacua added 19.5, Dalton Kincaid 18.6 and Jameson Williams seventeen. T.J. Hockenson, Blake Corum and Derrick Henry each contributed at least thirteen. Seven offensive starters reached that mark. Their combined 124.76 exceeded Cody’s entire score before the Bears counted their last three spots.\n\nThe preview’s premise was not wrong to demand company for Kraft. Cody got some. The Bears simply brought more people to work, and kept paying them. There is no reason to erase the useful parts of Cody’s lineup to explain a 37.48-point loss. The other lineup is standing right there.",
+    "kind": "recap",
+    "editorialVersion": "reviewed-v1-20261103",
+    "source": {
+      "status": "FINAL",
+      "leagueId": "33707500-ac22-489e-ae65-0c11e2880ffc",
+      "articleRegistryId": "cd148f30-54b3-453c-85ce-8310fedccdb3",
+      "bodySha256": "2f880d7d913a7b13aca1ba23eec7eeb496d4e8fcff82ef283b09b4c407994ba2",
+      "capturedAt": "2026-11-04T03:17:31Z",
+      "scores": [
+        {
+          "teamId": "1",
+          "points": 99.68
+        },
+        {
+          "teamId": "3",
+          "points": 137.16
+        }
+      ],
+      "verification": "Authenticated Yahoo Week 8 final scores and all 24 league-specific weekly roster starter sums rechecked November 4; exact staged body hash matched."
+    }
+  },
+  {
+    "edition": "doge",
+    "season": 2026,
+    "week": 8,
+    "teamIds": [
+      "2",
+      "10"
+    ],
+    "writer": "march",
+    "headline": "The spare remained a spare",
+    "body": "Moe’s Jordan Love had already scored 23.52 on the bench when the preview considered the awkwardness of having a spare quarterback outproduce an opponent’s starter. The awkwardness survived. Lamar Jackson’s starting slot finished at zero, Love remained on the bench, and Gimothy Blossoms beat De'Coldest Hassan 104.16–68.40. Alan moves to 3–5; Moe is 2–6.\n\nTee Higgins supplied 34.5 for Alan. Nobody else in the lineup reached thirteen: Chase McLaughlin scored twelve, Bryce Young 11.36 and Keenan Allen 10.2. The Raiders defense added ten. Higgins was not merely Alan’s largest contribution. He supplied slightly under one-third of the entire winning total, a conspicuous guest at an otherwise restrained gathering.\n\nMoe had Justin Jefferson at 11.8, Rico Dowdle at 11.6 and Stefon Diggs at 11.3. Breece Hall’s starting slot also returned zero. The roster shows what was selected and scored, but does not establish why. Love over Jackson would have added 23.52, leaving Moe 12.24 short of Alan’s total. It was an expensive unused score; it was not, by itself, the full margin.\n\nLast week Moe won without a kicker. This week Cam Little contributed six, and the spare quarterback remained available for an entirely different sort of discussion. Alan needed no such complication. Higgins gave him 34.5; the rest of the room only had to be sufficiently agreeable.",
+    "kind": "recap",
+    "editorialVersion": "reviewed-v1-20261103",
+    "source": {
+      "status": "FINAL",
+      "leagueId": "33707500-ac22-489e-ae65-0c11e2880ffc",
+      "articleRegistryId": "77ee4370-a99f-447f-a272-40da6be14331",
+      "bodySha256": "d1c5fd86187c43deb1de45d8f5e002213d91b1a7e78723b6dee5da12af8a32ec",
+      "capturedAt": "2026-11-04T03:17:31Z",
+      "scores": [
+        {
+          "teamId": "2",
+          "points": 104.16
+        },
+        {
+          "teamId": "10",
+          "points": 68.4
+        }
+      ],
+      "verification": "Authenticated Yahoo Week 8 final scores and all 24 league-specific weekly roster starter sums rechecked November 4; exact staged body hash matched."
+    }
+  },
+  {
+    "edition": "doge",
+    "season": 2026,
+    "week": 8,
+    "teamIds": [
+      "4",
+      "5"
+    ],
+    "writer": "pike",
+    "headline": "A better allocation",
+    "body": "Corey’s Jalen Coker scored 8.6, more than enough to have changed the narrow prior defeat described in the preview. The problem with applying a correction to a closed account is that the next account belongs to someone else. El Niño Grande beat Jerruh’s World 143.18–104.04 anyway, moving Corey to 3–5 and leaving Andrew at 4–4.\n\nBhayshul Tuten scored 30.9, Braelon Allen 24.3 and Brock Bowers 24.7. Jaxon Smith-Njigba supplied 22.8. Those four added 102.7, almost matching Andrew’s full 104.04 before Corey counted Coker or any other starter. Rachaad White contributed thirteen from the flex. The distribution did not require Aaron Rodgers’ 6.88 at quarterback to become something larger.\n\nAndrew got 26.44 from Patrick Mahomes and 15.3 from Christian Watson. Saquon Barkley, Ryan Flournoy, Garrett Wilson and Kenneth Walker each contributed between ten and twelve. That is a defensible collection of returns, but none matched Tuten, Bowers or Allen. J.K. Dobbins’ 1.3 and Tyler Warren’s 3.8 reduced the room available to compensate.\n\nThe preview noticed that Corey had plenty of season scoring for a 2–5 team. One week cannot settle whether that record was an error or merely an unpleasant outcome. This week it moved. Coker’s 8.6 was useful, but Corey did not need to invoice it to last week. He had considerably more than that to spend on this one.",
+    "kind": "recap",
+    "editorialVersion": "reviewed-v1-20261103",
+    "source": {
+      "status": "FINAL",
+      "leagueId": "33707500-ac22-489e-ae65-0c11e2880ffc",
+      "articleRegistryId": "052b9e2f-300f-44df-b317-d5f6cf892395",
+      "bodySha256": "8f4a0436c12fed1e2a0e49d558318d808ba7dbfda138af744c671dd8670b389e",
+      "capturedAt": "2026-11-04T03:17:31Z",
+      "scores": [
+        {
+          "teamId": "4",
+          "points": 143.18
+        },
+        {
+          "teamId": "5",
+          "points": 104.04
+        }
+      ],
+      "verification": "Authenticated Yahoo Week 8 final scores and all 24 league-specific weekly roster starter sums rechecked November 4; exact staged body hash matched."
+    }
+  },
+  {
+    "edition": "doge",
+    "season": 2026,
+    "week": 8,
+    "teamIds": [
+      "6",
+      "7"
+    ],
+    "writer": "crane",
+    "headline": "The shifts kept coming",
+    "body": "Josh Jacobs opened with 20.2. Three more starting running backs followed: Jahmyr Gibbs at 25.8, Bucky Irving at 25 and Kyren Williams at 12.4. Tranimal beat McConkey Kong 124.90–80.36, moving Bennett to 6–2 while Sandy falls to 4–4. There had been a warning in the preview. The warning had legs.\n\nThe four backs combined for 83.4, 3.04 more than Sandy’s entire lineup. Dak Prescott added 19.8 and Rashee Rice 14.8. The rest of Bennett’s starters contributed 6.9 together, including a zero at tight end. This was not a lineup in which every section did its share. It was a lineup in which one section brought enough for everybody.\n\nSandy’s Trey McBride scored 16.7, Kenny Gainwell sixteen and Ladd McConkey 12.6. Rhamondre Stevenson added 10.5. Jacoby Brissett’s 4.46, Spencer Shrader’s one and a zero from Omar Cooper left little room to catch four running backs doing that kind of work. The four highest McConkey starters combined for 55.8; Tranimal’s backs cleared that by 27.6.\n\nSandy had just beaten Cody by thirty. That was a good week, and this result does not take it away. It merely arrived close enough behind it to make the distance feel short. Jacobs got there first. Gibbs, Irving and Williams brought the rest.",
+    "kind": "recap",
+    "editorialVersion": "reviewed-v1-20261103",
+    "source": {
+      "status": "FINAL",
+      "leagueId": "33707500-ac22-489e-ae65-0c11e2880ffc",
+      "articleRegistryId": "9f0dcacc-9e7f-4d86-8aca-ef5244e17346",
+      "bodySha256": "f3e531c949769f61753a07315290bdc966dd2c10ad686ba11f203a5fa41c4965",
+      "capturedAt": "2026-11-04T03:17:31Z",
+      "scores": [
+        {
+          "teamId": "6",
+          "points": 80.36
+        },
+        {
+          "teamId": "7",
+          "points": 124.9
+        }
+      ],
+      "verification": "Authenticated Yahoo Week 8 final scores and all 24 league-specific weekly roster starter sums rechecked November 4; exact staged body hash matched."
+    }
+  },
+  {
+    "edition": "doge",
+    "season": 2026,
+    "week": 8,
+    "teamIds": [
+      "8",
+      "11"
+    ],
+    "writer": "gannon",
+    "headline": "The supporting case became the case",
+    "body": "Last week Jason won with a four-running-back arrangement in which the quarterback and kicker did much of the conspicuous work. Chuba Hubbard opened this week with 21.4. The rest of the running backs supplied another 42.7. Ordway and Son beat T. Ocellus 148.46–95.08 and leads the Yahoo standings at 7–1. Bryan falls to 3–5.\n\nD’Andre Swift scored 26.9, Hubbard 21.4, Ashton Jeanty 10.8 and Aaron Jones five. Their 64.1 was 43.1% of the winner’s total. Ja’Marr Chase added 25.6, Drake Maye 24.46 and the Steelers defense nineteen. Will Reichard’s starting kicker slot returned zero. This time the running backs did not need the kicker to make the case look complete.\n\nBryan received 44.48 from Joe Burrow, the highest individual score in either lineup, and 16.6 from DJ Moore. Brandon Aubrey contributed twelve. Those three accounted for 73.08 of T. Ocellus’s 95.08. Seven other starters combined for 22; none individually reached six. Burrow’s score was exceptional and still fell short of Jason’s running-back group by 19.62.\n\nA single week does not prove one roster construction is generally superior. It does show what happened in this one: Jason paired four useful running-back scores with strong returns from quarterback, receiver and defense. Bryan had the highest single score. Jason had more places to put points.",
+    "kind": "recap",
+    "editorialVersion": "reviewed-v1-20261103",
+    "source": {
+      "status": "FINAL",
+      "leagueId": "33707500-ac22-489e-ae65-0c11e2880ffc",
+      "articleRegistryId": "dbfd9030-2baa-43c9-bc04-a9bcc64e812b",
+      "bodySha256": "74fe0d2b8f516b5e890572c592d5288c8180b94504b75caf687276abade8095f",
+      "capturedAt": "2026-11-04T03:17:31Z",
+      "scores": [
+        {
+          "teamId": "8",
+          "points": 95.08
+        },
+        {
+          "teamId": "11",
+          "points": 148.46
+        }
+      ],
+      "verification": "Authenticated Yahoo Week 8 final scores and all 24 league-specific weekly roster starter sums rechecked November 4; exact staged body hash matched."
+    }
+  },
+  {
+    "edition": "doge",
+    "season": 2026,
+    "week": 8,
+    "teamIds": [
+      "9",
+      "12"
+    ],
+    "writer": "kells",
+    "headline": "The bench developed opinions",
+    "body": "Last week Patrick won while Nix and Pollard combined for 67 on the bench. This time they started, and Nix in 5 beat Extremely Tight Ends 142.08–119.40. Pollard scored 31.2, Nix 20.28 and Jaylen Warren 24.8. Patrick is 4–4. Pete is also 4–4. The unused points have changed addresses, not stopped attending.\n\nPatrick left Michael Wilson’s 22.8 on the bench. Matthew Golden’s 17.4 and Amon-Ra St. Brown’s 9.1 joined the starting receiving group, while Pollard and Warren supplied 56 points between them. The Commanders defense added thirteen. The team did not need every good option to occupy the correct chair. It brought enough chairs to win anyway.\n\nPete had three starters on precisely 20.4: Trevor Lawrence, Harold Fannin Jr. and Jonah Coleman. James Cook added 17.1. That is a lovely little column until Tyler Allgeier’s 39.6 appears on the bench. Ollie Gordon II scored 6.9 in a starting running-back slot. Replacing that recorded score with Allgeier’s would add 32.7, more than the 22.68-point margin. The roster does not explain why Pete chose Gordon.\n\nLast week Patrick’s bench made winning look almost needlessly extravagant. This week Pete’s bench had enough to change the result, and Patrick’s still had 22.8 to contribute to the conversation. One manager got the win and the unused points. The other got a much longer discussion.",
+    "kind": "recap",
+    "editorialVersion": "reviewed-v1-20261103",
+    "source": {
+      "status": "FINAL",
+      "leagueId": "33707500-ac22-489e-ae65-0c11e2880ffc",
+      "articleRegistryId": "a9e9dddb-5c02-43e7-8a68-82e9c75b04e9",
+      "bodySha256": "9fcc89f9c40c7b870b262c808afc7ab3b91cc9137d8e4dc953e70cf063a13965",
+      "capturedAt": "2026-11-04T03:17:31Z",
+      "scores": [
+        {
+          "teamId": "9",
+          "points": 119.4
+        },
+        {
+          "teamId": "12",
+          "points": 142.08
+        }
+      ],
+      "verification": "Authenticated Yahoo Week 8 final scores and all 24 league-specific weekly roster starter sums rechecked November 4; exact staged body hash matched."
+    }
+  },
+  {
+    "edition": "sunday-crew",
+    "season": 2026,
+    "week": 8,
+    "teamIds": [
+      "1",
+      "4"
+    ],
+    "writer": "march",
+    "headline": "The visitors stayed for dinner",
+    "body": "Sandy opened with 42.72 from Jordan Love and Josh Jacobs. Ja’Marr Chase added 27.6. For a while, the early courtesy extended to Paul looked like the sort a host expects to have returned. Croatian Sensation won 145.36–116.22 instead, moving to 5–3 while ZAYWATCH fell to 4–4.\n\nTee Higgins supplied 39.5. D’Andre Swift added 26.9 and Drake Maye 26.46. Those three produced 92.86, enough to make Sandy’s excellent beginning feel considerably less exclusive. James Cook contributed another 17.1, and Rome Odunze and Travis Kelce brought the total to a place where the quieter parts of Paul’s lineup could remain quiet without an inquiry.\n\nSandy had three starters above twenty, a perfectly respectable number until Paul produced three above twenty-six. The rest of ZAYWATCH managed 45.9 together; no other starter reached twelve. Chase’s 27.6 was the best answer Sandy had, and Higgins raised the price of admission.\n\nThe Thursday arrangement made Paul wait. It did not require him to spend the rest of the week worried about being impolite. He had more season points coming in, as the preview observed, and on this occasion supplied the larger afternoon too. The early advantage was real. So was what arrived after it.",
+    "kind": "recap",
+    "editorialVersion": "reviewed-v1-20261103",
+    "source": {
+      "status": "FINAL",
+      "leagueId": "1146fb6b-b5ea-4981-93c2-790be3b993ab",
+      "articleRegistryId": "96b12254-511c-445e-a596-3872245557f8",
+      "bodySha256": "25991cc96eb747d1098dec37d94c36c27e17382f08f58eb74c401da85a54900a",
+      "capturedAt": "2026-11-04T03:17:31Z",
+      "scores": [
+        {
+          "teamId": "1",
+          "points": 116.22
+        },
+        {
+          "teamId": "4",
+          "points": 145.36
+        }
+      ],
+      "verification": "Authenticated Yahoo Week 8 final scores and all 24 league-specific weekly roster starter sums rechecked November 4; exact staged body hash matched."
+    }
+  },
+  {
+    "edition": "sunday-crew",
+    "season": 2026,
+    "week": 8,
+    "teamIds": [
+      "11",
+      "12"
+    ],
+    "writer": "gannon",
+    "headline": "The name survived another test",
+    "body": "Runit’s team name proposes that running backs are overrated. His three starting backs answered with 80.6 points. RBs are Overrated beat Tolbert’s Cookies 176.66–105.58, moving to 6–2 and first in Yahoo’s standings. Greg’s team is 5–3. The 71.08-point margin makes the naming dispute less consequential than the evidence against it.\n\nTony Pollard scored 31.2, Bucky Irving 28 and Chuba Hubbard 21.4. Each cleared twenty. The group improved on the more-than-seventy-point performance noted in the preview, and provided almost half of Runit’s total. It was not the entire case: Josh Allen contributed 27.56, Michael Wilson 24.8 and Brock Bowers 24.7. Those three added 77.06. Those three did not merely certify what the running backs had done.\n\nGreg’s Braelon Allen scored 24.3 and Trey McBride 16.7. Bhayshul Tuten’s 30.9 was on the bench, 24.7 more than starting running back Javonte Williams’ 6.2. That is a substantial unused improvement, not an explanation for a 71.08-point defeat. Even that single substitution would leave a 46.38-point gap.\n\nA team name is not a model, and two weeks are not a law. But the observed pattern is straightforward: Runit has received exceptional running-back production twice in succession. This week he paired it with three more scores above 24. Regression may eventually have something to say. For now, it can wait its turn.",
+    "kind": "recap",
+    "editorialVersion": "reviewed-v1-20261103",
+    "source": {
+      "status": "FINAL",
+      "leagueId": "1146fb6b-b5ea-4981-93c2-790be3b993ab",
+      "articleRegistryId": "d0171135-442e-417f-b029-ba02d4be46e6",
+      "bodySha256": "051562e69ad9437dce74d70c3087c4d5bccc7ff25ac269a7b4c57b184c851f82",
+      "capturedAt": "2026-11-04T03:17:31Z",
+      "scores": [
+        {
+          "teamId": "11",
+          "points": 105.58
+        },
+        {
+          "teamId": "12",
+          "points": 176.66
+        }
+      ],
+      "verification": "Authenticated Yahoo Week 8 final scores and all 24 league-specific weekly roster starter sums rechecked November 4; exact staged body hash matched."
+    }
+  },
+  {
+    "edition": "sunday-crew",
+    "season": 2026,
+    "week": 8,
+    "teamIds": [
+      "2",
+      "5"
+    ],
+    "writer": "kells",
+    "headline": "The dignity exchange",
+    "body": "Andrew and Matt arrived after losing by a combined 158 points. Their reward was each other, which meant one of them could leave with a win without having to explain the previous week to a stranger. Forte inch Ditka took it 103.68–92.30. Both teams are now 3–5.\n\nMatt’s Tucker Kraft had already provided 14.3. Rashee Rice added 14.8, Caleb Williams 13.98, Blake Corum 13.3, Wan’Dale Robinson 12.7 and Brandon Aubrey twelve. There was no enormous performance, just a surprisingly well-attended committee meeting. Six starters landed between twelve and fifteen points; none was required to give the acceptance speech alone.\n\nAndrew had Kyler Murray’s 20.9 and 15.9 from the Commanders defense. Rachaad White contributed thirteen, Justin Jefferson 11.8 and Kenneth Walker 10.4. Jason Myers finished at minus three under Sunday Crew’s scoring. A kicker can influence an 11.38-point margin without being made responsible for the rest of the lineup’s afternoon.\n\nMatt left Patrick Mahomes and 27.44 points on the bench, 13.46 more than Williams supplied as the starter. That choice was expensive, but not fatal. A week ago the running backs did useful work in a lineup that did not follow them. Here the work arrived from enough different addresses to collect a win. No one needs to pretend 103.68 is an apology tour. It will do nicely as a receipt.",
+    "kind": "recap",
+    "editorialVersion": "reviewed-v1-20261103",
+    "source": {
+      "status": "FINAL",
+      "leagueId": "1146fb6b-b5ea-4981-93c2-790be3b993ab",
+      "articleRegistryId": "632d04b5-9fd9-485d-840c-f1177a5d1174",
+      "bodySha256": "27a52bfd479267fae827445c5d4fa039c5a3e8ed485107c77e8777fdd2621203",
+      "capturedAt": "2026-11-04T03:17:31Z",
+      "scores": [
+        {
+          "teamId": "2",
+          "points": 92.3
+        },
+        {
+          "teamId": "5",
+          "points": 103.68
+        }
+      ],
+      "verification": "Authenticated Yahoo Week 8 final scores and all 24 league-specific weekly roster starter sums rechecked November 4; exact staged body hash matched."
+    }
+  },
+  {
+    "edition": "sunday-crew",
+    "season": 2026,
+    "week": 8,
+    "teamIds": [
+      "3",
+      "9"
+    ],
+    "writer": "sorrell",
+    "headline": "The points that did not report for duty",
+    "body": "Drew had outscored Patrick by 161 points entering the week and still had the same 2–5 record. The argument finally got a direct hearing. Scrump won 101.46–83.30, moving to 3–5; Rhamondre – A Cautionary Tale fell to 2–6. That does not make seven weeks of scheduling disappear. It does settle which team won this one.\n\nJahmyr Gibbs gave Drew 30.8. Matthew Golden contributed 17.4, Dalton Kincaid 16.6 and kicker Chase McLaughlin twelve. Together they supplied 76.8. Scrump also had two starting zeroes and a 0.9 from DK Metcalf. Four substantial contributions did not make the rest of the lineup look tidy; they made tidiness unnecessary against this opponent.\n\nPatrick had Puka Nacua at 19.5 and DeMario Douglas at 17.1. Lamar Jackson’s starting quarterback slot returned zero, while Dak Prescott’s 19.8 sat on the bench. The margin was 18.16. Replacing the zero with Prescott’s recorded score would have changed the arithmetic, though the historical roster alone does not tell us why the selection was made.\n\nThere is a difference between a missed opportunity and a story about someone’s intentions. The ledger can show the first without supplying the second. Drew got the result his accumulated points had not guaranteed. Patrick had the points to change it, in a place the scoreboard could not reach.",
+    "kind": "recap",
+    "editorialVersion": "reviewed-v1-20261103",
+    "source": {
+      "status": "FINAL",
+      "leagueId": "1146fb6b-b5ea-4981-93c2-790be3b993ab",
+      "articleRegistryId": "03f9e842-cbfe-43fb-95d9-b28774d18136",
+      "bodySha256": "c6b8f3aadb3f81fb1dce0e55df51e299d771892406e4213f4b2d8bad4bb58020",
+      "capturedAt": "2026-11-04T03:17:31Z",
+      "scores": [
+        {
+          "teamId": "3",
+          "points": 83.3
+        },
+        {
+          "teamId": "9",
+          "points": 101.46
+        }
+      ],
+      "verification": "Authenticated Yahoo Week 8 final scores and all 24 league-specific weekly roster starter sums rechecked November 4; exact staged body hash matched."
+    }
+  },
+  {
+    "edition": "sunday-crew",
+    "season": 2026,
+    "week": 8,
+    "teamIds": [
+      "6",
+      "7"
+    ],
+    "writer": "pike",
+    "headline": "The replacement terms",
+    "body": "Joe entered without Christian McCaffrey and Malik Nabers in the starting lineup. The question was whether Ravi could make those absences expensive. The answer came from Joe Burrow, the Steelers defense and Tyler Bass: 42.48, 23.7 and sixteen respectively. J Bird won 133.88–98.78 and both teams leave Week 8 at 4–4.\n\nThose three supplied 82.18, more than sixty percent of Joe’s total. The rest of the starting lineup did not need to imitate them. Chase Brown, Ryan Flournoy and Garrett Wilson each contributed between eleven and thirteen points; Colston Loveland added eight. There were small returns and a zero, too. They were simply carried by an unusually productive quarterback, defense and kicker.\n\nRavi’s Jaylen Warren scored 22.8, Bo Nix 19.28 and Jameson Williams fifteen. T.J. Hockenson added 13.8 from the flex. Those four supplied more than seventy points, but Ravi’s other six starters combined for 27.9. Drake London’s 1.3 and Mark Andrews’ 2.9 left too much to be purchased elsewhere.\n\nLast week Ravi’s acquisition of Nix solved an obvious vacancy and generated 30.28. This time Nix still returned a useful 19.28; the problem was the price across the table. Joe did not replace McCaffrey and Nabers with identical assets. He found 82.18 in three other positions. The transaction did not have to look symmetrical to balance.",
+    "kind": "recap",
+    "editorialVersion": "reviewed-v1-20261103",
+    "source": {
+      "status": "FINAL",
+      "leagueId": "1146fb6b-b5ea-4981-93c2-790be3b993ab",
+      "articleRegistryId": "db74c7f9-06e9-45a9-9cf9-4a7e802d8da3",
+      "bodySha256": "ce51f880fe6cdb4c0f9b5f2edc856fa149ccde896d7f67875fff06c4b932d818",
+      "capturedAt": "2026-11-04T03:17:31Z",
+      "scores": [
+        {
+          "teamId": "6",
+          "points": 98.78
+        },
+        {
+          "teamId": "7",
+          "points": 133.88
+        }
+      ],
+      "verification": "Authenticated Yahoo Week 8 final scores and all 24 league-specific weekly roster starter sums rechecked November 4; exact staged body hash matched."
+    }
+  },
+  {
+    "edition": "sunday-crew",
+    "season": 2026,
+    "week": 8,
+    "teamIds": [
+      "8",
+      "10"
+    ],
+    "writer": "crane",
+    "headline": "Sixty-two hundredths",
+    "body": "There are plenty of respectable ways to describe a 0.62-point win. None gives the losing team back its 0.62. Wake Me Up On September 1st beat CHANE GANG 121.60–120.98, lifting Nipun to 6–2 and leaving Cody at 3–5. On a scoreboard crowded with decimals, the two that mattered most fit after a zero.\n\nHarold Fannin Jr. led Nipun with 25.4. Trevor Lawrence added 19.4 and Christian Watson 15.3. Derrick Henry gave him thirteen, the Patriots defense 10.6 and Keenan Allen 10.2. The final total did not depend on a single giant score. It accumulated in increments large enough to notice and, at the end, in one margin small enough to keep noticing.\n\nCody got 24.8 from Jaxon Smith-Njigba and 23.6 from the Jaguars defense. Jonah Coleman supplied 18.4 and Luther Burden III 15.1. The receiving pair that did so much work in last week’s victory contributed another 39.9 together. This time the help arrived from elsewhere too. It nearly covered everything.\n\nThursday’s little Carolina receiver comparison finished with Jalen Coker at 8.6 for Nipun and Tetairoa McMillan at 8.8 for Cody. Two tenths to Cody. He needed another 0.63 somewhere in the lineup to get past the final total. There is no particular dignity in asking where, after every point has already been counted. Nipun gets the win. Cody gets the entire number to live beside.",
+    "kind": "recap",
+    "editorialVersion": "reviewed-v1-20261103",
+    "source": {
+      "status": "FINAL",
+      "leagueId": "1146fb6b-b5ea-4981-93c2-790be3b993ab",
+      "articleRegistryId": "c6627398-fcb2-4b2b-862a-7d03b8b1a6e1",
+      "bodySha256": "f79f439d6d4ef323df2c1cff58b89f0dca82a6796fd14fc8d6e8fe36e3d5f69b",
+      "capturedAt": "2026-11-04T03:17:31Z",
+      "scores": [
+        {
+          "teamId": "8",
+          "points": 121.6
+        },
+        {
+          "teamId": "10",
+          "points": 120.98
+        }
+      ],
+      "verification": "Authenticated Yahoo Week 8 final scores and all 24 league-specific weekly roster starter sums rechecked November 4; exact staged body hash matched."
+    }
   }
 ]
