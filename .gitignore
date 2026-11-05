@@ -46,3 +46,5 @@ qa/test-results/
 /public/reels-hls/d75d397686ad1b48e45b4c8df362fc43/
 /public/reels/d312e3eae1846f206547833ad6131e77.mp4
 /public/reels-hls/d312e3eae1846f206547833ad6131e77/
+
+lib/generated/native-feed.json

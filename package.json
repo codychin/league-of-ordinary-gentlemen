@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/operations/assert-production-boundary.mjs && node --test tests/production-release-rules.test.mjs tests/global-routing-completeness.test.mjs && node scripts/restore-approved-reels.mjs && node scripts/restore-week8-recaps.mjs && node scripts/assets/prepare-images.mjs && next build",
+    "build": "node scripts/operations/assert-production-boundary.mjs && node --test tests/production-release-rules.test.mjs tests/global-routing-completeness.test.mjs && node scripts/restore-approved-reels.mjs && node scripts/restore-week8-recaps.mjs && node scripts/assets/prepare-images.mjs && node scripts/generate-native-feed.mjs && next build",
     "start": "next start",
     "test": "node --test tests/*.test.mjs",
     "assets:images": "node scripts/assets/prepare-images.mjs",
@@ -26,6 +26,9 @@
     "sharp": "latest"
   },
   "devDependencies": {
-    "@playwright/test": "^1.64.1"
+    "@playwright/test": "^1.64.1",
+    "esbuild": "0.25.12",
+    "@babel/parser": "8.0.10",
+    "htmlparser2": "12.0.0"
   }
 }
