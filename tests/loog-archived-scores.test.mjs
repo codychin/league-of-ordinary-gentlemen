@@ -23,7 +23,7 @@ test('a missing or inconsistent mirrored result suppresses only that week',()=>{
 });
 
 test('homepage retains earlier archive notes and corrects only the evidenced Week 1 score',()=>{
- const page=readFileSync('app/page.js','utf8');assert.match(page,/loogArchivedScores\(leagueSnapshot\)/);assert.match(page,/scores-week3/);assert.match(page,/COKER BENCH ALERT • 37\.8/);assert.match(page,/'131\.22','COKER BENCH ALERT/);
+ const page=readFileSync('app/page.js','utf8');assert.match(page,/loogArchivedScores\(leagueSnapshot,currentScores.week\)/);assert.match(page,/scores-week3/);assert.match(page,/COKER BENCH ALERT • 37\.8/);assert.match(page,/'131\.22','COKER BENCH ALERT/);
  const fix=leagueSnapshot.sourceEvidence.corrections.find(c=>c.week===1&&c.teamId===5);
  const evidence=JSON.parse(readFileSync('data/week8-loog-final-evidence.json','utf8')).week1DisplayCorrection.data.matchups.find(m=>m.away.teamId===5);
  assert.equal(fix.previousScore,130.72);assert.equal(fix.providerScore,131.22);assert.equal(evidence.away.totalPoints,131.22);

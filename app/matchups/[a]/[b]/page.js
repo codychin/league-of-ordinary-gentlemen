@@ -1,3 +1,6 @@
+import {selectCurrentLineups} from '../../../../lib/select-current-lineups.mjs';
+import week9Rosters from '../../../../data/week9-loog-rosters.json';
+import {notFound} from 'next/navigation';
 import latestScores from '../../../../data/latest-loog-scores.json';
 import completedScores from '../../../../data/completed-loog-scores.json';
 import {selectLoogScores} from '../../../../lib/select-loog-scores.mjs';
@@ -30,7 +33,7 @@ const activeRoster=team=>team.roster
   .filter(player=>player.slot!=='Bench'&&player.slot!=='IR')
   .sort((a,b)=>(SLOT_ORDER[a.slot]??99)-(SLOT_ORDER[b.slot]??99))
 const profileFor=id=>teams.find(team=>team.id===id)
-export default async function MatchupPreview({params}){
+export default async function MatchupPreview({params,searchParams}){
   const {a,b}=await params
   let left=leagueSnapshot.teams[a]
   let right=leagueSnapshot.teams[b]
@@ -51,22 +54,35 @@ export default async function MatchupPreview({params}){
       if(value?.ok&&Array.isArray(value.matchups))provider=value;
     }
   }catch{}
-  const latest=selectLoogScores({provider,latest:latestScores,completed:completedScores});
+  let latest=selectLoogScores({provider,latest:latestScores,completed:completedScores});
+  const requested=Number((await searchParams)?.week||0);
+  if(requested&&requested!==Number(latest.week)){
+    if(requested===Number(completedScores.week)) latest=completedScores;
+    else {
+      const row=left.season?.weekly?.find(w=>w.week===requested&&w.opponentSlug===b&&w.status==='FINAL');
+      if(!row)notFound();
+      latest={ok:true,season:2026,week:requested,matchups:[{winner:row.score===row.opponentScore?'TIE':row.score>row.opponentScore?'HOME':'AWAY',home:{id:left.teamId,score:row.score},away:{id:right.teamId,score:row.opponentScore}}]};
+    }
+  }
   if(latest){
     const idA=Number(left.teamId),idB=Number(right.teamId);
     const game=latest.matchups.find(g=>[Number(g.home?.id),Number(g.away?.id)].includes(idA)&&[Number(g.home?.id),Number(g.away?.id)].includes(idB));
     if(!game)return <main className="matchupPage"><h1>Not a Week {latest.week} pairing.</h1><Link href="/#scores">Return to current scores</Link></main>;
     const ls=Number(game.home?.id)===idA?game.home:game.away;
     const rs=Number(game.home?.id)===idB?game.home:game.away;
+    if(Number(latest.week)===week9Rosters.week){left={...left,teamName:week9Rosters.teams.find(t=>t.teamId===idA)?.teamName||left.teamName};right={...right,teamName:week9Rosters.teams.find(t=>t.teamId===idB)?.teamName||right.teamName};}
     const final=Boolean(game.winner&&game.winner!=='UNDECIDED');
     const pregame=!final&&Number(ls.score||0)===0&&Number(rs.score||0)===0;
     const phase=final?'FINAL':game.closeoutPending?'AWAITING PROVIDER FINAL':pregame?'PREGAME':'LIVE';
-    const verified=Number(latest.week)===8?selectVerifiedWeek8Lineups({season:latest.season,week:latest.week,game,evidence:week8Evidence}):Number(latest.week)===7?week7Rosters:Number(latest.week)===closeout.week?closeout.loog.details.flatMap(g=>[g.home,g.away]):[];
+    let currentDetails;
+    if(!requested&&Number(latest.week)===week9Rosters.week){try{const res=await fetch('https://dnzdbqycuuoonewcowis.supabase.co/functions/v1/brief-sunday-engine?action=details',{cache:'no-store'});if(res.ok)currentDetails=await res.json();}catch{}}
+    const currentLineups=selectCurrentLineups(currentDetails,latest.week,game);
+    const verified=currentLineups.length===2?currentLineups:Number(latest.week)===week9Rosters.week?week9Rosters.teams.map(t=>({teamId:t.teamId,players:t.weeklyPlayers})):Number(latest.week)===8?selectVerifiedWeek8Lineups({season:latest.season,week:latest.week,game,evidence:week8Evidence}):Number(latest.week)===7?week7Rosters:Number(latest.week)===closeout.week?closeout.loog.details.flatMap(g=>[g.home,g.away]):[];
     const verifiedLeft=verified.find(t=>t.teamId===idA)?.players.filter(p=>p.started)||[];
-    const fallbackLeft=activeRoster(left).map(p=>({lineupSlot:p.slot,name:p.name,points:null}));
+    const fallbackLeft=(requested?[]:activeRoster(left)).map(p=>({lineupSlot:p.slot,name:p.name,points:null}));
     const leftPlayers=verifiedLeft.length?verifiedLeft:fallbackLeft;
     const verifiedRight=verified.find(t=>t.teamId===idB)?.players.filter(p=>p.started)||[];
-    const fallbackRight=activeRoster(right).map(p=>({lineupSlot:p.slot,name:p.name,points:null}));
+    const fallbackRight=(requested?[]:activeRoster(right)).map(p=>({lineupSlot:p.slot,name:p.name,points:null}));
     const rightPlayers=verifiedRight.length?verifiedRight:fallbackRight;
     const column=selectMatchupColumn({previews:matchupColumns,recaps:matchupRecaps,edition:'loog',week:latest.week,a:idA,b:idB,isFinal:final});
     const columnist=writers[column?.writer||'gannon'];
@@ -84,11 +100,12 @@ export default async function MatchupPreview({params}){
         </section>
         <section className="matchupColumn">
           <div className="matchupColumnByline"><img src={columnist.image} alt={columnist.imageAlt}/><div><small>WEEK {latest.week} • {final?'CORRESPONDENT RECAP':'CORRESPONDENT PREVIEW'}</small><b>{columnist.name}</b></div></div>
+          {Number(latest.week)===8&&[idA,idB].includes(11)&&<p className="matchupUpdated">PROVIDER STAT CORRECTION • NOVEMBER 5: Team 11’s final increased from 140.30 to 141.05 after Michael Wilson’s score increased by 0.75. The result is unchanged. The original approved recap below is preserved.</p>}
           <h2>{column?.headline||(final?'Awaiting correspondent recap':'Awaiting correspondent preview')}</h2>
           {(column?.body||(final?'The result is final. The correspondent recap is awaiting publication.':'The correspondent preview for this pairing is awaiting publication.')).split(/\n\n+/).map((paragraph,index)=><p key={index}>{paragraph}</p>)}
           <p className="matchupUpdated">{final?'FINAL SCORE':'LATEST SCORE'}: {fmt(ls.score)}–{fmt(rs.score)}{!final&&' • Preview analysis was written before kickoff.'}</p>
         </section>
-        <section className="lineupPreview"><div className="matchupSectionHead"><small>STARTING LINEUPS • WEEK {latest.week}</small><h2>Position by position</h2></div>{(!verifiedLeft.length||!verifiedRight.length)&&<p className="matchupUpdated">MOST RECENT STORED LINEUPS • NOT VERIFIED FOR WEEK {latest.week}</p>}{leftPlayers.length&&rightPlayers.length?<><div className="lineupTeams"><span>{left.teamName}</span><span>{right.teamName}</span></div>{Array.from({length:Math.max(leftPlayers.length,rightPlayers.length)},(_,i)=>[leftPlayers[i],rightPlayers[i]]).map(([l,r],i)=><div className="lineupRow" key={i}><div className="lineupPlayer left">{l&&<><small>{l.lineupSlot}</small><b>{l.name}</b><span>{l.points==null?'—':fmt(l.points)}</span></>}</div><div className="lineupVs">VS</div><div className="lineupPlayer right">{r&&<><small>{r.lineupSlot}</small><b>{r.name}</b><span>{r.points==null?'—':fmt(r.points)}</span></>}</div></div>)}</>:<p>Awaiting current-week roster verification.</p>}</section>
+        <section className="lineupPreview"><div className="matchupSectionHead"><small>STARTING LINEUPS • WEEK {latest.week}</small><h2>Position by position</h2></div>{Number(latest.week)===week9Rosters.week&&<p className="matchupUpdated">LINEUP SNAPSHOT • {currentLineups.length===2?currentDetails.updatedAt:'NOVEMBER 5, 2026 • THURSDAY MORNING'}{currentLineups.length!==2&&' • MAY HAVE CHANGED SINCE RETRIEVAL'}</p>}{(!verifiedLeft.length||!verifiedRight.length)&&<p className="matchupUpdated">MOST RECENT STORED LINEUPS • NOT VERIFIED FOR WEEK {latest.week}</p>}{leftPlayers.length&&rightPlayers.length?<><div className="lineupTeams"><span>{left.teamName}</span><span>{right.teamName}</span></div>{Array.from({length:Math.max(leftPlayers.length,rightPlayers.length)},(_,i)=>[leftPlayers[i],rightPlayers[i]]).map(([l,r],i)=><div className="lineupRow" key={i}><div className="lineupPlayer left">{l&&<><small>{l.lineupSlot}</small><b>{l.name}</b><span>{l.points==null?'—':fmt(l.points)}</span></>}</div><div className="lineupVs">VS</div><div className="lineupPlayer right">{r&&<><small>{r.lineupSlot}</small><b>{r.name}</b><span>{r.points==null?'—':fmt(r.points)}</span></>}</div></div>)}</>:<p>Awaiting current-week roster verification.</p>}</section>
         <Link className="matchupBack" href="/#scores">← ALL WEEK {latest.week} MATCHUPS</Link>
       </main>
     </>;

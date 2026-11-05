@@ -4,6 +4,7 @@ import {writers} from '../articles/writers';
 import {useEffect,useState} from 'react';
 import MatchupCardGrid from './MatchupCardGrid';
 const num=n=>n==null?'—':Number(n).toFixed(2);
+const idSlugs={1:'kupp-doubs',2:'danir',3:'all-ugly',4:'route-22',5:'skatt',6:'pollard-greens',7:'hopkins-opus',8:'shake-baker',9:'kraft',10:'royrek',11:'lloyd-rings',12:'ceedeep'};
 const slugMap={"Chat GPT's Chosen Ones":"kupp-doubs","For the Love of the Kraft":"kraft","I'm a Skatt man":"skatt","I'm a Skatt Man":"skatt","Pollard Greens":"pollard-greens","The All Ugly Team":"all-ugly","Kupp Kupp Doubs":"kupp-doubs","The Route 22 Clubhouse":"route-22","Lloyd of the Rings":"lloyd-rings","Mr Hopkins Opus":"hopkins-opus","Shake 'N Baker":"shake-baker","Shake ’N Baker":"shake-baker","DarkHorse Danir":"danir","Royrek Tishmeshulam":"royrek","CeeDeep Shaheeded Rivalry":"ceedeep"};
 export default function LiveWeek3Surfaces({matchupPairs=[],teamVisuals={},initialData=null,finalWeek=false}){
  const [data,setData]=useState(initialData);
@@ -25,7 +26,7 @@ export default function LiveWeek3Surfaces({matchupPairs=[],teamVisuals={},initia
   {!games.length&&<p role="status">Loading the latest matchups…</p>}
   
   <MatchupCardGrid cards={games.map((g,i)=>{
-   const left=slugMap[g.home?.name],right=slugMap[g.away?.name];
+   const left=idSlugs[g.home?.id]||slugMap[g.home?.name],right=idSlugs[g.away?.id]||slugMap[g.away?.name];
    const column=matchupColumns.find(x=>x.edition==='loog'&&x.week===Number(week)&&x.teamIds.includes(String(g.home?.id||''))&&x.teamIds.includes(String(g.away?.id||'')));
    const note=matchupPairs.find(x=>(x[0]===left&&x[1]===right)||(x[0]===right&&x[1]===left))?.[2]||`WEEK ${week}`;
    return {columnHeadline:column?.headline,columnExcerpt:column?.body?.split('\n\n')[0],columnAuthor:column?writers[column.writer]?.name:null,id:g.id||i,status:isFinal?'FINAL':pending?'PENDING':pregame?'PREGAME':'LIVE',href:left&&right?`/matchups/${left}/${right}`:'#scores',kicker:pending?'AWAITING PROVIDER FINAL':note,leftName:g.home?.name,leftScore:num(g.home?.score),leftProjection:num(g.home?.projection),leftImage:teamVisuals[left]?.image||'',rightName:g.away?.name,rightScore:num(g.away?.score),rightProjection:num(g.away?.projection),rightImage:teamVisuals[right]?.image||''};

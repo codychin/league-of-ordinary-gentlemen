@@ -949,13 +949,13 @@ export const leagueSnapshot = {
       "record": "4-4",
       "seed": 5,
       "pointsFor": 1085.05,
-      "pointsAgainst": 1068.72,
+      "pointsAgainst": 1069.47,
       "projectedRank": 6,
       "matchup": {
         "opponent": "Lloyd of the Rings",
         "opponentSlug": "lloyd-rings",
         "score": 155.98,
-        "opponentScore": 140.3,
+        "opponentScore": 141.05,
         "status": "FINAL",
         "projection": null,
         "opponentProjection": null
@@ -1258,7 +1258,7 @@ export const leagueSnapshot = {
             "opponent": "Lloyd of the Rings",
             "opponentSlug": "lloyd-rings",
             "score": 155.98,
-            "opponentScore": 140.3,
+            "opponentScore": 141.05,
             "result": "W"
           }
         ]
@@ -3114,13 +3114,13 @@ export const leagueSnapshot = {
       "teamName": "Lloyd of the Rings",
       "record": "4-4",
       "seed": 7,
-      "pointsFor": 1064.7,
+      "pointsFor": 1065.45,
       "pointsAgainst": 1144.47,
       "projectedRank": 7,
       "matchup": {
         "opponent": "The Route 22 Clubhouse",
         "opponentSlug": "route-22",
-        "score": 140.3,
+        "score": 141.05,
         "opponentScore": 155.98,
         "status": "FINAL",
         "projection": null,
@@ -3200,7 +3200,7 @@ export const leagueSnapshot = {
           "team": "ARI",
           "slot": "WR",
           "status": "",
-          "weekPoints": 29.900000000000002,
+          "weekPoints": 30.650000000000002,
           "seasonPoints": 61.58,
           "starts": 3
         },
@@ -3334,15 +3334,15 @@ export const leagueSnapshot = {
       ],
       "season": {
         "completedGames": 8,
-        "ppg": 133.09,
+        "ppg": 133.18,
         "pfRank": 8,
         "paRank": 3,
         "projectedRank": 7,
-        "startedPoints": 1064.7,
+        "startedPoints": 1065.45,
         "benchPoints": 414.12,
         "positionTotals": {
           "RB": 268.4,
-          "WR": 256.28,
+          "WR": 257.03,
           "FLEX": 202.1,
           "QB": 145.52,
           "TE": 83.4,
@@ -3418,7 +3418,7 @@ export const leagueSnapshot = {
             "status": "FINAL",
             "opponent": "The Route 22 Clubhouse",
             "opponentSlug": "route-22",
-            "score": 140.3,
+            "score": 141.05,
             "opponentScore": 155.98,
             "result": "L"
           }
@@ -3772,6 +3772,26 @@ export const leagueSnapshot = {
         "source": "authenticated Flaim ESPN",
         "retrievedAt": "2026-11-03T10:29:19Z",
         "evidence": "data/week8-loog-final-evidence.json#week1DisplayCorrection"
+      },
+      {
+        "edition": "loog",
+        "season": 2026,
+        "week": 8,
+        "teamId": 11,
+        "previousScore": 140.3,
+        "providerScore": 141.05,
+        "retrievedDateUTC": "2026-11-05",
+        "source": "authenticated Flaim ESPN",
+        "changes": [
+          {
+            "teamId": 11,
+            "playerId": "4360761",
+            "playerName": "Michael Wilson",
+            "slot": "WR",
+            "previousPoints": 29.900000000000002,
+            "providerPoints": 30.650000000000002
+          }
+        ]
       }
     ],
     "rosterCumulativeNote": "Individual starts and points while rostered retained through Week 5; newly appearing players unknown, not zero.",

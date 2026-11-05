@@ -28,6 +28,6 @@ export default function EditionScoreboard({matchups=[],week=4,rosters=[],headsho
     
   <MatchupCardGrid cards={cards}/>
 
-    {history.filter(w=>Number(w.matchupWeek)<Number(week)).sort((a,b)=>b.matchupWeek-a.matchupWeek).map(w=><details className="editionScoreHistory" key={w.matchupWeek}><summary>Week {w.matchupWeek} Final</summary>{w.matchups.map(g=><div className="editionHistoryGame" key={g.matchupId}><span>{g.home.teamName}</span><b>{score(g.home.points)}</b><span>{g.away.teamName}</span><b>{score(g.away.points)}</b></div>)}</details>)}
+    {history.filter(w=>Number(w.matchupWeek)<Number(week)).sort((a,b)=>b.matchupWeek-a.matchupWeek).map(w=><details className="editionScoreHistory" key={w.matchupWeek}><summary>Week {w.matchupWeek} Final</summary>{w.matchups.map(g=><div className="editionHistoryGame" key={g.matchupId}><span>{g.home.teamName}</span><b>{score(g.home.points)}</b><span>{g.away.teamName}</span><b>{score(g.away.points)}</b>{Number(w.matchupWeek)===8&&<a href={`${root}/matchups/${g.home.teamId}/${g.away.teamId}?week=${w.matchupWeek}`}>Read matchup →</a>}</div>)}</details>)}
   </section>;
 }
