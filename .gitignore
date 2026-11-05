@@ -1,3 +1,6 @@
+Warning: truncated output (original token count: 531)
+Total output lines: 51
+
 node_modules/
 .next/
 .env*
@@ -17,25 +20,7 @@ qa/test-results/
 /public/reels/69c332f1177836de07e939137e373234.mp4
 /public/reels-hls/69c332f1177836de07e939137e373234/
 /public/reels/f0232f182bb8a2d14ab34f520fed1368.mp4
-/public/reels-hls/f0232f182bb8a2d14ab34f520fed1368/
-/public/reels/38ca7b542add3c92bdeb67ea0ef9bf37.mp4
-/public/reels-hls/38ca7b542add3c92bdeb67ea0ef9bf37/
-/public/reels/a8954d53c664582d9751e52a42e8b299.mp4
-/public/reels-hls/a8954d53c664582d9751e52a42e8b299/
-/public/reels/293f465ea432862c3bf496aa673518e9.mp4
-/public/reels-hls/293f465ea432862c3bf496aa673518e9/
-/public/reels/81b2a2e2271064a56cd89f25fbf98f06.mp4
-/public/reels-hls/81b2a2e2271064a56cd89f25fbf98f06/
-/public/reels/58a7999d4b5f3473506b8c4f3864c52a.mp4
-/public/reels-hls/58a7999d4b5f3473506b8c4f3864c52a/
-/public/reels/45e980ad506fcc8a1a4157a8726a19e4.mp4
-/public/reels-hls/45e980ad506fcc8a1a4157a8726a19e4/
-/public/reels/c852d5e886b50474138f1d75e93ac7f1.mp4
-/public/reels-hls/c852d5e886b50474138f1d75e93ac7f1/
-/public/reels/e7587ead2864075d35e632bd5286a700.mp4
-/public/reels-hls/e7587ead2864075d35e632bd5286a700/
-/public/reels/11d09e6ee6fd47b9c430159b54a998cb.mp4
-/public/reels-hls/11d09e6ee6fd47b9c430159b54a998cb/
+/public/reels-hls/f0232f182bb8a2…231 tokens truncated…6fd47b9c430159b54a998cb/
 /public/reels/13197a33696d3a17ece55fba752a4da6.mp4
 /public/reels-hls/13197a33696d3a17ece55fba752a4da6/
 /public/reels/2beaddd4a0574a2ca5fae4bf699eedf7.mp4
@@ -46,3 +31,6 @@ qa/test-results/
 /public/reels-hls/d75d397686ad1b48e45b4c8df362fc43/
 /public/reels/d312e3eae1846f206547833ad6131e77.mp4
 /public/reels-hls/d312e3eae1846f206547833ad6131e77/
+
+lib/generated/native-feed.json
+native/brief/src/generated/
