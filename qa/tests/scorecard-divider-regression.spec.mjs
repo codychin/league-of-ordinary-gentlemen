@@ -57,3 +57,27 @@ for(const standalone of [false,true]){
   expect(await baselinePixels(page)).toEqual([0,0]);
  });
 }
+
+// Long identities are an intentional stress fixture for the shared detail layout,
+// exercised in both web and installed-app shells at the two narrowest supported widths.
+const matchupCss=await readFile('app/matchups.css','utf8');
+for(const width of [320,375]) for(const standalone of [false,true]){
+ test(`matchup names stay outside VS; width=${width}, standalone=${standalone}`,async({page},testInfo)=>{
+  await page.setViewportSize({width,height:900});
+  await page.setContent(`<html class="${standalone?'standaloneApp':''}" data-app-tab="scores"><head><meta name="viewport" content="width=device-width, initial-scale=1"><style>${css.join('\n')}\n${matchupCss}</style></head><body><main class="matchupPage"><section class="matchupLead"><div class="matchupScoreboard"><a class="matchupHeroSide"><small>Max Levene</small><h1>Royrek Tishmeshulam</h1><b>123.45</b><span>PREGAME</span></a><div class="matchupHeroCenter"><span>VS</span><small>WEEK 9</small></div><a class="matchupHeroSide right"><small>Jordan Katz + Brandon Katz</small><h1>Wake Me Up On September 1st</h1><b>234.56</b><span>PREGAME</span></a></div><p class="matchupUpdated">LINEUP SNAPSHOT • Nov 5, 2026, 8:05 AM EST</p></section></main></body></html>`);
+  const geometry=await page.locator('.matchupScoreboard').evaluate(e=>{
+   const center=e.querySelector('.matchupHeroCenter').getBoundingClientRect();
+   const names=[...e.querySelectorAll('h1')].map(n=>{const r=n.getBoundingClientRect();return {left:r.left,right:r.right,top:r.top,bottom:r.bottom,scroll:n.scrollWidth,width:n.clientWidth};});
+   const scores=[...e.querySelectorAll('.matchupHeroSide b')].map(n=>n.getBoundingClientRect().top);
+   return {names,center:{left:center.left,right:center.right},scores,overflow:document.documentElement.scrollWidth>innerWidth};
+  });
+  expect(geometry.overflow).toBe(false);
+  expect(geometry.names[0].right).toBeLessThanOrEqual(geometry.center.left);
+  expect(geometry.names[1].left).toBeGreaterThanOrEqual(geometry.center.right);
+  for(const n of geometry.names){expect(n.scroll).toBeLessThanOrEqual(n.width+1);expect(n.bottom).toBeLessThanOrEqual(geometry.scores[0]);}
+  expect(Math.abs(geometry.scores[0]-geometry.scores[1])).toBeLessThanOrEqual(1);
+  await expect(page.locator('.matchupUpdated')).toHaveCSS('font-size','10px');
+  await expect(page.locator('.matchupUpdated')).toContainText('EST');
+  await testInfo.attach('mobile-matchup-layout',{body:await page.screenshot(),contentType:'image/png'});
+ });
+}
