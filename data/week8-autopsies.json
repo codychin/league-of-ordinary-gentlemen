@@ -1,0 +1,205 @@
+{
+  "doge": {
+    "week": 8,
+    "season": 2026,
+    "status": "FINAL",
+    "edition": "doge",
+    "pending": false,
+    "findings": [
+      {
+        "body": "Ordway and Son beat T. Ocellus 148.46–95.08 and sits first at 7–1. Joe Burrow’s 44.48 was the matchup’s highest individual score for Bryan; Jason’s four starting running backs combined for 64.1. The biggest single score did not belong to the deeper scoring lineup.",
+        "label": "Finding 1",
+        "teams": [
+          "8",
+          "11"
+        ]
+      },
+      {
+        "body": "Pete’s Tyler Allgeier scored 39.6 on the bench; Zach Charbonnet produced 4.4 in a starting flex spot. The 35.2-point difference exceeds the 22.68-point loss to Nix in 5. Pete’s Trevor Lawrence, Harold Fannin Jr. and Jonah Coleman each scored 20.4. Those three matching figures were real; so was the higher-scoring unused alternative.",
+        "label": "Finding 2",
+        "teams": [
+          "9",
+          "12"
+        ]
+      },
+      {
+        "body": "Bennett’s four Tranimal running backs combined for 83.4, just above McConkey Kong’s entire 80.36. Tranimal won 124.90–80.36 and is 6–2. Sandy is 4–4. The backs did more than answer the preview’s question about whether they could contribute again.",
+        "label": "Finding 3",
+        "teams": [
+          "6",
+          "7"
+        ]
+      },
+      {
+        "body": "Moe left Jordan Love’s 23.52 on the bench while the starting quarterback spot returned zero. Gimothy beat De'Coldest Hassan 104.16–68.40. Even replacing the zero with Love’s score leaves Moe 12.24 short. Tee Higgins supplied 34.5 for Alan. A costly unused alternative was not a complete explanation.",
+        "label": "Finding 4",
+        "teams": [
+          "2",
+          "10"
+        ]
+      },
+      {
+        "body": "Jalen Coker’s 8.6 helped El Niño Grande this week. Bhayshul Tuten scored 30.9, Brock Bowers 24.7 and Braelon Allen 24.3 as Corey beat Jerruh’s World 143.18–104.04. Corey is 3–5; Andrew is 4–4. The useful flex score no longer needed to carry the comparison by itself.",
+        "label": "Finding 5",
+        "teams": [
+          "4",
+          "5"
+        ]
+      },
+      {
+        "body": "RFK Jr’s Bears beat Caleb’s Elite Touch Rate 137.16–99.68. Seven Bears offensive starters scored at least thirteen, combining for 124.76. Cody got twenty from the Jaguars defense and 15.1 from Luther Burden III. Both teams are 4–4; the Bears’ help reached more of the lineup.",
+        "label": "Finding 6",
+        "teams": [
+          "1",
+          "3"
+        ]
+      }
+    ],
+    "approval": {
+      "messageId": "Sentinel_1a7d2c92ac988191ad3f68c821a10630",
+      "approvedAt": "2026-11-04T03:26:46Z",
+      "scope": "Exact Week 8 Autopsy and Start/Sit text for LOOG, Sunday Crew and DOGE4; no reels or spending"
+    }
+  },
+  "loog": {
+    "week": 8,
+    "season": 2026,
+    "status": "FINAL",
+    "edition": "loog",
+    "pending": false,
+    "findings": [
+      {
+        "body": "Hollis wished Roy a rotten weekend in the preview; Roy answered with 147.80 and a 6–2 record. Jaylen Warren and Josh Jacobs combined for 53.3, while two-dollar waiver pickup Geno Smith supplied 17.1. All Ugly got 20.3 from Christian Watson but only 4.45 from its two flex starters. Cody and Ferret's two-game winning streak ends at 2–6. The letter has not had the intended effect.",
+        "label": "Finding 1",
+        "writer": "crane",
+        "teams": [
+          "1",
+          "3"
+        ]
+      },
+      {
+        "body": "Danny's two starting running backs produced 66.6 and the Steelers defense added 21. Royrek got 29.68 from Kirk Cousins and 21.9 from Matthew Golden, but DarkHorse won by 34.72. Both teams are now 3–5. The preview noted Danny's season scoring advantage had brought him fewer wins than Royrek; this meeting brought him the win as well.",
+        "label": "Finding 2",
+        "writer": "gannon",
+        "teams": [
+          "2",
+          "10"
+        ]
+      },
+      {
+        "body": "The Katz brothers got 29.9 from Michael Wilson and 21.5 from Jacksonville's defense, but lost by 15.68. Pat Freiermuth's 12.7 on the bench for Omar Cooper Jr.'s minus one in the flex would recover 13.7 and still leave them 1.98 short. Brock Bowers scored 29.2 for Route 22, whose two-dollar Commanders defense added 16.5. Both teams are 4–4. The counterfactual is hindsight, not a claim the move was obvious.",
+        "label": "Finding 3",
+        "writer": "kells",
+        "teams": [
+          "4",
+          "11"
+        ]
+      },
+      {
+        "body": "Tyler Bass joined CeeDeep on Wednesday waivers for two dollars and scored 19.5. Josh Allen added 28.26, and Treylon Burks, also added Wednesday, scored 12.1 in a flex. Skatt's Ja'Marr Chase produced 34.6, but CeeDeep won by 5.6. Both teams are 4–4. After Matty lost Week 7 despite the better quarterback score, the advantage this week came with the result.",
+        "label": "Finding 4",
+        "writer": "march",
+        "teams": [
+          "5",
+          "12"
+        ]
+      },
+      {
+        "body": "Joe Burrow's 44.78 and D'Andre Swift's 31.6 combined for 76.38. Kraft beat Pollard Greens by 76.22, took the league's highest weekly score, and leads the season points standings after eight games. Sherm had entered the matchup as the season scoring leader. Tish is 5–3 and Sherm 4–4; the points and the victory changed hands together.",
+        "label": "Finding 5",
+        "writer": "pike",
+        "teams": [
+          "6",
+          "9"
+        ]
+      },
+      {
+        "body": "Tee Higgins scored 40.5 and Chuba Hubbard 26.1 for Norm. Kush left Patrick Mahomes's 28.64 and Tony Pollard's 36.8 on the bench. Replacing starting quarterback Michael Penix Jr.'s minus 2.4 with Mahomes gains 31.04, but the margin was 31.78. Pollard for Jonathan Taylor would be a second change sufficient to reverse the result. Norm rises to 3–5; Kush is 6–2. This reconstruction uses scores known only after the games.",
+        "label": "Finding 6",
+        "writer": "sorrell",
+        "teams": [
+          "7",
+          "8"
+        ]
+      }
+    ],
+    "approval": {
+      "messageId": "Sentinel_1a7d2c92ac988191ad3f68c821a10630",
+      "approvedAt": "2026-11-04T03:26:46Z",
+      "scope": "Exact Week 8 Autopsy and Start/Sit text for LOOG, Sunday Crew and DOGE4; no reels or spending"
+    }
+  },
+  "sunday-crew": {
+    "week": 8,
+    "season": 2026,
+    "status": "FINAL",
+    "edition": "sunday-crew",
+    "pending": false,
+    "findings": [
+      {
+        "body": "Wake Me Up On September 1st beat CHANE GANG 121.60–120.98. Harold Fannin Jr. scored 25.4 for Nipun; Jaxon Smith-Njigba scored 24.8 and the Jaguars defense 23.6 for Cody. Nipun is 6–2; Cody is 3–5. Both lineups had substantial help. One kept 0.62 more.",
+        "label": "Finding 1",
+        "teams": [
+          "8",
+          "10"
+        ]
+      },
+      {
+        "body": "RBs are Overrated posted the league’s highest Week 8 total, 176.66, against Tolbert’s Cookies’ 105.58. Tony Pollard, Bucky Irving and Chuba Hubbard combined for 80.6. The winner is 6–2 and first in Yahoo’s standings; the team name remains available for discussion.",
+        "label": "Finding 2",
+        "teams": [
+          "11",
+          "12"
+        ]
+      },
+      {
+        "body": "Croatian Sensation beat ZAYWATCH 145.36–116.22. Sandy got 42.72 from Jordan Love and Josh Jacobs, then 27.6 from Ja’Marr Chase. Paul answered with 39.5 from Tee Higgins, 26.9 from D’Andre Swift and 26.46 from Drake Maye. Sandy had three starters over twenty. Paul had three over twenty-six. Hospitality has its limits.",
+        "label": "Finding 3",
+        "teams": [
+          "1",
+          "4"
+        ]
+      },
+      {
+        "body": "Prescott’s 19.8 was on Patrick’s bench while Jackson’s quarterback slot returned zero. Scrump won 101.46–83.30; that same-position substitution would have reversed the result by 1.64. The score sheet establishes the arithmetic, not the reason.",
+        "label": "Finding 4",
+        "teams": [
+          "3",
+          "9"
+        ]
+      },
+      {
+        "body": "J Bird won 133.88–98.78 without starting Christian McCaffrey or Malik Nabers. Joe Burrow, the Steelers defense and Tyler Bass supplied 82.18 together. Joe and Ravi are both 4–4. Missing familiar names did not require every replacement to become a star.",
+        "label": "Finding 5",
+        "teams": [
+          "6",
+          "7"
+        ]
+      },
+      {
+        "body": "Forte inch Ditka beat A Stroke of Bad Luck 103.68–92.30. Six Matt starters scored between twelve and fifteen; his top scorer, Rashee Rice, had 14.8. Matt’s Patrick Mahomes scored 27.44 on the bench, but the win survived the unused quarterback points. Both teams are 3–5.",
+        "label": "Finding 6",
+        "teams": [
+          "2",
+          "5"
+        ]
+      }
+    ],
+    "approval": {
+      "messageId": "Sentinel_1a7d2c92ac988191ad3f68c821a10630",
+      "approvedAt": "2026-11-04T03:26:46Z",
+      "scope": "Exact Week 8 Autopsy and Start/Sit text for LOOG, Sunday Crew and DOGE4; no reels or spending"
+    },
+    "correctionHistory": [
+      {
+        "previousBody": "Greg’s Bhayshul Tuten scored 30.9 on the bench; starting running back Javonte Williams scored 6.2. The 24.7-point improvement would still leave Cookies 46.38 short. A large unused score deserves notice. It does not explain a 71.08-point defeat.",
+        "replacementBody": "Croatian Sensation beat ZAYWATCH 145.36–116.22. Sandy got 42.72 from Jordan Love and Josh Jacobs, then 27.6 from Ja’Marr Chase. Paul answered with 39.5 from Tee Higgins, 26.9 from D’Andre Swift and 26.46 from Drake Maye. Sandy had three starters over twenty. Paul had three over twenty-six. Hospitality has its limits.",
+        "reason": "Replace duplicate finding to cover Croatian Sensation vs ZAYWATCH",
+        "approval": "Cody thumbs-up to exact replacement; November 4, 2026",
+        "approvalMessageId": "bf5e3f30-da96-42c8-98c0-82399ab4dab4",
+        "questionMessageId": "f3c6a731-000f-4d68-8d91-4c17cdbcfaa7",
+        "approvedAt": "2026-11-04T03:37:10Z"
+      }
+    ]
+  }
+}

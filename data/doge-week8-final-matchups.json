@@ -1,0 +1,55 @@
+{
+  "matchupWeek": 8,
+  "season": 2026,
+  "source": "Authenticated Flaim / Yahoo 470.l.226614, 2026-11-03T08:57:46Z",
+  "matchups": [
+    {
+      "home": {
+        "teamId": "8"
+      },
+      "away": {
+        "teamId": "11"
+      }
+    },
+    {
+      "home": {
+        "teamId": "9"
+      },
+      "away": {
+        "teamId": "12"
+      }
+    },
+    {
+      "home": {
+        "teamId": "6"
+      },
+      "away": {
+        "teamId": "7"
+      }
+    },
+    {
+      "home": {
+        "teamId": "2"
+      },
+      "away": {
+        "teamId": "10"
+      }
+    },
+    {
+      "home": {
+        "teamId": "4"
+      },
+      "away": {
+        "teamId": "5"
+      }
+    },
+    {
+      "home": {
+        "teamId": "1"
+      },
+      "away": {
+        "teamId": "3"
+      }
+    }
+  ]
+}
