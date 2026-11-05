@@ -58,7 +58,7 @@
       "home": {
         "id": 11,
         "name": "Lloyd of the Rings",
-        "score": 140.3
+        "score": 141.05
       },
       "away": {
         "id": 4,
@@ -112,6 +112,8 @@
     "season": 2026,
     "source": "authenticated Flaim ESPN",
     "status": "FINAL",
-    "path": "data/week8-loog-final-evidence.json"
+    "path": "data/week8-loog-final-evidence.json",
+    "correctionPath": "data/week8-loog-stat-correction.json",
+    "correctedDateUTC": "2026-11-05"
   }
 }

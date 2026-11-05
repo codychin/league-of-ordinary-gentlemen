@@ -1,3 +1,4 @@
+import archivedEditions from '../../../data/week8-edition-archives.json';
 import {isMatchupFinal} from '../../../lib/matchup-status.mjs';
 import matchupColumnsWeek6 from '../../../data/week6-matchup-columns.json';
 import matchupColumnsWeek7 from '../../../data/week7-matchup-columns.json';
@@ -14,10 +15,18 @@ export const dynamic='force-dynamic';
 const fmt=n=>Number(n??0).toFixed(2).replace(/\.00$/,'');
 const order={QB:0,RB:1,WR:2,TE:3,'W/R/T':4,DEF:5,K:6,BN:20,IR:30};
 
-export default async function Matchup({params,config}){
+export default async function Matchup({params,searchParams,config}){
   const {root,name:editionName,slug:editionSlug,publicationName}=config;
   const {a,b}=await params;
-  const [edition,headshots]=await Promise.all([getEditionData(editionSlug),getNflHeadshotsByYahooId()]);
+  const [currentEdition,headshots]=await Promise.all([getEditionData(editionSlug),getNflHeadshotsByYahooId()]);
+  const requested=Number((await searchParams)?.week||0);
+  const currentWeek=Number(currentEdition?.snapshots?.matchups?.data?.data?.matchupWeek);
+  let edition=currentEdition;
+  if(requested&&requested!==currentWeek){
+    const archived=archivedEditions[editionSlug];
+    if(archived?.week===requested) edition={...currentEdition,snapshots:archived.snapshots};
+    else notFound();
+  }
   const rosters=edition?.snapshots?.rosters?.data?.data||[], standings=edition?.snapshots?.standings?.data?.data?.standings||[], games=edition?.snapshots?.matchups?.data?.data?.matchups||[];
   const left=rosters.find(r=>String(r.teamKey).endsWith('.t.'+a)),right=rosters.find(r=>String(r.teamKey).endsWith('.t.'+b));
   if(!left||!right)notFound();
