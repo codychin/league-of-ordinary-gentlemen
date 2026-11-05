@@ -10,7 +10,7 @@ await import('../native/brief/scripts/generate.mjs');
 const feed=JSON.parse(await readFile('src/generated/feed.json','utf8'));
 const presentation=JSON.parse(await readFile('src/generated/presentation.json','utf8'));
 const snapshot={...feed,version:2,complete:true,publishedAt:Date.now(),presentation};
-const commit=process.env.VERCEL_GIT_COMMIT_SHA || execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
+const commit=process.env.VERCEL_GIT_COMMIT_SHA || process.env.GITHUB_SHA || execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
 snapshot.revision=createHash('sha256').update(JSON.stringify({...snapshot,publishedAt:0,commit})).digest('hex');
 // A deployment revision changes local media cache keys even for a replaced file at the same path.
 function versionMedia(value){
