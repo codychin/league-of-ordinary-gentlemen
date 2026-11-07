@@ -1,8 +1,12 @@
 import { test as base, expect } from '@playwright/test';
+import {isKnownXEmbedAppendChildError} from './javascript-error-origin.mjs';
 
-export function collectJavaScriptErrors(page) {
+export function collectJavaScriptErrors(page, thirdPartyErrors = []) {
   const errors = [];
-  page.on('pageerror', error => errors.push(`Uncaught: ${error.message}`));
+  page.on('pageerror', error => {
+    if (isKnownXEmbedAppendChildError(error)) thirdPartyErrors.push({message:error.message,stack:error.stack});
+    else errors.push(`Uncaught: ${error.message}`);
+  });
   // Resource/third-party console noise is not automatically a major JS error.
   page.on('console', message => {
     if (message.type() === 'error' && /hydration|react error|uncaught|unhandled|TypeError|ReferenceError|SyntaxError/i.test(message.text())) {
@@ -14,8 +18,10 @@ export function collectJavaScriptErrors(page) {
 
 export const test = base.extend({
   page: async ({ page }, use, testInfo) => {
-    const errors = collectJavaScriptErrors(page);
+    const thirdPartyErrors = [];
+    const errors = collectJavaScriptErrors(page, thirdPartyErrors);
     await use(page);
+    await testInfo.attach('x-embed-javascript-errors', { body: JSON.stringify(thirdPartyErrors, null, 2), contentType: 'application/json' });
     await testInfo.attach('javascript-errors', { body: JSON.stringify(errors, null, 2), contentType: 'application/json' });
     expect(errors, 'Major JavaScript errors across all visited routes').toEqual([]);
   },
