@@ -59,7 +59,7 @@ export default async function Matchup({params,searchParams,config}){
         </div>
       </section>
       <section className="matchupColumn">
-        <div className="matchupColumnByline"><img src={writer.image} alt={writer.imageAlt}/><div><small>{column?"WEEK "+week+(isFinal?" • CORRESPONDENT RECAP":" • CORRESPONDENT PREVIEW"):isFinal?"FINAL RESULT":"MATCHUP IN PROGRESS"} • {writer.title.toUpperCase()}</small><b>{writer.name}</b></div></div>
+        {column&&<div className="matchupColumnByline"><img src={writer.image} alt={writer.imageAlt}/><div><small>{column?"WEEK "+week+(isFinal?" • CORRESPONDENT RECAP":" • CORRESPONDENT PREVIEW"):isFinal?"FINAL RESULT":"MATCHUP IN PROGRESS"} • {writer.title.toUpperCase()}</small><b>{writer.name}</b></div></div>}
         <h2>{column?.headline||(isFinal?"Awaiting correspondent recap":"Awaiting correspondent preview")}</h2>
         {(column?.body||(isFinal?"The result is final. The correspondent recap is awaiting publication.":"The correspondent preview for this pairing is awaiting publication.")).split(/\n\n+/).map((paragraph,index)=><p key={index}>{paragraph}</p>)}
       </section>
