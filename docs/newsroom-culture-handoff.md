@@ -481,3 +481,32 @@ and their own human hinge. Delivery tasks reuse approved packets without rewriti
 them to demonstrate new guidance. Preserve every existing cadence, destination,
 publication gate and spending limit. The Sunday worker remains a separate deployment
 and is not changed by this source document.
+
+### Brief archetypes: make angle, humor and payoff depend on one another
+
+Cody's subsequent November 7 direction (`Sentinel_69292d31657c8191b87c9cd906c0167f`)
+affirms the comparison and calls for room-wide inventory, with every article earning
+comparable resonance. Read the
+[six desk inventories](editorial-feedback/brief-archetypes-six-voices-2026-11-07.md)
+alongside the case study, not instead of it.
+
+In the existing editorial brief, connect the originating observation, the kind of
+humor or revelation this writer can earn, and the facts or scenes that must appear
+before the payoff. Keep those prerequisites natural and useful on first appearance.
+During the actual-draft review, read the setup and return together: the later passage
+should add meaning, rather than repeat a clever noun. Preserve that dependency when
+cutting. This is intentional construction, not an additional form, score or quota.
+
+The six inventories retain different discoveries: Hollis's perversely successful
+system and transfer of mortality to the reader; Maude's action measures versus useful
+outcomes; Conrad's examination by authority's own strongest promise; Marnie's
+self-implicating desire and exposed hierarchy of interests; Sabine's intact courtesies
+after common purpose has failed; and Dashiell's unresolved loss as a recurring charge
+on attention. These are examples, not permanent subject limits or six versions of
+one setup/payoff rule. Let new reporting reveal other Brief archetypes.
+
+Carry the relevant inventory into direct writer handoffs and new-draft review.
+Retain first drafts and actual subsequent edits to test whether the writer supplied
+the angle, development and prerequisites before Cody had to. Do not turn that test
+into unrequested trial articles, extra calls or a claim that better writing has
+already been demonstrated.

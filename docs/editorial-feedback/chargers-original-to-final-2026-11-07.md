@@ -257,3 +257,12 @@ Have the reviewer cite passages and offer a competing reading, not just a score.
 Read the [first-draft application procedure](../newsroom-culture-handoff.md#first-drafts-must-show-the-learning-not-ask-cody-to-repeat-it). Select the relevant mechanisms and the assigned writer's own transfer lesson. Rika must include the accessible study revision in direct long-form handoffs as well as the existing writing/discovery tasks. Retain the initial draft and later editor changes in the existing working record; no new tracking system is required.
 
 A saved instruction, fetched document or passed review schema proves delivery only. Do not claim all writers have internalized this study or that their first drafts have improved until later work supports that claim.
+
+## Subsequent founder direction: Brief archetypes
+
+Cody affirmed this analysis in `Sentinel_69292d31657c8191b87c9cd906c0167f`
+(November 7, 05:14 UTC) and asked the whole room to take inventory of the humor type,
+originating angle and prerequisites woven into the payoff. The
+[six desk inventories](brief-archetypes-six-voices-2026-11-07.md) preserve the different
+discoveries each voice should carry into new work. They extend this study; they do
+not replace the original/final comparison or turn its structure into a formula.

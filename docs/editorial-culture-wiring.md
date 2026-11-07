@@ -202,3 +202,20 @@ the entire Chargers narrative. Better first drafts require better material and j
 not simply more review fields. No new scheduled task, model call, paid generation or
 production publication is introduced by this follow-up. Its documentation and workflow
 instruction changes are independent of the existing Chargers article release.
+
+## Archetype inventory delivery
+
+The subsequent founder instruction (`Sentinel_69292d31657c8191b87c9cd906c0167f`)
+is reflected in the [six-voice inventory](editorial-feedback/brief-archetypes-six-voices-2026-11-07.md).
+It connects each desk's originating angle, kind of humor and actual prerequisites
+to its later consequence without making a fixed plot or compulsory ending.
+
+The five existing workflow prefaces should read the inventory and case study at the
+same immutable revision, preserve their original task instructions, and distinguish
+configured access from a run that actually read and used the material. Direct writer
+handoffs must carry those same sources explicitly. Delivery of already-approved
+scripts remains reuse, not an opportunity to rewrite them.
+
+This follow-up changes Markdown guidance and saved prompts only. It does not alter
+the proposed worker contract, enable workers, expand publishing authority or deploy
+the Sunday code. Better first drafts remain to be demonstrated on subsequent work.
