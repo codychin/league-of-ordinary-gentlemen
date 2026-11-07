@@ -5,14 +5,20 @@ export const chargersArticle = {
   "dek": "An investigation into the considerable coordination required to make this many people useless at the same time.",
   "date": "NOVEMBER 7, 2026",
   "author": "crane",
+  "image": "https://upload.wikimedia.org/wikipedia/commons/6/66/Jim_Harbaugh_with_Los_Angeles_Chargers_staffs.jpg",
+  "imageAlt": "Jim Harbaugh stands with Chargers coaches and players on the sideline against Washington at SoFi Stadium on October 5, 2025.",
+  "imageObjectPosition": "50% 40%",
+  "imageCredit": {
+    "label": "Joe Glorioso / All-Pro Reels",
+    "url": "https://commons.wikimedia.org/wiki/File:Jim_Harbaugh_with_Los_Angeles_Chargers_staffs.jpg",
+    "licenseLabel": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "note": "Chargers sideline, October 5, 2025. Resized and display-cropped."
+  },
   "body": [
     "The Chargers completed a Hail Mary against the Rams.",
     "The play covered 54 yards. It ended at the one. The first half ended.",
     "A Hail Mary is supposed to divide the world into those occasions when the prayer is answered and those when it is not. The Chargers have discovered a third possibility: the prayer is answered in a form you cannot use.",
-    {
-      "type": "rich",
-      "html": "<a href=\"https://x.com/wokdior/status/2117020743552905692\" target=\"_blank\" rel=\"noopener noreferrer\">The completion that accomplished almost everything</a>"
-    },
     {
       "type": "xclip",
       "id": "2117020743552905692",
@@ -29,10 +35,6 @@ export const chargersArticle = {
     "Perhaps we have been making a category error by treating this as a football problem.",
     "In August 2025, while still coaching Miami, Mike McDaniel offered a reason to appreciate the morning.",
     {
-      "type": "rich",
-      "html": "<a href=\"https://x.com/PolymarketBlitz/status/1952420570836107771\" target=\"_blank\" rel=\"noopener noreferrer\">McDaniel considers the bigger picture</a>"
-    },
-    {
       "type": "xclip",
       "id": "1952420570836107771",
       "url": "https://x.com/PolymarketBlitz/status/1952420570836107771"
@@ -42,19 +44,11 @@ export const chargersArticle = {
     "I am trying to account for the fact that this is someone who once coordinated the league's most productive offense. His 2023 Dolphins led the NFL in total yards and passing yards and finished second in scoring. Through the Rams game, these Chargers had gone 27 consecutive possessions without a touchdown, the longest drought since the 2024 Dolphins, with McDaniel as their head coach, went thirty.",
     "They hired McDaniel to bring Miami's offense. He appears to have brought the wrong year's.",
     {
-      "type": "rich",
-      "html": "<a href=\"https://x.com/ESPNInsights/status/2117042936831778965\" target=\"_blank\" rel=\"noopener noreferrer\">The touchdown drought, with its previous owner</a>"
-    },
-    {
       "type": "xclip",
       "id": "2117042936831778965",
       "url": "https://x.com/ESPNInsights/status/2117042936831778965"
     },
     "They are last in EPA per play, success rate, points per drive and turnovers per drive. You can change the question. They have taken considerable care to make sure the answer stays the same.",
-    {
-      "type": "rich",
-      "html": "<a href=\"https://x.com/SharpFootball/status/2117743371523629290\" target=\"_blank\" rel=\"noopener noreferrer\">Four ways of arriving at last place</a>"
-    },
     {
       "type": "xclip",
       "id": "2117743371523629290",
@@ -108,10 +102,6 @@ export const chargersArticle = {
     "They have been less effective at producing fear.",
     "C.J. Stroud is not concerned about these people. Ahead of the Houston game, he supplied the necessary compliments: “It's the NFL. Got great players every week. So got to be prepared.” Prepared in the sense that one prepares to visit a buffet. You may look over the options. You do not generally lose sleep over whether the buffet is going to eat you.",
     {
-      "type": "rich",
-      "html": "<a href=\"https://x.com/TexansCommenter/status/2118356075510378912\" target=\"_blank\" rel=\"noopener noreferrer\">Stroud considers the assignment</a>"
-    },
-    {
       "type": "xclip",
       "id": "2118356075510378912",
       "url": "https://x.com/TexansCommenter/status/2118356075510378912"
@@ -139,19 +129,11 @@ export const chargersArticle = {
     "There are ten more games on the schedule. Harbaugh intends to keep addressing the troops as though courage is the missing ingredient. At some point, one of the lieutenants may need to interrupt the speech and explain what has been happening to the football.",
     "After the Rams game, Quentin Lake supplied an opposing view on the St. Brown Podcast: Herbert was “seeing ghosts” and “throwing deli meat out there.” One safety had diagnosed both a haunting and a catering operation.",
     {
-      "type": "rich",
-      "html": "<a href=\"https://x.com/StBrownPodcast/status/2118045098503966799\" target=\"_blank\" rel=\"noopener noreferrer\">Lake&#x27;s assessment</a>"
-    },
-    {
       "type": "xclip",
       "id": "2118045098503966799",
       "url": "https://x.com/StBrownPodcast/status/2118045098503966799"
     },
     "Harbaugh was asked about it. “I don't see that,” he said. “Everybody's entitled to their opinion.”",
-    {
-      "type": "rich",
-      "html": "<a href=\"https://x.com/ESPNNFL/status/2118393718289924331\" target=\"_blank\" rel=\"noopener noreferrer\">Harbaugh responds to the deli-meat assessment</a>"
-    },
     {
       "type": "xclip",
       "id": "2118393718289924331",
@@ -176,10 +158,6 @@ export const chargersArticle = {
     },
     "Houston pass rusher Will Anderson Jr. has nevertheless offered a generous appraisal: “Herbert, man, he's playing out of his mind.” Somewhere in the Texans' locker room, I would like to believe, a teammate had a replay ready and a reasonable follow-up question. Out of his mind does cover more than one condition.",
     {
-      "type": "rich",
-      "html": "<a href=\"https://x.com/nflnetwork/status/2118118709340627173\" target=\"_blank\" rel=\"noopener noreferrer\">Anderson&#x27;s appraisal</a>"
-    },
-    {
       "type": "xclip",
       "id": "2118118709340627173",
       "url": "https://x.com/nflnetwork/status/2118118709340627173"
@@ -190,20 +168,12 @@ export const chargersArticle = {
     "Which brings us back to The Love Boat.",
     "In a 1978 episode called “Gopher, the Rebel,” Gopher attends to a pretty passenger while the captain has to remind him that there are other passengers to board. She has a book by Lenin. Gopher thinks they are discussing John Lennon. An attractive woman has entered the workplace, and Vladimir Lenin is suddenly on the cover of Abbey Road.",
     {
-      "type": "rich",
-      "html": "<a href=\"https://www.youtube.com/watch?v=Hf-SPMJ0P3Y\" target=\"_blank\" rel=\"noopener noreferrer\">The Love Boat: Gopher encounters a distraction</a>"
-    },
-    {
       "type": "youtube",
       "id": "Hf-SPMJ0P3Y",
       "title": "The Love Boat: Gopher encounters a distraction"
     },
     "At this point, the investigation encounters Madison Beer.",
     "Herbert and Beer announced their engagement on July 28. On September 13, CBS caught her celebrating his touchdown pass to McConkey: his number, the glasses, that little dance.",
-    {
-      "type": "rich",
-      "html": "<a href=\"https://x.com/NFLonCBS/status/2099262404420853837\" target=\"_blank\" rel=\"noopener noreferrer\">Madison Beer&#x27;s touchdown celebration</a>"
-    },
     {
       "type": "xclip",
       "id": "2099262404420853837",
