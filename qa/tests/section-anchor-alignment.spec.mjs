@@ -89,9 +89,10 @@ test('late image layout changes retain the selected mobile section until user in
 });
 
 
-test('the first lower story has one separator above Use Your Words',async({page},testInfo)=>{
+// Each styling case owns a fresh document so changing editions cannot abort
+// late Next prefetches. Keep genuine navigation/history coverage above intact.
+for(const root of ['/','/doge','/sunday-crew'])test(`the first lower story has one separator above Use Your Words: ${root}`,async({page},testInfo)=>{
  await page.route('https://a.espncdn.com/**',r=>r.abort());
- for(const root of ['/','/doge','/sunday-crew']){
   await navigate(page,root,{waitUntil:'domcontentloaded'});
   const first=page.locator('.mobileStoryRows > section').first();
   await expect(first.locator('h2')).toHaveText('Use Your Words.');
@@ -99,7 +100,6 @@ test('the first lower story has one separator above Use Your Words',async({page}
   const rule=await first.evaluate(e=>{const s=getComputedStyle(e,'::before');return{content:s.content,height:parseFloat(s.height),top:parseFloat(s.top),color:s.backgroundColor}});
   expect(rule.content).toBe('""');expect(rule.height).toBeGreaterThan(0);expect(rule.height).toBeLessThanOrEqual(1);expect(rule.top).toBe(-16);expect(rule.color).toBe(page.viewportSize().width<=760?'rgba(38, 36, 31, 0.35)':'rgba(38, 36, 31, 0.2)');
   await page.screenshot({path:testInfo.outputPath(`first-row-${root==='/'?'loog':root.slice(1)}-${page.viewportSize().width}.png`)});
- }
 });
 
 // Each edition gets a fresh page: this styling/scroll contract does not test
