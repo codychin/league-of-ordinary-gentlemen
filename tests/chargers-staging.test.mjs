@@ -26,7 +26,7 @@ const expectedLinks=[
 test('staged Chargers preserves v8 prose with approved duplicate-link cleanup',()=>{
   assert.equal(article.title,'The Chargers Have Thought of Everything');
   assert.equal(article.author,'crane');
-  assert.equal(createHash('sha256').update(JSON.stringify(article.body)).digest('hex'),'6ef60f931c76b973e3edf0f8dc94e92f2b23d30240edf5ddf3c3e630d0aa7154');
+  assert.equal(createHash('sha256').update(JSON.stringify(article.body)).digest('hex'),'1896a884ff9b702cf363603a2b5cd2d8fb1ebee2502bfb3268ba38f0328df962');
   assert.equal(article.body.filter(p=>p?.type==='break').length,2);
   assert.equal(article.body.filter(p=>p?.type==='heading').length,6);
 });
@@ -40,8 +40,9 @@ test('embedded clips avoid duplicate links and non-embedded sources survive',()=
     assert.doesNotMatch(p.html,/<script|onerror|onclick/i);
   }
   const clips=article.body.filter(p=>p?.type==='xclip');
-  assert.equal(clips.length,9);
-  assert.deepEqual(clips.map(p=>p.url),expectedLinks.filter(url=>url.startsWith('https://x.com/')));
+  assert.equal(clips.length,8);
+  assert.deepEqual(clips.map(p=>p.url),expectedLinks.filter(url=>url.startsWith('https://x.com/')&&!url.includes('2117743371523629290')));
+  assert.ok(!JSON.stringify(article.body).includes('2117743371523629290'));
   for(const clip of clips)assert.ok(clip.url.endsWith('/status/'+clip.id));
   assert.deepEqual(article.body.filter(p=>p?.type==='youtube').map(({id,start})=>[id,start||0]),[
     ['Hf-SPMJ0P3Y',0]
@@ -80,4 +81,11 @@ test('Chargers section titles are substantially larger at mobile and desktop wid
   const css=read('app/globals.css');
   assert.match(css,/\.chargersArticle \.articleBody \.articleSectionHead\{font:700 clamp\(32px,4\.8vw,46px\)\/1\.08 Georgia,serif/);
   assert.ok(read('app/articles/[slug]/page.js').includes("slug==='hollis-chargers-thought-of-everything'?' chargersArticle':''"));
+});
+
+
+test('Harbaugh watch link follows the complete no-surrender discussion',()=>{
+  const i=article.body.findIndex(p=>p?.html?.includes('R9maQiL9onk'));
+  assert.ok(article.body[i-1].startsWith('There are ten more games on the schedule.'));
+  assert.ok(article.body[i+1].startsWith('After the Rams game, Quentin Lake'));
 });

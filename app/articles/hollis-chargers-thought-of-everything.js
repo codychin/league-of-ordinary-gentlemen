@@ -49,11 +49,6 @@ export const chargersArticle = {
       "url": "https://x.com/ESPNInsights/status/2117042936831778965"
     },
     "They are last in EPA per play, success rate, points per drive and turnovers per drive. You can change the question. They have taken considerable care to make sure the answer stays the same.",
-    {
-      "type": "xclip",
-      "id": "2117743371523629290",
-      "url": "https://x.com/SharpFootball/status/2117743371523629290"
-    },
     "Then there is the Hampton question. In August, a reporter asked about the running back's workload. “This feels super fantasy-motivated,” McDaniel said, before discussing the roles available to Hampton, Keaton Mitchell and Vidal.",
     {
       "type": "rich",
@@ -120,13 +115,13 @@ export const chargersArticle = {
     "In between, he rebuilt Stanford, reached three consecutive NFC Championship Games with San Francisco, won an unbeaten national championship at Michigan and produced two eleven-win seasons with the Chargers. His father coached; his brother coached against him in the Super Bowl. In this family, a coaching tree is perilously close to a family tree. He has accumulated all those credentials and returned to the same problem from the other side of the headset.",
     "In March, Harbaugh described McDaniel as a revolutionary upgrade: “How do you make a better candle? Make a light bulb.” He called the pairing with Herbert a “perfect combination.” The current practical development is that McDaniel plans to call the Houston game from the coaches' box instead of the sideline. Seven losses into the electrical revolution, they are moving the lamp upstairs.",
     "Harbaugh insists there is “no quit” and “no surrender.”",
+    "Harbaugh has prepared a Normandy speech for a team still trying to get its season's point total into three digits. The scale of the rhetoric suggests men about to storm a beach. The actual men are having considerable difficulty holding a football.",
+    "He has the posture of a commander refusing to yield an inch. His team has been considerably more flexible about the yardage. There will be no surrender, except of possession, field position and every game they have played. These are apparently separate matters.",
+    "There are ten more games on the schedule. Harbaugh intends to keep addressing the troops as though courage is the missing ingredient. At some point, one of the lieutenants may need to interrupt the speech and explain what has been happening to the football.",
     {
       "type": "rich",
       "html": "<a href=\"https://www.youtube.com/watch?v=R9maQiL9onk\" target=\"_blank\" rel=\"noopener noreferrer\">Harbaugh’s postgame address</a>"
     },
-    "Harbaugh has prepared a Normandy speech for a team still trying to get its season's point total into three digits. The scale of the rhetoric suggests men about to storm a beach. The actual men are having considerable difficulty holding a football.",
-    "He has the posture of a commander refusing to yield an inch. His team has been considerably more flexible about the yardage. There will be no surrender, except of possession, field position and every game they have played. These are apparently separate matters.",
-    "There are ten more games on the schedule. Harbaugh intends to keep addressing the troops as though courage is the missing ingredient. At some point, one of the lieutenants may need to interrupt the speech and explain what has been happening to the football.",
     "After the Rams game, Quentin Lake supplied an opposing view on the St. Brown Podcast: Herbert was “seeing ghosts” and “throwing deli meat out there.” One safety had diagnosed both a haunting and a catering operation.",
     {
       "type": "xclip",
