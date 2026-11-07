@@ -22,7 +22,7 @@ const expectedClips=[
 test('staged Chargers preserves the approved November 7 copy revision',()=>{
   assert.equal(article.title,'The Chargers Have Thought of Everything');
   assert.equal(article.author,'crane');
-  assert.equal(createHash('sha256').update(JSON.stringify(article.body)).digest('hex'),'dfd23dadd6cda99a984dca4e1ba5a34df192a83647f6bde83718b22d8b699915');
+  assert.equal(createHash('sha256').update(JSON.stringify(article.body)).digest('hex'),'a781d868ac756c0582ac645601fe000d91a7fcbce76127a4f707d48d363864e0');
   assert.equal(article.body.filter(p=>p?.type==='break').length,1);
   assert.equal(article.body.filter(p=>p?.type==='heading').length,6);
   assert.equal(article.body.at(-2),'There are ten more on the calendar.');
@@ -104,3 +104,7 @@ test('Gruden clip, exact user-confirmed quote and final cuts are preserved',()=>
   assert.ok(read('app/articles/[slug]/page.js').includes('<h3 className="articleSubheading"'));
   assert.match(read('app/globals.css'),/articleSubheading\{font:italic 400 clamp\(24px,3vw,28px\)/);
 });
+
+test('QJ abbreviation preserves the full section heading',()=>{assert.ok(article.body.some(p=>typeof p==='string'&&p.startsWith('QJ entered the league')));assert.ok(article.body.some(p=>p?.type==='heading'&&p.text==='Hands Off: Quentin Johnston and Ladd McConkey'));});
+
+test("Colts shorthand is preserved",()=>assert.ok(article.body.some(p=>typeof p==="string"&&p.includes("Keenan Allen has 325 receiving yards for the Colts."))));
