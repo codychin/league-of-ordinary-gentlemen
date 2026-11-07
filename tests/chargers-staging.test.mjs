@@ -13,7 +13,7 @@ const expectedClips=[
   "https://x.com/StBrownPodcast/status/2118045098503966799",
   "https://x.com/ESPNNFL/status/2118393718289924331",
   "https://x.com/Seahawks/status/2106864798541504937",
-  "https://x.com/NFL/status/2117031573619142901",
+  "https://x.com/ClutchPoints/status/2117031697858560051",
   "https://x.com/nflnetwork/status/2118118709340627173",
   "https://x.com/NFLonCBS/status/2099262404420853837"
 ];
@@ -21,7 +21,7 @@ const expectedClips=[
 test('staged Chargers preserves the approved November 7 copy revision',()=>{
   assert.equal(article.title,'The Chargers Have Thought of Everything');
   assert.equal(article.author,'crane');
-  assert.equal(createHash('sha256').update(JSON.stringify(article.body)).digest('hex'),'639878d011a3d5d495e7860479e4febed0232346ea3c038a68d283a5db70e625');
+  assert.equal(createHash('sha256').update(JSON.stringify(article.body)).digest('hex'),'ae8e4de2f828db0b92cda0c657273aff81065f44712b6cdb19cf9fc9749db5d0');
   assert.equal(article.body.filter(p=>p?.type==='break').length,0);
   assert.equal(article.body.filter(p=>p?.type==='heading').length,7);
   assert.equal(article.body.at(-2),'There are ten more on the calendar.');

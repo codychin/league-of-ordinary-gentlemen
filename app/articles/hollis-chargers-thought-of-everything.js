@@ -139,8 +139,8 @@ export const chargersArticle = {
     "Most recently, two very unceremonious interceptions were intended for our guy Charlie. There are receivers for whom a quarterback might attempt something ruinously ambitious. The involvement of Charlie Kolar gives this the particular grandeur of wrecking a Ferrari on the way to buy printer ink.",
     {
       "type": "xclip",
-      "id": "2117031573619142901",
-      "url": "https://x.com/NFL/status/2117031573619142901"
+      "id": "2117031697858560051",
+      "url": "https://x.com/ClutchPoints/status/2117031697858560051"
     },
     "Houston pass rusher Will Anderson Jr. has nevertheless offered a generous appraisal.",
     {
