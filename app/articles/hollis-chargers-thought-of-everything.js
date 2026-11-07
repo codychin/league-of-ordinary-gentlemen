@@ -65,12 +65,6 @@ export const chargersArticle = {
       "type": "rich",
       "html": "<a href=\"https://www.youtube.com/watch?v=gfRIrR8GNIE&amp;t=603\" target=\"_blank\" rel=\"noopener noreferrer\">McDaniel identifies a possible motive</a>"
     },
-    {
-      "type": "youtube",
-      "id": "gfRIrR8GNIE",
-      "title": "McDaniel identifies a possible motive",
-      "start": 603
-    },
     "Perhaps somebody in McDaniel's own fantasy league took Hampton one pick before he could. There are very few men equipped to answer that indignity by changing the player's actual working conditions. Most of us can only sulk in the group chat. McDaniel has a headset and two other running backs. If this is what happened, it is the most successful scheme he has installed in Los Angeles.",
     {
       "type": "break"
@@ -139,11 +133,6 @@ export const chargersArticle = {
     {
       "type": "rich",
       "html": "<a href=\"https://www.youtube.com/watch?v=R9maQiL9onk\" target=\"_blank\" rel=\"noopener noreferrer\">Harbaugh’s postgame address</a>"
-    },
-    {
-      "type": "youtube",
-      "id": "R9maQiL9onk",
-      "title": "Harbaugh’s postgame address"
     },
     "Harbaugh has prepared a Normandy speech for a team still trying to get its season's point total into three digits. The scale of the rhetoric suggests men about to storm a beach. The actual men are having considerable difficulty holding a football.",
     "He has the posture of a commander refusing to yield an inch. His team has been considerably more flexible about the yardage. There will be no surrender, except of possession, field position and every game they have played. These are apparently separate matters.",

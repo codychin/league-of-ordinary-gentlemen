@@ -26,7 +26,7 @@ const expectedLinks=[
 test('staged Chargers v8 preserves exact final article content',()=>{
   assert.equal(article.title,'The Chargers Have Thought of Everything');
   assert.equal(article.author,'crane');
-  assert.equal(createHash('sha256').update(JSON.stringify(article.body)).digest('hex'),'d6c1d9efb15025f303c06ac943e7945a9415dceef4beebd5f49540488abaef24');
+  assert.equal(createHash('sha256').update(JSON.stringify(article.body)).digest('hex'),'726a9d9244a4d04b2ee713f911613f76652d5949d693fe0bd14ee5c4fff4822f');
   assert.equal(article.body.filter(p=>p?.type==='break').length,2);
   assert.equal(article.body.filter(p=>p?.type==='heading').length,6);
 });
@@ -43,10 +43,11 @@ test('all fifteen source links survive and embeds use the matching originals',()
   assert.deepEqual(clips.map(p=>p.url),links.filter(url=>url.startsWith('https://x.com/')));
   for(const clip of clips)assert.ok(clip.url.endsWith('/status/'+clip.id));
   assert.deepEqual(article.body.filter(p=>p?.type==='youtube').map(({id,start})=>[id,start||0]),[
-    ['gfRIrR8GNIE',603],['R9maQiL9onk',0],['Hf-SPMJ0P3Y',0]
+    ['Hf-SPMJ0P3Y',0]
   ]);
-  const renderer=read('app/articles/[slug]/page.js');
-  assert.ok(renderer.includes('Number.isInteger(p.start)&&p.start>0'));
+  // Chargers-owned YouTube clips prohibit external embedding. Keep their original watch links.
+  assert.ok(links.includes('https://www.youtube.com/watch?v=gfRIrR8GNIE&t=603'));
+  assert.ok(links.includes('https://www.youtube.com/watch?v=R9maQiL9onk'));
   assert.ok(read('app/components/ArticleClip.jsx').includes('Watch the original clip on X'));
 });
 
