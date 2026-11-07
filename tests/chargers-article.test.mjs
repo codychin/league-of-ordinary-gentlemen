@@ -22,8 +22,8 @@ const expectedClips=[
 test('Chargers preserves the approved November 7 copy revision',()=>{
   assert.equal(article.title,'The Chargers Have Thought of Everything');
   assert.equal(article.author,'crane');
-  assert.equal(createHash('sha256').update(JSON.stringify(article.body)).digest('hex'),'d0fe8e7ac66b291d23643850ace07ea2a8b18cde83f7263bc094a0319a2bf501');
-  assert.equal(article.body.filter(p=>p?.type==='break').length,1);
+  assert.equal(createHash('sha256').update(JSON.stringify(article.body)).digest('hex'),'eddfb4bd53a531fcab681f3a232e3c990cf27b6d7e862b08e922e9f3da75d171');
+  assert.equal(article.body.filter(p=>p?.type==='break').length,0);
   assert.equal(article.body.filter(p=>p?.type==='heading').length,6);
   assert.equal(article.body.at(-2),'There are ten more on the calendar.');
   assert.equal(article.body.at(-1),'McDaniel has some nerve telling us life is short.');
@@ -95,12 +95,14 @@ test('approved copy cuts and clip placement remain intact',()=>{
 });
 
 
-test('Gruden clip, exact user-confirmed quote and final cuts are preserved',()=>{
+test('Gruden clip carries the quote and approved post-clip commentary preserves the callback',()=>{
   const i=article.body.findIndex(p=>p?.id==='2118854276839805017');
-  assert.equal(article.body[i-2].type,'break');
+  assert.notEqual(article.body[i-2]?.type,'break');
   assert.match(article.body[i-1],/reached back through several decades of television/);
-  assert.ok(article.body[i-1].includes("I'd rather watch The Love Boat from 1978"));
-  assert.ok(article.body[i+1].startsWith('To start,'));
+  assert.ok(!article.body[i-1].includes("I'd rather watch The Love Boat from 1978"));
+  assert.ok(article.body[i+1].startsWith('1978 is an oddly specific refuge'));
+  assert.ok(article.body[i+2].startsWith('Back on land,'));
+  assert.ok(article.body.some(p=>typeof p==='string'&&p.startsWith('At some stage, the Chargers ought to be able to request')));
   const prose=article.body.filter(p=>typeof p==='string').join('\n');
   assert.doesNotMatch(prose,/He had only two recorded drops last season|These are apparently separate matters|There are ten more games on the schedule/);
   assert.ok(read('app/articles/[slug]/page.js').includes('<h3 className="articleSubheading"'));
