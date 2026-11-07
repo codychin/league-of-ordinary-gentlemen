@@ -6,7 +6,7 @@ function fixture({present=true}={}){
  const header={},observed=[]
  const events=new Map(),frames=new Map()
  const target={getBoundingClientRect:()=>({top}),scrollIntoView:()=>{top=padding;scrolls++},closest:()=>main},main={children:[{},target]}
- const doc={body:{},documentElement:{},getElementById:()=>present?target:null,querySelector:()=>main,querySelectorAll:()=>[header],addEventListener(){},removeEventListener(){}}
+ const doc={body:{},documentElement:{classList:{contains:()=>false}},getElementById:()=>present?target:null,querySelector:()=>main,querySelectorAll:()=>[header],addEventListener(){},removeEventListener(){}}
  const win={getComputedStyle:el=>el===doc.documentElement?{scrollPaddingTop:padding+'px'}:{scrollMarginTop:'0px'},ResizeObserver:class{constructor(cb){resize=cb}observe(element,options){observed.push({element,options})}disconnect(){resize=null}},MutationObserver:class{constructor(cb){mutation=cb}observe(){}disconnect(){mutation=null}},requestAnimationFrame:cb=>{frames.set(1,cb);return 1},cancelAnimationFrame:id=>frames.delete(id),setTimeout:cb=>{timeout=cb;return 1},clearTimeout(){},addEventListener:(name,cb)=>events.set(name,cb),removeEventListener:name=>events.delete(name)}
  return {win,doc,header,observed,resizeHeader(value){padding=value;resize?.()},get scrolls(){return scrolls},get top(){return top},flush(){const callbacks=[...frames.values()];frames.clear();callbacks.forEach(cb=>cb())},shift(value){top=value;resize?.()},appear(){present=true;mutation?.()},input(name){events.get(name)?.()},expire(){timeout()},get active(){return !!resize}}
 }

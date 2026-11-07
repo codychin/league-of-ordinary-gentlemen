@@ -1,0 +1,15 @@
+/* Keep installed-app navigation out of the iOS document compositor's scrolling
+   layer. Browser tabs/desktop retain document scrolling and existing chrome. */
+.appScrollContent{display:contents}
+@media(max-width:760px){
+ html.standaloneApp:has(.appTabBar){height:100%;overflow:hidden}
+ html.standaloneApp body:has(.appTabBar){position:relative;height:100dvh;box-sizing:border-box;overflow:hidden;display:grid;grid-template-rows:minmax(0,1fr) auto;padding-top:var(--mobile-header-height,calc(env(safe-area-inset-top) + 52px));padding-bottom:0}
+ html.standaloneApp body:has(.appTabBar)>.appScrollContent{display:block;min-height:0;overflow-y:auto;overscroll-behavior-y:contain;scroll-padding:0 0 16px}
+ html.standaloneApp body:has(.appTabBar) .appTabBar{position:relative;inset:auto;transform:none!important;align-self:end;margin:8px auto max(3px,calc(env(safe-area-inset-bottom) - 8px))}
+ html.standaloneApp body:has(.appTabBar) .appSectionHeader,
+ html.standaloneApp body:has(.appTabBar) .articleAlerts,
+ html.standaloneApp body:has(.appTabBar) .pullRefresh,
+ html.standaloneApp body:has(.appTabBar) .appMoreSheet{position:absolute}
+ html.standaloneApp body.reelsOpen>.appScrollContent{overflow:hidden}
+ html.standaloneApp body:has(.appTabBar)>.appScrollContent main{scroll-margin-top:0}
+}
