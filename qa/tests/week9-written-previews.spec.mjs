@@ -9,7 +9,7 @@ for(const edition of ['loog','sunday-crew','doge'])test(`${edition} all six curr
   await page.goto(path,{waitUntil:'domcontentloaded'});
   const column=page.locator('.matchupColumn');
   await expect(column.locator('h2')).toHaveText(c.headline);
-  const ps=column.locator('p').filter({hasNotText:'UPDATED NOVEMBER 7'});
+  const ps=column.locator('p:not(.matchupUpdated)');
   await expect(ps).toHaveText(c.body.split(/\n\n+/));
   await expect(column).toContainText('UPDATED NOVEMBER 7');
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
