@@ -85,5 +85,19 @@ for(const root of ['', '/doge','/sunday-crew'])for(const scheme of ['light','dar
  await expect(page.locator('meta[name="robots"]')).toHaveCount(0);
  await expectGamePhoto(page.locator('.articleImage'));
  await expect(page.locator('.articleImageCredit')).toContainText('Joe Glorioso');
+ // A traced X iframe defect is reported separately from application JS errors.
+ // Every requested embed must still provide a visible widget or its usable
+ // original-clip fallback. This tests delivery, not third-party video playback.
+ const clips=page.locator('.articleBody > figure');
+ await expect(clips).toHaveCount(11);
+ for(const clip of await clips.all()){
+  await expect.poll(async()=>{
+   const frame=clip.locator('iframe');
+   if(await frame.count() && await frame.first().isVisible())return true;
+   const fallback=clip.getByRole('link',{name:'Watch the original clip on X →'});
+   return await fallback.count()===1 && await fallback.isVisible() && /^https:\/\/x\.com\/[^/]+\/status\/\d+$/.test(await fallback.getAttribute('href')||'');
+  },{message:'Each X clip has a visible embed or a verified original-link fallback'}).toBe(true);
+ }
+
  await expect(page.locator('a.back')).toHaveAttribute('href',root||'/');
 });
