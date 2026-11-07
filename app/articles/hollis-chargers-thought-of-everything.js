@@ -13,7 +13,7 @@ export const chargersArticle = {
     "url": "https://commons.wikimedia.org/wiki/File:Jim_Harbaugh_with_Los_Angeles_Chargers_staffs.jpg",
     "licenseLabel": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
-    "note": "Chargers sideline, October 5, 2025. Resized."
+    "note": "Chargers sideline, October 5, 2025. Resized; homepage display cropped."
   },
   "body": [
     "The Chargers completed a Hail Mary against the Rams.",
@@ -155,13 +155,13 @@ export const chargersArticle = {
       "type": "subheading",
       "text": "Which brings us back to The Love Boat in 1978."
     },
-    "In a 1978 episode called “Gopher, the Rebel,” Gopher attends to a pretty passenger while the captain has to remind him that there are other passengers to board. She has a book by Lenin. Gopher thinks they are discussing John Lennon. An attractive woman has entered the workplace, and Vladimir Lenin is suddenly on the cover of Abbey Road.",
+    "In an episode called “Gopher, the Rebel,” Gopher attends to a pretty passenger while the captain has to remind him that there are other passengers to board. She has a book by Lenin. Gopher thinks they are discussing John Lennon. An attractive woman has entered the workplace, and Vladimir Lenin is suddenly on the cover of Abbey Road.",
     {
       "type": "youtube",
       "id": "Hf-SPMJ0P3Y",
       "title": "The Love Boat: Gopher encounters a distraction"
     },
-    "At this point, the investigation encounters Madison Beer.",
+    "At this point, the investigation must finally confront the inevitability of Madison Beer.",
     "Herbert and Beer announced their engagement on July 28. On September 13, CBS caught her celebrating his touchdown pass to McConkey: his number, the glasses, that little dance.",
     {
       "type": "xclip",

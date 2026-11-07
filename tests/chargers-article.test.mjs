@@ -22,7 +22,7 @@ const expectedClips=[
 test('Chargers preserves the approved November 7 copy revision',()=>{
   assert.equal(article.title,'The Chargers Have Thought of Everything');
   assert.equal(article.author,'crane');
-  assert.equal(createHash('sha256').update(JSON.stringify(article.body)).digest('hex'),'a781d868ac756c0582ac645601fe000d91a7fcbce76127a4f707d48d363864e0');
+  assert.equal(createHash('sha256').update(JSON.stringify(article.body)).digest('hex'),'d0fe8e7ac66b291d23643850ace07ea2a8b18cde83f7263bc094a0319a2bf501');
   assert.equal(article.body.filter(p=>p?.type==='break').length,1);
   assert.equal(article.body.filter(p=>p?.type==='heading').length,6);
   assert.equal(article.body.at(-2),'There are ten more on the calendar.');
@@ -50,7 +50,9 @@ test('Chargers review resolves through the shared article renderer in all editio
   assert.ok(read('app/articles/data.js').includes("'"+slug+"': chargersArticle"));
   assert.ok(read('lib/editorial-scope.js').includes("'"+slug+"'"));
   assert.ok(read('app/components/editions/Article.js').includes('isSharedArticleForEdition(slug,editionSlug)'));
-  assert.ok(!read('app/components/SharedEditorialFront.js').includes(slug));
+  assert.ok(read('app/components/SharedEditorialFront.js').includes('Lead story: '+article.title));
+  assert.ok(!read('app/components/SharedEditorialFront.js').includes('dashiell-jaguars-london-future'));
+  assert.ok(read('app/articles/data.js').includes('"dashiell-jaguars-london-future"'));
 });
 
 

@@ -4,8 +4,8 @@ import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {validatePublicPage} from './public-route-validation.mjs';
 const origin=(process.env.BASE_URL||'https://www.ordinarybrief.com').replace(/\/$/,'');
-const slug=process.env.ARTICLE_SLUG||'maude-baker-comparative-merits-of-abstention';
-const expectedTitle=process.env.EXPECTED_TITLE||'Baker Mayfield and the Comparative Merits of Abstention';
+const slug=process.env.ARTICLE_SLUG||'hollis-chargers-thought-of-everything';
+const expectedTitle=process.env.EXPECTED_TITLE||'The Chargers Have Thought of Everything';
 assert.equal(new URL(origin).protocol,'https:');
 const parsed=new URL(origin);
 assert.equal(parsed.origin,origin,'Expected an HTTPS origin without credentials or a path');
@@ -44,7 +44,7 @@ if(featurePath||featureImage){
 }
 // Owner-approved Detroit School release: validate the changed content in every edition,
 // retaining all existing public-route checks above. No mutation or credentials are introduced.
-const bakerTitle='Baker Mayfield and the Comparative Merits of Abstention';
+const chargersTitle='The Chargers Have Thought of Everything';
 const detroitTitle='A Study in Movement: The Detroit School, 2026';
 const detroitDek='On the spontaneous birth of an artistic movement, and the evolution of human expression.';
 const detroitPlates=[
@@ -108,13 +108,13 @@ async function verifyReleaseImage(path,expectedHash){
 for(const root of ['', '/sunday-crew','/doge']){
  const home=await fetch(origin+(root||'/'),{redirect:'manual',signal:AbortSignal.timeout(20000),headers:releaseHeaders});
  const homeHtml=await home.text();validatePublicPage(home.status,homeHtml,{article:false});
- assert.ok(homeHtml.includes('aria-label="Lead story: '+bakerTitle+'"'),'Baker is not homepage lead: '+root);
- const lead=homeHtml.split('aria-label="Lead story: '+bakerTitle+'"')[1].split('</section>')[0];
- assert.ok(lead.includes('href="'+root+'/articles/maude-baker-comparative-merits-of-abstention"'),'Lead links to wrong edition');
- const hero=lead.match(/<img[^>]*src="([^"]+)"[^>]*alt="Baker Mayfield carries the football in the rain against Atlanta in Tampa, November 1, 2026\."/);
- assert.ok(hero,'Baker lead image missing');await verifyReleaseImage(hero[1]);
+ assert.ok(homeHtml.includes('aria-label="Lead story: '+chargersTitle+'"'),'Chargers is not homepage lead: '+root);
+ const lead=homeHtml.split('aria-label="Lead story: '+chargersTitle+'"')[1].split('</section>')[0];
+ assert.ok(lead.includes('href="'+root+'/articles/hollis-chargers-thought-of-everything"'),'Lead links to wrong edition');
+ const hero=lead.match(/<img[^>]*src="([^"]+)"[^>]*alt="Jim Harbaugh stands with Chargers coaches and players on the sideline against Washington at SoFi Stadium on October 5, 2025\."/);
+ assert.ok(hero,'Chargers lead image missing');await verifyReleaseImage(hero[1]);
  const row=homeHtml.split('aria-label="Recent stories"')[1]?.split('</section>')[0];assert.ok(row,'Recent stories missing');
- const expectedCards=["A Study in Movement: The Detroit School, 2026","On the Saturation Bombing of Daniel Jones (née Dimes)","Allow Me to Reintroduce Myself"];
+ const expectedCards=["Baker Mayfield and the Comparative Merits of Abstention","A Study in Movement: The Detroit School, 2026","On the Saturation Bombing of Daniel Jones (née Dimes)"];
  assert.deepEqual([...row.matchAll(/<h3[^>]*>([^<]+)<\/h3>/g)].map(m=>m[1]),expectedCards,'Three-card chronology changed');
  const path=root+'/articles/marnie-detroit-school';
  const response=await fetch(origin+path,{redirect:'manual',signal:AbortSignal.timeout(20000),headers:releaseHeaders});
@@ -134,7 +134,7 @@ for(const root of ['', '/sunday-crew','/doge']){
   assert.ok(src[1]===plate.source||src[1]===`/images/cache/${cacheId}-1280.webp`,'Wrong rendered Detroit plate source');
   await verifyReleaseImage(src[1]);
  }
- console.log('PASS Baker lead, three-card chronology, Detroit article and seven plate assets',root||'/');
+ console.log('PASS Chargers lead, three-card chronology, Detroit article and seven plate assets',root||'/');
 }
 
 if(process.env.RELEASE_CANARY_FAIL==='1')throw Error('Intentional staging failure canary; release MUST NOT be promoted');

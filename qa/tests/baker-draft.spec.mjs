@@ -43,8 +43,8 @@ async function expectGamePhoto(img){
  expect(geometry.fit).toBe('contain');
  expect(geometry.source).toMatch(/\/images\/(cache|editorial\/baker-abstention)\//);
 }
-const orderedSlugs=['maude-baker-comparative-merits-of-abstention','marnie-detroit-school','maude-saturation-bombing-daniel-jones','conrad-allow-me-to-reintroduce-myself','marnie-delicate-etiquette-sporting-pat','conrad-jalen-hurts-too-sick-to-sleep','hollis-rams-kicker-weight','maude-nfc-east-declines-winner','sabine-and-you-are','marnie-marvin-harrison-somewhere-else','marnie-hecklinski-use-your-words','marnie-time-traveling-goblin-paradox','conrad-tomlin-minecraft-cvs','marnie-corgi-he-wanted-them-to-know','dashiell-jaguars-london-future'];
-for(const root of ['', '/doge','/sunday-crew'])for(const scheme of ['light','dark'])test(`Baker shared hero preserves design and chronology ${root||'loog'} ${scheme}`,async({page})=>{
+const orderedSlugs=['hollis-chargers-thought-of-everything','maude-baker-comparative-merits-of-abstention','marnie-detroit-school','maude-saturation-bombing-daniel-jones','conrad-allow-me-to-reintroduce-myself','marnie-delicate-etiquette-sporting-pat','conrad-jalen-hurts-too-sick-to-sleep','hollis-rams-kicker-weight','maude-nfc-east-declines-winner','sabine-and-you-are','marnie-marvin-harrison-somewhere-else','marnie-hecklinski-use-your-words','marnie-time-traveling-goblin-paradox','conrad-tomlin-minecraft-cvs','marnie-corgi-he-wanted-them-to-know'];
+for(const root of ['', '/doge','/sunday-crew'])for(const scheme of ['light','dark'])test(`Chargers shared hero preserves design and chronology ${root||'loog'} ${scheme}`,async({page})=>{
  await page.emulateMedia({colorScheme:scheme});
  await page.goto(root||'/');
  const headings=page.locator('main > .immersiveLead h2, [aria-label="Recent stories"] h3, main > .hero.heroStack h2, .mobileLowerCarousel h2, .mobileStoryRows h2');
@@ -52,7 +52,7 @@ for(const root of ['', '/doge','/sunday-crew'])for(const scheme of ['light','dar
  expect(paths).toEqual(orderedSlugs.map(slug=>`${root}/articles/${slug}`));
  expect(new Set(paths).size).toBe(15);
  await expect(page.locator('[aria-label="Recent stories"] > article')).toHaveCount(3);
- await expect(page.locator('.immersiveLead h2')).toHaveText('Baker Mayfield and the Comparative Merits of Abstention');
+ await expect(page.locator('.immersiveLead h2')).toHaveText('The Chargers Have Thought of Everything');
  const hero=page.locator('.immersiveLead');
  const img=hero.locator('.sundayFeatureImage img');
  await expect.poll(()=>img.evaluate(i=>i.complete&&i.naturalWidth>0)).toBe(true);
@@ -76,11 +76,14 @@ for(const root of ['', '/doge','/sunday-crew'])for(const scheme of ['light','dar
  }
  await expect(hero.locator('[class*="heroCredit"]')).toHaveCount(0);
  await page.locator('.immersiveLead h2').click();
- await expect(page).toHaveURL(new RegExp(`${root}${path}$`));
- await expect(page.locator('.articleBody > p')).toHaveCount(29);
- await expect(page.locator('.articleBody > p').first()).toHaveText(paragraphs[0]);
+ await expect(page).toHaveURL(new RegExp(`${root}/articles/hollis-chargers-thought-of-everything$`));
+ await expect(page.locator('h1')).toHaveText('The Chargers Have Thought of Everything');
+ await expect(page.locator('.articleBody > p').last()).toHaveText('McDaniel has some nerve telling us life is short.');
+ await expect(page.locator('.articleBody')).toContainText('In an episode called');
+ await expect(page.locator('.articleBody')).toContainText('At this point, the investigation must finally confront the inevitability of Madison Beer.');
+ await expect(page.locator('.articleBody')).not.toContainText('In a 1978 episode called');
  await expect(page.locator('meta[name="robots"]')).toHaveCount(0);
  await expectGamePhoto(page.locator('.articleImage'));
- await expect(page.locator('figcaption')).toHaveCount(0);
+ await expect(page.locator('.articleImageCredit')).toContainText('Joe Glorioso');
  await expect(page.locator('a.back')).toHaveAttribute('href',root||'/');
 });
