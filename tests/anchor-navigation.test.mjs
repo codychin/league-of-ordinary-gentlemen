@@ -1,13 +1,14 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import {scrollToSection} from '../lib/scroll-to-section.mjs'
-function fixture({present=true}={}){
+function fixture({present=true,standalone=false}={}){
  let top=2400,padding=42,scrolls=0,resize,mutation,timeout
  const header={},observed=[]
  const events=new Map(),frames=new Map()
  const target={getBoundingClientRect:()=>({top}),scrollIntoView:()=>{top=padding;scrolls++},closest:()=>main},main={children:[{},target]}
- const doc={body:{},documentElement:{classList:{contains:()=>false}},getElementById:()=>present?target:null,querySelector:()=>main,querySelectorAll:()=>[header],addEventListener(){},removeEventListener(){}}
- const win={getComputedStyle:el=>el===doc.documentElement?{scrollPaddingTop:padding+'px'}:{scrollMarginTop:'0px'},ResizeObserver:class{constructor(cb){resize=cb}observe(element,options){observed.push({element,options})}disconnect(){resize=null}},MutationObserver:class{constructor(cb){mutation=cb}observe(){}disconnect(){mutation=null}},requestAnimationFrame:cb=>{frames.set(1,cb);return 1},cancelAnimationFrame:id=>frames.delete(id),setTimeout:cb=>{timeout=cb;return 1},clearTimeout(){},addEventListener:(name,cb)=>events.set(name,cb),removeEventListener:name=>events.delete(name)}
+ const owner={scrollTop:0,getBoundingClientRect:()=>({top:padding}),scrollTo:({top:next})=>{top-=next-owner.scrollTop;owner.scrollTop=next;scrolls++}}
+ const doc={body:{},documentElement:{classList:{contains:()=>standalone}},getElementById:()=>present?target:null,querySelector:selector=>selector==='.appScrollContent'?owner:main,querySelectorAll:()=>[header],addEventListener(){},removeEventListener(){}}
+ const win={matchMedia:()=>({matches:true}),location:{pathname:'/'},getComputedStyle:el=>el===doc.documentElement?{scrollPaddingTop:padding+'px'}:{scrollMarginTop:'0px'},ResizeObserver:class{constructor(cb){resize=cb}observe(element,options){observed.push({element,options})}disconnect(){resize=null}},MutationObserver:class{constructor(cb){mutation=cb}observe(){}disconnect(){mutation=null}},requestAnimationFrame:cb=>{frames.set(1,cb);return 1},cancelAnimationFrame:id=>frames.delete(id),setTimeout:cb=>{timeout=cb;return 1},clearTimeout(){},addEventListener:(name,cb)=>events.set(name,cb),removeEventListener:name=>events.delete(name)}
  return {win,doc,header,observed,resizeHeader(value){padding=value;resize?.()},get scrolls(){return scrolls},get top(){return top},flush(){const callbacks=[...frames.values()];frames.clear();callbacks.forEach(cb=>cb())},shift(value){top=value;resize?.()},appear(){present=true;mutation?.()},input(name){events.get(name)?.()},expire(){timeout()},get active(){return !!resize}}
 }
 test('Culture stays aligned after earlier content expands, without redundant scrolling',()=>{
@@ -27,4 +28,8 @@ test('fixed header padding changes realign using its border box',()=>{
  const f=fixture();scrollToSection('culture',f.win,f.doc);f.flush();
  assert.deepEqual(f.observed.find(item=>item.element===f.header).options,{box:'border-box'});
  f.resizeHeader(101);f.flush();assert.equal(f.top,101);assert.equal(f.scrolls,2);
+})
+
+test('bounded section jump scrolls only the content owner, retaining the header inset',()=>{
+ const f=fixture({standalone:true});scrollToSection('culture',f.win,f.doc);f.flush();assert.equal(f.top,42);assert.equal(f.scrolls,1);f.shift(800);f.flush();assert.equal(f.top,42);assert.equal(f.scrolls,2);
 })

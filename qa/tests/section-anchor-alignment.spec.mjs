@@ -20,6 +20,10 @@ async function userScroll(page,dy,testInfo){
 }
 
 async function expectLanding(page,id,mobile){
+ if(mobile){
+  await expect.poll(()=>page.locator('.appSectionHeader').evaluate(e=>Math.abs(e.getBoundingClientRect().top))).toBeLessThanOrEqual(1);
+  if(await page.locator('html').evaluate(e=>e.classList.contains('standaloneApp')))expect(await page.evaluate(()=>scrollY)).toBe(0);
+ }
  try{await expect.poll(()=>page.locator('#'+id).evaluate((target,mobile)=>{
   const header=document.querySelector(mobile?'.appSectionHeader':'.siteNav');
   return Math.abs(target.getBoundingClientRect().top-header.getBoundingClientRect().bottom-(mobile?0:16+(parseFloat(getComputedStyle(target).scrollMarginTop)||0)));
