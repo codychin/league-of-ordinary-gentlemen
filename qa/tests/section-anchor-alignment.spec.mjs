@@ -33,10 +33,12 @@ async function expectLanding(page,id,mobile){
  })).toBe(true);
 }
 
-test('section taps, hashes and history align with the actual header in every edition',async({page},testInfo)=>{
+// Each edition/mode owns its browser context. Preserve the complete navigation
+// sequence within each case instead of accumulating six hard-loaded documents.
+for(const root of ['/','/doge','/sunday-crew'])for(const standalone of [false,true])test(`section taps, hashes and history align with the actual header: ${root} ${standalone?'standalone':'browser'}`,async({page},testInfo)=>{
  const mobile=page.viewportSize().width<=760;
+ test.skip(standalone&&!mobile,'Standalone mode is a mobile contract.');
  await page.route('https://a.espncdn.com/**',r=>r.abort());
- for(const root of ['/','/doge','/sunday-crew'])for(const standalone of mobile?[false,true]:[false]){
   const home=root+(standalone?'?app-preview=1':'');
   await navigate(page,home,{waitUntil:'domcontentloaded'});await expect(page.locator('html')).toHaveAttribute('data-app-tab','home');await page.evaluate(()=>document.fonts.ready);
   const nav=page.getByRole('navigation',{name:mobile?'App navigation':'Primary navigation',exact:true});
@@ -68,7 +70,6 @@ test('section taps, hashes and history align with the actual header in every edi
   for(const id of ['scores','culture']){
    await navigate(page,home+'#'+id,{waitUntil:'domcontentloaded'});await page.evaluate(()=>document.fonts.ready);await expectLanding(page,id,mobile);
   }
- }
 });
 
 test('late image layout changes retain the selected mobile section until user input',async({page},testInfo)=>{
