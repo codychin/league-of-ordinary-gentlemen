@@ -32,7 +32,7 @@ export const chargersArticle = {
       "type": "heading",
       "text": "Mike McDaniel and the End of Meaning"
     },
-    "Perhaps we have been making a category error by treating this as a football problem.",
+    "Perhaps we have been making a categorical error by treating this as a football problem.",
     "In August 2025, while still coaching Miami, Mike McDaniel offered a reason to appreciate the morning.",
     {
       "type": "xclip",
@@ -41,18 +41,14 @@ export const chargersArticle = {
     },
     "What if, somewhere in the subsequent year, he followed that thought all the way through? What if the play caller isn't failing to understand third down, but has ceased to recognize any meaningful distinction between converting it and not converting it? We are collections of atoms briefly permitted to arrange ourselves into offensive formations. The sun will eventually finish its work. Kimani Vidal might as well have a carry.",
     "There is also the possibility that Los Angeles has disrupted a delicate organism. Perhaps nobody considered the vape ecosystem required to sustain Mike McDaniel. Miami seems like a place where a man could share an existential thought and have somebody immediately offer him something called Mango Ice. In Los Angeles, the same disclosure risks an invitation to go hiking. You cannot simply relocate a man in Off-Whites and assume the available nicotine culture will meet his spiritual requirements.",
-    "I am trying to account for the fact that this is someone who once coordinated the league's most productive offense. His 2023 Dolphins led the NFL in total yards and passing yards and finished second in scoring. Through the Rams game, these Chargers had gone 27 consecutive possessions without a touchdown, the longest drought since the 2024 Dolphins, with McDaniel as their head coach, went thirty.",
+    "I am trying to account for the fact that this is someone who once coordinated the league's most productive offense. His 2023 Dolphins led the NFL in total yards and passing yards and finished second in scoring. Through the Rams game, these Chargers had gone 27 consecutive possessions without a touchdown, the longest drought since 2024, a feat accomplished by the Miami Dolphins, a team coached by none other than the supreme nihilist Mike McDaniel himself.",
     "They hired McDaniel to bring Miami's offense. He appears to have brought the wrong year's.",
-    {
-      "type": "xclip",
-      "id": "2117042936831778965",
-      "url": "https://x.com/ESPNInsights/status/2117042936831778965"
-    },
     "They are last in EPA per play, success rate, points per drive and turnovers per drive. You can change the question. They have taken considerable care to make sure the answer stays the same.",
     "Then there is the Hampton question. In August, a reporter asked about the running back's workload. “This feels super fantasy-motivated,” McDaniel said, before discussing the roles available to Hampton, Keaton Mitchell and Vidal.",
     {
-      "type": "rich",
-      "html": "<a href=\"https://www.youtube.com/watch?v=gfRIrR8GNIE&amp;t=603\" target=\"_blank\" rel=\"noopener noreferrer\">McDaniel identifies a possible motive</a>"
+      "type": "xclip",
+      "id": "2086947788932407614",
+      "url": "https://x.com/YahooFantasy/status/2086947788932407614"
     },
     "Perhaps somebody in McDaniel's own fantasy league took Hampton one pick before he could. There are very few men equipped to answer that indignity by changing the player's actual working conditions. Most of us can only sulk in the group chat. McDaniel has a headset and two other running backs. If this is what happened, it is the most successful scheme he has installed in Los Angeles.",
     "On the Week 9 episode of The Gruden Family Football Show, Jon Gruden was assessing the Chargers' offense when he reached back to 1970s television for something more appealing. “I'd rather watch The Love Boat,” he said. We have reached the point where a football lifer is asking to spend Sunday on a cruise.",
@@ -67,7 +63,7 @@ export const chargersArticle = {
     },
     "Quentin Johnston entered the league with tremendous after-the-catch potential, which has turned out to be an optimistic place to begin planning. The Chargers spent the 21st pick on a large, fast TCU receiver who could make ordinary completions extraordinary. They have spent much of the intervening period trying to secure the ordinary completion.",
     "The NFL's most recent installation of Dropatron has fifteen recorded career drops. Three have arrived this season alongside twelve catches, giving him four catches for every drop. His contribution to the collective effort is taking the occasional well-thrown pass and restoring it to the general condition of Chargers football.",
-    "I am prepared to hear an argument that, under the present circumstances, this constitutes a form of ball security. A ball on the ground cannot be intercepted. Nobody gets to run it back.",
+    "This constitutes a form of ball security. A ball on the ground cannot be intercepted. Nobody gets to run it back.",
     "He had only two recorded drops last season. This matters because it establishes that improvement was possible, and that we are now being asked to remember it rather than enjoy it.",
     "On the other side of the formation stands Ladd McConkey, a paragon for the theological proposition that the best ability is availability. This season alone, he has left games with a rib injury, a foot injury and a concussion. Against Denver, he was active and played zero snaps. Harbaugh explained that he was available for an emergency and that they did not want to put him in.",
     "An emergency receiver who cannot be used during the emergency of watching this offense is an exceptionally Chargers invention. He was there, dressed and technically available, like the fire extinguisher inside a cabinet whose key has been stored in the burning building.",
@@ -112,13 +108,9 @@ export const chargersArticle = {
     "In between, he rebuilt Stanford, reached three consecutive NFC Championship Games with San Francisco, won an unbeaten national championship at Michigan and produced two eleven-win seasons with the Chargers. His father coached; his brother coached against him in the Super Bowl. In this family, a coaching tree is perilously close to a family tree. He has accumulated all those credentials and returned to the same problem from the other side of the headset.",
     "In March, Harbaugh described McDaniel as a revolutionary upgrade: “How do you make a better candle? Make a light bulb.” He called the pairing with Herbert a “perfect combination.” The current practical development is that McDaniel plans to call the Houston game from the coaches' box instead of the sideline. Seven losses into the electrical revolution, they are moving the lamp upstairs.",
     "Harbaugh insists there is “no quit” and “no surrender.”",
-    "Harbaugh has prepared a Normandy speech for a team still trying to get its season's point total into three digits. The scale of the rhetoric suggests men about to storm a beach. The actual men are having considerable difficulty holding a football.",
+    "Harbaugh has prepared an Alamo speech for a team still trying to get its season's point total into three digits. He is asking the men to hold the fort. They are having considerable difficulty holding a football.",
     "He has the posture of a commander refusing to yield an inch. His team has been considerably more flexible about the yardage. There will be no surrender, except of possession, field position and every game they have played. These are apparently separate matters.",
     "There are ten more games on the schedule. Harbaugh intends to keep addressing the troops as though courage is the missing ingredient. At some point, one of the lieutenants may need to interrupt the speech and explain what has been happening to the football.",
-    {
-      "type": "rich",
-      "html": "<a href=\"https://www.youtube.com/watch?v=R9maQiL9onk\" target=\"_blank\" rel=\"noopener noreferrer\">Harbaugh’s postgame address</a>"
-    },
     "After the Rams game, Quentin Lake supplied an opposing view on the St. Brown Podcast: Herbert was “seeing ghosts” and “throwing deli meat out there.” One safety had diagnosed both a haunting and a catering operation.",
     {
       "type": "xclip",
@@ -136,25 +128,31 @@ export const chargersArticle = {
       "type": "heading",
       "text": "Justin Herbert and Madison Beer"
     },
-    "And then we get to Justin Herbert.",
+    "And then, finally, we get to Justin Herbert.",
     "Last season: 26 touchdown passes, thirteen interceptions. This season, through seven games: five touchdown passes, ten interceptions. His interceptions now exceed the nine touchdowns the entire Chargers team has scored. He has changed teams without completing the paperwork.",
     "One possible adjustment would be to let Charlie Kolar borrow an opposing jersey.",
     {
-      "type": "rich",
-      "html": "<a href=\"https://www.nfl.com/videos/justin-herbert-throws-int-no-2-right-into-ernest-jones-iv-s-hands\" target=\"_blank\" rel=\"noopener noreferrer\">Herbert offers Seattle an opportunity</a>"
+      "type": "xclip",
+      "id": "2106864798541504937",
+      "url": "https://x.com/Seahawks/status/2106864798541504937"
     },
-    "The two Rams interceptions were both intended for Charlie Kolar. There are receivers for whom a quarterback might attempt something ruinously ambitious. The involvement of Charlie Kolar gives this the particular grandeur of wrecking a Ferrari on the way to buy printer ink.",
+    "Most recently, two very unceremonious interceptions were intended for our guy Charlie. There are receivers for whom a quarterback might attempt something ruinously ambitious. The involvement of Charlie Kolar gives this the particular grandeur of wrecking a Ferrari on the way to buy printer ink.",
     {
-      "type": "rich",
-      "html": "<a href=\"https://www.therams.com/video/highlights-rams-trent-mcduffie-catches-interception-justin-herbert-pass-chargers-sofi-stadium\" target=\"_blank\" rel=\"noopener noreferrer\">McDuffie receives the delivery</a>"
+      "type": "xclip",
+      "id": "2117031573619142901",
+      "url": "https://x.com/NFL/status/2117031573619142901"
     },
-    "Houston pass rusher Will Anderson Jr. has nevertheless offered a generous appraisal: “Herbert, man, he's playing out of his mind.” Somewhere in the Texans' locker room, I would like to believe, a teammate had a replay ready and a reasonable follow-up question. Out of his mind does cover more than one condition.",
+    "Houston pass rusher Will Anderson Jr. has nevertheless offered a generous appraisal.",
     {
       "type": "xclip",
       "id": "2118118709340627173",
       "url": "https://x.com/nflnetwork/status/2118118709340627173"
     },
-    "Which brings us back to The Love Boat.",
+    "Somewhere in the Texans' locker room, I would like to believe, a teammate had a replay ready and a reasonable follow-up question. Out of his mind does cover more than one condition.",
+    {
+      "type": "heading",
+      "text": "Which brings us back to The Love Boat."
+    },
     "In a 1978 episode called “Gopher, the Rebel,” Gopher attends to a pretty passenger while the captain has to remind him that there are other passengers to board. She has a book by Lenin. Gopher thinks they are discussing John Lennon. An attractive woman has entered the workplace, and Vladimir Lenin is suddenly on the cover of Abbey Road.",
     {
       "type": "youtube",
@@ -172,6 +170,8 @@ export const chargersArticle = {
     "As a completely unscientific theory of Herbert's season, I find this more accessible than much of the material coming out of the coaching staff. It does not require a diagram. It requires imagining somebody explaining the importance of Charlie Kolar to a man who gets to marry Madison Beer.",
     "Gopher confuses Lenin with Lennon. Herbert confuses Charlie Kolar with Trent McDuffie. Both men have encountered an attractive woman and developed a sudden difficulty identifying the other people who matter to their jobs. The television version at least supplies a captain who interrupts the romance and reminds his employee that the rest of the ship exists. Herbert has Jim Harbaugh, who has reviewed the available material and concluded that everybody is entitled to an opinion, provided nobody surrenders.",
     "At some stage, the Chargers are entitled to request three hours in which their quarterback remembers which adults are supposed to receive the ball. Herbert has chosen an excellent partner for one undertaking. He remains alarmingly undiscerning about the people he involves in the other.",
-    "Harbaugh promised a perfect combination, and perhaps, under this reading, he has one: a coordinator contemplating how little life remains and a quarterback with an unusually persuasive reason to enjoy his. Football has become the meeting neither man can understand why he still has to attend. Johnston cannot handle the material, McConkey may need to leave early, Hampton's responsibilities have been distributed among a committee and the defense would like credit for the part it completed before lunch. Harbaugh remains at the head of the table, insisting that nobody has quit. The opponents keep coming in, taking what they need and leaving. Seven meetings so far. There are ten more on the calendar."
+    "Harbaugh promised a perfect combination, and perhaps, under this reading, he has one: a coordinator contemplating how little life remains and a quarterback with an unusually persuasive reason to enjoy his. Football has become the meeting neither man can understand why he still has to attend. Johnston cannot handle the material, McConkey may need to leave early, Hampton's responsibilities have been distributed among a committee and the defense would like credit for the part it completed before lunch. Harbaugh remains at the head of the table, insisting that nobody has quit. The opponents keep coming in, taking what they need and leaving. Seven meetings so far.",
+    "There are ten more on the calendar.",
+    "McDaniel has some nerve telling us life is short."
   ]
 };

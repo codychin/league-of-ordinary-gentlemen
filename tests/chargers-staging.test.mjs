@@ -5,51 +5,43 @@ import {createHash} from 'node:crypto';
 import {chargersArticle as article} from '../app/articles/hollis-chargers-thought-of-everything.js';
 const read=p=>readFileSync(p,'utf8');
 const slug='hollis-chargers-thought-of-everything';
-const expectedLinks=[
+const expectedClips=[
   "https://x.com/wokdior/status/2117020743552905692",
   "https://x.com/PolymarketBlitz/status/1952420570836107771",
-  "https://x.com/ESPNInsights/status/2117042936831778965",
-  "https://x.com/SharpFootball/status/2117743371523629290",
-  "https://www.youtube.com/watch?v=gfRIrR8GNIE&t=603",
-  "https://www.barstoolsports.com/video/3580559/2-minute-warning-or-the-gruden-family-football-show-week-9",
+  "https://x.com/YahooFantasy/status/2086947788932407614",
   "https://x.com/TexansCommenter/status/2118356075510378912",
-  "https://www.youtube.com/watch?v=R9maQiL9onk",
   "https://x.com/StBrownPodcast/status/2118045098503966799",
   "https://x.com/ESPNNFL/status/2118393718289924331",
-  "https://www.nfl.com/videos/justin-herbert-throws-int-no-2-right-into-ernest-jones-iv-s-hands",
-  "https://www.therams.com/video/highlights-rams-trent-mcduffie-catches-interception-justin-herbert-pass-chargers-sofi-stadium",
+  "https://x.com/Seahawks/status/2106864798541504937",
+  "https://x.com/NFL/status/2117031573619142901",
   "https://x.com/nflnetwork/status/2118118709340627173",
-  "https://www.youtube.com/watch?v=Hf-SPMJ0P3Y",
   "https://x.com/NFLonCBS/status/2099262404420853837"
 ];
 
-test('staged Chargers preserves v8 prose with approved duplicate-link cleanup',()=>{
+test('staged Chargers preserves the approved November 7 copy revision',()=>{
   assert.equal(article.title,'The Chargers Have Thought of Everything');
   assert.equal(article.author,'crane');
-  assert.equal(createHash('sha256').update(JSON.stringify(article.body)).digest('hex'),'b9778649abe529791297b9c320494a2186e90ea168c26ef5d00191bd18514c85');
+  assert.equal(createHash('sha256').update(JSON.stringify(article.body)).digest('hex'),'639878d011a3d5d495e7860479e4febed0232346ea3c038a68d283a5db70e625');
   assert.equal(article.body.filter(p=>p?.type==='break').length,0);
-  assert.equal(article.body.filter(p=>p?.type==='heading').length,6);
+  assert.equal(article.body.filter(p=>p?.type==='heading').length,7);
+  assert.equal(article.body.at(-2),'There are ten more on the calendar.');
+  assert.equal(article.body.at(-1),'McDaniel has some nerve telling us life is short.');
+  assert.ok(article.body.some(p=>p?.type==='heading'&&p.text==='Which brings us back to The Love Boat.'));
 });
 
-test('embedded clips avoid duplicate links and non-embedded sources survive',()=>{
+test('requested clip embeds replace standalone links without duplicate captions',()=>{
   const links=article.body.filter(p=>p?.type==='rich').map(p=>p.html.match(/href="([^"]+)"/)[1].replaceAll('&amp;','&'));
-  assert.deepEqual(links,expectedLinks.filter(url=>!url.startsWith('https://x.com/')&&!url.includes('Hf-SPMJ0P3Y')));
-  assert.equal(links.length,5);
+  assert.deepEqual(links,['https://www.barstoolsports.com/video/3580559/2-minute-warning-or-the-gruden-family-football-show-week-9']);
   for(const p of article.body.filter(p=>p?.type==='rich')){
     assert.match(p.html,/target="_blank" rel="noopener noreferrer"/);
     assert.doesNotMatch(p.html,/<script|onerror|onclick/i);
   }
   const clips=article.body.filter(p=>p?.type==='xclip');
-  assert.equal(clips.length,8);
-  assert.deepEqual(clips.map(p=>p.url),expectedLinks.filter(url=>url.startsWith('https://x.com/')&&!url.includes('2117743371523629290')));
-  assert.ok(!JSON.stringify(article.body).includes('2117743371523629290'));
+  assert.equal(clips.length,10);
+  assert.deepEqual(clips.map(p=>p.url),expectedClips);
+  for(const removed of ['2117743371523629290','2117042936831778965','R9maQiL9onk'])assert.ok(!JSON.stringify(article.body).includes(removed));
   for(const clip of clips)assert.ok(clip.url.endsWith('/status/'+clip.id));
-  assert.deepEqual(article.body.filter(p=>p?.type==='youtube').map(({id,start})=>[id,start||0]),[
-    ['Hf-SPMJ0P3Y',0]
-  ]);
-  // Chargers-owned YouTube clips prohibit external embedding. Keep their original watch links.
-  assert.ok(links.includes('https://www.youtube.com/watch?v=gfRIrR8GNIE&t=603'));
-  assert.ok(links.includes('https://www.youtube.com/watch?v=R9maQiL9onk'));
+  assert.deepEqual(article.body.filter(p=>p?.type==='youtube').map(({id,start})=>[id,start||0]),[['Hf-SPMJ0P3Y',0]]);
   assert.ok(read('app/components/ArticleClip.jsx').includes('Watch the original clip on X'));
 });
 
@@ -85,8 +77,16 @@ test('Chargers section titles are substantially larger at mobile and desktop wid
 });
 
 
-test('Harbaugh watch link follows the complete no-surrender discussion',()=>{
-  const i=article.body.findIndex(p=>p?.html?.includes('R9maQiL9onk'));
-  assert.ok(article.body[i-1].startsWith('There are ten more games on the schedule.'));
-  assert.ok(article.body[i+1].startsWith('After the Rams game, Quentin Lake'));
+test('approved copy cuts and clip placement remain intact',()=>{
+  const prose=article.body.filter(p=>typeof p==='string').join('\n');
+  assert.match(prose,/a categorical error/);
+  assert.match(prose,/the supreme nihilist Mike McDaniel himself/);
+  assert.match(prose,/Harbaugh has prepared an Alamo speech/);
+  assert.doesNotMatch(prose,/Normandy|I am prepared to hear an argument that/);
+  assert.ok(article.body.includes('And then, finally, we get to Justin Herbert.'));
+  const i=article.body.findIndex(p=>p?.id==='2118118709340627173');
+  assert.equal(article.body[i-1],'Houston pass rusher Will Anderson Jr. has nevertheless offered a generous appraisal.');
+  assert.ok(article.body[i+1].startsWith("Somewhere in the Texans' locker room"));
+  const css=read('app/globals.css');
+  assert.match(css,/\.chargersArticle \.articleBody>p:first-child:first-letter\{float:none;font:inherit;line-height:inherit;padding:0;margin:0\}/);
 });
