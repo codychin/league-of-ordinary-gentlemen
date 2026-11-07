@@ -91,12 +91,12 @@ for(const root of ['', '/doge','/sunday-crew'])for(const scheme of ['light','dar
  const clips=page.locator('.articleBody > figure');
  await expect(clips).toHaveCount(11);
  for(const clip of await clips.all()){
-  await expect.poll(async()=>{
-   const frame=clip.locator('iframe');
-   if(await frame.count() && await frame.first().isVisible())return true;
-   const fallback=clip.getByRole('link',{name:'Watch the original clip on X →'});
-   return await fallback.count()===1 && await fallback.isVisible() && /^https:\/\/x\.com\/[^/]+\/status\/\d+$/.test(await fallback.getAttribute('href')||'');
-  },{message:'Each X clip has a visible embed or a verified original-link fallback'}).toBe(true);
+  await expect.poll(()=>clip.evaluate(figure=>{
+   const visible=el=>!!el&&el.getClientRects().length>0&&getComputedStyle(el).visibility!=='hidden'&&getComputedStyle(el).display!=='none';
+   if([...figure.querySelectorAll('iframe')].some(visible))return true;
+   const fallback=[...figure.querySelectorAll('a')].find(a=>a.textContent.trim()==='Watch the original clip on X →');
+   return visible(fallback)&&/^https:\/\/x\.com\/[^/]+\/status\/\d+$/.test(fallback.href);
+  }),{message:'Each X clip has a visible embed or a verified original-link fallback'}).toBe(true);
  }
 
  await expect(page.locator('a.back')).toHaveAttribute('href',root||'/');
