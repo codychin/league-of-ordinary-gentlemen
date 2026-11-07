@@ -14,7 +14,9 @@ This is the common editorial reference for the consolidated newsroom conversatio
 a request for Cody to relay instructions between chats. It does not claim that historical
 conversations have been merged or that another conversation has received or read it. Nothing here authorizes automatic publication,
 paid generation, a premium render, a production deployment or a change in spending.
-Cody is currently approving everything. A machine's quality judgment is not his approval.
+Cody retains approval of full articles and matchup copy. His separately authorized Sunday
+Live Desk posts are a limited exception, not broader publication permission. A machine's
+quality judgment does not create either kind of authorization.
 
 ## Our purpose and the bar
 
@@ -258,7 +260,7 @@ do not turn the last line into a reusable flourish about impermanence.
   through the work and through Cody's direct exchanges with them.
 
 The code-side contract and its limits are documented in
-[the culture delivery map](https://github.com/codychin/league-of-ordinary-gentlemen/blob/codex/editorial-culture-2026-10-17/docs/editorial-culture-wiring.md).
+[the culture delivery map](editorial-culture-wiring.md).
 Passing software tests proves delivery and review-shape enforcement, not taste, originality,
 laughter or love. The next meaningful proof is a better piece, not another declaration
 that the room understands.
@@ -306,9 +308,12 @@ must be identified rather than invented. Cody should not have to act as message 
    been prepared on a draft branch. The pre-handoff code head passed tests and build.
    This document adds a complete common reference and whole-piece benchmark interpretation;
    it does not activate the worker or certify prose quality.
-2. **Owner approval before rollout:** the existing capped worker can insert a post after
-   machine review and has no verified Cody approval receipt. Keep this a rollout blocker.
-   Establish and test an owner-approval or explicitly non-publishing route before activation.
+2. **Publication boundary:** the existing capped worker can insert a post after machine
+   review and has no per-post owner-approval receipt. This was flagged at the October
+   handoff; Cody separately authorized Sunday Live Desk posts without per-post approval
+   (messages `Sentinel_2ebfe4626670819196f4e7bc6a5b2bcd` and
+   `Sentinel_0f44e5eb1c6c81918f1f4126cd59f89a`). Preserve that limited scope. It does not
+   authorize full articles, matchup copy, additional spending or a deployment of this patch.
 3. **Discovery and comparison evidence:** PR #39 is separate discovery work, not merged by
    this handoff. Current writer packets can lack original artifacts and closest-coverage
    comparisons. Improve evidence delivery rather than letting prompts invent it. The
@@ -320,5 +325,101 @@ must be identified rather than invented. Cody should not have to act as message 
    correspondent chats have been merged or silently edited.
    Use this conversation for new direction; state any missing historical context precisely.
 
-Refresh this status from actual repository and deployment evidence before acting on it.
-These are open loops, not claims that somebody is working on each of them between turns.
+The list above records the October handoff, not current deployment status. PR #40 was
+merged on October 17, 2026; PR #39 remained open when checked on November 7. The current
+main branch contains that contract, but a merged source is not verification of the
+deployed worker. Refresh other open loops from actual evidence before acting on them.
+
+## Feedback-to-draft and review (November 7, 2026)
+
+The Chargers revisions exposed the same weakness across more than one draft: researched
+material and isolated jokes were standing in for a writer developing an idea. Cody
+explicitly made the learning newsroom-wide. The
+[scoped feedback record](editorial-feedback/2026-11-07-chargers.md) preserves both exact
+rounds, their chronology, the praised passages and the boundary between general craft
+and this article's jokes. Later instructions supersede earlier suggestions.
+
+This is a working loop, not a new mandatory article structure:
+
+1. **Carry the right feedback.** Read current guidance and the relevant complete
+   benchmark, not an obsolete pinned summary. Identify the source revision used.
+   Separate newsroom-wide craft, a correspondent's growth and this assignment's
+   instructions. Do not globalize a local joke, metaphor, subject or tone.
+2. **Prepare a compact piece brief before the authorized draft.** Name the premise,
+   the writer's specific way of seeing it, how its sections develop that premise,
+   verified factual anchors versus imagined comic explanations, and any praised
+   passages that must survive. This is an editorial artifact, not prose to show readers.
+3. **Write the piece, not the research notes.** Facts, stats, scenes and clips must
+   change the argument, deepen the person or reveal a new absurd consequence. Avoid
+   repeated evidence and disconnected one-liners. Give the whole piece shape through
+   setup, progression, transitions and payoffs. A general feature is not a game recap.
+   Actual matchup reporting still uses consequential turning points, not a play ledger.
+4. **Let satire work.** Obviously imagined motives and counterfactual explanations
+   need not be literal truths. Do not drain their comic energy by treating them as
+   reporting errors. Verify their factual anchors, however, and do not fabricate quotes,
+   footage, statistics, medical history, relationships, firsthand access or sourced
+   motives. Satirical voice must make invention distinguishable from reporting without
+   explaining every joke or adding boilerplate disclaimers to every paragraph.
+5. **Review the actual draft separately before delivery.** Point to exact passages,
+   not “voice is stronger”: where the argument develops, what only this writer notices,
+   what the fact or clip framing adds, how a setup pays off and what was preserved.
+   Use a byline-swap test as a diagnostic, not a requirement for caricature. Revise weak
+   sections and reread the complete piece, including transitions and ending. No forced
+   criticism quota or automatic funny score.
+6. **Leave an application receipt with that revision.** Briefly record the feedback
+   source and scope, specific changes, preserved strengths and unresolved questions.
+   In the worker this lives in passage-specific review evidence; manual drafting uses
+   the existing working draft/review record. No parallel database or recurring job is
+   required. Review and any approval belong to that exact revision.
+7. **Test the learning on work.** The next relevant piece must demonstrate the change.
+   Cody's response remains editorial evidence. Do not call feedback internalized because
+   a prompt was saved, a checklist passed or a writer acknowledged it.
+
+Casual correspondent conversations remain conversations; apply selection and voice
+judgment without demanding a full review packet. Pitches remain pitches. The loop does
+not authorize unrequested articles, publication, spending, extra model calls or new jobs.
+
+### Preserve the room's founding distinctions
+
+Later all-hands guidance remains in force (Cody, October 16 Eastern,
+`Sentinel_d7f3b568d268819196a7bc2c6d2ed0e3`). Maude's value is a subtle, non-obvious
+implication substantiated by evidence, not familiar numbers. Marnie's first editorial
+act is selecting a non-obvious subject, as in Jubilee Line; dressing up an easy joke
+does not make it hers. Hollis's Jameis benchmark earns its progression and translations
+through revision, without forcing that arc into every story. Conrad's blunt pragmatic
+pieces are achieved benchmarks; his unexpected profound return-turn remains an aspiration,
+not a completed canonical accomplishment or mandatory optimistic ending. He retains
+latitude for political subjects. Sabine's Maracanã theory and ending are inseparable;
+neither its ending nor an unverified claim of originality is portable. Dashiell's layered
+Jags/London/Spurs contrasts and Asset Class's emotional arithmetic show interlocking
+thinking, not a formula to repeat. None of these distinctions is overwritten by the
+Chargers assignment's particular brutality or metaphors.
+
+Cody's originality standard (`Sentinel_940d7ea607c081919f0568f2e628a68c`) remains:
+strive for defensible uniqueness before a strong POV without credit to another author.
+Retain the source trail and independently noticed contribution; explicitly credit another
+writer's distinctive thesis, scene sequence, joke or interpretation. No finite check
+certifies universal originality.
+
+Cody's November 6 sports-centered correction (`Sentinel_b76b17759dfc8191b24858ae885b2a4a`)
+also governs discovery: sports must be a substantive subject, not a token link attached
+to a general-interest item. Sport-connected culture, economics, politics and ordinary
+life remain available to the correspondents. This supersedes older “culture can stand
+alone” shorthand where it would produce standalone non-sports stories, without requiring
+fantasy ties, generic scores or familiar recaps.
+
+### Delivery status for this update
+
+The five existing writing/discovery schedules were updated and individually re-read on
+November 7 UTC: newsroom rotation, original-story scouting, Thursday matchup preparation,
+Thursday script delivery and Tuesday recap preparation. Their saved prompts carry this
+learning directly and now request current canonical sources rather than the old October
+commit. Timing, enabled state, destinations and existing approval limits were unchanged.
+The read-back verifies saved instructions only; no subsequent run or better finished
+piece is claimed here. Score-only schedules and paused legacy jobs were not changed.
+
+Code and documentation in this change remain subject to review and deployment. Do not
+infer that the live Supabase worker is running the new contract. Refer to the updated
+delivery map for the precise source-side tests and the unchanged publication boundary.
+
+

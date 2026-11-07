@@ -61,3 +61,45 @@ They prove gate behavior and instruction delivery, not subjective writing qualit
 
 Keep this patch in review until queue concurrency and destination isolation are
 resolved and a controlled live trial has assessed the additional model calls.
+
+
+## Scoped feedback application (November 7, 2026)
+
+Contract `2026-11-07.1` turns the newsroom-wide lessons from article revision into
+instructions at discovery, pitching, selection, draft, revision and review. All six
+desks retain their own lenses. Sports-centered selection, a controlling observation,
+comic development, evidence that earns its space, legible imaginative satire and
+preservation of approved strengths are common standards. Article-local corrections,
+jokes and endings are not universal templates; latest feedback wins within its scope.
+
+The draft/revision call applies these choices before writing; the existing review
+JSON supplies the compact receipt under `checks["feedback-application"].evidence`.
+It must cite actual passages, what changed, what was retained and unresolved issues.
+When no prior feedback or approved strengths are supplied, review records that absence
+and assesses the current craft rules instead of inventing approval. This is not a new
+feedback ingestion service: assignment-specific corrections must actually be supplied
+in the packet/review. Changing a document does not deliver an article's private edits.
+
+Four added checks cover through-line/escalation, evidence earning space, coherent
+satire and feedback application. The existing distinct-voice check asks which actual
+choice would change under another byline. Missing or unresolved required checks block
+machine approval. Only the new contract receives the expanded review guidance;
+already-pinned older contracts retain their rules and schema. No database migration,
+extra paid call, model change or revision allowance is introduced.
+
+The reachable capped path still has no revision loop or per-post owner-approval
+receipt. A missing per-post receipt is not itself a blocker for scheduled Sunday Live
+Desk posts covered by Cody's explicit scoped standing authorization. Machine review
+is a quality gate, not the source of publication permission. Other publication needs
+approval of the exact version or its own explicit applicable standing authorization;
+material revisions outside such authorization need fresh approval. Sunday Live Desk
+authorization does not extend to full articles, matchup copy, media or additional
+spending. This patch changes no publication gate, schedule, control, deployment or
+authorization scope, and does not authorize activation of the proposed contract.
+These tests use fake network/database responses and establish instruction delivery and
+gates, not funniness, improved prose, internalized taste or production deployment:
+
+`node --test tests/editorial-culture.test.mjs tests/newsroom-worker.test.mjs tests/capped-desk.test.mjs`
+
+A separately authorized non-publishing editorial comparison remains necessary before
+claiming better articles. Preserve the existing rollout prerequisites above.

@@ -9,9 +9,9 @@ const approval=()=>({verdict:'approve',reason:'Fixture approval',issues:[],check
 
 test('all cultural and character corrections survive instruction serialization',()=>{
  const text=contractInstructions(contract)
- for(const rule of ['cultural-purpose','reader-respect','earned-delight','independent-angle','reporting-honesty','creative-ownership','continuing-edit']) assert.ok(text.includes(rule+':'))
+ for(const rule of ['sports-center','feedback-scope','piece-through-line','evidence-earns-space','coherent-satire','feedback-application','cultural-purpose','reader-respect','earned-delight','independent-angle','reporting-honesty','creative-ownership','continuing-edit']) assert.ok(text.includes(rule+':'))
  for(const phrase of ['Show, not tell is canonical','laugh-crying','not a compulsory sentimental ending','strongest moral compass','dealmaker','regression to the mean','almost religiously data-driven','tentative character aspiration','leads trends','age and lived experience','direct creative relationship']) assert.ok(text.includes(phrase),phrase)
- assert.equal(contract.version,'2026-10-17.2')
+ assert.equal(contract.version,'2026-11-07.1')
 })
 test('approval requires specific coverage of every culture review dimension',()=>{
  assert.equal(validReview(approval(),contract),true)
@@ -54,11 +54,13 @@ async function runShared(review){
 test('reachable capped draft and review receive culture; approved review retains version',async()=>{
  const {result,requests,posts}=await runShared(approval())
  assert.equal(result.published,true);assert.equal(requests.length,2)
- for(const request of requests){assert.match(request.instructions,/MANDATORY EDITORIAL CONTRACT 2026-10-17.2/);assert.match(request.instructions,/Show, not tell is canonical/);assert.match(request.instructions,/strongest moral compass/);assert.match(request.instructions,/Do not regurgitate other journalists/)}
+ for(const request of requests){assert.match(request.instructions,/MANDATORY EDITORIAL CONTRACT 2026-11-07.1/);assert.match(request.instructions,/Show, not tell is canonical/);assert.match(request.instructions,/strongest moral compass/);assert.match(request.instructions,/Do not regurgitate other journalists/)}
  assert.match(requests[1].instructions,/Return the complete review JSON schema/ )
  assert.match(requests[1].instructions,/"checks":\{"reader-respect"/)
  assert.match(requests[1].instructions,/Return checks as an object/)
  assert.match(requests[1].instructions,/missing necessary comparison is unverified/)
+ for(const request of requests) for(const id of ['sports-center','feedback-scope','piece-through-line','evidence-earns-space','coherent-satire','feedback-application']) assert.ok(request.instructions.includes(id+':'),id)
+ for(const id of contract.review_checks) assert.ok(requests[1].instructions.includes('\"'+id+'\"'),id)
  assert.equal(posts[0].review.contract_version,contract.version)
 })
 test('reachable shared path rejects missing or unverified culture review, without retry',async()=>{
@@ -76,4 +78,25 @@ test('resolved Maude canon combines conviction with evidence-sensitive updating'
  assert.match(text,/Every piece, not just the occasional standout/)
  assert.match(text,/ultimate point of view is emotional/)
  assert.match(text,/editorial lead owns the knowledge and source-discovery strategy/)
+})
+
+
+// The test can validate delivery and gate behavior, never whether these jokes work.
+test('feedback instructions scope learning without transplanting article-local jokes or voices',()=>{
+ const text=contractInstructions(contract)
+ for(const phrase of ['Latest explicit correction wins within its scope','all six writers without turning them into Crane','not a declarative claim the piece immediately disproves','Do not narrate what a reader can already see','One play cannot carry an unsupported season-wide or career-wide claim','Keep explicitly praised lines, images and endings','no prior feedback or approved strengths are supplied','legible through framing and voice','material sports, football or sporting-life connection']) assert.ok(text.includes(phrase),phrase)
+ assert.doesNotMatch(text,/Dropatron|Hampton|McConkey|Chargers|fire extinguisher/)
+})
+test('reachable shared review fails closed when any newly required craft check is absent',async()=>{
+ for(const id of ['through-line-and-escalation','evidence-earns-space','coherent-satire','feedback-application']){
+  const r=approval();delete r.checks[id]
+  const {result,requests,posts}=await runShared(r)
+  assert.equal(result.rejected,true,id);assert.equal(requests.length,2);assert.equal(posts.length,0)
+ }
+})
+
+test('publication permission preserves exact-version approval and scoped standing authorization',()=>{
+ const instruction=contract.rules.find(rule=>rule.id==='continuing-edit').instruction
+ for(const phrase of ['approval of the exact version or explicit applicable scoped standing authorization','obtain fresh Cody approval unless an applicable standing authorization covers it','Machine quality approval is not publication permission','scheduled Sunday Live Desk posts does not extend to full articles, matchup copy, media or additional spending','Do not infer or expand authorization from this contract']) assert.ok(instruction.includes(phrase),phrase)
+ assert.doesNotMatch(instruction,/currently approves everything/)
 })
