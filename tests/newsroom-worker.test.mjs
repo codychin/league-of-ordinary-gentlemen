@@ -105,10 +105,14 @@ test('every model stage actually receives the pinned corrections',async()=>{
   await actualModels.reviewPost(packet,pitch,post,[])
   await actualModels.revisePost(packet,pitch,post,{})
   assert.equal(requests.length,6)
+  for(const id of editorialContract().review_checks) assert.ok(requests[4].instructions.includes('\"'+id+'\"'),id)
+  assert.match(requests[4].instructions,/compact receipt/)
+  assert.match(requests[4].instructions,/no prior feedback or approved strength was supplied/)
   for(const request of requests) {
-   assert.match(request.instructions,/MANDATORY EDITORIAL CONTRACT 2026-10-17.2/)
+   assert.match(request.instructions,/MANDATORY EDITORIAL CONTRACT 2026-11-07.1/)
    assert.match(request.instructions,/first-person/)
    assert.match(request.instructions,/reluctant acceptance of flawed audio/)
+   for(const id of ['sports-center','feedback-scope','piece-through-line','evidence-earns-space','coherent-satire','feedback-application']) assert.ok(request.instructions.includes(id+':'),id)
   }
  }finally{globalThis.fetch=oldFetch;globalThis.Deno=oldDeno}
 })
@@ -163,3 +167,52 @@ test('model packet preserves box score labels, facts and sources and deduplicate
  assert.equal(game.boxscore.players[0].team.logo,'discard')
 })
 
+
+
+test('new contract applies to all six assigned writers at draft, review and revision',async()=>{
+ const oldFetch=globalThis.fetch,oldDeno=globalThis.Deno,requests=[]
+ globalThis.Deno={env:{get:()=> 'test-key'}}
+ globalThis.fetch=async(url,options)=>{requests.push(JSON.parse(options.body));return {ok:true,json:async()=>({output:[{content:[{type:'output_text',text:'{}'}]}]})}}
+ try{
+  for(const writer of Object.keys(editorialContract().desks)){
+   const packet={editorial_contract:editorialContract()},assigned={...pitch,writer},draft={...post,writer}
+   await actualModels.writePost(packet,assigned)
+   await actualModels.reviewPost(packet,assigned,draft,[])
+   await actualModels.revisePost(packet,assigned,draft,{verdict:'revise',issues:['Cut recap; retain the approved image']})
+   for(const request of requests.slice(-3)){
+    assert.equal(JSON.parse(request.input.split('INPUT:\n')[1]).pitch.writer,writer)
+    assert.ok(request.instructions.includes(writer+': '+packet.editorial_contract.desks[writer]))
+    assert.match(request.instructions,/Before a draft or revision/)
+    assert.match(request.instructions,/Keep explicitly praised lines, images and endings/)
+   }
+  }
+  assert.equal(requests.length,18)
+ }finally{globalThis.fetch=oldFetch;globalThis.Deno=oldDeno}
+})
+test('already pinned snapshots keep their rules and review schema, not newest defaults',async()=>{
+ const old={version:'fixture-pinned-old',rules:[{id:'old-rule',instruction:'Pinned old instructions'}],desks:{...editorialContract().desks},max_revisions:2,review_checks:['reader-respect']}
+ const f=fixture();f.state.run.packet.editorial_contract=old
+ let seen
+ f.models.writePost=async(packet)=>{seen=packet.editorial_contract;return {...post}}
+ await advanceRun(f.db,f.models)
+ assert.deepEqual(seen,old)
+ assert.equal(f.state.run.draft.editorial.contract_version,old.version)
+ const oldFetch=globalThis.fetch,oldDeno=globalThis.Deno,requests=[]
+ globalThis.Deno={env:{get:()=> 'test-key'}}
+ globalThis.fetch=async(url,options)=>{requests.push(JSON.parse(options.body));return {ok:true,json:async()=>({output:[{content:[{type:'output_text',text:'{}'}]}]})}}
+ try{
+  await actualModels.reviewPost({editorial_contract:old},pitch,post,[])
+  assert.match(requests[0].instructions,/MANDATORY EDITORIAL CONTRACT fixture-pinned-old/)
+  assert.match(requests[0].instructions,/old-rule: Pinned old instructions/)
+  assert.doesNotMatch(requests[0].instructions,/feedback-scope:|sports-center:|2026-11-07.1|compact receipt|For through-line-and-escalation/)
+  const schema=JSON.parse(requests[0].instructions.split('Return the complete review JSON schema: ')[1].split('. For approval')[0])
+  assert.deepEqual(Object.keys(schema.checks),['reader-respect'])
+ }finally{globalThis.fetch=oldFetch;globalThis.Deno=oldDeno}
+})
+test('legacy workflow cannot approve a new-contract draft with only the earlier five checks',async()=>{
+ const f=fixture();await advanceRun(f.db,f.models)
+ const oldChecks=Object.fromEntries(['reader-respect','entertainment-and-movement','distinct-voice','independent-angle','reporting-honesty'].map(id=>[id,checks[id]]))
+ f.models.reviewPost=async()=>({verdict:'approve',reason:'Only old coverage',issues:[],checks:oldChecks})
+ await assert.rejects(advanceRun(f.db,f.models),/Invalid editorial review/)
+ assert.equal(f.state.posts.length,0)
+})
