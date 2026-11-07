@@ -1,0 +1,225 @@
+{
+  "kind": "written-preview-release",
+  "season": 2026,
+  "week": 9,
+  "revision": "v1b-current-20261107",
+  "sourcePacket": {
+    "libraryId": "libfile_d955d64cf3e08191b0bf09ae28946702",
+    "sha256": "a4a14bfab367a19287595275b5214c0a83f69c38f44fa2b4bf5f5b279a3eebaa"
+  },
+  "editorialApproval": "2026-11-05T22:55:33.670Z",
+  "publicationApproval": "Cody: Yes, to publishing 18 approved written previews and rendering/publishing matching videos using existing credits, November 7 2026.",
+  "videoStatus": "separate release; no new video availability claimed",
+  "history": [
+    {
+      "state": "source_verified",
+      "detail": "All 18 text bodies copied verbatim from approved v1a Library packet. Supabase prior rows for DOGE Sabine and Sunday Crew Dashiell did not contain approved corrections."
+    },
+    {
+      "state": "source_refreshed",
+      "detail": "All36 rosters,18 pairings and3 standings read authenticated November7. Closed Thursday decisions, filled slots and final injury reports updated. Canonical v1a Greg/Matt lead reversal contradicted actual standings: Greg5–3,Matt3–5; corrected factual direction."
+    }
+  ],
+  "items": [
+    {
+      "edition": "doge",
+      "teamIds": [
+        "1",
+        "7"
+      ],
+      "writer": "crane",
+      "headline": "The two places have been filled",
+      "bodySha256": "25824ff64fe04c5d1cd19ad8cd837ac02b362b7cdd39c8a701371a254489ce76"
+    },
+    {
+      "edition": "doge",
+      "teamIds": [
+        "2",
+        "4"
+      ],
+      "writer": "pike",
+      "headline": "The same record bought differently",
+      "bodySha256": "c110d3410eedb333809e581cd08c07bf6697af4c92d29ea33807274e54745952"
+    },
+    {
+      "edition": "doge",
+      "teamIds": [
+        "3",
+        "11"
+      ],
+      "writer": "gannon",
+      "headline": "Which kind of depth repeats?",
+      "bodySha256": "8731605e47b54cbdfd531663dcc0e59a079e304452fa2215be3db3383d1bf771"
+    },
+    {
+      "edition": "doge",
+      "teamIds": [
+        "5",
+        "9"
+      ],
+      "writer": "kells",
+      "headline": "The man from the bench is still there",
+      "bodySha256": "8338be39801b8e8ed98d079ee2b1647bd0ed7192af732a312da2d935eab5f5b6"
+    },
+    {
+      "edition": "doge",
+      "teamIds": [
+        "6",
+        "10"
+      ],
+      "writer": "march",
+      "headline": "An improvement with limits",
+      "bodySha256": "e06b318d4da56a53520b3c4f821e8efd9d151954ec3a0f3bcd15c66fbdb47e0e"
+    },
+    {
+      "edition": "doge",
+      "teamIds": [
+        "8",
+        "12"
+      ],
+      "writer": "sorrell",
+      "headline": "The successful lineup cannot stay",
+      "bodySha256": "1c74cf2f69a18bdc92ee2b5ee683771e18a33d25f220c8de01b836cbcd6932e6"
+    },
+    {
+      "edition": "loog",
+      "teamIds": [
+        "1",
+        "7"
+      ],
+      "writer": "sorrell",
+      "headline": "First place has to play somebody",
+      "bodySha256": "c18a7560ec1c3da551c637166f676baf3b4a012723d178cd510fe2673e3e30ab"
+    },
+    {
+      "edition": "loog",
+      "teamIds": [
+        "2",
+        "11"
+      ],
+      "writer": "gannon",
+      "headline": "The rebound has work left",
+      "bodySha256": "4fe6a0a8618533aa604920d9f8db9456b86352ab41034085f97f9c8c1ef70da0"
+    },
+    {
+      "edition": "loog",
+      "teamIds": [
+        "3",
+        "9"
+      ],
+      "writer": "crane",
+      "headline": "The flex slots are occupied",
+      "bodySha256": "2c51c33992807f849a1d2a7c352aead2e566b2765632f113d26bc3d6be77fa7a"
+    },
+    {
+      "edition": "loog",
+      "teamIds": [
+        "4",
+        "6"
+      ],
+      "writer": "pike",
+      "headline": "A good offense, an ordinary record",
+      "bodySha256": "d73580d73f29ddde5a939cc472208e7d7ac2be9b0054bc164085eaea0a69c72d"
+    },
+    {
+      "edition": "loog",
+      "teamIds": [
+        "5",
+        "10"
+      ],
+      "writer": "march",
+      "headline": "The expensive names are sitting down",
+      "bodySha256": "043ad9d1b65bd122232a4aa9c207b919f482bdd44d481057c88e9da7325990af"
+    },
+    {
+      "edition": "loog",
+      "teamIds": [
+        "8",
+        "12"
+      ],
+      "writer": "kells",
+      "headline": "The bench has been promoted",
+      "bodySha256": "a5ce6d690dccb57880ad990b46f486508c51bde86b1c4f909404e4eb93f4705b"
+    },
+    {
+      "edition": "sunday-crew",
+      "teamIds": [
+        "1",
+        "9"
+      ],
+      "writer": "march",
+      "headline": "The distinction is one afternoon",
+      "bodySha256": "ce826f22282977a559c886a96a6f2e638cacfb144a00d9636a4877ce221b671a"
+    },
+    {
+      "edition": "sunday-crew",
+      "teamIds": [
+        "2",
+        "8"
+      ],
+      "writer": "crane",
+      "headline": "The space after the decimal",
+      "bodySha256": "b7a820906460eebdd5bf1f01b42a142bb6a47f95bb6143a672a40a0bbe5f5cde"
+    },
+    {
+      "edition": "sunday-crew",
+      "teamIds": [
+        "3",
+        "7"
+      ],
+      "writer": "sorrell",
+      "headline": "First, put the points where they count",
+      "bodySha256": "3c6921c7e57042216be183db2c619b1ac62957abcd1e6f4d0089634c350f3b3c"
+    },
+    {
+      "edition": "sunday-crew",
+      "teamIds": [
+        "4",
+        "10"
+      ],
+      "writer": "kells",
+      "headline": "Please do not say good effort",
+      "bodySha256": "2a5cf26e8ab459267fcaaa4487b7662bfc387377b8670c3752f63e11c5602901"
+    },
+    {
+      "edition": "sunday-crew",
+      "teamIds": [
+        "5",
+        "11"
+      ],
+      "writer": "pike",
+      "headline": "The correction has a price",
+      "bodySha256": "32d56fc5681dd5a529aa479e753de2b3fb900e821e86d73692d018de4489c986"
+    },
+    {
+      "edition": "sunday-crew",
+      "teamIds": [
+        "6",
+        "12"
+      ],
+      "writer": "gannon",
+      "headline": "Remove one support and look again",
+      "bodySha256": "51f86ae645c9e629edf80e677bf686f0a794073bcbd070eed1cbb5874454f7b0"
+    }
+  ],
+  "refreshAuthorization": "November7 Cody Yes to refreshing dated previews/scripts against current verified data, publishing safe written previews, rendering videos using existing credits with owner review before video publication.",
+  "sources": [
+    "https://www.chiefs.com/news/week-9-injury-report-jets-vs-chiefs",
+    "https://www.philadelphiaeagles.com/news/giants-vs-eagles-injury-report-saquon-barkley-devonta-smith-cam-skattebo-2026-nfl-week-9",
+    "https://www.jaguars.com/news/game-report-2026-week-9-jaguars-33-ravens-10"
+  ],
+  "snapshotEvidence": [
+    {
+      "name": "current-standings-20261107.json",
+      "sha256": "759cc4aae7960878bb539391a549d8291b6e792b85ab16e141d7df706b3fff64"
+    },
+    {
+      "name": "current-rosters-20261107.json",
+      "sha256": "7e472f19105c9725ec7466cc8df5377daab4c177c2c5b04b7560e848a79a4250"
+    },
+    {
+      "name": "current-leagues-20261107.json",
+      "sha256": "41151756597babaf425313cde1ff2f92ba31ff5209d20b0cf9cf93da53f1c137"
+    }
+  ]
+}

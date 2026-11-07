@@ -15,13 +15,14 @@ for(const root of ['', '/doge', '/sunday-crew'])for(const standalone of [false,t
     if(standalone)await expect(page.locator('html')).toHaveClass(/standaloneApp/);
     // Explicit inset fixtures: browsers without native safe-area emulation still
     // exercise the production anchor calculation, without moving the circle.
-    await page.addStyleTag({content:'.appTabBar{bottom:max(3px,calc(var(--qa-bottom-inset,0px) - 8px))!important}'});
+    await page.addStyleTag({content:standalone?'.appTabBar{margin-bottom:max(3px,calc(var(--qa-bottom-inset,0px) - 8px))!important}':'.appTabBar{bottom:max(3px,calc(var(--qa-bottom-inset,0px) - 8px))!important}'});
     for(const inset of [0,21,34]){
       await page.evaluate(v=>document.documentElement.style.setProperty('--qa-bottom-inset',`${v}px`),inset);
       for(const compact of [false,true]){
         await page.evaluate(y=>{
-          window.dispatchEvent(new WheelEvent('wheel',{deltaY:y-window.scrollY}));
-          window.scrollTo({top:y,behavior:'instant'});
+          const owner=document.documentElement.classList.contains('standaloneApp')?document.querySelector('.appScrollContent'):window;
+          window.dispatchEvent(new WheelEvent('wheel',{deltaY:y-(owner===window?scrollY:owner.scrollTop)}));
+          owner.scrollTo({top:y,behavior:'instant'});
         },compact?500:0);
         await expect(nav).toHaveAttribute('data-compact',String(compact));
         await expect(nav).toHaveCSS('height',compact?'50px':'54px');

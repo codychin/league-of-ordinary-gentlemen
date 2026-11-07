@@ -1,5 +1,6 @@
 'use client';
 
+import {appScrollOwner,appScrollTop} from '../../lib/app-scroll-owner.mjs';
 import {useEffect,useLayoutEffect,useRef,useState} from 'react';
 import ResilientImage from './ResilientImage';
 import {imageSrc} from '../../lib/editorial-images';
@@ -19,23 +20,27 @@ export default function AlsoShelf({videos=[]}){
     if(!viewerOpen)return;
     const root=document.documentElement;
     const body=document.body;
-    const scrollX=window.scrollX;
-    const scrollY=window.scrollY;
+    const owner=appScrollOwner();
+    const scrollX=owner===window?window.scrollX:owner.scrollLeft;
+    const scrollY=appScrollTop();
+    const ownerOverflow=owner===window?null:owner.style.overflow;
     const rootOverflow=root.style.overflow;
     const bodyOverflow=body.style.overflow;
     const hadReelsOpen=body.classList.contains('reelsOpen');
     root.style.overflow='hidden';
     body.style.overflow='hidden';
+    if(owner!==window)owner.style.overflow='hidden';
     body.classList.add('reelsOpen');
     return()=>{
       root.style.overflow=rootOverflow;
       body.style.overflow=bodyOverflow;
+      if(owner!==window)owner.style.overflow=ownerOverflow;
       if(!hadReelsOpen)body.classList.remove('reelsOpen');
       // Removing main's paint containment can clamp scroll at the document end.
       // Measure after unlock so both restored containment and real reflow count.
       const anchor=openingAnchor.current;
-      const top=anchor?.element.isConnected?window.scrollY+anchor.element.getBoundingClientRect().top-anchor.top:scrollY;
-      window.scrollTo({left:scrollX,top,behavior:'instant'});
+      const top=anchor?.element.isConnected?appScrollTop()+anchor.element.getBoundingClientRect().top-anchor.top:scrollY;
+      owner.scrollTo({left:scrollX,top,behavior:'instant'});
       openingAnchor.current=null;
     };
   },[viewerOpen]);

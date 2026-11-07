@@ -1,4 +1,5 @@
 'use client'
+import {appScrollOwner,appScrollTop,resetAppScroll} from '../../lib/app-scroll-owner.mjs'
 import ImageWarmup from './ImageWarmup'
 import useCompactMobileNav from './useCompactMobileNav'
 import {LIVE_DESK_ENABLED} from '../../lib/live-desk-state'
@@ -215,12 +216,12 @@ function MobileAppNav(){
       setActiveTab(within(culture)?'culture':within(scores)?'scores':'home')
     }
     const schedule=()=>{if(!frame)frame=requestAnimationFrame(update)}
-    window.addEventListener('scroll',schedule,{passive:true})
+    document.addEventListener('scroll',schedule,{passive:true,capture:true})
     window.addEventListener('resize',schedule)
     const resize=new ResizeObserver(schedule)
     resize.observe(document.body)
     schedule()
-    return()=>{cancelAnimationFrame(frame);resize.disconnect();window.removeEventListener('scroll',schedule);window.removeEventListener('resize',schedule)}
+    return()=>{cancelAnimationFrame(frame);resize.disconnect();document.removeEventListener('scroll',schedule,true);window.removeEventListener('resize',schedule)}
   },[pathname,isEditionHome])
   const tabFor=hash=>{
     if(isEditionTeams) return 'teams'
@@ -230,7 +231,6 @@ function MobileAppNav(){
     if(hash==='#scores'||hash==='#week4'||hash==='#current-scores'||hash==='#scores-week3') return 'scores'
     return hash==='#culture'?'culture':'home'
   }
-  const resetAppScroll=()=>window.scrollTo({top:0,left:0,behavior:'instant'})
   const scrollSection=id=>{
     pendingScroll.current?.()
     pendingScroll.current=scrollToSection(id==='week4'?'scores':id)
@@ -373,7 +373,7 @@ function PullToRefresh(){
       indicator.classList.remove('visible','ready','refreshing')
     }
     const start=event=>{
-      if(window.scrollY>0||event.touches.length!==1||(event.target instanceof Element&&event.target.closest('input,textarea,select,button'))) return
+      if((appScrollOwner()!==window&&!appScrollOwner().contains(event.target))||appScrollTop()>0||event.touches.length!==1||(event.target instanceof Element&&event.target.closest('input,textarea,select,button'))) return
       startY=event.touches[0].clientY
       tracking=true
     }
