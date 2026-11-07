@@ -2,7 +2,8 @@ import archivedEditions from '../../../data/week8-edition-archives.json';
 import {isMatchupFinal} from '../../../lib/matchup-status.mjs';
 import matchupColumnsWeek6 from '../../../data/week6-matchup-columns.json';
 import matchupColumnsWeek7 from '../../../data/week7-matchup-columns.json';
-const matchupColumns=[...matchupColumnsWeek6,...matchupColumnsWeek7];
+import matchupColumnsWeek9 from '../../../data/week9-matchup-columns.json';
+const matchupColumns=[...matchupColumnsWeek6,...matchupColumnsWeek7,...matchupColumnsWeek9];
 import matchupRecaps from '../../../data/matchup-recaps.json';
 import {selectMatchupColumn} from '../../../lib/select-matchup-column.mjs';
 import Link from 'next/link';
@@ -61,6 +62,7 @@ export default async function Matchup({params,searchParams,config}){
       <section className="matchupColumn">
         <div className="matchupColumnByline"><img src={writer.image} alt={writer.imageAlt}/><div><small>{column?"WEEK "+week+(isFinal?" • CORRESPONDENT RECAP":" • CORRESPONDENT PREVIEW"):isFinal?"FINAL RESULT":"MATCHUP IN PROGRESS"} • {writer.title.toUpperCase()}</small><b>{writer.name}</b></div></div>
         <h2>{column?.headline||(isFinal?"Awaiting correspondent recap":"Awaiting correspondent preview")}</h2>
+        {column?.sourceAsOf&&<p className="matchupUpdated">UPDATED NOVEMBER 7 • LINEUPS REMAIN SUBJECT TO CHANGE</p>}
         {(column?.body||(isFinal?"The result is final. The correspondent recap is awaiting publication.":"The correspondent preview for this pairing is awaiting publication.")).split(/\n\n+/).map((paragraph,index)=><p key={index}>{paragraph}</p>)}
       </section>
       <section className="matchupPrimer"><div className="matchupSectionHead"><small>THE BRIEF'S READ</small><h2>Numbers worth staring at</h2></div><div className="primerGrid">
