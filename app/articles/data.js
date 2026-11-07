@@ -1,3 +1,4 @@
+import {chargersArticle} from './hollis-chargers-thought-of-everything'
 import {jayZArticle} from './conrad-allow-me-to-reintroduce-myself'
 import {sportingPatArticle} from './marnie-delicate-etiquette-sporting-pat'
 import {conradJalenHurtsArticle} from './conrad-jalen-hurts-too-sick-to-sleep'
@@ -5,6 +6,7 @@ import {hollisWestVirginiaMedicalAssistance} from './hollis-west-virginia-medica
 import {andYouAreArticle} from './sabine-and-you-are'
 import {ramsKickerArticle} from './hollis-rams-kicker-weight'
 export const articles = {
+'hollis-chargers-thought-of-everything': chargersArticle,
 'conrad-allow-me-to-reintroduce-myself': jayZArticle,
 'marnie-delicate-etiquette-sporting-pat': sportingPatArticle,
 'conrad-jalen-hurts-too-sick-to-sleep': conradJalenHurtsArticle,
