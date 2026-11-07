@@ -13,7 +13,8 @@ import rosters3 from '../../../../data/week7-loog-source/04-rosters-9-12.json';
 const week7Rosters=[...rosters1.rosters,...rosters2.rosters,...rosters3.rosters];
 import matchupColumnsWeek6 from '../../../../data/week6-matchup-columns.json';
 import matchupColumnsWeek7 from '../../../../data/week7-matchup-columns.json';
-const matchupColumns=[...matchupColumnsWeek6,...matchupColumnsWeek7];
+import matchupColumnsWeek9 from '../../../../data/week9-matchup-columns.json';
+const matchupColumns=[...matchupColumnsWeek6,...matchupColumnsWeek7,...matchupColumnsWeek9];
 import matchupRecaps from '../../../../data/matchup-recaps.json';
 import {selectMatchupColumn} from '../../../../lib/select-matchup-column.mjs';
 import Link from 'next/link'
@@ -102,7 +103,8 @@ export default async function MatchupPreview({params,searchParams}){
           <div className="matchupColumnByline"><img src={columnist.image} alt={columnist.imageAlt}/><div><small>WEEK {latest.week} • {final?'CORRESPONDENT RECAP':'CORRESPONDENT PREVIEW'}</small><b>{columnist.name}</b></div></div>
           {Number(latest.week)===8&&[idA,idB].includes(11)&&<p className="matchupUpdated">PROVIDER STAT CORRECTION • NOVEMBER 5: Team 11’s final increased from 140.30 to 141.05 after Michael Wilson’s score increased by 0.75. The result is unchanged. The original approved recap below is preserved.</p>}
           <h2>{column?.headline||(final?'Awaiting correspondent recap':'Awaiting correspondent preview')}</h2>
-          {(column?.body||(final?'The result is final. The correspondent recap is awaiting publication.':'The correspondent preview for this pairing is awaiting publication.')).split(/\n\n+/).map((paragraph,index)=><p key={index}>{paragraph}</p>)}
+          {column?.sourceAsOf&&<p className="matchupUpdated">UPDATED NOVEMBER 7 • LINEUPS REMAIN SUBJECT TO CHANGE</p>}
+        {(column?.body||(final?'The result is final. The correspondent recap is awaiting publication.':'The correspondent preview for this pairing is awaiting publication.')).split(/\n\n+/).map((paragraph,index)=><p key={index}>{paragraph}</p>)}
           <p className="matchupUpdated">{final?'FINAL SCORE':'LATEST SCORE'}: {fmt(ls.score)}–{fmt(rs.score)}{!final&&' • Preview analysis was written before kickoff.'}</p>
         </section>
         <section className="lineupPreview"><div className="matchupSectionHead"><small>STARTING LINEUPS • WEEK {latest.week}</small><h2>Position by position</h2></div>{Number(latest.week)===week9Rosters.week&&<p className="matchupUpdated">LINEUP SNAPSHOT • {currentLineups.length===2?currentDetails.updatedAt:'NOVEMBER 5, 2026 • THURSDAY MORNING'}{currentLineups.length!==2&&' • MAY HAVE CHANGED SINCE RETRIEVAL'}</p>}{(!verifiedLeft.length||!verifiedRight.length)&&<p className="matchupUpdated">MOST RECENT STORED LINEUPS • NOT VERIFIED FOR WEEK {latest.week}</p>}{leftPlayers.length&&rightPlayers.length?<><div className="lineupTeams"><span>{left.teamName}</span><span>{right.teamName}</span></div>{Array.from({length:Math.max(leftPlayers.length,rightPlayers.length)},(_,i)=>[leftPlayers[i],rightPlayers[i]]).map(([l,r],i)=><div className="lineupRow" key={i}><div className="lineupPlayer left">{l&&<><small>{l.lineupSlot}</small><b>{l.name}</b><span>{l.points==null?'—':fmt(l.points)}</span></>}</div><div className="lineupVs">VS</div><div className="lineupPlayer right">{r&&<><small>{r.lineupSlot}</small><b>{r.name}</b><span>{r.points==null?'—':fmt(r.points)}</span></>}</div></div>)}</>:<p>Awaiting current-week roster verification.</p>}</section>
