@@ -51,16 +51,14 @@ export const chargersArticle = {
       "url": "https://x.com/YahooFantasy/status/2086947788932407614"
     },
     "Perhaps somebody in McDaniel's own fantasy league took Hampton one pick before he could. There are very few men equipped to answer that indignity by changing the player's actual working conditions. Most of us can only sulk in the group chat. McDaniel has a headset and two other running backs. If this is what happened, it is the most successful scheme he has installed in Los Angeles.",
-    {
-      "type": "break"
-    },
-    "On the Week 9 episode of The Gruden Family Football Show, Jon Gruden was assessing the Chargers' offense when he reached back through several decades of television for something more appealing. “I'd rather watch The Love Boat from 1978,” he said. We have reached the point where a football lifer is asking to spend Sunday on a cruise.",
+    "On the Week 9 episode of The Gruden Family Football Show, Jon Gruden was assessing the Chargers' offense when he reached back through several decades of television for something more appealing.",
     {
       "type": "xclip",
       "id": "2118854276839805017",
       "url": "https://x.com/BoltUpYo/status/2118854276839805017"
     },
-    "To start, any play that survives McDaniel's relationship with existence has to involve somebody who can receive the ball.",
+    "1978 is an oddly specific refuge for a show that ran nine seasons. Gruden has narrowed his search for something more stimulating than this offense to a particular vintage of people having misunderstandings near a swimming pool.",
+    "Back on land, any play that survives McDaniel's relationship with existence has to involve somebody who can receive the ball.",
     {
       "type": "heading",
       "text": "Hands Off: Quentin Johnston and Ladd McConkey"
@@ -171,7 +169,7 @@ export const chargersArticle = {
     "Now, look. She is spectacular. If Madison Beer agreed to marry me, I would require a reasonable period in which to recover my interest in the professional obligations of Hollis Crane. I might attend a meeting and spend much of it marveling that the other people still considered the meeting necessary. There would be days when identifying a disguised coverage felt like an unreasonable demand from a world that had already given me something considerably more interesting to think about.",
     "As a completely unscientific theory of Herbert's season, I find this more accessible than much of the material coming out of the coaching staff. It does not require a diagram. It requires imagining somebody explaining the importance of Charlie Kolar to a man who gets to marry Madison Beer.",
     "Gopher confuses Lenin with Lennon. Herbert confuses Charlie Kolar with Trent McDuffie. Both men have encountered an attractive woman and developed a sudden difficulty identifying the other people who matter to their jobs. The television version at least supplies a captain who interrupts the romance and reminds his employee that the rest of the ship exists. Herbert has Jim Harbaugh, who has reviewed the available material and concluded that everybody is entitled to an opinion, provided nobody surrenders.",
-    "At some stage, the Chargers are entitled to request three hours in which their quarterback remembers which adults are supposed to receive the ball. Herbert has chosen an excellent partner for one undertaking. He remains alarmingly undiscerning about the people he involves in the other.",
+    "At some stage, the Chargers ought to be able to request three hours in which their quarterback remembers which adults are supposed to receive the ball. Herbert has chosen an excellent partner for one undertaking. He remains alarmingly undiscerning about the people he involves in the other.",
     "Harbaugh promised a perfect combination, and perhaps, under this reading, he has one: a coordinator contemplating how little life remains and a quarterback with an unusually persuasive reason to enjoy his. Football has become the meeting neither man can understand why he still has to attend. Johnston cannot handle the material, McConkey may need to leave early, Hampton's responsibilities have been distributed among a committee and the defense would like credit for the part it completed before lunch. Harbaugh remains at the head of the table, insisting that nobody has quit. The opponents keep coming in, taking what they need and leaving. Seven meetings so far.",
     "There are ten more on the calendar.",
     "McDaniel has some nerve telling us life is short."
