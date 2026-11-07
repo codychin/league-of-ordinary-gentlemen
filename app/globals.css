@@ -667,3 +667,6 @@
 .chargersArticle .articleBody .articleSectionHead{font:700 clamp(32px,4.8vw,46px)/1.08 Georgia,serif;letter-spacing:-.7px;text-transform:none;color:var(--ink);margin:56px 0 24px;padding-top:0;border-top:0}
 /* A one-line opener should not force the following paragraph around a drop cap. */
 .chargersArticle .articleBody>p:first-child:first-letter{float:none;font:inherit;line-height:inherit;padding:0;margin:0}
+
+/* A quiet transition within the Herbert section, below the main section hierarchy. */
+.chargersArticle .articleBody .articleSubheading{font:italic 400 clamp(24px,3vw,28px)/1.25 Georgia,serif;letter-spacing:0;text-transform:none;color:var(--ink);margin:40px 0 22px;padding:0;border:0}

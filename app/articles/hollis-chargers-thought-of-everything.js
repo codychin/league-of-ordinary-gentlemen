@@ -51,12 +51,16 @@ export const chargersArticle = {
       "url": "https://x.com/YahooFantasy/status/2086947788932407614"
     },
     "Perhaps somebody in McDaniel's own fantasy league took Hampton one pick before he could. There are very few men equipped to answer that indignity by changing the player's actual working conditions. Most of us can only sulk in the group chat. McDaniel has a headset and two other running backs. If this is what happened, it is the most successful scheme he has installed in Los Angeles.",
-    "On the Week 9 episode of The Gruden Family Football Show, Jon Gruden was assessing the Chargers' offense when he reached back to 1970s television for something more appealing. “I'd rather watch The Love Boat,” he said. We have reached the point where a football lifer is asking to spend Sunday on a cruise.",
     {
-      "type": "rich",
-      "html": "<a href=\"https://www.barstoolsports.com/video/3580559/2-minute-warning-or-the-gruden-family-football-show-week-9\" target=\"_blank\" rel=\"noopener noreferrer\">Gruden considers another program, around 44:51</a>"
+      "type": "break"
     },
-    "First, any play that survives McDaniel's relationship with existence has to involve somebody who can receive the ball.",
+    "On the Week 9 episode of The Gruden Family Football Show, Jon Gruden was assessing the Chargers' offense when he reached back through several decades of television for something more appealing. “I'd rather watch The Love Boat in 1970,” he said. We have reached the point where a football lifer is asking to spend Sunday on a cruise.",
+    {
+      "type": "xclip",
+      "id": "2118854276839805017",
+      "url": "https://x.com/BoltUpYo/status/2118854276839805017"
+    },
+    "To start, any play that survives McDaniel's relationship with existence has to involve somebody who can receive the ball.",
     {
       "type": "heading",
       "text": "Hands Off: Quentin Johnston and Ladd McConkey"
@@ -64,7 +68,6 @@ export const chargersArticle = {
     "Quentin Johnston entered the league with tremendous after-the-catch potential, which has turned out to be an optimistic place to begin planning. The Chargers spent the 21st pick on a large, fast TCU receiver who could make ordinary completions extraordinary. They have spent much of the intervening period trying to secure the ordinary completion.",
     "The NFL's most recent installation of Dropatron has fifteen recorded career drops. Three have arrived this season alongside twelve catches, giving him four catches for every drop. His contribution to the collective effort is taking the occasional well-thrown pass and restoring it to the general condition of Chargers football.",
     "This constitutes a form of ball security. A ball on the ground cannot be intercepted. Nobody gets to run it back.",
-    "He had only two recorded drops last season. This matters because it establishes that improvement was possible, and that we are now being asked to remember it rather than enjoy it.",
     "On the other side of the formation stands Ladd McConkey, a paragon for the theological proposition that the best ability is availability. This season alone, he has left games with a rib injury, a foot injury and a concussion. Against Denver, he was active and played zero snaps. Harbaugh explained that he was available for an emergency and that they did not want to put him in.",
     "An emergency receiver who cannot be used during the emergency of watching this offense is an exceptionally Chargers invention. He was there, dressed and technically available, like the fire extinguisher inside a cabinet whose key has been stored in the burning building.",
     "The medical itinerary predates Los Angeles. Back trouble cost McConkey the first four games of Georgia's 2023 season, and an ankle problem followed later that year. A knee-and-shoulder absence arrived in his rookie NFL season. The following year's injury reports found room for his biceps, calf, ankle and foot. Football scouts spend considerable time asking whether a prospect's game will translate to the NFL. This part translated without difficulty.",
@@ -109,8 +112,7 @@ export const chargersArticle = {
     "In March, Harbaugh described McDaniel as a revolutionary upgrade: “How do you make a better candle? Make a light bulb.” He called the pairing with Herbert a “perfect combination.” The current practical development is that McDaniel plans to call the Houston game from the coaches' box instead of the sideline. Seven losses into the electrical revolution, they are moving the lamp upstairs.",
     "Harbaugh insists there is “no quit” and “no surrender.”",
     "Harbaugh has prepared an Alamo speech for a team still trying to get its season's point total into three digits. He is asking the men to hold the fort. They are having considerable difficulty holding a football.",
-    "He has the posture of a commander refusing to yield an inch. His team has been considerably more flexible about the yardage. There will be no surrender, except of possession, field position and every game they have played. These are apparently separate matters.",
-    "There are ten more games on the schedule. Harbaugh intends to keep addressing the troops as though courage is the missing ingredient. At some point, one of the lieutenants may need to interrupt the speech and explain what has been happening to the football.",
+    "He has the posture of a commander refusing to yield an inch. His team has been considerably more flexible about the yardage. There will be no surrender, except of possession, field position and every game they have played.",
     "After the Rams game, Quentin Lake supplied an opposing view on the St. Brown Podcast: Herbert was “seeing ghosts” and “throwing deli meat out there.” One safety had diagnosed both a haunting and a catering operation.",
     {
       "type": "xclip",
@@ -150,7 +152,7 @@ export const chargersArticle = {
     },
     "Somewhere in the Texans' locker room, I would like to believe, a teammate had a replay ready and a reasonable follow-up question. Out of his mind does cover more than one condition.",
     {
-      "type": "heading",
+      "type": "subheading",
       "text": "Which brings us back to The Love Boat."
     },
     "In a 1978 episode called “Gopher, the Rebel,” Gopher attends to a pretty passenger while the captain has to remind him that there are other passengers to board. She has a book by Lenin. Gopher thinks they are discussing John Lennon. An attractive woman has entered the workplace, and Vladimir Lenin is suddenly on the cover of Abbey Road.",

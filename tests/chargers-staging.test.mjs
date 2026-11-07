@@ -9,6 +9,7 @@ const expectedClips=[
   "https://x.com/wokdior/status/2117020743552905692",
   "https://x.com/PolymarketBlitz/status/1952420570836107771",
   "https://x.com/YahooFantasy/status/2086947788932407614",
+  "https://x.com/BoltUpYo/status/2118854276839805017",
   "https://x.com/TexansCommenter/status/2118356075510378912",
   "https://x.com/StBrownPodcast/status/2118045098503966799",
   "https://x.com/ESPNNFL/status/2118393718289924331",
@@ -21,23 +22,23 @@ const expectedClips=[
 test('staged Chargers preserves the approved November 7 copy revision',()=>{
   assert.equal(article.title,'The Chargers Have Thought of Everything');
   assert.equal(article.author,'crane');
-  assert.equal(createHash('sha256').update(JSON.stringify(article.body)).digest('hex'),'ae8e4de2f828db0b92cda0c657273aff81065f44712b6cdb19cf9fc9749db5d0');
-  assert.equal(article.body.filter(p=>p?.type==='break').length,0);
-  assert.equal(article.body.filter(p=>p?.type==='heading').length,7);
+  assert.equal(createHash('sha256').update(JSON.stringify(article.body)).digest('hex'),'5416f1e01e0673fb5a6a0a76dcf6e26c131838d8ceeddf2d4b50c89052a5ec51');
+  assert.equal(article.body.filter(p=>p?.type==='break').length,1);
+  assert.equal(article.body.filter(p=>p?.type==='heading').length,6);
   assert.equal(article.body.at(-2),'There are ten more on the calendar.');
   assert.equal(article.body.at(-1),'McDaniel has some nerve telling us life is short.');
-  assert.ok(article.body.some(p=>p?.type==='heading'&&p.text==='Which brings us back to The Love Boat.'));
+  assert.ok(article.body.some(p=>p?.type==='subheading'&&p.text==='Which brings us back to The Love Boat.'));
 });
 
 test('requested clip embeds replace standalone links without duplicate captions',()=>{
   const links=article.body.filter(p=>p?.type==='rich').map(p=>p.html.match(/href="([^"]+)"/)[1].replaceAll('&amp;','&'));
-  assert.deepEqual(links,['https://www.barstoolsports.com/video/3580559/2-minute-warning-or-the-gruden-family-football-show-week-9']);
+  assert.deepEqual(links,[]);
   for(const p of article.body.filter(p=>p?.type==='rich')){
     assert.match(p.html,/target="_blank" rel="noopener noreferrer"/);
     assert.doesNotMatch(p.html,/<script|onerror|onclick/i);
   }
   const clips=article.body.filter(p=>p?.type==='xclip');
-  assert.equal(clips.length,10);
+  assert.equal(clips.length,11);
   assert.deepEqual(clips.map(p=>p.url),expectedClips);
   for(const removed of ['2117743371523629290','2117042936831778965','R9maQiL9onk'])assert.ok(!JSON.stringify(article.body).includes(removed));
   for(const clip of clips)assert.ok(clip.url.endsWith('/status/'+clip.id));
@@ -89,4 +90,17 @@ test('approved copy cuts and clip placement remain intact',()=>{
   assert.ok(article.body[i+1].startsWith("Somewhere in the Texans' locker room"));
   const css=read('app/globals.css');
   assert.match(css,/\.chargersArticle \.articleBody>p:first-child:first-letter\{float:none;font:inherit;line-height:inherit;padding:0;margin:0\}/);
+});
+
+
+test('Gruden clip, exact user-confirmed quote and final cuts are preserved',()=>{
+  const i=article.body.findIndex(p=>p?.id==='2118854276839805017');
+  assert.equal(article.body[i-2].type,'break');
+  assert.match(article.body[i-1],/reached back through several decades of television/);
+  assert.ok(article.body[i-1].includes("I'd rather watch The Love Boat in 1970"));
+  assert.ok(article.body[i+1].startsWith('To start,'));
+  const prose=article.body.filter(p=>typeof p==='string').join('\n');
+  assert.doesNotMatch(prose,/He had only two recorded drops last season|These are apparently separate matters|There are ten more games on the schedule/);
+  assert.ok(read('app/articles/[slug]/page.js').includes('<h3 className="articleSubheading"'));
+  assert.match(read('app/globals.css'),/articleSubheading\{font:italic 400 clamp\(24px,3vw,28px\)/);
 });
