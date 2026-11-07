@@ -63,6 +63,8 @@ export function blocks(body) {
         tweetId: item.id,
         url: item.url || `https://x.com/i/status/${item.id}`,
       };
+    if (item.type === "subheading")
+      return { id, type: "rich", nodes: [{ kind: "em", children: [{ text: item.text }] }] };
     if (item.type === "heading")
       return { id, type: "heading", text: item.text };
     if (item.type === "break") return { id, type: "break" };

@@ -1,3 +1,4 @@
+import {chargersArticle} from './hollis-chargers-thought-of-everything'
 import bakerDraft from './maude-baker-comparative-merits-of-abstention/draft.json'
 import {danielJonesArticle} from './maude-saturation-bombing-daniel-jones'
 import {detroitSchoolArticle} from './marnie-detroit-school'
@@ -8,6 +9,7 @@ import {hollisWestVirginiaMedicalAssistance} from './hollis-west-virginia-medica
 import {andYouAreArticle} from './sabine-and-you-are'
 import {ramsKickerArticle} from './hollis-rams-kicker-weight'
 export const articles = {
+'hollis-chargers-thought-of-everything': chargersArticle,
 'maude-baker-comparative-merits-of-abstention': {title:bakerDraft.title,dek:bakerDraft.subtitle,body:bakerDraft.paragraphs,section:'FOOTBALL • STRATEGY & BAD PROCESS',author:'gannon',date:'NOVEMBER 2, 2026',week:8,image:'/images/editorial/baker-abstention/baker-falcons-20261101-mike-carlson.jpg'},
 'maude-saturation-bombing-daniel-jones': danielJonesArticle,
 'marnie-detroit-school': detroitSchoolArticle,
