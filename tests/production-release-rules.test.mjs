@@ -16,9 +16,13 @@ test('exactly three global front-page cards',()=>{
  assert.ok(section,'Missing global stories section');
  assert.equal((section[1].match(/<article className=\{front\.card\}/g)||[]).length,3);
 });
-test('London assignment follows the last featured article',()=>{
+test('oldest London assignment leaves the full homepage but remains globally archived',()=>{
  const s=readFileSync('app/components/SharedEditorialFront.js','utf8');
- assert.ok(s.indexOf('On Assignment: Dashiell Pike in London')>s.indexOf('aria-label="Featured Hollis Crane investigation"'));
+ assert.ok(!s.includes('dashiell-jaguars-london-future'));
+ const data=readFileSync('app/articles/data.js','utf8');
+ assert.ok(data.includes('"dashiell-jaguars-london-future":'));
+ assert.match(data,/export const archive=Object.entries\(articles\)/);
+ assert.ok(readFileSync('lib/editorial-scope.js','utf8').includes("'dashiell-jaguars-london-future'"));
 });
 
 test('every globally featured story resolves through the global edition allowlist',()=>{

@@ -1,4 +1,4 @@
-import {imageSrc,imageBackground} from '../../lib/editorial-images';
+import {imageBackground} from '../../lib/editorial-images';
 import Link from 'next/link';
 import styles from './ArchiveCta.module.css';
 import front from './SharedEditorialFront.module.css';
@@ -6,6 +6,7 @@ import PreviewAuthor from './PreviewAuthor';
 import EditorialStoryRail from './EditorialStoryRail';
 import {jayZArticle} from '../articles/conrad-allow-me-to-reintroduce-myself';
 import ResilientImage from './ResilientImage';
+import {chargersArticle} from '../articles/hollis-chargers-thought-of-everything';
 import {bakerPhoto} from '../articles/maude-baker-comparative-merits-of-abstention/photo';
 
 // Lead/card thumbnail: same embedded interview at 6.333529s, cropped only; original article hero retained.
@@ -18,13 +19,14 @@ function ImageLabel({byline,theme}){
 
 export default function SharedEditorialFront({archiveHref='/archive',root=''}){
   return <>
-<section className="morningBriefPreview sundayFront immersiveLead" data-editorial-system="a" data-editorial-layout="open-top" style={{paddingTop:0}} aria-label="Lead story: Baker Mayfield and the Comparative Merits of Abstention"><div className="sundayFrontGrid"><article className="sundayFeature sabinePackage"><Link href={root+"/articles/maude-baker-comparative-merits-of-abstention"} className={`sundayFeatureImage storylink ${front.tourHero}`} aria-label="Baker Mayfield article"><ResilientImage src={bakerPhoto.src} alt={bakerPhoto.alt} loading="eager" sizes="(max-width: 760px) 100vw, 65vw" style={{objectFit:"cover",objectPosition:"72% top"}}/></Link><div className="sundayFeatureCopy"><div className="sabinePackageIntro"><small>FOOTBALL • STRATEGY &amp; BAD PROCESS</small><Link href={root+"/articles/maude-baker-comparative-merits-of-abstention"} className="sabinePackageTitle storylink"><h2>Baker Mayfield and the Comparative Merits of Abstention</h2></Link><PreviewAuthor slug="maude-baker-comparative-merits-of-abstention" date="NOVEMBER 2, 2026"/><p className={front.leadDek}>An afternoon that satisfied the league’s scheduling requirements.</p></div></div></article></div></section>
+<section className="morningBriefPreview sundayFront immersiveLead" data-editorial-system="a" data-editorial-layout="open-top" style={{paddingTop:0}} aria-label="Lead story: The Chargers Have Thought of Everything"><div className="sundayFrontGrid"><article className="sundayFeature sabinePackage"><Link href={root+"/articles/hollis-chargers-thought-of-everything"} className={`sundayFeatureImage storylink ${front.tourHero}`} aria-label="Chargers investigation"><ResilientImage src={chargersArticle.image} alt={chargersArticle.imageAlt} loading="eager" sizes="(max-width: 760px) 100vw, 65vw" style={{objectFit:"cover",objectPosition:"50% 40%"}}/></Link><div className="sundayFeatureCopy"><div className="sabinePackageIntro"><small>INVESTIGATIONS • PRO FOOTBALL</small><Link href={root+"/articles/hollis-chargers-thought-of-everything"} className="sabinePackageTitle storylink"><h2>The Chargers Have Thought of Everything</h2></Link><PreviewAuthor slug="hollis-chargers-thought-of-everything" date="NOVEMBER 7, 2026"/><p className={front.leadDek}>An investigation into the considerable coordination required to make this many people useless at the same time.</p></div></div></article></div></section>
 
 <section className={front.recent} data-editorial-system="a" aria-label="Recent stories">
+<article className={front.card} aria-label="Maude Gannon on Baker Mayfield"><Link className={front.story} href={root+"/articles/maude-baker-comparative-merits-of-abstention"}><div className={front.image} role="img" aria-label={bakerPhoto.alt} style={{backgroundImage:imageBackground(bakerPhoto.src,640),backgroundPosition:"72% top"}}><ImageLabel byline="MAUDE GANNON • FOOTBALL" theme="THREE PASSES. ZERO YARDS."/></div><div className="eyebrow">FOOTBALL • STRATEGY &amp; BAD PROCESS</div><h3>Baker Mayfield and the Comparative Merits of Abstention</h3><PreviewAuthor slug="maude-baker-comparative-merits-of-abstention" date="NOVEMBER 2, 2026"/><p className={`${front.dek} editorialDeck`}>An afternoon that satisfied the league’s scheduling requirements.</p></Link></article>
 <article className={front.card} aria-label="Marnie Kells on the Detroit School"><Link className={front.story} href={root+"/articles/marnie-detroit-school"}><div className={front.image} role="img" aria-label="Detroit Lions teammates celebrate together on the field." style={{backgroundImage:imageBackground('/images/editorial/detroit-school/homepage-gibbs-dance.webp',640),backgroundPosition:"center top"}}><ImageLabel byline="MARNIE KELLS • CULTURE" theme="THE DETROIT SCHOOL • 2026"/></div><div className="eyebrow">MATTERS OF CULTURE • ART HISTORY</div><h3>A Study in Movement: The Detroit School, 2026</h3><PreviewAuthor slug="marnie-detroit-school" date="OCTOBER 26"/><p className={`${front.dek} editorialDeck`}>On the spontaneous birth of an artistic movement, and the evolution of human expression.</p></Link></article>
 <article className={front.card} aria-label="Maude Gannon on Daniel Jones"><Link className={front.story} href={root+"/articles/maude-saturation-bombing-daniel-jones"}><div className={front.image} role="img" aria-label="Dallas Turner and a Vikings teammate sack Daniel Jones." style={{backgroundImage:imageBackground('https://static.clubs.nfl.com/image/upload/t_new_photo_album/f_auto/vikings/kv8vl4woo5h0q5asdhm3.jpg',640),backgroundPosition:"center",backgroundSize:"contain",backgroundRepeat:"no-repeat",backgroundColor:"#111"}}><ImageLabel byline="MAUDE GANNON • FOOTBALL" theme="85.2 PERCENT"/></div><div className="eyebrow">FOOTBALL • STRATEGY &amp; BAD PROCESS</div><h3>On the Saturation Bombing of Daniel Jones (née Dimes)</h3><PreviewAuthor slug="maude-saturation-bombing-daniel-jones"/><p className={`${front.dek} editorialDeck`}>How Brian Flores declined all pleas for a ceasefire and continued carpet-blitzing the shit out of the Colts.</p></Link></article>
 
-<article className={front.card} aria-label="Conrad Sorrell on Jay-Z"><Link className={front.story} href={root+"/articles/conrad-allow-me-to-reintroduce-myself"}><div className={front.image} role="img" aria-label="Jay-Z at the Shawn Carter Foundation Carnival in 2011." style={{backgroundImage:imageBackground('/images/editorial/jay-z-lead.webp',640),backgroundPosition:jayZArticle.imageObjectPosition}}><ImageLabel byline="CONRAD SORRELL • COLUMN" theme="AN EXCELLENT CANDIDATE"/></div><div className="eyebrow">COLUMN • POWER & AMERICAN ARRANGEMENTS</div><h3>Allow Me to Reintroduce Myself</h3><PreviewAuthor slug="conrad-allow-me-to-reintroduce-myself"/><p className={`${front.dek} editorialDeck`}>Finding someone equal to the occasion is easier when you consider yourself the occasion.</p></Link></article>
+
 
 
 
@@ -32,6 +34,7 @@ export default function SharedEditorialFront({archiveHref='/archive',root=''}){
 
 
 </section>
+<section className="hero heroStack" data-editorial-system="a" aria-label="Conrad Sorrell on Jay-Z"><Link className="hero-copy storylink" href={root+"/articles/conrad-allow-me-to-reintroduce-myself"}><div className="photoHero" role="img" aria-label="Jay-Z at the Shawn Carter Foundation Carnival in 2011." style={{backgroundImage:imageBackground('/images/editorial/jay-z-lead.webp',640),backgroundPosition:jayZArticle.imageObjectPosition}}><ImageLabel byline="CONRAD SORRELL • COLUMN" theme="AN EXCELLENT CANDIDATE"/></div><div className="eyebrow">COLUMN • POWER & AMERICAN ARRANGEMENTS</div><h2>Allow Me to Reintroduce Myself</h2><PreviewAuthor slug="conrad-allow-me-to-reintroduce-myself"/><p className="standfirst">Finding someone equal to the occasion is easier when you consider yourself the occasion.</p></Link></section>
 <section className="hero heroStack" data-editorial-system="a" aria-label="Marnie Kells on sporting etiquette"><Link className="hero-copy storylink" href={root+"/articles/marnie-delicate-etiquette-sporting-pat"}><div className="photoHero" role="img" aria-label="Josh Allen speaks with Tracy Wolfson during a postgame interview." style={{backgroundImage:imageBackground('/images/editorial/allen-wolfson-interview-thumbnail.jpg',640),backgroundPosition:"center"}}><ImageLabel byline="MARNIE KELLS • CULTURE" theme="GOOD INTENTIONS"/></div><div className="eyebrow">MATTERS OF CULTURE • SPORTING LIFE</div><h2>The Delicate Etiquette of a Sporting Pat</h2><PreviewAuthor slug="marnie-delicate-etiquette-sporting-pat"/><p className="standfirst">Encouragement from an era with fewer follow-up questions.</p></Link></section>
 <section className={`hero heroStack ${front.featureSpread}`} data-editorial-system="a" aria-label="Conrad Sorrell on medical clearance"><Link className="hero-copy storylink" href={root+"/articles/conrad-jalen-hurts-too-sick-to-sleep"}><div className="photoHero" role="img" aria-label="Philadelphia Eagles quarterback Jalen Hurts" style={{backgroundImage:imageBackground('https://static.www.nfl.com/image/upload/t_editorial_landscape_12_desktop/league/yvnjwaq0gvfpmx7hmatz',640),backgroundPosition:"center 30%"}}><ImageLabel byline="CONRAD SORRELL • COLUMN" theme="WHEN MEDICAL CLEARANCE BECOMES NEGOTIABLE"/></div><div className="eyebrow">COLUMN • POWER & AMERICAN ARRANGEMENTS</div><h2>The Medical Clearance Industrial Complex</h2><PreviewAuthor slug="conrad-jalen-hurts-too-sick-to-sleep"/><p className="standfirst">Thirty-six hours without sleep. A blood clot. And somehow, a starting quarterback.</p></Link></section>
 <section className={`hero heroStack ${front.featureSpread} ${front.featureReverse}`} data-editorial-system="a" aria-label="Hollis Crane on the Rams kicker swap"><Link className="hero-copy storylink" href={root+"/articles/hollis-rams-kicker-weight"}><div className="photoHero" role="img" aria-label="Blake Grupe kicks a football for New Orleans" style={{backgroundImage:imageBackground('https://static.clubs.nfl.com/image/upload/t_editorial_landscape_12_desktop/saints/m2jfru6egwyvkpypfj8r',640),backgroundPosition:"center 40%"}}><ImageLabel byline="HOLLIS CRANE • INVESTIGATIONS" theme="A CONSIDERABLE REDUCTION IN PERSONNEL"/></div><div className="eyebrow">THE FOOTBALL DESK • PERSONNEL</div><h2>The Rams Have Lost 89 Pounds at Kicker</h2><PreviewAuthor slug="hollis-rams-kicker-weight"/><p className="standfirst">The NFL's largest kicker is out. One of its smallest has arrived. The equipment department has been given quite a lot of room.</p></Link></section>
@@ -85,32 +88,7 @@ export default function SharedEditorialFront({archiveHref='/archive',root=''}){
 
 
 
-<section className="morningBriefPreview sundayFront" data-editorial-system="a" style={{paddingTop:0}} aria-label="On Assignment: Dashiell Pike in London">
-  <div className="morningBriefFlag"><span>ON ASSIGNMENT</span><small>DASHIELL PIKE • LONDON • OCTOBER 7</small></div>
-  <div className="sundayFrontGrid">
-    <article className="sundayFeature sabinePackage">
-      <Link href={root+"/articles/dashiell-jaguars-london-future"} className={`sundayFeatureImage storylink ${front.tourHero}`}>
-        <ResilientImage loading="eager" decoding="async" style={{objectPosition:"center 42%"}} src="/api/dashiell-london-fans-image" alt="NFL fans gathered in London for an international game."/>
-        <ImageLabel byline="DASHIELL PIKE • LONDON" theme="TWO HOME MARKETS. ONE VERY STRANGE FRANCHISE."/>
-      </Link>
-      <div className="sundayFeatureCopy">
-        <div className="sabinePackageIntro">
-          <small>SPECIAL PROJECTS • CAPITAL & DEMOCRACY</small>
-          <Link href={root+"/articles/dashiell-jaguars-london-future"} className="sabinePackageTitle storylink"><h2>Is the NFL’s Future Hiding Inside Its Weirdest Franchise?</h2></Link>
-          <PreviewAuthor slug="dashiell-jaguars-london-future"/>
-          <p>The Jacksonville Jaguars spent years looking like an NFL problem to be solved. In London, they may have accidentally become something else.</p>
-        </div>
-        <div className="sabineInlineVideo dashiellLondonVideo" data-edition={root}>
-          <div className="sabineVideoLabel"><small><span className="sabineDesktopLabel">ON ASSIGNMENT • LONDON</span><span className="sabineMobileLabel">{root ? "DASHIELL PIKE • LONDON DISPATCH" : "FROM LONDON"}</span></small><span>0:29</span></div>
-          <div className="sabineVideoBody">
-            <video controls playsInline preload="none" poster={imageSrc('https://cdn.openart.ai/openart/thumbnail/production/2026-10/create-video/TLTpmJfydK54x1UaTK6G/cgt-20261008002242-mexhp_1791390729765_82dc1525.webp',640)} src="https://cdn.openart.ai/openart-ai/production/2026-10/create-video/TLTpmJfydK54x1UaTK6G/cgt-20261008002242-mexhp_1791390692996_b5b0afba.mp4"/>
-          </div>
-        </div>
-        <Link href={root+"/articles/dashiell-jaguars-london-future"} className="sabinePackageCta">READ THE DISPATCH →</Link>
-      </div>
-    </article>
-  </div>
-</section>
+
 
 </div>
 <div className={styles.archiveCta}>

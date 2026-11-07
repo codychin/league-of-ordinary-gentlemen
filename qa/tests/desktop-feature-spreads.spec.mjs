@@ -14,7 +14,7 @@ for(const root of ['', '/doge', '/sunday-crew']){
   expect(sequence.indexOf('Recent stories')).toBeLessThan(sequence.indexOf(labels[0]));
   await expect(page.locator('[aria-label="Recent stories"] > article')).toHaveCount(3);
   await expect(page.locator('.mobileLowerCarousel > section')).toHaveCount(3);
-  await expect(page.locator('.mobileStoryRows > section')).toHaveCount(5);
+  await expect(page.locator('.mobileStoryRows > section')).toHaveCount(4);
   for(let i=0;i<2;i++){
    const feature=i?second:first;const link=feature.locator('a.hero-copy');await expect(link).toHaveAttribute('href',`${root}/articles/${slugs[i]}`);
    const geometry=await link.evaluate(e=>{const box=el=>{const b=el.getBoundingClientRect();return {x:b.x,y:b.y,w:b.width,h:b.height};};return {all:box(e),photo:box(e.querySelector('.photoHero')),category:box(e.querySelector('.eyebrow')),title:box(e.querySelector('h2')),author:box(e.querySelector('.previewAuthor')),deck:box(e.querySelector('.standfirst')),overflow:e.scrollWidth>e.clientWidth};});
@@ -53,7 +53,7 @@ test('spread breakpoint and long-copy growth remain contained',async({page})=>{
  expect(growth.deckBottom).toBeLessThanOrEqual(growth.bottom);
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });
-const readingOrder=['maude-baker-comparative-merits-of-abstention','marnie-detroit-school','maude-saturation-bombing-daniel-jones','conrad-allow-me-to-reintroduce-myself','marnie-delicate-etiquette-sporting-pat','conrad-jalen-hurts-too-sick-to-sleep','hollis-rams-kicker-weight','maude-nfc-east-declines-winner','sabine-and-you-are','marnie-marvin-harrison-somewhere-else','marnie-hecklinski-use-your-words','marnie-time-traveling-goblin-paradox','conrad-tomlin-minecraft-cvs','marnie-corgi-he-wanted-them-to-know','dashiell-jaguars-london-future'];
+const readingOrder=['hollis-chargers-thought-of-everything','maude-baker-comparative-merits-of-abstention','marnie-detroit-school','maude-saturation-bombing-daniel-jones','conrad-allow-me-to-reintroduce-myself','marnie-delicate-etiquette-sporting-pat','conrad-jalen-hurts-too-sick-to-sleep','hollis-rams-kicker-weight','maude-nfc-east-declines-winner','sabine-and-you-are','marnie-marvin-harrison-somewhere-else','marnie-hecklinski-use-your-words','marnie-time-traveling-goblin-paradox','conrad-tomlin-minecraft-cvs','marnie-corgi-he-wanted-them-to-know'];
 for(const root of ['', '/doge', '/sunday-crew']){
  test(`${root||'Brief'} complete feed keeps ordered unique stories and operable secondary carousel`,async({page})=>{
   await page.route('**/functions/v1/brief-comments?*',r=>r.fulfill({json:{comments:[],votes:[]}}));
@@ -62,7 +62,7 @@ for(const root of ['', '/doge', '/sunday-crew']){
   const containers=page.locator('main > [data-editorial-layout], [aria-label="Recent stories"] > article, main > .hero, .mobileLowerCarousel > section, .mobileStoryRows > section');
   expect(await containers.evaluateAll(es=>es.map(e=>e.querySelector('a[href*="/articles/"]').pathname.split('/').pop()))).toEqual(readingOrder);
   const rail=page.locator('.mobileLowerCarousel'),cards=rail.locator(':scope > section');await expect(cards).toHaveCount(3);
-  await expect(page.locator('.mobileStoryRows > section')).toHaveCount(5);
+  await expect(page.locator('.mobileStoryRows > section')).toHaveCount(4);
   const desktop=page.viewportSize().width>=980;
   if(desktop){
    const next=page.getByRole('button',{name:'Next editorial stories',exact:true}),prev=page.getByRole('button',{name:'Previous editorial stories',exact:true});
@@ -81,8 +81,10 @@ for(const root of ['', '/doge', '/sunday-crew']){
    await expect(rail).toHaveCSS('display',page.viewportSize().width<=760?'flex':'contents');
   }
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
-  const dispatch=page.locator('.mobileStoryRows > section').last();await expect(dispatch.locator('video')).toHaveAttribute('controls','');
-  const link=dispatch.locator('a.sabinePackageTitle');await link.click();await expect(page).toHaveURL(new RegExp(`${root}/articles/dashiell-jaguars-london-future$`));await page.waitForLoadState('networkidle');
+  await page.goto(`${root}/archive`);
+  await page.getByRole('searchbox',{name:'Search the Crates'}).fill('Jacksonville');
+  const link=page.locator(`a[href="${root}/articles/dashiell-jaguars-london-future"]`);await expect(link).toHaveCount(1);
+  await link.click();await expect(page).toHaveURL(new RegExp(`${root}/articles/dashiell-jaguars-london-future$`));await expect(page.locator('h1')).toBeVisible();
  });
 }
 for(const root of ['', '/doge', '/sunday-crew']){
