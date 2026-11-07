@@ -82,6 +82,7 @@ for(const root of ['', '/doge', '/sunday-crew']){
   }
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   await page.goto(`${root}/archive`);
+  await page.getByRole('searchbox',{name:'Search the Crates'}).fill('Jacksonville');
   const link=page.locator(`a[href="${root}/articles/dashiell-jaguars-london-future"]`);await expect(link).toHaveCount(1);
   await link.click();await expect(page).toHaveURL(new RegExp(`${root}/articles/dashiell-jaguars-london-future$`));await expect(page.locator('h1')).toBeVisible();
  });
