@@ -664,4 +664,4 @@
 }
 
 /* Chargers investigation: full-size editorial section headings, scoped to this story. */
-.chargersArticle .articleBody .articleSectionHead{font:700 clamp(32px,4.8vw,46px)/1.08 Georgia,serif;letter-spacing:-.7px;text-transform:none;color:var(--ink);margin:56px 0 24px;padding-top:26px}
+.chargersArticle .articleBody .articleSectionHead{font:700 clamp(32px,4.8vw,46px)/1.08 Georgia,serif;letter-spacing:-.7px;text-transform:none;color:var(--ink);margin:56px 0 24px;padding-top:0;border-top:0}

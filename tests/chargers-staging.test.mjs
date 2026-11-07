@@ -26,8 +26,8 @@ const expectedLinks=[
 test('staged Chargers preserves v8 prose with approved duplicate-link cleanup',()=>{
   assert.equal(article.title,'The Chargers Have Thought of Everything');
   assert.equal(article.author,'crane');
-  assert.equal(createHash('sha256').update(JSON.stringify(article.body)).digest('hex'),'1896a884ff9b702cf363603a2b5cd2d8fb1ebee2502bfb3268ba38f0328df962');
-  assert.equal(article.body.filter(p=>p?.type==='break').length,2);
+  assert.equal(createHash('sha256').update(JSON.stringify(article.body)).digest('hex'),'b9778649abe529791297b9c320494a2186e90ea168c26ef5d00191bd18514c85');
+  assert.equal(article.body.filter(p=>p?.type==='break').length,0);
   assert.equal(article.body.filter(p=>p?.type==='heading').length,6);
 });
 
@@ -79,6 +79,7 @@ test('Chargers hero keeps verified attribution and locally cached image variants
 
 test('Chargers section titles are substantially larger at mobile and desktop widths',()=>{
   const css=read('app/globals.css');
+  assert.match(css,/\.chargersArticle \.articleBody \.articleSectionHead\{[^}]*border-top:0/);
   assert.match(css,/\.chargersArticle \.articleBody \.articleSectionHead\{font:700 clamp\(32px,4\.8vw,46px\)\/1\.08 Georgia,serif/);
   assert.ok(read('app/articles/[slug]/page.js').includes("slug==='hollis-chargers-thought-of-everything'?' chargersArticle':''"));
 });

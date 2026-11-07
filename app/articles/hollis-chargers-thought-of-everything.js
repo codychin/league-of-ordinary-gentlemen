@@ -55,9 +55,6 @@ export const chargersArticle = {
       "html": "<a href=\"https://www.youtube.com/watch?v=gfRIrR8GNIE&amp;t=603\" target=\"_blank\" rel=\"noopener noreferrer\">McDaniel identifies a possible motive</a>"
     },
     "Perhaps somebody in McDaniel's own fantasy league took Hampton one pick before he could. There are very few men equipped to answer that indignity by changing the player's actual working conditions. Most of us can only sulk in the group chat. McDaniel has a headset and two other running backs. If this is what happened, it is the most successful scheme he has installed in Los Angeles.",
-    {
-      "type": "break"
-    },
     "On the Week 9 episode of The Gruden Family Football Show, Jon Gruden was assessing the Chargers' offense when he reached back to 1970s television for something more appealing. “I'd rather watch The Love Boat,” he said. We have reached the point where a football lifer is asking to spend Sunday on a cruise.",
     {
       "type": "rich",
@@ -156,9 +153,6 @@ export const chargersArticle = {
       "type": "xclip",
       "id": "2118118709340627173",
       "url": "https://x.com/nflnetwork/status/2118118709340627173"
-    },
-    {
-      "type": "break"
     },
     "Which brings us back to The Love Boat.",
     "In a 1978 episode called “Gopher, the Rebel,” Gopher attends to a pretty passenger while the captain has to remind him that there are other passengers to board. She has a book by Lenin. Gopher thinks they are discussing John Lennon. An attractive woman has entered the workplace, and Vladimir Lenin is suddenly on the cover of Abbey Road.",
