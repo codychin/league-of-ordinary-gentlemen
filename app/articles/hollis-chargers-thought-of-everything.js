@@ -54,7 +54,7 @@ export const chargersArticle = {
     {
       "type": "break"
     },
-    "On the Week 9 episode of The Gruden Family Football Show, Jon Gruden was assessing the Chargers' offense when he reached back through several decades of television for something more appealing. “I'd rather watch The Love Boat in 1970,” he said. We have reached the point where a football lifer is asking to spend Sunday on a cruise.",
+    "On the Week 9 episode of The Gruden Family Football Show, Jon Gruden was assessing the Chargers' offense when he reached back through several decades of television for something more appealing. “I'd rather watch The Love Boat from 1978,” he said. We have reached the point where a football lifer is asking to spend Sunday on a cruise.",
     {
       "type": "xclip",
       "id": "2118854276839805017",
@@ -153,7 +153,7 @@ export const chargersArticle = {
     "Somewhere in the Texans' locker room, I would like to believe, a teammate had a replay ready and a reasonable follow-up question. Out of his mind does cover more than one condition.",
     {
       "type": "subheading",
-      "text": "Which brings us back to The Love Boat."
+      "text": "Which brings us back to The Love Boat in 1978."
     },
     "In a 1978 episode called “Gopher, the Rebel,” Gopher attends to a pretty passenger while the captain has to remind him that there are other passengers to board. She has a book by Lenin. Gopher thinks they are discussing John Lennon. An attractive woman has entered the workplace, and Vladimir Lenin is suddenly on the cover of Abbey Road.",
     {

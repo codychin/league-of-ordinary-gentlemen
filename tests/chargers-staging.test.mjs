@@ -22,12 +22,12 @@ const expectedClips=[
 test('staged Chargers preserves the approved November 7 copy revision',()=>{
   assert.equal(article.title,'The Chargers Have Thought of Everything');
   assert.equal(article.author,'crane');
-  assert.equal(createHash('sha256').update(JSON.stringify(article.body)).digest('hex'),'5416f1e01e0673fb5a6a0a76dcf6e26c131838d8ceeddf2d4b50c89052a5ec51');
+  assert.equal(createHash('sha256').update(JSON.stringify(article.body)).digest('hex'),'dfd23dadd6cda99a984dca4e1ba5a34df192a83647f6bde83718b22d8b699915');
   assert.equal(article.body.filter(p=>p?.type==='break').length,1);
   assert.equal(article.body.filter(p=>p?.type==='heading').length,6);
   assert.equal(article.body.at(-2),'There are ten more on the calendar.');
   assert.equal(article.body.at(-1),'McDaniel has some nerve telling us life is short.');
-  assert.ok(article.body.some(p=>p?.type==='subheading'&&p.text==='Which brings us back to The Love Boat.'));
+  assert.ok(article.body.some(p=>p?.type==='subheading'&&p.text==='Which brings us back to The Love Boat in 1978.'));
 });
 
 test('requested clip embeds replace standalone links without duplicate captions',()=>{
@@ -97,7 +97,7 @@ test('Gruden clip, exact user-confirmed quote and final cuts are preserved',()=>
   const i=article.body.findIndex(p=>p?.id==='2118854276839805017');
   assert.equal(article.body[i-2].type,'break');
   assert.match(article.body[i-1],/reached back through several decades of television/);
-  assert.ok(article.body[i-1].includes("I'd rather watch The Love Boat in 1970"));
+  assert.ok(article.body[i-1].includes("I'd rather watch The Love Boat from 1978"));
   assert.ok(article.body[i+1].startsWith('To start,'));
   const prose=article.body.filter(p=>typeof p==='string').join('\n');
   assert.doesNotMatch(prose,/He had only two recorded drops last season|These are apparently separate matters|There are ten more games on the schedule/);
