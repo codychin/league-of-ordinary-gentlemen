@@ -260,3 +260,22 @@ for (const root of ['', '/sunday-crew', '/doge']) {
     await expect(archive.getByRole('button',{name:/^Watch /})).toHaveCount(12);
   });
 }
+
+
+for(const standalone of [false,true])test(`article masthead stays visible through the final paragraph: ${standalone?'standalone':'browser'}`,async({page},testInfo)=>{
+ const mobile=page.viewportSize().width<=760;
+ test.skip(standalone&&!mobile,'Installed shell is a mobile contract.');
+ if(standalone)await page.addInitScript(()=>Object.defineProperty(navigator,'standalone',{get:()=>true}));
+ await page.goto('/articles/hollis-chargers-thought-of-everything');
+ await expect(page.locator('html')).toHaveAttribute('data-app-tab','detail');
+ const header=page.locator(mobile?'.appSectionHeader':'.siteNav');
+ const logo=mobile?header.locator('.mobileBriefLogo'):header.locator('a').first();
+ for(const fraction of [.25,.6,1]){
+  await page.evaluate(({standalone,fraction})=>{const owner=standalone?document.querySelector('.appScrollContent'):document.scrollingElement;owner.scrollTo({top:(owner.scrollHeight-owner.clientHeight)*fraction,behavior:'instant'});},{standalone,fraction});
+  await expect.poll(()=>header.evaluate(e=>Math.abs(e.getBoundingClientRect().top))).toBeLessThanOrEqual(1);
+  await expect(logo).toBeVisible();
+  expect(await logo.evaluate(e=>{const r=e.getBoundingClientRect();return e.contains(document.elementFromPoint(r.left+r.width/2,r.top+r.height/2));})).toBe(true);
+  if(mobile)await expect(header).toHaveCSS('background-color','rgb(255, 255, 255)');
+  await testInfo.attach(`article-header-${fraction}`,{body:await page.screenshot(),contentType:'image/png'});
+ }
+});

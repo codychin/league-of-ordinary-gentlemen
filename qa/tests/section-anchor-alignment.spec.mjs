@@ -16,7 +16,7 @@ async function userScroll(page,dy,testInfo){
   await page.locator('#qa-touch-pad').tap();
   await page.locator('#qa-touch-pad').evaluate(e=>e.remove());
   await page.evaluate(amount=>{const owner=document.documentElement.classList.contains('standaloneApp')?document.querySelector('.appScrollContent'):window;owner.scrollBy({top:amount,behavior:'instant'});},dy);
- }else await page.mouse.wheel(0,dy);
+ }else{await page.mouse.move(180,300);await page.mouse.wheel(0,dy);}
 }
 
 async function expectLanding(page,id,mobile){

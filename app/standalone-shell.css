@@ -2,6 +2,8 @@
    layer. Browser tabs/desktop retain document scrolling and existing chrome. */
 .appScrollContent{display:contents}
 @media(max-width:760px){
+ /* Article prose and embeds must not erase the fixed masthead in browser tabs. */
+ html body:has(.articleMain) .appSectionHeader[data-surface="paper"]{background:var(--paper,#fff)}
  html.standaloneApp:has(.appTabBar){height:100%;overflow:hidden}
  html.standaloneApp body:has(.appTabBar){position:relative;height:100dvh;box-sizing:border-box;overflow:hidden;display:grid;grid-template-rows:minmax(0,1fr) auto;padding-top:var(--mobile-header-height,calc(env(safe-area-inset-top) + 52px));padding-bottom:0}
  html.standaloneApp body:has(.appTabBar)>.appScrollContent{display:block;min-height:0;overflow-y:auto;overscroll-behavior-y:contain;scroll-padding:0 0 16px}
