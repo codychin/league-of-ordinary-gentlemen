@@ -1,5 +1,6 @@
 'use client'
 
+import {appScrollOwner,appScrollTop} from '../../lib/app-scroll-owner.mjs'
 import {useCallback, useEffect, useRef, useState} from 'react'
 
 // Keep small direction reversals and elastic overscroll from toggling the bar.
@@ -10,7 +11,7 @@ export default function useCompactMobileNav(pathname, expanded) {
 
   useEffect(()=>{
     const mobile=window.matchMedia('(max-width: 760px)')
-    const scrollY=()=>Math.max(0,Math.min(window.scrollY,Math.max(0,document.documentElement.scrollHeight-window.innerHeight)))
+    const scrollY=()=>{const owner=appScrollOwner();const max=owner===window?document.documentElement.scrollHeight-window.innerHeight:owner.scrollHeight-owner.clientHeight;return Math.max(0,Math.min(appScrollTop(),Math.max(0,max)))}
     const editing=()=>document.activeElement?.matches('input,textarea,select,[contenteditable]:not([contenteditable="false"])')||document.activeElement?.isContentEditable
     let previous=scrollY(),anchor=previous,direction=0,frame=0,isCompact=false,navigationPending=false
     const set=value=>{if(value!==isCompact){isCompact=value;setCompact(value)}}
@@ -39,7 +40,7 @@ export default function useCompactMobileNav(pathname, expanded) {
       else if(direction<0&&anchor-y>=32)set(false)
     }
     const onScroll=()=>{if(!frame)frame=requestAnimationFrame(update)}
-    window.addEventListener('scroll',onScroll,{passive:true})
+    document.addEventListener('scroll',onScroll,{passive:true,capture:true})
     window.addEventListener('wheel',onIntent,{passive:true})
     window.addEventListener('touchmove',onIntent,{passive:true})
     window.addEventListener('keydown',onIntent)
@@ -48,7 +49,7 @@ export default function useCompactMobileNav(pathname, expanded) {
     mobile.addEventListener('change',reset)
     return()=>{
       cancelAnimationFrame(frame)
-      window.removeEventListener('scroll',onScroll)
+      document.removeEventListener('scroll',onScroll,true)
       window.removeEventListener('wheel',onIntent)
       window.removeEventListener('touchmove',onIntent)
       window.removeEventListener('keydown',onIntent)
