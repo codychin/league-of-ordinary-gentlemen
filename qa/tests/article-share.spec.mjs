@@ -111,7 +111,7 @@ test('editorial refinements retain focal crop, open layout and inline sharing',a
   await expect(subtitle).toHaveCSS('text-transform','none');
   const button=page.getByRole('button',{name:'Share this article'});
   await expect(button).toHaveCSS('border-top-width','0px');
-  await expect(page.locator('.byline time')).toBeVisible();
+  await expect(page.locator('.articleTitle + .articleDate')).toBeVisible();
   const [a,b]=await Promise.all([page.locator('.bylineWriter').boundingBox(),button.boundingBox()]);
   expect(b.y+b.height/2).toBeGreaterThanOrEqual(a.y);
   expect(b.y+b.height/2).toBeLessThanOrEqual(a.y+a.height);

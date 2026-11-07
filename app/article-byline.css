@@ -1,0 +1,6 @@
+/* Date belongs to the story; portrait and role belong to the writer. */
+main.articleMain > .articleDate{display:block;margin:10px 0 0;font:400 11px/16px 'Brief Editorial Sans',Arial,sans-serif;letter-spacing:0;color:var(--muted)}
+main.articleMain .bylineWriter{align-items:center;gap:12px;min-width:0}
+main.articleMain .bylineWriter img{width:48px;height:48px;flex:0 0 48px;object-fit:cover}
+main.articleMain .bylineWriter span{min-width:0;gap:3px}
+main.articleMain > .articleBylineShare{margin:16px 0 20px}
