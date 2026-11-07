@@ -74,3 +74,10 @@ test('Chargers hero keeps verified attribution and locally cached image variants
   assert.ok(renderer.includes('href={a.imageCredit.licenseUrl}'));
   assert.ok(renderer.includes('a.imageCredit.note'));
 });
+
+
+test('Chargers section titles are substantially larger at mobile and desktop widths',()=>{
+  const css=read('app/globals.css');
+  assert.match(css,/\.chargersArticle \.articleBody \.articleSectionHead\{font:700 clamp\(32px,4\.8vw,46px\)\/1\.08 Georgia,serif/);
+  assert.ok(read('app/articles/[slug]/page.js').includes("slug==='hollis-chargers-thought-of-everything'?' chargersArticle':''"));
+});

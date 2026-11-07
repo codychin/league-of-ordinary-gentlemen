@@ -662,3 +662,6 @@
 @media (max-width: 700px) {
   .articleInlineFigure.ramsComparisonFigure img { width: 88% !important; max-width: 88% !important; height: auto !important; margin-inline: auto !important; object-fit: contain !important; }
 }
+
+/* Chargers investigation: full-size editorial section headings, scoped to this story. */
+.chargersArticle .articleBody .articleSectionHead{font:700 clamp(32px,4.8vw,46px)/1.08 Georgia,serif;letter-spacing:-.7px;text-transform:none;color:var(--ink);margin:56px 0 24px;padding-top:26px}
