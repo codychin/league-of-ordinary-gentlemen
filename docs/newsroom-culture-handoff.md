@@ -423,3 +423,61 @@ infer that the live Supabase worker is running the new contract. Refer to the up
 delivery map for the precise source-side tests and the unchanged publication boundary.
 
 
+
+## First drafts must show the learning, not ask Cody to repeat it
+
+Cody's November 7 team meeting (`Sentinel_4df8a22c13a88191af1df7d33ee73a96`)
+asks for understanding of the actual editorial mechanics, not another promise that
+feedback is remembered. Read the
+[original-to-final Chargers case study](editorial-feedback/chargers-original-to-final-2026-11-07.md)
+with its source identities and the relevant complete benchmark before the next
+comparable assignment. The earlier feedback record is a partial chronology, not a
+substitute for this completed comparison.
+
+Before a new authorized long-form draft, keep a concise editorial brief with the
+existing working material:
+
+- Identify what Cody supplied, and the writer's additional observation, interpretation
+  or development with its source support. Do not relabel Cody's angle as autonomous
+  discovery. If the work adds nothing beyond a paraphrase, do the missing research or
+  rethink the premise before presenting a full draft.
+- Choose the governing contradiction, the writer whose perspective earns it, and the
+  particular evidence that will develop the argument. Research must reveal the story,
+  not accumulate enough facts to cover a generic outline.
+- Select the relevant before/after mechanisms from the case study and explain their
+  application to this material. Do not transplant its meeting, office, fire-extinguisher,
+  Love Boat or other literal jokes. Different writers need different perceptions and
+  conclusions, not different decoration around a single comic template.
+- Protect the dependencies of an earned ending or callback. Removing repeated words
+  is useful; removing its necessary setup is not. Preserve praised material while
+  improving the surrounding piece, unless later feedback or a verified fact requires
+  a flagged change.
+
+Read the draft separately before Cody sees it. Point to its actual independent
+contribution, an evidence-to-consequence move, a voice-specific choice, unnecessary
+reader explanation removed and the ending's support in the body. This is substantive
+editorial review, not a requirement to manufacture a criticism quota or a funny score.
+Fix the weak sections. Return uncertain reporting for research, without fact-checking
+legible satire out of existence.
+
+Retain the first draft and later approved revision in the existing working record.
+Use Cody's actual edits to identify which work he still had to supply and which
+mechanisms transferred successfully. Do not ask him to grade a new rubric. Do not
+call a lesson learned merely because a document was read or a review field was filled.
+The evidence is better starting points and fewer repeated editorial failures across
+subsequent pieces, judged through the work and Cody's response.
+
+### Direct writer handoffs and existing tasks
+
+Manual long-form assignments must receive the case-study source, chosen voice,
+relevant actual before/after lessons and the current assignment facts. A schedule
+update cannot automatically update an unrelated writer handoff. Rika owns that
+delivery; Cody should not carry the correction between chats.
+
+The existing rotation and Scout tasks apply discovery, perspective and source judgment
+without turning casual conversation into an essay or writing unrequested articles.
+Matchup drafts and scripts use proportional narrative movement, verified local facts
+and their own human hinge. Delivery tasks reuse approved packets without rewriting
+them to demonstrate new guidance. Preserve every existing cadence, destination,
+publication gate and spending limit. The Sunday worker remains a separate deployment
+and is not changed by this source document.

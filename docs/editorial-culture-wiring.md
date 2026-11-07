@@ -169,3 +169,36 @@ the writing. Full application CI/build results should be read from the exact PR 
 focused tests must never be described as a full application pass.
 
 
+
+## Completed-revision learning: November 7 team meeting
+
+The initial PR128 change was deliberately scoped to the first two feedback rounds.
+It did not compare the first article to the finished piece and therefore did not
+fully satisfy Cody's later team-meeting request. The
+[completed case study](editorial-feedback/chargers-original-to-final-2026-11-07.md)
+adds sourced before/after mechanics, the provenance of important ideas and distinct
+transfer lessons for all six desks. The handoff now requires those lessons to inform
+the preparation of a first draft, not only its final checklist.
+
+There are three different consumers:
+
+1. **Direct long-form assignments:** Rika must include the accessible case-study
+   revision and relevant lesson in the actual writer handoff. Preserve the initial
+   draft and later edits in the existing working record so progress can be evaluated.
+2. **Five saved conversation/discovery/matchup workflows:** replace their earlier
+   generic learning preface with a compact instruction that reads the exact case-study
+   revision, distinguishes supplied material from writer contributions and applies
+   the relevant desk-specific mechanism. Read each saved prompt back and fetch the
+   referenced file to verify that the source is accessible. This verifies configured
+   delivery, not that a future run has read it or that a draft improved.
+3. **Sunday Live Desk code:** it does not fetch these Markdown case studies. Its
+   capped path receives a short event packet and a static versioned contract; its
+   compact evidence is not a long-form archive/research dossier. PR128's code remains
+   a proposed change, and no added documentation or conversation-task update deploys
+   it. Preserve existing controls, cadence, budgets and publishing scope.
+
+The case-study mechanism is proportionate, not a requirement that a short post perform
+the entire Chargers narrative. Better first drafts require better material and judgment,
+not simply more review fields. No new scheduled task, model call, paid generation or
+production publication is introduced by this follow-up. Its documentation and workflow
+instruction changes are independent of the existing Chargers article release.
