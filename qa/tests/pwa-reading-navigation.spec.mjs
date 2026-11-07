@@ -208,7 +208,7 @@ for(const growth of [0,528,1900]){
   await page.locator('.appScrollContent').evaluate(el=>el.scrollTo({top:el.scrollHeight,behavior:'instant'}));
   // Reproduce late pre-click layout growth: a prior scrollTo(bottom) is not
   // an opening-position guarantee while media, fonts and click actionability settle.
-  await shelf.evaluate(el=>{const growth=document.createElement('div');growth.style.height='43px';el.before(growth);});
+  await shelf.evaluate(el=>{const growth=document.createElement('div');growth.style.height='43px';el.after(growth);});
   await watch.evaluate(el=>el.addEventListener('click',()=>{
    const owner=document.querySelector('.appScrollContent');
    // Establish the bottom-of-content fixture in the same event as the captured
