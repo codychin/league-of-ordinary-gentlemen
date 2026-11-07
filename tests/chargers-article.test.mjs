@@ -111,3 +111,9 @@ test("Colts shorthand is preserved",()=>assert.ok(article.body.some(p=>typeof p=
 
 import {blocks} from '../native/brief/src/article-blocks.mjs';
 test('native reader preserves the subordinate italic callback',()=>{const mapped=blocks(article.body);const i=article.body.findIndex(p=>p?.type==='subheading');assert.deepEqual(mapped[i],{id:`block-${i}`,type:'rich',nodes:[{kind:'em',children:[{text:'Which brings us back to The Love Boat in 1978.'}]}]});assert.equal(mapped.length,article.body.length);});
+
+test("article typography outranks the newer production theme",()=>{
+  const css=read('app/globals.css');
+  assert.match(css,/main\.articleMain\.chargersArticle \.articleBody \.articleSectionHead\{font:700 clamp\(32px,4\.8vw,46px\)/);
+  assert.match(css,/main\.articleMain\.chargersArticle \.articleBody>p:first-child:first-letter/);
+});
