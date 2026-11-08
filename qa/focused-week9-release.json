@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "releaseId": "week9-preview-20261108",
+  "authorized": true,
+  "authorization": "Owner-approved immediate release without duplicate full-suite execution.",
+  "headerSourceSha": "19f48f2fa7fd86e113fab3c032be2cd7d88da18f",
+  "headerFiles": {
+    "app/components/PwaShell.jsx": "c6f25c84d79093929d9065ab3eee9f6596846a04",
+    "app/globals.css": "fd8be2c8b758abdf71b5c0460d640682a3f7b3c5",
+    "app/standalone-shell.css": "1908e792b42a09818e1db452a22d5636258bdfa5"
+  },
+  "assetBindingSha256": "035c87968d5b7d1d04d308d0968ea127eefb90997db528f1639b493059c23b5d",
+  "priorFullEvidence": "8f1c9800",
+  "latestDiagnostic": "0912e86",
+  "knownFailure": {
+    "revision": "20d394d5",
+    "status": "unresolved-webkit-playback-stall",
+    "note": "Full-buffer unmuted WebKit startup stall occurred in the mixed suite. Fresh focused diagnostic passed; failure is not treated as disproven or waived."
+  },
+  "freshHostedPlaybackRequired": true,
+  "hostedPlaybackWaived": false
+}

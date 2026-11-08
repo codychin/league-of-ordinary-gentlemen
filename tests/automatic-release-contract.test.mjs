@@ -34,11 +34,25 @@ test('PR completions cannot consume promotion concurrency; permissions unchanged
  assert.ok(!/^concurrency:/m.test(y));
  assert.match(y,/workflow_run.event == 'push'/);
  assert.match(y,/head_branch == 'main'/);
- assert.match(y,/needs: candidate/);
+ assert.match(y,/needs: \[candidate, focused_candidate\]/);
  assert.match(y,/needs.candidate.outputs.eligible == 'true'/);
  assert.match(y,/cancel-in-progress: false/);
  assert.match(y,/environment: production/);
  assert.ok(!/actions: write|deployments: write/.test(y));
  assert.ok(!y.includes('reject-obsolete'));
  assert.match(y,/workflows: \["Release integrity", "Article image release gate"\]/);
+});
+
+
+test('focused owner release stays main-only and does not forge full-check success',()=>{
+ const y=readFileSync('.github/workflows/promote-verified-production.yml','utf8');
+ const s=readFileSync('scripts/operations/promote-verified-release.mjs','utf8');
+ assert.match(y,/github.event_name == 'deployment_status'/);
+ assert.match(y,/deployment.environment == 'Production'/);
+ assert.ok(y.includes("main.commit.sha===sha"));
+ assert.ok(y.includes("c.commit.message.includes('[focused-week9-release]')"));
+ assert.ok(s.includes("validateFocusedWeek9Authority"));
+ assert.ok(s.includes("fullSuiteWaived:true,hostedPlaybackRequired:true"));
+ assert.ok(s.includes("assert.equal(media.status,0"));
+ assert.ok(!/checks.create|check-runs.*POST|statuses.*POST/.test(s));
 });

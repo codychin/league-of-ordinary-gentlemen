@@ -2,7 +2,8 @@
 // Fail closed: exact main SHA, both GitHub QA jobs, provider checks, staged routes.
 import assert from 'node:assert/strict';
 import {spawnSync} from 'node:child_process';
-import {writeFileSync,appendFileSync} from 'node:fs';
+import {writeFileSync,appendFileSync,readFileSync} from 'node:fs';
+import {validateFocusedWeek9Authority} from './focused-week9-authority.mjs';
 import {promotionDecision} from './promotion-state.mjs';
 const token=process.env.VERCEL_TOKEN;
 const ghToken=process.env.GH_TOKEN;
@@ -44,6 +45,19 @@ async function github(path){
 }
 async function validateQA(){
  assert.equal((await github('/branches/main')).commit.sha,sha,'Superseded main commit');
+ if(process.env.FOCUSED_WEEK9_RELEASE==='1'){
+  const config=JSON.parse(readFileSync('qa/focused-week9-release.json','utf8'));
+  const commit=await github('/commits/'+sha);
+  assert.ok(commit.commit.message.includes('[focused-week9-release]'),'Missing scoped owner release marker');
+  const comparison=await github('/compare/'+config.headerSourceSha+'...'+sha);
+  assert.ok(['ahead','identical'].includes(comparison.status),'Approved header source is not an ancestor');
+  const headerBlobMap={};
+  for(const p of Object.keys(config.headerFiles)){const f=await github('/contents/'+p+'?ref='+sha);headerBlobMap[p]=f.sha;}
+  validateFocusedWeek9Authority({config,sha,main:sha,headerBlobMap,rows:JSON.parse(readFileSync('data/week9-approved-homepage-media.json','utf8')),authority:JSON.parse(readFileSync('qa/week9-owner-playback-waiver.json','utf8'))});
+  record('focused-authority-verified',{authority:'owner-approved-week9-focused-release',fullSuiteWaived:true,hostedPlaybackRequired:true});
+  return;
+ }
+ assert.ok(!process.env.FOCUSED_WEEK9_RELEASE,'Unknown focused release mode');
  const checks=(await github('/commits/'+sha+'/check-runs?per_page=100')).check_runs;
  assert.ok(Array.isArray(checks),'Missing GitHub checks');
  for(const name of ['integrity','article-image-qa']){
