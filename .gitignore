@@ -34,3 +34,10 @@ qa/test-results/
 
 lib/generated/native-feed.json
 native/brief/src/generated/
+
+# Oversized Week 9 originals restored losslessly from verified parts.
+/public/reels/4cf43935cbaa65a102d27d26c240a2ae.mp4
+/public/reels/19b4779e84652f7fa4f22af651bcdfb7.mp4
+/public/reels/13a5d1bd83e4714b1f6816a4d250f0a3.mp4
+/public/reels/604c3287af17d14b8623028145d30264.mp4
+/public/reels/27e561d9ae38de375fba17bd53456129.mp4
