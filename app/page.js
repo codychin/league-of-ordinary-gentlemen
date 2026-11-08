@@ -1,3 +1,4 @@
+import {week9PreviewReels} from '../lib/week9-preview-reels';
 import {week8RecapReels} from '../lib/week8-recap-reels';
 import {week8Reels} from '../lib/week8-reels';
 import {week7Reels} from '../lib/week7-reels';
@@ -34,6 +35,10 @@ try {
  if(response.ok)provider=await response.json();
 }catch{}
 const currentScores=selectLoogScores({provider,latest:latestScores,completed:completedScores});
+const currentPreviewReels=week9PreviewReels('loog').map(r=>{
+ const left=Object.values(leagueSnapshot.teams).find(t=>String(t.teamId)===r.left),right=Object.values(leagueSnapshot.teams).find(t=>String(t.teamId)===r.right);
+ return {...r,leftImage:left?playerHeadshot(featuredPlayer(left)):'',rightImage:right?playerHeadshot(featuredPlayer(right)):''};
+});
 const previewReels=week8Reels('loog').map(r=>{
  const left=leagueSnapshot.teams[r.left],right=leagueSnapshot.teams[r.right];
  return {...r,leftImage:left?playerHeadshot(featuredPlayer(left)):'',rightImage:right?playerHeadshot(featuredPlayer(right)):''};
@@ -42,11 +47,12 @@ const currentRecapReels=week8RecapReels('loog').map(r=>{
  const left=leagueSnapshot.teams[r.left],right=leagueSnapshot.teams[r.right];
  return {...r,leftImage:left?playerHeadshot(featuredPlayer(left)):'',rightImage:right?playerHeadshot(featuredPlayer(right)):''};
 });
-const sundayLive=isSundayLiveWindow();return <><header><div className="utility"><span className="utilityMain">JOURNALISM WITHOUT PURPOSE <i>•</i> WRITTEN BY ROBOTS</span></div><div className="mast"><h1>The Brief of Ordinary Gentleman</h1><div className="dek">Fantasy football, personal grievances, forensic accounting and other matters of irrelevance.</div></div><SiteNav/></header><main data-weekly-media={currentRecapReels.length===6||previewReels.length===6||publishedReels.length>0?"present":"absent"}>
+const sundayLive=isSundayLiveWindow();return <><header><div className="utility"><span className="utilityMain">JOURNALISM WITHOUT PURPOSE <i>•</i> WRITTEN BY ROBOTS</span></div><div className="mast"><h1>The Brief of Ordinary Gentleman</h1><div className="dek">Fantasy football, personal grievances, forensic accounting and other matters of irrelevance.</div></div><SiteNav/></header><main data-weekly-media={currentPreviewReels.length===6||currentRecapReels.length===6||previewReels.length===6||publishedReels.length>0?"present":"absent"}>
 {sundayLive&&<><SundayScoreStrip/><SundayLiveDesk/></>}
-{currentRecapReels.length===6&&<ReelsShelf reels={currentRecapReels} releaseId="loog-week8-recap-v1" storageKey="brief-loog-week8-recap-viewed-v1" weekLabel="THE BRIEF • WEEK 8" title="Week 8, the recaps." modeLabel="WEEK 8 • RECAPS" mediaKind="recap"/>}
-{currentRecapReels.length!==6&&previewReels.length===6&&<ReelsShelf reels={previewReels} releaseId="loog-week8-preview-v2" storageKey="brief-loog-week8-preview-viewed-v2" weekLabel="THE BRIEF • WEEK 8" title="Week 8, the previews." modeLabel="WEEK 8 • PREVIEWS" mediaKind="preview" autoOpenFromQuery={false}/>}
-{currentRecapReels.length!==6&&previewReels.length!==6&&<ReelsShelf reels={publishedReels} releaseId="loog-week7-recap-v2" storageKey="brief-loog-week7-recap-viewed-v2" weekLabel="THE BRIEF • WEEK 7" title="Week 7, the recaps." modeLabel="WEEK 7 • RECAPS"/>}
+{currentPreviewReels.length===6&&<ReelsShelf reels={currentPreviewReels} releaseId="loog-week9-preview-v1" storageKey="brief-loog-week9-preview-viewed-v1" weekLabel="THE BRIEF • WEEK 9" title="Week 9, the previews." modeLabel="WEEK 9 • PREVIEWS" mediaKind="preview" autoOpenFromQuery={false}/>}
+{currentPreviewReels.length!==6&&currentRecapReels.length===6&&<ReelsShelf reels={currentRecapReels} releaseId="loog-week8-recap-v1" storageKey="brief-loog-week8-recap-viewed-v1" weekLabel="THE BRIEF • WEEK 8" title="Week 8, the recaps." modeLabel="WEEK 8 • RECAPS" mediaKind="recap"/>}
+{currentPreviewReels.length!==6&&currentRecapReels.length!==6&&previewReels.length===6&&<ReelsShelf reels={previewReels} releaseId="loog-week8-preview-v2" storageKey="brief-loog-week8-preview-viewed-v2" weekLabel="THE BRIEF • WEEK 8" title="Week 8, the previews." modeLabel="WEEK 8 • PREVIEWS" mediaKind="preview" autoOpenFromQuery={false}/>}
+{currentPreviewReels.length!==6&&currentRecapReels.length!==6&&previewReels.length!==6&&<ReelsShelf reels={publishedReels} releaseId="loog-week7-recap-v2" storageKey="brief-loog-week7-recap-viewed-v2" weekLabel="THE BRIEF • WEEK 7" title="Week 7, the recaps." modeLabel="WEEK 7 • RECAPS"/>}
 <SharedEditorialFront/>
 {!sundayLive&&<SundayLiveDesk/>}
 

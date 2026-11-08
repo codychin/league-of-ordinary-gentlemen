@@ -1,0 +1,794 @@
+[
+  {
+    "videoId": "17e06948ff4e6aba95aa0a10f877d8af",
+    "sourceSha256": "3f7f4a35dc24c4efaf9ecf88f38a0dab3640bc5ddfba703c2811733941e580b0",
+    "method": "stream-copy",
+    "fullDecodePassed": true,
+    "files": [
+      {
+        "path": "public/reels-hls/17e06948ff4e6aba95aa0a10f877d8af/index.m3u8",
+        "bytes": 232,
+        "sha256": "71e45531db1377854ab66b26bd0851336631ab7efbaeca11a939d345f7929965",
+        "gitBlobSha": "f349eb260f745c07d6eae81d22254da325204a82"
+      },
+      {
+        "path": "public/reels-hls/17e06948ff4e6aba95aa0a10f877d8af/init.mp4",
+        "bytes": 1392,
+        "sha256": "cfa1075761609372273c835cd295d5aa99880579dc78e7bb1e752f5fa6402d8b",
+        "gitBlobSha": "fc04e05c6faa8fa9f0148f2c8a4c3a8873a6285e"
+      },
+      {
+        "path": "public/reels-hls/17e06948ff4e6aba95aa0a10f877d8af/poster.jpg",
+        "bytes": 80449,
+        "sha256": "406d1a7c91ae1a72bfa617e6b58c3f11d3c3142e296a04a4f3531743e2dea495",
+        "gitBlobSha": "8645b130f68131acc24dd6e10ecd10931a4e1260"
+      },
+      {
+        "path": "public/reels-hls/17e06948ff4e6aba95aa0a10f877d8af/seg_000.m4s",
+        "bytes": 4564035,
+        "sha256": "9006e3afee77ff45bccf47d3e99b13081b8e43942a2a312b546db3d77859e765",
+        "gitBlobSha": "d927b99a80bf06ded736919737c65b2ca2b298dc"
+      },
+      {
+        "path": "public/reels-hls/17e06948ff4e6aba95aa0a10f877d8af/seg_001.m4s",
+        "bytes": 4538863,
+        "sha256": "642bd56af891587b204e621316a1eec42f9d51e9f6546f56e9526417f1e44524",
+        "gitBlobSha": "c26498a60a00481dbd162299480ccf88044949d6"
+      },
+      {
+        "path": "public/reels-hls/17e06948ff4e6aba95aa0a10f877d8af/seg_002.m4s",
+        "bytes": 2388238,
+        "sha256": "1b3db984c2511ddb347d5eef789fc9e10086d8dbb42b21f41e432edc8a86053b",
+        "gitBlobSha": "ad7000406e096e4bc1fe1c723a5897d497243d14"
+      }
+    ]
+  },
+  {
+    "videoId": "9e98d1d7896107cd61313a6effeedbdd",
+    "sourceSha256": "4ac9d1b096ab5a041a6e3d032c0042059a79e21ae258feaf624f6384e9ac558a",
+    "method": "stream-copy",
+    "fullDecodePassed": true,
+    "files": [
+      {
+        "path": "public/reels-hls/9e98d1d7896107cd61313a6effeedbdd/index.m3u8",
+        "bytes": 232,
+        "sha256": "cee089a918aaaa73a9c555143ad163181fd84c9d445494eab45c29c4d9f7c712",
+        "gitBlobSha": "f0fec87ec091f2852cf006c9e6d5b025bda71451"
+      },
+      {
+        "path": "public/reels-hls/9e98d1d7896107cd61313a6effeedbdd/init.mp4",
+        "bytes": 1392,
+        "sha256": "79ec944c95ce78a7eb9e25f0eab4164d2b397ae66707f91cb8f121e933f40b51",
+        "gitBlobSha": "74c36bc48864010ca65e0fb21ce299e9f0cd7b8d"
+      },
+      {
+        "path": "public/reels-hls/9e98d1d7896107cd61313a6effeedbdd/poster.jpg",
+        "bytes": 65165,
+        "sha256": "73bc987a5c4027bf05aee1bb189b51a4d6a59b079a6b43de5af40c3b7518d80a",
+        "gitBlobSha": "ef839a4b4f383ffd6998d8076f8858020ede8e8b"
+      },
+      {
+        "path": "public/reels-hls/9e98d1d7896107cd61313a6effeedbdd/seg_000.m4s",
+        "bytes": 4863760,
+        "sha256": "0d0af889a8749663af6ccd2db62e7c9b37396f91b6ec992d2a1cb539e019cde6",
+        "gitBlobSha": "a682e6f8de6174dd4a013168b545977a46693e64"
+      },
+      {
+        "path": "public/reels-hls/9e98d1d7896107cd61313a6effeedbdd/seg_001.m4s",
+        "bytes": 4896892,
+        "sha256": "fd609c71be3fd1b0351af18df77c1794efe5d6dc1d2ba4263d0457d0f45d27b0",
+        "gitBlobSha": "d9ac60216d9e7516eb816452ac72655aae9e16b4"
+      },
+      {
+        "path": "public/reels-hls/9e98d1d7896107cd61313a6effeedbdd/seg_002.m4s",
+        "bytes": 2453871,
+        "sha256": "c6197df8606fcb8fc4d0a89f09fabbf6309007f354605299384cdf8c9b9a52cb",
+        "gitBlobSha": "714e37105b2a70f216ef3dbf6963ae75bcf552e7"
+      }
+    ]
+  },
+  {
+    "videoId": "f2a691206f6a4b3c37e176ab0076e852",
+    "sourceSha256": "a2b21b7f109fd8cff5387e940d33efc2f5a907ebaa3cd2cd7dc94d8fc09bdee4",
+    "method": "stream-copy",
+    "fullDecodePassed": true,
+    "files": [
+      {
+        "path": "public/reels-hls/f2a691206f6a4b3c37e176ab0076e852/index.m3u8",
+        "bytes": 232,
+        "sha256": "71e45531db1377854ab66b26bd0851336631ab7efbaeca11a939d345f7929965",
+        "gitBlobSha": "f349eb260f745c07d6eae81d22254da325204a82"
+      },
+      {
+        "path": "public/reels-hls/f2a691206f6a4b3c37e176ab0076e852/init.mp4",
+        "bytes": 1392,
+        "sha256": "b03630f9ffa0db4138efd96471d7bbe97e169b91849b84d51067537cc92d7fbd",
+        "gitBlobSha": "911adfb05f4dd1bc8c235b4004ede32212532a70"
+      },
+      {
+        "path": "public/reels-hls/f2a691206f6a4b3c37e176ab0076e852/poster.jpg",
+        "bytes": 58614,
+        "sha256": "2033c811bffda4b9d31711def0756f89429be3e8810cfbd1c4b1ebb0d11077a9",
+        "gitBlobSha": "6481ebec9f026f2302916a3dfade166fdf2f2342"
+      },
+      {
+        "path": "public/reels-hls/f2a691206f6a4b3c37e176ab0076e852/seg_000.m4s",
+        "bytes": 4532584,
+        "sha256": "553c39af31e02fbae7cbd02a636a813354ab549a8fefc39b746c9adc7a50b3d0",
+        "gitBlobSha": "5e39a76b60b1e4a04306adcc5aebf25ead6295c5"
+      },
+      {
+        "path": "public/reels-hls/f2a691206f6a4b3c37e176ab0076e852/seg_001.m4s",
+        "bytes": 4503666,
+        "sha256": "e51a85a2e9a9e5138c7a9dc5dddbf5f7ba97609d42a6d3c74a7dc6075f26d2e9",
+        "gitBlobSha": "700fb721b4d2f5a6792c5413591fb56ead82e503"
+      },
+      {
+        "path": "public/reels-hls/f2a691206f6a4b3c37e176ab0076e852/seg_002.m4s",
+        "bytes": 2444249,
+        "sha256": "3526bbe0f028d1aa5521b6aad51b907dd21db093b1ce7e486396cb09ae9b72ba",
+        "gitBlobSha": "b3d540e4895bf9b499eeff78b9b971b22e78388d"
+      }
+    ]
+  },
+  {
+    "videoId": "4cf43935cbaa65a102d27d26c240a2ae",
+    "sourceSha256": "a8d000531edc6dbcc8dd91deb9381f56e57a2087bcce9d93a346a68d31a91d78",
+    "method": "stream-copy",
+    "fullDecodePassed": true,
+    "files": [
+      {
+        "path": "public/reels-hls/4cf43935cbaa65a102d27d26c240a2ae/index.m3u8",
+        "bytes": 232,
+        "sha256": "4c7c96994da2b863f3361df199b3ad2283155ad60efd8ad4a56a6b059f89b910",
+        "gitBlobSha": "67c73f15971606cf0c71751f552cfa75311818fe"
+      },
+      {
+        "path": "public/reels-hls/4cf43935cbaa65a102d27d26c240a2ae/init.mp4",
+        "bytes": 1392,
+        "sha256": "0d58d22211fdcc04f6f4305577758fe878f9cd657fa3473a2133c0ce794ace97",
+        "gitBlobSha": "c3def5f82fee4b6873a153ae205c475b8541430d"
+      },
+      {
+        "path": "public/reels-hls/4cf43935cbaa65a102d27d26c240a2ae/poster.jpg",
+        "bytes": 108090,
+        "sha256": "c3ed4e2e0ee815caedf952f356807705d5f483cee997bf1240c76e68ac4794a6",
+        "gitBlobSha": "d9ebcd9b612717f0f928a0778d7b6456e101c8bf"
+      },
+      {
+        "path": "public/reels-hls/4cf43935cbaa65a102d27d26c240a2ae/seg_000.m4s",
+        "bytes": 5081422,
+        "sha256": "4c1402252d63423425f8a6ca33be4a9587e157d62f1fc31801e3e2cdb09abc7c",
+        "gitBlobSha": "856262bc44626de1390bf000ae88dfd8d7cb8128"
+      },
+      {
+        "path": "public/reels-hls/4cf43935cbaa65a102d27d26c240a2ae/seg_001.m4s",
+        "bytes": 5234686,
+        "sha256": "7d1db2c0d7ce035d69a6c6ebbd7c1dbfb8a280a87eccf7c0c992e91fa7154151",
+        "gitBlobSha": "b58b523ce33df75cd79d80964b6a9337e3cab17a"
+      },
+      {
+        "path": "public/reels-hls/4cf43935cbaa65a102d27d26c240a2ae/seg_002.m4s",
+        "bytes": 2329157,
+        "sha256": "0fde9d08b4b40a86a85e5f0f38408bde1b9993cba6af6960d5ef723219efdc9a",
+        "gitBlobSha": "6be78fa74d1aec334c92415b0ae07d2cc13c0a4b"
+      }
+    ]
+  },
+  {
+    "videoId": "19b4779e84652f7fa4f22af651bcdfb7",
+    "sourceSha256": "0a40230e62af1a52310f26dee0716358aa034085deb0e77b0d1114d8662e943d",
+    "method": "stream-copy",
+    "fullDecodePassed": true,
+    "files": [
+      {
+        "path": "public/reels-hls/19b4779e84652f7fa4f22af651bcdfb7/index.m3u8",
+        "bytes": 232,
+        "sha256": "1db738103710403ed879ff68bd8192872a58b23e92265502ebf35b9b5f39496a",
+        "gitBlobSha": "433ba30a74deff18cb3898b5d94f798db403a40f"
+      },
+      {
+        "path": "public/reels-hls/19b4779e84652f7fa4f22af651bcdfb7/init.mp4",
+        "bytes": 1392,
+        "sha256": "04f8a5b4e4f35b3f4a74ab8c45010bbb1ede7358a5ee63f0e884b8893240cf52",
+        "gitBlobSha": "cdece1ef79cedf12785e6b7e6bf0133635b223a2"
+      },
+      {
+        "path": "public/reels-hls/19b4779e84652f7fa4f22af651bcdfb7/poster.jpg",
+        "bytes": 57509,
+        "sha256": "3365ec539e092834cb5b55048b1d37113a7fcea18dcdcce7dab87eb7be2ed01d",
+        "gitBlobSha": "7a8460a56d38589a34c9d09c0e8f52b410c7ea2a"
+      },
+      {
+        "path": "public/reels-hls/19b4779e84652f7fa4f22af651bcdfb7/seg_000.m4s",
+        "bytes": 4668578,
+        "sha256": "b0a3582c2b633c7f6bafb2c9c8ba1218d5430195c70f375e38445fdb05dcfb17",
+        "gitBlobSha": "2a3112951a8d482a4aef90565c7a3b1065020285"
+      },
+      {
+        "path": "public/reels-hls/19b4779e84652f7fa4f22af651bcdfb7/seg_001.m4s",
+        "bytes": 4502010,
+        "sha256": "ebf786b1300d909b3440781bbb5ee09fe62a1d0132eeb4b63925f65e8247a53f",
+        "gitBlobSha": "0553d1bc69c6a936932b3bc4f1101a991ddb8cec"
+      },
+      {
+        "path": "public/reels-hls/19b4779e84652f7fa4f22af651bcdfb7/seg_002.m4s",
+        "bytes": 3195497,
+        "sha256": "a3d1622a41a403ae595f7c6e83e2f63ff2221895067f954b6019a05bf2add350",
+        "gitBlobSha": "bfc6b53535264db197356c065349d4d26292fdd4"
+      }
+    ]
+  },
+  {
+    "videoId": "859c833251c31ccdc37888c84880abdb",
+    "sourceSha256": "9e7ae301aaf62feb8f5e7a7464ac624b328f72f94f6e03149fc504733d06a2e0",
+    "method": "stream-copy",
+    "fullDecodePassed": true,
+    "files": [
+      {
+        "path": "public/reels-hls/859c833251c31ccdc37888c84880abdb/index.m3u8",
+        "bytes": 232,
+        "sha256": "0d9c409fbcf9f1e8ac17f97ff34b765d90afc8d9d8966828928c9357e8e013a2",
+        "gitBlobSha": "255cfa24e439c5ba4cabc9331b4d9b43bd4defcf"
+      },
+      {
+        "path": "public/reels-hls/859c833251c31ccdc37888c84880abdb/init.mp4",
+        "bytes": 1392,
+        "sha256": "b3ac8ee43237ac98eb79961bc04e127f4f04ff5f71b250ad0741e1ab3141923a",
+        "gitBlobSha": "db52f3c0960592aa6ca0197a401cf03790cf14c3"
+      },
+      {
+        "path": "public/reels-hls/859c833251c31ccdc37888c84880abdb/poster.jpg",
+        "bytes": 56606,
+        "sha256": "839990e7329facaafae58bb2c0b91eb70af0c30623568023dfdceb106f9caa79",
+        "gitBlobSha": "6649e6dabfe9ce72ad7c97fa886c0802cdc999c1"
+      },
+      {
+        "path": "public/reels-hls/859c833251c31ccdc37888c84880abdb/seg_000.m4s",
+        "bytes": 4025003,
+        "sha256": "f55f6863efe32ba5d1317297752f45414ec54d031f310e5de4237f5425c62cdc",
+        "gitBlobSha": "b45e35385c645c017a84d2c038aafef782d3eb5f"
+      },
+      {
+        "path": "public/reels-hls/859c833251c31ccdc37888c84880abdb/seg_001.m4s",
+        "bytes": 4032702,
+        "sha256": "fd70d0cac0b494e88f3f7ea5091497b615b3d0f03c3b67d8ee2ae1ddd96e59ba",
+        "gitBlobSha": "0a6c475869e854ecd2098e6691c12d1c716540f9"
+      },
+      {
+        "path": "public/reels-hls/859c833251c31ccdc37888c84880abdb/seg_002.m4s",
+        "bytes": 1254870,
+        "sha256": "0ab699a6325c657ea9f1ef2c046d681a50bc268fdbcabf66a8951b11195f5a72",
+        "gitBlobSha": "e07c63298ccb4b3455bd0fe47732dd837d678389"
+      }
+    ]
+  },
+  {
+    "videoId": "0c19b7d9f1ac0f754354063b9682afa9",
+    "sourceSha256": "03239b733370b2ce218d5ffd99ef1103e75769d79fa25e1633f6f4d5a3ba3e12",
+    "method": "stream-copy",
+    "fullDecodePassed": true,
+    "files": [
+      {
+        "path": "public/reels-hls/0c19b7d9f1ac0f754354063b9682afa9/index.m3u8",
+        "bytes": 232,
+        "sha256": "5e5e8503cdae347a521c034bd042fe48c1192013d14b4c75b9d1d9d1758c2b5b",
+        "gitBlobSha": "f2a9e6a5daa6801d32230bc4225f726c13d6e49a"
+      },
+      {
+        "path": "public/reels-hls/0c19b7d9f1ac0f754354063b9682afa9/init.mp4",
+        "bytes": 1392,
+        "sha256": "156720a1880169840932a6ee5a09106f6cb4033e40300acba85f9e49531930f9",
+        "gitBlobSha": "558a2498eef08dc48103369577730c00b4293335"
+      },
+      {
+        "path": "public/reels-hls/0c19b7d9f1ac0f754354063b9682afa9/poster.jpg",
+        "bytes": 57531,
+        "sha256": "164d8f31415e069503371264b44d8c6d8e49da935a29f2e87bfa09a4307ed142",
+        "gitBlobSha": "1078827490ee5fee0eb1c3d34fa6d228649c598c"
+      },
+      {
+        "path": "public/reels-hls/0c19b7d9f1ac0f754354063b9682afa9/seg_000.m4s",
+        "bytes": 4222921,
+        "sha256": "8db51e8bf425a4b169c55575e19ce173dcd380caf20f5a735ec8d35019d489a8",
+        "gitBlobSha": "e760a1e7aff2e7a6811b5d4e3d0dfd284d5403e5"
+      },
+      {
+        "path": "public/reels-hls/0c19b7d9f1ac0f754354063b9682afa9/seg_001.m4s",
+        "bytes": 4240896,
+        "sha256": "e0bf46841879a24555f43a5c8896b07ebfeb357210b17e36236b174c2ad1e708",
+        "gitBlobSha": "67982bdf531ec8076967074af00983116adf7273"
+      },
+      {
+        "path": "public/reels-hls/0c19b7d9f1ac0f754354063b9682afa9/seg_002.m4s",
+        "bytes": 1805611,
+        "sha256": "ec6eeb409a06ce4e175b52952988716a6cb978eb52d3608153514586a1bce62d",
+        "gitBlobSha": "a43a0edcce3094138f7e1b51238304174eb4c7b7"
+      }
+    ]
+  },
+  {
+    "videoId": "2e7ae4f4f3ed12a3e10b02283d57f128",
+    "sourceSha256": "9b7ce6582089fb750ab6991514a5f0051c5eb6977a149ab145e6f62faf75d09c",
+    "method": "stream-copy",
+    "fullDecodePassed": true,
+    "files": [
+      {
+        "path": "public/reels-hls/2e7ae4f4f3ed12a3e10b02283d57f128/index.m3u8",
+        "bytes": 232,
+        "sha256": "199d4cd38a5f5776e4531ca60d81c946369b83c6687f258f20c29cd4e3f4765c",
+        "gitBlobSha": "160e2bc5f6687ef44f9e8d840bec1cedaa781493"
+      },
+      {
+        "path": "public/reels-hls/2e7ae4f4f3ed12a3e10b02283d57f128/init.mp4",
+        "bytes": 1392,
+        "sha256": "872d987617c40f95410c810bc1031c7a3764e3892a7d65b71be3bac527d441bf",
+        "gitBlobSha": "3c850ddc96c0d655079de2fc6b0cd4eb587bf6bd"
+      },
+      {
+        "path": "public/reels-hls/2e7ae4f4f3ed12a3e10b02283d57f128/poster.jpg",
+        "bytes": 58763,
+        "sha256": "ce07042c38b77c97133e573586eb7dc1f67bc46e6178c4ec3c40f0d0e90c13ee",
+        "gitBlobSha": "f897a7e981c637753d464d091d3c8860aba8a48c"
+      },
+      {
+        "path": "public/reels-hls/2e7ae4f4f3ed12a3e10b02283d57f128/seg_000.m4s",
+        "bytes": 4367322,
+        "sha256": "66d59358a1e3f5d13fabf67ca7ff90923fdc880b3109d454d632108708504f29",
+        "gitBlobSha": "528ff7ee0a1470a2068c1b788a9cb86fb612d2a6"
+      },
+      {
+        "path": "public/reels-hls/2e7ae4f4f3ed12a3e10b02283d57f128/seg_001.m4s",
+        "bytes": 4550294,
+        "sha256": "4f255fc4dd4dce41be63a52940599f832967a1c697521b34ef33678b470f7867",
+        "gitBlobSha": "22165089442afe23842fbc03d5c3becc1c926b0b"
+      },
+      {
+        "path": "public/reels-hls/2e7ae4f4f3ed12a3e10b02283d57f128/seg_002.m4s",
+        "bytes": 1460972,
+        "sha256": "2574ff50ac7cf9d3d8292f0c02d63cdb6c3e3f4a955434af0471785673706cca",
+        "gitBlobSha": "dcdb49832be1804ab2f4e382701c8e5679add313"
+      }
+    ]
+  },
+  {
+    "videoId": "854793f6179eabc910845817d50156c2",
+    "sourceSha256": "c246ba49b096bf861c7072f7122800fba1a78baa0356319bdbe8268dba37ba87",
+    "method": "stream-copy",
+    "fullDecodePassed": true,
+    "files": [
+      {
+        "path": "public/reels-hls/854793f6179eabc910845817d50156c2/index.m3u8",
+        "bytes": 232,
+        "sha256": "407a473be313f11fd781e158b7fdbfbb1628ff0d9c2bf4598123726566c9647d",
+        "gitBlobSha": "4c0cc09003f1bf17f9528c0035307bd3ea37cfde"
+      },
+      {
+        "path": "public/reels-hls/854793f6179eabc910845817d50156c2/init.mp4",
+        "bytes": 1392,
+        "sha256": "9e90705007bae94b654ab7b9ffe9d50ef10a33becaaef64bd551bacd8b5f180c",
+        "gitBlobSha": "11a0e6752ac605dc0da0bf0b4eb28b27ca4c8114"
+      },
+      {
+        "path": "public/reels-hls/854793f6179eabc910845817d50156c2/poster.jpg",
+        "bytes": 79762,
+        "sha256": "71f3c9956c2defdf613873bee944eb01945368055843f6cbdb20cc035b428fdb",
+        "gitBlobSha": "213cb37393cc9c57d2e40b46e2cefc15d4e3b0e5"
+      },
+      {
+        "path": "public/reels-hls/854793f6179eabc910845817d50156c2/seg_000.m4s",
+        "bytes": 4473231,
+        "sha256": "25566853d4c9e2ffb844a0a2327b7d95f944754065ce71368ba172ec072d13d7",
+        "gitBlobSha": "7b035c7debe7dcce5b8366ab10c872b9daa1a395"
+      },
+      {
+        "path": "public/reels-hls/854793f6179eabc910845817d50156c2/seg_001.m4s",
+        "bytes": 4482701,
+        "sha256": "b897109aeab8fe70fec8a2185d87aca14a0c60a2f80f7ad76f6ca029fa7d2e3a",
+        "gitBlobSha": "0ac9300f997b700be55ceb8fdc70865bdefbac66"
+      },
+      {
+        "path": "public/reels-hls/854793f6179eabc910845817d50156c2/seg_002.m4s",
+        "bytes": 2248407,
+        "sha256": "1f5a93d640f4277a50bccb3e8535ae83d085b05d15f3cf0242cb3494dc6b9fba",
+        "gitBlobSha": "a053761ecaec91512bf866625e9312d4516fb271"
+      }
+    ]
+  },
+  {
+    "videoId": "4a75a089e72be21b552e58d1a20968da",
+    "sourceSha256": "40a12f4aa66af36ca0da07f13a534a90b0ba2f6440c52c7566555df67a81af86",
+    "method": "stream-copy",
+    "fullDecodePassed": true,
+    "files": [
+      {
+        "path": "public/reels-hls/4a75a089e72be21b552e58d1a20968da/index.m3u8",
+        "bytes": 232,
+        "sha256": "bf728a1f84a5c2741680cad106678cc4f45ea34370d1f77511f9054b23f53ae3",
+        "gitBlobSha": "2d38ff6ef96fdcc93196b20649ad3c3c9e7acddf"
+      },
+      {
+        "path": "public/reels-hls/4a75a089e72be21b552e58d1a20968da/init.mp4",
+        "bytes": 1392,
+        "sha256": "fac170dde1fa91a64b6babf51c1dfdb6622505deeae4a6a5b1b0eb06513bd81f",
+        "gitBlobSha": "762fe6376accafcd6ba50af8cfc5908c18fab1f9"
+      },
+      {
+        "path": "public/reels-hls/4a75a089e72be21b552e58d1a20968da/poster.jpg",
+        "bytes": 62953,
+        "sha256": "409e5e5297d43e37d858648bb61ad038130c61823d2a77659de8f7f71c67e880",
+        "gitBlobSha": "fb70e914edeed1682620ae59f8249d5b9edfeaa3"
+      },
+      {
+        "path": "public/reels-hls/4a75a089e72be21b552e58d1a20968da/seg_000.m4s",
+        "bytes": 4880442,
+        "sha256": "ad6134786e1824b78a57a51353d5b164ad30789d856edc9e8f699915057b3f70",
+        "gitBlobSha": "68f0f0ad0207fce7f772f7737dfbcefc06afa941"
+      },
+      {
+        "path": "public/reels-hls/4a75a089e72be21b552e58d1a20968da/seg_001.m4s",
+        "bytes": 4914706,
+        "sha256": "cf5c85f167790cd1f1f7b3736192e64b542a3ba4c41815a20d74bf410fa26f97",
+        "gitBlobSha": "f9ec02494871d582ba0fc9a44f0079acaf5288c6"
+      },
+      {
+        "path": "public/reels-hls/4a75a089e72be21b552e58d1a20968da/seg_002.m4s",
+        "bytes": 1255562,
+        "sha256": "4d5fed211e3af63e113ed73cc00e4d67c023188f860881e414143bffdc24e8bd",
+        "gitBlobSha": "da41c1a8274b250c965ee4b079861446425cb43b"
+      }
+    ]
+  },
+  {
+    "videoId": "843c1e562eb27cacab6da20a6b63b30c",
+    "sourceSha256": "1eefadac07407f099e2dca562b50d5bd375f407d6cfcac5e7eee679274df54f8",
+    "method": "stream-copy",
+    "fullDecodePassed": true,
+    "files": [
+      {
+        "path": "public/reels-hls/843c1e562eb27cacab6da20a6b63b30c/index.m3u8",
+        "bytes": 232,
+        "sha256": "6e5341e3a4fd2e1585edde9981d2c3e8ad938cbc6c309a52c14cf87b9578383f",
+        "gitBlobSha": "a04f115cfe180332334b4499789116fa78d199d9"
+      },
+      {
+        "path": "public/reels-hls/843c1e562eb27cacab6da20a6b63b30c/init.mp4",
+        "bytes": 1392,
+        "sha256": "95cb0710367448cb66307083112c72e470e23ba22dacc6d3e87ac3d75cdc0b92",
+        "gitBlobSha": "3c805335f04837f644b480dd972ffbdb4aa65fa3"
+      },
+      {
+        "path": "public/reels-hls/843c1e562eb27cacab6da20a6b63b30c/poster.jpg",
+        "bytes": 55677,
+        "sha256": "66d2296827047d3e8d8f935af04b7ed24bdae50071d2a1a88ae24f1d2844f097",
+        "gitBlobSha": "8f4770da2bdfa3d46bbb7f33444cb25f81d4b9c0"
+      },
+      {
+        "path": "public/reels-hls/843c1e562eb27cacab6da20a6b63b30c/seg_000.m4s",
+        "bytes": 4082055,
+        "sha256": "99b833e2790580803a9f602e4273245d8119006314a07de01c231b5c4bef96fb",
+        "gitBlobSha": "db80f94877c6b450e11a0c208f8c608a222fa920"
+      },
+      {
+        "path": "public/reels-hls/843c1e562eb27cacab6da20a6b63b30c/seg_001.m4s",
+        "bytes": 3977813,
+        "sha256": "ed8a863659ae46e7748660487561b9553e65232b695d349ac2cb69700d25e9be",
+        "gitBlobSha": "ef0b791f214dc4d533f94de7560a26d9b7bd5e8e"
+      },
+      {
+        "path": "public/reels-hls/843c1e562eb27cacab6da20a6b63b30c/seg_002.m4s",
+        "bytes": 2529471,
+        "sha256": "fa65f1d31b48dc1a23e5a79d8ec200a324ecd24a164cc9a9b73604fbedf69e1b",
+        "gitBlobSha": "2dd6cb071c916841e834ba6976062eaf5b281981"
+      }
+    ]
+  },
+  {
+    "videoId": "13a5d1bd83e4714b1f6816a4d250f0a3",
+    "sourceSha256": "45acb5e4328f4e8bb6f971b8d01d2604f1fd5c5b0241d8a68975e5e0592601a3",
+    "method": "stream-copy",
+    "fullDecodePassed": true,
+    "files": [
+      {
+        "path": "public/reels-hls/13a5d1bd83e4714b1f6816a4d250f0a3/index.m3u8",
+        "bytes": 232,
+        "sha256": "14d32f43f4b27317ae4d81d5f7be5a25e8ab8a7fefd4a5294a90a5cfcf9fa06c",
+        "gitBlobSha": "5505ccb7c7c03c023e24a3f81826bfdd9c8a1ab9"
+      },
+      {
+        "path": "public/reels-hls/13a5d1bd83e4714b1f6816a4d250f0a3/init.mp4",
+        "bytes": 1392,
+        "sha256": "ea7e38488586c80a9119e90c8a473b568fe8d5a3daa14c5830f436a3e6dc1466",
+        "gitBlobSha": "d3d9f11d0cbefd10dfc71f6bd87528fde39e4331"
+      },
+      {
+        "path": "public/reels-hls/13a5d1bd83e4714b1f6816a4d250f0a3/poster.jpg",
+        "bytes": 104846,
+        "sha256": "1b1cfc96edbeaae6664ff95ea1df58e88b50c65c15f889396e85b2c7a89783ae",
+        "gitBlobSha": "8829022ebc38b726d029aae4ff63277d26818bf9"
+      },
+      {
+        "path": "public/reels-hls/13a5d1bd83e4714b1f6816a4d250f0a3/seg_000.m4s",
+        "bytes": 5046533,
+        "sha256": "2b2d4ce45efa9104bd8cb7b0f1af30bdaeff9b53897ef19f5c752badc5f2c88f",
+        "gitBlobSha": "101b6b5de72c0c1e56d8bda17c0e6de50761a950"
+      },
+      {
+        "path": "public/reels-hls/13a5d1bd83e4714b1f6816a4d250f0a3/seg_001.m4s",
+        "bytes": 5283859,
+        "sha256": "b011d7d63089be05b0711c097d1163d71c791d9b609c6f1908f03cd0efb772f3",
+        "gitBlobSha": "75a518dd7e8d8f77c430e5f0e6e58125ae249eb7"
+      },
+      {
+        "path": "public/reels-hls/13a5d1bd83e4714b1f6816a4d250f0a3/seg_002.m4s",
+        "bytes": 2109981,
+        "sha256": "e1f6be934f2e2446558701e9f0eb827dc5ec6dd58173c8b5d0d4ffef34ac0ba3",
+        "gitBlobSha": "b1c92b6367f08822934b86ebd9e2e39ebe594c5f"
+      }
+    ]
+  },
+  {
+    "videoId": "49dd0924e3e9f2a82161e2d642eb161c",
+    "sourceSha256": "08f05ee3a7f2c71bee5be69c34fd10f8eb51cefc7a09f0e10774881cbb34b474",
+    "method": "stream-copy",
+    "fullDecodePassed": true,
+    "files": [
+      {
+        "path": "public/reels-hls/49dd0924e3e9f2a82161e2d642eb161c/index.m3u8",
+        "bytes": 232,
+        "sha256": "fd9ef0b7d23cd89d79c4d5ca607432b86e237b244574fcead6f2e41345ccef7c",
+        "gitBlobSha": "afad14783922ee7433e5ff5a95c6cca8cec79ea1"
+      },
+      {
+        "path": "public/reels-hls/49dd0924e3e9f2a82161e2d642eb161c/init.mp4",
+        "bytes": 1392,
+        "sha256": "65d4460b00b7b3adaf9ef0e7098078ea6237346a922dfab6ec8663a22f692744",
+        "gitBlobSha": "3c06acf0f6f51289494d1b1582a53e2b6b5725d3"
+      },
+      {
+        "path": "public/reels-hls/49dd0924e3e9f2a82161e2d642eb161c/poster.jpg",
+        "bytes": 55575,
+        "sha256": "ad8a12fc19f640d88d98bddacf1be039bc56babe5643954cf06cf8b6ff590c55",
+        "gitBlobSha": "02ab2727aaf03a993185271a6b04b316e81a5b15"
+      },
+      {
+        "path": "public/reels-hls/49dd0924e3e9f2a82161e2d642eb161c/seg_000.m4s",
+        "bytes": 4163628,
+        "sha256": "994a09339532c852c5627128f80de55ccada672b15905eeb9e12533cfbf949d0",
+        "gitBlobSha": "d8453302d96ce72370432808e889471e0c7de7f0"
+      },
+      {
+        "path": "public/reels-hls/49dd0924e3e9f2a82161e2d642eb161c/seg_001.m4s",
+        "bytes": 4562388,
+        "sha256": "f39af5c1486c76fcb57e24b13b1fca8ce6dcf0170b20c3e663ea1c5109151a9d",
+        "gitBlobSha": "24df4f9ab788c6f4bde1f778523a91bb10adee1a"
+      },
+      {
+        "path": "public/reels-hls/49dd0924e3e9f2a82161e2d642eb161c/seg_002.m4s",
+        "bytes": 2890043,
+        "sha256": "905f75cf565a64e23fbfb9b12677a97a8cb15f6202276aab5d11495d075f4854",
+        "gitBlobSha": "8d70b9f27b8193b763fed522a5489d55b4947f49"
+      }
+    ]
+  },
+  {
+    "videoId": "604c3287af17d14b8623028145d30264",
+    "sourceSha256": "12fb65400f1f96839d5510e76550495b1bd8db7c7058887aea8ddd950cfbe7b1",
+    "method": "stream-copy",
+    "fullDecodePassed": true,
+    "files": [
+      {
+        "path": "public/reels-hls/604c3287af17d14b8623028145d30264/index.m3u8",
+        "bytes": 232,
+        "sha256": "1c9fef767a4434efdac8be3ac4c43847dacbba9eca17d67001cfd9ffe186ee82",
+        "gitBlobSha": "15e93ca96aa390e1869e6b8e4156c46ae82d9bd7"
+      },
+      {
+        "path": "public/reels-hls/604c3287af17d14b8623028145d30264/init.mp4",
+        "bytes": 1392,
+        "sha256": "fa9e734105230f44aef4221c02e6dbc993b7c775860e011c54af85ce0bf549ea",
+        "gitBlobSha": "8f1efdb97c1efd7450ce4e3883569aeef78906af"
+      },
+      {
+        "path": "public/reels-hls/604c3287af17d14b8623028145d30264/poster.jpg",
+        "bytes": 81497,
+        "sha256": "eafcd62fb9645f5a57000ecb975bdf0fdf7addf9426f53e4a37ef49375177753",
+        "gitBlobSha": "120d4a278c53aeee6442a56e597882b0921af6dd"
+      },
+      {
+        "path": "public/reels-hls/604c3287af17d14b8623028145d30264/seg_000.m4s",
+        "bytes": 4490882,
+        "sha256": "3796380307c2a85996437ea97b132aa049b686162edd5f4d9fabfd28bd4692e1",
+        "gitBlobSha": "600415f1bd0d1c9bda8a67c000702d82823c0311"
+      },
+      {
+        "path": "public/reels-hls/604c3287af17d14b8623028145d30264/seg_001.m4s",
+        "bytes": 4474780,
+        "sha256": "bdfe9c1040c03e790684f6a6a825241a263bd6ad0143d9bc934478f03411e000",
+        "gitBlobSha": "40a2718391a60874dcf7384fecebebba3f84a123"
+      },
+      {
+        "path": "public/reels-hls/604c3287af17d14b8623028145d30264/seg_002.m4s",
+        "bytes": 3049044,
+        "sha256": "2593590fa990c23a63b3649485815fd3b33f1c2876453cb5c6e7d3bedcbbf2b7",
+        "gitBlobSha": "3e209ce656198f17b446bda7cc35b6b8831757a0"
+      }
+    ]
+  },
+  {
+    "videoId": "1aa7bc2a259f3a442c646b2e7eff2730",
+    "sourceSha256": "17fff81828cefa8e8fe4ea5c37d7404163fcf217064ae711758485a6d6548fea",
+    "method": "stream-copy",
+    "fullDecodePassed": true,
+    "files": [
+      {
+        "path": "public/reels-hls/1aa7bc2a259f3a442c646b2e7eff2730/index.m3u8",
+        "bytes": 232,
+        "sha256": "8d9ae15879f87351479546812c175364a3ad87399d34d47078b500008048cd18",
+        "gitBlobSha": "913980795f8813982c41ab3dae8f7f5fd15a9c95"
+      },
+      {
+        "path": "public/reels-hls/1aa7bc2a259f3a442c646b2e7eff2730/init.mp4",
+        "bytes": 1392,
+        "sha256": "434a028bbade833dd4a7e10821fd9936bb5ae263cf00ef8d6594a065070789fa",
+        "gitBlobSha": "2fef66a5f8cfab5061cade6486b3d38d62504999"
+      },
+      {
+        "path": "public/reels-hls/1aa7bc2a259f3a442c646b2e7eff2730/poster.jpg",
+        "bytes": 59392,
+        "sha256": "6def8ad1604b89a6acfdd7ee729b1a8e65071bcb7c14b36899e48b996dcf9acc",
+        "gitBlobSha": "d319ba251022363b74b7bec6b348fd392dbe6b50"
+      },
+      {
+        "path": "public/reels-hls/1aa7bc2a259f3a442c646b2e7eff2730/seg_000.m4s",
+        "bytes": 3957967,
+        "sha256": "6e03f616d6673b82489502a1ff23a4d3e761a51bc9100ab3bc86aa1f2f578927",
+        "gitBlobSha": "e3a6654fa51aa141f9c91cb22be9eec75d35685f"
+      },
+      {
+        "path": "public/reels-hls/1aa7bc2a259f3a442c646b2e7eff2730/seg_001.m4s",
+        "bytes": 3384239,
+        "sha256": "5e9fb4a73e0ec96477bfe195395713162579ec33ecd3321b0d04274447e2237d",
+        "gitBlobSha": "19940afcb61de762e0aed72b7fadeff0ca5cef83"
+      },
+      {
+        "path": "public/reels-hls/1aa7bc2a259f3a442c646b2e7eff2730/seg_002.m4s",
+        "bytes": 709403,
+        "sha256": "b72187c7c26b2b439ee4e12e23cead9dbe46d6eb3703599678a406a4e6838714",
+        "gitBlobSha": "56f5c80b9f9835c33d3b0477e04d77cab0004dfa"
+      }
+    ]
+  },
+  {
+    "videoId": "27e561d9ae38de375fba17bd53456129",
+    "sourceSha256": "6bd66b8867e2724fcf435742564b76ebf6807ba748dd87f7692b0f0986eb7223",
+    "method": "stream-copy",
+    "fullDecodePassed": true,
+    "files": [
+      {
+        "path": "public/reels-hls/27e561d9ae38de375fba17bd53456129/index.m3u8",
+        "bytes": 232,
+        "sha256": "4f487b7b44f11756007b7c3bf3fdcccdedce96e5b8d9bab53f44232dccf896e3",
+        "gitBlobSha": "af19deba5059b2e4d78a755067125c1f9fba4798"
+      },
+      {
+        "path": "public/reels-hls/27e561d9ae38de375fba17bd53456129/init.mp4",
+        "bytes": 1392,
+        "sha256": "6509e913e66751cb94c81a2095d8dd7254b029e5b0617327527707c004850675",
+        "gitBlobSha": "416cdd1cb9437a02e23d441568be0e6451a6f174"
+      },
+      {
+        "path": "public/reels-hls/27e561d9ae38de375fba17bd53456129/poster.jpg",
+        "bytes": 108193,
+        "sha256": "fdc4faa90e3efb4b5a4e1dac11f4960b0cbaeaa3fd5d397986d5dddff2f9917a",
+        "gitBlobSha": "109bf7b8c45a734270f2c5dba0e36b0a64edf6f8"
+      },
+      {
+        "path": "public/reels-hls/27e561d9ae38de375fba17bd53456129/seg_000.m4s",
+        "bytes": 5063159,
+        "sha256": "8d9498203603a441efa2299f7d65b4cf894956d828d93231d618fb7573004caf",
+        "gitBlobSha": "82f7f1bb78919d21c14a889f912855b23c7e28a8"
+      },
+      {
+        "path": "public/reels-hls/27e561d9ae38de375fba17bd53456129/seg_001.m4s",
+        "bytes": 5283921,
+        "sha256": "fc7f5effe806b3aa3a3e66967345619f846f95a2cc82e86d9607e31f3f159d0a",
+        "gitBlobSha": "9cc3d282cbe45e4a32b4cefc9485ce96e94dfac5"
+      },
+      {
+        "path": "public/reels-hls/27e561d9ae38de375fba17bd53456129/seg_002.m4s",
+        "bytes": 1771493,
+        "sha256": "82461bbcdc8b060c29fa5a602065bbbf773d6d30a2f1525f92764ff3395bb4ff",
+        "gitBlobSha": "2bd78dfbe5196eea1398b476b122409f9932be7c"
+      }
+    ]
+  },
+  {
+    "videoId": "db356d91e38194c9fb714210b8cfd506",
+    "sourceSha256": "5f5542f539dd69da4506ec8ea37e15ee7b2701702e685f85d892a217ab78fe0b",
+    "method": "stream-copy",
+    "fullDecodePassed": true,
+    "files": [
+      {
+        "path": "public/reels-hls/db356d91e38194c9fb714210b8cfd506/index.m3u8",
+        "bytes": 232,
+        "sha256": "a48b0190b8453d138121b7af4502a4e5cd9f6e93b01d22102c31105ccb16a4a3",
+        "gitBlobSha": "300fa0e5c960ebfe964eccff7abffa159d934b5a"
+      },
+      {
+        "path": "public/reels-hls/db356d91e38194c9fb714210b8cfd506/init.mp4",
+        "bytes": 1392,
+        "sha256": "c1f455772a51339ac4ff7e83d9dff86c00f99c1d653c268a27625b7769bbea46",
+        "gitBlobSha": "89efab53d8831a56d6b152c0ab930253e872c602"
+      },
+      {
+        "path": "public/reels-hls/db356d91e38194c9fb714210b8cfd506/poster.jpg",
+        "bytes": 63325,
+        "sha256": "a2a4d8dfa6a404e7b5dc4ea366e57a18047fccd35737c90cb43192e454a31640",
+        "gitBlobSha": "00712e3329d4ae8260b58ccf57acc99bc726ea8f"
+      },
+      {
+        "path": "public/reels-hls/db356d91e38194c9fb714210b8cfd506/seg_000.m4s",
+        "bytes": 4969634,
+        "sha256": "5674aacbab7b18ee84b9463116c1bc9c8cfd9140405e5158d996eeebca630ac6",
+        "gitBlobSha": "18f5da0a5153ca11520400dd664fc37224c1bd80"
+      },
+      {
+        "path": "public/reels-hls/db356d91e38194c9fb714210b8cfd506/seg_001.m4s",
+        "bytes": 5000149,
+        "sha256": "df53f7f45124b0274d09e116a1e9947e2e1da11a52cc6639f929d0beac387044",
+        "gitBlobSha": "1818fe395a60fe1fbc9b6a2d14c07a24883fb8f8"
+      },
+      {
+        "path": "public/reels-hls/db356d91e38194c9fb714210b8cfd506/seg_002.m4s",
+        "bytes": 899714,
+        "sha256": "ce9f537cf72e2b9f8c6ae3ef9acfb67418ec9a77dbe2a52672e13e9bf7694e1f",
+        "gitBlobSha": "0c5c5b9ca9e25e04da6d43c98af219fa5db7c15b"
+      }
+    ]
+  },
+  {
+    "videoId": "f709ed753e6fbd15a49e67c6886df133",
+    "sourceSha256": "c9812da231c0313e75327c6d0012b7272949436bbbe52f44213decf97c151735",
+    "method": "stream-copy",
+    "fullDecodePassed": true,
+    "files": [
+      {
+        "path": "public/reels-hls/f709ed753e6fbd15a49e67c6886df133/index.m3u8",
+        "bytes": 232,
+        "sha256": "229aad7932b1bda079be22577e0e731551686bac8c91de71e7a19839afab7eef",
+        "gitBlobSha": "e3854c8106c2d1c24d3eb53117836e55a6e81808"
+      },
+      {
+        "path": "public/reels-hls/f709ed753e6fbd15a49e67c6886df133/init.mp4",
+        "bytes": 1392,
+        "sha256": "24841580892b32d5847eaa0bf7a57d46a9e75b453a0a15dbdd4608c730a2a4a5",
+        "gitBlobSha": "89d8cda7777a444650febc1c20b044c0790dd2fd"
+      },
+      {
+        "path": "public/reels-hls/f709ed753e6fbd15a49e67c6886df133/poster.jpg",
+        "bytes": 58925,
+        "sha256": "ff27a90c42443a9b65db402b6af9977190449725dd1610728e82486879472902",
+        "gitBlobSha": "04ba9a1cca38471c7b4326288962482b9a2f9426"
+      },
+      {
+        "path": "public/reels-hls/f709ed753e6fbd15a49e67c6886df133/seg_000.m4s",
+        "bytes": 4615619,
+        "sha256": "be93224fcfef3f25c2cc3cdb61cc641e534e3bf0fab7ca69c96c4a4dc9d72636",
+        "gitBlobSha": "7bf53d04e64a20f9c22674141038fb21794ee916"
+      },
+      {
+        "path": "public/reels-hls/f709ed753e6fbd15a49e67c6886df133/seg_001.m4s",
+        "bytes": 4369912,
+        "sha256": "da67a23b6d578dad0892b890b615f186fd971a6a58575314a5bc12ec0296e702",
+        "gitBlobSha": "c2436a65f8b5fb104b097f021d21d845ba06aaf8"
+      },
+      {
+        "path": "public/reels-hls/f709ed753e6fbd15a49e67c6886df133/seg_002.m4s",
+        "bytes": 2593917,
+        "sha256": "6b5f26f9886a9a016545d5ddd9efeb8f19b161e505654211c179f59d96d7e391",
+        "gitBlobSha": "642ea8ca89349214d475b7d64a9dfd387c0668d9"
+      }
+    ]
+  }
+]

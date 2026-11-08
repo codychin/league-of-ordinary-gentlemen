@@ -2,7 +2,8 @@
 // Fail closed: exact main SHA, both GitHub QA jobs, provider checks, staged routes.
 import assert from 'node:assert/strict';
 import {spawnSync} from 'node:child_process';
-import {writeFileSync,appendFileSync} from 'node:fs';
+import {writeFileSync,appendFileSync,readFileSync} from 'node:fs';
+import {validateFocusedWeek9Authority} from './focused-week9-authority.mjs';
 import {promotionDecision} from './promotion-state.mjs';
 const token=process.env.VERCEL_TOKEN;
 const ghToken=process.env.GH_TOKEN;
@@ -44,6 +45,19 @@ async function github(path){
 }
 async function validateQA(){
  assert.equal((await github('/branches/main')).commit.sha,sha,'Superseded main commit');
+ if(process.env.FOCUSED_WEEK9_RELEASE==='1'){
+  const config=JSON.parse(readFileSync('qa/focused-week9-release.json','utf8'));
+  const commit=await github('/commits/'+sha);
+  assert.ok(commit.commit.message.includes('[focused-week9-release]'),'Missing scoped owner release marker');
+  const comparison=await github('/compare/'+config.headerSourceSha+'...'+sha);
+  assert.ok(['ahead','identical'].includes(comparison.status),'Approved header source is not an ancestor');
+  const headerBlobMap={};
+  for(const p of Object.keys(config.headerFiles)){const f=await github('/contents/'+p+'?ref='+sha);headerBlobMap[p]=f.sha;}
+  validateFocusedWeek9Authority({config,sha,main:sha,headerBlobMap,rows:JSON.parse(readFileSync('data/week9-approved-homepage-media.json','utf8')),authority:JSON.parse(readFileSync('qa/week9-owner-playback-waiver.json','utf8'))});
+  record('focused-authority-verified',{authority:'owner-approved-week9-focused-release',fullSuiteWaived:true,hostedPlaybackRequired:true});
+  return;
+ }
+ assert.ok(!process.env.FOCUSED_WEEK9_RELEASE,'Unknown focused release mode');
  const checks=(await github('/commits/'+sha+'/check-runs?per_page=100')).check_runs;
  assert.ok(Array.isArray(checks),'Missing GitHub checks');
  for(const name of ['integrity','article-image-qa']){
@@ -115,6 +129,18 @@ const smoke=spawnSync(process.execPath,[new URL('./check-public-routes.mjs',impo
  env:{PATH:process.env.PATH,NODE_OPTIONS:process.env.NODE_OPTIONS||'',BASE_URL:origin,VERCEL_TRUSTED_OIDC_TOKEN:oidc,RELEASE_CANARY_FAIL:process.env.RELEASE_CANARY_FAIL||''},encoding:'utf8',timeout:150000});
 process.stdout.write(smoke.stdout||'');
 assert.equal(smoke.status,0,'Staged candidate routes failed; release NOT promoted');
+// Same trusted main-only identity, exact validated candidate, no share link or
+// protection-policy mutation. Fresh token keeps the bounded browser check within
+// its lifetime; it is never passed on argv or persisted in diagnostics.
+const mediaIdentity=await fetch(process.env.ACTIONS_ID_TOKEN_REQUEST_URL,{redirect:'error',headers:{Authorization:'Bearer '+process.env.ACTIONS_ID_TOKEN_REQUEST_TOKEN},signal:AbortSignal.timeout(20000)});
+assert.ok(mediaIdentity.ok,'Hosted media identity request failed');
+const mediaOidc=(await mediaIdentity.json()).value;
+assert.ok(typeof mediaOidc==='string'&&mediaOidc.length>0,'Missing hosted media identity');
+const media=spawnSync(process.execPath,[new URL('./verify-hosted-week9-media.mjs',import.meta.url).pathname],{
+ env:{PATH:process.env.PATH,NODE_OPTIONS:process.env.NODE_OPTIONS||'',BASE_URL:origin,VERIFIED_CANDIDATE_ORIGIN:origin,RELEASE_SHA:sha,VERCEL_TRUSTED_OIDC_TOKEN:mediaOidc},encoding:'utf8',timeout:240000});
+assert.equal(media.status,0,'Hosted candidate video playback failed; release NOT promoted');
+record('hosted-media-verified',{hostedMediaVerified:true});
+
 await validateQA();
 const latest=await request('/v13/deployments/'+id);
 validateProviderChecks(latest);

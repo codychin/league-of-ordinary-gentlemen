@@ -1,5 +1,6 @@
 name: Promote verified production release
 on:
+  deployment_status:
   workflow_run:
     workflows: ["Release integrity", "Article image release gate"]
     types: [completed]
@@ -17,7 +18,7 @@ jobs:
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
-          ref: ${{ github.event.workflow_run.head_sha }}
+          ref: ${{ github.event.workflow_run.head_sha || github.event.deployment.sha }}
           persist-credentials: false
           sparse-checkout-cone-mode: false
           sparse-checkout: /scripts/operations/release-candidate.mjs
@@ -25,16 +26,44 @@ jobs:
         id: queue
         env:
           GH_TOKEN: ${{ github.token }}
-          RELEASE_SHA: ${{ github.event.workflow_run.head_sha }}
+          RELEASE_SHA: ${{ github.event.workflow_run.head_sha || github.event.deployment.sha }}
         run: node scripts/operations/release-candidate.mjs
+  focused_candidate:
+    if: ${{ github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success' && github.event.deployment.environment == 'Production' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    outputs:
+      eligible: ${{ steps.scope.outputs.eligible }}
+    steps:
+      - name: Recognize only the explicitly authorized Week 9 main commit
+        id: scope
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_SHA: ${{ github.event.deployment.sha }}
+          RELEASE_REPOSITORY: ${{ github.repository }}
+        run: |
+          node --input-type=module - <<'JS'
+          import {appendFileSync} from 'node:fs';
+          const sha=process.env.RELEASE_SHA,repo=process.env.RELEASE_REPOSITORY;
+          let eligible=false;
+          if(repo==='codychin/league-of-ordinary-gentlemen'&&/^[a-f0-9]{40}$/.test(sha||'')){
+            const get=async path=>{const r=await fetch('https://api.github.com/repos/'+repo+path,{redirect:'error',headers:{Authorization:'Bearer '+process.env.GH_TOKEN,Accept:'application/vnd.github+json'}});if(!r.ok)throw Error('GitHub scope check failed');return r.json();};
+            const main=await get('/branches/main');
+            if(main.commit.sha===sha){const c=await get('/commits/'+sha);eligible=c.commit.message.includes('[focused-week9-release]');}
+          }
+          appendFileSync(process.env.GITHUB_OUTPUT,'eligible='+String(eligible)+'\n');
+          JS
   promote:
-    needs: candidate
-    if: ${{ needs.candidate.outputs.eligible == 'true' }}
+    needs: [candidate, focused_candidate]
+    if: ${{ !cancelled() && ((needs.candidate.result == 'success' && needs.candidate.outputs.eligible == 'true') || (needs.focused_candidate.result == 'success' && needs.focused_candidate.outputs.eligible == 'true')) }}
     concurrency:
       group: ordinarybrief-production-promotion
       cancel-in-progress: false
     environment: production
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    container:
+      image: mcr.microsoft.com/playwright:v1.64.1-noble@sha256:47b510dd9230bf0b9bfc9b20102241e577ea7a99334ab4c3ca19f19770e9b8ea
+      options: --ipc=host --init
     timeout-minutes: 30
     steps:
       - name: Require automatic promotion mode
@@ -48,7 +77,7 @@ jobs:
       - name: Check out exact validated commit
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
-          ref: ${{ github.event.workflow_run.head_sha }}
+          ref: ${{ github.event.workflow_run.head_sha || github.event.deployment.sha }}
           persist-credentials: false
           fetch-depth: 1
           sparse-checkout-cone-mode: false
@@ -57,14 +86,31 @@ jobs:
             /scripts/operations/promotion-state.mjs
             /scripts/operations/check-public-routes.mjs
             /scripts/operations/public-route-validation.mjs
+            /scripts/operations/verify-hosted-week9-media.mjs
+            /scripts/operations/assert-playwright-container.mjs
+            /scripts/operations/hosted-media-scope.mjs
+            /scripts/operations/focused-week9-authority.mjs
+            /qa/focused-week9-release.json
+            /lib/week9-preview-cohort.mjs
+            /qa/week9-owner-playback-waiver.json
+            /data/week9-approved-homepage-media.json
+            /qa/week9-packaged-media.json
+            /package.json
+            /package-lock.json
+            /.github/workflows/release-integrity.yml
+            /.github/workflows/promote-verified-production.yml
       - name: Set up Node
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: '22'
+      - name: Install exact locked browser client without install scripts
+        run: npm ci --ignore-scripts
+      - name: Verify pinned trusted-runner browsers
+        run: node scripts/operations/assert-playwright-container.mjs
       - name: Refuse to promote obsolete builds
         env:
           GH_TOKEN: ${{ github.token }}
-          RELEASE_SHA: ${{ github.event.workflow_run.head_sha }}
+          RELEASE_SHA: ${{ github.event.workflow_run.head_sha || github.event.deployment.sha }}
         run: |
           HEAD="$(gh api repos/${{ github.repository }}/branches/main --jq .commit.sha)"
           test "$HEAD" = "$RELEASE_SHA" || { echo "Superseded commit; refusing promotion"; exit 1; }
@@ -72,10 +118,11 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           RELEASE_MODE: ${{ vars.BRIEF_RELEASE_MODE || 'verify-only' }}
+          FOCUSED_WEEK9_RELEASE: ${{ needs.focused_candidate.outputs.eligible == 'true' && '1' || '' }}
           RELEASE_CANARY_FAIL: ${{ vars.BRIEF_RELEASE_CANARY_FAIL }}
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_PROJECT_ID: prj_h89MCmxn3Mr3O0wRpnwstM917E0l
-          RELEASE_SHA: ${{ github.event.workflow_run.head_sha }}
+          RELEASE_SHA: ${{ github.event.workflow_run.head_sha || github.event.deployment.sha }}
         run: node scripts/operations/promote-verified-release.mjs
       - name: Verify live public routes after promotion
         env:
@@ -103,5 +150,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: production-release-${{ github.run_id }}-${{ github.run_attempt }}
-          path: release-receipt.json
+          path: |
+            release-receipt.json
+            hosted-media-receipt.json
           if-no-files-found: warn

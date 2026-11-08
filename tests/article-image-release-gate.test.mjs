@@ -7,8 +7,8 @@ import {spawnSync} from 'node:child_process'
 
 const workflow = readFileSync(new URL('../.github/workflows/release-integrity.yml', import.meta.url), 'utf8')
 const promotion = readFileSync(new URL('../.github/workflows/promote-verified-production.yml', import.meta.url), 'utf8')
-const marker = '      - name: Verify article image geometry before release\n        run: |\n'
-const block = workflow.split(marker)[1]?.split('      - uses:')[0]
+const marker = '      - name: Verify article image geometry before release\n'
+const block = workflow.split(marker)[1]?.split('        run: |\n')[1]?.split('      - uses:')[0]
 test('Release integrity requires geometry before successful automatic promotion', () => {
   assert.ok(block, 'mandatory browser step exists')
   assert.ok(workflow.indexOf('- run: npm run build') < workflow.indexOf(marker))
@@ -19,7 +19,7 @@ test('Release integrity requires geometry before successful automatic promotion'
   assert.match(promotion, /github\.event\.workflow_run\.conclusion == 'success'/)
 })
 for (const stepName of ['Verify article image geometry before release', 'Verify article images without score fixture']) {
- const testedBlock = workflow.split(`      - name: ${stepName}\n        run: |\n`)[1]?.split('      - uses:')[0];
+ const testedBlock = workflow.split(`      - name: ${stepName}\n`)[1]?.split('        run: |\n')[1]?.split('      - uses:')[0];
  for (const exitCode of [0, 17]) {
   test(stepName + ' command exit ' + exitCode + ' propagates through release step', () => {
     assert.ok(testedBlock)

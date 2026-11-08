@@ -239,22 +239,26 @@ for(const growth of [0,528,1900]){
 }
 
 for (const root of ['', '/sunday-crew', '/doge']) {
-  test(`current recaps replace previews while preserving archive history: ${root || 'LOOG'}`, async ({page}) => {
+  test(`Week 9 previews replace recaps while preserving archive history: ${root || 'LOOG'}`, async ({page}) => {
     const edition=root.slice(1)||'loog';
+    const current=data('week9-approved-homepage-media.json').filter(r=>r.edition===edition);
     const recaps=data('week8-recap-approved-homepage-media.json').filter(r=>r.edition===edition);
     const previews=data('week8-approved-homepage-media.json').filter(r=>r.edition===edition);
     expect(recaps).toHaveLength(6);expect(previews).toHaveLength(6);
     expect((await page.goto(root || '/')).status()).toBe(200);
-    const shelf=page.locator('section[aria-label="Week 8, the recaps. videos"]');
+    const shelf=page.locator('section[aria-label="Week 9, the previews. videos"]');
     await expect(shelf).toHaveCount(1);
     const buttons=shelf.getByRole('button', {name:/^Watch /});
     await expect(buttons).toHaveCount(6);
-    expect(await buttons.evaluateAll(elements=>elements.map(el=>el.getAttribute('aria-describedby')))).toEqual(recaps.map(r=>`reel-state-${edition}-week8-recap-v1-${r.id}`));
+    expect(await buttons.evaluateAll(elements=>elements.map(el=>el.getAttribute('aria-describedby')))).toEqual(current.map(r=>`reel-state-${edition}-week9-preview-v1-${r.id}`));
     await expect(page.locator('section[aria-label="Week 8, the previews. videos"]')).toHaveCount(0);
     await expect(page.locator('section[aria-label="Week 7, the recaps. videos"]')).toHaveCount(0);
     await expect(page.locator('section[aria-label$=" videos"]')).toHaveCount(1);
     expect((await page.goto(root+'/archive/watch')).status()).toBe(200);
     const archive=page.locator('section[aria-labelledby="games-heading"]');
+    await expect(archive.getByRole('status')).toContainText('Week 9 · 6 videos');
+    for(const row of current)await expect(archive.locator(`img[src*="${row.id}"]`)).toHaveCount(1);
+    await page.getByRole('combobox',{name:/^Week/}).selectOption('8');
     await expect(archive.getByRole('status')).toContainText('Week 8 · 12 videos');
     await page.getByLabel('Coverage',{exact:false}).selectOption('preview');
     await expect(archive.getByRole('button',{name:/^Watch /})).toHaveCount(6);
@@ -302,5 +306,37 @@ for(const standalone of [false,true])test(`article masthead stays visible throug
    expect((await logo.boundingBox()).width).toBeLessThan(page.viewportSize().width*.7);
   }
   await testInfo.attach(`article-header-${fraction}`,{body:await page.screenshot(),contentType:'image/png'});
+ }
+});
+
+for(const root of ['', '/sunday-crew', '/doge'])test(`Week 9 real media plays and all six originals load: ${root||'LOOG'}`,async({page},testInfo)=>{
+ const edition=root.slice(1)||'loog';
+ const rows=data('week9-approved-homepage-media.json').filter(r=>r.edition===edition);
+ expect(rows).toHaveLength(6);
+ // No media mocks: exercise the current shelf, browser decoder and packaged URLs.
+ expect((await page.goto(root||'/')).status()).toBe(200);
+ const shelf=page.getByRole('region',{name:'Week 9, the previews. videos'});
+ await shelf.getByRole('button',{name:/^Watch /}).first().click();
+ const player=page.getByRole('dialog').locator('video:not([aria-hidden="true"])');
+ await expect(player).toHaveCount(1);
+ try{await expect.poll(()=>player.evaluate(v=>v.currentTime),{timeout:20000}).toBeGreaterThan(.2);}
+ catch(error){
+  const state=await page.getByRole('dialog').locator('video').evaluateAll(videos=>videos.map(v=>({hidden:v.getAttribute('aria-hidden'),paused:v.paused,readyState:v.readyState,networkState:v.networkState,currentTime:v.currentTime,currentSrc:v.currentSrc,muted:v.muted,error:v.error?{code:v.error.code,message:v.error.message}:null,buffered:Array.from({length:v.buffered.length},(_,i)=>[v.buffered.start(i),v.buffered.end(i)])})));
+  await testInfo.attach('real-media-failure-state',{body:JSON.stringify(state,null,2),contentType:'application/json'});
+  throw error;
+ }
+ expect(await player.evaluate(v=>v.currentSrc)).toContain(rows[0].id);
+ await page.getByRole('button',{name:'Close video',exact:true}).click();
+ for(const row of rows){
+  const observed=await page.evaluate(({id})=>new Promise((resolve,reject)=>{
+   const v=document.createElement('video');v.preload='metadata';v.muted=true;v.playsInline=true;
+   const cleanup=()=>{clearTimeout(timer);v.removeAttribute('src');v.load();v.remove();};
+   const timer=setTimeout(()=>{cleanup();reject(Error('Real MP4 metadata timed out: '+id));},15000);
+   v.onloadedmetadata=()=>{const result={duration:v.duration,width:v.videoWidth,height:v.videoHeight};cleanup();resolve(result);};
+   v.onerror=()=>{const code=v.error?.code;cleanup();reject(Error('Real MP4 decode error '+code+': '+id));};
+   document.body.append(v);v.src='/reels/'+id+'.mp4';
+  }),{id:row.id});
+  expect(Math.abs(observed.duration-row.durationSeconds)).toBeLessThan(.2);
+  expect(observed.width).toBeGreaterThan(0);expect(observed.height).toBeGreaterThan(observed.width);
  }
 });
