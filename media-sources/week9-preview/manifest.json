@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "originals": [
+    {
+      "path": "public/reels/4cf43935cbaa65a102d27d26c240a2ae.mp4",
+      "bytes": 12651679,
+      "sha256": "a8d000531edc6dbcc8dd91deb9381f56e57a2087bcce9d93a346a68d31a91d78",
+      "parts": [
+        {
+          "path": "media-sources/week9-preview/4cf43935cbaa65a102d27d26c240a2ae/part_000.bin",
+          "bytes": 8000000,
+          "sha256": "4731ec56579f7f2ab774c22dc1a208cf219960599883b3ccd10e4a2a465929af"
+        },
+        {
+          "path": "media-sources/week9-preview/4cf43935cbaa65a102d27d26c240a2ae/part_001.bin",
+          "bytes": 4651679,
+          "sha256": "6950955f865c8aac0cf0842ce8927786ae4661a67a46c7b2e8640b13dcbe3aeb"
+        }
+      ]
+    },
+    {
+      "path": "public/reels/19b4779e84652f7fa4f22af651bcdfb7.mp4",
+      "bytes": 12372791,
+      "sha256": "0a40230e62af1a52310f26dee0716358aa034085deb0e77b0d1114d8662e943d",
+      "parts": [
+        {
+          "path": "media-sources/week9-preview/19b4779e84652f7fa4f22af651bcdfb7/part_000.bin",
+          "bytes": 8000000,
+          "sha256": "0ce259ae682fd47ab95b6300254910f1284e0015ae614822054d713ae758d9c4"
+        },
+        {
+          "path": "media-sources/week9-preview/19b4779e84652f7fa4f22af651bcdfb7/part_001.bin",
+          "bytes": 4372791,
+          "sha256": "c2e0eb2c757e0c5f3d3d4593ecaf672ca943d8b346b9fe399dca02d418ed088b"
+        }
+      ]
+    },
+    {
+      "path": "public/reels/13a5d1bd83e4714b1f6816a4d250f0a3.mp4",
+      "bytes": 12446743,
+      "sha256": "45acb5e4328f4e8bb6f971b8d01d2604f1fd5c5b0241d8a68975e5e0592601a3",
+      "parts": [
+        {
+          "path": "media-sources/week9-preview/13a5d1bd83e4714b1f6816a4d250f0a3/part_000.bin",
+          "bytes": 8000000,
+          "sha256": "658027687bf0c3897ab5e3069d3011cf4eede23b3c22be233edeb1853343e7b0"
+        },
+        {
+          "path": "media-sources/week9-preview/13a5d1bd83e4714b1f6816a4d250f0a3/part_001.bin",
+          "bytes": 4446743,
+          "sha256": "f949d1abb921b78cf3136812f1372a9e5cae41ca7cecf7e2feda64e7e7d50b97"
+        }
+      ]
+    },
+    {
+      "path": "public/reels/604c3287af17d14b8623028145d30264.mp4",
+      "bytes": 12021288,
+      "sha256": "12fb65400f1f96839d5510e76550495b1bd8db7c7058887aea8ddd950cfbe7b1",
+      "parts": [
+        {
+          "path": "media-sources/week9-preview/604c3287af17d14b8623028145d30264/part_000.bin",
+          "bytes": 8000000,
+          "sha256": "2fb5b52e0a8bd242346f048bc45deba5a5dc092a22d872fee43bfd1cd212fe44"
+        },
+        {
+          "path": "media-sources/week9-preview/604c3287af17d14b8623028145d30264/part_001.bin",
+          "bytes": 4021288,
+          "sha256": "74fa7de1b3ba53d470feb46f3e227b42d7bcc7412d71521f52170eef40a1c9c2"
+        }
+      ]
+    },
+    {
+      "path": "public/reels/27e561d9ae38de375fba17bd53456129.mp4",
+      "bytes": 12124903,
+      "sha256": "6bd66b8867e2724fcf435742564b76ebf6807ba748dd87f7692b0f0986eb7223",
+      "parts": [
+        {
+          "path": "media-sources/week9-preview/27e561d9ae38de375fba17bd53456129/part_000.bin",
+          "bytes": 8000000,
+          "sha256": "f12eb1316e1937b74cc0540a6692a7a4951528a63304c4f9d40645428b6ad369"
+        },
+        {
+          "path": "media-sources/week9-preview/27e561d9ae38de375fba17bd53456129/part_001.bin",
+          "bytes": 4124903,
+          "sha256": "983105f72f57462bbb41881c3f0fef24164ba73c747c6d9f48600fdb57cbb8fa"
+        }
+      ]
+    }
+  ]
+}
