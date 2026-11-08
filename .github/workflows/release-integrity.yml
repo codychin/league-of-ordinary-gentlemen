@@ -1,153 +1,46 @@
 name: Release integrity
-
 on:
   push:
-    branches: [main]
-  pull_request:
+    branches: [diagnostic/week9-video-startup]
   workflow_dispatch:
-
 permissions:
   contents: read
-
-# Superseded PR work has no release authority. Main/dispatch runs keep unique
-# groups so they never cancel a release that may already be under verification.
-concurrency:
-  group: release-integrity-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || github.run_id }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
-
 jobs:
-  media-preparation:
+  video-startup-diagnostic:
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          persist-credentials: false
-          # actions/checkout uses blob:none for sparse checkout. A separate filter
-          # overrides that fetch optimization, so leave it unset.
-          sparse-checkout-cone-mode: false
-          # Regenerate with node scripts/operations/media-ci-inputs.mjs.
-          sparse-checkout: |
-            /scripts/operations/
-            /qa/operations/media-preparation.test.mjs
-            /qa/fixtures/media-preparation.mjs
-            /qa/week7-recap-assets.json
-            /qa/week7-recap-draft.json
-            /qa/week8-owner-playback-waiver.json
-            /qa/week8-recap-owner-playback-waiver.json
-            /data/week7-approved-homepage-media.json
-            /lib/week7-reels.js
-            /app/articles/writers.js
-            /app/components/ReelsShelf.jsx
-            /public/reels/767a690ca578a94b37551670f196948c.mp4
-            /public/reels-hls/767a690ca578a94b37551670f196948c/
-            /public/reels/7933be525a78f092953085f927b669db.mp4
-            /public/reels-hls/7933be525a78f092953085f927b669db/
-            /public/reels/9fb0773e01f5ceef619b45a3a47b62ce.mp4
-            /public/reels-hls/9fb0773e01f5ceef619b45a3a47b62ce/
-            /public/reels/bae3db100a8b889418b3a7586bbc6c57.mp4
-            /public/reels-hls/bae3db100a8b889418b3a7586bbc6c57/
-            /public/reels/c4fd9f1825cb0fbd4124f6da057519fa.mp4
-            /public/reels-hls/c4fd9f1825cb0fbd4124f6da057519fa/
-            /public/reels/f1f50af7659bd9dc184584ccfbe371f7.mp4
-            /public/reels-hls/f1f50af7659bd9dc184584ccfbe371f7/
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - name: Ensure runner media prerequisites
-        timeout-minutes: 5
-        run: bash scripts/operations/ensure-media-tools.sh
-      - name: Verify real preparation and shelf delivery contracts without spending
-        run: node --test qa/operations/media-preparation.test.mjs
-  integrity:
-    needs: media-preparation
-    outputs:
-      evidence: ${{ steps.evidence.outputs.identity }}
-    runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    timeout-minutes: 15
     container:
       image: mcr.microsoft.com/playwright:v1.64.1-noble@sha256:47b510dd9230bf0b9bfc9b20102241e577ea7a99334ab4c3ca19f19770e9b8ea
       options: --ipc=host --init
     steps:
       - uses: actions/checkout@v4
-        id: source
         with:
           persist-credentials: false
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
-      - run: npm ci
-      - run: npm test
+      - run: npm ci --ignore-scripts
       - run: npm run build
-      - name: Verify pinned Playwright browsers
-        run: node scripts/operations/assert-playwright-container.mjs
-      # Keep the former standalone gate's unmocked server coverage on this build.
-      - name: Verify article images without score fixture
+      - name: Isolated real-media startup diagnosis, no publication or full suite
         run: |
-          npm run start -- -p 3001 > /tmp/brief-unmocked-server.log 2>&1 &
+          NODE_OPTIONS="--require=$PWD/qa/fixtures/pwa-shell-scores.cjs" npm run start -- -p 3000 > /tmp/video-startup-server.log 2>&1 &
           server_pid=$!
           trap 'kill "$server_pid" 2>/dev/null || true' EXIT
           ready=false
           for i in $(seq 1 60); do
-            if curl -fsS http://127.0.0.1:3001/articles/maude-nfc-east-declines-winner > /dev/null; then ready=true; break; fi
+            if curl -fsS http://127.0.0.1:3000/ > /dev/null; then ready=true; break; fi
             sleep 2
           done
           test "$ready" = true
-          QA_BASE_URL=http://127.0.0.1:3001 npx playwright test qa/tests/article-image-framing.spec.mjs qa/tests/week9-written-previews.spec.mjs
+          command -v pactl >/dev/null && pactl info > /tmp/audio-backend-info.txt 2>&1 || true
+          DEBUG=pw:browser BASE_URL=http://127.0.0.1:3000 node scripts/operations/diagnose-video-startup.mjs > /tmp/video-startup-browser.log 2>&1
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: article-image-qa-report
+          name: week9-video-startup-diagnostic
           path: |
-            qa/reports/browser-html
-            qa/reports/browser-results.json
-            qa/test-results
-            /tmp/brief-unmocked-server.log
-      - name: Verify article image geometry before release
-        run: |
-          NODE_OPTIONS="--require=$PWD/qa/fixtures/pwa-shell-scores.cjs" npm run start -- -p 3000 > /tmp/brief-server.log 2>&1 &
-          server_pid=$!
-          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
-          ready=false
-          for i in $(seq 1 60); do
-            if curl -fsS http://127.0.0.1:3000/articles/maude-nfc-east-declines-winner > /dev/null; then ready=true; break; fi
-            sleep 2
-          done
-          test "$ready" = true
-          QA_BASE_URL=http://127.0.0.1:3000 npx playwright test qa/tests/article-image-framing.spec.mjs qa/tests/scorecard-divider-regression.spec.mjs qa/tests/pwa-reading-navigation.spec.mjs qa/tests/section-anchor-alignment.spec.mjs qa/tests/crates-mobile-intro.spec.mjs qa/tests/nav-circle-alignment.spec.mjs qa/tests/live-desk-badge.spec.mjs qa/tests/desktop-feature-spreads.spec.mjs qa/tests/web-paper.spec.mjs qa/tests/baker-draft.spec.mjs qa/tests/article-byline.spec.mjs
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: release-integrity-image-report
-          path: |
-            qa/reports/browser-html
-            qa/reports/browser-results.json
-            qa/test-results
-            /tmp/brief-server.log
-      # Job outputs are scoped to this dependency graph; no downloaded evidence.
-      - name: Record successful validation identity
-        id: evidence
-        env:
-          CHECKED_OUT_SHA: ${{ steps.source.outputs.commit }}
-        run: |
-          test -n "$GITHUB_SHA"
-          test "$CHECKED_OUT_SHA" = "$GITHUB_SHA"
-          echo "identity=$GITHUB_SHA:$GITHUB_RUN_ID:$GITHUB_RUN_ATTEMPT:$GITHUB_WORKFLOW_REF" >> "$GITHUB_OUTPUT"
-  # Preserve the required check name while reusing only this run's completed work.
-  article-image-qa:
-    needs: integrity
-    if: ${{ always() }}
-    runs-on: ubuntu-24.04
-    steps:
-      - name: Require successful validation of this exact run
-        env:
-          VALIDATION_RESULT: ${{ needs.integrity.result }}
-          VALIDATION_IDENTITY: ${{ needs.integrity.outputs.evidence }}
-        run: |
-          test "$VALIDATION_RESULT" = success
-          test -n "$GITHUB_SHA"
-          test -n "$GITHUB_RUN_ID"
-          test -n "$GITHUB_RUN_ATTEMPT"
-          test -n "$GITHUB_WORKFLOW_REF"
-          test "$VALIDATION_IDENTITY" = "$GITHUB_SHA:$GITHUB_RUN_ID:$GITHUB_RUN_ATTEMPT:$GITHUB_WORKFLOW_REF"
+            qa/reports/video-startup-diagnostic.json
+            /tmp/video-startup-browser.log
+            /tmp/video-startup-server.log
+            /tmp/audio-backend-info.txt
