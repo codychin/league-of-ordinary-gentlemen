@@ -48,7 +48,7 @@ test('focused owner release stays main-only and does not forge full-check succes
  const y=readFileSync('.github/workflows/promote-verified-production.yml','utf8');
  const s=readFileSync('scripts/operations/promote-verified-release.mjs','utf8');
  assert.match(y,/github.event_name == 'deployment_status'/);
- assert.match(y,/deployment.environment == 'Production'/);
+ assert.match(y,/deployment.environment == 'Production – league-of-ordinary-gentlemen'/);
  assert.ok(y.includes("main.commit.sha===sha"));
  assert.ok(y.includes("c.commit.message.includes('[focused-week9-release]')"));
  assert.ok(s.includes("validateFocusedWeek9Authority"));

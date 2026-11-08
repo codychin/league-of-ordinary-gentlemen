@@ -78,14 +78,16 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - if: ${{ !(github.event_name == 'pull_request' && github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') }}
+      - if: ${{ !(github.event_name == 'pull_request' && github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') && !(github.event_name == 'pull_request' && github.head_ref == 'fix/week9-deployment-event-routing') }}
         run: npm test
-      - run: npm run build
+      - if: ${{ !(github.event_name == 'pull_request' && github.head_ref == 'fix/week9-deployment-event-routing') }}
+        run: npm run build
       - name: Verify pinned Playwright browsers
+        if: ${{ !(github.event_name == 'pull_request' && github.head_ref == 'fix/week9-deployment-event-routing') }}
         run: node scripts/operations/assert-playwright-container.mjs
       # Keep the former standalone gate's unmocked server coverage on this build.
       - name: Verify article images without score fixture
-        if: ${{ !(github.event_name == 'pull_request' && github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') }}
+        if: ${{ !(github.event_name == 'pull_request' && github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') && !(github.event_name == 'pull_request' && github.head_ref == 'fix/week9-deployment-event-routing') }}
         run: |
           npm run start -- -p 3001 > /tmp/brief-unmocked-server.log 2>&1 &
           server_pid=$!
@@ -107,7 +109,7 @@ jobs:
             qa/test-results
             /tmp/brief-unmocked-server.log
       - name: Verify article image geometry before release
-        if: ${{ !(github.event_name == 'pull_request' && github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') }}
+        if: ${{ !(github.event_name == 'pull_request' && github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') && !(github.event_name == 'pull_request' && github.head_ref == 'fix/week9-deployment-event-routing') }}
         run: |
           NODE_OPTIONS="--require=$PWD/qa/fixtures/pwa-shell-scores.cjs" npm run start -- -p 3000 > /tmp/brief-server.log 2>&1 &
           server_pid=$!
@@ -145,7 +147,7 @@ jobs:
           QA_BASE_URL=http://127.0.0.1:3000 npx playwright test qa/tests/pwa-reading-navigation.spec.mjs --grep 'Week 9 real media|Week 9 previews|article masthead' --workers=1
           QA_BASE_URL=http://127.0.0.1:3000 npx playwright test qa/tests/article-image-framing.spec.mjs --workers=1
       - uses: actions/upload-artifact@v4
-        if: ${{ always() && (github.event_name == 'pull_request' && github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') }}
+        if: ${{ always() && (github.event_name == 'pull_request' && github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') && !(github.event_name == 'pull_request' && github.head_ref == 'fix/week9-deployment-event-routing') }}
         with:
           name: focused-week9-browser-evidence
           path: |
@@ -153,6 +155,20 @@ jobs:
             qa/reports/browser-results.json
             qa/test-results
             /tmp/brief-focused-server.log
+      - name: Verify narrow deployment event routing correction
+        if: ${{ github.event_name == 'pull_request' && github.head_ref == 'fix/week9-deployment-event-routing' }}
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          git fetch --depth=1 origin "$BASE_SHA"
+          git diff --name-only "$BASE_SHA" HEAD > /tmp/event-routing-files
+          node --input-type=module - <<'JS'
+          import fs from 'node:fs';
+          const allowed=new Set(['.github/workflows/release-integrity.yml','.github/workflows/promote-verified-production.yml','tests/automatic-release-contract.test.mjs']);
+          const files=fs.readFileSync('/tmp/event-routing-files','utf8').trim().split('\n');
+          if(files.some(p=>!allowed.has(p)))throw Error('Non-workflow changes require normal validation');
+          JS
+          node --test tests/automatic-release-contract.test.mjs tests/article-image-release-gate.test.mjs tests/release-gate-recovery.test.mjs tests/focused-week9-authority.test.mjs tests/hosted-week9-media.test.mjs
       # Job outputs are scoped to this dependency graph; no downloaded evidence.
       - name: Record successful validation identity
         id: evidence

@@ -29,7 +29,7 @@ jobs:
           RELEASE_SHA: ${{ github.event.workflow_run.head_sha || github.event.deployment.sha }}
         run: node scripts/operations/release-candidate.mjs
   focused_candidate:
-    if: ${{ github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success' && github.event.deployment.environment == 'Production' }}
+    if: ${{ github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success' && github.event.deployment.environment == 'Production – league-of-ordinary-gentlemen' }}
     runs-on: ubuntu-latest
     timeout-minutes: 3
     outputs:
