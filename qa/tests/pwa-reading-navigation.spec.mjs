@@ -283,7 +283,11 @@ for(const standalone of [false,true])test(`article masthead stays visible throug
   await expect.poll(()=>header.evaluate(e=>Math.abs(e.getBoundingClientRect().top))).toBeLessThanOrEqual(1);
   await expect(logo).toBeVisible();
   expect(await logo.evaluate(e=>{const r=e.getBoundingClientRect();return e.contains(document.elementFromPoint(r.left+r.width/2,r.top+r.height/2));})).toBe(true);
-  if(mobile)await expect(header).toHaveCSS('background-color','rgba(0, 0, 0, 0)');
+  if(mobile){
+   await expect(header).toHaveCSS('background-color','rgba(0, 0, 0, 0)');
+   await expect(logo).toHaveCSS('background-color','rgba(255, 255, 255, 0.88)');
+   expect((await logo.boundingBox()).width).toBeLessThan(page.viewportSize().width*.7);
+  }
   await testInfo.attach(`article-header-${fraction}`,{body:await page.screenshot(),contentType:'image/png'});
  }
 });
