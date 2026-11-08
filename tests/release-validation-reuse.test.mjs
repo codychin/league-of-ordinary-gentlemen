@@ -32,7 +32,7 @@ test('one install/build retains both server environments and all suites before e
     assert.ok(workflow.includes(required), required);
   }
   assert.match(workflow, /article-image-qa:\n    needs: integrity\n    if: \$\{\{ always\(\) \}\}/);
-  assert.match(workflow, /CHECKED_OUT_SHA: \$\{\{ steps.source.outputs.commit \}\}/);
+  assert.match(workflow, /CHECKED_OUT_SHA: \$\{\{ steps.source.outputs.commit \|\| steps.focused-source.outputs.commit \}\}/);
   assert.match(workflow, /uses: actions\/checkout@v4\n        id: source/);
   assert.doesNotMatch(workflow, /download-artifact|continue-on-error/);
   assert.equal(existsSync('.github/workflows/article-image-release-gate.yml'), false);

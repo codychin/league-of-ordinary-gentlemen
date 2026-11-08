@@ -100,8 +100,28 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         id: source
+        if: ${{ needs.select-checks.outputs.lane != 'release-tooling' }}
         with:
           persist-credentials: false
+      - uses: actions/checkout@v4
+        id: focused-source
+        if: ${{ needs.select-checks.outputs.lane == 'release-tooling' }}
+        with:
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.github/workflows/
+            /scripts/operations/
+            /lib/
+            /tests/
+            /qa/*.json
+            /qa/release-expectations/
+            /data/*.json
+            /app/articles/marnie-detroit-school.js
+            /public/images/cache/
+            /public/images/editorial/detroit-school/
+            /package-lock.json
+            /package.json
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -215,7 +235,7 @@ jobs:
       - name: Record successful validation identity
         id: evidence
         env:
-          CHECKED_OUT_SHA: ${{ steps.source.outputs.commit }}
+          CHECKED_OUT_SHA: ${{ steps.source.outputs.commit || steps.focused-source.outputs.commit }}
         run: |
           test -n "$GITHUB_SHA"
           test "$CHECKED_OUT_SHA" = "$GITHUB_SHA"
