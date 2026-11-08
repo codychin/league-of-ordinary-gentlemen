@@ -14,6 +14,6 @@
  html.standaloneApp body:has(.appTabBar) .articleAlerts,
  html.standaloneApp body:has(.appTabBar) .pullRefresh,
  html.standaloneApp body:has(.appTabBar) .appMoreSheet{position:absolute}
- html.standaloneApp body.reelsOpen>.appScrollContent{overflow:hidden}
+ html.standaloneApp body.reelsOpen>.appScrollContent{overflow:hidden;clip-path:none}
  html.standaloneApp body:has(.appTabBar)>.appScrollContent main{scroll-margin-top:0}
 }

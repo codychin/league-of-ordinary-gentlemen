@@ -327,5 +327,13 @@ for(const installed of [false,true])test(`standalone root avoids fixed-body clip
   await expect(page.locator('.mobileBriefLogo')).toHaveCSS('background-color','rgba(0, 0, 0, 0)');
   await testInfo.attach(`root-${installed?'installed':'web'}-${height}`,{body:await page.screenshot(),contentType:'image/png'});
  }
+ if(installed){
+  // Labelled CSS safe-area fixture, not an emulation of native WebView painting.
+  await page.addStyleTag({content:'html.standaloneApp body:not(.reelsOpen) > .appScrollContent{clip-path:inset(62px 0 0)}'});
+  expect(await page.evaluate(()=>document.querySelector('.appScrollContent').contains(document.elementFromPoint(5,30)))).toBe(false);
+  await page.locator('body').evaluate(e=>e.classList.add('reelsOpen'));
+  await expect(page.locator('.appScrollContent')).toHaveCSS('clip-path','none');
+  await page.locator('body').evaluate(e=>e.classList.remove('reelsOpen'));
+ }
  testInfo.annotations.push({type:'limitation',description:'Engine geometry and non-fixed root tested; this does not emulate installed-iOS status-bar/WebView painting. Physical-device confirmation remains necessary.'});
 });
