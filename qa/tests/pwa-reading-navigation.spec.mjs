@@ -290,3 +290,30 @@ for(const standalone of [false,true])test(`article masthead stays visible throug
   await testInfo.attach(`article-header-${fraction}`,{body:await page.screenshot(),contentType:'image/png'});
  }
 });
+
+for(const root of ['', '/sunday-crew', '/doge'])test(`Week 9 real media plays and all six originals load: ${root||'LOOG'}`,async({page})=>{
+ const edition=root.slice(1)||'loog';
+ const rows=data('week9-approved-homepage-media.json').filter(r=>r.edition===edition);
+ expect(rows).toHaveLength(6);
+ // No media mocks: exercise the current shelf, browser decoder and packaged URLs.
+ expect((await page.goto(root||'/')).status()).toBe(200);
+ const shelf=page.getByRole('region',{name:'Week 9, the previews. videos'});
+ await shelf.getByRole('button',{name:/^Watch /}).first().click();
+ const player=page.getByRole('dialog').locator('video:not([aria-hidden="true"])');
+ await expect(player).toHaveCount(1);
+ await expect.poll(()=>player.evaluate(v=>v.currentTime),{timeout:20000}).toBeGreaterThan(.2);
+ expect(await player.evaluate(v=>v.currentSrc)).toContain(rows[0].id);
+ await page.getByRole('button',{name:'Close video',exact:true}).click();
+ for(const row of rows){
+  const observed=await page.evaluate(({id})=>new Promise((resolve,reject)=>{
+   const v=document.createElement('video');v.preload='metadata';v.muted=true;v.playsInline=true;
+   const cleanup=()=>{clearTimeout(timer);v.removeAttribute('src');v.load();v.remove();};
+   const timer=setTimeout(()=>{cleanup();reject(Error('Real MP4 metadata timed out: '+id));},15000);
+   v.onloadedmetadata=()=>{const result={duration:v.duration,width:v.videoWidth,height:v.videoHeight};cleanup();resolve(result);};
+   v.onerror=()=>{const code=v.error?.code;cleanup();reject(Error('Real MP4 decode error '+code+': '+id));};
+   document.body.append(v);v.src='/reels/'+id+'.mp4';
+  }),{id:row.id});
+  expect(Math.abs(observed.duration-row.durationSeconds)).toBeLessThan(.2);
+  expect(observed.width).toBeGreaterThan(0);expect(observed.height).toBeGreaterThan(observed.width);
+ }
+});
