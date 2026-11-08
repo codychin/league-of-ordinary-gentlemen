@@ -274,6 +274,17 @@ for(const standalone of [false,true])test(`article masthead stays visible throug
  const mobile=page.viewportSize().width<=760;
  test.skip(standalone&&!mobile,'Installed shell is a mobile contract.');
  if(standalone)await page.addInitScript(()=>Object.defineProperty(navigator,'standalone',{get:()=>true}));
+ if(mobile){
+  await page.goto('/');
+  const recent=page.locator('[aria-label="Recent stories"]');
+  await expect(recent).toBeVisible();
+  await recent.evaluate(el=>{const wrapper=document.querySelector('.appScrollContent'),owner=wrapper&&getComputedStyle(wrapper).display!=='contents'?wrapper:document.scrollingElement;owner.scrollTo({top:owner.scrollTop+el.getBoundingClientRect().top+60,behavior:'instant'});});
+  const wordmark=page.locator('.mobileBriefLogo');
+  await expect(wordmark).toHaveCSS('background-color','rgba(0, 0, 0, 0)');
+  await expect(wordmark).toHaveCSS('border-radius','0px');
+  await expect(wordmark).toHaveCSS('backdrop-filter','none');
+  await testInfo.attach('home-photo-unboxed-wordmark',{body:await page.screenshot(),contentType:'image/png'});
+ }
  await page.goto('/articles/hollis-chargers-thought-of-everything');
  await expect(page.locator('html')).toHaveAttribute('data-app-tab','detail');
  const header=page.locator(mobile?'.appSectionHeader':'.siteNav');
