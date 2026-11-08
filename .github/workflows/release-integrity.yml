@@ -160,8 +160,8 @@ jobs:
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: |
-          git fetch --depth=1 origin "$BASE_SHA"
-          git diff --name-only "$BASE_SHA" HEAD > /tmp/event-routing-files
+          git -c safe.directory="$GITHUB_WORKSPACE" fetch --depth=1 origin "$BASE_SHA"
+          git -c safe.directory="$GITHUB_WORKSPACE" diff --name-only "$BASE_SHA" HEAD > /tmp/event-routing-files
           node --input-type=module - <<'JS'
           import fs from 'node:fs';
           const allowed=new Set(['.github/workflows/release-integrity.yml','.github/workflows/promote-verified-production.yml','tests/automatic-release-contract.test.mjs']);
