@@ -128,6 +128,12 @@ assert.ok(typeof oidc==='string'&&oidc.length>0,'Missing GitHub identity token')
 const smoke=spawnSync(process.execPath,[new URL('./check-public-routes.mjs',import.meta.url).pathname],{
  env:{PATH:process.env.PATH,NODE_OPTIONS:process.env.NODE_OPTIONS||'',BASE_URL:origin,VERCEL_TRUSTED_OIDC_TOKEN:oidc,RELEASE_CANARY_FAIL:process.env.RELEASE_CANARY_FAIL||''},encoding:'utf8',timeout:150000});
 process.stdout.write(smoke.stdout||'');
+if(smoke.status!==0){
+ let diagnostic=smoke.stderr||smoke.error?.message||'Route checker produced no error text';
+ for(const secret of [token,ghToken,oidc,process.env.ACTIONS_ID_TOKEN_REQUEST_TOKEN])if(secret)diagnostic=diagnostic.split(secret).join('[REDACTED]');
+ diagnostic=diagnostic.replace(/eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+/g,'[REDACTED_JWT]');
+ process.stderr.write(diagnostic.slice(0,6000)+'\n');
+}
 assert.equal(smoke.status,0,'Staged candidate routes failed; release NOT promoted');
 // Same trusted main-only identity, exact validated candidate, no share link or
 // protection-policy mutation. Fresh token keeps the bounded browser check within

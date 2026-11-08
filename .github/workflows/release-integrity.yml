@@ -171,7 +171,7 @@ jobs:
           node --input-type=module - <<'JS'
           import fs from 'node:fs';
           const pinned=process.env.GITHUB_HEAD_REF==='fix/week9-pinned-preview-verification';
-          const allowed=new Set(pinned?['.github/workflows/release-integrity.yml','.github/workflows/promote-verified-production.yml','scripts/operations/verify-pinned-week9-preview.mjs','scripts/operations/verify-hosted-week9-media.mjs','tests/pinned-week9-preview.test.mjs']:['.github/workflows/release-integrity.yml','.github/workflows/promote-verified-production.yml','tests/automatic-release-contract.test.mjs']);
+          const allowed=new Set(pinned?['.github/workflows/release-integrity.yml','.github/workflows/promote-verified-production.yml','scripts/operations/promote-verified-release.mjs','scripts/operations/verify-pinned-week9-preview.mjs','scripts/operations/verify-hosted-week9-media.mjs','tests/pinned-week9-preview.test.mjs']:['.github/workflows/release-integrity.yml','.github/workflows/promote-verified-production.yml','tests/automatic-release-contract.test.mjs']);
           const files=fs.readFileSync('/tmp/event-routing-files','utf8').trim().split('\n');
           if(files.some(p=>!allowed.has(p)))throw Error('Non-workflow changes require normal validation');
           JS
