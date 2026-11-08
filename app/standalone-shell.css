@@ -5,10 +5,7 @@
    Browser tabs/desktop retain document scrolling and existing chrome. */
 .appScrollContent{display:contents}
 @media(max-width:760px){
- /* A local glass backing keeps the floating wordmark legible over prose/photos
-    without painting a full-width bar through the page. */
- html body .appSectionHeader .mobileBriefLogo{padding-inline:12px;border-radius:24px;background:rgba(255,255,255,.88);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
- html body .appSectionHeader[data-surface="culture"] .mobileBriefLogo{background:rgba(17,16,14,.88)}
+ /* Preserve the approved unboxed wordmark; do not add a floating pill. */
  html.standaloneApp:has(.appTabBar){height:100%;overflow:hidden}
  html.standaloneApp body:has(.appTabBar){position:fixed;inset:0;width:100%;height:auto;box-sizing:border-box;overflow:hidden;padding:0}
  html.standaloneApp body:has(.appTabBar)>.appScrollContent{display:block;position:absolute;inset:0;box-sizing:border-box;min-height:0;overflow-y:auto;overscroll-behavior-y:contain;padding:var(--mobile-header-height,calc(env(safe-area-inset-top) + 52px)) 0 calc(70px + env(safe-area-inset-bottom));scroll-padding:var(--mobile-header-height,calc(env(safe-area-inset-top) + 52px)) 0 calc(70px + env(safe-area-inset-bottom))}
