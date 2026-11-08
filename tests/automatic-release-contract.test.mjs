@@ -30,7 +30,7 @@ test('healthy public site cannot hide eligible release missing for an hour',()=>
 test('promotion queue over deadline produces incident',()=>assert.equal(assessRelease({sha,checks:[...checks,{...checks[0],id:10,name:'promote',status:'queued',conclusion:null,started_at:'2026-10-26T00:00:00Z'}],now}).ok,false));
 test('completed production job does not claim live verification',()=>{
  const state=assessRelease({sha,checks:[...checks,{...checks[0],id:10,name:'promote'}],now});
- assert.equal(state.reason,'promotion-job-succeeded-live-unverified');assert.equal(state.ok,false);assert.equal(state.verification,'not-observed');
+ assert.equal(state.reason,'promotion-job-succeeded-live-unverified');assert.equal(state.ok,null);assert.equal(state.verification,'not-observed');
 });
 test('failed promotion still requires reconciliation',()=>{const state=assessRelease({sha,checks:[...checks,{...checks[0],id:10,name:'promote',conclusion:'failure'}],now});assert.equal(state.reason,'promotion-needs-reconciliation');assert.equal(state.ok,false);});
 test('PR completions cannot consume promotion concurrency; permissions unchanged',()=>{

@@ -17,7 +17,7 @@ test('workflow preserves exact-run authority and focused selection is not branch
  assert.match(yml,/needs: \[select-checks, media-preparation\]/);
  assert.match(yml,/needs\.select-checks\.result == 'success'/);
  assert.match(yml,/needs\.media-preparation\.result == 'skipped'/);
- assert.match(yml,/node --test tests\/release-check-selection.test.mjs/);
+ assert.match(yml,/node --test tests\/release-monitor-tristate.test.mjs tests\/release-check-selection.test.mjs/);
  assert.match(yml,/VALIDATION_IDENTITY.*GITHUB_SHA:\$GITHUB_RUN_ID:\$GITHUB_RUN_ATTEMPT:\$GITHUB_WORKFLOW_REF/);
  assert.match(yml,/git diff --name-status --no-renames/);
 });

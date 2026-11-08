@@ -2,6 +2,8 @@
 // One open incident for production route outages; updates and closes on recovery.
 import {readFileSync} from 'node:fs';
 const report=JSON.parse(readFileSync(process.env.REPORT_PATH||'/tmp/brief-route-report.json','utf8'));
+// Unknown live state is neither an outage nor recovery. Preserve any open incident.
+if(report.status==='unverified'){console.log('Live state unverified; no incident mutation or recovery claim.');process.exit(0);}
 const token=process.env.GITHUB_TOKEN,repo=process.env.GITHUB_REPOSITORY;
 if(!token||!repo)throw Error('GITHUB_TOKEN and GITHUB_REPOSITORY required');
 const api='https://api.github.com/repos/'+repo;

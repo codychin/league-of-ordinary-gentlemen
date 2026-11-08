@@ -210,7 +210,7 @@ jobs:
       - name: Focused release tooling contracts
         if: ${{ needs.select-checks.outputs.lane == 'release-tooling' }}
         run: |
-          node --test tests/release-check-selection.test.mjs tests/public-smoke-scope.test.mjs tests/automatic-release-contract.test.mjs tests/release-gate-recovery.test.mjs tests/article-image-release-gate.test.mjs tests/release-validation-reuse.test.mjs tests/focused-week9-authority.test.mjs tests/hosted-week9-media.test.mjs tests/pinned-week9-preview.test.mjs
+          node --test tests/release-monitor-tristate.test.mjs tests/release-check-selection.test.mjs tests/public-smoke-scope.test.mjs tests/automatic-release-contract.test.mjs tests/release-gate-recovery.test.mjs tests/article-image-release-gate.test.mjs tests/release-validation-reuse.test.mjs tests/focused-week9-authority.test.mjs tests/hosted-week9-media.test.mjs tests/pinned-week9-preview.test.mjs
       # Job outputs are scoped to this dependency graph; no downloaded evidence.
       - name: Record successful validation identity
         id: evidence

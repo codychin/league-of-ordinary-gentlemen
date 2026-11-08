@@ -8,6 +8,8 @@ export const focusedPaths = new Set([
   '.github/workflows/promote-verified-production.yml',
   'scripts/operations/select-release-checks.mjs',
   'scripts/operations/monitor-release-state.mjs',
+  'scripts/operations/monitor-incident.mjs',
+  'tests/release-monitor-tristate.test.mjs',
   'scripts/operations/check-public-routes.mjs',
   'scripts/operations/check-editorial-release.mjs',
   'scripts/operations/promote-verified-release.mjs',
