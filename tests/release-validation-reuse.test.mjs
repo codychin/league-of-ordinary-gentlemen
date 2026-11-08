@@ -26,7 +26,14 @@ for (const value of ['', 'a'.repeat(40), evidence.replace(':2:', ':1:'), evidenc
 test('one install/build retains both server environments and all suites before evidence', () => {
   assert.equal((workflow.match(/run: npm ci\n/g) || []).length, 1);
   assert.equal((workflow.match(/run: npm run build\n/g) || []).length, 1);
-  assert.equal((workflow.match(/qa\/tests\/article-image-framing.spec.mjs/g) || []).length, 2);
+  // PR141 added a separately guarded invocation, not a third normal-suite pass.
+  const focused = workflow.split('      - name: Focused owner-authorized Week 9 verification, not a full suite\n')[1]?.split('      - uses: actions/upload-artifact@v4')[0];
+  assert.ok(focused, 'retain explicit focused branch');
+  assert.ok(focused.includes("github.event_name == 'pull_request' && github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release'"));
+  assert.ok(focused.includes('node scripts/operations/verify-focused-week9-candidate.mjs'));
+  assert.equal((focused.match(/qa\/tests\/article-image-framing.spec.mjs/g) || []).length, 1);
+  const normalWorkflow = workflow.replace(focused, '');
+  assert.equal((normalWorkflow.match(/qa\/tests\/article-image-framing.spec.mjs/g) || []).length, 2);
   for (const required of ['npm test', 'qa/operations/media-preparation.test.mjs', 'assert-playwright-container.mjs', 'qa/tests/scorecard-divider-regression.spec.mjs', 'qa/tests/pwa-reading-navigation.spec.mjs', 'NODE_OPTIONS="--require=$PWD/qa/fixtures/pwa-shell-scores.cjs"', 'name: article-image-qa-report', 'name: release-integrity-image-report']) {
     assert.ok(workflow.indexOf(required) < workflow.indexOf('id: evidence'), required);
     assert.ok(workflow.includes(required), required);
