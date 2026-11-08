@@ -31,6 +31,7 @@ function simulate(mode,extra={}){
    import {syncBuiltinESMExports} from 'node:module';
    const realSpawn=childProcess.spawnSync;
    childProcess.spawnSync=(command,args,options)=>{
+    if(mode==='route-diagnostic'&&args?.[0]?.endsWith('/check-public-routes.mjs'))return {status:1,stdout:'',stderr:'FAIL / HTTP 401\\nFAIL /doge Expected publication marker missing\\nAuthorization: Bearer secret-token\\nFAIL /?token=secret HTTP 403\\n'};
     if(args?.[0]?.endsWith('/verify-hosted-week9-media.mjs')){
      if(options.env.BASE_URL!=='https://candidate.vercel.app'||options.env.VERIFIED_CANDIDATE_ORIGIN!==options.env.BASE_URL||options.env.RELEASE_SHA!==sha||options.env.VERCEL_TRUSTED_OIDC_TOKEN!=='test-oidc')throw Error('Wrong hosted media scope');
      if(options.env.VERCEL_TOKEN||options.env.GH_TOKEN)throw Error('Unneeded credentials passed to browser');
@@ -124,3 +125,5 @@ test('production route checker uses the approved three-card manifest order',()=>
  assert.equal(expected.length,3);
  assert.deepEqual(expected,manifest.carousel.map(story=>story.title));
 });
+
+test('staged route diagnostic exposes fixed labels only and never promotes',()=>{const r=simulate('route-diagnostic');assert.notEqual(r.status,0);assert.match(r.stderr,/FAIL \/ HTTP 401/);assert.match(r.stderr,/FAIL \/doge Expected publication marker missing/);assert.doesNotMatch(r.stdout+r.stderr,/secret-token|token=secret/);assert.equal(r.calls.filter(c=>c.method==='POST').length,0);});

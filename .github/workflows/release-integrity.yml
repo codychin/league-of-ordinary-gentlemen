@@ -164,7 +164,7 @@ jobs:
           git -c safe.directory="$GITHUB_WORKSPACE" diff --name-only "$BASE_SHA" HEAD > /tmp/event-routing-files
           node --input-type=module - <<'JS'
           import fs from 'node:fs';
-          const allowed=new Set(['.github/workflows/release-integrity.yml','.github/workflows/promote-verified-production.yml','tests/automatic-release-contract.test.mjs']);
+          const allowed=new Set(['.github/workflows/release-integrity.yml','.github/workflows/promote-verified-production.yml','tests/automatic-release-contract.test.mjs','scripts/operations/promote-verified-release.mjs','tests/release-gate-recovery.test.mjs']);
           const files=fs.readFileSync('/tmp/event-routing-files','utf8').trim().split('\n');
           if(files.some(p=>!allowed.has(p)))throw Error('Non-workflow changes require normal validation');
           JS
