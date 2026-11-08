@@ -23,3 +23,10 @@ test('each original and every HLS file matches immutable transport evidence',()=
 test('restore rejects corrupted/unsafe chunks rather than publishing substituted originals',()=>{
  const root=fs.mkdtempSync(path.join(os.tmpdir(),'week9-restore-'));try{const transport=read('media-sources/week9-preview/manifest.json');fs.mkdirSync(path.join(root,'media-sources/week9-preview'),{recursive:true});transport.originals[0].parts[0].path='../bad';fs.writeFileSync(path.join(root,'media-sources/week9-preview/manifest.json'),JSON.stringify(transport));assert.throws(()=>restoreWeek9Previews(root),/Unsafe/);}finally{fs.rmSync(root,{recursive:true,force:true});}
 });
+
+test('hidden reel preload never starts a competing playback session',()=>{
+ const source=fs.readFileSync('app/components/ReelsShelf.jsx','utf8');
+ const hidden=source.match(/\{nextReel&&<video[^\n]+/)[0];
+ assert.match(hidden,/preload="auto"/);assert.match(hidden,/aria-hidden="true"/);
+ assert.doesNotMatch(hidden,/onLoadedData|\.play\(|\.pause\(|autoPlay/);
+});

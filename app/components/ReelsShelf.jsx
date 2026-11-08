@@ -191,7 +191,8 @@ export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1',storag
       onTouchEnd={e=>{if(touchStart.current===null)return;const d=e.changedTouches[0].clientX-touchStart.current;if(Math.abs(d)>55)move(d<0?1:-1);touchStart.current=null;}}>
       <button className={styles.close} onClick={()=>setActive(null)} aria-label="Close video">×</button>
       <div className={styles.stage}>
-        {nextReel&&<video key={nextReel.id} ref={preloadRef} className={`${styles.video} ${styles.nextVideo}`} src={mediaSrc(nextReel)} preload="auto" playsInline muted disablePictureInPicture aria-hidden="true" onLoadedData={e=>{const v=e.currentTarget;v.muted=true;const p=v.play();if(p?.then)p.then(()=>{v.pause();try{v.currentTime=.01}catch{}}).catch(()=>{})}}/>}
+        {/* Preload bytes only. Playing a hidden video can steal mobile playback from the visible reel. */}
+        {nextReel&&<video key={nextReel.id} ref={preloadRef} className={`${styles.video} ${styles.nextVideo}`} src={mediaSrc(nextReel)} preload="auto" playsInline muted disablePictureInPicture aria-hidden="true"/>}
         <video key={reel.id} ref={videoRef} className={styles.video} src={mediaSrc(reel)} autoPlay poster={posterSrc(reel)} muted={muted} playsInline preload="auto" disablePictureInPicture onLoadedData={()=>videoRef.current?.play().catch(()=>{})} onWaiting={e=>scheduleRecovery(e.currentTarget)} onStalled={e=>scheduleRecovery(e.currentTarget)} onPlaying={()=>{clearTimeout(recoveryRef.current);setHasStarted(true)}} onTimeUpdate={e=>{const v=e.currentTarget;setProgress(v.duration?Math.min(1,v.currentTime/v.duration):0)}} onEnded={()=>move(1)}/>
         {!hasStarted&&!reel.videoUrl&&<img className={styles.posterCover} src={posterSrc(reel)} alt="" aria-hidden="true"/>}
         <button className={styles.soundToggle} onClick={e=>{e.stopPropagation();setMuted(v=>!v)}} aria-label={muted?'Turn sound on':'Mute'}>

@@ -296,7 +296,7 @@ for(const standalone of [false,true])test(`article masthead stays visible throug
  }
 });
 
-for(const root of ['', '/sunday-crew', '/doge'])test(`Week 9 real media plays and all six originals load: ${root||'LOOG'}`,async({page})=>{
+for(const root of ['', '/sunday-crew', '/doge'])test(`Week 9 real media plays and all six originals load: ${root||'LOOG'}`,async({page},testInfo)=>{
  const edition=root.slice(1)||'loog';
  const rows=data('week9-approved-homepage-media.json').filter(r=>r.edition===edition);
  expect(rows).toHaveLength(6);
@@ -306,7 +306,12 @@ for(const root of ['', '/sunday-crew', '/doge'])test(`Week 9 real media plays an
  await shelf.getByRole('button',{name:/^Watch /}).first().click();
  const player=page.getByRole('dialog').locator('video:not([aria-hidden="true"])');
  await expect(player).toHaveCount(1);
- await expect.poll(()=>player.evaluate(v=>v.currentTime),{timeout:20000}).toBeGreaterThan(.2);
+ try{await expect.poll(()=>player.evaluate(v=>v.currentTime),{timeout:20000}).toBeGreaterThan(.2);}
+ catch(error){
+  const state=await page.getByRole('dialog').locator('video').evaluateAll(videos=>videos.map(v=>({hidden:v.getAttribute('aria-hidden'),paused:v.paused,readyState:v.readyState,networkState:v.networkState,currentTime:v.currentTime,currentSrc:v.currentSrc,muted:v.muted,error:v.error?{code:v.error.code,message:v.error.message}:null,buffered:Array.from({length:v.buffered.length},(_,i)=>[v.buffered.start(i),v.buffered.end(i)])})));
+  await testInfo.attach('real-media-failure-state',{body:JSON.stringify(state,null,2),contentType:'application/json'});
+  throw error;
+ }
  expect(await player.evaluate(v=>v.currentSrc)).toContain(rows[0].id);
  await page.getByRole('button',{name:'Close video',exact:true}).click();
  for(const row of rows){
