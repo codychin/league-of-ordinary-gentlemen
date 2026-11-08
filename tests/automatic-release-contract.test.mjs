@@ -56,3 +56,5 @@ test('focused owner release stays main-only and does not forge full-check succes
  assert.ok(s.includes("assert.equal(media.status,0"));
  assert.ok(!/checks.create|check-runs.*POST|statuses.*POST/.test(s));
 });
+
+test('trusted container main check uses installed Node, not an absent gh CLI',()=>{const y=readFileSync('.github/workflows/promote-verified-production.yml','utf8');assert.doesNotMatch(y,/\bgh api\b/);assert.match(y,/Main identity lookup failed/);assert.match(y,/Superseded commit; refusing promotion/);});
