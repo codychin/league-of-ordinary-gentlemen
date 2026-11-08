@@ -161,7 +161,8 @@ jobs:
           if-no-files-found: warn
 
   verify_pinned_week9_preview:
-    if: ${{ github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && github.repository == 'codychin/league-of-ordinary-gentlemen' }}
+    # Disabled after run 42496531820 unexpectedly deployed the verifier source.
+    if: ${{ false }}
     environment: production
     runs-on: ubuntu-24.04
     timeout-minutes: 10
