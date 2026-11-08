@@ -189,11 +189,16 @@ jobs:
           node-version: '22'
       - run: npm ci --ignore-scripts
       - run: node scripts/operations/assert-playwright-container.mjs
+      - name: Install fixed Vercel CLI without lifecycle scripts
+        run: npm install --prefix /tmp/week9-vercel-cli --ignore-scripts --no-save vercel@65.12.1
+      - name: Link local metadata to the pinned existing project
+        run: |
+          node --input-type=module -e "import fs from 'node:fs'; fs.mkdirSync('.vercel',{recursive:true}); fs.writeFileSync('.vercel/project.json',JSON.stringify({projectId:'prj_h89MCmxn3Mr3O0wRpnwstM917E0l',orgId:'team_hU7RX1oX9Ea0W2U9ieHwNxzL'}));"
       - name: Verify only pinned rollback preview; never promote
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           GH_TOKEN: ${{ github.token }}
-        run: node scripts/operations/verify-pinned-week9-preview.mjs
+        run: /tmp/week9-vercel-cli/node_modules/.bin/vercel env run -- node scripts/operations/verify-pinned-week9-preview.mjs
       - uses: actions/upload-artifact@v4
         with:
           name: pinned-week9-preview-playback

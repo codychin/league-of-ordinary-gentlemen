@@ -20,17 +20,16 @@ export async function verifyPinnedPreview(env=process.env){
   const remote=await get(gh+'/contents/'+file+'?ref='+PIN.sha,env.GH_TOKEN);
   assert.equal(remote.encoding,'base64');assert.deepEqual(JSON.parse(Buffer.from(remote.content,'base64')),JSON.parse(readFileSync(file,'utf8')),'Candidate media evidence changed');
  }
- const oidcUrl=new URL(env.ACTIONS_ID_TOKEN_REQUEST_URL);assert.equal(oidcUrl.protocol,'https:');assert.ok(oidcUrl.hostname.endsWith('.actions.githubusercontent.com'),'Unexpected identity provider');
- const identity=await get(oidcUrl.href,env.ACTIONS_ID_TOKEN_REQUEST_TOKEN);assert.ok(typeof identity.value==='string');
+ const developmentToken=env.VERCEL_OIDC_TOKEN;assert.ok(typeof developmentToken==='string'&&developmentToken.length>20,'VERCEL_DEVELOPMENT_OIDC_TOKEN_MISSING');
  const origin='https://'+PIN.host;
  // Diagnose protection without following redirects or printing credentials/URLs.
- const probe=await fetch(origin+'/',{redirect:'manual',headers:{[AUTH_HEADER]:identity.value},signal:AbortSignal.timeout(20000)});
+ const probe=await fetch(origin+'/',{redirect:'manual',headers:{[AUTH_HEADER]:developmentToken},signal:AbortSignal.timeout(20000)});
  const location=probe.headers.get('location');
  const sso=location?new URL(location,origin).hostname==='vercel.com':false;
  console.log('Pinned preview authenticated GET: status='+probe.status+'; redirectsToVercel='+sso);
  await probe.body?.cancel();
  assert.equal(probe.status,200,'PINNED_PREVIEW_AUTHENTICATED_GET_FAILED');
  // Read-only verification: no promotion API, alias changes, or protection changes.
- return verifyHostedWeek9Media({BASE_URL:origin,VERIFIED_CANDIDATE_ORIGIN:origin,RELEASE_SHA:PIN.sha,VERCEL_TRUSTED_OIDC_TOKEN:identity.value});
+ return verifyHostedWeek9Media({BASE_URL:origin,VERIFIED_CANDIDATE_ORIGIN:origin,RELEASE_SHA:PIN.sha,VERCEL_TRUSTED_OIDC_TOKEN:developmentToken});
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){try{await verifyPinnedPreview();console.log('Pinned preview playback verified; production unchanged.');}catch(e){console.error('Pinned preview verification failed:',e.message);process.exitCode=1;}}
