@@ -132,7 +132,7 @@ jobs:
         if: ${{ github.event_name == 'pull_request' && github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release' }}
         run: |
           node scripts/operations/verify-focused-week9-candidate.mjs
-          node --test tests/focused-week9-authority.test.mjs tests/hosted-week9-media.test.mjs tests/release-gate-recovery.test.mjs tests/automatic-release-contract.test.mjs tests/week9-preview-shelf.test.mjs
+          node --test tests/focused-week9-authority.test.mjs tests/hosted-week9-media.test.mjs tests/release-gate-recovery.test.mjs tests/automatic-release-contract.test.mjs tests/week9-preview-shelf.test.mjs tests/reel-startup-recovery.test.mjs
           NODE_OPTIONS="--require=$PWD/qa/fixtures/pwa-shell-scores.cjs" npm run start -- -p 3000 > /tmp/brief-focused-server.log 2>&1 &
           server_pid=$!
           trap 'kill "$server_pid" 2>/dev/null || true' EXIT

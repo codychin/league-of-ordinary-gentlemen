@@ -15,7 +15,12 @@
   "knownFailure": {
     "revision": "20d394d5",
     "status": "unresolved-webkit-playback-stall",
-    "note": "Full-buffer unmuted WebKit startup stall occurred in the mixed suite. Fresh focused diagnostic passed; failure is not treated as disproven or waived."
+    "note": "Full-buffer unmuted WebKit startup stall occurred in the mixed suite. Fresh focused diagnostic passed; failure is not treated as disproven or waived.",
+    "subsequentFocusedFailure": {
+      "revision": "379a1c11ab45f8adc4a60f61352c2697b313af15",
+      "runId": 42443009577,
+      "detail": "Serial focused run: all three WebKit mobile edition playbacks passed, then WebKit input LOOG stalled at0.000646 seconds. Not waived; product startup recovery under repair."
+    }
   },
   "freshHostedPlaybackRequired": true,
   "hostedPlaybackWaived": false

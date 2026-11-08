@@ -1,5 +1,6 @@
 'use client';
 
+import {monitorReelStartup} from '../../lib/reel-startup-recovery.mjs';
 import {appScrollOwner,appScrollTop} from '../../lib/app-scroll-owner.mjs';
 import {useEffect,useLayoutEffect,useRef,useState} from 'react';
 import {createPortal,flushSync} from 'react-dom';
@@ -14,6 +15,8 @@ export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1',storag
   const [progress,setProgress]=useState(0);
   const [nativeHls,setNativeHls]=useState(false);
   const [hasStarted,setHasStarted]=useState(false);
+  const [needsManualPlay,setNeedsManualPlay]=useState(false);
+  const mutedIntent=useRef(muted);mutedIntent.current=muted;
   const [releaseReady,setReleaseReady]=useState(false);
   const touchStart=useRef(null);
   const videoRef=useRef(null);
@@ -73,6 +76,7 @@ export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1',storag
     setShowMeta(true);
     setProgress(0);
     setHasStarted(false);
+    setNeedsManualPlay(false);
     const t=setTimeout(()=>setShowMeta(false),2800);
     return()=>clearTimeout(t);
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -138,6 +142,25 @@ export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1',storag
     };
   },[active,muted]);
 
+  useEffect(()=>{
+    if(active===null||!videoRef.current)return;
+    return monitorReelStartup(videoRef.current,{
+      getMuted:()=>mutedIntent.current,
+      onManualRequired:()=>setNeedsManualPlay(true),
+      onProgress:()=>{setNeedsManualPlay(false);setHasStarted(true)}
+    });
+  },[active]);
+
+  const manualPlay=()=>{
+    const video=videoRef.current;if(!video)return;
+    video.muted=mutedIntent.current;
+    // This explicit gesture is the fallback when automatic decoder recovery or
+    // browser audio permission cannot start playback. Keep it visible until
+    // time actually advances, not merely until play() resolves.
+    try{video.pause();video.load();video.play().catch(()=>setNeedsManualPlay(true));}
+    catch{setNeedsManualPlay(true);}
+  };
+
   const scheduleRecovery=video=>{
     clearTimeout(recoveryRef.current);
     recoveryRef.current=setTimeout(()=>{
@@ -154,7 +177,7 @@ export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1',storag
     const video=videoRef.current;
     if(!video)return;
     video.muted=false;
-    video.play().catch(()=>{video.muted=true;setMuted(true);video.play().catch(()=>{})});
+    video.play().catch(()=>setNeedsManualPlay(true));
   };
   useEffect(()=>()=>clearTimeout(recoveryRef.current),[]);
 
@@ -193,7 +216,8 @@ export default function ReelsShelf({reels=[],releaseId='week3-roundup-v1',storag
       <div className={styles.stage}>
         {/* Preload bytes only. Playing a hidden video can steal mobile playback from the visible reel. */}
         {nextReel&&<video key={nextReel.id} ref={preloadRef} className={`${styles.video} ${styles.nextVideo}`} src={mediaSrc(nextReel)} preload="auto" playsInline muted disablePictureInPicture aria-hidden="true"/>}
-        <video key={reel.id} ref={videoRef} className={styles.video} src={mediaSrc(reel)} autoPlay poster={posterSrc(reel)} muted={muted} playsInline preload="auto" disablePictureInPicture onLoadedData={()=>videoRef.current?.play().catch(()=>{})} onWaiting={e=>scheduleRecovery(e.currentTarget)} onStalled={e=>scheduleRecovery(e.currentTarget)} onPlaying={()=>{clearTimeout(recoveryRef.current);setHasStarted(true)}} onTimeUpdate={e=>{const v=e.currentTarget;setProgress(v.duration?Math.min(1,v.currentTime/v.duration):0)}} onEnded={()=>move(1)}/>
+        <video key={reel.id} ref={videoRef} className={styles.video} src={mediaSrc(reel)} autoPlay poster={posterSrc(reel)} muted={muted} playsInline preload="auto" disablePictureInPicture onLoadedData={()=>videoRef.current?.play().catch(()=>{})} onWaiting={e=>scheduleRecovery(e.currentTarget)} onStalled={e=>scheduleRecovery(e.currentTarget)} onTimeUpdate={e=>{const v=e.currentTarget;if(v.currentTime>.2){clearTimeout(recoveryRef.current);setNeedsManualPlay(false);setHasStarted(true);}setProgress(v.duration?Math.min(1,v.currentTime/v.duration):0)}} onEnded={()=>move(1)}/>
+        {needsManualPlay&&<button type="button" onClick={manualPlay} aria-label="Play video" style={{position:'absolute',left:'50%',top:'50%',transform:'translate(-50%,-50%)',zIndex:30,padding:'14px 22px',border:'1px solid white',borderRadius:24,background:'rgba(0,0,0,.85)',color:'white',fontWeight:700}}>Play video</button>}
         {!hasStarted&&!reel.videoUrl&&<img className={styles.posterCover} src={posterSrc(reel)} alt="" aria-hidden="true"/>}
         <button className={styles.soundToggle} onClick={e=>{e.stopPropagation();setMuted(v=>!v)}} aria-label={muted?'Turn sound on':'Mute'}>
           {muted?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6.8 8.4H3.5v7.2h3.3L11 19z"/><path d="m15.5 9.5 5 5m0-5-5 5"/></svg>:<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6.8 8.4H3.5v7.2h3.3L11 19z"/><path d="M15 9.2c1.1.8 1.8 1.7 1.8 2.8s-.7 2-1.8 2.8"/><path d="M17.8 6.8c2 1.4 3.2 3.1 3.2 5.2s-1.2 3.8-3.2 5.2"/></svg>}
