@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "release": "chargers-detroit-2026-11-07",
+  "lead": {
+    "title": "The Chargers Have Thought of Everything",
+    "slug": "hollis-chargers-thought-of-everything",
+    "imageAlt": "Jim Harbaugh stands with Chargers coaches and players on the sideline against Washington at SoFi Stadium on October 5, 2025."
+  },
+  "carousel": [
+    "Baker Mayfield and the Comparative Merits of Abstention",
+    "A Study in Movement: The Detroit School, 2026",
+    "On the Saturation Bombing of Daniel Jones (n\u00e9e Dimes)"
+  ],
+  "article": {
+    "slug": "marnie-detroit-school",
+    "title": "A Study in Movement: The Detroit School, 2026",
+    "dek": "On the spontaneous birth of an artistic movement, and the evolution of human expression.",
+    "clipLabel": "The Detroit School in performance.",
+    "plates": [
+      {
+        "caption": "Plate I. The Gibbs Proposition.",
+        "alt": "Jahmyr Gibbs extends both arms and lifts a leg beside an official during the celebration.",
+        "source": "/images/editorial/detroit-school/jameson.webp",
+        "sha256": "cdd5239674dd4869712f5ba96852beefd6f1c10f359be04c22b8a1277076d36c"
+      },
+      {
+        "caption": "Plate II. The Formation of a School.",
+        "alt": "Detroit teammates assembling into a shared celebration.",
+        "source": "/images/editorial/detroit-school/composition.webp",
+        "sha256": "e731dc8c75ca285bab557f3166680618c58357bae4a4a124976589b3891e0310"
+      },
+      {
+        "caption": "Plate III. The Rejection of Consensus.",
+        "alt": "Jameson Williams gestures independently behind his Detroit teammates.",
+        "source": "/images/editorial/detroit-school/genesis.webp",
+        "sha256": "bec9609ded4f43aa01a7bbf24d7a3bc59ea4b671685d14779d4111440d1af36a"
+      },
+      {
+        "caption": "Plate IV. The Monumental Tradition.",
+        "alt": "Penei Sewell, number 58, extends his arms in celebration.",
+        "source": "/images/editorial/detroit-school/sewell.webp",
+        "sha256": "cbc6cb895b43c2220360577919254afaef45ba0515be18ae4afa3f1ca9e8e22f"
+      },
+      {
+        "caption": "Plate V. Vernacular Movement.",
+        "alt": "A Detroit offensive lineman raises his arms alongside his teammates.",
+        "source": "/images/editorial/detroit-school/offensive-line.webp",
+        "sha256": "91afc55175d852059d3203a2dfd343ccd7f9ff2258aa9f194db825ad7d6e8cc9"
+      },
+      {
+        "caption": "Plate VI. The Accusation.",
+        "alt": "Christian Mahogany points toward Green Bay player Karl Brooks.",
+        "source": "/images/editorial/detroit-school/accusation.webp",
+        "sha256": "471ddc2488a59a8f86d2aec001e9bce78beb67c691ec065c82aa4feed8f45731"
+      },
+      {
+        "caption": "Plate VII. The Completed Composition.",
+        "alt": "Detroit teammates perform separate celebratory movements together in the wider composition.",
+        "source": "/images/editorial/detroit-school/completed-composition-selected.png",
+        "sha256": "a31b7024bad7644d76e6684b62ca91693b257787603e382e92f0cd71689940c9"
+      }
+    ]
+  }
+}

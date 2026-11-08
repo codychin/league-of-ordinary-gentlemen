@@ -28,7 +28,11 @@ test('isolated rollback is limited to recorded predecessor',()=>assert.deepEqual
 for(const patch of [{authorized:false},{target:{...rollback.target,id:'arbitrary'}},{live:{...live,id:'newer'}},{providerRequest:{jobStatus:'in-progress'}}])test('rollback refuses invalid scope '+JSON.stringify(patch),()=>assert.throws(()=>rollbackDecision({...rollback,...patch})));
 test('healthy public site cannot hide eligible release missing for an hour',()=>assert.equal(assessRelease({sha,checks,now,commitTime:'2026-10-26T00:00:00Z'}).ok,false));
 test('promotion queue over deadline produces incident',()=>assert.equal(assessRelease({sha,checks:[...checks,{...checks[0],id:10,name:'promote',status:'queued',conclusion:null,started_at:'2026-10-26T00:00:00Z'}],now}).ok,false));
-test('completed production job records pipeline recovery',()=>assert.equal(assessRelease({sha,checks:[...checks,{...checks[0],id:10,name:'promote'}],now}).reason,'release-verified'));
+test('completed production job does not claim live verification',()=>{
+ const state=assessRelease({sha,checks:[...checks,{...checks[0],id:10,name:'promote'}],now});
+ assert.equal(state.reason,'promotion-job-succeeded-live-unverified');assert.equal(state.ok,null);assert.equal(state.verification,'not-observed');
+});
+test('failed promotion still requires reconciliation',()=>{const state=assessRelease({sha,checks:[...checks,{...checks[0],id:10,name:'promote',conclusion:'failure'}],now});assert.equal(state.reason,'promotion-needs-reconciliation');assert.equal(state.ok,false);});
 test('PR completions cannot consume promotion concurrency; permissions unchanged',()=>{
  const y=readFileSync('.github/workflows/promote-verified-production.yml','utf8');
  assert.ok(!/^concurrency:/m.test(y));

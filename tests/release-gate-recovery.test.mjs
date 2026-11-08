@@ -79,7 +79,7 @@ function simulate(mode,extra={}){
     throw Error('Unexpected request '+path);
    };
   `);
-  const result=spawnSync(process.execPath,[resolve('scripts/operations/promote-verified-release.mjs')],{encoding:'utf8',timeout:10000,env:{...process.env,RELEASE_RECEIPT_PATH:join(dir,'receipt.json'),RELEASE_SHA:sha,RELEASE_MODE:'promote',VERCEL_PROJECT_ID:project,VERCEL_TOKEN:'test-vercel',GH_TOKEN:'test-github',ACTIONS_ID_TOKEN_REQUEST_URL:'https://oidc.actions.example/token',ACTIONS_ID_TOKEN_REQUEST_TOKEN:'test-request',NODE_OPTIONS:'--import='+preload,...extra}});
+  const result=spawnSync(process.execPath,[resolve('scripts/operations/promote-verified-release.mjs')],{encoding:'utf8',timeout:10000,env:{...process.env,EDITORIAL_RELEASE_MANIFEST:'qa/release-expectations/chargers-detroit-2026-11-07.json',RELEASE_RECEIPT_PATH:join(dir,'receipt.json'),RELEASE_SHA:sha,RELEASE_MODE:'promote',VERCEL_PROJECT_ID:project,VERCEL_TOKEN:'test-vercel',GH_TOKEN:'test-github',ACTIONS_ID_TOKEN_REQUEST_URL:'https://oidc.actions.example/token',ACTIONS_ID_TOKEN_REQUEST_TOKEN:'test-request',NODE_OPTIONS:'--import='+preload,...extra}});
   assert.equal(result.error,undefined,result.error?.message);
   const calls=readFileSync(log,'utf8').trim().split('\n').map(JSON.parse);
   assert.ok(!(result.stdout+result.stderr).includes('test-vercel'));
@@ -119,8 +119,7 @@ for(const mode of ['bad-detroit-lead','bad-detroit-plate','bad-detroit-image'])t
 // Keep the deployment gate aligned with the independently approved placement registry.
 test('production route checker uses the approved three-card manifest order',()=>{
  const manifest=JSON.parse(readFileSync('qa/editorial-release.json','utf8'));
- const smoke=readFileSync('scripts/operations/check-public-routes.mjs','utf8');
- const expected=JSON.parse(smoke.match(/const expectedCards=(\[[^\n]+\]);/)[1]);
+ const expected=JSON.parse(readFileSync('qa/release-expectations/chargers-detroit-2026-11-07.json','utf8')).carousel;
  assert.equal(expected.length,3);
  assert.deepEqual(expected,manifest.carousel.map(story=>story.title));
 });

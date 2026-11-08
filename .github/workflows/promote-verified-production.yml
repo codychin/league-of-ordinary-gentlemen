@@ -87,6 +87,8 @@ jobs:
             /scripts/operations/promotion-state.mjs
             /scripts/operations/check-public-routes.mjs
             /scripts/operations/public-route-validation.mjs
+            /scripts/operations/check-editorial-release.mjs
+            /qa/release-expectations/
             /scripts/operations/verify-hosted-week9-media.mjs
             /scripts/operations/assert-playwright-container.mjs
             /scripts/operations/hosted-media-scope.mjs

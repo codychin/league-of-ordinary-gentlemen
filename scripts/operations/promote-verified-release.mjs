@@ -126,7 +126,7 @@ assert.ok(identity.ok,'GitHub identity request failed');
 const oidc=(await identity.json()).value;
 assert.ok(typeof oidc==='string'&&oidc.length>0,'Missing GitHub identity token');
 const smoke=spawnSync(process.execPath,[new URL('./check-public-routes.mjs',import.meta.url).pathname],{
- env:{PATH:process.env.PATH,NODE_OPTIONS:process.env.NODE_OPTIONS||'',BASE_URL:origin,VERCEL_TRUSTED_OIDC_TOKEN:oidc,RELEASE_CANARY_FAIL:process.env.RELEASE_CANARY_FAIL||''},encoding:'utf8',timeout:150000});
+ env:{PATH:process.env.PATH,NODE_OPTIONS:process.env.NODE_OPTIONS||'',BASE_URL:origin,VERCEL_TRUSTED_OIDC_TOKEN:oidc,RELEASE_CANARY_FAIL:process.env.RELEASE_CANARY_FAIL||'',EDITORIAL_RELEASE_MANIFEST:process.env.EDITORIAL_RELEASE_MANIFEST||''},encoding:'utf8',timeout:150000});
 process.stdout.write(smoke.stdout||'');
 if(smoke.status!==0){
  let diagnostic=smoke.stderr||smoke.error?.message||'Route checker produced no error text';
