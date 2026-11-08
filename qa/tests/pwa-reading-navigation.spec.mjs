@@ -47,13 +47,13 @@ for(const root of ['','/sunday-crew','/doge']){
   const check=async(label)=>{
    const s=await page.locator('.appTabBar').evaluate(el=>{
     const r=el.getBoundingClientRect(),v=visualViewport,c=document.querySelector('.appScrollContent'),cr=c.getBoundingClientRect(),style=getComputedStyle(el);
-    return {path:location.pathname,scrollY,innerHeight,visibility:document.visibilityState,viewport:v?{height:v.height,offsetTop:v.offsetTop,scale:v.scale}:null,rect:{top:r.top,bottom:r.bottom,height:r.height},content:{scrollTop:c.scrollTop,scrollHeight:c.scrollHeight,clientHeight:c.clientHeight,top:cr.top,bottom:cr.bottom},bottom:parseFloat(style.bottom),gap:0,transform:style.transform,position:style.position};
+    return {path:location.pathname,scrollY,innerHeight,visibility:document.visibilityState,viewport:v?{height:v.height,offsetTop:v.offsetTop,scale:v.scale}:null,rect:{top:r.top,bottom:r.bottom,height:r.height},content:{scrollTop:c.scrollTop,scrollHeight:c.scrollHeight,clientHeight:c.clientHeight,top:cr.top,bottom:cr.bottom},bottom:parseFloat(style.bottom),gap:0,transform:style.transform,position:style.position,rootPosition:getComputedStyle(document.body).position,rootBottom:document.body.getBoundingClientRect().bottom};
    });samples.push({label,...s});
-   expect(s.position).toBe('absolute');expect(s.scrollY).toBe(0);
+   expect(s.position).toBe('absolute');expect(s.rootPosition).toBe('relative');expect(s.scrollY).toBe(0);
    expect(s.content.clientHeight).toBeGreaterThan(0);
    expect(Math.abs(s.content.top)).toBeLessThan(2);
    expect(s.content.bottom,JSON.stringify(s)).toBeGreaterThan(s.rect.bottom);
-   const visibleBottom=s.viewport?s.viewport.offsetTop+s.viewport.height:s.innerHeight;
+   const visibleBottom=s.rootBottom;
    expect(Math.abs(s.content.bottom-visibleBottom),JSON.stringify(s)).toBeLessThan(2);
    expect(Math.abs(visibleBottom-s.rect.bottom-s.bottom),JSON.stringify(s)).toBeLessThan(2);
 
@@ -354,4 +354,37 @@ for(const root of ['', '/sunday-crew', '/doge'])test(`Week 9 real media plays an
   expect(Math.abs(observed.duration-row.durationSeconds)).toBeLessThan(.2);
   expect(observed.width).toBeGreaterThan(0);expect(observed.height).toBeGreaterThan(observed.width);
  }
+});
+
+for(const installed of [false,true])test(`standalone root avoids fixed-body clipping: ${installed?'installed':'web'}`,async({page},testInfo)=>{
+ test.skip(page.viewportSize().width>760,'Mobile root contract only.');
+ if(installed)await page.addInitScript(()=>Object.defineProperty(navigator,'standalone',{get:()=>true}));
+ await page.goto('/articles/maude-baker-comparative-merits-of-abstention');
+ await expect(page.locator('html')).toHaveAttribute('data-app-tab','detail');
+ const state=()=>page.evaluate(()=>{
+  const root=document.body,scroller=document.querySelector('.appScrollContent'),nav=document.querySelector('.appTabBar');
+  const probe=document.createElement('div');probe.style.cssText='position:absolute;pointer-events:none;width:0;height:100lvh;padding-top:env(safe-area-inset-top);';root.append(probe);
+  const measured={rootPosition:getComputedStyle(root).position,rootHeight:root.getBoundingClientRect().height,largeViewport:probe.getBoundingClientRect().height,contentBottom:scroller.getBoundingClientRect().bottom,rootBottom:root.getBoundingClientRect().bottom,navBottom:nav.getBoundingClientRect().bottom,navInset:parseFloat(getComputedStyle(nav).bottom),clip:getComputedStyle(scroller).clipPath,rootScroll:scrollY,display:getComputedStyle(scroller).display};probe.remove();return measured;
+ });
+ for(const height of [844,500,844]){
+  await page.setViewportSize({width:page.viewportSize().width,height});
+  await page.evaluate(installed=>{const owner=installed?document.querySelector('.appScrollContent'):document.scrollingElement;owner.scrollTo({top:700,behavior:'instant'});},installed);
+  const s=await state();
+  if(installed){
+   expect(s.rootPosition).toBe('relative');expect(s.rootHeight).toBeCloseTo(s.largeViewport,0);
+   expect(s.rootScroll).toBe(0);expect(s.contentBottom).toBeCloseTo(s.rootBottom,0);
+   expect(s.navBottom+s.navInset).toBeCloseTo(s.rootBottom,0);expect(s.clip).toMatch(/^inset\(/);
+  }else{expect(s.rootPosition).not.toBe('fixed');expect(s.display).toBe('contents');}
+  await expect(page.locator('.mobileBriefLogo')).toHaveCSS('background-color','rgba(0, 0, 0, 0)');
+  await testInfo.attach(`root-${installed?'installed':'web'}-${height}`,{body:await page.screenshot(),contentType:'image/png'});
+ }
+ if(installed){
+  // Labelled CSS safe-area fixture, not an emulation of native WebView painting.
+  await page.addStyleTag({content:'html.standaloneApp body:not(.reelsOpen) > .appScrollContent{clip-path:inset(62px 0 0)}'});
+  expect(await page.evaluate(()=>document.querySelector('.appScrollContent').contains(document.elementFromPoint(5,30)))).toBe(false);
+  await page.locator('body').evaluate(e=>e.classList.add('reelsOpen'));
+  await expect(page.locator('.appScrollContent')).toHaveCSS('clip-path','none');
+  await page.locator('body').evaluate(e=>e.classList.remove('reelsOpen'));
+ }
+ testInfo.annotations.push({type:'limitation',description:'Engine geometry and non-fixed root tested; this does not emulate installed-iOS status-bar/WebView painting. Physical-device confirmation remains necessary.'});
 });
