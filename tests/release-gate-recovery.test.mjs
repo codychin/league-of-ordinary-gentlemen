@@ -27,6 +27,20 @@ function simulate(mode,extra={}){
    import {appendFileSync,readFileSync} from 'node:fs';
    const mode=${JSON.stringify(mode)};
    const sha='${sha}';
+   import childProcess from 'node:child_process';
+   import {syncBuiltinESMExports} from 'node:module';
+   const realSpawn=childProcess.spawnSync;
+   childProcess.spawnSync=(command,args,options)=>{
+    if(args?.[0]?.endsWith('/verify-hosted-week9-media.mjs')){
+     if(options.env.BASE_URL!=='https://candidate.vercel.app'||options.env.VERIFIED_CANDIDATE_ORIGIN!==options.env.BASE_URL||options.env.RELEASE_SHA!==sha||options.env.VERCEL_TRUSTED_OIDC_TOKEN!=='test-oidc')throw Error('Wrong hosted media scope');
+     if(options.env.VERCEL_TOKEN||options.env.GH_TOKEN)throw Error('Unneeded credentials passed to browser');
+     appendFileSync(${JSON.stringify(log)},JSON.stringify({host:'browser-verifier',path:'/real-media',method:'VERIFY'})+'\\n');
+     return {status:mode==='bad-media'?1:0,stdout:'',stderr:''};
+    }
+    return realSpawn(command,args,options);
+   };
+   syncBuiltinESMExports();
+
    let branchReads=0,aliasReads=0,detailReads=0,autoAssign=mode==='interrupted-policy',promoted=mode==='interrupted-policy';
    globalThis.setTimeout=f=>{queueMicrotask(f);return 0};
    globalThis.fetch=async (input,options={})=>{
@@ -78,11 +92,12 @@ test('successful exact SHA promotes only after candidate route validation',()=>{
  const r=simulate('success');assert.equal(r.status,0,r.stderr);
  const post=r.calls.findIndex(c=>c.method==='POST');
  assert.ok(post>r.calls.findLastIndex(c=>c.host==='candidate.vercel.app'));
+ assert.ok(post>r.calls.findIndex(c=>c.host==='browser-verifier'),'Hosted media verification must precede promotion');
  assert.equal(r.calls[post+1].method,'PATCH');
  assert.ok(r.calls[post+2].path.startsWith('/v9/projects/'));
  assert.match(r.stdout,/VERIFIED production domain/);
 });
-for(const mode of ['obsolete','changed-main','failed-qa','wrong-check-app','autoassign','failed-build','wrong-sha','wrong-project','preview','foreign-url','failed-checks','changed-checks','bad-routes'])test('fail closed before any promotion: '+mode,()=>{
+for(const mode of ['obsolete','changed-main','failed-qa','wrong-check-app','autoassign','failed-build','wrong-sha','wrong-project','preview','foreign-url','failed-checks','changed-checks','bad-routes','bad-media'])test('fail closed before any promotion: '+mode,()=>{
  const r=simulate(mode);assert.notEqual(r.status,0,r.stdout);assert.equal(r.calls.filter(c=>c.method==='POST').length,0);assert.doesNotMatch(r.stdout,/VERIFIED production domain/);
 });
 test('wrong live alias cannot be marked verified',()=>{const r=simulate('bad-alias');assert.notEqual(r.status,0);assert.doesNotMatch(r.stdout,/VERIFIED production domain/)});

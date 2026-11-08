@@ -115,6 +115,18 @@ const smoke=spawnSync(process.execPath,[new URL('./check-public-routes.mjs',impo
  env:{PATH:process.env.PATH,NODE_OPTIONS:process.env.NODE_OPTIONS||'',BASE_URL:origin,VERCEL_TRUSTED_OIDC_TOKEN:oidc,RELEASE_CANARY_FAIL:process.env.RELEASE_CANARY_FAIL||''},encoding:'utf8',timeout:150000});
 process.stdout.write(smoke.stdout||'');
 assert.equal(smoke.status,0,'Staged candidate routes failed; release NOT promoted');
+// Same trusted main-only identity, exact validated candidate, no share link or
+// protection-policy mutation. Fresh token keeps the bounded browser check within
+// its lifetime; it is never passed on argv or persisted in diagnostics.
+const mediaIdentity=await fetch(process.env.ACTIONS_ID_TOKEN_REQUEST_URL,{redirect:'error',headers:{Authorization:'Bearer '+process.env.ACTIONS_ID_TOKEN_REQUEST_TOKEN},signal:AbortSignal.timeout(20000)});
+assert.ok(mediaIdentity.ok,'Hosted media identity request failed');
+const mediaOidc=(await mediaIdentity.json()).value;
+assert.ok(typeof mediaOidc==='string'&&mediaOidc.length>0,'Missing hosted media identity');
+const media=spawnSync(process.execPath,[new URL('./verify-hosted-week9-media.mjs',import.meta.url).pathname],{
+ env:{PATH:process.env.PATH,NODE_OPTIONS:process.env.NODE_OPTIONS||'',BASE_URL:origin,VERIFIED_CANDIDATE_ORIGIN:origin,RELEASE_SHA:sha,VERCEL_TRUSTED_OIDC_TOKEN:mediaOidc},encoding:'utf8',timeout:240000});
+assert.equal(media.status,0,'Hosted candidate video playback failed; release NOT promoted');
+record('hosted-media-verified',{hostedMediaVerified:true});
+
 await validateQA();
 const latest=await request('/v13/deployments/'+id);
 validateProviderChecks(latest);
