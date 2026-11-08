@@ -54,6 +54,7 @@ for(const root of ['','/sunday-crew','/doge']){
    expect(Math.abs(s.content.top)).toBeLessThan(2);
    expect(s.content.bottom,JSON.stringify(s)).toBeGreaterThan(s.rect.bottom);
    const visibleBottom=s.viewport?s.viewport.offsetTop+s.viewport.height:s.innerHeight;
+   expect(Math.abs(s.content.bottom-visibleBottom),JSON.stringify(s)).toBeLessThan(2);
    expect(Math.abs(visibleBottom-s.rect.bottom-s.bottom),JSON.stringify(s)).toBeLessThan(2);
 
   };
