@@ -78,7 +78,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - if: ${{ !(github.event_name == 'pull_request' && github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') && !(github.event_name == 'pull_request' && (github.head_ref == 'fix/week9-deployment-event-routing' || github.head_ref == 'fix/week9-pinned-preview-verification')) }}
+      - if: ${{ !(github.event_name == 'pull_request' && ((github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') || github.head_ref == 'release/week9-rollback-shell')) && !(github.event_name == 'pull_request' && (github.head_ref == 'fix/week9-deployment-event-routing' || github.head_ref == 'fix/week9-pinned-preview-verification')) }}
         run: npm test
       - if: ${{ !(github.event_name == 'pull_request' && (github.head_ref == 'fix/week9-deployment-event-routing' || github.head_ref == 'fix/week9-pinned-preview-verification')) }}
         run: npm run build
@@ -87,7 +87,7 @@ jobs:
         run: node scripts/operations/assert-playwright-container.mjs
       # Keep the former standalone gate's unmocked server coverage on this build.
       - name: Verify article images without score fixture
-        if: ${{ !(github.event_name == 'pull_request' && github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') && !(github.event_name == 'pull_request' && (github.head_ref == 'fix/week9-deployment-event-routing' || github.head_ref == 'fix/week9-pinned-preview-verification')) }}
+        if: ${{ !(github.event_name == 'pull_request' && ((github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') || github.head_ref == 'release/week9-rollback-shell')) && !(github.event_name == 'pull_request' && (github.head_ref == 'fix/week9-deployment-event-routing' || github.head_ref == 'fix/week9-pinned-preview-verification')) }}
         run: |
           npm run start -- -p 3001 > /tmp/brief-unmocked-server.log 2>&1 &
           server_pid=$!
@@ -109,7 +109,7 @@ jobs:
             qa/test-results
             /tmp/brief-unmocked-server.log
       - name: Verify article image geometry before release
-        if: ${{ !(github.event_name == 'pull_request' && github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') && !(github.event_name == 'pull_request' && (github.head_ref == 'fix/week9-deployment-event-routing' || github.head_ref == 'fix/week9-pinned-preview-verification')) }}
+        if: ${{ !(github.event_name == 'pull_request' && ((github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') || github.head_ref == 'release/week9-rollback-shell')) && !(github.event_name == 'pull_request' && (github.head_ref == 'fix/week9-deployment-event-routing' || github.head_ref == 'fix/week9-pinned-preview-verification')) }}
         run: |
           NODE_OPTIONS="--require=$PWD/qa/fixtures/pwa-shell-scores.cjs" npm run start -- -p 3000 > /tmp/brief-server.log 2>&1 &
           server_pid=$!
@@ -131,10 +131,11 @@ jobs:
             qa/test-results
             /tmp/brief-server.log
       - name: Focused owner-authorized Week 9 verification, not a full suite
-        if: ${{ github.event_name == 'pull_request' && github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release' }}
+        if: ${{ github.event_name == 'pull_request' && ((github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') || github.head_ref == 'release/week9-rollback-shell') }}
         run: |
+          git -c safe.directory="$GITHUB_WORKSPACE" fetch --depth=1 origin 23d549ada48dd20ebd791b26f21ee471e356e066
           node scripts/operations/verify-focused-week9-candidate.mjs
-          node --test tests/focused-week9-authority.test.mjs tests/hosted-week9-media.test.mjs tests/release-gate-recovery.test.mjs tests/automatic-release-contract.test.mjs tests/week9-preview-shelf.test.mjs tests/reel-startup-recovery.test.mjs
+          node --test tests/focused-week9-authority.test.mjs tests/hosted-week9-media.test.mjs tests/release-gate-recovery.test.mjs tests/automatic-release-contract.test.mjs tests/week9-preview-shelf.test.mjs tests/reel-startup-recovery.test.mjs tests/anchor-navigation.test.mjs
           NODE_OPTIONS="--require=$PWD/qa/fixtures/pwa-shell-scores.cjs" npm run start -- -p 3000 > /tmp/brief-focused-server.log 2>&1 &
           server_pid=$!
           trap 'kill "$server_pid" 2>/dev/null || true' EXIT
@@ -144,10 +145,15 @@ jobs:
             sleep 2
           done
           test "$ready" = true
-          QA_BASE_URL=http://127.0.0.1:3000 npx playwright test qa/tests/pwa-reading-navigation.spec.mjs --grep 'Week 9 real media|Week 9 previews|article masthead' --workers=1
-          QA_BASE_URL=http://127.0.0.1:3000 npx playwright test qa/tests/article-image-framing.spec.mjs --workers=1
+          if [ "$GITHUB_HEAD_REF" = release/week9-rollback-shell ]; then
+            QA_BASE_URL=http://127.0.0.1:3000 npx playwright test qa/tests/pwa-reading-navigation.spec.mjs --grep 'Week 9 real media|Week 9 previews|article masthead' --project=mobile-390 --project=webkit-mobile-390 --workers=1
+          else
+            QA_BASE_URL=http://127.0.0.1:3000 npx playwright test qa/tests/pwa-reading-navigation.spec.mjs --grep 'Week 9 real media|Week 9 previews|article masthead' --workers=1
+            QA_BASE_URL=http://127.0.0.1:3000 npx playwright test qa/tests/article-image-framing.spec.mjs --workers=1
+          fi
+
       - uses: actions/upload-artifact@v4
-        if: ${{ always() && (github.event_name == 'pull_request' && github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') && !(github.event_name == 'pull_request' && (github.head_ref == 'fix/week9-deployment-event-routing' || github.head_ref == 'fix/week9-pinned-preview-verification')) }}
+        if: ${{ always() && (github.event_name == 'pull_request' && ((github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') || github.head_ref == 'release/week9-rollback-shell')) && !(github.event_name == 'pull_request' && (github.head_ref == 'fix/week9-deployment-event-routing' || github.head_ref == 'fix/week9-pinned-preview-verification')) }}
         with:
           name: focused-week9-browser-evidence
           path: |

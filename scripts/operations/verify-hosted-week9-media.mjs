@@ -47,8 +47,8 @@ export async function verifyHostedWeek9Media(env=process.env){
      need(JSON.stringify(ids)===JSON.stringify(cohort.map(r=>`reel-state-${edition}-week9-preview-v1-${r.id}`)),'HOME_COHORT_MISMATCH');
      await buttons.first().scrollIntoViewIfNeeded();
      const headerBefore=await page.locator('header').first().innerText();
-     const anchorBefore=await buttons.first().evaluate(e=>e.getBoundingClientRect().top);
-     await buttons.first().click();const player=page.getByRole('dialog').locator('video:not([aria-hidden="true"])');
+     await buttons.first().evaluate(e=>e.addEventListener('click',()=>{window.__hostedReelClickTop=e.getBoundingClientRect().top},{capture:true,once:true}));
+     await buttons.first().click();const anchorBefore=await page.evaluate(()=>window.__hostedReelClickTop);const player=page.getByRole('dialog').locator('video:not([aria-hidden="true"])');
      await player.waitFor({state:'visible'});
      await player.evaluate(v=>new Promise((resolve,reject)=>{
       const started=Date.now();const interval=setInterval(()=>{

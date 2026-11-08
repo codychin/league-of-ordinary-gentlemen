@@ -3,11 +3,15 @@
   "releaseId": "week9-preview-20261108",
   "authorized": true,
   "authorization": "Owner-approved immediate release without duplicate full-suite execution.",
-  "headerSourceSha": "19f48f2fa7fd86e113fab3c032be2cd7d88da18f",
+  "headerSourceSha": "930490b417ef70776e028e716d6d4e8f84a619e7",
   "headerFiles": {
-    "app/components/PwaShell.jsx": "c6f25c84d79093929d9065ab3eee9f6596846a04",
-    "app/globals.css": "fd8be2c8b758abdf71b5c0460d640682a3f7b3c5",
-    "app/standalone-shell.css": "1908e792b42a09818e1db452a22d5636258bdfa5"
+    "app/components/PwaShell.jsx": "b4b456a4113e8573ac0d5796d7c7498bc4ad9370",
+    "app/components/ReelsShelf.jsx": "731e346c55928de2730d117c957db1716af74845",
+    "app/components/useCompactMobileNav.js": "56253852e825ec797a790e1e0e8e3b4a58a07285",
+    "app/layout.js": "498d99e5e3e153d1696f9b5ad76cc7e4c682e43f",
+    "app/pwa.css": "e4a004b445b923f7fff7f6beeeb483a7d1fe8e04",
+    "lib/scroll-to-section.mjs": "10f0c01e070b888bd36b6384500026bfbd20208c",
+    "app/globals.css": "fd8be2c8b758abdf71b5c0460d640682a3f7b3c5"
   },
   "assetBindingSha256": "035c87968d5b7d1d04d308d0968ea127eefb90997db528f1639b493059c23b5d",
   "priorFullEvidence": "8f1c9800",
@@ -23,5 +27,12 @@
     }
   },
   "freshHostedPlaybackRequired": true,
-  "hostedPlaybackWaived": false
+  "hostedPlaybackWaived": false,
+  "recoveryEvidence": {
+    "baseMain": "23d549ada48dd20ebd791b26f21ee471e356e066",
+    "localCandidate": "285f82884d4c0eb96e73b3bf0a9e09ca9eadfba5",
+    "scope": "Six runtime files restore rollback document scrolling; current article/byline changes and approved media retained. Prior full evidence is historical, not validation of this candidate. Fresh targeted CI and hosted playback remain required.",
+    "previewAccessFailureRun": 42494094174,
+    "disabledErroneousVerifierRun": 42496531820
+  }
 }

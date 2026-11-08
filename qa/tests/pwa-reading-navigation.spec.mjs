@@ -294,7 +294,7 @@ for(const standalone of [false,true])test(`article masthead stays visible throug
  const header=page.locator(mobile?'.appSectionHeader':'.siteNav');
  const logo=mobile?header.locator('.mobileBriefLogo'):header.locator('a').first();
  for(const fraction of [.25,.6,1]){
-  await page.evaluate(({standalone,fraction})=>{const owner=standalone?document.querySelector('.appScrollContent'):document.scrollingElement;owner.scrollTo({top:(owner.scrollHeight-owner.clientHeight)*fraction,behavior:'instant'});},{standalone,fraction});
+  await page.evaluate(({standalone,fraction})=>{const wrapper=document.querySelector('.appScrollContent'),owner=wrapper&&getComputedStyle(wrapper).display!=='contents'?wrapper:document.scrollingElement;owner.scrollTo({top:(owner.scrollHeight-owner.clientHeight)*fraction,behavior:'instant'});},{standalone,fraction});
   await expect.poll(()=>header.evaluate(e=>Math.abs(e.getBoundingClientRect().top))).toBeLessThanOrEqual(1);
   await expect(logo).toBeVisible();
   expect(await logo.evaluate(e=>{const r=e.getBoundingClientRect();return e.contains(document.elementFromPoint(r.left+r.width/2,r.top+r.height/2));})).toBe(true);
@@ -310,13 +310,17 @@ for(const standalone of [false,true])test(`article masthead stays visible throug
 });
 
 for(const root of ['', '/sunday-crew', '/doge'])test(`Week 9 real media plays and all six originals load: ${root||'LOOG'}`,async({page},testInfo)=>{
+ await page.addInitScript(()=>Object.defineProperty(navigator,'standalone',{get:()=>true}));
  const edition=root.slice(1)||'loog';
  const rows=data('week9-approved-homepage-media.json').filter(r=>r.edition===edition);
  expect(rows).toHaveLength(6);
  // No media mocks: exercise the current shelf, browser decoder and packaged URLs.
  expect((await page.goto(root||'/')).status()).toBe(200);
  const shelf=page.getByRole('region',{name:'Week 9, the previews. videos'});
- await shelf.getByRole('button',{name:/^Watch /}).first().click();
+ const opener=shelf.getByRole('button',{name:/^Watch /}).first();
+ await opener.scrollIntoViewIfNeeded();const beforeClick=await opener.evaluate(e=>e.getBoundingClientRect().top);
+ await opener.evaluate(e=>e.addEventListener('click',()=>{window.__qaReelClickTop=e.getBoundingClientRect().top},{capture:true,once:true}));
+ await opener.click();const anchor=await page.evaluate(()=>window.__qaReelClickTop);
  const player=page.getByRole('dialog').locator('video:not([aria-hidden="true"])');
  await expect(player).toHaveCount(1);
  try{await expect.poll(()=>player.evaluate(v=>v.currentTime),{timeout:20000}).toBeGreaterThan(.2);}
@@ -326,7 +330,18 @@ for(const root of ['', '/sunday-crew', '/doge'])test(`Week 9 real media plays an
   throw error;
  }
  expect(await player.evaluate(v=>v.currentSrc)).toContain(rows[0].id);
+ expect(await player.evaluate(v=>!v.muted&&v.volume>0)).toBe(true);
  await page.getByRole('button',{name:'Close video',exact:true}).click();
+ const returnedTop=await opener.evaluate(e=>e.getBoundingClientRect().top);
+ expect(Math.abs(returnedTop-anchor),JSON.stringify({beforeClick,openingClick:anchor,returnedTop})).toBeLessThan(3);
+ expect(await page.evaluate(()=>document.documentElement.style.overflow!=='hidden'&&document.body.style.overflow!=='hidden')).toBe(true);
+ const nav=page.getByRole('navigation',{name:'App navigation'});
+ await nav.getByRole('link',{name:'Scores',exact:true}).click();await expect(page).toHaveURL(/#scores$/);
+ await expect(page.locator('.appScrollContent')).toHaveCount(0);
+ await page.evaluate(()=>window.scrollBy(0,300));await expect.poll(()=>page.evaluate(()=>window.scrollY)).toBeGreaterThan(0);
+ await expect(nav).toBeVisible();
+ await nav.getByRole('link',{name:'Culture',exact:true}).click();await expect(page).toHaveURL(/#culture$/);
+ await expect(nav).toBeVisible();
  for(const row of rows){
   const observed=await page.evaluate(({id})=>new Promise((resolve,reject)=>{
    const v=document.createElement('video');v.preload='metadata';v.muted=true;v.playsInline=true;
