@@ -9,7 +9,8 @@ export function assessRelease({sha,checks,now=Date.now(),commitTime}) {
   if(decision.reason==='checks-failed') return {ok:false,reason:'required-check-failed',owner:'code release maintainer'};
   if(!decision.eligible) return {ok:age(commitTime)<45,reason:'waiting-for-required-checks',owner:'CI service / code release maintainer',deadlineMinutes:45};
   const promote=selected.filter(c=>c.name==='promote'&&c.conclusion!=='skipped').sort((a,b)=>b.id-a.id)[0];
-  if(promote?.status==='completed') return {ok:promote.conclusion==='success',reason:promote.conclusion==='success'?'release-verified':'promotion-needs-reconciliation',owner:'release operator',url:promote.details_url};
+  // A GitHub job result is not an observation of the live alias or playback.
+  if(promote?.status==='completed') return {ok:false,reason:promote.conclusion==='success'?'promotion-job-succeeded-live-unverified':'promotion-needs-reconciliation',verification:'not-observed',owner:'release operator',url:promote.details_url};
   const checksComplete=selected.filter(c=>['integrity','article-image-qa'].includes(c.name)&&c.conclusion==='success').map(c=>c.completed_at).filter(Boolean).sort().at(-1)||commitTime;
   const deadlineMinutes=promote?35:15;
   return {ok:age(promote?.started_at||checksComplete)<deadlineMinutes,reason:promote?'promotion-running-or-queued':'eligible-release-not-started',owner:'release operator / GitHub Actions service',deadlineMinutes,url:promote?.details_url};

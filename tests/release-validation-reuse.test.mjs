@@ -26,7 +26,7 @@ for (const value of ['', 'a'.repeat(40), evidence.replace(':2:', ':1:'), evidenc
 test('one install/build retains both server environments and all suites before evidence', () => {
   assert.equal((workflow.match(/run: npm ci\n/g) || []).length, 1);
   assert.equal((workflow.match(/run: npm run build\n/g) || []).length, 1);
-  assert.equal((workflow.match(/qa\/tests\/article-image-framing.spec.mjs/g) || []).length, 2);
+  assert.equal((workflow.split('      - name: Focused owner-authorized Week 9')[0].match(/qa\/tests\/article-image-framing.spec.mjs/g) || []).length, 2);
   for (const required of ['npm test', 'qa/operations/media-preparation.test.mjs', 'assert-playwright-container.mjs', 'qa/tests/scorecard-divider-regression.spec.mjs', 'qa/tests/pwa-reading-navigation.spec.mjs', 'NODE_OPTIONS="--require=$PWD/qa/fixtures/pwa-shell-scores.cjs"', 'name: article-image-qa-report', 'name: release-integrity-image-report']) {
     assert.ok(workflow.indexOf(required) < workflow.indexOf('id: evidence'), required);
     assert.ok(workflow.includes(required), required);

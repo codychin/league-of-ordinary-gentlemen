@@ -1,24 +1,39 @@
 #!/usr/bin/env node
 // Production smoke test. Every expected public article must return HTTP 200 and render actual content.
 import assert from 'node:assert/strict';
-import {createHash} from 'node:crypto';
+import {readFileSync} from 'node:fs';
+import {checkEditorialRelease} from './check-editorial-release.mjs';
 import {validatePublicPage} from './public-route-validation.mjs';
 const origin=(process.env.BASE_URL||'https://www.ordinarybrief.com').replace(/\/$/,'');
-const slug=process.env.ARTICLE_SLUG||'hollis-chargers-thought-of-everything';
-const expectedTitle=process.env.EXPECTED_TITLE||'The Chargers Have Thought of Everything';
+const slug=process.env.ARTICLE_SLUG;
+const expectedTitle=process.env.EXPECTED_TITLE;
+const releaseHeaders={'Cache-Control':'no-cache',...(process.env.VERCEL_TRUSTED_OIDC_TOKEN?{'x-vercel-trusted-oidc-idp-token':process.env.VERCEL_TRUSTED_OIDC_TOKEN}:{})};
 assert.equal(new URL(origin).protocol,'https:');
 const parsed=new URL(origin);
 assert.equal(parsed.origin,origin,'Expected an HTTPS origin without credentials or a path');
 if(process.env.VERCEL_TRUSTED_OIDC_TOKEN)assert.ok(parsed.hostname.endsWith('.vercel.app'),'Identity credentials require a verified Vercel deployment origin');
-assert.match(slug,/^[a-z0-9-]+$/);
-const paths=['/','/sunday-crew','/doge',...['','/sunday-crew','/doge'].map(prefix=>prefix+'/articles/'+slug)];
+if(slug)assert.match(slug,/^[a-z0-9-]+$/);
+if(expectedTitle)assert.ok(slug,'EXPECTED_TITLE requires ARTICLE_SLUG');
+const paths=['/','/sunday-crew','/doge',...(slug?['','/sunday-crew','/doge'].map(prefix=>prefix+'/articles/'+slug):[])];
 let errors=0;
 for(const path of paths){
  try{
   const res=await fetch(origin+path,{redirect:'manual',signal:AbortSignal.timeout(20000),headers:{'Cache-Control':'no-cache','User-Agent':'TheBrief-ProductionSmoke/1.0',...(process.env.VERCEL_TRUSTED_OIDC_TOKEN?{'x-vercel-trusted-oidc-idp-token':process.env.VERCEL_TRUSTED_OIDC_TOKEN}:{})}});
   const body=await res.text();
   const article=path.includes('/articles/');
-  validatePublicPage(res.status,body,{article,expectedTitle:article?expectedTitle:undefined});
+  validatePublicPage(res.status,body,{article,expectedTitle:article&&slug&&path.endsWith('/'+slug)?expectedTitle:undefined});
+  if(!article){
+   const root=path==='/'?'':path;
+   const lead=body.match(/<section[^>]*aria-label="Lead story: [^"]+"[^>]*>([\s\S]*?)<\/section>/)?.[1];
+   assert.ok(lead,'Lead story missing');
+   const link=lead.match(/href="([^"]+)"/)?.[1];
+   assert.ok(link?.startsWith(root+'/articles/'),'Lead must link to its edition');
+   assert.match(link,new RegExp('^'+root+'/articles/[a-z0-9-]+$'));
+   if(!paths.includes(link))paths.push(link);
+   const row=body.match(/aria-label="Recent stories"[\s\S]*?<\/section>/)?.[0];
+   assert.ok(row,'Recent stories missing');
+   assert.equal([...row.matchAll(/<h3\b/g)].length,3,'Expected three recent story cards');
+  }
   const ok=true;
   console.log(ok?'PASS':'FAIL',res.status,path,'title:',article?body.includes(expectedTitle):'n/a');
   if(!ok)errors++;
@@ -42,99 +57,10 @@ if(featurePath||featureImage){
  assert.ok(bytes.byteLength>4096,'Featured image appears truncated or empty');
  console.log('PASS featured image',featurePath,featureImage,bytes.byteLength,'bytes');
 }
-// Owner-approved Detroit School release: validate the changed content in every edition,
-// retaining all existing public-route checks above. No mutation or credentials are introduced.
-const chargersTitle='The Chargers Have Thought of Everything';
-const detroitTitle='A Study in Movement: The Detroit School, 2026';
-const detroitDek='On the spontaneous birth of an artistic movement, and the evolution of human expression.';
-const detroitPlates=[
-  {
-    "caption": "Plate I. The Gibbs Proposition.",
-    "alt": "Jahmyr Gibbs extends both arms and lifts a leg beside an official during the celebration.",
-    "source": "/images/editorial/detroit-school/jameson.webp",
-    "sha256": "cdd5239674dd4869712f5ba96852beefd6f1c10f359be04c22b8a1277076d36c"
-  },
-  {
-    "caption": "Plate II. The Formation of a School.",
-    "alt": "Detroit teammates assembling into a shared celebration.",
-    "source": "/images/editorial/detroit-school/composition.webp",
-    "sha256": "e731dc8c75ca285bab557f3166680618c58357bae4a4a124976589b3891e0310"
-  },
-  {
-    "caption": "Plate III. The Rejection of Consensus.",
-    "alt": "Jameson Williams gestures independently behind his Detroit teammates.",
-    "source": "/images/editorial/detroit-school/genesis.webp",
-    "sha256": "bec9609ded4f43aa01a7bbf24d7a3bc59ea4b671685d14779d4111440d1af36a"
-  },
-  {
-    "caption": "Plate IV. The Monumental Tradition.",
-    "alt": "Penei Sewell, number 58, extends his arms in celebration.",
-    "source": "/images/editorial/detroit-school/sewell.webp",
-    "sha256": "cbc6cb895b43c2220360577919254afaef45ba0515be18ae4afa3f1ca9e8e22f"
-  },
-  {
-    "caption": "Plate V. Vernacular Movement.",
-    "alt": "A Detroit offensive lineman raises his arms alongside his teammates.",
-    "source": "/images/editorial/detroit-school/offensive-line.webp",
-    "sha256": "91afc55175d852059d3203a2dfd343ccd7f9ff2258aa9f194db825ad7d6e8cc9"
-  },
-  {
-    "caption": "Plate VI. The Accusation.",
-    "alt": "Christian Mahogany points toward Green Bay player Karl Brooks.",
-    "source": "/images/editorial/detroit-school/accusation.webp",
-    "sha256": "471ddc2488a59a8f86d2aec001e9bce78beb67c691ec065c82aa4feed8f45731"
-  },
-  {
-    "caption": "Plate VII. The Completed Composition.",
-    "alt": "Detroit teammates perform separate celebratory movements together in the wider composition.",
-    "source": "/images/editorial/detroit-school/completed-composition-selected.png",
-    "sha256": "a31b7024bad7644d76e6684b62ca91693b257787603e382e92f0cd71689940c9"
-  }
-];
-const releaseHeaders={'Cache-Control':'no-cache',...(process.env.VERCEL_TRUSTED_OIDC_TOKEN?{'x-vercel-trusted-oidc-idp-token':process.env.VERCEL_TRUSTED_OIDC_TOKEN}:{})};
-const checkedImages=new Map();
-const imageCacheIds=new Map();
-async function verifyReleaseImage(path,expectedHash){
- assert.ok(path.startsWith('/images/'),'Unexpected image location');
- if(checkedImages.has(path)){if(expectedHash)assert.equal(checkedImages.get(path),expectedHash,'Detroit image bytes changed: '+path);return;}
- const response=await fetch(origin+path,{redirect:'manual',signal:AbortSignal.timeout(20000),headers:releaseHeaders});
- assert.equal(response.status,200,'Detroit image unavailable: '+path);
- assert.match(response.headers.get('content-type')||'',/^image\//);
- const bytes=Buffer.from(await response.arrayBuffer());assert.ok(bytes.length>4096,'Detroit image truncated: '+path);
- if(expectedHash)assert.equal(createHash('sha256').update(bytes).digest('hex'),expectedHash,'Detroit image bytes changed: '+path);
- imageCacheIds.set(path,createHash('sha256').update(bytes).update('webp-v1').digest('hex').slice(0,20));
- checkedImages.set(path,createHash('sha256').update(bytes).digest('hex'));
-}
-for(const root of ['', '/sunday-crew','/doge']){
- const home=await fetch(origin+(root||'/'),{redirect:'manual',signal:AbortSignal.timeout(20000),headers:releaseHeaders});
- const homeHtml=await home.text();validatePublicPage(home.status,homeHtml,{article:false});
- assert.ok(homeHtml.includes('aria-label="Lead story: '+chargersTitle+'"'),'Chargers is not homepage lead: '+root);
- const lead=homeHtml.split('aria-label="Lead story: '+chargersTitle+'"')[1].split('</section>')[0];
- assert.ok(lead.includes('href="'+root+'/articles/hollis-chargers-thought-of-everything"'),'Lead links to wrong edition');
- const hero=lead.match(/<img[^>]*src="([^"]+)"[^>]*alt="Jim Harbaugh stands with Chargers coaches and players on the sideline against Washington at SoFi Stadium on October 5, 2025\."/);
- assert.ok(hero,'Chargers lead image missing');await verifyReleaseImage(hero[1]);
- const row=homeHtml.split('aria-label="Recent stories"')[1]?.split('</section>')[0];assert.ok(row,'Recent stories missing');
- const expectedCards=["Baker Mayfield and the Comparative Merits of Abstention","A Study in Movement: The Detroit School, 2026","On the Saturation Bombing of Daniel Jones (née Dimes)"];
- assert.deepEqual([...row.matchAll(/<h3[^>]*>([^<]+)<\/h3>/g)].map(m=>m[1]),expectedCards,'Three-card chronology changed');
- const path=root+'/articles/marnie-detroit-school';
- const response=await fetch(origin+path,{redirect:'manual',signal:AbortSignal.timeout(20000),headers:releaseHeaders});
- const html=await response.text();validatePublicPage(response.status,html,{article:true,expectedTitle:detroitTitle});
- assert.ok(html.includes(detroitDek),'Detroit subtitle changed');
- const bylineIndex=html.indexOf('class="articleBylineShare"');const clipIndex=html.indexOf('The Detroit School in performance.');
- assert.ok(bylineIndex>=0&&clipIndex>bylineIndex,'Byline must precede tweet');
- assert.ok(!/<img[^>]*class="articleImage(?:\s|"|$)/.test(html),'Redundant article hero returned');
- const body=html.split('<article class="articleBody">')[1]?.split('</article>')[0];assert.ok(body,'Article body missing');
- const figures=[...body.matchAll(/<figure[^>]*class="articleInlineFigure[^>]*>([\s\S]*?)<\/figure>/g)].map(m=>m[1]);
- assert.equal(figures.length,7,'Expected seven Detroit plates');
- for(const [i,plate] of detroitPlates.entries()){
-  assert.ok(figures[i].includes(plate.caption)&&figures[i].includes('alt="'+plate.alt+'"'),'Detroit plate assignment changed: '+plate.caption);
-  const src=figures[i].match(/<img[^>]*src="([^"]+)"/);assert.ok(src,'Plate image missing');
-  await verifyReleaseImage(plate.source,plate.sha256);
-  const cacheId=imageCacheIds.get(plate.source);
-  assert.ok(src[1]===plate.source||src[1]===`/images/cache/${cacheId}-1280.webp`,'Wrong rendered Detroit plate source');
-  await verifyReleaseImage(src[1]);
- }
- console.log('PASS Chargers lead, three-card chronology, Detroit article and seven plate assets',root||'/');
+// Historical publication expectations are opt-in, not universal site health.
+if(process.env.EDITORIAL_RELEASE_MANIFEST){
+ const manifest=JSON.parse(readFileSync(process.env.EDITORIAL_RELEASE_MANIFEST,'utf8'));
+ await checkEditorialRelease({origin,manifest,headers:releaseHeaders});
 }
 
 if(process.env.RELEASE_CANARY_FAIL==='1')throw Error('Intentional staging failure canary; release MUST NOT be promoted');

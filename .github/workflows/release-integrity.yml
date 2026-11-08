@@ -16,7 +16,35 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
+  select-checks:
+    runs-on: ubuntu-24.04
+    outputs:
+      lane: ${{ steps.plan.outputs.lane }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          filter: blob:none
+          sparse-checkout: scripts/operations
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - id: plan
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          # Dispatch, missing bases and unknown changes fail closed to full checks.
+          if [ "$EVENT_NAME" = workflow_dispatch ] || ! git cat-file -e "$BASE_SHA^{commit}" 2>/dev/null; then
+            echo 'lane=full' >> "$GITHUB_OUTPUT"
+          else
+            git diff --name-status --no-renames "$BASE_SHA" HEAD > /tmp/release-changes
+            node scripts/operations/select-release-checks.mjs /tmp/release-changes
+          fi
   media-preparation:
+    needs: select-checks
+    if: ${{ needs.select-checks.outputs.lane != 'release-tooling' }}
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
@@ -60,7 +88,8 @@ jobs:
       - name: Verify real preparation and shelf delivery contracts without spending
         run: node --test qa/operations/media-preparation.test.mjs
   integrity:
-    needs: media-preparation
+    needs: [select-checks, media-preparation]
+    if: ${{ always() && needs.select-checks.result == 'success' && (needs.media-preparation.result == 'success' || (needs.select-checks.outputs.lane == 'release-tooling' && needs.media-preparation.result == 'skipped')) }}
     outputs:
       evidence: ${{ steps.evidence.outputs.identity }}
     runs-on: ubuntu-24.04
@@ -77,17 +106,18 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - run: npm ci
-      - if: ${{ !(github.event_name == 'pull_request' && ((github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') || github.head_ref == 'release/week9-rollback-shell')) && !(github.event_name == 'pull_request' && (github.head_ref == 'fix/week9-deployment-event-routing' || github.head_ref == 'fix/week9-pinned-preview-verification')) }}
+      - if: ${{ needs.select-checks.outputs.lane != 'release-tooling' }}
+        run: npm ci
+      - if: ${{ needs.select-checks.outputs.lane != 'release-tooling' && (!(github.event_name == 'pull_request' && ((github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') || github.head_ref == 'release/week9-rollback-shell')) && !(github.event_name == 'pull_request' && (github.head_ref == 'fix/week9-deployment-event-routing' || github.head_ref == 'fix/week9-pinned-preview-verification'))) }}
         run: npm test
-      - if: ${{ !(github.event_name == 'pull_request' && (github.head_ref == 'fix/week9-deployment-event-routing' || github.head_ref == 'fix/week9-pinned-preview-verification')) }}
+      - if: ${{ needs.select-checks.outputs.lane != 'release-tooling' && (!(github.event_name == 'pull_request' && (github.head_ref == 'fix/week9-deployment-event-routing' || github.head_ref == 'fix/week9-pinned-preview-verification'))) }}
         run: npm run build
       - name: Verify pinned Playwright browsers
-        if: ${{ !(github.event_name == 'pull_request' && (github.head_ref == 'fix/week9-deployment-event-routing' || github.head_ref == 'fix/week9-pinned-preview-verification')) }}
+        if: ${{ needs.select-checks.outputs.lane != 'release-tooling' && (!(github.event_name == 'pull_request' && (github.head_ref == 'fix/week9-deployment-event-routing' || github.head_ref == 'fix/week9-pinned-preview-verification'))) }}
         run: node scripts/operations/assert-playwright-container.mjs
       # Keep the former standalone gate's unmocked server coverage on this build.
       - name: Verify article images without score fixture
-        if: ${{ !(github.event_name == 'pull_request' && ((github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') || github.head_ref == 'release/week9-rollback-shell')) && !(github.event_name == 'pull_request' && (github.head_ref == 'fix/week9-deployment-event-routing' || github.head_ref == 'fix/week9-pinned-preview-verification')) }}
+        if: ${{ needs.select-checks.outputs.lane != 'release-tooling' && (!(github.event_name == 'pull_request' && ((github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') || github.head_ref == 'release/week9-rollback-shell')) && !(github.event_name == 'pull_request' && (github.head_ref == 'fix/week9-deployment-event-routing' || github.head_ref == 'fix/week9-pinned-preview-verification'))) }}
         run: |
           npm run start -- -p 3001 > /tmp/brief-unmocked-server.log 2>&1 &
           server_pid=$!
@@ -109,7 +139,7 @@ jobs:
             qa/test-results
             /tmp/brief-unmocked-server.log
       - name: Verify article image geometry before release
-        if: ${{ !(github.event_name == 'pull_request' && ((github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') || github.head_ref == 'release/week9-rollback-shell')) && !(github.event_name == 'pull_request' && (github.head_ref == 'fix/week9-deployment-event-routing' || github.head_ref == 'fix/week9-pinned-preview-verification')) }}
+        if: ${{ needs.select-checks.outputs.lane != 'release-tooling' && (!(github.event_name == 'pull_request' && ((github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') || github.head_ref == 'release/week9-rollback-shell')) && !(github.event_name == 'pull_request' && (github.head_ref == 'fix/week9-deployment-event-routing' || github.head_ref == 'fix/week9-pinned-preview-verification'))) }}
         run: |
           NODE_OPTIONS="--require=$PWD/qa/fixtures/pwa-shell-scores.cjs" npm run start -- -p 3000 > /tmp/brief-server.log 2>&1 &
           server_pid=$!
@@ -131,7 +161,7 @@ jobs:
             qa/test-results
             /tmp/brief-server.log
       - name: Focused owner-authorized Week 9 verification, not a full suite
-        if: ${{ github.event_name == 'pull_request' && ((github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') || github.head_ref == 'release/week9-rollback-shell') }}
+        if: ${{ needs.select-checks.outputs.lane != 'release-tooling' && (github.event_name == 'pull_request' && ((github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') || github.head_ref == 'release/week9-rollback-shell')) }}
         run: |
           git -c safe.directory="$GITHUB_WORKSPACE" fetch --depth=1 origin 23d549ada48dd20ebd791b26f21ee471e356e066
           node scripts/operations/verify-focused-week9-candidate.mjs
@@ -153,7 +183,7 @@ jobs:
           fi
 
       - uses: actions/upload-artifact@v4
-        if: ${{ always() && (github.event_name == 'pull_request' && ((github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') || github.head_ref == 'release/week9-rollback-shell')) && !(github.event_name == 'pull_request' && (github.head_ref == 'fix/week9-deployment-event-routing' || github.head_ref == 'fix/week9-pinned-preview-verification')) }}
+        if: ${{ needs.select-checks.outputs.lane != 'release-tooling' && (always() && (github.event_name == 'pull_request' && ((github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') || github.head_ref == 'release/week9-rollback-shell')) && !(github.event_name == 'pull_request' && (github.head_ref == 'fix/week9-deployment-event-routing' || github.head_ref == 'fix/week9-pinned-preview-verification'))) }}
         with:
           name: focused-week9-browser-evidence
           path: |
@@ -162,7 +192,7 @@ jobs:
             qa/test-results
             /tmp/brief-focused-server.log
       - name: Verify narrow deployment event routing correction
-        if: ${{ github.event_name == 'pull_request' && (github.head_ref == 'fix/week9-deployment-event-routing' || github.head_ref == 'fix/week9-pinned-preview-verification') }}
+        if: ${{ needs.select-checks.outputs.lane != 'release-tooling' && (github.event_name == 'pull_request' && (github.head_ref == 'fix/week9-deployment-event-routing' || github.head_ref == 'fix/week9-pinned-preview-verification')) }}
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: |
@@ -177,6 +207,10 @@ jobs:
           JS
           node --test tests/automatic-release-contract.test.mjs tests/article-image-release-gate.test.mjs tests/release-gate-recovery.test.mjs tests/focused-week9-authority.test.mjs tests/hosted-week9-media.test.mjs
           if [ "$GITHUB_HEAD_REF" = fix/week9-pinned-preview-verification ]; then node --test tests/pinned-week9-preview.test.mjs; fi
+      - name: Focused release tooling contracts
+        if: ${{ needs.select-checks.outputs.lane == 'release-tooling' }}
+        run: |
+          node --test tests/release-check-selection.test.mjs tests/public-smoke-scope.test.mjs tests/automatic-release-contract.test.mjs tests/release-gate-recovery.test.mjs tests/article-image-release-gate.test.mjs tests/release-validation-reuse.test.mjs tests/focused-week9-authority.test.mjs tests/hosted-week9-media.test.mjs tests/pinned-week9-preview.test.mjs
       # Job outputs are scoped to this dependency graph; no downloaded evidence.
       - name: Record successful validation identity
         id: evidence
