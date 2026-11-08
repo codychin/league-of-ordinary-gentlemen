@@ -1,14 +1,14 @@
 /* Keep one bounded installed-app scroller, but let the page continue behind
    overlay chrome. Do not reserve grid rows: that turns the floating navigation
-   into a blank footer and clips the hero at the header. inset:0 sizes the shell
-   to its containing viewport without a second, potentially shorter dvh height.
+   into a blank footer and clips the hero at the header. The installed root must remain in normal flow: WebKit can clip a fixed body
+   by the status-bar inset. Use the large viewport rather than that fixed box.
    Browser tabs/desktop retain document scrolling and existing chrome. */
 .appScrollContent{display:contents}
 @media(max-width:760px){
  /* Preserve the approved unboxed wordmark; do not add a floating pill. */
  html.standaloneApp:has(.appTabBar){height:100%;overflow:hidden}
- html.standaloneApp body:has(.appTabBar){position:fixed;inset:0;width:100%;height:auto;box-sizing:border-box;overflow:hidden;padding:0}
- html.standaloneApp body:has(.appTabBar)>.appScrollContent{display:block;position:absolute;inset:0;box-sizing:border-box;min-height:0;overflow-y:auto;overscroll-behavior-y:contain;padding:var(--mobile-header-height,calc(env(safe-area-inset-top) + 52px)) 0 calc(70px + env(safe-area-inset-bottom));scroll-padding:var(--mobile-header-height,calc(env(safe-area-inset-top) + 52px)) 0 calc(70px + env(safe-area-inset-bottom))}
+ html.standaloneApp body:has(.appTabBar){position:relative;inset:auto;width:100%;height:100vh;height:100lvh;box-sizing:border-box;overflow:hidden;padding:0}
+ html.standaloneApp body:has(.appTabBar)>.appScrollContent{display:block;position:absolute;inset:0;box-sizing:border-box;min-height:0;clip-path:inset(env(safe-area-inset-top) 0 0);overflow-y:auto;overscroll-behavior-y:contain;padding:var(--mobile-header-height,calc(env(safe-area-inset-top) + 52px)) 0 calc(70px + env(safe-area-inset-bottom));scroll-padding:var(--mobile-header-height,calc(env(safe-area-inset-top) + 52px)) 0 calc(70px + env(safe-area-inset-bottom))}
  html.standaloneApp body:has(.appTabBar) .appTabBar{position:absolute;inset:auto 0 max(3px,calc(env(safe-area-inset-bottom) - 8px));transform:none!important;margin:0 auto}
  html.standaloneApp body:has(.appTabBar) .appSectionHeader,
  html.standaloneApp body:has(.appTabBar) .articleAlerts,
