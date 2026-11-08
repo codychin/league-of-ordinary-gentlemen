@@ -14,7 +14,7 @@ assert.equal(week9BindingHash(rows),APPROVED_ASSET_BINDING_SHA256);
 console.log('Focused owner-authorized Week9 candidate: exact approved header and18 media bindings. This is not full-suite evidence; fresh hosted playback remains mandatory.');
 
 if(process.env.GITHUB_HEAD_REF==='release/week9-rollback-shell'){
- const allowed=new Set([...Object.keys(HEADER_FILES),'.github/workflows/release-integrity.yml','scripts/operations/focused-week9-authority.mjs','scripts/operations/verify-focused-week9-candidate.mjs','qa/focused-week9-release.json','qa/tests/pwa-reading-navigation.spec.mjs']);
+ const allowed=new Set([...Object.keys(HEADER_FILES),'.github/workflows/release-integrity.yml','scripts/operations/focused-week9-authority.mjs','scripts/operations/verify-focused-week9-candidate.mjs','qa/focused-week9-release.json','qa/tests/pwa-reading-navigation.spec.mjs','scripts/operations/verify-hosted-week9-media.mjs']);
  const files=execFileSync('git',['-c','safe.directory='+process.cwd(),'diff','--name-only','23d549ada48dd20ebd791b26f21ee471e356e066','HEAD'],{encoding:'utf8'}).trim().split('\n');
  assert.ok(files.every(p=>allowed.has(p)),'Unrelated changes cannot use rollback-focused validation');
 }

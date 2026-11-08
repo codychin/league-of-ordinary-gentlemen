@@ -318,8 +318,9 @@ for(const root of ['', '/sunday-crew', '/doge'])test(`Week 9 real media plays an
  expect((await page.goto(root||'/')).status()).toBe(200);
  const shelf=page.getByRole('region',{name:'Week 9, the previews. videos'});
  const opener=shelf.getByRole('button',{name:/^Watch /}).first();
- await opener.scrollIntoViewIfNeeded();const anchor=await opener.evaluate(e=>e.getBoundingClientRect().top);
- await opener.click();
+ await opener.scrollIntoViewIfNeeded();const beforeClick=await opener.evaluate(e=>e.getBoundingClientRect().top);
+ await opener.evaluate(e=>e.addEventListener('click',()=>{window.__qaReelClickTop=e.getBoundingClientRect().top},{capture:true,once:true}));
+ await opener.click();const anchor=await page.evaluate(()=>window.__qaReelClickTop);
  const player=page.getByRole('dialog').locator('video:not([aria-hidden="true"])');
  await expect(player).toHaveCount(1);
  try{await expect.poll(()=>player.evaluate(v=>v.currentTime),{timeout:20000}).toBeGreaterThan(.2);}
@@ -331,7 +332,8 @@ for(const root of ['', '/sunday-crew', '/doge'])test(`Week 9 real media plays an
  expect(await player.evaluate(v=>v.currentSrc)).toContain(rows[0].id);
  expect(await player.evaluate(v=>!v.muted&&v.volume>0)).toBe(true);
  await page.getByRole('button',{name:'Close video',exact:true}).click();
- expect(Math.abs((await opener.evaluate(e=>e.getBoundingClientRect().top))-anchor)).toBeLessThan(3);
+ const returnedTop=await opener.evaluate(e=>e.getBoundingClientRect().top);
+ expect(Math.abs(returnedTop-anchor),JSON.stringify({beforeClick,openingClick:anchor,returnedTop})).toBeLessThan(3);
  expect(await page.evaluate(()=>document.documentElement.style.overflow!=='hidden'&&document.body.style.overflow!=='hidden')).toBe(true);
  const nav=page.getByRole('navigation',{name:'App navigation'});
  await nav.getByRole('link',{name:'Scores',exact:true}).click();await expect(page).toHaveURL(/#scores$/);
