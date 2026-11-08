@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {pathToFileURL} from 'node:url';
-import {verifyHostedWeek9Media} from './verify-hosted-week9-media.mjs';
+import {verifyHostedWeek9Media,AUTH_HEADER} from './verify-hosted-week9-media.mjs';
 export const PIN=Object.freeze({repo:'codychin/league-of-ordinary-gentlemen',sha:'490762295f23b226f00bca44e60cd2fc20d3da5b',tree:'9d537cd90c3a35ed77e2b053155708c50e75afd3',deployment:'dpl_46w9GT39YDdZJjFhedg65e58LLBn',project:'prj_h89MCmxn3Mr3O0wRpnwstM917E0l',team:'team_hU7RX1oX9Ea0W2U9ieHwNxzL',host:'league-of-ordinary-gentlemen-447f9nz2z-codychin1-8195.vercel.app'});
 export function validateDeployment(d){
  assert.equal(d.id,PIN.deployment);assert.equal(d.projectId,PIN.project);assert.equal(d.team?.id||d.ownerId,PIN.team);
@@ -23,6 +23,13 @@ export async function verifyPinnedPreview(env=process.env){
  const oidcUrl=new URL(env.ACTIONS_ID_TOKEN_REQUEST_URL);assert.equal(oidcUrl.protocol,'https:');assert.ok(oidcUrl.hostname.endsWith('.actions.githubusercontent.com'),'Unexpected identity provider');
  const identity=await get(oidcUrl.href,env.ACTIONS_ID_TOKEN_REQUEST_TOKEN);assert.ok(typeof identity.value==='string');
  const origin='https://'+PIN.host;
+ // Diagnose protection without following redirects or printing credentials/URLs.
+ const probe=await fetch(origin+'/',{redirect:'manual',headers:{[AUTH_HEADER]:identity.value},signal:AbortSignal.timeout(20000)});
+ const location=probe.headers.get('location');
+ const sso=location?new URL(location,origin).hostname==='vercel.com':false;
+ console.log('Pinned preview authenticated GET: status='+probe.status+'; redirectsToVercel='+sso);
+ await probe.body?.cancel();
+ assert.equal(probe.status,200,'PINNED_PREVIEW_AUTHENTICATED_GET_FAILED');
  // Read-only verification: no promotion API, alias changes, or protection changes.
  return verifyHostedWeek9Media({BASE_URL:origin,VERIFIED_CANDIDATE_ORIGIN:origin,RELEASE_SHA:PIN.sha,VERCEL_TRUSTED_OIDC_TOKEN:identity.value});
 }
