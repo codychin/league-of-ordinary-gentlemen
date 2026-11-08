@@ -47,13 +47,14 @@ for(const root of ['','/sunday-crew','/doge']){
   const check=async(label)=>{
    const s=await page.locator('.appTabBar').evaluate(el=>{
     const r=el.getBoundingClientRect(),v=visualViewport,c=document.querySelector('.appScrollContent'),cr=c.getBoundingClientRect(),style=getComputedStyle(el);
-    return {path:location.pathname,scrollY,innerHeight,visibility:document.visibilityState,viewport:v?{height:v.height,offsetTop:v.offsetTop,scale:v.scale}:null,rect:{top:r.top,bottom:r.bottom,height:r.height},content:{scrollTop:c.scrollTop,scrollHeight:c.scrollHeight,clientHeight:c.clientHeight,top:cr.top,bottom:cr.bottom},bottom:parseFloat(style.marginBottom),gap:parseFloat(style.marginTop),transform:style.transform,position:style.position};
+    return {path:location.pathname,scrollY,innerHeight,visibility:document.visibilityState,viewport:v?{height:v.height,offsetTop:v.offsetTop,scale:v.scale}:null,rect:{top:r.top,bottom:r.bottom,height:r.height},content:{scrollTop:c.scrollTop,scrollHeight:c.scrollHeight,clientHeight:c.clientHeight,top:cr.top,bottom:cr.bottom},bottom:parseFloat(style.bottom),gap:0,transform:style.transform,position:style.position};
    });samples.push({label,...s});
-   expect(s.position).toBe('relative');expect(s.scrollY).toBe(0);
+   expect(s.position).toBe('absolute');expect(s.scrollY).toBe(0);
    expect(s.content.clientHeight).toBeGreaterThan(0);
-   expect(s.content.top).toBeGreaterThan(0);
-   expect(Math.abs(s.rect.top-s.content.bottom-s.gap),JSON.stringify(s)).toBeLessThan(2);
+   expect(Math.abs(s.content.top)).toBeLessThan(2);
+   expect(s.content.bottom,JSON.stringify(s)).toBeGreaterThan(s.rect.bottom);
    const visibleBottom=s.viewport?s.viewport.offsetTop+s.viewport.height:s.innerHeight;
+   expect(Math.abs(s.content.bottom-visibleBottom),JSON.stringify(s)).toBeLessThan(2);
    expect(Math.abs(visibleBottom-s.rect.bottom-s.bottom),JSON.stringify(s)).toBeLessThan(2);
 
   };
@@ -286,7 +287,11 @@ for(const standalone of [false,true])test(`article masthead stays visible throug
   await expect.poll(()=>header.evaluate(e=>Math.abs(e.getBoundingClientRect().top))).toBeLessThanOrEqual(1);
   await expect(logo).toBeVisible();
   expect(await logo.evaluate(e=>{const r=e.getBoundingClientRect();return e.contains(document.elementFromPoint(r.left+r.width/2,r.top+r.height/2));})).toBe(true);
-  if(mobile)await expect(header).toHaveCSS('background-color','rgb(255, 255, 255)');
+  if(mobile){
+   await expect(header).toHaveCSS('background-color','rgba(0, 0, 0, 0)');
+   await expect(logo).toHaveCSS('background-color','rgba(255, 255, 255, 0.88)');
+   expect((await logo.boundingBox()).width).toBeLessThan(page.viewportSize().width*.7);
+  }
   await testInfo.attach(`article-header-${fraction}`,{body:await page.screenshot(),contentType:'image/png'});
  }
 });
