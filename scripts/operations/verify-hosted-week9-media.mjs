@@ -45,6 +45,9 @@ export async function verifyHostedWeek9Media(env=process.env){
      const buttons=shelf.getByRole('button',{name:/^Watch /});
      const ids=await buttons.evaluateAll(es=>es.map(e=>e.getAttribute('aria-describedby')));
      need(JSON.stringify(ids)===JSON.stringify(cohort.map(r=>`reel-state-${edition}-week9-preview-v1-${r.id}`)),'HOME_COHORT_MISMATCH');
+     await buttons.first().scrollIntoViewIfNeeded();
+     const headerBefore=await page.locator('header').first().innerText();
+     const anchorBefore=await buttons.first().evaluate(e=>e.getBoundingClientRect().top);
      await buttons.first().click();const player=page.getByRole('dialog').locator('video:not([aria-hidden="true"])');
      await player.waitFor({state:'visible'});
      await player.evaluate(v=>new Promise((resolve,reject)=>{
@@ -54,7 +57,11 @@ export async function verifyHostedWeek9Media(env=process.env){
       },100);
      }));
      need((await player.evaluate(v=>v.currentSrc)).includes(cohort[0].id),'PLAYER_ID_MISMATCH');
+     need(await player.evaluate(v=>!v.muted&&v.volume>0),'UNMUTED_PLAYBACK_REQUIRED');
      await page.getByRole('button',{name:'Close video',exact:true}).click();
+     need(Math.abs((await buttons.first().evaluate(e=>e.getBoundingClientRect().top))-anchorBefore)<3,'CLOSE_SCROLL_POSITION_CHANGED');
+     need(await page.evaluate(()=>document.documentElement.style.overflow!=='hidden'&&document.body.style.overflow!=='hidden'),'DOCUMENT_SCROLL_STILL_LOCKED');
+     need(await page.locator('header').first().innerText()===headerBefore,'HEADER_CHANGED_AFTER_CLOSE');
      for(const row of cohort){
       const observed=await page.evaluate(({id})=>new Promise((resolve,reject)=>{
        const v=document.createElement('video');v.preload='metadata';v.muted=true;v.playsInline=true;
