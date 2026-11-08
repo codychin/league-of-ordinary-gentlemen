@@ -1,5 +1,6 @@
 name: Promote verified production release
 on:
+  workflow_dispatch:
   deployment_status:
   workflow_run:
     workflows: ["Release integrity", "Article image release gate"]
@@ -158,3 +159,41 @@ jobs:
             release-receipt.json
             hosted-media-receipt.json
           if-no-files-found: warn
+
+  verify_pinned_week9_preview:
+    if: ${{ github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && github.repository == 'codychin/league-of-ordinary-gentlemen' }}
+    environment: production
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    container:
+      image: mcr.microsoft.com/playwright:v1.64.1-noble@sha256:47b510dd9230bf0b9bfc9b20102241e577ea7a99334ab4c3ca19f19770e9b8ea
+      options: --ipc=host --init
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /scripts/operations/
+            /lib/week9-preview-cohort.mjs
+            /data/week9-approved-homepage-media.json
+            /qa/week9-owner-playback-waiver.json
+            /qa/week9-packaged-media.json
+            /package.json
+            /package-lock.json
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - run: npm ci --ignore-scripts
+      - run: node scripts/operations/assert-playwright-container.mjs
+      - name: Verify only pinned rollback preview; never promote
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/operations/verify-pinned-week9-preview.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pinned-week9-preview-playback
+          path: hosted-media-receipt.json
+          if-no-files-found: error
