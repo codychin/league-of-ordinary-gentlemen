@@ -15,7 +15,7 @@ async function userScroll(page,dy,testInfo){
   await page.evaluate(()=>{const pad=document.createElement('div');pad.id='qa-touch-pad';pad.style.cssText='position:fixed;left:0;top:120px;width:44px;height:44px;z-index:2147483647';document.body.append(pad)});
   await page.locator('#qa-touch-pad').tap();
   await page.locator('#qa-touch-pad').evaluate(e=>e.remove());
-  await page.evaluate(amount=>{const owner=document.documentElement.classList.contains('standaloneApp')?document.querySelector('.appScrollContent'):window;owner.scrollBy({top:amount,behavior:'instant'});},dy);
+  await page.evaluate(amount=>{const owner=window;owner.scrollBy({top:amount,behavior:'instant'});},dy);
  }else{await page.mouse.move(180,300);await page.mouse.wheel(0,dy);}
 }
 
@@ -54,7 +54,7 @@ for(const root of ['/','/doge','/sunday-crew'])for(const standalone of [false,tr
    await more.click();await expect(more).toHaveAttribute('aria-expanded','true');
    await more.click();await expect(more).toHaveAttribute('aria-expanded','false');
    await userScroll(page,500,testInfo);
-   try{await expect.poll(()=>page.evaluate(()=>document.documentElement.classList.contains('standaloneApp')?document.querySelector('.appScrollContent').scrollTop:scrollY)).toBeGreaterThan(0);}catch(error){
+   try{await expect.poll(()=>page.evaluate(()=>document.scrollingElement.scrollTop)).toBeGreaterThan(0);}catch(error){
     console.error('initial scroll diagnostic',await page.evaluate(()=>({url:location.href,tab:document.documentElement.dataset.appTab,scrollY,height:document.documentElement.scrollHeight,viewport:innerHeight,standalone:document.documentElement.classList.contains('standaloneApp')})));
     throw error;
    }
