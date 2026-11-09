@@ -2,6 +2,7 @@
 // Assemble an immutable candidate overlay for the existing static shelf consumer.
 // Never writes the source repository, public registry, branch or production.
 import fs from 'node:fs';
+import {previewCardLabel} from './preview-card-labels.mjs';
 import {playbackAttestation,assertWeek8ApprovedBinding,assertApprovedMediaBinding} from './week8-playback-waiver.mjs';
 import path from 'node:path';
 import {randomUUID} from 'node:crypto';
@@ -59,7 +60,7 @@ export function assemble({repository,root,receipts,evidence,current,manifestPath
     paths.push(original,...packageFiles.map(f=>`${pkg}/${f.name}`));
     // Preserve display ordering/labels. Whitelist fields; never carry a prior playback exception.
     return {edition:b.edition,teamIds:b.pair,season:b.season,week:b.week,kind:b.kind,
-      short:old.short,matchup:old.matchup,left:old.left,right:old.right,id:b.videoId,writer:b.writer,
+      short:b.kind==='preview'&&b.week>=9?previewCardLabel(b.edition,b.pair):old.short,matchup:old.matchup,left:old.left,right:old.right,id:b.videoId,writer:b.writer,
       matchupKey:b.matchupKey,scriptRegistryId:b.registryId,scriptSha256:b.scriptSha256,
       sourceRevision:b.scriptRevision,sourcePackageSha256:b.sourceRevision,sourceSha256:b.identity.sha256,
       sourceVideoSha256:b.identity.sha256,voiceId:b.voiceId,
