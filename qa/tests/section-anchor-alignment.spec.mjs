@@ -24,7 +24,7 @@ async function expectLanding(page,id,mobile){
   await expect.poll(()=>page.locator('.appSectionHeader').evaluate(e=>Math.abs(e.getBoundingClientRect().top))).toBeLessThanOrEqual(1);
   // The League remains a document anchor even in standalone mode; only the
   // Home/Scores/Culture tabs reset to zero. Verify ownership, then exact landing.
-  expect(await page.evaluate(()=>document.scrollingElement.scrollTop)).toBe(await page.evaluate(()=>scrollY));
+  expect(await page.evaluate(()=>document.scrollingElement.scrollTop===scrollY)).toBe(true);
  }
  try{await expect.poll(()=>page.locator('#'+id).evaluate((target,mobile)=>{
   const header=document.querySelector(mobile?'.appSectionHeader':'.siteNav');

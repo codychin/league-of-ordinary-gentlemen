@@ -20,8 +20,8 @@ for(const root of ['', '/doge', '/sunday-crew'])for(const standalone of [false,t
       await page.evaluate(v=>document.documentElement.style.setProperty('--qa-bottom-inset',`${v}px`),inset);
       for(const compact of [false,true]){
         await page.evaluate(y=>{
-          const owner=document.documentElement.classList.contains('standaloneApp')?document.querySelector('.appScrollContent'):window;
-          window.dispatchEvent(new WheelEvent('wheel',{deltaY:y-(owner===window?scrollY:owner.scrollTop)}));
+          const owner=window;
+          window.dispatchEvent(new WheelEvent('wheel',{deltaY:y-scrollY}));
           owner.scrollTo({top:y,behavior:'instant'});
         },compact?500:0);
         await expect(nav).toHaveAttribute('data-compact',String(compact));
