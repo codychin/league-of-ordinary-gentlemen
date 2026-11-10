@@ -50,8 +50,13 @@ for(const root of ['/','/doge','/sunday-crew'])for(const standalone of [false,tr
   const nav=page.getByRole('navigation',{name:mobile?'App navigation':'Primary navigation',exact:true});
   // Begin with downward scrolling so the compact bottom-nav state is exercised.
   if(mobile){
-   // SSR markup and fonts can be ready before the client navigation effect
-   // finishes its initial scroll reset. Confirm real client interaction first.
+   // The boot-time data-app-tab and ready fonts precede client initialization.
+   // Wait for the navigation effect and its measured header before checking
+   // post-initialization anchors. This does not cover clicks during hydration.
+   await expect.poll(()=>page.evaluate(()=>{
+    const height=Number.parseFloat(document.documentElement.style.getPropertyValue('--mobile-header-height'));
+    return window.history.scrollRestoration==='manual'&&Number.isFinite(height)&&height>0;
+   })).toBe(true);
    const more=nav.getByRole('button',{name:'More',exact:true});
    await more.click();await expect(more).toHaveAttribute('aria-expanded','true');
    await more.click();await expect(more).toHaveAttribute('aria-expanded','false');
