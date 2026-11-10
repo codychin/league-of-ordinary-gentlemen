@@ -337,12 +337,12 @@ for(const root of ['', '/sunday-crew', '/doge'])test(`Week 9 real media plays an
  const returnedTop=await opener.evaluate(e=>e.getBoundingClientRect().top);
  expect(Math.abs(returnedTop-anchor),JSON.stringify({beforeClick,openingClick:anchor,returnedTop})).toBeLessThan(3);
  expect(await page.evaluate(()=>document.documentElement.style.overflow!=='hidden'&&document.body.style.overflow!=='hidden')).toBe(true);
- const nav=page.getByRole('navigation',{name:'App navigation'});
- await nav.getByRole('link',{name:'Scores',exact:true}).click();await expect(page).toHaveURL(/#scores$/);
+ const nav=page.getByRole('navigation',{name:page.viewportSize().width<=760?'App navigation':'Primary navigation',exact:true});
+ await nav.getByRole('link',{name:/^Scores$/i}).click();await expect(page).toHaveURL(/#scores$/);
  await expect(page.locator('.appScrollContent')).toHaveCount(0);
  await page.evaluate(()=>window.scrollBy(0,300));await expect.poll(()=>page.evaluate(()=>window.scrollY)).toBeGreaterThan(0);
  await expect(nav).toBeVisible();
- await nav.getByRole('link',{name:'Culture',exact:true}).click();await expect(page).toHaveURL(/#culture$/);
+ await nav.getByRole('link',{name:/^Culture$/i}).click();await expect(page).toHaveURL(/#culture$/);
  await expect(nav).toBeVisible();
  for(const row of rows){
   const observed=await page.evaluate(({id})=>new Promise((resolve,reject)=>{
