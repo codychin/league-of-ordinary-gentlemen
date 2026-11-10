@@ -15,14 +15,16 @@ async function userScroll(page,dy,testInfo){
   await page.evaluate(()=>{const pad=document.createElement('div');pad.id='qa-touch-pad';pad.style.cssText='position:fixed;left:0;top:120px;width:44px;height:44px;z-index:2147483647';document.body.append(pad)});
   await page.locator('#qa-touch-pad').tap();
   await page.locator('#qa-touch-pad').evaluate(e=>e.remove());
-  await page.evaluate(amount=>{const owner=document.documentElement.classList.contains('standaloneApp')?document.querySelector('.appScrollContent'):window;owner.scrollBy({top:amount,behavior:'instant'});},dy);
+  await page.evaluate(amount=>{const owner=window;owner.scrollBy({top:amount,behavior:'instant'});},dy);
  }else{await page.mouse.move(180,300);await page.mouse.wheel(0,dy);}
 }
 
 async function expectLanding(page,id,mobile){
  if(mobile){
   await expect.poll(()=>page.locator('.appSectionHeader').evaluate(e=>Math.abs(e.getBoundingClientRect().top))).toBeLessThanOrEqual(1);
-  if(await page.locator('html').evaluate(e=>e.classList.contains('standaloneApp')))expect(await page.evaluate(()=>scrollY)).toBe(0);
+  // The League remains a document anchor even in standalone mode; only the
+  // Home/Scores/Culture tabs reset to zero. Verify ownership, then exact landing.
+  expect(await page.evaluate(()=>document.scrollingElement.scrollTop===scrollY)).toBe(true);
  }
  try{await expect.poll(()=>page.locator('#'+id).evaluate((target,mobile)=>{
   const header=document.querySelector(mobile?'.appSectionHeader':'.siteNav');
@@ -54,7 +56,7 @@ for(const root of ['/','/doge','/sunday-crew'])for(const standalone of [false,tr
    await more.click();await expect(more).toHaveAttribute('aria-expanded','true');
    await more.click();await expect(more).toHaveAttribute('aria-expanded','false');
    await userScroll(page,500,testInfo);
-   try{await expect.poll(()=>page.evaluate(()=>document.documentElement.classList.contains('standaloneApp')?document.querySelector('.appScrollContent').scrollTop:scrollY)).toBeGreaterThan(0);}catch(error){
+   try{await expect.poll(()=>page.evaluate(()=>document.scrollingElement.scrollTop)).toBeGreaterThan(0);}catch(error){
     console.error('initial scroll diagnostic',await page.evaluate(()=>({url:location.href,tab:document.documentElement.dataset.appTab,scrollY,height:document.documentElement.scrollHeight,viewport:innerHeight,standalone:document.documentElement.classList.contains('standaloneApp')})));
     throw error;
    }

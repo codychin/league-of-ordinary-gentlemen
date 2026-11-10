@@ -36,25 +36,25 @@ function expectReadingPosition(before,after){
  expect(Math.abs(after.top-before.top),JSON.stringify({before,after})).toBeLessThanOrEqual(1);
 }
 
-// Bounded standalone scroll-owner contract. Keyboard-height and tab switching
+// Standalone document-scrolling contract. Keyboard-height and tab switching
 // exercise engine geometry, not installed-iPhone keyboard/background reproduction.
 for(const root of ['','/sunday-crew','/doge']){
  test(`bounded standalone navigation: ${root||'LOOG'}`,async({page,context,browserName},testInfo)=>{
   test.skip(testInfo.project.name==='desktop','Mobile shell is inactive on desktop.');
   await page.addInitScript(()=>Object.defineProperty(navigator,'standalone',{get:()=>true}));
   if(!root)testInfo.annotations.push({type:'fixture',description:'LOOG matchup uses the committed current-week score snapshot via QA-only server preload; this tests layout and publication state, not live provider correctness.'});
-  const samples=[],content=page.locator('.appScrollContent');
+  const samples=[],content=page.locator('html');
   const check=async(label)=>{
    const s=await page.locator('.appTabBar').evaluate(el=>{
-    const r=el.getBoundingClientRect(),v=visualViewport,c=document.querySelector('.appScrollContent'),cr=c.getBoundingClientRect(),style=getComputedStyle(el);
+    const r=el.getBoundingClientRect(),v=visualViewport,c=document.scrollingElement,cr=c.getBoundingClientRect(),style=getComputedStyle(el);
     return {path:location.pathname,scrollY,innerHeight,visibility:document.visibilityState,viewport:v?{height:v.height,offsetTop:v.offsetTop,scale:v.scale}:null,rect:{top:r.top,bottom:r.bottom,height:r.height},content:{scrollTop:c.scrollTop,scrollHeight:c.scrollHeight,clientHeight:c.clientHeight,top:cr.top,bottom:cr.bottom},bottom:parseFloat(style.bottom),gap:0,transform:style.transform,position:style.position};
    });samples.push({label,...s});
-   expect(s.position).toBe('absolute');expect(s.scrollY).toBe(0);
+   expect(s.position).toBe('fixed');expect(s.content.scrollTop).toBe(s.scrollY);
    expect(s.content.clientHeight).toBeGreaterThan(0);
-   expect(Math.abs(s.content.top)).toBeLessThan(2);
-   expect(s.content.bottom,JSON.stringify(s)).toBeGreaterThan(s.rect.bottom);
+   expect(s.content.scrollHeight).toBeGreaterThanOrEqual(s.content.clientHeight);
+   expect(s.rect.top,JSON.stringify(s)).toBeGreaterThanOrEqual(0);
    const visibleBottom=s.viewport?s.viewport.offsetTop+s.viewport.height:s.innerHeight;
-   expect(Math.abs(s.content.bottom-visibleBottom),JSON.stringify(s)).toBeLessThan(2);
+   expect(s.rect.bottom,JSON.stringify(s)).toBeLessThanOrEqual(visibleBottom+1);
    expect(Math.abs(visibleBottom-s.rect.bottom-s.bottom),JSON.stringify(s)).toBeLessThan(2);
 
   };
@@ -75,7 +75,7 @@ for(const root of ['','/sunday-crew','/doge']){
    await expect(page).toHaveURL(new RegExp(article+'$'));await expect.poll(()=>content.evaluate(e=>e.scrollTop)).toBe(0);await inputScroll();
    for(const height of [844,500,844]){await page.setViewportSize({width:testInfo.project.use.viewport.width,height});for(const y of [0,400,100000,200,0])await scroll(y);}
    // Labelled fixture input: no existing article input or real keyboard is implied.
-   await content.evaluate(e=>{const input=document.createElement('input');input.id='qa-focus-fixture';input.setAttribute('aria-label','QA focus fixture');input.style.cssText='display:block;margin:16px 16px 100px;width:240px;height:40px';e.append(input);});
+   await content.evaluate(e=>{const input=document.createElement('input');input.id='qa-focus-fixture';input.setAttribute('aria-label','QA focus fixture');input.style.cssText='display:block;margin:16px 16px 100px;width:240px;height:40px';document.body.append(input);});
    const input=page.getByRole('textbox',{name:'QA focus fixture'});await input.focus();await page.setViewportSize({width:testInfo.project.use.viewport.width,height:500});await input.press('End');await input.scrollIntoViewIfNeeded();
    await expect(input).toBeFocused();const focus=await input.boundingBox(),nav=await page.locator('.appTabBar').boundingBox();expect(focus.y).toBeGreaterThanOrEqual(0);expect(focus.y+focus.height).toBeLessThanOrEqual(nav.y);await check('focused-shrunken-viewport');
    await input.evaluate(e=>e.remove());await page.setViewportSize({width:testInfo.project.use.viewport.width,height:844});await scroll(400);
@@ -123,14 +123,14 @@ test('reel viewers restore the standalone content position',async({page},testInf
  // Media readiness and initial feed data are fixtures; real components and controls are tested.
  await settleInitialLiveDesk(page);
  await page.route('**/reels-hls/**',route=>route.request().method()==='HEAD'?route.fulfill({status:200,body:''}):route.abort());
- await page.goto('/');await waitForInitialLiveDesk(page);const content=page.locator('.appScrollContent');
+ await page.goto('/');await waitForInitialLiveDesk(page);const content=page.locator('html');
  const shelves=[page.getByRole('region',{name:/videos$/}).first(),page.getByRole('region',{name:'Also, from The Brief'})];
  for(const shelf of shelves){
   const watch=shelf.getByRole('button',{name:/^Watch /}).first();await expect(watch).toBeVisible();await watch.scrollIntoViewIfNeeded();
   // Playwright may scroll again while waiting for a late-loading card to stabilize.
   // Capture the user's actual opening position at click, before React opens the viewer.
   await watch.evaluate(el=>el.addEventListener('click',()=>{
-   const top=el.getBoundingClientRect().top,owner=document.querySelector('.appScrollContent');
+   const top=el.getBoundingClientRect().top,owner=document.scrollingElement;
    window.__qaReelOpening={scrollY:owner.scrollTop,top,documentTop:top+owner.scrollTop,documentHeight:owner.scrollHeight,clientHeight:owner.clientHeight};
   },{capture:true,once:true}));
   await watch.click();const before=await page.evaluate(()=>window.__qaReelOpening);
@@ -166,13 +166,15 @@ test('normal browser keeps document navigation and reel restoration',async({page
  // Exercise navigation after hydration, rather than racing that reset in WebKit.
  await expect(page.locator('html')).toHaveAttribute('data-app-tab','home');
  expect(await page.locator('html').evaluate(e=>e.classList.contains('standaloneApp'))).toBe(false);
- expect(await page.locator('.appScrollContent').evaluate(el=>getComputedStyle(el).display)).toBe('contents');
+ await expect(page.locator('.appScrollContent')).toHaveCount(0);
+ expect(await page.evaluate(()=>document.scrollingElement===document.documentElement)).toBe(true);
  await page.evaluate(()=>window.scrollTo(0,400));await expect.poll(()=>page.evaluate(()=>scrollY)).toBeGreaterThan(0);
  const article=page.locator('a[href*="/articles/"]').first();const path=await article.getAttribute('href');await article.click();await expect(page).toHaveURL(new RegExp(path+'$'));await page.goBack();await expect(page).toHaveURL(/\/$/);
  const watch=page.getByRole('region',{name:/videos$/}).first().getByRole('button',{name:/^Watch /}).first();await watch.scrollIntoViewIfNeeded();
  await watch.evaluate(el=>el.addEventListener('click',()=>{window.__qaBrowserReelOpening=scrollY;},{capture:true,once:true}));await watch.click();
  const before=await page.evaluate(()=>window.__qaBrowserReelOpening);await expect(page.getByRole('dialog')).toBeVisible();await page.getByRole('button',{name:'Close video',exact:true}).click();await expect(page.getByRole('dialog')).toHaveCount(0);await expect.poll(()=>page.evaluate(()=>scrollY)).toBe(before);
- expect(await page.locator('.appScrollContent').evaluate(el=>getComputedStyle(el).display)).toBe('contents');
+ await expect(page.locator('.appScrollContent')).toHaveCount(0);
+ expect(await page.evaluate(()=>document.scrollingElement===document.documentElement)).toBe(true);
  await testInfo.attach('normal-browser-reel-restoration',{body:JSON.stringify({before,after:await page.evaluate(()=>scrollY)}),contentType:'application/json'});
 });
 
@@ -206,12 +208,12 @@ for(const growth of [0,528,1900]){
   const shelf=page.getByRole('region',{name:'Also, from The Brief'});
   const watch=shelf.getByRole('button',{name:/^Watch /}).first();
   await expect(watch).toBeVisible();await watch.scrollIntoViewIfNeeded();
-  await page.locator('.appScrollContent').evaluate(el=>el.scrollTo({top:el.scrollHeight,behavior:'instant'}));
+  await page.evaluate(()=>document.scrollingElement.scrollTo({top:document.scrollingElement.scrollHeight,behavior:'instant'}));
   // Reproduce late pre-click layout growth: a prior scrollTo(bottom) is not
   // an opening-position guarantee while media, fonts and click actionability settle.
   await shelf.evaluate(el=>{const growth=document.createElement('div');growth.style.height='43px';el.after(growth);});
   await watch.evaluate(el=>el.addEventListener('click',()=>{
-   const owner=document.querySelector('.appScrollContent');
+   const owner=document.scrollingElement;
    // Establish the bottom-of-content fixture in the same event as the captured
    // anchor, before React opens/locks the viewer. Never correct after opening.
    owner.scrollTo({top:owner.scrollHeight,behavior:'instant'});
@@ -233,8 +235,8 @@ for(const growth of [0,528,1900]){
   await expect(page.getByRole('dialog')).toHaveCount(0);
   try{await expect(async()=>expectReadingPosition(before,await watch.evaluate(readingPosition))).toPass({timeout:10000});}
   finally{await testInfo.attach('also-bottom-restoration',{body:JSON.stringify({growth,before,locked,after:await watch.evaluate(readingPosition)}),contentType:'application/json'});}
-  expect(await page.locator('.appScrollContent').evaluate(el=>getComputedStyle(el).overflowY)).toBe('auto');
-  expect(await page.evaluate(()=>window.scrollY)).toBe(0);
+  expect(await page.locator('body').evaluate(el=>getComputedStyle(el).overflowY)).not.toBe('hidden');
+  expect(await page.evaluate(()=>window.scrollY)).toBeGreaterThan(0);
  });
 }
 
@@ -335,12 +337,21 @@ for(const root of ['', '/sunday-crew', '/doge'])test(`Week 9 real media plays an
  const returnedTop=await opener.evaluate(e=>e.getBoundingClientRect().top);
  expect(Math.abs(returnedTop-anchor),JSON.stringify({beforeClick,openingClick:anchor,returnedTop})).toBeLessThan(3);
  expect(await page.evaluate(()=>document.documentElement.style.overflow!=='hidden'&&document.body.style.overflow!=='hidden')).toBe(true);
- const nav=page.getByRole('navigation',{name:'App navigation'});
- await nav.getByRole('link',{name:'Scores',exact:true}).click();await expect(page).toHaveURL(/#scores$/);
+ const nav=page.getByRole('navigation',{name:page.viewportSize().width<=760?'App navigation':'Primary navigation',exact:true});
+ await nav.getByRole('link',{name:/^Scores$/i}).click();await expect(page).toHaveURL(/#scores$/);
  await expect(page.locator('.appScrollContent')).toHaveCount(0);
  await page.evaluate(()=>window.scrollBy(0,300));await expect.poll(()=>page.evaluate(()=>window.scrollY)).toBeGreaterThan(0);
  await expect(nav).toBeVisible();
- await nav.getByRole('link',{name:'Culture',exact:true}).click();await expect(page).toHaveURL(/#culture$/);
+ // Mobile tabs and LOOG desktop expose Culture; both edition desktop menus expose Standings.
+ const destination=page.viewportSize().width>760&&root
+  ?{name:/^Standings$/i,id:'standings',heading:'Standings'}
+  :{name:/^Culture$/i,id:'culture',heading:/^Matters of Culture$/i};
+ const destinationLink=nav.getByRole('link',{name:destination.name});
+ await expect(destinationLink).toHaveAttribute('href',(root||'/')+'#'+destination.id);
+ await destinationLink.click();await expect(page).toHaveURL(new RegExp(root+'#'+destination.id+'$'));
+ const destinationSection=page.locator('#'+destination.id);
+ await expect(destinationSection.getByRole('heading',{name:destination.heading,exact:true})).toBeVisible();
+ await expect(destinationSection).toBeInViewport();
  await expect(nav).toBeVisible();
  for(const row of rows){
   const observed=await page.evaluate(({id})=>new Promise((resolve,reject)=>{
