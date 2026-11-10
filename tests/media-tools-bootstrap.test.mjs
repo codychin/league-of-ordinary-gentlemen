@@ -11,7 +11,7 @@ function exercise(t,{present=[],fail='',omit=''}={}){
  const root=fs.mkdtempSync(path.join(os.tmpdir(),'media-tools-bootstrap-'));
  t.after(()=>fs.rmSync(root,{recursive:true,force:true}));
  const log=path.join(root,'calls.jsonl');
- const executable=name=>`#!/bin/bash\nprintf '%s\\n' '["${name}","-version"]' >> "$MEDIA_TEST_LOG"\nexit ${fail===name?9:0}\n`;
+ const executable=name=>`#!${process.execPath}\nconst fs=require('node:fs');\nfs.appendFileSync(process.env.MEDIA_TEST_LOG,JSON.stringify([${JSON.stringify(name)},...process.argv.slice(2)])+'\\n');\nprocess.exit(${fail===name?9:0});\n`;
  for(const name of present)fs.writeFileSync(path.join(root,name),executable(name),{mode:0o755});
  const bootstrap=`#!${process.execPath}
 const fs=require('node:fs');
