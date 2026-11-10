@@ -342,7 +342,16 @@ for(const root of ['', '/sunday-crew', '/doge'])test(`Week 9 real media plays an
  await expect(page.locator('.appScrollContent')).toHaveCount(0);
  await page.evaluate(()=>window.scrollBy(0,300));await expect.poll(()=>page.evaluate(()=>window.scrollY)).toBeGreaterThan(0);
  await expect(nav).toBeVisible();
- await nav.getByRole('link',{name:/^Culture$/i}).click();await expect(page).toHaveURL(/#culture$/);
+ // Mobile tabs and LOOG desktop expose Culture; both edition desktop menus expose Standings.
+ const destination=page.viewportSize().width>760&&root
+  ?{name:/^Standings$/i,id:'standings',heading:'Standings'}
+  :{name:/^Culture$/i,id:'culture',heading:/^Matters of Culture$/i};
+ const destinationLink=nav.getByRole('link',{name:destination.name});
+ await expect(destinationLink).toHaveAttribute('href',(root||'/')+'#'+destination.id);
+ await destinationLink.click();await expect(page).toHaveURL(new RegExp(root+'#'+destination.id+'$'));
+ const destinationSection=page.locator('#'+destination.id);
+ await expect(destinationSection.getByRole('heading',{name:destination.heading,exact:true})).toBeVisible();
+ await expect(destinationSection).toBeInViewport();
  await expect(nav).toBeVisible();
  for(const row of rows){
   const observed=await page.evaluate(({id})=>new Promise((resolve,reject)=>{
