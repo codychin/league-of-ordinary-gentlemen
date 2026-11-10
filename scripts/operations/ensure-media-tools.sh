@@ -3,7 +3,8 @@
 set -euo pipefail
 if ! command -v ffmpeg >/dev/null || ! command -v ffprobe >/dev/null; then
   sudo apt-get update
-  sudo apt-get install -y ffmpeg
+  # Keep required codecs; omit optional GPU drivers and speech-model packages.
+  sudo apt-get install -y --no-install-recommends ffmpeg
 fi
 ffmpeg -version
 ffprobe -version

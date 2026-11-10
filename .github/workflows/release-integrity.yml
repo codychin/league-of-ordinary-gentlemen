@@ -55,7 +55,8 @@ jobs:
         with:
           node-version: 22
       - name: Ensure runner media prerequisites
-        timeout-minutes: 5
+        # Allow slow Ubuntu mirrors without changing validation or the job limit.
+        timeout-minutes: 8
         run: bash scripts/operations/ensure-media-tools.sh
       - name: Verify real preparation and shelf delivery contracts without spending
         run: node --test qa/operations/media-preparation.test.mjs
