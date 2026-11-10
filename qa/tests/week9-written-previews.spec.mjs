@@ -1,17 +1,47 @@
 import {test,expect} from '@playwright/test';
-import fs from 'node:fs';
-const columns=JSON.parse(fs.readFileSync(new URL('../../data/week9-matchup-columns.json',import.meta.url)));
-const slugs={1:'kupp-doubs',2:'danir',3:'all-ugly',4:'route-22',5:'skatt',6:'pollard-greens',7:'hopkins-opus',8:'shake-baker',9:'kraft',10:'royrek',11:'lloyd-rings',12:'ceedeep'};
-for(const edition of ['loog','sunday-crew','doge'])test(`${edition} all six current written previews render exact text without cross-pair leakage`,async({page})=>{
- test.setTimeout(180000);
- for(const c of columns.filter(c=>c.edition===edition)){
-  const path=edition==='loog'?`/matchups/${slugs[c.teamIds[0]]}/${slugs[c.teamIds[1]]}`:`/${edition}/matchups/${c.teamIds.join('/')}`;
-  await page.goto(path,{waitUntil:'domcontentloaded'});
-  const column=page.locator('.matchupColumn');
-  await expect(column.locator('h2')).toHaveText(c.headline);
-  const ps=column.locator('p:not(.matchupUpdated)');
-  await expect(ps).toHaveText(c.body.split(/\n\n+/));
+import {week9Columns,recapFor,matchupPath,renderWeek9Matchup} from '../fixtures/week9-matchup-render.mjs';
+
+async function assertColumn(page,c,phase){
+ const column=page.locator('.matchupColumn');
+ const selected=phase==='pregame'?c:recapFor(c);
+ await expect(column.locator('h2')).toHaveText(selected?.headline||'Awaiting correspondent recap');
+ await expect(column.locator('p:not(.matchupUpdated)')).toHaveText((selected?.body||'The result is final. The correspondent recap is awaiting publication.').split(/\n\n+/));
+ if(phase==='pregame'){
   await expect(column).toContainText('UPDATED NOVEMBER 7');
-  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
+  await expect(column.locator('.matchupColumnByline')).toContainText('CORRESPONDENT PREVIEW');
+ }else{
+  await expect(page.locator('.matchupHeroSide > span')).toHaveText(['FINAL','FINAL']);
+  await expect(column).not.toContainText(c.headline);
+  await expect(column).not.toContainText(c.body.split(/\n\n+/)[0]);
+  if(!selected)await expect(column).not.toContainText('UPDATED NOVEMBER 7');
+ }
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
+}
+
+// Deterministic phase coverage renders the actual matchup components. Navigation,
+// hydration and provider access are not claimed by this isolated fixture lane.
+for(const phase of ['pregame','final'])for(const edition of ['loog','sunday-crew','doge'])test(`${edition} Week 9 ${phase} component fixture renders all six exact columns without cross-pair leakage`,async({page,baseURL})=>{
+ test.setTimeout(180000);
+ const columns=week9Columns.filter(c=>c.edition===edition);expect(columns).toHaveLength(6);
+ await page.goto('/',{waitUntil:'domcontentloaded'});
+ const styles=await page.locator('link[rel="stylesheet"]').evaluateAll(links=>links.map(link=>link.outerHTML).join(''));
+ expect(styles).not.toBe('');
+ for(const c of columns){
+  const html=await renderWeek9Matchup(c,phase);
+  await page.setContent(`<!doctype html><html><head><base href="${baseURL}/"><meta name="viewport" content="width=device-width, initial-scale=1">${styles}</head><body>${html}</body></html>`);
+  await page.evaluate(()=>document.fonts.ready);
+  await assertColumn(page,c,phase);
+ }
+});
+
+// Keep real-route coverage separate. Week 9 is provider-final; pregame copy must
+// not be relabelled as a recap or restored just to satisfy an obsolete assertion.
+for(const edition of ['loog','sunday-crew','doge'])test(`${edition} Week 9 real routes retain final-only editorial for all six pairings`,async({page})=>{
+ test.setTimeout(180000);
+ const columns=week9Columns.filter(c=>c.edition===edition);expect(columns).toHaveLength(6);
+ for(const c of columns){
+  await page.goto(matchupPath(c),{waitUntil:'domcontentloaded'});
+  await expect(page.locator('.matchupHeroKicker')).toContainText('WEEK 9');
+  await assertColumn(page,c,'final');
  }
 });
