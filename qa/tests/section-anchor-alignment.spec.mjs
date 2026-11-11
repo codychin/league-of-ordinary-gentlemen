@@ -56,7 +56,10 @@ for(const root of ['/','/doge','/sunday-crew'])for(const standalone of [false,tr
    // finishes its initial scroll reset. Confirm real client interaction first.
    // The boot script sets data-app-tab before hydration. Wait for the shell's
    // setup effect, which closes the initial menu before claiming scroll restoration.
-   await expect.poll(()=>page.evaluate(()=>history.scrollRestoration)).toBe('manual');
+   await expect.poll(()=>page.evaluate(()=>{
+    const height=Number.parseFloat(document.documentElement.style.getPropertyValue('--mobile-header-height'));
+    return history.scrollRestoration==='manual'&&Number.isFinite(height)&&height>0;
+   })).toBe(true);
    const more=nav.getByRole('button',{name:'More',exact:true});
    await more.click();await expect(more).toHaveAttribute('aria-expanded','true');
    await more.click();await expect(more).toHaveAttribute('aria-expanded','false');

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {selectVerifiedWeek8Lineups as select} from '../lib/select-verified-week8-lineups.mjs';
 const evidence=JSON.parse(readFileSync('data/week8-loog-final-evidence.json','utf8'));
-const scores=JSON.parse(readFileSync('data/completed-loog-scores.json','utf8'));
+const scores=JSON.parse(readFileSync('data/week8-loog-scores.json','utf8'));
 const copy=x=>structuredClone(x);
 const pick=(game,opts={})=>select({season:2026,week:8,game,evidence,...opts});
 

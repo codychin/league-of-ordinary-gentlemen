@@ -5,7 +5,7 @@ import {leagueSnapshot} from '../app/teams/league-data.js';
 import {loogArchivedScores} from '../lib/loog-archived-scores.mjs';
 
 test('all archived weeks between current and Week 3 appear newest first, six final pairs each',()=>{
- const weeks=loogArchivedScores(leagueSnapshot);assert.deepEqual(weeks.map(w=>w.week),[7,6,5,4]);
+ const weeks=loogArchivedScores(leagueSnapshot);assert.deepEqual(weeks.map(w=>w.week),[8,7,6,5,4]);
  for(const week of weeks){
   assert.equal(week.games.length,6); assert.equal(new Set(week.games.flatMap(g=>[g.team,g.opponent])).size,12);
   for(const g of week.games){
@@ -13,13 +13,13 @@ test('all archived weeks between current and Week 3 appear newest first, six fin
    const row=team.season.weekly.find(w=>w.week===week.week);assert.equal(g.score,row.score);assert.equal(g.opponentScore,row.opponentScore);
   }
  }
- const w7=weeks[0].games.find(g=>g.team==="Chat GPT's Chosen Ones"||g.opponent==="Chat GPT's Chosen Ones");
+ const w7=weeks.find(w=>w.week===7).games.find(g=>g.team==="Chat GPT's Chosen Ones"||g.opponent==="Chat GPT's Chosen Ones");
  assert.ok([w7.score,w7.opponentScore].includes(136.42));assert.ok([w7.score,w7.opponentScore].includes(164.04));
 });
 
 test('a missing or inconsistent mirrored result suppresses only that week',()=>{
  const bad=structuredClone(leagueSnapshot);bad.teams['kupp-doubs'].season.weekly.find(w=>w.week===7).score+=1;
- assert.deepEqual(loogArchivedScores(bad).map(w=>w.week),[6,5,4]);
+ assert.deepEqual(loogArchivedScores(bad).map(w=>w.week),[8,6,5,4]);
 });
 
 test('homepage retains earlier archive notes and corrects only the evidenced Week 1 score',()=>{

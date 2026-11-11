@@ -327,6 +327,8 @@ for(const root of ['', '/sunday-crew', '/doge'])test(`Week 9 real media plays an
  expect(rows).toHaveLength(6);
  // No media mocks: exercise the current shelf, browser decoder and packaged URLs.
  expect((await page.goto(root||'/')).status()).toBe(200);
+ // Preserve the explicit mobile standalone versus ordinary desktop contract.
+ await expect.poll(()=>page.evaluate(()=>document.documentElement.classList.contains('standaloneApp'))).toBe(mobile);
  const shelf=page.getByRole('region',{name:'Week 9, the previews. videos'});
  const opener=shelf.getByRole('button',{name:/^Watch /}).first();
  await opener.scrollIntoViewIfNeeded();const beforeClick=await opener.evaluate(e=>e.getBoundingClientRect().top);
@@ -367,6 +369,17 @@ for(const root of ['', '/sunday-crew', '/doge'])test(`Week 9 real media plays an
  const second=mobile||!root?'culture':'league';
  await nav.getByRole('link',{name:second==='culture'?/^culture$/i:/^the league$/i}).click();
  await expectLanded(second);
+ // Retain the original exact destination/link/heading checks as well as main's
+ // stronger header-boundary assertions. Edition desktops also expose Standings.
+ const destination=!mobile&&root
+  ?{name:/^Standings$/i,id:'standings',heading:'Standings'}
+  :{name:/^Culture$/i,id:'culture',heading:/^Matters of Culture$/i};
+ const destinationLink=nav.getByRole('link',{name:destination.name});
+ await expect(destinationLink).toHaveAttribute('href',(root||'/')+'#'+destination.id);
+ if(destination.id!==second){await destinationLink.click();await expectLanded(destination.id);}
+ const destinationSection=page.locator('#'+destination.id);
+ await expect(destinationSection.getByRole('heading',{name:destination.heading,exact:true})).toBeVisible();
+ await expect(destinationSection).toBeInViewport();
  await expect(nav).toBeVisible();
  for(const row of rows){
   const observed=await page.evaluate(({id})=>new Promise((resolve,reject)=>{
