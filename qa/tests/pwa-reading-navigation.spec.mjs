@@ -320,7 +320,8 @@ for(const standalone of [false,true])test(`article masthead stays visible throug
 });
 
 for(const root of ['', '/sunday-crew', '/doge'])test(`Week 9 real media plays and all six originals load: ${root||'LOOG'}`,async({page},testInfo)=>{
- await page.addInitScript(()=>Object.defineProperty(navigator,'standalone',{get:()=>true}));
+ const mobile=page.viewportSize().width<=760;
+ if(mobile)await page.addInitScript(()=>Object.defineProperty(navigator,'standalone',{get:()=>true}));
  const edition=root.slice(1)||'loog';
  const rows=data('week9-approved-homepage-media.json').filter(r=>r.edition===edition);
  expect(rows).toHaveLength(6);
@@ -345,14 +346,27 @@ for(const root of ['', '/sunday-crew', '/doge'])test(`Week 9 real media plays an
  const returnedTop=await opener.evaluate(e=>e.getBoundingClientRect().top);
  expect(Math.abs(returnedTop-anchor),JSON.stringify({beforeClick,openingClick:anchor,returnedTop})).toBeLessThan(3);
  expect(await page.evaluate(()=>document.documentElement.style.overflow!=='hidden'&&document.body.style.overflow!=='hidden')).toBe(true);
- const mobile=page.viewportSize().width<=760;
  const nav=page.getByRole('navigation',{name:mobile?'App navigation':'Primary navigation',exact:true});
  await expect(nav).toBeVisible();
- await nav.getByRole('link',{name:/^scores$/i}).click();await expect(page).toHaveURL(/#scores$/);
+ const expectLanded=async id=>{
+  await expect(page).toHaveURL(new RegExp('#'+id+'$'));
+  // Use the same real header boundary as the dedicated section-navigation contract.
+  await expect.poll(()=>page.locator('#'+id).evaluate((target,mobile)=>{
+   const header=document.querySelector(mobile?'.appSectionHeader':'.siteNav');
+   const offset=mobile?0:16+(parseFloat(getComputedStyle(target).scrollMarginTop)||0);
+   const top=target.getBoundingClientRect().top;
+   if(top<0||top>=innerHeight)return Number.POSITIVE_INFINITY;
+   return Math.abs(top-header.getBoundingClientRect().bottom-offset);
+  },mobile)).toBeLessThanOrEqual(1);
+ };
+ await nav.getByRole('link',{name:/^scores$/i}).click();await expectLanded('scores');
  await expect(page.locator('.appScrollContent')).toHaveCount(0);
  await page.evaluate(()=>window.scrollBy(0,300));await expect.poll(()=>page.evaluate(()=>window.scrollY)).toBeGreaterThan(0);
  await expect(nav).toBeVisible();
- await nav.getByRole('link',{name:/^culture$/i}).click();await expect(page).toHaveURL(/#culture$/);
+ // Edition desktop headers expose The League; mobile and global desktop expose Culture.
+ const second=mobile||!root?'culture':'league';
+ await nav.getByRole('link',{name:second==='culture'?/^culture$/i:/^the league$/i}).click();
+ await expectLanded(second);
  await expect(nav).toBeVisible();
  for(const row of rows){
   const observed=await page.evaluate(({id})=>new Promise((resolve,reject)=>{
