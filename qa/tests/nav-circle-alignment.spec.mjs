@@ -20,10 +20,11 @@ for(const root of ['', '/doge', '/sunday-crew'])for(const standalone of [false,t
       await page.evaluate(v=>document.documentElement.style.setProperty('--qa-bottom-inset',`${v}px`),inset);
       for(const compact of [false,true]){
         await page.evaluate(y=>{
-          const owner=window;
-          window.dispatchEvent(new WheelEvent('wheel',{deltaY:y-scrollY}));
-          owner.scrollTo({top:y,behavior:'instant'});
+          window.dispatchEvent(new WheelEvent('wheel',{deltaY:y-window.scrollY}));
+          window.scrollTo({top:y,behavior:'instant'});
         },compact?500:0);
+        if(compact)await expect.poll(()=>page.evaluate(()=>window.scrollY)).toBeGreaterThan(0);
+        else await expect.poll(()=>page.evaluate(()=>window.scrollY)).toBe(0);
         await expect(nav).toHaveAttribute('data-compact',String(compact));
         await expect(nav).toHaveCSS('height',compact?'50px':'54px');
         const m=await nav.evaluate(n=>{

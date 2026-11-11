@@ -1,3 +1,4 @@
+import { placementImage } from './placement-image.mjs';
 import { articles } from "../../../app/articles/data.js";
 import { homeEligible } from "../src/home-layout.mjs";
 import { readFileSync } from "node:fs";
@@ -36,12 +37,7 @@ walk(tree, (node) => {
         ? "assignment"
         : "feature";
   const cards = unique.map((slug) => {
-    const start = raw.indexOf("/articles/" + slug);
-    const tail = raw.slice(start);
-    const direct = tail.match(/src="([^\"]+)"/);
-    const bg = tail.match(/imageBackground\('([^']+)'/);
-    const image =
-      direct && (!bg || direct.index < bg.index) ? direct[1] : bg?.[1];
+    const image = placementImage(node, source, slug, articles[slug]?.image);
     return { slug, ...(image ? { image } : articles[slug]?.image ? {image:articles[slug].image} : {}) };
   });
   placements.push({ kind, cards });
