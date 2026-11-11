@@ -1,4 +1,5 @@
 import {test,expect} from '@playwright/test';
+import {documentScrollSample,assertDocumentScrollSample} from '../helpers/document-scroll-contract.mjs';
 import {isSundayLiveWindow} from '../../lib/live-desk-state.js';
 import {readFileSync} from 'node:fs';
 import {leagueSnapshot} from '../../app/teams/league-data.js';
@@ -26,8 +27,7 @@ async function waitForInitialLiveDesk(page){
 
 const readingPosition=element=>{
  const top=element.getBoundingClientRect().top;
- const wrapper=document.querySelector('.appScrollContent');
- const owner=wrapper&&getComputedStyle(wrapper).display!=='contents'?wrapper:document.scrollingElement;
+ const owner=document.scrollingElement;
  return {scrollY:owner.scrollTop,top,documentTop:top+owner.scrollTop,documentHeight:owner.scrollHeight,clientHeight:owner.clientHeight};
 };
 function expectReadingPosition(before,after){
@@ -36,7 +36,24 @@ function expectReadingPosition(before,after){
  expect(Math.abs(after.top-before.top),JSON.stringify({before,after})).toBeLessThanOrEqual(1);
 }
 
-// Standalone document-scrolling contract. Keyboard-height and tab switching
+test('document-scroll geometry rejects real DOM regressions',async({page})=>{
+ // Labelled geometry fixture: validates the assertion, not production appearance.
+ await page.setContent('<!doctype html><meta name="viewport" content="width=device-width, initial-scale=1"><div style="height:3000px"></div><nav id="qa-nav" style="position:fixed;left:12px;right:12px;bottom:3px;height:54px"></nav>');
+ await page.evaluate(()=>scrollTo(0,400));
+ const nav=page.locator('#qa-nav');
+ assertDocumentScrollSample(await nav.evaluate(documentScrollSample));
+ await nav.evaluate(el=>el.style.position='absolute');
+ const absolute=await nav.evaluate(documentScrollSample);expect(()=>assertDocumentScrollSample(absolute)).toThrow();
+ await nav.evaluate(el=>{el.style.position='fixed';el.style.bottom='-100px';});
+ const offscreen=await nav.evaluate(documentScrollSample);expect(()=>assertDocumentScrollSample(offscreen)).toThrow();
+ await nav.evaluate(el=>el.style.bottom='3px');
+ await page.evaluate(()=>document.body.style.overflow='hidden');
+ const locked=await nav.evaluate(documentScrollSample);expect(()=>assertDocumentScrollSample(locked)).toThrow();
+ await page.evaluate(()=>document.body.style.overflow='');
+ assertDocumentScrollSample(await nav.evaluate(documentScrollSample));
+});
+
+// Current document-scroll contract with viewport-bounded fixed navigation. Keyboard-height and tab switching
 // exercise engine geometry, not installed-iPhone keyboard/background reproduction.
 for(const root of ['','/sunday-crew','/doge']){
  test(`bounded standalone navigation: ${root||'LOOG'}`,async({page,context,browserName},testInfo)=>{
@@ -45,30 +62,21 @@ for(const root of ['','/sunday-crew','/doge']){
   if(!root)testInfo.annotations.push({type:'fixture',description:'LOOG matchup uses the committed current-week score snapshot via QA-only server preload; this tests layout and publication state, not live provider correctness.'});
   const samples=[],content=page.locator('html');
   const check=async(label)=>{
-   const s=await page.locator('.appTabBar').evaluate(el=>{
-    const r=el.getBoundingClientRect(),v=visualViewport,c=document.scrollingElement,cr=c.getBoundingClientRect(),style=getComputedStyle(el);
-    return {path:location.pathname,scrollY,innerHeight,visibility:document.visibilityState,viewport:v?{height:v.height,offsetTop:v.offsetTop,scale:v.scale}:null,rect:{top:r.top,bottom:r.bottom,height:r.height},content:{scrollTop:c.scrollTop,scrollHeight:c.scrollHeight,clientHeight:c.clientHeight,top:cr.top,bottom:cr.bottom},bottom:parseFloat(style.bottom),gap:0,transform:style.transform,position:style.position};
-   });samples.push({label,...s});
-   expect(s.position).toBe('fixed');expect(s.content.scrollTop).toBe(s.scrollY);
-   expect(s.content.clientHeight).toBeGreaterThan(0);
-   expect(s.content.scrollHeight).toBeGreaterThanOrEqual(s.content.clientHeight);
-   expect(s.rect.top,JSON.stringify(s)).toBeGreaterThanOrEqual(0);
-   const visibleBottom=s.viewport?s.viewport.offsetTop+s.viewport.height:s.innerHeight;
-   expect(s.rect.bottom,JSON.stringify(s)).toBeLessThanOrEqual(visibleBottom+1);
-   expect(Math.abs(visibleBottom-s.rect.bottom-s.bottom),JSON.stringify(s)).toBeLessThan(2);
+   const s=await page.locator('.appTabBar').evaluate(documentScrollSample);samples.push({label,...s});
+   assertDocumentScrollSample(s);
 
   };
   const scroll=async y=>{await content.evaluate((el,y)=>el.scrollTo(0,y),y);await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));await check('scroll');};
   const inputScroll=async()=>{
    if(browserName==='webkit'&&testInfo.project.use.isMobile){
-    testInfo.annotations.push({type:'limitation',description:'Mobile WebKit has no wheel support; programmatic content scroll here, narrow WebKit project uses real wheel input.'});
+    testInfo.annotations.push({type:'limitation',description:'Mobile WebKit has no wheel support; programmatic document scroll here, narrow WebKit project uses real wheel input.'});
     await content.evaluate(e=>e.scrollBy(0,500));
    }else{await page.mouse.move(180,300);await page.mouse.wheel(0,500);}
    await expect.poll(()=>content.evaluate(e=>e.scrollTop)).toBeGreaterThan(0);await check('input');
   };
   try{
    const home=root||'/';
-   expect((await page.goto(home)).status()).toBe(200);await expect(page.locator('.appTabBar')).toBeVisible();await check('home');await inputScroll();
+   expect((await page.goto(home)).status()).toBe(200);await expect(page.locator('.appTabBar')).toBeVisible();await expect(page.locator('html')).toHaveAttribute('data-app-tab','home');await check('home');await inputScroll();
    // Use an actual client-side article link and preserve the existing back-to-top contract.
    const link=page.locator('a[href*="/articles/"]').first();
    const article=await link.getAttribute('href');await link.click();
@@ -166,15 +174,15 @@ test('normal browser keeps document navigation and reel restoration',async({page
  // Exercise navigation after hydration, rather than racing that reset in WebKit.
  await expect(page.locator('html')).toHaveAttribute('data-app-tab','home');
  expect(await page.locator('html').evaluate(e=>e.classList.contains('standaloneApp'))).toBe(false);
- await expect(page.locator('.appScrollContent')).toHaveCount(0);
  expect(await page.evaluate(()=>document.scrollingElement===document.documentElement)).toBe(true);
+ await expect(page.locator('.appScrollContent')).toHaveCount(0);
  await page.evaluate(()=>window.scrollTo(0,400));await expect.poll(()=>page.evaluate(()=>scrollY)).toBeGreaterThan(0);
  const article=page.locator('a[href*="/articles/"]').first();const path=await article.getAttribute('href');await article.click();await expect(page).toHaveURL(new RegExp(path+'$'));await page.goBack();await expect(page).toHaveURL(/\/$/);
  const watch=page.getByRole('region',{name:/videos$/}).first().getByRole('button',{name:/^Watch /}).first();await watch.scrollIntoViewIfNeeded();
  await watch.evaluate(el=>el.addEventListener('click',()=>{window.__qaBrowserReelOpening=scrollY;},{capture:true,once:true}));await watch.click();
  const before=await page.evaluate(()=>window.__qaBrowserReelOpening);await expect(page.getByRole('dialog')).toBeVisible();await page.getByRole('button',{name:'Close video',exact:true}).click();await expect(page.getByRole('dialog')).toHaveCount(0);await expect.poll(()=>page.evaluate(()=>scrollY)).toBe(before);
- await expect(page.locator('.appScrollContent')).toHaveCount(0);
  expect(await page.evaluate(()=>document.scrollingElement===document.documentElement)).toBe(true);
+ await expect(page.locator('.appScrollContent')).toHaveCount(0);
  await testInfo.attach('normal-browser-reel-restoration',{body:JSON.stringify({before,after:await page.evaluate(()=>scrollY)}),contentType:'application/json'});
 });
 
@@ -208,7 +216,7 @@ for(const growth of [0,528,1900]){
   const shelf=page.getByRole('region',{name:'Also, from The Brief'});
   const watch=shelf.getByRole('button',{name:/^Watch /}).first();
   await expect(watch).toBeVisible();await watch.scrollIntoViewIfNeeded();
-  await page.evaluate(()=>document.scrollingElement.scrollTo({top:document.scrollingElement.scrollHeight,behavior:'instant'}));
+  await page.locator('html').evaluate(el=>el.scrollTo({top:el.scrollHeight,behavior:'instant'}));
   // Reproduce late pre-click layout growth: a prior scrollTo(bottom) is not
   // an opening-position guarantee while media, fonts and click actionability settle.
   await shelf.evaluate(el=>{const growth=document.createElement('div');growth.style.height='43px';el.after(growth);});
@@ -284,7 +292,7 @@ for(const standalone of [false,true])test(`article masthead stays visible throug
   await page.goto('/');
   const recent=page.locator('[aria-label="Recent stories"]');
   await expect(recent).toBeVisible();
-  await recent.evaluate(el=>{const wrapper=document.querySelector('.appScrollContent'),owner=wrapper&&getComputedStyle(wrapper).display!=='contents'?wrapper:document.scrollingElement;owner.scrollTo({top:owner.scrollTop+el.getBoundingClientRect().top+60,behavior:'instant'});});
+  await recent.evaluate(el=>{const owner=document.scrollingElement;owner.scrollTo({top:owner.scrollTop+el.getBoundingClientRect().top+60,behavior:'instant'});});
   const wordmark=page.locator('.mobileBriefLogo');
   await expect(wordmark).toHaveCSS('background-color','rgba(0, 0, 0, 0)');
   await expect(wordmark).toHaveCSS('border-radius','0px');
@@ -296,7 +304,7 @@ for(const standalone of [false,true])test(`article masthead stays visible throug
  const header=page.locator(mobile?'.appSectionHeader':'.siteNav');
  const logo=mobile?header.locator('.mobileBriefLogo'):header.locator('a').first();
  for(const fraction of [.25,.6,1]){
-  await page.evaluate(({standalone,fraction})=>{const wrapper=document.querySelector('.appScrollContent'),owner=wrapper&&getComputedStyle(wrapper).display!=='contents'?wrapper:document.scrollingElement;owner.scrollTo({top:(owner.scrollHeight-owner.clientHeight)*fraction,behavior:'instant'});},{standalone,fraction});
+  await page.evaluate(({standalone,fraction})=>{const owner=document.scrollingElement;owner.scrollTo({top:(owner.scrollHeight-owner.clientHeight)*fraction,behavior:'instant'});},{standalone,fraction});
   await expect.poll(()=>header.evaluate(e=>Math.abs(e.getBoundingClientRect().top))).toBeLessThanOrEqual(1);
   await expect(logo).toBeVisible();
   expect(await logo.evaluate(e=>{const r=e.getBoundingClientRect();return e.contains(document.elementFromPoint(r.left+r.width/2,r.top+r.height/2));})).toBe(true);
@@ -313,14 +321,13 @@ for(const standalone of [false,true])test(`article masthead stays visible throug
 
 for(const root of ['', '/sunday-crew', '/doge'])test(`Week 9 real media plays and all six originals load: ${root||'LOOG'}`,async({page},testInfo)=>{
  const mobile=page.viewportSize().width<=760;
- // Exercise mobile installed-app mode and the ordinary desktop browser here.
- // Installed desktop-PWA navigation is a separate, unresolved behavior.
  if(mobile)await page.addInitScript(()=>Object.defineProperty(navigator,'standalone',{get:()=>true}));
  const edition=root.slice(1)||'loog';
  const rows=data('week9-approved-homepage-media.json').filter(r=>r.edition===edition);
  expect(rows).toHaveLength(6);
  // No media mocks: exercise the current shelf, browser decoder and packaged URLs.
  expect((await page.goto(root||'/')).status()).toBe(200);
+ // Preserve the explicit mobile standalone versus ordinary desktop contract.
  await expect.poll(()=>page.evaluate(()=>document.documentElement.classList.contains('standaloneApp'))).toBe(mobile);
  const shelf=page.getByRole('region',{name:'Week 9, the previews. videos'});
  const opener=shelf.getByRole('button',{name:/^Watch /}).first();
@@ -341,18 +348,35 @@ for(const root of ['', '/sunday-crew', '/doge'])test(`Week 9 real media plays an
  const returnedTop=await opener.evaluate(e=>e.getBoundingClientRect().top);
  expect(Math.abs(returnedTop-anchor),JSON.stringify({beforeClick,openingClick:anchor,returnedTop})).toBeLessThan(3);
  expect(await page.evaluate(()=>document.documentElement.style.overflow!=='hidden'&&document.body.style.overflow!=='hidden')).toBe(true);
- const nav=page.getByRole('navigation',{name:page.viewportSize().width<=760?'App navigation':'Primary navigation',exact:true});
- await nav.getByRole('link',{name:/^Scores$/i}).click();await expect(page).toHaveURL(/#scores$/);
+ const nav=page.getByRole('navigation',{name:mobile?'App navigation':'Primary navigation',exact:true});
+ await expect(nav).toBeVisible();
+ const expectLanded=async id=>{
+  await expect(page).toHaveURL(new RegExp('#'+id+'$'));
+  // Use the same real header boundary as the dedicated section-navigation contract.
+  await expect.poll(()=>page.locator('#'+id).evaluate((target,mobile)=>{
+   const header=document.querySelector(mobile?'.appSectionHeader':'.siteNav');
+   const offset=mobile?0:16+(parseFloat(getComputedStyle(target).scrollMarginTop)||0);
+   const top=target.getBoundingClientRect().top;
+   if(top<0||top>=innerHeight)return Number.POSITIVE_INFINITY;
+   return Math.abs(top-header.getBoundingClientRect().bottom-offset);
+  },mobile)).toBeLessThanOrEqual(1);
+ };
+ await nav.getByRole('link',{name:/^scores$/i}).click();await expectLanded('scores');
  await expect(page.locator('.appScrollContent')).toHaveCount(0);
  await page.evaluate(()=>window.scrollBy(0,300));await expect.poll(()=>page.evaluate(()=>window.scrollY)).toBeGreaterThan(0);
  await expect(nav).toBeVisible();
- // Mobile tabs and LOOG desktop expose Culture; both edition desktop menus expose Standings.
- const destination=page.viewportSize().width>760&&root
+ // Edition desktop headers expose The League; mobile and global desktop expose Culture.
+ const second=mobile||!root?'culture':'league';
+ await nav.getByRole('link',{name:second==='culture'?/^culture$/i:/^the league$/i}).click();
+ await expectLanded(second);
+ // Retain the original exact destination/link/heading checks as well as main's
+ // stronger header-boundary assertions. Edition desktops also expose Standings.
+ const destination=!mobile&&root
   ?{name:/^Standings$/i,id:'standings',heading:'Standings'}
   :{name:/^Culture$/i,id:'culture',heading:/^Matters of Culture$/i};
  const destinationLink=nav.getByRole('link',{name:destination.name});
  await expect(destinationLink).toHaveAttribute('href',(root||'/')+'#'+destination.id);
- await destinationLink.click();await expect(page).toHaveURL(new RegExp(root+'#'+destination.id+'$'));
+ if(destination.id!==second){await destinationLink.click();await expectLanded(destination.id);}
  const destinationSection=page.locator('#'+destination.id);
  await expect(destinationSection.getByRole('heading',{name:destination.heading,exact:true})).toBeVisible();
  await expect(destinationSection).toBeInViewport();

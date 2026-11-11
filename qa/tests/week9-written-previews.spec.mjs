@@ -1,4 +1,5 @@
 import {test,expect} from '@playwright/test';
+import {renderMatchupColumn} from '../fixtures/render-matchup-column.mjs';
 import {week9Columns,recapFor,matchupPath,renderWeek9Matchup} from '../fixtures/week9-matchup-render.mjs';
 
 async function assertColumn(page,c,phase){
@@ -11,6 +12,7 @@ async function assertColumn(page,c,phase){
   await expect(column.locator('.matchupColumnByline')).toContainText('CORRESPONDENT PREVIEW');
  }else{
   await expect(page.locator('.matchupHeroSide > span')).toHaveText(['FINAL','FINAL']);
+  await expect(column).not.toContainText('CORRESPONDENT PREVIEW');
   await expect(column).not.toContainText(c.headline);
   await expect(column).not.toContainText(c.body.split(/\n\n+/)[0]);
   if(!selected)await expect(column).not.toContainText('UPDATED NOVEMBER 7');
@@ -43,5 +45,22 @@ for(const edition of ['loog','sunday-crew','doge'])test(`${edition} Week 9 real 
   await page.goto(matchupPath(c),{waitUntil:'domcontentloaded'});
   await expect(page.locator('.matchupHeroKicker')).toContainText('WEEK 9');
   await assertColumn(page,c,'final');
+ }
+});
+
+// Preserve main's independently isolated final-with-recap coverage alongside the
+// closeout's styled pregame/final fixtures and strictly final real-route checks.
+for(const edition of ['loog','sunday-crew','doge'])test(`${edition} final recap fixture preserves exact approved-pair content`,async({page},info)=>{
+ test.setTimeout(180000);
+ info.annotations.push({type:'fixture',description:'QA-only recap dependency renders the unchanged production component. This does not claim a published recap.'});
+ for(const c of week9Columns.filter(c=>c.edition===edition)){
+  const recap={...c,kind:'recap',sourceAsOf:null,headline:`QA FINAL ${edition} ${c.teamIds.join('/')}`,body:'QA-only final recap first paragraph.\n\nQA-only final recap second paragraph.'};
+  await page.setContent(await renderMatchupColumn(c,{final:true,recaps:[recap]}));
+  const column=page.locator('.matchupColumn');
+  await expect(column.locator('h2')).toHaveText(recap.headline);
+  await expect(column.locator('p:not(.matchupUpdated)')).toHaveText(recap.body.split(/\n\n+/));
+  await expect(page.locator('.matchupHeroSide span')).toHaveText(['FINAL','FINAL']);
+  await expect(column).not.toContainText('CORRESPONDENT PREVIEW');
+  await expect(column).not.toContainText(c.headline);
  }
 });
