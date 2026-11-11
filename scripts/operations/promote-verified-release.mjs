@@ -143,7 +143,7 @@ assert.ok(mediaIdentity.ok,'Hosted media identity request failed');
 const mediaOidc=(await mediaIdentity.json()).value;
 assert.ok(typeof mediaOidc==='string'&&mediaOidc.length>0,'Missing hosted media identity');
 const media=spawnSync(process.execPath,[new URL('./verify-hosted-week9-media.mjs',import.meta.url).pathname],{
- env:{PATH:process.env.PATH,NODE_OPTIONS:process.env.NODE_OPTIONS||'',BASE_URL:origin,VERIFIED_CANDIDATE_ORIGIN:origin,RELEASE_SHA:sha,VERCEL_TRUSTED_OIDC_TOKEN:mediaOidc},encoding:'utf8',timeout:240000});
+ env:{PATH:process.env.PATH,PLAYWRIGHT_BROWSERS_PATH:process.env.PLAYWRIGHT_BROWSERS_PATH,NODE_OPTIONS:process.env.NODE_OPTIONS||'',BASE_URL:origin,VERIFIED_CANDIDATE_ORIGIN:origin,RELEASE_SHA:sha,VERCEL_TRUSTED_OIDC_TOKEN:mediaOidc},encoding:'utf8',timeout:240000});
 assert.equal(media.status,0,'Hosted candidate video playback failed; release NOT promoted');
 record('hosted-media-verified',{hostedMediaVerified:true});
 
