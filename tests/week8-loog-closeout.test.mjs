@@ -1,11 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {leagueSnapshot as current} from '../app/teams/league-data.js';
 import {selectLoogScores} from '../lib/select-loog-scores.mjs';
 const read=p=>JSON.parse(fs.readFileSync('data/'+p,'utf8'));
+const current=read('week8-loog-snapshot.json');
 const prior=read('week7-loog-snapshot.json'), source=read('week8-loog-final-evidence.json');
-const completed=read('completed-loog-scores.json'), latest=read('latest-loog-scores.json');
+const completed=read('week8-loog-scores.json'), latest=read('week8-loog-provisional-scores.json');
 const round=n=>Math.round((n+Number.EPSILON)*100)/100;
 const byId=id=>Object.values(current.teams).find(t=>t.teamId===id);
 const byOldId=id=>Object.values(prior.teams).find(t=>t.teamId===id);

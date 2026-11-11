@@ -1,0 +1,119 @@
+{
+  "ok": true,
+  "source": "flaim-authenticated-refresh",
+  "week": 8,
+  "season": 2026,
+  "status": "FINAL",
+  "updatedAt": "2026-11-03T08:57:46.068Z",
+  "displayCompletedUntil": "2026-11-05T05:00:00Z",
+  "displayTimeZone": "America/New_York",
+  "matchups": [
+    {
+      "id": "loog:2026:8:5:12",
+      "home": {
+        "id": 5,
+        "name": "I'm a Skatt man",
+        "score": 128.96
+      },
+      "away": {
+        "id": 12,
+        "name": "CeeDeep Shaheeded Rivalry",
+        "score": 134.56
+      },
+      "status": "FINAL",
+      "winner": "AWAY"
+    },
+    {
+      "id": "loog:2026:8:10:2",
+      "home": {
+        "id": 10,
+        "name": "Royrek Tishmeshulam",
+        "score": 113.28
+      },
+      "away": {
+        "id": 2,
+        "name": "DarkHorse Danir",
+        "score": 148
+      },
+      "status": "FINAL",
+      "winner": "AWAY"
+    },
+    {
+      "id": "loog:2026:8:8:7",
+      "home": {
+        "id": 8,
+        "name": "Shake 'N Baker",
+        "score": 124.58
+      },
+      "away": {
+        "id": 7,
+        "name": "Mr Hopkins Opus",
+        "score": 92.8
+      },
+      "status": "FINAL",
+      "winner": "HOME"
+    },
+    {
+      "id": "loog:2026:8:11:4",
+      "home": {
+        "id": 11,
+        "name": "Lloyd of the Rings",
+        "score": 141.05
+      },
+      "away": {
+        "id": 4,
+        "name": "The Route 22 Clubhouse",
+        "score": 155.98
+      },
+      "status": "FINAL",
+      "winner": "AWAY"
+    },
+    {
+      "id": "loog:2026:8:1:3",
+      "home": {
+        "id": 1,
+        "name": "Chat GPT's Chosen Ones",
+        "score": 147.8
+      },
+      "away": {
+        "id": 3,
+        "name": "The All Ugly Team",
+        "score": 98.53
+      },
+      "status": "FINAL",
+      "winner": "HOME"
+    },
+    {
+      "id": "loog:2026:8:6:9",
+      "home": {
+        "id": 6,
+        "name": "Pollard Greens",
+        "score": 109.66
+      },
+      "away": {
+        "id": 9,
+        "name": "For the Love of the Kraft",
+        "score": 185.88
+      },
+      "status": "FINAL",
+      "winner": "AWAY"
+    }
+  ],
+  "sourceEvidence": {
+    "completedWeek": 8,
+    "edition": "loog",
+    "leagueUuid": "65c573a0-535d-4edf-8332-2522ee13872f",
+    "matchupPeriod": 8,
+    "provider": "espn",
+    "providerCurrentWeek": 9,
+    "providerLeagueId": "310731",
+    "scoresStandingsRetrievedAt": "2026-11-03T08:57:46.068Z",
+    "scoringPeriod": 8,
+    "season": 2026,
+    "source": "authenticated Flaim ESPN",
+    "status": "FINAL",
+    "path": "data/week8-loog-final-evidence.json",
+    "correctionPath": "data/week8-loog-stat-correction.json",
+    "correctedDateUTC": "2026-11-05"
+  }
+}

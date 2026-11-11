@@ -13,12 +13,13 @@ test('Week9 active scoreboard preserves six mirrored Week8 archived results',()=
 });
 test('Week8 correction preserves original evidence and reconciles changed player, result and cumulative totals',()=>{
  const c=read('data/week8-loog-stat-correction.json');
+ const prior=read('data/week8-loog-snapshot.json');
  assert.equal(c.priorPlayerMatchup.home.totalPoints,140.3);
  assert.equal(c.correctedPlayerMatchup.home.totalPoints,141.05);
  assert.equal(c.changes.length,1);assert.equal(c.changes[0].playerName,'Michael Wilson');
- assert.equal(leagueSnapshot.teams['lloyd-rings'].pointsFor,1065.45);
- assert.equal(leagueSnapshot.teams['route-22'].pointsAgainst,1069.47);
- assert.equal(leagueSnapshot.teams['lloyd-rings'].record,'4-4');
+ assert.equal(prior.teams['lloyd-rings'].pointsFor,1065.45);
+ assert.equal(prior.teams['route-22'].pointsAgainst,1069.47);
+ assert.equal(prior.teams['lloyd-rings'].record,'4-4');
 });
 test('all twelve Week9 LOOG roster sources are explicitly week-scoped',()=>{
  const data=read('data/week9-loog-rosters.json');assert.equal(data.week,9);assert.equal(data.season,2026);
@@ -39,7 +40,8 @@ test('stable identity routing survives provider team renames and historical link
 test('dynamic lineups reject mismatched week or actual starter sums',async()=>{
  const {selectCurrentLineups}=await import('../lib/select-current-lineups.mjs');
  const teams=read('data/week9-loog-rosters.json').teams.slice(0,2).map(t=>({id:t.teamId,roster:t.weeklyPlayers.map(p=>({id:p.playerId,name:p.name,slot:p.lineupSlot,started:p.started,weekPoints:p.points}))}));
- const game={home:{id:teams[0].id,score:0},away:{id:teams[1].id,score:0}};
+ const actual=t=>t.roster.filter(p=>p.started).reduce((n,p)=>n+p.weekPoints,0);
+ const game={home:{id:teams[0].id,score:actual(teams[0])},away:{id:teams[1].id,score:actual(teams[1])}};
  const d={ok:true,season:2026,week:9,teams};assert.equal(selectCurrentLineups(d,9,game).length,2);assert.equal(selectCurrentLineups(d,8,game).length,0);
- d.teams[0].roster.find(p=>p.started).weekPoints=5;assert.equal(selectCurrentLineups(d,9,game).length,1);
+ d.teams[0].roster.find(p=>p.started).weekPoints+=5;assert.equal(selectCurrentLineups(d,9,game).length,1);
 });
