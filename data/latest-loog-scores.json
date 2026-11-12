@@ -1,184 +1,116 @@
 {
   "ok": true,
   "source": "flaim-authenticated-refresh",
-  "week": 9,
+  "week": 10,
   "season": 2026,
-  "status": "FINAL",
-  "updatedAt": "2026-11-10T09:03:37.891Z",
-  "displayCompletedUntil": "2026-11-12T05:00:00Z",
+  "status": "PREGAME",
+  "updatedAt": "2026-11-12T13:05:41Z",
   "displayTimeZone": "America/New_York",
   "matchups": [
     {
-      "id": "loog:2026:9:10:5",
+      "id": "loog:2026:10:5:8",
       "home": {
-        "id": 10,
-        "name": "Royrek Tishmeshulam",
-        "score": 110.34
-      },
-      "away": {
         "id": 5,
         "name": "I'm a Skatt man",
-        "score": 135.64
-      },
-      "status": "FINAL",
-      "winner": "AWAY"
-    },
-    {
-      "id": "loog:2026:9:12:8",
-      "home": {
-        "id": 12,
-        "name": "CeeDeep Shaheeded Rivalry",
-        "score": 142.16
+        "score": 0
       },
       "away": {
         "id": 8,
         "name": "Shake 'N Baker",
-        "score": 149.26
+        "score": 0
       },
-      "status": "FINAL",
-      "winner": "AWAY"
+      "status": "PREGAME",
+      "winner": "UNDECIDED"
     },
     {
-      "id": "loog:2026:9:2:11",
+      "id": "loog:2026:10:11:10",
       "home": {
-        "id": 2,
-        "name": "DarkHorse Danir",
-        "score": 135.68
-      },
-      "away": {
         "id": 11,
         "name": "New Team Name",
-        "score": 112.16
-      },
-      "status": "FINAL",
-      "winner": "HOME"
-    },
-    {
-      "id": "loog:2026:9:7:1",
-      "home": {
-        "id": 7,
-        "name": "Mr Hopkins Opus",
-        "score": 168.88
+        "score": 0
       },
       "away": {
+        "id": 10,
+        "name": "Royrek Tishmeshulam",
+        "score": 0
+      },
+      "status": "PREGAME",
+      "winner": "UNDECIDED"
+    },
+    {
+      "id": "loog:2026:10:1:12",
+      "home": {
         "id": 1,
         "name": "Chat GPT's Chosen Ones",
-        "score": 155.16
-      },
-      "status": "FINAL",
-      "winner": "HOME"
-    },
-    {
-      "id": "loog:2026:9:4:6",
-      "home": {
-        "id": 4,
-        "name": "The Route 22 Clubhouse",
-        "score": 139.72
+        "score": 0
       },
       "away": {
-        "id": 6,
-        "name": "Pollard Greens",
-        "score": 104.76
+        "id": 12,
+        "name": "CeeDeep Shaheeded Rivalry",
+        "score": 0
       },
-      "status": "FINAL",
-      "winner": "HOME"
+      "status": "PREGAME",
+      "winner": "UNDECIDED"
     },
     {
-      "id": "loog:2026:9:3:9",
+      "id": "loog:2026:10:6:2",
+      "home": {
+        "id": 6,
+        "name": "Pollard Greens",
+        "score": 0
+      },
+      "away": {
+        "id": 2,
+        "name": "DarkHorse Danir",
+        "score": 0
+      },
+      "status": "PREGAME",
+      "winner": "UNDECIDED"
+    },
+    {
+      "id": "loog:2026:10:9:7",
+      "home": {
+        "id": 9,
+        "name": "For the Love of the Kraft",
+        "score": 0
+      },
+      "away": {
+        "id": 7,
+        "name": "Mr Hopkins Opus",
+        "score": 0
+      },
+      "status": "PREGAME",
+      "winner": "UNDECIDED"
+    },
+    {
+      "id": "loog:2026:10:3:4",
       "home": {
         "id": 3,
         "name": "The All Ugly Team",
-        "score": 141.5
+        "score": 0
       },
       "away": {
-        "id": 9,
-        "name": "For the Love of the Kraft",
-        "score": 182.64
+        "id": 4,
+        "name": "The Route 22 Clubhouse",
+        "score": 0
       },
-      "status": "FINAL",
-      "winner": "AWAY"
+      "status": "PREGAME",
+      "winner": "UNDECIDED"
     }
   ],
   "sourceEvidence": {
     "source": "authenticated Flaim ESPN",
-    "capturedAt": "2026-11-10T09:03:37.891Z",
     "season": 2026,
-    "matchupPeriod": 9,
+    "matchupPeriod": 10,
     "providerCurrentWeek": 10,
-    "corrections": [
-      {
-        "teamId": 1,
-        "previousName": "Kupp Kupp Doubs",
-        "providerName": "Chat GPT's Chosen Ones",
-        "stableSlug": "kupp-doubs"
-      },
-      {
-        "week": 7,
-        "teamId": 1,
-        "opponentTeamId": 6,
-        "previousScore": 135.92,
-        "providerScore": 136.42,
-        "player": "49ers D/ST",
-        "previousPlayerPoints": -2,
-        "providerPlayerPoints": -1.5,
-        "reason": "Provider Week 7 scoring correction; mirrored as team 1 points for and team 6 points against.",
-        "source": "authenticated Flaim ESPN",
-        "retrievedAt": "2026-11-03T09:16:23Z",
-        "evidence": "data/week8-loog-final-evidence.json#week7Correction"
-      },
-      {
-        "week": 1,
-        "teamId": 5,
-        "opponentTeamId": 1,
-        "surface": "homepage Week 1 archive",
-        "previousScore": 130.72,
-        "providerScore": 131.22,
-        "reason": "The homepage archive lagged the authenticated provider and preserved team histories; no season totals changed.",
-        "source": "authenticated Flaim ESPN",
-        "retrievedAt": "2026-11-03T10:29:19Z",
-        "evidence": "data/week8-loog-final-evidence.json#week1DisplayCorrection"
-      },
-      {
-        "edition": "loog",
-        "season": 2026,
-        "week": 8,
-        "teamId": 11,
-        "previousScore": 140.3,
-        "providerScore": 141.05,
-        "retrievedDateUTC": "2026-11-05",
-        "source": "authenticated Flaim ESPN",
-        "changes": [
-          {
-            "teamId": 11,
-            "playerId": "4360761",
-            "playerName": "Michael Wilson",
-            "slot": "WR",
-            "previousPoints": 29.900000000000002,
-            "providerPoints": 30.650000000000002
-          }
-        ]
-      },
-      {
-        "teamId": 11,
-        "previousName": "Lloyd of the Rings",
-        "providerName": "New Team Name",
-        "stableSlug": "lloyd-rings",
-        "retrievedAt": "2026-11-10T09:03:37.891Z",
-        "evidence": "data/week9-loog-final-evidence.json"
-      }
-    ],
-    "rosterCumulativeNote": "Individual starts and points while rostered retained through Week 5; newly appearing players unknown, not zero.",
     "completedWeek": 9,
-    "edition": "loog",
-    "leagueUuid": "65c573a0-535d-4edf-8332-2522ee13872f",
-    "provider": "espn",
-    "providerLeagueId": "310731",
-    "scoresStandingsRetrievedAt": "2026-11-10T09:03:37.891Z",
-    "scoringPeriod": 9,
-    "status": "FINAL",
-    "path": "data/week9-loog-final-evidence.json",
-    "priorSnapshot": "data/week8-loog-snapshot.json",
-    "displayCurrentWeek": 9,
-    "runKey": "tuesday-closeout-20261110-week9"
+    "capturedAt": "2026-11-12T13:05:41Z",
+    "captureIntervalUTC": [
+      "2026-11-12T12:59:35Z",
+      "2026-11-12T13:05:41Z"
+    ],
+    "runKey": "thursday-rollover-20261112-week10",
+    "priorFinalsReconciled": true,
+    "scoresAreActual": true
   }
 }
