@@ -10,10 +10,11 @@ test('new exact-week slate is selected without erasing completed Week 9 or cumul
  assert.equal(selectLoogScores({latest,completed,now:Date.parse('2026-11-12T13:05:41Z')}).week,10);
  assert.deepEqual(latest.matchups.map(g=>[g.home.id,g.away.id]),[[5,8],[11,10],[1,12],[6,2],[9,7],[3,4]]);
  assert.equal(new Set(latest.matchups.flatMap(g=>[g.home.id,g.away.id])).size,12);
- for(const g of latest.matchups){assert.equal(g.home.score,0);assert.equal(g.away.score,0);assert.equal(g.winner,'UNDECIDED');}
+ for(const g of latest.matchups){assert.ok(Number.isFinite(g.home.score));assert.ok(Number.isFinite(g.away.score));assert.equal(g.winner,'UNDECIDED');}
  for(const t of Object.values(leagueSnapshot.teams)){assert.equal(t.season.weekly.length,9);assert.equal(t.season.completedGames,9);}
  assert.equal(lineups.week,10);assert.equal(lineups.teams.length,12);
- for(const t of lineups.teams)for(const p of t.players)assert.equal(p.points,null);
+ for(const t of lineups.teams){const g=latest.matchups.find(g=>g.home.id===t.teamId||g.away.id===t.teamId);const side=g.home.id===t.teamId?g.home:g.away;const sum=t.players.filter(p=>p.started).reduce((n,p)=>n+p.points,0);assert.ok(Math.abs(sum-side.score)<0.001);}
+ assert.ok(latest.matchups.some(g=>g.home.score>0||g.away.score>0),'Thursday actuals must not be erased');
 });
 test('Yahoo archived Week 9 retains exact final pairings and exact-week player totals',()=>{
  for(const [slug,e] of Object.entries(archives)){
