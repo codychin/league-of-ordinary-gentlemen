@@ -3,8 +3,8 @@
   "source": "flaim-authenticated-refresh",
   "week": 10,
   "season": 2026,
-  "status": "PREGAME",
-  "updatedAt": "2026-11-12T13:05:41Z",
+  "status": "LIVE",
+  "updatedAt": "2026-11-13T18:28:06.818Z",
   "displayTimeZone": "America/New_York",
   "matchups": [
     {
@@ -12,14 +12,14 @@
       "home": {
         "id": 5,
         "name": "I'm a Skatt man",
-        "score": 0
+        "score": 28
       },
       "away": {
         "id": 8,
         "name": "Shake 'N Baker",
-        "score": 0
+        "score": 44.16
       },
-      "status": "PREGAME",
+      "status": "LIVE",
       "winner": "UNDECIDED"
     },
     {
@@ -32,9 +32,9 @@
       "away": {
         "id": 10,
         "name": "Royrek Tishmeshulam",
-        "score": 0
+        "score": 11.1
       },
-      "status": "PREGAME",
+      "status": "LIVE",
       "winner": "UNDECIDED"
     },
     {
@@ -42,14 +42,14 @@
       "home": {
         "id": 1,
         "name": "Chat GPT's Chosen Ones",
-        "score": 0
+        "score": 31.7
       },
       "away": {
         "id": 12,
         "name": "CeeDeep Shaheeded Rivalry",
-        "score": 0
+        "score": 8.3
       },
-      "status": "PREGAME",
+      "status": "LIVE",
       "winner": "UNDECIDED"
     },
     {
@@ -57,14 +57,14 @@
       "home": {
         "id": 6,
         "name": "Pollard Greens",
-        "score": 0
+        "score": 7.9
       },
       "away": {
         "id": 2,
         "name": "DarkHorse Danir",
-        "score": 0
+        "score": 8.9
       },
-      "status": "PREGAME",
+      "status": "LIVE",
       "winner": "UNDECIDED"
     },
     {
@@ -79,7 +79,7 @@
         "name": "Mr Hopkins Opus",
         "score": 0
       },
-      "status": "PREGAME",
+      "status": "LIVE",
       "winner": "UNDECIDED"
     },
     {
@@ -94,7 +94,7 @@
         "name": "The Route 22 Clubhouse",
         "score": 0
       },
-      "status": "PREGAME",
+      "status": "LIVE",
       "winner": "UNDECIDED"
     }
   ],
@@ -104,13 +104,14 @@
     "matchupPeriod": 10,
     "providerCurrentWeek": 10,
     "completedWeek": 9,
-    "capturedAt": "2026-11-12T13:05:41Z",
+    "capturedAt": "2026-11-13T18:28:06.818Z",
     "captureIntervalUTC": [
-      "2026-11-12T12:59:35Z",
-      "2026-11-12T13:05:41Z"
+      "2026-11-13T18:28:06.818Z",
+      "2026-11-13T18:28:06.818Z"
     ],
-    "runKey": "thursday-rollover-20261112-week10",
+    "runKey": "owner-week10-setup-20261113",
     "priorFinalsReconciled": true,
-    "scoresAreActual": true
+    "scoresAreActual": true,
+    "starterSumsVerified": true
   }
 }
