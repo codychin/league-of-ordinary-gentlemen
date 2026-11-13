@@ -1,4 +1,5 @@
 import archivedEditions from '../../../data/week8-edition-archives.json';
+import week9ArchivedEditions from '../../../data/week9-edition-archives.json';
 import {isMatchupFinal} from '../../../lib/matchup-status.mjs';
 import matchupColumnsWeek6 from '../../../data/week6-matchup-columns.json';
 import matchupColumnsWeek7 from '../../../data/week7-matchup-columns.json';
@@ -24,7 +25,7 @@ export default async function Matchup({params,searchParams,config}){
   const currentWeek=Number(currentEdition?.snapshots?.matchups?.data?.data?.matchupWeek);
   let edition=currentEdition;
   if(requested&&requested!==currentWeek){
-    const archived=archivedEditions[editionSlug];
+    const archived=[archivedEditions[editionSlug],week9ArchivedEditions[editionSlug]].find(x=>x?.week===requested);
     if(archived?.week===requested) edition={...currentEdition,snapshots:archived.snapshots};
     else notFound();
   }
