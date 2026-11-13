@@ -1,81 +1,62 @@
 {
-  "week": 6,
+  "week": 8,
   "season": 2026,
   "status": "FINAL",
   "edition": "doge",
+  "pending": false,
   "findings": [
     {
-      "body": "Cody won 91.70–91.52 with 7.6 from his starting running backs. Carnell Tate and Emeka Egbuka supplied 30.3 from the two flex spots. Bryan left Kyle Pitts’s 20.5 on the bench in favor of Tyler Higbee’s 2.2; that hindsight gap dwarfs the 0.18 margin. The victory does not repair Cody’s running-back problem. It does give him the pleasant option of discussing it from 4–2.",
-      "label": "The second decimal",
+      "body": "Ordway and Son beat T. Ocellus 148.46–95.08 and sits first at 7–1. Joe Burrow’s 44.48 was the matchup’s highest individual score for Bryan; Jason’s four starting running backs combined for 64.1. The biggest single score did not belong to the deeper scoring lineup.",
+      "label": "Finding 1",
       "teams": [
-        "1",
-        "8"
-      ],
-      "title": "Cody is 4–2. The running backs remain under review.",
-      "writer": "sorrell",
-      "receipt": "CODY 4–2 • MARGIN 0.18"
+        "8",
+        "11"
+      ]
     },
     {
-      "body": "The preview emphasized a possible flex decision. Tyler Shough and Christian McCaffrey supplied 53.16 for Sandy, and the Chiefs defense added 15. Even exchanging Alan’s quarterback and one running back for their higher-scoring bench alternatives leaves him 12.28 behind. McConkey Kong is 3–3; Gimothy Blossoms is 2–4. This was not a narrow game hiding inside a poor selection.",
-      "label": "The misplaced emphasis",
+      "body": "Pete’s Tyler Allgeier scored 39.6 on the bench; Zach Charbonnet produced 4.4 in a starting flex spot. The 35.2-point difference exceeds the 22.68-point loss to Nix in 5. Pete’s Trevor Lawrence, Harold Fannin Jr. and Jonah Coleman each scored 20.4. Those three matching figures were real; so was the higher-scoring unused alternative.",
+      "label": "Finding 2",
+      "teams": [
+        "9",
+        "12"
+      ]
+    },
+    {
+      "body": "Bennett’s four Tranimal running backs combined for 83.4, just above McConkey Kong’s entire 80.36. Tranimal won 124.90–80.36 and is 6–2. Sandy is 4–4. The backs did more than answer the preview’s question about whether they could contribute again.",
+      "label": "Finding 3",
+      "teams": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "body": "Moe left Jordan Love’s 23.52 on the bench while the starting quarterback spot returned zero. Gimothy beat De'Coldest Hassan 104.16–68.40. Even replacing the zero with Love’s score leaves Moe 12.24 short. Tee Higgins supplied 34.5 for Alan. A costly unused alternative was not a complete explanation.",
+      "label": "Finding 4",
       "teams": [
         "2",
-        "6"
-      ],
-      "title": "Sandy won by 26.02. His flex advantage was 2.2.",
-      "writer": "gannon",
-      "receipt": "SANDY 122.16 • ALAN 96.14"
+        "10"
+      ]
     },
     {
-      "body": "Extremely Tight Ends won 98.06–85.50 while Harold Fannin Jr. supplied 1.4. James Cook and DeMario Douglas combined for 38.9. Jason’s Bears falls to 3–3; Pete is 4–2 and fourth. The tight end did not have to do very much. The name still gets printed above eight other teams.",
-      "label": "The unadvertised service",
-      "teams": [
-        "3",
-        "9"
-      ],
-      "title": "Pete has made the league take the name seriously.",
-      "writer": "kells",
-      "receipt": "PETE 4–2 • FANNIN 1.4"
-    },
-    {
-      "body": "Ordway won 137.80–136.82, the two highest scores of DOGE’s week. Jason now has 784.52 season points and a 5–1 record; Corey has 770.20 and is 2–4. Isaiah Likely delivered 20.9 from a flex spot. Corey’s two-tight-end arrangement continues to work rather better than his schedule. Fourteen points of cumulative scoring separate three wins.",
-      "label": "The conversion problem",
+      "body": "Jalen Coker’s 8.6 helped El Niño Grande this week. Bhayshul Tuten scored 30.9, Brock Bowers 24.7 and Braelon Allen 24.3 as Corey beat Jerruh’s World 143.18–104.04. Corey is 3–5; Andrew is 4–4. The useful flex score no longer needed to carry the comparison by itself.",
+      "label": "Finding 5",
       "teams": [
         "4",
-        "11"
-      ],
-      "title": "Corey is second in scoring and eighth in the standings.",
-      "writer": "pike",
-      "receipt": "ORDWAY 5–1 • COREY 2–4 • MARGIN 0.98"
+        "5"
+      ]
     },
     {
-      "body": "Andrew beat Bennett 109.48–83.72 behind Kenneth Walker’s 28.9. Tucker’s 26.2 stayed on Bennett’s bench; putting him into Lloyd’s one-point flex slot would still leave Tranimal 0.56 short. Both brothers are 4–2. Bennett retains the higher place on season points. Andrew has the actual result, which requires considerably less explanation.",
-      "label": "The durable result",
+      "body": "RFK Jr’s Bears beat Caleb’s Elite Touch Rate 137.16–99.68. Seven Bears offensive starters scored at least thirteen, combining for 124.76. Cody got twenty from the Jaguars defense and 15.1 from Luther Burden III. Both teams are 4–4; the Bears’ help reached more of the lineup.",
+      "label": "Finding 6",
       "teams": [
-        "5",
-        "7"
-      ],
-      "title": "Andrew wins, including the most conspicuous bench rewrite.",
-      "writer": "crane",
-      "receipt": "BOTH 4–2 • ANDREW+25.76"
-    },
-    {
-      "body": "Bo Nix scored 4.48, but Matthew Golden and Colston Loveland supplied 34.9 as Patrick won 110.08–99.94. Moe’s quarterback and running-back production offered things to keep, not a second win. Even Diggs for Wicks would leave him 0.14 short. Patrick moves to 2–4; Moe is 1–5. Improvement has arrived at both teams. The standings recognize only one visit.",
-      "label": "The partial recovery",
-      "teams": [
-        "10",
-        "12"
-      ],
-      "title": "Patrick’s second win does not require a quarterback revival.",
-      "writer": "march",
-      "receipt": "PATRICK 2–4 • MOE 1–5"
+        "1",
+        "3"
+      ]
     }
   ],
-  "priorSource": "data/doge-autopsy.json (Week4 legacy); current shared Week5 source must be preserved",
-  "pending": false,
   "approval": {
-    "messageId": "Sentinel_6fe6648bcddc8191aa193d63051f9829",
-    "approvedAt": "2026-10-20T12:36:30.385421Z",
-    "scope": "Exact Week 6 written recaps and weekly sections only; scripts and reels excluded"
+    "messageId": "Sentinel_1a7d2c92ac988191ad3f68c821a10630",
+    "approvedAt": "2026-11-04T03:26:46Z",
+    "scope": "Exact Week 8 Autopsy and Start/Sit text for LOOG, Sunday Crew and DOGE4; no reels or spending"
   }
 }

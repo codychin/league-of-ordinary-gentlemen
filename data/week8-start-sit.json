@@ -1,0 +1,98 @@
+{
+  "doge": {
+    "week": 8,
+    "season": 2026,
+    "status": "FINAL",
+    "picks": [
+      {
+        "type": "start",
+        "team": "Ordway and Son",
+        "player": "Drake Maye",
+        "points": 24.46,
+        "slot": "QB",
+        "gap": 8.48,
+        "playerId": "40881",
+        "body": "Maye scored 24.46 as Jason’s starting quarterback; Jayden Daniels scored 15.98 on the bench. The 8.48-point difference contributed to a 148.46–95.08 win over T. Ocellus, although the result did not turn on this single swap. This is retrospective credit for the recorded outcome, not a claim about the decision’s quality before lock."
+      },
+      {
+        "type": "sit",
+        "team": "Extremely Tight Ends",
+        "player": "Tyler Allgeier",
+        "points": 39.6,
+        "slot": "bench",
+        "gap": 35.2,
+        "playerId": "34107",
+        "body": "Allgeier scored 39.6 on Pete’s bench. Zach Charbonnet scored 4.4 in a starting W/R/T slot; both are listed as running backs in the Week 8 roster. The 35.2-point difference exceeds the 22.68-point loss to Nix in 5. Replacing Charbonnet’s recorded score with Allgeier’s yields a 154.60–142.08 hypothetical win. This does not establish availability or information at lock."
+      }
+    ],
+    "approval": {
+      "messageId": "Sentinel_1a7d2c92ac988191ad3f68c821a10630",
+      "approvedAt": "2026-11-04T03:26:46Z",
+      "scope": "Exact Week 8 Autopsy and Start/Sit text for LOOG, Sunday Crew and DOGE4; no reels or spending"
+    }
+  },
+  "loog": {
+    "week": 8,
+    "season": 2026,
+    "status": "FINAL",
+    "picks": [
+      {
+        "type": "start",
+        "team": "Shake 'N Baker",
+        "player": "Tee Higgins",
+        "points": 40.5,
+        "slot": "WR",
+        "gap": 35.1,
+        "playerId": "4239993",
+        "body": "Norm started Tee Higgins for 40.5 and left fellow receiver Jakobi Meyers's 5.4 on the bench. The 35.1-point difference exceeded Shake 'N Baker's 31.78-point win over Mr Hopkins Opus. A straight Higgins-for-Meyers swap produces 89.48 against 92.80. Credit the result after the fact; the score alone does not tell us what information was available before kickoff."
+      },
+      {
+        "type": "sit",
+        "team": "Mr Hopkins Opus",
+        "player": "Patrick Mahomes",
+        "points": 28.64,
+        "slot": "bench",
+        "gap": 31.04,
+        "playerId": "3139477",
+        "body": "Kush started Michael Penix Jr. for minus 2.4 while Patrick Mahomes scored 28.64 on the bench. The 31.04-point gap would have raised Hopkins to 123.84, still 0.74 short of Shake 'N Baker. A second hindsight change, Tony Pollard's 36.8 for Jonathan Taylor's 6.5, would have reversed the result. These are compatible lineup alternatives after the fact, not a judgment about what Kush knew before lock."
+      }
+    ],
+    "approval": {
+      "messageId": "Sentinel_1a7d2c92ac988191ad3f68c821a10630",
+      "approvedAt": "2026-11-04T03:26:46Z",
+      "scope": "Exact Week 8 Autopsy and Start/Sit text for LOOG, Sunday Crew and DOGE4; no reels or spending"
+    }
+  },
+  "sunday-crew": {
+    "week": 8,
+    "season": 2026,
+    "status": "FINAL",
+    "picks": [
+      {
+        "type": "start",
+        "team": "Wake Me Up On September 1st",
+        "player": "Ashton Jeanty",
+        "points": 8.8,
+        "slot": "RB",
+        "gap": 3.8,
+        "playerId": "41791",
+        "body": "Jeanty scored 8.8 in a starting running-back slot; Aaron Jones Sr. scored 5.0 on the bench. The 3.8-point difference exceeds Wake’s 0.62-point win over CHANE GANG. Swapping those recorded scores would produce a 120.98–117.80 CHANE win. This is a useful result in hindsight, not proof the selection was obvious before lock."
+      },
+      {
+        "type": "sit",
+        "team": "Rhamondre – A Cautionary Tale",
+        "player": "Dak Prescott",
+        "points": 19.8,
+        "slot": "bench",
+        "gap": 19.8,
+        "playerId": "29369",
+        "body": "Prescott scored 19.8 on the bench, while the starting quarterback slot occupied by Lamar Jackson produced zero. The 19.8-point difference exceeds Scrump’s 18.16-point winning margin: substituting those recorded scores produces a 103.10–101.46 Rhamondre win. The historical roster does not explain the decision or establish what was known before lock."
+      }
+    ],
+    "approval": {
+      "messageId": "Sentinel_1a7d2c92ac988191ad3f68c821a10630",
+      "approvedAt": "2026-11-04T03:26:46Z",
+      "scope": "Exact Week 8 Autopsy and Start/Sit text for LOOG, Sunday Crew and DOGE4; no reels or spending"
+    }
+  }
+}
