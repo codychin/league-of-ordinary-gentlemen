@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {pathToFileURL} from 'node:url';
+import {selectWeek10PreviewCohort} from '../../lib/week10-preview-cohort.mjs';
 import {selectWeek9PreviewCohort} from '../../lib/week9-preview-cohort.mjs';
 import {verifiedOrigin,scopedHeaders,assertNoRedirect} from './hosted-media-scope.mjs';
 export {AUTH_HEADER,verifiedOrigin,scopedHeaders,assertNoRedirect} from './hosted-media-scope.mjs';
@@ -9,6 +10,14 @@ export function validatedRows(manifest,authority){
  const rows=['loog','doge','sunday-crew'].flatMap(e=>selectWeek9PreviewCohort(manifest,e,authority));
  need(rows.length===18,'WEEK9_COHORT_INVALID');return rows;
 }
+export function activeRelease({week9Manifest,week9Authority,week10Manifest,week10Authority}){
+ const historicalRows=validatedRows(week9Manifest,week9Authority);
+ if(week10Manifest!==undefined || week10Authority!==undefined){
+  const rows=['loog','doge','sunday-crew'].flatMap(e=>selectWeek10PreviewCohort(week10Manifest,e,week10Authority));
+  need(rows.length===18,'WEEK10_COHORT_INVALID');return {week:10,rows,historicalRows};
+ }
+ return {week:9,rows:historicalRows,historicalRows};
+}
 export async function verifyHostedWeek9Media(env=process.env){
  // A failed rerun must never leave a prior success receipt behind.
  fs.rmSync('hosted-media-receipt.json',{force:true});
@@ -16,9 +25,10 @@ export async function verifyHostedWeek9Media(env=process.env){
  need(/^[a-f0-9]{40}$/.test(env.RELEASE_SHA||''),'INVALID_RELEASE_SHA');
  const token=env.VERCEL_TRUSTED_OIDC_TOKEN;scopedHeaders(origin,origin,{},token);
  const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
- const rows=validatedRows(read('data/week9-approved-homepage-media.json'),read('qa/week9-owner-playback-waiver.json'));
+ const optional=p=>fs.existsSync(p)?read(p):undefined;
+ const {week,rows,historicalRows}=activeRelease({week9Manifest:read('data/week9-approved-homepage-media.json'),week9Authority:read('qa/week9-owner-playback-waiver.json'),week10Manifest:optional('data/week10-approved-homepage-media.json'),week10Authority:optional('qa/week10-publication-authority.json')});
  const {chromium,webkit}=await import('playwright');
- const receipt={version:1,releaseSha:env.RELEASE_SHA,origin,checkedAt:new Date().toISOString(),browsers:[],media:[]};
+ const receipt={version:2,week,historicalWeek:9,releaseSha:env.RELEASE_SHA,origin,checkedAt:new Date().toISOString(),browsers:[],media:[]};
  for(const [name,engine] of Object.entries({chromium,webkit})){
   const browser=await engine.launch({headless:true});
   let timer;
@@ -40,11 +50,11 @@ export async function verifyHostedWeek9Media(env=process.env){
     for(const edition of ['loog','sunday-crew','doge']){
      const prefix=edition==='loog'?'':'/'+edition;const cohort=rows.filter(r=>r.edition===edition);
      const response=await page.goto(origin+(prefix||'/'));need(response?.status()===200,'HOME_HTTP_FAILED');
-     const shelf=page.getByRole('region',{name:'Week 9, the previews. videos'});
+     const shelf=page.getByRole('region',{name:`Week ${week}, the previews. videos`});
      await shelf.waitFor({state:'visible'});
      const buttons=shelf.getByRole('button',{name:/^Watch /});
      const ids=await buttons.evaluateAll(es=>es.map(e=>e.getAttribute('aria-describedby')));
-     need(JSON.stringify(ids)===JSON.stringify(cohort.map(r=>`reel-state-${edition}-week9-preview-v1-${r.id}`)),'HOME_COHORT_MISMATCH');
+     need(JSON.stringify(ids)===JSON.stringify(cohort.map(r=>`reel-state-${edition}-week${week}-preview-v1-${r.id}`)),'HOME_COHORT_MISMATCH');
      await buttons.first().scrollIntoViewIfNeeded();
      const headerBefore=await page.locator('header').first().innerText();
      await buttons.first().evaluate(e=>e.addEventListener('click',()=>{window.__hostedReelClickTop=e.getBoundingClientRect().top},{capture:true,once:true}));
@@ -75,9 +85,15 @@ export async function verifyHostedWeek9Media(env=process.env){
      }
      const archive=await page.goto(origin+prefix+'/archive/watch');need(archive?.status()===200,'WATCH_HTTP_FAILED');
      const games=page.locator('section[aria-labelledby="games-heading"]');
-     await games.getByRole('status').filter({hasText:'Week 9 · 6 videos'}).waitFor();
+     await games.getByRole('status').filter({hasText:`Week ${week} · 6 videos`}).waitFor();
      need(await games.getByRole('button',{name:/^Watch /}).count()===6,'WATCH_COUNT_MISMATCH');
      for(const row of cohort)need(await games.locator(`img[src*="${row.id}"]`).count()===1,'WATCH_ID_MISMATCH');
+     if(week!==9){
+      await games.getByLabel('Week',{exact:true}).selectOption('9');
+      await games.getByRole('status').filter({hasText:'Week 9 · 6 videos'}).waitFor();
+      need(await games.getByRole('button',{name:/^Watch /}).count()===6,'HISTORICAL_WATCH_COUNT_MISMATCH');
+      for(const row of historicalRows.filter(r=>r.edition===edition))need(await games.locator(`img[src*="${row.id}"]`).count()===1,'HISTORICAL_WATCH_ID_MISMATCH');
+     }
     }
     if(name==='chromium')for(const row of rows){
      const base=origin+'/reels-hls/'+row.id+'/';
@@ -97,6 +113,6 @@ export async function verifyHostedWeek9Media(env=process.env){
  const output='hosted-media-receipt.json';fs.mkdirSync(path.dirname(output),{recursive:true});fs.writeFileSync(output,JSON.stringify(receipt,null,2)+'\n');return receipt;
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(path.resolve(process.argv[1])).href){
- try{await verifyHostedWeek9Media();console.log('Hosted Week 9 verification passed: both browsers, three editions, eighteen originals.');}
- catch{console.error('Hosted Week 9 verification failed; no promotion authorized.');process.exitCode=1;}
+ try{await verifyHostedWeek9Media();console.log('Hosted current-week verification passed: both browsers, three editions, eighteen originals.');}
+ catch{console.error('Hosted current-week verification failed; no promotion authorized.');process.exitCode=1;}
 }
