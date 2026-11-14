@@ -6,6 +6,10 @@ import {selectWeek9PreviewCohort} from '../../lib/week9-preview-cohort.mjs';
 import {verifiedOrigin,scopedHeaders,assertNoRedirect} from './hosted-media-scope.mjs';
 export {AUTH_HEADER,verifiedOrigin,scopedHeaders,assertNoRedirect} from './hosted-media-scope.mjs';
 const need=(ok,code)=>{if(!ok)throw Error(code);};
+const diagnosticCodes=new Set(['CLOSE_SCROLL_POSITION_CHANGED', 'DOCUMENT_SCROLL_STILL_LOCKED', 'HEADER_CHANGED_AFTER_CLOSE', 'HISTORICAL_WATCH_COUNT_MISMATCH', 'HISTORICAL_WATCH_ID_MISMATCH', 'HLS_INIT_INVALID', 'HLS_NOT_COMPLETE', 'HLS_SEGMENT_PATH_INVALID', 'HOME_COHORT_MISMATCH', 'HOME_HTTP_FAILED', 'HOSTED_VERIFY_TIMEOUT', 'INCOMPLETE_HOSTED_RECEIPT', 'INVALID_RELEASE_SHA', 'MEDIA_HTTP_FAILED', 'MEDIA_ORIGIN_MISMATCH', 'METADATA_MISMATCH', 'PLAYER_ID_MISMATCH', 'SCOPED_REQUEST_FAILED', 'UNMUTED_PLAYBACK_REQUIRED', 'WATCH_COUNT_MISMATCH', 'WATCH_HTTP_FAILED', 'WATCH_ID_MISMATCH', 'WEEK10_COHORT_INVALID', 'WEEK9_COHORT_INVALID']);
+export const safeDiagnosticCode=error=>diagnosticCodes.has(error?.message)?error.message:(error?.name==='TimeoutError'?'BROWSER_TIMEOUT':'VERIFICATION_ERROR');
+let diagnostic={stage:'initializing',browser:null,edition:null};
+const stage=value=>{diagnostic.stage=value;};
 export function validatedRows(manifest,authority){
  const rows=['loog','doge','sunday-crew'].flatMap(e=>selectWeek9PreviewCohort(manifest,e,authority));
  need(rows.length===18,'WEEK9_COHORT_INVALID');return rows;
@@ -30,6 +34,7 @@ export async function verifyHostedWeek9Media(env=process.env){
  const {chromium,webkit}=await import('playwright');
  const receipt={version:2,week,historicalWeek:9,releaseSha:env.RELEASE_SHA,origin,checkedAt:new Date().toISOString(),browsers:[],media:[]};
  for(const [name,engine] of Object.entries({chromium,webkit})){
+  diagnostic.browser=name;stage('browser-launch');
   const browser=await engine.launch({headless:true});
   let timer;
   try{
@@ -48,17 +53,18 @@ export async function verifyHostedWeek9Media(env=process.env){
     });
     const page=await context.newPage();page.setDefaultTimeout(20000);page.setDefaultNavigationTimeout(45000);
     for(const edition of ['loog','sunday-crew','doge']){
+     diagnostic.edition=edition;stage('homepage');
      const prefix=edition==='loog'?'':'/'+edition;const cohort=rows.filter(r=>r.edition===edition);
      const response=await page.goto(origin+(prefix||'/'));need(response?.status()===200,'HOME_HTTP_FAILED');
      const shelf=page.getByRole('region',{name:`Week ${week}, the previews. videos`});
-     await shelf.waitFor({state:'visible'});
+     stage('shelf-visible');await shelf.waitFor({state:'visible'});
      const buttons=shelf.getByRole('button',{name:/^Watch /});
      const ids=await buttons.evaluateAll(es=>es.map(e=>e.getAttribute('aria-describedby')));
      need(JSON.stringify(ids)===JSON.stringify(cohort.map(r=>`reel-state-${edition}-week${week}-preview-v1-${r.id}`)),'HOME_COHORT_MISMATCH');
      await buttons.first().scrollIntoViewIfNeeded();
      const headerBefore=await page.locator('header').first().innerText();
      await buttons.first().evaluate(e=>e.addEventListener('click',()=>{window.__hostedReelClickTop=e.getBoundingClientRect().top},{capture:true,once:true}));
-     await buttons.first().click();const anchorBefore=await page.evaluate(()=>window.__hostedReelClickTop);const player=page.getByRole('dialog').locator('video:not([aria-hidden="true"])');
+     stage('foreground-playback');await buttons.first().click();const anchorBefore=await page.evaluate(()=>window.__hostedReelClickTop);const player=page.getByRole('dialog').locator('video:not([aria-hidden="true"])');
      await player.waitFor({state:'visible'});
      await player.evaluate(v=>new Promise((resolve,reject)=>{
       const started=Date.now();const interval=setInterval(()=>{
@@ -68,11 +74,11 @@ export async function verifyHostedWeek9Media(env=process.env){
      }));
      need((await player.evaluate(v=>v.currentSrc)).includes(cohort[0].id),'PLAYER_ID_MISMATCH');
      need(await player.evaluate(v=>!v.muted&&v.volume>0),'UNMUTED_PLAYBACK_REQUIRED');
-     await page.getByRole('button',{name:'Close video',exact:true}).click();
+     stage('close-player');await page.getByRole('button',{name:'Close video',exact:true}).click();
      need(Math.abs((await buttons.first().evaluate(e=>e.getBoundingClientRect().top))-anchorBefore)<3,'CLOSE_SCROLL_POSITION_CHANGED');
      need(await page.evaluate(()=>document.documentElement.style.overflow!=='hidden'&&document.body.style.overflow!=='hidden'),'DOCUMENT_SCROLL_STILL_LOCKED');
      need(await page.locator('header').first().innerText()===headerBefore,'HEADER_CHANGED_AFTER_CLOSE');
-     for(const row of cohort){
+     stage('original-metadata');for(const row of cohort){
       const observed=await page.evaluate(({id})=>new Promise((resolve,reject)=>{
        const v=document.createElement('video');v.preload='metadata';v.muted=true;v.playsInline=true;
        const done=()=>{clearTimeout(timer);v.onloadedmetadata=null;v.onerror=null;v.removeAttribute('src');v.load();v.remove();};
@@ -83,19 +89,20 @@ export async function verifyHostedWeek9Media(env=process.env){
       }),{id:row.id});
       need(Math.abs(observed.duration-row.durationSeconds)<.2&&observed.width>0&&observed.height>observed.width,'METADATA_MISMATCH');
      }
-     const archive=await page.goto(origin+prefix+'/archive/watch');need(archive?.status()===200,'WATCH_HTTP_FAILED');
+     stage('current-watch-archive');const archive=await page.goto(origin+prefix+'/archive/watch');need(archive?.status()===200,'WATCH_HTTP_FAILED');
      const games=page.locator('section[aria-labelledby="games-heading"]');
      await games.getByRole('status').filter({hasText:`Week ${week} · 6 videos`}).waitFor();
      need(await games.getByRole('button',{name:/^Watch /}).count()===6,'WATCH_COUNT_MISMATCH');
      for(const row of cohort)need(await games.locator(`img[src*="${row.id}"]`).count()===1,'WATCH_ID_MISMATCH');
      if(week!==9){
+      stage('historical-watch-archive');
       await games.getByLabel('Week',{exact:true}).selectOption('9');
       await games.getByRole('status').filter({hasText:'Week 9 · 6 videos'}).waitFor();
       need(await games.getByRole('button',{name:/^Watch /}).count()===6,'HISTORICAL_WATCH_COUNT_MISMATCH');
       for(const row of historicalRows.filter(r=>r.edition===edition))need(await games.locator(`img[src*="${row.id}"]`).count()===1,'HISTORICAL_WATCH_ID_MISMATCH');
      }
     }
-    if(name==='chromium')for(const row of rows){
+    stage('hls-assets');if(name==='chromium')for(const row of rows){
      const base=origin+'/reels-hls/'+row.id+'/';
      const get=async(url,method='GET')=>{need(new URL(url).origin===origin,'MEDIA_ORIGIN_MISMATCH');const r=await context.request.fetch(url,{method,headers:scopedHeaders(url,origin,{},token),maxRedirects:0,timeout:20000});assertNoRedirect(r.status());need(r.status()===200,'MEDIA_HTTP_FAILED');return r;};
      const playlist=await(await get(base+'index.m3u8')).text();need(playlist.includes('#EXT-X-ENDLIST'),'HLS_NOT_COMPLETE');
@@ -114,5 +121,5 @@ export async function verifyHostedWeek9Media(env=process.env){
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(path.resolve(process.argv[1])).href){
  try{await verifyHostedWeek9Media();console.log('Hosted current-week verification passed: both browsers, three editions, eighteen originals.');}
- catch{console.error('Hosted current-week verification failed; no promotion authorized.');process.exitCode=1;}
+ catch(error){const code=safeDiagnosticCode(error);console.error('HOSTED_MEDIA_FAILURE '+JSON.stringify({...diagnostic,code}));process.exitCode=1;}
 }

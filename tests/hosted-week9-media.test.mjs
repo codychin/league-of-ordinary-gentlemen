@@ -50,3 +50,13 @@ test('active hosted gate follows approved Week10 but retains mandatory Week9 his
  const workflow=fs.readFileSync('.github/workflows/promote-verified-production.yml','utf8');
  for(const path of ['/lib/week10-preview-cohort.mjs','/data/week10-approved-homepage-media.json','/qa/week10-publication-authority.json'])assert.ok(workflow.includes(path));
 });
+
+test('hosted failure diagnostics emit only bounded fixed stage fields, not raw browser errors',()=>{
+ const verifier=fs.readFileSync('scripts/operations/verify-hosted-week9-media.mjs','utf8');
+ const promoter=fs.readFileSync('scripts/operations/promote-verified-release.mjs','utf8');
+ assert.match(verifier,/HOSTED_MEDIA_FAILURE/);assert.match(verifier,/BROWSER_TIMEOUT/);
+ assert.match(promoter,/\['stage','browser','edition','code'\]/);assert.ok(promoter.includes('{1,80}'));
+ assert.doesNotMatch(promoter,/console\.error\(media\.stderr/);
+});
+
+test('diagnostics reject arbitrary uppercase messages',async()=>{const {safeDiagnosticCode}=await import('../scripts/operations/verify-hosted-week9-media.mjs');for(const message of ['SECRET_TOKEN','A'.repeat(500),'https://secret.example'])assert.equal(safeDiagnosticCode({message}),'VERIFICATION_ERROR');assert.equal(safeDiagnosticCode({message:'HOME_HTTP_FAILED'}),'HOME_HTTP_FAILED');assert.equal(safeDiagnosticCode({name:'TimeoutError'}),'BROWSER_TIMEOUT');});
