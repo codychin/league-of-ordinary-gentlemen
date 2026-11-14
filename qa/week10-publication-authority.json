@@ -1,0 +1,149 @@
+{
+  "scope": "Exact approved Week 10 provider outputs; no independent listening or full-motion approval claimed. Raised-hands gesture disclosed before owner approval.",
+  "assets": [
+    {
+      "id": "e7358fa7643a731b0e0f5105540200a6",
+      "matchupKey": "loog-2026-week10-preview-5-8",
+      "scriptSha256": "4db14f526528c810668c7daa9ef870c3ab3f17a63243ad95b1d11542374e6b2c",
+      "sourceSha256": "5310ac650a8a1159338b2b64e818cbdfbd7bf873919ac131de1f13b6eddef777",
+      "voiceId": "44c2584dd48f46b7bce9b66c8bf086e0",
+      "avatarId": "75f37393b80d442287a82ee07285eb25"
+    },
+    {
+      "id": "a7a48bfcb6f5ae2c6eccb0641329e6f8",
+      "matchupKey": "loog-2026-week10-preview-10-11",
+      "scriptSha256": "03437e3c2a50a431da48d8beb65c04d7e449245088050ba823748507d5c39bd1",
+      "sourceSha256": "31c0da3850d2b772d667cd862579e7669e719ce2ef1ba01fc675072672f714c8",
+      "voiceId": "a5aef5ec6ea94faebb575b2b52a915f6",
+      "avatarId": "ca59fd1c25724f7299e4b83f62d689fa"
+    },
+    {
+      "id": "14855819a400ce8b4b753fa104bb929e",
+      "matchupKey": "loog-2026-week10-preview-1-12",
+      "scriptSha256": "9c7c30bd22c0d730dcb47a6a9d1f7128fc7519fba4a8493d7971f61541730bf7",
+      "sourceSha256": "646a80596bbe291278766345a51c4e59afebf6d1a853d1eaaf4db919c1546ca2",
+      "voiceId": "16f7bb8bd1574de182d793c7e3fddf81",
+      "avatarId": "8c5e6ff8d0df4799ad203b13d13be808"
+    },
+    {
+      "id": "d34efbb238ca4a75bf5ee873da12fd7b",
+      "matchupKey": "loog-2026-week10-preview-2-6",
+      "scriptSha256": "3caaff33007e0a97bfa330074ceb8f109dbf0c200fc66c0317eb5df311157fe3",
+      "sourceSha256": "2c038d84ba220fbee7ffe9b594674be453e54a1e0f3ba05a538d187d5dc0816d",
+      "voiceId": "6567750df960424fb6556202d7206640",
+      "avatarId": "9b32dab9eed447a681b4240ad1a5569c"
+    },
+    {
+      "id": "0d9cf724babf9d6b7607ab3bd2f5291c",
+      "matchupKey": "loog-2026-week10-preview-7-9",
+      "scriptSha256": "3386cbdfcc37568a80b29fda863b80fa9ec8aa1114dc7552ac5f8611bc1b191f",
+      "sourceSha256": "625a7399190cd63444ae01d18fbb059acb8f16e94523a400b7354be6a5646389",
+      "voiceId": "00e3d285aba44b27a83c47c02c9c2d9c",
+      "avatarId": "5ae739a4543741d392a168e196066b42"
+    },
+    {
+      "id": "ec7eff55374a63b3dfab46b4951d4fb0",
+      "matchupKey": "loog-2026-week10-preview-3-4",
+      "scriptSha256": "9ba3ab6dc39969c75729fdc746b6bb3750f09df840ec9dce4e4f57d18622d2a8",
+      "sourceSha256": "ac6cd21fa5c3e0207a4eebd98b8a0b288bf83649da732c69c1e99e1e95628fa1",
+      "voiceId": "31c61db6d4894da3af7ed2784507448e",
+      "avatarId": "fe507604126285d5f29a8839480b5e67"
+    },
+    {
+      "id": "58c5521591fb56ab5da5df5a81bce575",
+      "matchupKey": "sunday-crew-2026-week10-preview-1-7",
+      "scriptSha256": "6044afbb642aa044c84b0d7469579ed4952512fb08996c554d7a58f5ec41cae3",
+      "sourceSha256": "46db7883b04b646d1c38dbb6e87ded4092eb28dcad254db7e30de5eb382cf5b8",
+      "voiceId": "a5aef5ec6ea94faebb575b2b52a915f6",
+      "avatarId": "ca59fd1c25724f7299e4b83f62d689fa"
+    },
+    {
+      "id": "cbf08babbc210169e4967a580fff3d16",
+      "matchupKey": "sunday-crew-2026-week10-preview-2-4",
+      "scriptSha256": "8b5595857ed6c726eba26af7863b53a3a2ba9dcca1c9f7f904cdfff8a780987d",
+      "sourceSha256": "2786ef1a4287b7e62b64ef061741e43a19b993e6c601dee08b2aa37d0f0c37a9",
+      "voiceId": "31c61db6d4894da3af7ed2784507448e",
+      "avatarId": "fe507604126285d5f29a8839480b5e67"
+    },
+    {
+      "id": "9849365059d0316a0da8bd62d11037a0",
+      "matchupKey": "sunday-crew-2026-week10-preview-3-12",
+      "scriptSha256": "bec01a8e8a225076545ecc3f9ae590f46fcc36e4ac1ccdc466f97b4f2d05b56d",
+      "sourceSha256": "b9c5190483b7e86f65d4d07d8b24a1ae0c6292d5c76808c0ab8a28a12fcc2241",
+      "voiceId": "16f7bb8bd1574de182d793c7e3fddf81",
+      "avatarId": "8c5e6ff8d0df4799ad203b13d13be808"
+    },
+    {
+      "id": "b61001f828ab487da4fd54ac52a9fb7e",
+      "matchupKey": "sunday-crew-2026-week10-preview-5-8",
+      "scriptSha256": "4a5a45bc12de1f8525aa004fc019959f24852ebe9e9bff839530bc367dbdcc55",
+      "sourceSha256": "a8027f935bd7ff42a5f286264cba353457102df53e22962f54adb28ad1a8b966",
+      "voiceId": "44c2584dd48f46b7bce9b66c8bf086e0",
+      "avatarId": "75f37393b80d442287a82ee07285eb25"
+    },
+    {
+      "id": "d81a2aaa555dc3758175c2a2fddf0d48",
+      "matchupKey": "sunday-crew-2026-week10-preview-6-11",
+      "scriptSha256": "dfcdcf85256f918feb6b838368cfe259c71f219ce3fbb3191f623a0752f2c9a7",
+      "sourceSha256": "319cba3c62e47a6ad7c1fd20025a2816c7f1d248fd56daf694f2e4d770e91b59",
+      "voiceId": "6567750df960424fb6556202d7206640",
+      "avatarId": "9b32dab9eed447a681b4240ad1a5569c"
+    },
+    {
+      "id": "38329fcccafffcccc5424cd2311fe1a4",
+      "matchupKey": "sunday-crew-2026-week10-preview-9-10",
+      "scriptSha256": "b65ce31b9600110cca620a33c198d4b12b3e37c41e030745c526bd12a839b123",
+      "sourceSha256": "efccfdf2faa79349d297a2c7ce9423e4f3e388f1e09b7da9cb2c349c0b7884dd",
+      "voiceId": "00e3d285aba44b27a83c47c02c9c2d9c",
+      "avatarId": "5ae739a4543741d392a168e196066b42"
+    },
+    {
+      "id": "56475bbf2c4a919dcbd796b82b20ef99",
+      "matchupKey": "doge-2026-week10-preview-1-11",
+      "scriptSha256": "50aad3c463597427854f76d8e3514226b4ab001391bde0d087b95c6920a47926",
+      "sourceSha256": "b3893d145697a3cbf376a432cc2073b0fc01df7f6f3a4a137d58ddd6c5f997d8",
+      "voiceId": "31c61db6d4894da3af7ed2784507448e",
+      "avatarId": "fe507604126285d5f29a8839480b5e67"
+    },
+    {
+      "id": "793240efd7fa7e3d3ec65987487957eb",
+      "matchupKey": "doge-2026-week10-preview-2-9",
+      "scriptSha256": "298040789041c5bc76153cb376d93b530c7b8538606837aafdd8da30250804c1",
+      "sourceSha256": "9d328839160f40559d54c571417a1e4985ba1eca1317ed4f2a9f3a83d953ac04",
+      "voiceId": "00e3d285aba44b27a83c47c02c9c2d9c",
+      "avatarId": "5ae739a4543741d392a168e196066b42"
+    },
+    {
+      "id": "8edf641650a4c6af02693792f5bf1dd4",
+      "matchupKey": "doge-2026-week10-preview-3-12",
+      "scriptSha256": "a42464a5bab8436ea5308b8b9792c29439a6c83cc0e2f5d14da0675c21562a22",
+      "sourceSha256": "58372777575fd78aab193f8b11da7ff612b97e5cc3a7ed10c1f25be8b50c5be9",
+      "voiceId": "6567750df960424fb6556202d7206640",
+      "avatarId": "9b32dab9eed447a681b4240ad1a5569c"
+    },
+    {
+      "id": "665edd730d3b6f5cd74544848a7625ca",
+      "matchupKey": "doge-2026-week10-preview-4-6",
+      "scriptSha256": "8a0b78b9215219fb4c1dc374122952454b3d5197a48fcd9768bf681787a9272b",
+      "sourceSha256": "f58ea525dbffaa4f57381bfec055f3ed7cb225a2f3333e4256c07aefce961b35",
+      "voiceId": "a5aef5ec6ea94faebb575b2b52a915f6",
+      "avatarId": "ca59fd1c25724f7299e4b83f62d689fa"
+    },
+    {
+      "id": "07141a6812031f9d19ad54d464fbeaf5",
+      "matchupKey": "doge-2026-week10-preview-5-8",
+      "scriptSha256": "40c033d9c3d3f9edf85485333ac4237f752abb27f8893480cfdcff00caa7ec21",
+      "sourceSha256": "0eb6ccb478aee442b24eea9e5b27aafad4b53b4cc500080cfa964a823ab30eb8",
+      "voiceId": "44c2584dd48f46b7bce9b66c8bf086e0",
+      "avatarId": "75f37393b80d442287a82ee07285eb25"
+    },
+    {
+      "id": "47853471ca950ea685bf25cdb7984799",
+      "matchupKey": "doge-2026-week10-preview-7-10",
+      "scriptSha256": "0937ce9abf3398df5cd1f1dd8c71ee14ab2b31b738000ffdfcd3af7eb4a47a79",
+      "sourceSha256": "c81980e5a28c012004afa226783321f7b0f492d9b5e51f9cb522265787c269ec",
+      "voiceId": "16f7bb8bd1574de182d793c7e3fddf81",
+      "avatarId": "8c5e6ff8d0df4799ad203b13d13be808"
+    }
+  ]
+}

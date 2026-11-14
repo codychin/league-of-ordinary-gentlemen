@@ -1,3 +1,4 @@
+import {week10PreviewReels} from '../../../lib/week10-preview-reels';
 import {week9PreviewReels} from '../../../lib/week9-preview-reels';
 import {week8RecapReels} from '../../../lib/week8-recap-reels';
 import EditionBureau from '../EditionBureau';
@@ -26,7 +27,9 @@ export default async function Home({config}){
   const featured=name=>rosterByName[name]?.players?.find(p=>!['BN','IR'].includes(p.selectedPosition)&&p.position!=='K'&&p.position!=='DEF'&&headshots[String(p.playerId)])||rosterByName[name]?.players?.find(p=>headshots[String(p.playerId)])||null;
   const headshot=p=>p?.playerId?(headshots[String(p.playerId)]||''):'';
   const reels=(config.reels||[]).map(r=>{const a=rosters.find(t=>t.teamKey===r.leftKey)?.teamName,b=rosters.find(t=>t.teamKey===r.rightKey)?.teamName;return {...r,leftImage:headshot(featured(a)),rightImage:headshot(featured(b))}});
-  const currentPreviewReels=week9PreviewReels(slug).map(r=>{
+  const week10Reels=week10PreviewReels(slug);
+const previewWeek=week10Reels.length===6?10:9;
+const currentPreviewReels=(week10Reels.length===6?week10Reels:week9PreviewReels(slug)).map(r=>{
     const teamFor=id=>rosters.find(t=>String(t.teamKey).split('.t.')[1]===String(id));
     const a=teamFor(r.teamIds[0]),b=teamFor(r.teamIds[1]);
     return {...r,leftImage:headshot(featured(a?.teamName)),rightImage:headshot(featured(b?.teamName))};
@@ -49,7 +52,7 @@ export default async function Home({config}){
     </header>
     <main data-weekly-media={currentPreviewReels.length===6||currentRecapReels.length===6||previewReels.length===6||reels.length>0?"present":"absent"}>
       <SundayLiveDesk editionSlug={slug} editionLabel={name.toUpperCase()} staffPath={root+"/newsroom"}/>
-      {currentPreviewReels.length===6&&<ReelsShelf reels={currentPreviewReels} releaseId={`${slug}-week9-preview-v1`} storageKey={`brief-${slug}-week9-preview-viewed-v1`} weekLabel={`${name.toUpperCase()} • WEEK 9`} title="Week 9, the previews." modeLabel="WEEK 9 • PREVIEWS" mediaKind="preview" autoOpenFromQuery={false}/>}
+      {currentPreviewReels.length===6&&<ReelsShelf reels={currentPreviewReels} releaseId={`${slug}-week${previewWeek}-preview-v1`} storageKey={`brief-${slug}-week${previewWeek}-preview-viewed-v1`} weekLabel={`${name.toUpperCase()} • WEEK ${previewWeek}`} title={`Week ${previewWeek}, the previews.`} modeLabel={`WEEK ${previewWeek} • PREVIEWS`} mediaKind="preview" autoOpenFromQuery={false}/>}
       {currentPreviewReels.length!==6&&currentRecapReels.length===6&&<ReelsShelf reels={currentRecapReels} releaseId={`${slug}-week8-recap-v1`} storageKey={`brief-${slug}-week8-recap-viewed-v1`} weekLabel={`${name.toUpperCase()} • WEEK 8`} title="Week 8, the recaps." modeLabel="WEEK 8 • RECAPS" mediaKind="recap"/>}
       {currentPreviewReels.length!==6&&currentRecapReels.length!==6&&previewReels.length===6&&<ReelsShelf reels={previewReels} releaseId={`${slug}-week8-preview-v2`} storageKey={`brief-${slug}-week8-preview-viewed-v2`} weekLabel={`${name.toUpperCase()} • WEEK 8`} title="Week 8, the previews." modeLabel="WEEK 8 • PREVIEWS" mediaKind="preview" autoOpenFromQuery={false}/>}
       {currentPreviewReels.length!==6&&currentRecapReels.length!==6&&previewReels.length!==6&&reels.length>0&&<ReelsShelf reels={reels} releaseId={config.reelRelease} storageKey={config.reelStorage||config.reelRelease+"-viewed"} weekLabel={config.reelLabel} title={config.reelTitle} modeLabel={config.reelLabel}/>}

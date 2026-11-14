@@ -249,25 +249,28 @@ for(const growth of [0,528,1900]){
 }
 
 for (const root of ['', '/sunday-crew', '/doge']) {
-  test(`Week 9 previews replace recaps while preserving archive history: ${root || 'LOOG'}`, async ({page}) => {
+  test(`Week 10 previews replace prior previews while preserving archive history: ${root || 'LOOG'}`, async ({page}) => {
     const edition=root.slice(1)||'loog';
-    const current=data('week9-approved-homepage-media.json').filter(r=>r.edition===edition);
+    const current=data('week10-approved-homepage-media.json').filter(r=>r.edition===edition);
     const recaps=data('week8-recap-approved-homepage-media.json').filter(r=>r.edition===edition);
     const previews=data('week8-approved-homepage-media.json').filter(r=>r.edition===edition);
     expect(recaps).toHaveLength(6);expect(previews).toHaveLength(6);
     expect((await page.goto(root || '/')).status()).toBe(200);
-    const shelf=page.locator('section[aria-label="Week 9, the previews. videos"]');
+    const shelf=page.locator('section[aria-label="Week 10, the previews. videos"]');
     await expect(shelf).toHaveCount(1);
     const buttons=shelf.getByRole('button', {name:/^Watch /});
     await expect(buttons).toHaveCount(6);
-    expect(await buttons.evaluateAll(elements=>elements.map(el=>el.getAttribute('aria-describedby')))).toEqual(current.map(r=>`reel-state-${edition}-week9-preview-v1-${r.id}`));
+    expect(await buttons.evaluateAll(elements=>elements.map(el=>el.getAttribute('aria-describedby')))).toEqual(current.map(r=>`reel-state-${edition}-week10-preview-v1-${r.id}`));
     await expect(page.locator('section[aria-label="Week 8, the previews. videos"]')).toHaveCount(0);
     await expect(page.locator('section[aria-label="Week 7, the recaps. videos"]')).toHaveCount(0);
     await expect(page.locator('section[aria-label$=" videos"]')).toHaveCount(1);
     expect((await page.goto(root+'/archive/watch')).status()).toBe(200);
     const archive=page.locator('section[aria-labelledby="games-heading"]');
-    await expect(archive.getByRole('status')).toContainText('Week 9 · 6 videos');
+    await expect(archive.getByRole('status')).toContainText('Week 10 · 6 videos');
     for(const row of current)await expect(archive.locator(`img[src*="${row.id}"]`)).toHaveCount(1);
+    await page.getByRole('combobox',{name:/^Week/}).selectOption('9');
+    await expect(archive.getByRole('status')).toContainText('Week 9 · 6 videos');
+    for(const row of data('week9-approved-homepage-media.json').filter(r=>r.edition===edition))await expect(archive.locator(`img[src*="${row.id}"]`)).toHaveCount(1);
     await page.getByRole('combobox',{name:/^Week/}).selectOption('8');
     await expect(archive.getByRole('status')).toContainText('Week 8 · 12 videos');
     await page.getByLabel('Coverage',{exact:false}).selectOption('preview');
@@ -319,17 +322,17 @@ for(const standalone of [false,true])test(`article masthead stays visible throug
  }
 });
 
-for(const root of ['', '/sunday-crew', '/doge'])test(`Week 9 real media plays and all six originals load: ${root||'LOOG'}`,async({page},testInfo)=>{
+for(const root of ['', '/sunday-crew', '/doge'])test(`Week 10 real media plays and all six originals load: ${root||'LOOG'}`,async({page},testInfo)=>{
  const mobile=page.viewportSize().width<=760;
  if(mobile)await page.addInitScript(()=>Object.defineProperty(navigator,'standalone',{get:()=>true}));
  const edition=root.slice(1)||'loog';
- const rows=data('week9-approved-homepage-media.json').filter(r=>r.edition===edition);
+ const rows=data('week10-approved-homepage-media.json').filter(r=>r.edition===edition);
  expect(rows).toHaveLength(6);
  // No media mocks: exercise the current shelf, browser decoder and packaged URLs.
  expect((await page.goto(root||'/')).status()).toBe(200);
  // Preserve the explicit mobile standalone versus ordinary desktop contract.
  await expect.poll(()=>page.evaluate(()=>document.documentElement.classList.contains('standaloneApp'))).toBe(mobile);
- const shelf=page.getByRole('region',{name:'Week 9, the previews. videos'});
+ const shelf=page.getByRole('region',{name:'Week 10, the previews. videos'});
  const opener=shelf.getByRole('button',{name:/^Watch /}).first();
  await opener.scrollIntoViewIfNeeded();const beforeClick=await opener.evaluate(e=>e.getBoundingClientRect().top);
  await opener.evaluate(e=>e.addEventListener('click',()=>{window.__qaReelClickTop=e.getBoundingClientRect().top},{capture:true,once:true}));
