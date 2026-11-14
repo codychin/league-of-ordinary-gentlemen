@@ -144,6 +144,8 @@ const mediaOidc=(await mediaIdentity.json()).value;
 assert.ok(typeof mediaOidc==='string'&&mediaOidc.length>0,'Missing hosted media identity');
 const media=spawnSync(process.execPath,[new URL('./verify-hosted-week9-media.mjs',import.meta.url).pathname],{
  env:{PATH:process.env.PATH,PLAYWRIGHT_BROWSERS_PATH:process.env.PLAYWRIGHT_BROWSERS_PATH,NODE_OPTIONS:process.env.NODE_OPTIONS||'',BASE_URL:origin,VERIFIED_CANDIDATE_ORIGIN:origin,RELEASE_SHA:sha,VERCEL_TRUSTED_OIDC_TOKEN:mediaOidc},encoding:'utf8',timeout:240000});
+// Only the checker's fixed stage/code record is emitted, never raw browser errors or credentials.
+if(media.status!==0){const diagnostic=(media.stderr||'').match(/HOSTED_MEDIA_FAILURE (\{[^\n]*\})/);if(diagnostic){try{const d=JSON.parse(diagnostic[1]);if(Object.keys(d).every(k=>['stage','browser','edition','code'].includes(k))&&Object.values(d).every(v=>v===null||/^[a-zA-Z0-9_-]{1,80}$/.test(v)))console.error('HOSTED_MEDIA_FAILURE',JSON.stringify(d));}catch{}}}
 assert.equal(media.status,0,'Hosted candidate video playback failed; release NOT promoted');
 record('hosted-media-verified',{hostedMediaVerified:true});
 
