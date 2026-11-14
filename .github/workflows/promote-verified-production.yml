@@ -92,6 +92,9 @@ jobs:
             /scripts/operations/hosted-media-scope.mjs
             /scripts/operations/focused-week9-authority.mjs
             /qa/focused-week9-release.json
+            /lib/week10-preview-cohort.mjs
+            /data/week10-approved-homepage-media.json
+            /qa/week10-publication-authority.json
             /lib/week9-preview-cohort.mjs
             /qa/week9-owner-playback-waiver.json
             /data/week9-approved-homepage-media.json
@@ -177,6 +180,9 @@ jobs:
           sparse-checkout-cone-mode: false
           sparse-checkout: |
             /scripts/operations/
+            /lib/week10-preview-cohort.mjs
+            /data/week10-approved-homepage-media.json
+            /qa/week10-publication-authority.json
             /lib/week9-preview-cohort.mjs
             /data/week9-approved-homepage-media.json
             /qa/week9-owner-playback-waiver.json
