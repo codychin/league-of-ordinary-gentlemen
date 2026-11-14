@@ -6,6 +6,8 @@ import {selectWeek9PreviewCohort} from '../../lib/week9-preview-cohort.mjs';
 import {verifiedOrigin,scopedHeaders,assertNoRedirect} from './hosted-media-scope.mjs';
 export {AUTH_HEADER,verifiedOrigin,scopedHeaders,assertNoRedirect} from './hosted-media-scope.mjs';
 const need=(ok,code)=>{if(!ok)throw Error(code);};
+const diagnosticCodes=new Set(['CLOSE_SCROLL_POSITION_CHANGED', 'DOCUMENT_SCROLL_STILL_LOCKED', 'HEADER_CHANGED_AFTER_CLOSE', 'HISTORICAL_WATCH_COUNT_MISMATCH', 'HISTORICAL_WATCH_ID_MISMATCH', 'HLS_INIT_INVALID', 'HLS_NOT_COMPLETE', 'HLS_SEGMENT_PATH_INVALID', 'HOME_COHORT_MISMATCH', 'HOME_HTTP_FAILED', 'HOSTED_VERIFY_TIMEOUT', 'INCOMPLETE_HOSTED_RECEIPT', 'INVALID_RELEASE_SHA', 'MEDIA_HTTP_FAILED', 'MEDIA_ORIGIN_MISMATCH', 'METADATA_MISMATCH', 'PLAYER_ID_MISMATCH', 'SCOPED_REQUEST_FAILED', 'UNMUTED_PLAYBACK_REQUIRED', 'WATCH_COUNT_MISMATCH', 'WATCH_HTTP_FAILED', 'WATCH_ID_MISMATCH', 'WEEK10_COHORT_INVALID', 'WEEK9_COHORT_INVALID']);
+export const safeDiagnosticCode=error=>diagnosticCodes.has(error?.message)?error.message:(error?.name==='TimeoutError'?'BROWSER_TIMEOUT':'VERIFICATION_ERROR');
 let diagnostic={stage:'initializing',browser:null,edition:null};
 const stage=value=>{diagnostic.stage=value;};
 export function validatedRows(manifest,authority){
@@ -119,5 +121,5 @@ export async function verifyHostedWeek9Media(env=process.env){
 }
 if(process.argv[1]&&import.meta.url===pathToFileURL(path.resolve(process.argv[1])).href){
  try{await verifyHostedWeek9Media();console.log('Hosted current-week verification passed: both browsers, three editions, eighteen originals.');}
- catch(error){const code=/^[A-Z][A-Z0-9_]+$/.test(error?.message||'')?error.message:(error?.name==='TimeoutError'?'BROWSER_TIMEOUT':'VERIFICATION_ERROR');console.error('HOSTED_MEDIA_FAILURE '+JSON.stringify({...diagnostic,code}));process.exitCode=1;}
+ catch(error){const code=safeDiagnosticCode(error);console.error('HOSTED_MEDIA_FAILURE '+JSON.stringify({...diagnostic,code}));process.exitCode=1;}
 }

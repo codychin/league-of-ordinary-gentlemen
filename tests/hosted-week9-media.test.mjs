@@ -58,3 +58,5 @@ test('hosted failure diagnostics emit only bounded fixed stage fields, not raw b
  assert.match(promoter,/\['stage','browser','edition','code'\]/);assert.ok(promoter.includes('{1,80}'));
  assert.doesNotMatch(promoter,/console\.error\(media\.stderr/);
 });
+
+test('diagnostics reject arbitrary uppercase messages',async()=>{const {safeDiagnosticCode}=await import('../scripts/operations/verify-hosted-week9-media.mjs');for(const message of ['SECRET_TOKEN','A'.repeat(500),'https://secret.example'])assert.equal(safeDiagnosticCode({message}),'VERIFICATION_ERROR');assert.equal(safeDiagnosticCode({message:'HOME_HTTP_FAILED'}),'HOME_HTTP_FAILED');assert.equal(safeDiagnosticCode({name:'TimeoutError'}),'BROWSER_TIMEOUT');});
