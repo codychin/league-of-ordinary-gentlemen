@@ -13,7 +13,7 @@ test('partial or changed Week9 batch fails closed across every edition',()=>{
  const held=structuredClone(authority);held.assets[0].hold=true;assert.deepEqual(selectWeek9PreviewCohort(manifest,'loog',held),[]);
 });
 test('new preview shelf takes priority while historical clips remain in edition Watch and native global scope stays unchanged',()=>{
- for(const f of ['app/page.js','app/components/editions/Home.js']){const s=fs.readFileSync(f,'utf8');assert.ok(s.indexOf('<ReelsShelf reels={currentPreviewReels}')<s.indexOf('<ReelsShelf reels={currentRecapReels}'));assert.match(s,/currentPreviewReels.length!==6&&currentRecapReels.length===6/);assert.match(s,/Week 9, the previews/);assert.match(s,/week9-preview-viewed-v1/);}
+ for(const f of ['app/page.js','app/components/editions/Home.js']){const s=fs.readFileSync(f,'utf8');assert.ok(s.indexOf('<ReelsShelf reels={currentPreviewReels}')<s.indexOf('<ReelsShelf reels={currentRecapReels}'));assert.match(s,/currentPreviewReels.length!==6&&currentRecapReels.length===6/);assert.match(s,/week9PreviewReels/);assert.match(s,/previewWeek=week10Reels.length===6\?10:9/);assert.ok(s.includes('week${previewWeek}-preview-viewed-v1'));}
  const s=fs.readFileSync('lib/watch-library.js','utf8');for(const phrase of ['...week9PreviewRows(edition)','...week8RecapRows(edition)','...week8PreviewRows(edition)'])assert.ok(s.includes(phrase));assert.match(fs.readFileSync('native/brief/src/contract.mjs','utf8'),/watchLibrary\("global"\).features/);
 });
 test('each original and every HLS file matches immutable transport evidence',()=>{
