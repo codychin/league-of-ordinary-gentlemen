@@ -96,7 +96,7 @@ export async function verifyHostedWeek9Media(env=process.env){
      for(const row of cohort)need(await games.locator(`img[src*="${row.id}"]`).count()===1,'WATCH_ID_MISMATCH');
      if(week!==9){
       stage('historical-watch-archive');
-      await games.getByLabel('Week',{exact:true}).selectOption('9');
+      await games.getByRole('combobox',{name:/^Week/}).selectOption('9');
       await games.getByRole('status').filter({hasText:'Week 9 · 6 videos'}).waitFor();
       need(await games.getByRole('button',{name:/^Watch /}).count()===6,'HISTORICAL_WATCH_COUNT_MISMATCH');
       for(const row of historicalRows.filter(r=>r.edition===edition))need(await games.locator(`img[src*="${row.id}"]`).count()===1,'HISTORICAL_WATCH_ID_MISMATCH');
