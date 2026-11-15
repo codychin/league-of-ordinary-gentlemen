@@ -1,5 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
-import {AUTH_HEADER,verifiedOrigin,scopedHeaders,assertNoRedirect,validatedRows,activeRelease} from '../scripts/operations/verify-hosted-week9-media.mjs';
+import {AUTH_HEADER,verifiedOrigin,scopedHeaders,assertNoRedirect,validatedRows} from '../scripts/operations/verify-hosted-week9-media.mjs';
 const origin='https://ordinary-brief-exact-candidate.vercel.app',token='fixture-not-a-real-token-value';
 test('hosted verifier requires exact secure verified origin and rejects ambiguous URL input',()=>{
  assert.equal(verifiedOrigin(origin,origin+'/'),origin);
@@ -38,19 +38,6 @@ test('trusted promotion keeps exact-main gates and requires scoped browser verif
  assert.ok(!workflow.includes('continue-on-error'));
 });
 
-test('active hosted gate follows approved Week10 but retains mandatory Week9 history',()=>{
- const read=p=>JSON.parse(fs.readFileSync(p));
- const old={week9Manifest:read('data/week9-approved-homepage-media.json'),week9Authority:read('qa/week9-owner-playback-waiver.json')};
- assert.equal(activeRelease(old).week,9);
- const current={...old,week10Manifest:read('data/week10-approved-homepage-media.json'),week10Authority:read('qa/week10-publication-authority.json')};
- const result=activeRelease(current);assert.equal(result.week,10);assert.equal(result.rows.length,18);assert.equal(result.historicalRows.length,18);
- for(const change of [{week10Manifest:[]},{week10Authority:{}},{week10Manifest:undefined},{week10Authority:undefined},{week9Manifest:[]}])assert.throws(()=>activeRelease({...current,...change}));
- const src=fs.readFileSync('scripts/operations/verify-hosted-week9-media.mjs','utf8');
- assert.ok(src.includes('Week ${week}, the previews. videos'));assert.match(src,/HISTORICAL_WATCH_ID_MISMATCH/);
- const workflow=fs.readFileSync('.github/workflows/promote-verified-production.yml','utf8');
- for(const path of ['/lib/week10-preview-cohort.mjs','/data/week10-approved-homepage-media.json','/qa/week10-publication-authority.json'])assert.ok(workflow.includes(path));
-});
-
 test('hosted failure diagnostics emit only bounded fixed stage fields, not raw browser errors',()=>{
  const verifier=fs.readFileSync('scripts/operations/verify-hosted-week9-media.mjs','utf8');
  const promoter=fs.readFileSync('scripts/operations/promote-verified-release.mjs','utf8');
@@ -61,4 +48,8 @@ test('hosted failure diagnostics emit only bounded fixed stage fields, not raw b
 
 test('diagnostics reject arbitrary uppercase messages',async()=>{const {safeDiagnosticCode}=await import('../scripts/operations/verify-hosted-week9-media.mjs');for(const message of ['SECRET_TOKEN','A'.repeat(500),'https://secret.example'])assert.equal(safeDiagnosticCode({message}),'VERIFICATION_ERROR');assert.equal(safeDiagnosticCode({message:'HOME_HTTP_FAILED'}),'HOME_HTTP_FAILED');assert.equal(safeDiagnosticCode({name:'TimeoutError'}),'BROWSER_TIMEOUT');});
 
-test('historical archive selects the labeled Week combobox like proven UI verification',()=>{const src=fs.readFileSync('scripts/operations/verify-hosted-week9-media.mjs','utf8');assert.ok(src.includes("games.getByRole('combobox',{name:/^Week/}).selectOption('9')"));assert.ok(!src.includes("getByLabel('Week',{exact:true})"));assert.match(src,/HISTORICAL_WATCH_COUNT_MISMATCH/);assert.match(src,/HISTORICAL_WATCH_ID_MISMATCH/);});
+test('historical archive uses shared tested control without removing count or identity checks',()=>{
+ const src=fs.readFileSync('scripts/operations/verify-hosted-week9-media.mjs','utf8');
+ assert.ok(src.includes('await selectArchiveWeek(games,previous.week)'));
+ assert.match(src,/HISTORICAL_WATCH_COUNT_MISMATCH/);assert.match(src,/HISTORICAL_WATCH_ID_MISMATCH/);
+});

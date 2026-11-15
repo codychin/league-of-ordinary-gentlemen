@@ -15,7 +15,7 @@ test('every exact pair works in both orientations without cross-edition or histo
 test('Week 10 publication stays on league homepages and preserves matchup pages',()=>{
  for(const file of ['app/components/editions/Matchup.js','app/matchups/[a]/[b]/page.js'])assert.doesNotMatch(fs.readFileSync(file,'utf8'),/week10MatchupReels|<ReelsShelf/);
  for(const file of ['app/page.js','app/components/editions/Home.js']){
-  const source=fs.readFileSync(file,'utf8');assert.match(source,/week10PreviewReels/);assert.match(source,/week10Reels.length===6\?week10Reels:week9PreviewReels/);assert.ok(source.includes('week${previewWeek}-preview-viewed-v1'));
+  const source=fs.readFileSync(file,'utf8');assert.match(source,/currentPreviewRelease/);assert.match(source,/week:previewWeek,reels:approvedReels/);assert.ok(source.includes('week${previewWeek}-preview-viewed-v1'));
  }
  const watch=fs.readFileSync('lib/watch-library.js','utf8');for(const entry of ['week10PreviewRows(edition)','week9PreviewRows(edition)','week8RecapRows(edition)','week8PreviewRows(edition)'])assert.ok(watch.includes(entry));
 });
