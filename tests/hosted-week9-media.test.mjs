@@ -60,3 +60,5 @@ test('hosted failure diagnostics emit only bounded fixed stage fields, not raw b
 });
 
 test('diagnostics reject arbitrary uppercase messages',async()=>{const {safeDiagnosticCode}=await import('../scripts/operations/verify-hosted-week9-media.mjs');for(const message of ['SECRET_TOKEN','A'.repeat(500),'https://secret.example'])assert.equal(safeDiagnosticCode({message}),'VERIFICATION_ERROR');assert.equal(safeDiagnosticCode({message:'HOME_HTTP_FAILED'}),'HOME_HTTP_FAILED');assert.equal(safeDiagnosticCode({name:'TimeoutError'}),'BROWSER_TIMEOUT');});
+
+test('historical archive selects the labeled Week combobox like proven UI verification',()=>{const src=fs.readFileSync('scripts/operations/verify-hosted-week9-media.mjs','utf8');assert.ok(src.includes("games.getByRole('combobox',{name:/^Week/}).selectOption('9')"));assert.ok(!src.includes("getByLabel('Week',{exact:true})"));assert.match(src,/HISTORICAL_WATCH_COUNT_MISMATCH/);assert.match(src,/HISTORICAL_WATCH_ID_MISMATCH/);});
