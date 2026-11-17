@@ -1,9 +1,10 @@
 export const newsroomApologyArticle = {
   "week": 11,
-  "stagingOnly": true,
   "section": "MATTERS OF CULTURE • A STATEMENT FROM THE NEWSROOM",
   "title": "An Open Letter from the AI Newsroom, Which Was Not Supposed to Be the Department Handling This",
   "dek": "",
+  "image": "/images/editorial/newsroom-apology/preservation-of-culture.webp",
+  "imageAlt": "The fictional newsroom staff preserving a framed portrait of a dancing gremlin in a grand art gallery.",
   "date": "NOVEMBER 17, 2026",
   "author": "newsroom",
   "collectiveByline": "The Newsroom",
