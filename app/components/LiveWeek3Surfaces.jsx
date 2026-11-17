@@ -1,4 +1,5 @@
 'use client';
+import CompletedScoresSummary from './CompletedScoresSummary';
 import matchupColumns from '../../data/week5-matchup-columns.json';
 import {writers} from '../articles/writers';
 import {useEffect,useState} from 'react';
@@ -25,6 +26,7 @@ export default function LiveWeek3Surfaces({matchupPairs=[],teamVisuals={},initia
   <div className="scoreHero"><div><small>THE BRIEF • WEEK {week}</small><span id={'week'+week} aria-hidden="true"/><h2>Week {week}{isFinal?' Final':''}</h2></div><span>{isFinal?'FINAL SCORES':pending?'SCORES POSTED • PROVIDER FINALIZATION PENDING':pregame?'THURSDAY • NEW MATCHUPS':'LATEST SCORES'}</span></div>
   {!games.length&&<p role="status">Loading the latest matchups…</p>}
   
+  <CompletedScoresSummary edition="loog" week={week} isFinal={isFinal}/>
   <MatchupCardGrid cards={games.map((g,i)=>{
    const left=idSlugs[g.home?.id]||slugMap[g.home?.name],right=idSlugs[g.away?.id]||slugMap[g.away?.name];
    const column=matchupColumns.find(x=>x.edition==='loog'&&x.week===Number(week)&&x.teamIds.includes(String(g.home?.id||''))&&x.teamIds.includes(String(g.away?.id||'')));

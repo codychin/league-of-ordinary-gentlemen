@@ -1,0 +1,70 @@
+{
+  "loog": {
+    "week": 10,
+    "season": 2026,
+    "status": "FINAL",
+    "pending": false,
+    "findings": [
+      {
+        "writer": "gannon",
+        "label": "The conversion rate",
+        "title": "Two-thirds of a point. Two wins.",
+        "body": "Skatt has 1,373.28 points through ten games. Shake 'N Baker has 1,372.61. The season's scoring difference is 0.67; the records are 6–4 and 4–6. Their direct meeting made the distinction unusually literal: Skatt won by 1.19. Norm has faced 123.62 more points across the season, so the schedule belongs in the explanation, though not as an alibi for every lineup choice. Elsewhere, Hopkins leads at 8–2 despite ranking third in points, behind the Chosen Ones and Kraft. The table is keeping score accurately. It is simply not ranking the same thing as the points column.",
+        "receipt": "LOOG • WEEK 10 • FINAL"
+      }
+    ],
+    "approval": {
+      "source": "Cody’s Approved reply to the exact Week 10 package, relayed by coordinating parent",
+      "packetSha256": "7c9626292bbffffdb4059fbdbe5e20c3accd800c439a4f5638ae173289ced657",
+      "scope": "18 written recaps and league weekly sections; no new video publication"
+    }
+  },
+  "sunday-crew": {
+    "week": 10,
+    "season": 2026,
+    "status": "FINAL",
+    "pending": false,
+    "findings": [
+      {
+        "writer": "gannon",
+        "label": "The completed-week account",
+        "title": "Two seven-win teams, very different afternoons",
+        "body": [
+          "Runit and Paul both reached 7–3. Runit scored 174.1; Paul won with 96.32, the third-lowest total in the league. The standings award one win to each. The season scoring totals retain the distinction: 1,406.14 for Runit against 1,275.60 for Paul.",
+          "The crueler comparison belongs to Joe. J Bird’s 160.66 was the week’s fourth-highest score and lost to Sandy’s league-best 184.7. Joe falls to 4–6; Sandy returns to 5–5. The receiving difference, 103.1 to 21.1, mattered more than the two enormous scores from Joe’s Burrow and McCaffrey.",
+          "Ravi joins Greg and Poon at 6–4 after beating Greg, while Matt’s win over Poon moves him to 4–6. Drew reaches 5–5 at Cody’s expense; Cody and Patrick are 3–7. Several teams fixed conspicuous lineup weaknesses. The final results distinguish a useful fix from enough useful work."
+        ],
+        "receipt": "SUNDAY-CREW • WEEK 10 • FINAL"
+      }
+    ],
+    "approval": {
+      "source": "Cody’s Approved reply to the exact Week 10 package, relayed by coordinating parent",
+      "packetSha256": "7c9626292bbffffdb4059fbdbe5e20c3accd800c439a4f5638ae173289ced657",
+      "scope": "18 written recaps and league weekly sections; no new video publication"
+    }
+  },
+  "doge": {
+    "week": 10,
+    "season": 2026,
+    "status": "FINAL",
+    "pending": false,
+    "findings": [
+      {
+        "writer": "gannon",
+        "label": "The completed-week account",
+        "title": "Second in points. Eleventh in the standings.",
+        "body": [
+          "Corey has scored 1,249.76 points, second only to Ordway’s 1,302.4. He is 3–7 and eleventh in the provider standings. His opponents have scored 1,310.46, the most faced by anyone in DOGE. That is the denominator missing from any quick account of the bottom of this table.",
+          "This week brought 180.68 from McConkey Kong, the league’s highest total. Corey’s 124.12 was not enough, and a very good season-long scoring record does not grant him an appeal. Nor does it excuse every individual lineup choice. It tells us why the standings should not be read as a ranking of offensive quality.",
+          "At the top, Ordway is 9–1 and Bennett 8–2. Both won despite a glaring low or empty contribution: Maye’s 3.02 for Ordway, Jacobs’s starting zero for Bennett. They had enough elsewhere. Corey’s season has often required enough somewhere else. Ten games in, those are producing very different records."
+        ],
+        "receipt": "DOGE • WEEK 10 • FINAL"
+      }
+    ],
+    "approval": {
+      "source": "Cody’s Approved reply to the exact Week 10 package, relayed by coordinating parent",
+      "packetSha256": "7c9626292bbffffdb4059fbdbe5e20c3accd800c439a4f5638ae173289ced657",
+      "scope": "18 written recaps and league weekly sections; no new video publication"
+    }
+  }
+}

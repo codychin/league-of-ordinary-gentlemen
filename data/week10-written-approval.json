@@ -1,0 +1,13 @@
+{
+  "source": "Cody’s Approved reply to the exact Week 10 package, relayed by coordinating parent",
+  "packetSha256": "7c9626292bbffffdb4059fbdbe5e20c3accd800c439a4f5638ae173289ced657",
+  "scope": "18 written recaps and league weekly sections; no new video publication",
+  "season": 2026,
+  "week": 10,
+  "recaps": 18,
+  "leagueBatchSize": 6,
+  "statusClauseCleanup": [
+    "Sunday summary draft suffix removed",
+    "DOGE summary drafts suffix removed"
+  ]
+}
