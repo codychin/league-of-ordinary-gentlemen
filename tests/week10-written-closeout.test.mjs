@@ -22,3 +22,9 @@ test('historical sections stay available, current components point only to Week 
  for(const f of ['start-sit','autopsies','scores-summaries'])assert.ok(read(`week6-${f}.json`));
  for(const f of ['StartSitOfWeek','LoogAutopsy','SundayCrewAutopsy','CompletedScoresSummary'])assert.match(readFileSync(new URL(`../app/components/${f}.jsx`,import.meta.url),'utf8'),/week10-/);
 });
+
+test('defense selection does not request an invalid negative player headshot',()=>{
+ const component=readFileSync(new URL('../app/components/StartSitOfWeek.jsx',import.meta.url),'utf8');
+ assert.match(component,/Number\(p.playerId\)>0/);
+ assert.equal(picks.loog.picks[0].playerId,'-16033');
+});
