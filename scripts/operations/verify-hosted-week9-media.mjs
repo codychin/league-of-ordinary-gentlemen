@@ -1,12 +1,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {pathToFileURL} from 'node:url';
-import {selectWeek10PreviewCohort} from '../../lib/week10-preview-cohort.mjs';
+import {loadApprovedPreviewRelease} from '../../lib/approved-preview-release.mjs';
+import {selectArchiveWeek} from './archive-week-control.mjs';
 import {selectWeek9PreviewCohort} from '../../lib/week9-preview-cohort.mjs';
 import {verifiedOrigin,scopedHeaders,assertNoRedirect} from './hosted-media-scope.mjs';
 export {AUTH_HEADER,verifiedOrigin,scopedHeaders,assertNoRedirect} from './hosted-media-scope.mjs';
 const need=(ok,code)=>{if(!ok)throw Error(code);};
-const diagnosticCodes=new Set(['CLOSE_SCROLL_POSITION_CHANGED', 'DOCUMENT_SCROLL_STILL_LOCKED', 'HEADER_CHANGED_AFTER_CLOSE', 'HISTORICAL_WATCH_COUNT_MISMATCH', 'HISTORICAL_WATCH_ID_MISMATCH', 'HLS_INIT_INVALID', 'HLS_NOT_COMPLETE', 'HLS_SEGMENT_PATH_INVALID', 'HOME_COHORT_MISMATCH', 'HOME_HTTP_FAILED', 'HOSTED_VERIFY_TIMEOUT', 'INCOMPLETE_HOSTED_RECEIPT', 'INVALID_RELEASE_SHA', 'MEDIA_HTTP_FAILED', 'MEDIA_ORIGIN_MISMATCH', 'METADATA_MISMATCH', 'PLAYER_ID_MISMATCH', 'SCOPED_REQUEST_FAILED', 'UNMUTED_PLAYBACK_REQUIRED', 'WATCH_COUNT_MISMATCH', 'WATCH_HTTP_FAILED', 'WATCH_ID_MISMATCH', 'WEEK10_COHORT_INVALID', 'WEEK9_COHORT_INVALID']);
+const diagnosticCodes=new Set(['ARCHIVE_WEEK_INVALID', 'ARCHIVE_WEEK_CONTROL_AMBIGUOUS', 'RELEASE_DEFINITION_INVALID', 'RELEASE_POLICY_UNSUPPORTED', 'RELEASE_COHORT_INVALID', 'RELEASE_HISTORY_INVALID', 'CLOSE_SCROLL_POSITION_CHANGED', 'DOCUMENT_SCROLL_STILL_LOCKED', 'HEADER_CHANGED_AFTER_CLOSE', 'HISTORICAL_WATCH_COUNT_MISMATCH', 'HISTORICAL_WATCH_ID_MISMATCH', 'HLS_INIT_INVALID', 'HLS_NOT_COMPLETE', 'HLS_SEGMENT_PATH_INVALID', 'HOME_COHORT_MISMATCH', 'HOME_HTTP_FAILED', 'HOSTED_VERIFY_TIMEOUT', 'INCOMPLETE_HOSTED_RECEIPT', 'INVALID_RELEASE_SHA', 'MEDIA_HTTP_FAILED', 'MEDIA_ORIGIN_MISMATCH', 'METADATA_MISMATCH', 'PLAYER_ID_MISMATCH', 'SCOPED_REQUEST_FAILED', 'UNMUTED_PLAYBACK_REQUIRED', 'WATCH_COUNT_MISMATCH', 'WATCH_HTTP_FAILED', 'WATCH_ID_MISMATCH', 'WEEK10_COHORT_INVALID', 'WEEK9_COHORT_INVALID']);
 export const safeDiagnosticCode=error=>diagnosticCodes.has(error?.message)?error.message:(error?.name==='TimeoutError'?'BROWSER_TIMEOUT':'VERIFICATION_ERROR');
 let diagnostic={stage:'initializing',browser:null,edition:null};
 const stage=value=>{diagnostic.stage=value;};
@@ -14,25 +15,15 @@ export function validatedRows(manifest,authority){
  const rows=['loog','doge','sunday-crew'].flatMap(e=>selectWeek9PreviewCohort(manifest,e,authority));
  need(rows.length===18,'WEEK9_COHORT_INVALID');return rows;
 }
-export function activeRelease({week9Manifest,week9Authority,week10Manifest,week10Authority}){
- const historicalRows=validatedRows(week9Manifest,week9Authority);
- if(week10Manifest!==undefined || week10Authority!==undefined){
-  const rows=['loog','doge','sunday-crew'].flatMap(e=>selectWeek10PreviewCohort(week10Manifest,e,week10Authority));
-  need(rows.length===18,'WEEK10_COHORT_INVALID');return {week:10,rows,historicalRows};
- }
- return {week:9,rows:historicalRows,historicalRows};
-}
 export async function verifyHostedWeek9Media(env=process.env){
  // A failed rerun must never leave a prior success receipt behind.
  fs.rmSync('hosted-media-receipt.json',{force:true});
  const origin=verifiedOrigin(env.BASE_URL,env.VERIFIED_CANDIDATE_ORIGIN);
  need(/^[a-f0-9]{40}$/.test(env.RELEASE_SHA||''),'INVALID_RELEASE_SHA');
  const token=env.VERCEL_TRUSTED_OIDC_TOKEN;scopedHeaders(origin,origin,{},token);
- const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
- const optional=p=>fs.existsSync(p)?read(p):undefined;
- const {week,rows,historicalRows}=activeRelease({week9Manifest:read('data/week9-approved-homepage-media.json'),week9Authority:read('qa/week9-owner-playback-waiver.json'),week10Manifest:optional('data/week10-approved-homepage-media.json'),week10Authority:optional('qa/week10-publication-authority.json')});
+ const {week,rows,historical}=loadApprovedPreviewRelease();
  const {chromium,webkit}=await import('playwright');
- const receipt={version:2,week,historicalWeek:9,releaseSha:env.RELEASE_SHA,origin,checkedAt:new Date().toISOString(),browsers:[],media:[]};
+ const receipt={version:3,week,historicalWeeks:historical.map(c=>c.week),releaseSha:env.RELEASE_SHA,origin,checkedAt:new Date().toISOString(),browsers:[],media:[]};
  for(const [name,engine] of Object.entries({chromium,webkit})){
   diagnostic.browser=name;stage('browser-launch');
   const browser=await engine.launch({headless:true});
@@ -94,12 +85,12 @@ export async function verifyHostedWeek9Media(env=process.env){
      await games.getByRole('status').filter({hasText:`Week ${week} · 6 videos`}).waitFor();
      need(await games.getByRole('button',{name:/^Watch /}).count()===6,'WATCH_COUNT_MISMATCH');
      for(const row of cohort)need(await games.locator(`img[src*="${row.id}"]`).count()===1,'WATCH_ID_MISMATCH');
-     if(week!==9){
+     for(const previous of historical){
       stage('historical-watch-archive');
-      await games.getByRole('combobox',{name:/^Week/}).selectOption('9');
-      await games.getByRole('status').filter({hasText:'Week 9 · 6 videos'}).waitFor();
+      await selectArchiveWeek(games,previous.week);
+      await games.getByRole('status').filter({hasText:`Week ${previous.week} · 6 videos`}).waitFor();
       need(await games.getByRole('button',{name:/^Watch /}).count()===6,'HISTORICAL_WATCH_COUNT_MISMATCH');
-      for(const row of historicalRows.filter(r=>r.edition===edition))need(await games.locator(`img[src*="${row.id}"]`).count()===1,'HISTORICAL_WATCH_ID_MISMATCH');
+      for(const row of previous.rows.filter(r=>r.edition===edition))need(await games.locator(`img[src*="${row.id}"]`).count()===1,'HISTORICAL_WATCH_ID_MISMATCH');
      }
     }
     stage('hls-assets');if(name==='chromium')for(const row of rows){

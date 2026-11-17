@@ -87,6 +87,9 @@ jobs:
             /scripts/operations/promotion-state.mjs
             /scripts/operations/check-public-routes.mjs
             /scripts/operations/public-route-validation.mjs
+            /lib/approved-preview-release.mjs
+            /data/active-preview-release.json
+            /scripts/operations/archive-week-control.mjs
             /scripts/operations/verify-hosted-week9-media.mjs
             /scripts/operations/assert-playwright-container.mjs
             /scripts/operations/hosted-media-scope.mjs
@@ -180,6 +183,8 @@ jobs:
           sparse-checkout-cone-mode: false
           sparse-checkout: |
             /scripts/operations/
+            /lib/approved-preview-release.mjs
+            /data/active-preview-release.json
             /lib/week10-preview-cohort.mjs
             /data/week10-approved-homepage-media.json
             /qa/week10-publication-authority.json

@@ -1,3 +1,4 @@
+import {selectArchiveWeek} from '../../scripts/operations/archive-week-control.mjs';
 import {test,expect} from '@playwright/test';
 import {documentScrollSample,assertDocumentScrollSample} from '../helpers/document-scroll-contract.mjs';
 import {isSundayLiveWindow} from '../../lib/live-desk-state.js';
@@ -268,10 +269,10 @@ for (const root of ['', '/sunday-crew', '/doge']) {
     const archive=page.locator('section[aria-labelledby="games-heading"]');
     await expect(archive.getByRole('status')).toContainText('Week 10 · 6 videos');
     for(const row of current)await expect(archive.locator(`img[src*="${row.id}"]`)).toHaveCount(1);
-    await page.getByRole('combobox',{name:/^Week/}).selectOption('9');
+    await selectArchiveWeek(page.locator('section[aria-labelledby="games-heading"]'),9);
     await expect(archive.getByRole('status')).toContainText('Week 9 · 6 videos');
     for(const row of data('week9-approved-homepage-media.json').filter(r=>r.edition===edition))await expect(archive.locator(`img[src*="${row.id}"]`)).toHaveCount(1);
-    await page.getByRole('combobox',{name:/^Week/}).selectOption('8');
+    await selectArchiveWeek(page.locator('section[aria-labelledby="games-heading"]'),8);
     await expect(archive.getByRole('status')).toContainText('Week 8 · 12 videos');
     await page.getByLabel('Coverage',{exact:false}).selectOption('preview');
     await expect(archive.getByRole('button',{name:/^Watch /})).toHaveCount(6);
@@ -279,7 +280,7 @@ for (const root of ['', '/sunday-crew', '/doge']) {
     await page.getByLabel('Coverage',{exact:false}).selectOption('recap');
     await expect(archive.getByRole('button',{name:/^Watch /})).toHaveCount(6);
     for(const row of recaps)await expect(archive.locator(`img[src*="${row.id}"]`)).toHaveCount(1);
-    await page.getByRole('combobox',{name:/^Week/}).selectOption('7');
+    await selectArchiveWeek(page.locator('section[aria-labelledby="games-heading"]'),7);
     await page.getByLabel('Coverage',{exact:false}).selectOption('');
     await expect(archive.getByRole('status')).toContainText('Week 7 · 12 videos');
     await expect(archive.getByRole('button',{name:/^Watch /})).toHaveCount(12);

@@ -1,5 +1,4 @@
-import {week10PreviewReels} from '../lib/week10-preview-reels';
-import {week9PreviewReels} from '../lib/week9-preview-reels';
+import {currentPreviewRelease} from '../lib/current-preview-reels';
 import {week8RecapReels} from '../lib/week8-recap-reels';
 import {week8Reels} from '../lib/week8-reels';
 import {week7Reels} from '../lib/week7-reels';
@@ -36,9 +35,8 @@ try {
  if(response.ok)provider=await response.json();
 }catch{}
 const currentScores=selectLoogScores({provider,latest:latestScores,completed:completedScores});
-const week10Reels=week10PreviewReels('loog');
-const previewWeek=week10Reels.length===6?10:9;
-const currentPreviewReels=(week10Reels.length===6?week10Reels:week9PreviewReels('loog')).map(r=>{
+const {week:previewWeek,reels:approvedReels}=currentPreviewRelease('loog');
+const currentPreviewReels=approvedReels.map(r=>{
  const left=Object.values(leagueSnapshot.teams).find(t=>String(t.teamId)===String(r.teamIds[0])),right=Object.values(leagueSnapshot.teams).find(t=>String(t.teamId)===String(r.teamIds[1]));
  return {...r,leftImage:left?playerHeadshot(featuredPlayer(left)):'',rightImage:right?playerHeadshot(featuredPlayer(right)):''};
 });

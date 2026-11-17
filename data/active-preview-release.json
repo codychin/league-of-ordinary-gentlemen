@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "current": {
+    "policy": "week10-owner-approved-2026"
+  },
+  "historical": [
+    {
+      "policy": "week9-owner-waiver-2026"
+    }
+  ]
+}

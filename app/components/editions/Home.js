@@ -1,5 +1,4 @@
-import {week10PreviewReels} from '../../../lib/week10-preview-reels';
-import {week9PreviewReels} from '../../../lib/week9-preview-reels';
+import {currentPreviewRelease} from '../../../lib/current-preview-reels';
 import {week8RecapReels} from '../../../lib/week8-recap-reels';
 import EditionBureau from '../EditionBureau';
 import {week8Reels} from '../../../lib/week8-reels';
@@ -27,9 +26,8 @@ export default async function Home({config}){
   const featured=name=>rosterByName[name]?.players?.find(p=>!['BN','IR'].includes(p.selectedPosition)&&p.position!=='K'&&p.position!=='DEF'&&headshots[String(p.playerId)])||rosterByName[name]?.players?.find(p=>headshots[String(p.playerId)])||null;
   const headshot=p=>p?.playerId?(headshots[String(p.playerId)]||''):'';
   const reels=(config.reels||[]).map(r=>{const a=rosters.find(t=>t.teamKey===r.leftKey)?.teamName,b=rosters.find(t=>t.teamKey===r.rightKey)?.teamName;return {...r,leftImage:headshot(featured(a)),rightImage:headshot(featured(b))}});
-  const week10Reels=week10PreviewReels(slug);
-const previewWeek=week10Reels.length===6?10:9;
-const currentPreviewReels=(week10Reels.length===6?week10Reels:week9PreviewReels(slug)).map(r=>{
+  const {week:previewWeek,reels:approvedReels}=currentPreviewRelease(slug);
+const currentPreviewReels=approvedReels.map(r=>{
     const teamFor=id=>rosters.find(t=>String(t.teamKey).split('.t.')[1]===String(id));
     const a=teamFor(r.teamIds[0]),b=teamFor(r.teamIds[1]);
     return {...r,leftImage:headshot(featured(a?.teamName)),rightImage:headshot(featured(b?.teamName))};
