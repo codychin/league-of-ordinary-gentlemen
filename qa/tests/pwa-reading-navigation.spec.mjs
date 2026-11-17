@@ -94,7 +94,7 @@ for(const root of ['','/sunday-crew','/doge']){
    await page.getByRole('button',{name:'More',exact:true}).click();await expect(page.getByRole('complementary',{name:'More and settings'})).toBeVisible();await page.getByRole('button',{name:'Close more menu'}).click();
    await page.goBack();await expect(page).toHaveURL(new RegExp(root?root+'/?$':'/$'));await expect.poll(()=>content.evaluate(e=>e.scrollTop)).toBe(0);await check('back');
    await page.getByRole('navigation',{name:'App navigation'}).getByRole('link',{name:'Scores',exact:true}).click();await expect(page).toHaveURL(/#scores$/);await expect.poll(()=>content.evaluate(e=>e.scrollTop)).toBe(0);await check('scores');
-   await page.getByRole('navigation',{name:'App navigation'}).getByRole('link',{name:'Culture',exact:true}).click();await expect(page).toHaveURL(/#culture$/);await check('culture');
+   await page.getByRole('navigation',{name:'App navigation'}).getByRole('link',{name:'Crates',exact:true}).click();await expect(page).toHaveURL(/\/archive$/);await check('crates');
    await page.goBack();await expect(page).toHaveURL(/#scores$/);await check('hash-back');
    await page.getByRole('navigation',{name:'App navigation'}).getByRole('link',{name:'Teams',exact:true}).click();
    await expect(page).toHaveURL(new RegExp(root+'/teams$'));await expect.poll(()=>content.evaluate(e=>e.scrollTop)).toBe(0);
@@ -373,21 +373,11 @@ for(const root of ['', '/sunday-crew', '/doge'])test(`Week 10 real media plays a
  await expect(page.locator('.appScrollContent')).toHaveCount(0);
  await page.evaluate(()=>window.scrollBy(0,300));await expect.poll(()=>page.evaluate(()=>window.scrollY)).toBeGreaterThan(0);
  await expect(nav).toBeVisible();
- // Edition desktop headers expose The League; mobile and global desktop expose Culture.
- const second=mobile||!root?'culture':'league';
- await nav.getByRole('link',{name:second==='culture'?/^culture$/i:/^the league$/i}).click();
- await expectLanded(second);
- // Retain the original exact destination/link/heading checks as well as main's
- // stronger header-boundary assertions. Edition desktops also expose Standings.
- const destination=!mobile&&root
-  ?{name:/^Standings$/i,id:'standings',heading:'Standings'}
-  :{name:/^Culture$/i,id:'culture',heading:/^Matters of Culture$/i};
- const destinationLink=nav.getByRole('link',{name:destination.name});
- await expect(destinationLink).toHaveAttribute('href',(root||'/')+'#'+destination.id);
- if(destination.id!==second){await destinationLink.click();await expectLanded(destination.id);}
- const destinationSection=page.locator('#'+destination.id);
- await expect(destinationSection.getByRole('heading',{name:destination.heading,exact:true})).toBeVisible();
- await expect(destinationSection).toBeInViewport();
+ // The curated archive is a page destination, not a homepage section anchor.
+ const crates=nav.getByRole('link',{name:/^(The )?Crates$/i});
+ await expect(crates).toHaveAttribute('href',root+'/archive');
+ await crates.click();await expect(page).toHaveURL(new RegExp(root+'/archive$'));
+ await expect(page.getByRole('heading',{name:'The Crates.',exact:true})).toBeVisible();
  await expect(nav).toBeVisible();
  for(const row of rows){
   const observed=await page.evaluate(({id})=>new Promise((resolve,reject)=>{
