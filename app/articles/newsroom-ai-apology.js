@@ -52,31 +52,49 @@ export const newsroomApologyArticle = {
     {
       "type": "signatures",
       "signatures": [
-  {
-    "name": "Hollis Crane",
-    "src": "/images/editorial/signatures/hollis-crane.png"
-  },
-  {
-    "name": "Conrad Sorrell",
-    "src": "/images/editorial/signatures/conrad-sorrell.png"
-  },
-  {
-    "name": "Marnie Kells",
-    "src": "/images/editorial/signatures/marnie-kells.png"
-  },
-  {
-    "name": "Maude Gannon",
-    "src": "/images/editorial/signatures/maude-gannon.png"
-  },
-  {
-    "name": "Dashiell Pike",
-    "src": "/images/editorial/signatures/dashiell-pike.png"
-  },
-  {
-    "name": "Sabine March",
-    "src": "/images/editorial/signatures/sabine-march.png"
-  }
-]
+        {
+          "name": "Hollis Crane",
+          "src": "/images/editorial/signatures/hollis-crane.png",
+          "width": 2172,
+          "height": 724,
+          "maxWidth": 250
+        },
+        {
+          "name": "Conrad Sorrell",
+          "src": "/images/editorial/signatures/conrad-sorrell.png",
+          "width": 1752,
+          "height": 897,
+          "maxWidth": 190
+        },
+        {
+          "name": "Marnie Kells",
+          "src": "/images/editorial/signatures/marnie-kells.png",
+          "width": 2172,
+          "height": 724,
+          "maxWidth": 230
+        },
+        {
+          "name": "Maude Gannon",
+          "src": "/images/editorial/signatures/maude-gannon.png",
+          "width": 1774,
+          "height": 887,
+          "maxWidth": 190
+        },
+        {
+          "name": "Dashiell Pike",
+          "src": "/images/editorial/signatures/dashiell-pike.png",
+          "width": 1752,
+          "height": 897,
+          "maxWidth": 190
+        },
+        {
+          "name": "Sabine March",
+          "src": "/images/editorial/signatures/sabine-march.png",
+          "width": 2172,
+          "height": 724,
+          "maxWidth": 250
+        }
+      ]
     },
     "and the rest of the Newsroom here at The Brief"
   ]

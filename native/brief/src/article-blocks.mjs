@@ -47,7 +47,7 @@ export function blocks(body) {
         alt: signature.name,
         caption: "",
         credit: null,
-        aspectRatio: 3,
+        aspectRatio: signature.width && signature.height ? signature.width / signature.height : 3,
         objectPosition: "left center",
       }));
     if (item.type === "rich") {
