@@ -1,0 +1,104 @@
+{
+  "loog": {
+    "week": 10,
+    "season": 2026,
+    "status": "FINAL",
+    "picks": [
+      {
+        "type": "start",
+        "team": "I'm a Skatt man",
+        "player": "Ravens D/ST",
+        "playerId": "-16033",
+        "points": 3,
+        "slot": "D/ST",
+        "gap": 4.5,
+        "headline": "Three points were quite sufficient",
+        "body": "Skatt's Ravens defense scored three. His benched Patriots scored minus 1.5. That modest-looking choice supplied a 4.5-point difference in a 1.19-point win over Shake 'N Baker; reverse it and Skatt loses by 3.31. A defense need not dominate to deserve some gratitude. This credits the completed result, not a claim that the choice was obvious before kickoff."
+      },
+      {
+        "type": "sit",
+        "team": "The Route 22 Clubhouse",
+        "player": "Ryan Flournoy",
+        "playerId": "5083754",
+        "points": 18.1,
+        "slot": "bench",
+        "gap": 13,
+        "headline": "The winning margin was sitting down",
+        "body": "Flournoy's 18.1 stayed on Route's bench while Tutu Atwell scored 5.1 in a flex spot. The 13-point swap turns a 10.66-point loss to All Ugly into a hypothetical 2.34-point win. Emmett Johnson supplied 41.3 and still needed that help. This is a retrospective comparison, not proof of what Route could reasonably have known at lineup lock."
+      }
+    ],
+    "approval": {
+      "source": "Cody’s Approved reply to the exact Week 10 package, relayed by coordinating parent",
+      "packetSha256": "7c9626292bbffffdb4059fbdbe5e20c3accd800c439a4f5638ae173289ced657",
+      "scope": "18 written recaps and league weekly sections; no new video publication"
+    }
+  },
+  "sunday-crew": {
+    "week": 10,
+    "season": 2026,
+    "status": "FINAL",
+    "picks": [
+      {
+        "type": "start",
+        "team": "Forte inch Ditka",
+        "player": "Isaiah Likely",
+        "playerId": "34095",
+        "points": 27.2,
+        "slot": "W/R/T",
+        "gap": 5.8,
+        "headline": "The extra tight end did the important work",
+        "body": "Likely’s 27.2 from the flex led Forte’s lineup in a 24.6-point win. He outscored the eligible bench alternatives Corum 21.4 and Downs 13.3. It is a completed-week result, not proof that the selection was obvious beforehand."
+      },
+      {
+        "type": "sit",
+        "team": "Forte inch Ditka",
+        "player": "Patrick Mahomes",
+        "playerId": "30123",
+        "points": 37.42,
+        "slot": "bench",
+        "gap": 26.44,
+        "headline": "The win did not use the best quarterback score",
+        "body": "Mahomes had 37.42 unused while Shough supplied 10.98, a 26.44-point hindsight gap. Forte still won 127.68–103.08. The unused total made the winning margin smaller; it did not cause a defeat or establish the pregame choice was unreasonable."
+      }
+    ],
+    "approval": {
+      "source": "Cody’s Approved reply to the exact Week 10 package, relayed by coordinating parent",
+      "packetSha256": "7c9626292bbffffdb4059fbdbe5e20c3accd800c439a4f5638ae173289ced657",
+      "scope": "18 written recaps and league weekly sections; no new video publication"
+    }
+  },
+  "doge": {
+    "week": 10,
+    "season": 2026,
+    "status": "FINAL",
+    "picks": [
+      {
+        "type": "start",
+        "team": "Tranimal",
+        "player": "Dak Prescott",
+        "playerId": "29369",
+        "points": 35.42,
+        "slot": "QB",
+        "gap": 11,
+        "body": "Bennett started Prescott over Goff and gained eleven points in a 13.62-point win. Goff would still have left him ahead by 2.62, but the chosen quarterback gave him considerably more room. This is retrospective scoring, not proof the pregame choice was obvious.",
+        "headline": "Dak Prescott"
+      },
+      {
+        "type": "sit",
+        "team": "McConkey Kong",
+        "player": "Deebo Samuel",
+        "playerId": "31868",
+        "points": 26.4,
+        "slot": "bench",
+        "gap": 26.4,
+        "body": "Sandy left Deebo’s 26.4 on the bench while Cooper scored zero at receiver. He won by 56.56 anyway. The unused return is real; the margin means it did not cost the matchup. Availability and pregame expectations are not inferred from the final points.",
+        "headline": "Deebo Samuel"
+      }
+    ],
+    "approval": {
+      "source": "Cody’s Approved reply to the exact Week 10 package, relayed by coordinating parent",
+      "packetSha256": "7c9626292bbffffdb4059fbdbe5e20c3accd800c439a4f5638ae173289ced657",
+      "scope": "18 written recaps and league weekly sections; no new video publication"
+    }
+  }
+}

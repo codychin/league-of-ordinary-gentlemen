@@ -93,7 +93,12 @@ for(const root of ['', '/doge', '/sunday-crew']){
   await page.goto(root||'/');await page.evaluate(()=>document.fonts.ready);
   const autopsy=page.locator('.autopsySection'),table=page.locator('.standingsTable');
   await expect(autopsy.locator('h2')).toHaveCSS('font-family',/Brief Nine F/);await expect(autopsy.locator('h2')).toHaveCSS('font-size','32px');
-  await expect(autopsy.locator('.autopsyLead > p')).toHaveCSS('font-family',/Brief Body Reference 5/);await expect(autopsy.locator('.autopsyLead > p')).toHaveCSS('line-height','28px');
+  const autopsyParagraphs=autopsy.locator('.autopsyLead > p');
+  expect(await autopsyParagraphs.count()).toBeGreaterThan(0);
+  for(const paragraph of await autopsyParagraphs.all()){
+   await expect(paragraph).toHaveCSS('font-family',/Brief Body Reference 5/);
+   await expect(paragraph).toHaveCSS('line-height','28px');
+  }
   await expect(autopsy).toHaveCSS('border-top-width','1px');await expect(autopsy.locator('.autopsyLead')).toHaveCSS('border-bottom-width','0px');
   await expect(page.locator('.standingsWrap')).toHaveCSS('border-top-width','1px');
   expect(await table.locator('tbody tr').count()).toBeGreaterThan(0);

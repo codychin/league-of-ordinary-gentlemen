@@ -1,0 +1,34 @@
+{
+  "loog": {
+    "week": 10,
+    "headline": "Week 10, the final account",
+    "body": "Hopkins is 8–2 after beating Kraft, while the Chosen Ones move to 7–3 with the week's high score. Skatt survives Shake 'N Baker by 1.19; All Ugly beats Route 22 by 10.66. Danir and New Team Name also win. All six results are provider-final.",
+    "approval": {
+      "source": "Cody’s Approved reply to the exact Week 10 package, relayed by coordinating parent",
+      "packetSha256": "7c9626292bbffffdb4059fbdbe5e20c3accd800c439a4f5638ae173289ced657",
+      "scope": "18 written recaps and league weekly sections; no new video publication"
+    }
+  },
+  "sunday-crew": {
+    "week": 10,
+    "headline": "Week 10, the final account",
+    "body": "Sandy led Week 10 with 184.7 and beat J Bird despite Joe’s 160.66. Runit and Paul reached 7–3 through very different wins: 174.1 for RBs are Overrated, 96.32 for Croatian Sensation. Ravi, Matt and Drew also won. All six matchups are Yahoo-final.",
+    "approval": {
+      "source": "Cody’s Approved reply to the exact Week 10 package, relayed by coordinating parent",
+      "packetSha256": "7c9626292bbffffdb4059fbdbe5e20c3accd800c439a4f5638ae173289ced657",
+      "scope": "18 written recaps and league weekly sections; no new video publication"
+    }
+  },
+  "doge": {
+    "week": 10,
+    "headline": "Ordway clears nine; McConkey supplies the high score",
+    "body": [
+      "Ordway is 9–1 after a 69.32-point win over Caleb’s Elite Touch Rate. Tranimal moves to 8–2, while Nix in 5 and Extremely Tight Ends both reach 6–4. McConkey Kong leads the week with 180.68 and returns to 5–5. T. Ocellus beats Jerruh’s World by 9.34, leaving both 4–6. All six Week 10 matchups are provider-final."
+    ],
+    "approval": {
+      "source": "Cody’s Approved reply to the exact Week 10 package, relayed by coordinating parent",
+      "packetSha256": "7c9626292bbffffdb4059fbdbe5e20c3accd800c439a4f5638ae173289ced657",
+      "scope": "18 written recaps and league weekly sections; no new video publication"
+    }
+  }
+}

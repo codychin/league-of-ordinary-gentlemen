@@ -2578,5 +2578,617 @@
       ],
       "verification": "Authenticated Yahoo Week 8 final scores and all 24 league-specific weekly roster starter sums rechecked November 4; exact staged body hash matched."
     }
+  },
+  {
+    "edition": "loog",
+    "season": 2026,
+    "week": 10,
+    "teamIds": [
+      "1",
+      "12"
+    ],
+    "writer": "sorrell",
+    "headline": "The correction had no jurisdiction",
+    "body": "CeeDeep won the quarterback comparison. Josh Allen scored 25.84 to C.J. Stroud’s 19.74. Establish that before somebody tries to turn an 80.5-point defeat into a lesson about the quarterback. The Chosen Ones won 191.34–110.84 while conceding a perfectly useful advantage at the position everyone is trained to notice first.\n\nChristian McCaffrey scored 56.6. Isaiah Likely added 31.7. Between them, they produced 88.3, nearly four-fifths of CeeDeep’s entire total. DJ Moore supplied another 23.5, the Vikings defense twenty-one. The Chosen Ones did not require universal excellence. A.J. Brown’s 3.7 was allowed to remain a small number inside a very large victory. That is what sufficient help looks like when it stops being an aspirational phrase.\n\nTank Dell’s unused points could have reversed CeeDeep’s previous loss. He did start this time. He scored 4.2. The adjustment was real; its jurisdiction did not extend to requiring the previous performance to recur, much less preventing McCaffrey’s. Lamb’s 19.2 and Allen’s work gave CeeDeep genuine production. They did not give the rest of the lineup permission to disappear into the explanation.\n\nThe Chosen Ones are 7–3; CeeDeep is 4–6. There is a seductive little theory that once the obvious mistake is corrected, fairness should handle the remaining arrangements. CeeDeep changed the selection and met a team scoring one ninety-one. The grievance may have been legitimate. It was never a defense.",
+    "kind": "recap",
+    "editorialVersion": "week10-loog-recaps-v1a-20261117",
+    "source": {
+      "path": "data/week10-loog-final-evidence.json",
+      "capturedAt": "2026-11-17T08:59:03.344Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "1",
+          "points": 191.34
+        },
+        {
+          "teamId": "12",
+          "points": 110.84
+        }
+      ]
+    },
+    "approval": {
+      "source": "Cody’s Approved reply to the exact Week 10 package, relayed by coordinating parent",
+      "packetSha256": "7c9626292bbffffdb4059fbdbe5e20c3accd800c439a4f5638ae173289ced657",
+      "scope": "18 written recaps and league weekly sections; no new video publication"
+    }
+  },
+  {
+    "edition": "loog",
+    "season": 2026,
+    "week": 10,
+    "teamIds": [
+      "11",
+      "10"
+    ],
+    "writer": "march",
+    "headline": "The guests did arrive",
+    "body": "Royrek corrected the attendance problem. The final lineup did not leave Barkley, Goedert and Lutz in the starting places recorded in Thursday’s provisional lineup. Austin Ekeler, Mark Andrews and Chris Boswell were there instead. New Team Name likewise supplied Jason Sanders at kicker. Everyone had made the necessary arrangements. It would be ungracious to continue criticizing invitations that had already been amended.\n\nThe guests then provided rather different evenings. Andrews contributed 15.2, Ekeler 11.1 and Boswell 4.5. Those were actual points, not empty appointments. Yet nobody in Royrek’s lineup exceeded Justin Jefferson’s 17.4. Matthew Golden, whose extraordinary previous week had prompted our concern about his distinguished company, supplied an ordinary 11.5. This time he was neither required nor able to carry the gathering.\n\nNew Team Name won 148.88–113.38 with Parker Washington, Chase Brown and Trevor Lawrence all above thirty. This allowed a remarkable degree of tolerance elsewhere. Mike Washington Jr. and Omar Cooper Jr. combined for 2.5 in the flex, Cooper contributing minus one. There are social arrangements in which a guest can leave the evening having made things worse and still be included in the successful group photograph.\n\nNew Team Name is 5–5; Royrek is 3–7. The thirty-five-and-a-half-point margin should not conceal the improvement in Royrek’s preparation, nor should that improvement be asked to explain away the result. The places were filled. Unfortunately, the other side had three people capable of doing considerably more than turning up.",
+    "kind": "recap",
+    "editorialVersion": "week10-loog-recaps-v1a-20261117",
+    "source": {
+      "path": "data/week10-loog-final-evidence.json",
+      "capturedAt": "2026-11-17T08:59:03.344Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "11",
+          "points": 148.88
+        },
+        {
+          "teamId": "10",
+          "points": 113.38
+        }
+      ]
+    },
+    "approval": {
+      "source": "Cody’s Approved reply to the exact Week 10 package, relayed by coordinating parent",
+      "packetSha256": "7c9626292bbffffdb4059fbdbe5e20c3accd800c439a4f5638ae173289ced657",
+      "scope": "18 written recaps and league weekly sections; no new video publication"
+    }
+  },
+  {
+    "edition": "loog",
+    "season": 2026,
+    "week": 10,
+    "teamIds": [
+      "6",
+      "2"
+    ],
+    "writer": "gannon",
+    "headline": "The quarterback was bad. The explanation is incomplete.",
+    "body": "Drake Maye scored 2.12. There is no reason to disguise that as an encouraging process outcome. There is also no reason to let it explain a defeat it cannot mathematically explain. Jordan Love supplied 9.9 on Pollard Greens’ bench. Make that substitution and the 58.14-point loss becomes a 50.36-point loss. The improved imaginary lineup still needs fifty points from somewhere.\n\nThe changes below quarterback also produced limited help. Keaton Mitchell returned 2.45; Chig Okonkwo scored 7.9. Kyle Pitts, moved into flex, supplied six. Antonio Williams had 13.2 on the bench, a useful retrospective alternative to Pitts, but not remotely a rescue. The most substantial support came from Jaxon Smith-Njigba’s 37.1 and Quinshon Judkins’ 18.1. Two good contributions do not become ten because the rest of the screen has been rearranged.\n\nDanir’s result makes the comparison less comfortable. Last week’s victory included thirty-three from kicker and defense. This week those slots combined for eight, and DarkHorse won 170.71–112.57 anyway. Gibbs and Purdy supplied 88.26; Tuten added 23.9. The eight offensive starters generated 162.71 without requiring the specialists to repeat their previous assistance. Keenan Allen, not Thursday’s selected Caleb Douglas, occupied the final receiver slot and supplied 12.1.\n\nDanir is 5–5; Pollard is 4–6. The losing quarterback deserves criticism. He does not deserve the power to make every other shortfall disappear. Removing the most obvious problem is not the same calculation as finding a winning team.",
+    "kind": "recap",
+    "editorialVersion": "week10-loog-recaps-v1a-20261117",
+    "source": {
+      "path": "data/week10-loog-final-evidence.json",
+      "capturedAt": "2026-11-17T08:59:03.344Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "6",
+          "points": 112.57
+        },
+        {
+          "teamId": "2",
+          "points": 170.71
+        }
+      ]
+    },
+    "approval": {
+      "source": "Cody’s Approved reply to the exact Week 10 package, relayed by coordinating parent",
+      "packetSha256": "7c9626292bbffffdb4059fbdbe5e20c3accd800c439a4f5638ae173289ced657",
+      "scope": "18 written recaps and league weekly sections; no new video publication"
+    }
+  },
+  {
+    "edition": "loog",
+    "season": 2026,
+    "week": 10,
+    "teamIds": [
+      "3",
+      "4"
+    ],
+    "writer": "crane",
+    "headline": "The small jobs got smaller. The team won.",
+    "body": "Price and Marks did less, and All Ugly won. Their combined 21.75 was below the 26.4 that accompanied last week’s forty-one-point defeat. This is an awkward development for anyone who wanted a simple story about two men finally learning how to save a fantasy team. They had already been useful. This week, more people joined them.\n\nAmon-Ra St. Brown supplied 29.8, Jared Goff 25.52 and Omarion Hampton 23.7. Yet Route’s offensive starters still outscored All Ugly’s by 10.09. The rescue came from the least romantic corner: Cam Little and the Rams defense produced 41.5, beating Route’s kicker and defense by 20.75. I am prepared to admit that this is an inelegant way to recover one’s dignity. At 2–7, elegance can submit its application after the result.\n\nAll Ugly won 165.07–154.41 and is now 3–7. Route Twenty-Two received 41.3 from Emmett Johnson in the flex, a tremendous piece of help that deserved a happier supporting cast. James Cook added 31.5. Ryan Flournoy’s 18.1 remained on the bench while Tutu Atwell supplied 5.1 in the other flex. That thirteen-point hindsight change reverses the result by 2.34. It does not tell us what the decision looked like before the games.\n\nRoute is 5–5. Ordinary improvement has now won without performing an exorcism: Price and Marks gave less and got more assistance. Emmett Johnson, on the other side, gave forty-one and still lost. Somebody should tell him immediately that this is not a performance review.",
+    "kind": "recap",
+    "editorialVersion": "week10-loog-recaps-v1a-20261117",
+    "source": {
+      "path": "data/week10-loog-final-evidence.json",
+      "capturedAt": "2026-11-17T08:59:03.344Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "3",
+          "points": 165.07
+        },
+        {
+          "teamId": "4",
+          "points": 154.41
+        }
+      ]
+    },
+    "approval": {
+      "source": "Cody’s Approved reply to the exact Week 10 package, relayed by coordinating parent",
+      "packetSha256": "7c9626292bbffffdb4059fbdbe5e20c3accd800c439a4f5638ae173289ced657",
+      "scope": "18 written recaps and league weekly sections; no new video publication"
+    }
+  },
+  {
+    "edition": "loog",
+    "season": 2026,
+    "week": 10,
+    "teamIds": [
+      "5",
+      "8"
+    ],
+    "writer": "kells",
+    "headline": "Please appreciate the ordinary seven",
+    "body": "Jakobi Meyers scored 7.5, an entirely respectable amount to contribute to someone else’s impressive afternoon. Chuba Hubbard supplied 37.9. Bijan Robinson added 18.3. Norm had assembled enough production to make seven and a half look like the sort of contribution nobody would need to discuss at length.\n\nThen Skatt won 160.75–159.56. Suddenly the ordinary number required representation. Alvin Kamara’s 15.6 was on Norm’s bench; replacing Meyers with Kamara in that flex would have supplied another 8.1. This is hindsight, not proof that the selection was unreasonable. It is nevertheless a particularly unpleasant form of hindsight: there was no need to discover a new star, acquire a new player or invent a new position. The alternative already belonged to the team.\n\nSkatt’s winning arrangement was hardly immaculate. Bryce Young scored 9.2 while Deshaun Watson’s unused 25.18 sat nearby. Chase, Deebo and Skattebo supplied 100.05 between them; Xavier Hutchinson added 14.8 in the flex. Denzel Boston’s 5.6 and Trey McBride’s 7.7 were permitted to remain modest contributions rather than become the subject of an inquiry.\n\nBoth teams built a credible application for being allowed an ordinary return. Skatt, now 6–4, gets to approve his. Norm is 4–6 with 159.56 points and the privilege of being told which eight he should have found. A margin of 1.19 has given everyone excellent taste in running backs.",
+    "kind": "recap",
+    "editorialVersion": "week10-loog-recaps-v1a-20261117",
+    "source": {
+      "path": "data/week10-loog-final-evidence.json",
+      "capturedAt": "2026-11-17T08:59:03.344Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "5",
+          "points": 160.75
+        },
+        {
+          "teamId": "8",
+          "points": 159.56
+        }
+      ]
+    },
+    "approval": {
+      "source": "Cody’s Approved reply to the exact Week 10 package, relayed by coordinating parent",
+      "packetSha256": "7c9626292bbffffdb4059fbdbe5e20c3accd800c439a4f5638ae173289ced657",
+      "scope": "18 written recaps and league weekly sections; no new video publication"
+    }
+  },
+  {
+    "edition": "loog",
+    "season": 2026,
+    "week": 10,
+    "teamIds": [
+      "9",
+      "7"
+    ],
+    "writer": "pike",
+    "headline": "The replacement worked. The replacement plan did not.",
+    "body": "Blake Corum supplied 26.6 for Kraft. Jordyn Tyson added eighteen. Those are useful returns from the group asked to absorb a substantial change in personnel. A 49.11-point defeat makes it tempting to call the replacement effort a failure and move on. Corum and Tyson deserve a more itemized account of what failed around them.\n\nJoe Burrow and Nico Collins supplied 61.66 together. Add Corum and Tyson and four starters produced 106.26 of Kraft’s 129.31. That left six other places contributing 23.05, including 0.1 from Germie Bernard and 2.15 from Bam Knight. Production had survived in several places. It had not survived across enough of the lineup to make those places sufficient.\n\nHopkins won 178.42–129.31 and improved to 8–2. Pollard supplied 23.8 at running back in the redistributed lineup. More decisively, Mahomes and Pickens delivered 85.12 together. Hopkins’s two flex players totaled only 11.7. A contender does not need to eliminate every weak return; it needs enough productive positions that the weak returns stop deciding the afternoon. Kraft, now 6–4, did not have that coverage.\n\nNor was the missing total simply available for collection. Kaelon Black’s unused 16.7 would have helped enormously in Bernard’s flex place. Even that single change leaves Kraft 32.51 behind. The practical question after this loss is not why nobody found a miracle on the bench. It is how many separate obligations are still being assigned to the few players already meeting theirs.",
+    "kind": "recap",
+    "editorialVersion": "week10-loog-recaps-v1a-20261117",
+    "source": {
+      "path": "data/week10-loog-final-evidence.json",
+      "capturedAt": "2026-11-17T08:59:03.344Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "9",
+          "points": 129.31
+        },
+        {
+          "teamId": "7",
+          "points": 178.42
+        }
+      ]
+    },
+    "approval": {
+      "source": "Cody’s Approved reply to the exact Week 10 package, relayed by coordinating parent",
+      "packetSha256": "7c9626292bbffffdb4059fbdbe5e20c3accd800c439a4f5638ae173289ced657",
+      "scope": "18 written recaps and league weekly sections; no new video publication"
+    }
+  },
+  {
+    "edition": "sunday-crew",
+    "season": 2026,
+    "week": 10,
+    "teamIds": [
+      "1",
+      "7"
+    ],
+    "writer": "march",
+    "headline": "The quarterback was allowed a quiet afternoon",
+    "body": "Sandy changed quarterbacks, left the better score on the bench again, and won by 24.04. There is a certain relief in a result refusing to become another referendum on the seating plan. Jordan Love supplied 11.8; Jared Goff had 24.42 unused. That comparison is available to anyone wishing to make the afternoon less pleasant. It is not the explanation of the afternoon.\n\nZAYWATCH’s three receivers supplied 103.1. Chase contributed 45.6, Parker Washington 31.7 and Amon-Ra St. Brown 25.8. Each exceeded Love’s contribution comfortably. Together they made an ordinary quarterback return something the rest of the lineup could accommodate, rather than a personal affront requiring immediate investigation. Sandy finished with the league’s highest total, 184.7.\n\nJoe’s Burrow and McCaffrey supplied 88.46 between them. Add Chase Brown and three players produced 112.76 of J Bird’s 160.66. That is formidable assistance, but it remained concentrated in a small part of the room. The three receivers combined for 21.1. Garrett Wilson accounted for most of it; even an enormous afternoon from McCaffrey could not make those positions cease to exist.\n\nBoth arrived at 4–5. Sandy leaves at 5–5, Joe at 4–6. None of this proves which quarterback selection was sensible before kickoff. It does establish who could survive an imperfect one. Sandy’s change was conspicuous. His receivers performed the much more useful courtesy of making it unimportant.",
+    "kind": "recap",
+    "editorialVersion": "week10-sunday-recaps-v1-20261117",
+    "source": {
+      "path": "data/week10-sunday-crew-final-evidence.json",
+      "capturedAt": "2026-11-17T13:06:53.621Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "1",
+          "points": 184.7
+        },
+        {
+          "teamId": "7",
+          "points": 160.66
+        }
+      ]
+    },
+    "approval": {
+      "source": "Cody’s Approved reply to the exact Week 10 package, relayed by coordinating parent",
+      "packetSha256": "7c9626292bbffffdb4059fbdbe5e20c3accd800c439a4f5638ae173289ced657",
+      "scope": "18 written recaps and league weekly sections; no new video publication"
+    }
+  },
+  {
+    "edition": "sunday-crew",
+    "season": 2026,
+    "week": 10,
+    "teamIds": [
+      "2",
+      "4"
+    ],
+    "writer": "crane",
+    "headline": "A win with several parts missing",
+    "body": "Paul won with 3.02 from his quarterback and zero from his kicker. There are victories you frame and victories you should probably inspect underneath before driving home. Croatian Sensation’s 96.32 beat Andrew’s 75.64, and the standings quite properly decline to ask any follow-up questions. Paul is 7–3. Andrew is 4–6. The paperwork is immaculate.\n\nThe actual machinery was less complete. James Cook supplied 30.7 and Deebo Samuel 26.4: 57.1 from two players, against 39.22 from the other eight starters. That pair accounted for nearly sixty percent of Paul’s total. A team can carry a weak contribution. Here, two men carried enough weak contributions to qualify for a group rate.\n\nAndrew’s Stroud and Chiefs defense supplied 37.54, almost half his final score. His running backs combined for 11.1; the three receivers, 22.9. The little flex argument that looked worth watching in the provisional lineups never materialized. Montgomery and Hunter Henry were not the final opponents there. Germie Bernard scored one for Andrew; Tutu Atwell answered with 3.6. Neither appears to have been entrusted with the decisive portion of the journey.\n\nNine other Sunday Crew teams scored more than Paul. That is not a reason to revoke the win, nor proof that he deserved to lose. It is a reason to distinguish the result from the vehicle that produced it. The schedule asked Croatian Sensation to beat Andrew. Cook and Deebo got it there. I would still look underneath.",
+    "kind": "recap",
+    "editorialVersion": "week10-sunday-recaps-v1-20261117",
+    "source": {
+      "path": "data/week10-sunday-crew-final-evidence.json",
+      "capturedAt": "2026-11-17T13:06:53.621Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "2",
+          "points": 75.64
+        },
+        {
+          "teamId": "4",
+          "points": 96.32
+        }
+      ]
+    },
+    "approval": {
+      "source": "Cody’s Approved reply to the exact Week 10 package, relayed by coordinating parent",
+      "packetSha256": "7c9626292bbffffdb4059fbdbe5e20c3accd800c439a4f5638ae173289ced657",
+      "scope": "18 written recaps and league weekly sections; no new video publication"
+    }
+  },
+  {
+    "edition": "sunday-crew",
+    "season": 2026,
+    "week": 10,
+    "teamIds": [
+      "3",
+      "12"
+    ],
+    "writer": "sorrell",
+    "headline": "The name does not bind the running backs",
+    "body": "RBs are Overrated won the running-back comparison by 47.2 points. Chuba Hubbard and Tony Pollard supplied 51.6; Corey Kiner and Bam Knight supplied 4.4. Runit is entitled to name his team whatever he pleases. His running backs are evidently entitled to submit a dissenting opinion in the only format the standings recognize.\n\nThis was not a narrow win explained entirely by one position. Runit scored 174.1 to Patrick’s 92.52, with George Pickens adding forty and Josh Allen 25.34. The league’s season scoring leader behaved like the league’s season scoring leader. Its introductory credentials required no apology, and its record is now 7–3. The running backs merely supplied the most pointed correction to the branding.\n\nPatrick’s useful work remained visible. Dak Prescott scored 35.42 and DJ Moore 19.4 in the flex. They accounted for 54.82 of the team’s total. His three receiver slots supplied 8.2 combined, his tight end 1.4. There was no reserve offensive score waiting to turn this into a close result: the bench contained zeros alongside Stevenson’s one and Mendoza’s 13.92. That is a description of this week’s options, not an accusation about why anyone was unavailable.\n\nPatrick falls to 3–7. Swapping a name or polishing the explanation cannot erase an 81.58-point defeat; it needs more productive positions, not a more persuasive account of the productive two. Runit, meanwhile, has accumulated 1,406.14 points. There is no requirement to rename the team. The running backs have already put their objection in the record.",
+    "kind": "recap",
+    "editorialVersion": "week10-sunday-recaps-v1-20261117",
+    "source": {
+      "path": "data/week10-sunday-crew-final-evidence.json",
+      "capturedAt": "2026-11-17T13:06:53.621Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "3",
+          "points": 92.52
+        },
+        {
+          "teamId": "12",
+          "points": 174.1
+        }
+      ]
+    },
+    "approval": {
+      "source": "Cody’s Approved reply to the exact Week 10 package, relayed by coordinating parent",
+      "packetSha256": "7c9626292bbffffdb4059fbdbe5e20c3accd800c439a4f5638ae173289ced657",
+      "scope": "18 written recaps and league weekly sections; no new video publication"
+    }
+  },
+  {
+    "edition": "sunday-crew",
+    "season": 2026,
+    "week": 10,
+    "teamIds": [
+      "5",
+      "8"
+    ],
+    "writer": "kells",
+    "headline": "The glamorous problem had help",
+    "body": "Matt’s three-quarterback collection did finally supply an active starter. It also supplied 37.42 unused points from Patrick Mahomes. Tyler Shough scored 10.98 in the lineup, leaving an extremely photogenic retrospective grievance on the bench. Forte inch Ditka won 127.68–103.08 anyway. A victory can be a useful accessory when explaining a selection one would rather not explain.\n\nThe less glamorous arrangement was Isaiah Likely in the flex. He scored 27.2, more than twice Shough’s return and almost as much as Trevor Lawrence’s 27.78 for Poon. Matt’s extra tight end was not a quaint formatting choice. He was the team’s highest scorer, working from a slot that refuses to specify what sort of person should rescue the afternoon.\n\nMatt lost the quarterback comparison by 16.8. Across the other nine starting positions, he gained 41.4. Hampton and Collins both reached nineteen; the Bills defense supplied 14.7. Poon’s three receivers managed 14.1 together, with Watson contributing 5.2 after his much larger previous return. The weakness was not the man who outscored Shough. Lawrence had already done that part.\n\nForte is 4–6; Poon is 6–4. The unused Mahomes score remains unused, and winning does not transform the lineup into the best possible selection. It simply gives Matt something more interesting to point at. There is a large difference between owning an answer on the bench and having enough assistance on the field to stop demanding one. Likely supplied the latter. He can keep the flex seat.",
+    "kind": "recap",
+    "editorialVersion": "week10-sunday-recaps-v1-20261117",
+    "source": {
+      "path": "data/week10-sunday-crew-final-evidence.json",
+      "capturedAt": "2026-11-17T13:06:53.621Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "5",
+          "points": 127.68
+        },
+        {
+          "teamId": "8",
+          "points": 103.08
+        }
+      ]
+    },
+    "approval": {
+      "source": "Cody’s Approved reply to the exact Week 10 package, relayed by coordinating parent",
+      "packetSha256": "7c9626292bbffffdb4059fbdbe5e20c3accd800c439a4f5638ae173289ced657",
+      "scope": "18 written recaps and league weekly sections; no new video publication"
+    }
+  },
+  {
+    "edition": "sunday-crew",
+    "season": 2026,
+    "week": 10,
+    "teamIds": [
+      "6",
+      "11"
+    ],
+    "writer": "gannon",
+    "headline": "The repaired weakness was not the new defeat",
+    "body": "Greg’s three receivers scored 43.6, compared with 9.3 from his starting trio last week. They also outscored Ravi’s receivers by four. Tolbert’s Cookies lost by 34.96. Anyone using the defeat to dismiss the receiver improvement is evaluating a real repair by whether it fixed several different problems at once.\n\nThe comparison that explains the margin sits elsewhere. Ravi gained 12.66 at quarterback and 4.6 across the two running-back slots. Cam Little and Seattle’s defense supplied 32.7 against eleven from Greg’s kicker and defense, another 21.7. Those advantages add to 38.96. Across receivers, tight end and flex, Greg recovered four. The final was 134.06–99.1. No single disappointing receiver is required to make that arithmetic work.\n\nALLENtown’s practical lineup problems were resolved, too. Matthew Stafford supplied 20.76 at quarterback; Mark Andrews scored 12.2 at tight end, alongside Hall’s 12.8 in the flex. Nix and Hockenson were on the bench, not preserved in starting slots because Thursday’s arrangement made an easier cautionary story. We should retire a problem when the team actually fixes it.\n\nBoth teams are now 6–4. Greg’s improved receivers are not consolation invented after the fact: Diggs, Flournoy and Concepcion supplied useful points in a losing lineup. Ravi’s win likewise does not establish that 32.7 from kicker and defense is a weekly entitlement. The useful conclusion is narrower and more demanding. Several positions improved. Several other comparisons decided the game. Keep both facts before choosing what to change next.",
+    "kind": "recap",
+    "editorialVersion": "week10-sunday-recaps-v1-20261117",
+    "source": {
+      "path": "data/week10-sunday-crew-final-evidence.json",
+      "capturedAt": "2026-11-17T13:06:53.621Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "6",
+          "points": 134.06
+        },
+        {
+          "teamId": "11",
+          "points": 99.1
+        }
+      ]
+    },
+    "approval": {
+      "source": "Cody’s Approved reply to the exact Week 10 package, relayed by coordinating parent",
+      "packetSha256": "7c9626292bbffffdb4059fbdbe5e20c3accd800c439a4f5638ae173289ced657",
+      "scope": "18 written recaps and league weekly sections; no new video publication"
+    }
+  },
+  {
+    "edition": "sunday-crew",
+    "season": 2026,
+    "week": 10,
+    "teamIds": [
+      "9",
+      "10"
+    ],
+    "writer": "pike",
+    "headline": "The repair moved the deficit",
+    "body": "Cody’s running backs supplied 47.6. Emmett Johnson scored 34.1 and Ollie Gordon 13.5, so the familiar story about receivers carrying an unproductive backfield no longer describes CHANE GANG’s afternoon. Jaxon Smith-Njigba added 36.1. Useful work had spread to another part of the lineup. Scrump still won 174.36–140.26.\n\nThe return was better; the comparison remained expensive. Drew’s Robinson and Gibbs supplied 63.4 from the two running-back slots. More consequentially, Skattebo produced 25.7 from the flex against Kaleb Johnson’s 4.2, a difference of 21.5. Drew could absorb a zero from Omar Cooper because the flexible part of his lineup was doing considerably more than filling a space.\n\nCody won the three-receiver comparison by 25.8. Drew recovered 50.2 across quarterback, running backs and flex, then another 9.7 through tight end, kicker and defense. Those differences produce the 34.1-point margin without requiring us to pretend the receiver advantage was imaginary or the backfield improvement irrelevant. Nor is there a convenient bench verdict: Cody’s reserves supplied no unused points this week. This was not a winning total accidentally left in the wrong row.\n\nScrump returns to .500 at 5–5; CHANE GANG falls to 3–7. One repair does not buy immunity from the rest of the lineup, and no trade recommendation follows automatically from one result. The useful change is that Cody’s running backs finally contributed substantially. The outstanding bill is now easier to locate. Drew received 25.7 for a job Cody filled with 4.2.",
+    "kind": "recap",
+    "editorialVersion": "week10-sunday-recaps-v1-20261117",
+    "source": {
+      "path": "data/week10-sunday-crew-final-evidence.json",
+      "capturedAt": "2026-11-17T13:06:53.621Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "9",
+          "points": 174.36
+        },
+        {
+          "teamId": "10",
+          "points": 140.26
+        }
+      ]
+    },
+    "approval": {
+      "source": "Cody’s Approved reply to the exact Week 10 package, relayed by coordinating parent",
+      "packetSha256": "7c9626292bbffffdb4059fbdbe5e20c3accd800c439a4f5638ae173289ced657",
+      "scope": "18 written recaps and league weekly sections; no new video publication"
+    }
+  },
+  {
+    "edition": "doge",
+    "season": 2026,
+    "week": 10,
+    "teamIds": [
+      "1",
+      "11"
+    ],
+    "writer": "crane",
+    "headline": "The hole belonged to the winner",
+    "body": "Drake Maye scored 3.02 for Ordway. That is a fairly conspicuous invitation to examine the favorite for structural weakness. Cody’s quarterback scored more. So did Cody’s kicker. So did Konata Mumpfield. There was, unmistakably, a hole in the league leader’s lineup. Ordway won by 69.32.\n\nThe important development was taking place around the hole. Ordway’s four starting running backs supplied 77.8, up from 21.8 the previous week. Chuba Hubbard and Cam Skattebo accounted for 57.4 of that. Add Ja’Marr Chase’s 34.6 and the quarterback problem begins to look like something the neighbors have agreed not to mention. Maye did not improve. The need for him to improve disappeared from this particular result.\n\nCody did repair something. His flexes went from 5.4 to 14.1, with Mumpfield doing most of the work. Brown and Hampton added 43.3 from the running-back slots. Those are real contributions, not consolation points that become imaginary because the final score is unpleasant. But the two receivers and tight end combined for nine. The improvement was surrounded, and Ordway’s supporting cast had grown considerably more dangerous than the one that escaped by 1.32 last week.\n\nOrdway is 9–1; Cody is 4–6. The favorite had supplied an obvious thing to criticize and then made criticism irrelevant to beating him. I prefer a hole you can actually get through. This one was mostly useful for watching Hubbard go past.",
+    "kind": "recap",
+    "editorialVersion": "week10-doge-recaps-v1-20261117",
+    "source": {
+      "path": "data/week10-doge-final-evidence.json",
+      "capturedAt": "2026-11-17T13:06:55.137Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "1",
+          "points": 84.5
+        },
+        {
+          "teamId": "11",
+          "points": 153.82
+        }
+      ]
+    },
+    "approval": {
+      "source": "Cody’s Approved reply to the exact Week 10 package, relayed by coordinating parent",
+      "packetSha256": "7c9626292bbffffdb4059fbdbe5e20c3accd800c439a4f5638ae173289ced657",
+      "scope": "18 written recaps and league weekly sections; no new video publication"
+    }
+  },
+  {
+    "edition": "doge",
+    "season": 2026,
+    "week": 10,
+    "teamIds": [
+      "2",
+      "9"
+    ],
+    "writer": "pike",
+    "headline": "The old return did not transfer",
+    "body": "Denzel Boston scored 2.1 in Alan’s flex. Tyler Allgeier scored 1.4 in Pete’s. Both had arrived carrying an argument about points previously left on the bench. Neither brought the points with him. Pete nevertheless won 127.26–98.24, which is a useful reminder that the asset and its most flattering screenshot are sold separately.\n\nBoston’s unused 14.8 from last week was not a balance Alan could withdraw this Sunday. Allgeier’s previous bench return had been 5.6. The attraction of correcting a lineup is that the correction comes with a number attached. That number describes an opportunity already gone. The next return remains irritatingly uncooperative.\n\nPete’s actual protection came from elsewhere. Purdy and Cook supplied 61.36, nearly half his total, and five other starters reached at least eight. Allgeier’s 1.4 remained bad. It simply did not have enough leverage to ruin the team. Alan had no comparable cushion: his two flexes supplied 5.8, Mason added 5.9, and nobody exceeded Stroud’s 21.44. There were several small deficits rather than one glamorous mistake.\n\nHindsight can improve Alan’s total. Kamara for Mason adds nine; Keenan Allen for Boston adds another 6.5. Even granting both substitutions leaves a 13.52-point defeat. That is not proof the original choices were correct. It is a limit on what those particular arguments can recover. Pete moves to 6–4, Alan to 4–6. The valuable thing Pete bought this week was room for one purchase not to work.",
+    "kind": "recap",
+    "editorialVersion": "week10-doge-recaps-v1-20261117",
+    "source": {
+      "path": "data/week10-doge-final-evidence.json",
+      "capturedAt": "2026-11-17T13:06:55.137Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "2",
+          "points": 98.24
+        },
+        {
+          "teamId": "9",
+          "points": 127.26
+        }
+      ]
+    },
+    "approval": {
+      "source": "Cody’s Approved reply to the exact Week 10 package, relayed by coordinating parent",
+      "packetSha256": "7c9626292bbffffdb4059fbdbe5e20c3accd800c439a4f5638ae173289ced657",
+      "scope": "18 written recaps and league weekly sections; no new video publication"
+    }
+  },
+  {
+    "edition": "doge",
+    "season": 2026,
+    "week": 10,
+    "teamIds": [
+      "3",
+      "12"
+    ],
+    "writer": "gannon",
+    "headline": "Win the important positions. Lose the game.",
+    "body": "The Bears won the quarterback comparison by 19.42. They won the two running-back positions by another 24.1. That is a 43.52-point advantage in three places we are usually quite pleased to call the foundation of a fantasy team. They lost to Nix in 5 by 27.98. The apparently secondary positions had produced a much larger deficit.\n\nPatrick filled the provisional holes in his lineup. Geno Smith replaced Nix at quarterback; Higbee occupied tight end rather than Loveland. They produced 5.92 and 9.2. Those changes matter because they supplied actual points, not because either constitutes a newly discovered winning formula. Smith was comfortably outscored by Allen, and Patrick’s running backs managed only 13.8 against Henry and Corum’s 37.9.\n\nThe useful comparison is the other seven slots. Patrick received 116.1 there; the Bears received 44.6. Washington and St. Brown combined for 54.5 at receiver, already exceeding the Bears’ entire seven-position remainder. Collins supplied another 19.9 in the flex. The opponent did not need to repair the quarterback disadvantage because it was being overwhelmed somewhere else.\n\nMeyers did start for the Bears and gave them 4.9. That settles his location, not the prior argument about his unused score. Last week’s result cannot be recalled into a different assignment. The Bears are now 4–6; Patrick is 6–4. A lineup can win the positions that command the most attention and still lose the matchup decisively. Here, the missing 71.5 points are a better place to begin than another conversation about the quarterback.",
+    "kind": "recap",
+    "editorialVersion": "week10-doge-recaps-v1-20261117",
+    "source": {
+      "path": "data/week10-doge-final-evidence.json",
+      "capturedAt": "2026-11-17T13:06:55.137Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "3",
+          "points": 107.84
+        },
+        {
+          "teamId": "12",
+          "points": 135.82
+        }
+      ]
+    },
+    "approval": {
+      "source": "Cody’s Approved reply to the exact Week 10 package, relayed by coordinating parent",
+      "packetSha256": "7c9626292bbffffdb4059fbdbe5e20c3accd800c439a4f5638ae173289ced657",
+      "scope": "18 written recaps and league weekly sections; no new video publication"
+    }
+  },
+  {
+    "edition": "doge",
+    "season": 2026,
+    "week": 10,
+    "teamIds": [
+      "4",
+      "6"
+    ],
+    "writer": "march",
+    "headline": "The kicker was allowed to do less",
+    "body": "Fairbairn scored seven for Sandy. Last week he had supplied seventeen in a defeat, a contribution sufficiently generous to make further requests awkward. This time seven was entirely acceptable. McConkey Kong won 180.68–124.12, and the kicker could leave without being asked whether he might possibly have managed another field goal.\n\nShough replaced Willis at quarterback and provided 10.98. It was an improvement, but not the grand explanation for the result. Quarterback and kicker together supplied 17.98, less than the 21.82 from those positions in the previous loss. The people most visibly associated with the old imbalance had, in combination, done less. The afternoon had become vastly more agreeable.\n\nMcCaffrey, Emmett Johnson and Pickens supplied 122.4 between them. Three players came within 1.72 of Corey’s entire team. This is assistance on a scale that changes the standards applied to everyone else. Cooper’s zero could remain a blemish rather than a catastrophe; Deebo’s 26.4 could remain on the bench without becoming the subject of the result. Sandy had room to be imperfect, which is a considerably more pleasant arrangement than requiring the kicker to be exceptional.\n\nCorey had useful contributions too. Smith-Njigba and Likely supplied 56.3; Rodgers gave him 15.62. They were not absent. They were outnumbered by an unusually productive trio. Sandy reaches 5–5 while Corey falls to 3–7. Fairbairn did ten points less and has ten fewer points to explain. The difference is what everyone else allowed him to be.",
+    "kind": "recap",
+    "editorialVersion": "week10-doge-recaps-v1-20261117",
+    "source": {
+      "path": "data/week10-doge-final-evidence.json",
+      "capturedAt": "2026-11-17T13:06:55.137Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "4",
+          "points": 124.12
+        },
+        {
+          "teamId": "6",
+          "points": 180.68
+        }
+      ]
+    },
+    "approval": {
+      "source": "Cody’s Approved reply to the exact Week 10 package, relayed by coordinating parent",
+      "packetSha256": "7c9626292bbffffdb4059fbdbe5e20c3accd800c439a4f5638ae173289ced657",
+      "scope": "18 written recaps and league weekly sections; no new video publication"
+    }
+  },
+  {
+    "edition": "doge",
+    "season": 2026,
+    "week": 10,
+    "teamIds": [
+      "5",
+      "8"
+    ],
+    "writer": "kells",
+    "headline": "The glamorous part was practically a tie",
+    "body": "Burrow scored 37.16. Mahomes scored 37.42. Two famous quarterbacks conducted an extremely expensive-looking conversation about a quarter of a point while Brandon Aubrey quietly supplied the difference people would actually have to live with. T. Ocellus beat Jerruh’s World by 9.34. Aubrey outscored Jason Myers by ten.\n\nI understand the temptation to frame this around Burrow. Last week he supplied 31.54 in a loss so large that his competence barely disturbed it. This week he was excellent again, but so was the quarterback opposite him. There is something rude about asking a star to rescue your afternoon and discovering that the other side has booked essentially the same performance.\n\nBryan finally gave his quarterback a usable setting. Taylor, Judkins and Moore supplied 45.3, and Aubrey added twelve. That does not make the whole supporting cast suddenly chic. Bryan’s flexes combined for 6.2; Bernard scored one at receiver. Nobody needs to commission a group portrait. Enough of the other people contributed to let the attractive part of the lineup matter.\n\nAndrew received 16.1 from Flournoy and sixteen from the Rams defense, but Kiner, Sampson, Warren and Douglas supplied only 10.5 across four starting slots. Mahomes could win his little personal comparison and still lose the afternoon. Both teams are 4–6 now. Burrow’s thirty-seven was finally useful because the rest of the lineup kept it useful. The glamorous part was practically a tie. Naturally, the deciding company wore a kicking shoe.",
+    "kind": "recap",
+    "editorialVersion": "week10-doge-recaps-v1-20261117",
+    "source": {
+      "path": "data/week10-doge-final-evidence.json",
+      "capturedAt": "2026-11-17T13:06:55.137Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "5",
+          "points": 99.32
+        },
+        {
+          "teamId": "8",
+          "points": 108.66
+        }
+      ]
+    },
+    "approval": {
+      "source": "Cody’s Approved reply to the exact Week 10 package, relayed by coordinating parent",
+      "packetSha256": "7c9626292bbffffdb4059fbdbe5e20c3accd800c439a4f5638ae173289ced657",
+      "scope": "18 written recaps and league weekly sections; no new video publication"
+    }
+  },
+  {
+    "edition": "doge",
+    "season": 2026,
+    "week": 10,
+    "teamIds": [
+      "7",
+      "10"
+    ],
+    "writer": "sorrell",
+    "headline": "The zero kept its place",
+    "body": "Josh Jacobs’s zero remained in Bennett’s flex. The impressive record did not fill that place, and Sunday did not quietly turn it into a contribution. Tranimal won anyway, 125.72–112.1. There is always a danger that winning will be asked to certify things it merely survived.\n\nOne of the two provisional flex problems did receive an answer. Metcalf occupied the other place and scored 14.4, while Irving stayed on the bench. That was useful work. But Prescott and Gibbs supplied 80.12 between them, almost two thirds of Bennett’s total. Their exceptional production did most of the defending of a lineup that still carried a zero. The credential was real; so was the unresolved defect.\n\nMoe, who won last week with nine starting slots occupied, had ten scoring positions this time. Little supplied nineteen from kicker, Diggs 17.3 and Lamb 16.7. That is a more complete distribution, but completeness is not a scoring bonus. His quarterback gave him 11.8 against Prescott’s 35.42, and no individual on his side approached Gibbs’s 44.7. Bennett could lose a contribution entirely because two others were so large.\n\nTranimal moves to 8–2; Moe is 3–7. The correct distinction is not between a winner whose choices are vindicated and a loser whose effort must have been inadequate. Metcalf helped. Prescott and Gibbs rescued the arithmetic. Jacobs’s starting zero remained exactly what it was. The standings will remember one result. They should not be permitted to rewrite ten separate decisions.",
+    "kind": "recap",
+    "editorialVersion": "week10-doge-recaps-v1-20261117",
+    "source": {
+      "path": "data/week10-doge-final-evidence.json",
+      "capturedAt": "2026-11-17T13:06:55.137Z",
+      "status": "FINAL",
+      "scores": [
+        {
+          "teamId": "7",
+          "points": 125.72
+        },
+        {
+          "teamId": "10",
+          "points": 112.1
+        }
+      ]
+    },
+    "approval": {
+      "source": "Cody’s Approved reply to the exact Week 10 package, relayed by coordinating parent",
+      "packetSha256": "7c9626292bbffffdb4059fbdbe5e20c3accd800c439a4f5638ae173289ced657",
+      "scope": "18 written recaps and league weekly sections; no new video publication"
+    }
   }
 ]
