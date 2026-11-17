@@ -2,9 +2,10 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {selectLoogScores} from '../lib/select-loog-scores.mjs';
-import {leagueSnapshot} from '../app/teams/league-data.js';
+
 const read=p=>JSON.parse(fs.readFileSync('data/'+p));
-const latest=read('latest-loog-scores.json'),completed=read('completed-loog-scores.json'),lineups=read('week10-loog-selected-lineups.json'),archives=read('week9-edition-archives.json');
+const leagueSnapshot=read('week9-loog-snapshot.json');
+const latest=read('week10-loog-opening-scores.json'),completed=read('week9-loog-scores.json'),lineups=read('week10-loog-selected-lineups.json'),archives=read('week9-edition-archives.json');
 test('new exact-week slate is selected without erasing completed Week 9 or cumulative history',()=>{
  assert.equal(latest.week,10);assert.equal(completed.week,9);assert.equal(leagueSnapshot.week,9);
  assert.equal(selectLoogScores({latest,completed,now:Date.parse('2026-11-12T13:05:41Z')}).week,10);

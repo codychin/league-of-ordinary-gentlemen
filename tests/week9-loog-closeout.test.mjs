@@ -1,12 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {leagueSnapshot as current} from '../app/teams/league-data.js';
+
 import {selectLoogScores} from '../lib/select-loog-scores.mjs';
 import {selectCurrentLineups} from '../lib/select-current-lineups.mjs';
 const read=p=>JSON.parse(fs.readFileSync('data/'+p,'utf8'));
+const current=read('week9-loog-snapshot.json');
 const prior=read('week8-loog-snapshot.json'), source=read('week9-loog-final-evidence.json');
-const completed=read('completed-loog-scores.json'), latest=read('completed-loog-scores.json'), rosters=read('week9-loog-rosters.json');
+const completed=read('week9-loog-scores.json'), latest=read('week9-loog-scores.json'), rosters=read('week9-loog-rosters.json');
 const round=n=>Math.round((n+Number.EPSILON)*100)/100;
 const byId=id=>Object.values(current.teams).find(t=>t.teamId===id);
 const sides=source.playerMatchups.flatMap(g=>[g.home,g.away]);
