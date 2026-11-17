@@ -17,11 +17,11 @@
   .appTabIcon{position:relative;z-index:1;width:46px;height:44px;display:grid;place-items:center;border-radius:23px;transition:color .1s linear,transform .12s cubic-bezier(.2,.8,.2,1)}
   .appTabIcon svg{width:25px;height:25px;display:block}
   .appTabLabel{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
-  .appTabBar[data-active-tab='home'] a:nth-of-type(1),.appTabBar[data-active-tab='scores'] a:nth-of-type(2),.appTabBar[data-active-tab='teams'] a:nth-of-type(3),.appTabBar[data-active-tab='culture'] a:nth-of-type(4),.appTabBar[data-active-tab='more']>button{color:var(--red)}
-  .appTabBar[data-active-tab='home'] a:nth-of-type(1) .appTabIcon,.appTabBar[data-active-tab='scores'] a:nth-of-type(2) .appTabIcon,.appTabBar[data-active-tab='teams'] a:nth-of-type(3) .appTabIcon,.appTabBar[data-active-tab='culture'] a:nth-of-type(4) .appTabIcon,.appTabBar[data-active-tab='more']>button .appTabIcon{transform:translate3d(0,-1px,0) scale(1.06)}
+  .appTabBar[data-active-tab='home'] a:nth-of-type(1),.appTabBar[data-active-tab='scores'] a:nth-of-type(2),.appTabBar[data-active-tab='teams'] a:nth-of-type(3),.appTabBar[data-active-tab='crates'] a:nth-of-type(4),.appTabBar[data-active-tab='more']>button{color:var(--red)}
+  .appTabBar[data-active-tab='home'] a:nth-of-type(1) .appTabIcon,.appTabBar[data-active-tab='scores'] a:nth-of-type(2) .appTabIcon,.appTabBar[data-active-tab='teams'] a:nth-of-type(3) .appTabIcon,.appTabBar[data-active-tab='crates'] a:nth-of-type(4) .appTabIcon,.appTabBar[data-active-tab='more']>button .appTabIcon{transform:translate3d(0,-1px,0) scale(1.06)}
   .appTabBar[data-active-tab='scores'] .appTabGlider{transform:translate3d(100%,0,0)}
   .appTabBar[data-active-tab='teams'] .appTabGlider{transform:translate3d(200%,0,0)}
-  .appTabBar[data-active-tab='culture'] .appTabGlider{transform:translate3d(300%,0,0)}
+  .appTabBar[data-active-tab='crates'] .appTabGlider{transform:translate3d(300%,0,0)}
   .appTabBar[data-active-tab='more'] .appTabGlider{transform:translate3d(400%,0,0)}
   .hero .photoHero{min-height:0;aspect-ratio:16/9;padding:14px;background-position:center 45%}
   .hero .photoHero b{font-size:20px}
