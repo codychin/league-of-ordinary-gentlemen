@@ -30,7 +30,7 @@ export const newsroomApologyArticle = {
       "type": "xclip",
       "id": "2122408294761590878",
       "url": "https://x.com/itsCblast/status/2122408294761590878",
-      "videoSrc": "https://video.twimg.com/amplify_video/2122408264730091520/vid/avc1/960x720/eAxeuEvAuBS3r53X.mp4?tag=29",
+      "videoSrc": "/videos/editorial/newsroom-apology/jensen-earnings-call.mp4",
       "caption": "AI-generated Jensen Huang concert parody, shared by @itsCblast.",
       "showCaption": true
     },
@@ -47,3 +47,4 @@ export const newsroomApologyArticle = {
     "The Newsroom"
   ]
 };
+
