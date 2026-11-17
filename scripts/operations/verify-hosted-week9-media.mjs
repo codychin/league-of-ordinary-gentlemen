@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {pathToFileURL} from 'node:url';
+import {selectWeek10RecapCohort} from '../../lib/week10-recap-cohort.mjs';
 import {selectWeek10PreviewCohort} from '../../lib/week10-preview-cohort.mjs';
 import {selectWeek9PreviewCohort} from '../../lib/week9-preview-cohort.mjs';
 import {verifiedOrigin,scopedHeaders,assertNoRedirect} from './hosted-media-scope.mjs';
@@ -14,13 +15,19 @@ export function validatedRows(manifest,authority){
  const rows=['loog','doge','sunday-crew'].flatMap(e=>selectWeek9PreviewCohort(manifest,e,authority));
  need(rows.length===18,'WEEK9_COHORT_INVALID');return rows;
 }
-export function activeRelease({week9Manifest,week9Authority,week10Manifest,week10Authority}){
+export function activeRelease({week9Manifest,week9Authority,week10Manifest,week10Authority,week10RecapManifest,week10RecapAuthority}){
  const historicalRows=validatedRows(week9Manifest,week9Authority);
  if(week10Manifest!==undefined || week10Authority!==undefined){
   const rows=['loog','doge','sunday-crew'].flatMap(e=>selectWeek10PreviewCohort(week10Manifest,e,week10Authority));
-  need(rows.length===18,'WEEK10_COHORT_INVALID');return {week:10,rows,historicalRows};
+  need(rows.length===18,'WEEK10_COHORT_INVALID');
+  if(week10RecapManifest!==undefined || week10RecapAuthority!==undefined){
+   const recaps=['loog','doge','sunday-crew'].flatMap(e=>selectWeek10RecapCohort(week10RecapManifest,e,week10RecapAuthority));
+   need(recaps.length===18,'WEEK10_COHORT_INVALID');return {week:10,kind:'recap',rows:recaps,historicalRows,priorPreviewRows:rows};
+  }
+  return {week:10,kind:'preview',rows,historicalRows,priorPreviewRows:[]};
  }
- return {week:9,rows:historicalRows,historicalRows};
+ need(week10RecapManifest===undefined&&week10RecapAuthority===undefined,'WEEK10_COHORT_INVALID');
+ return {week:9,kind:'preview',rows:historicalRows,historicalRows,priorPreviewRows:[]};
 }
 export async function verifyHostedWeek9Media(env=process.env){
  // A failed rerun must never leave a prior success receipt behind.
@@ -30,7 +37,7 @@ export async function verifyHostedWeek9Media(env=process.env){
  const token=env.VERCEL_TRUSTED_OIDC_TOKEN;scopedHeaders(origin,origin,{},token);
  const read=p=>JSON.parse(fs.readFileSync(p,'utf8'));
  const optional=p=>fs.existsSync(p)?read(p):undefined;
- const {week,rows,historicalRows}=activeRelease({week9Manifest:read('data/week9-approved-homepage-media.json'),week9Authority:read('qa/week9-owner-playback-waiver.json'),week10Manifest:optional('data/week10-approved-homepage-media.json'),week10Authority:optional('qa/week10-publication-authority.json')});
+ const {week,kind,rows,historicalRows,priorPreviewRows}=activeRelease({week9Manifest:read('data/week9-approved-homepage-media.json'),week9Authority:read('qa/week9-owner-playback-waiver.json'),week10Manifest:optional('data/week10-approved-homepage-media.json'),week10Authority:optional('qa/week10-publication-authority.json'),week10RecapManifest:optional('data/week10-recap-approved-homepage-media.json'),week10RecapAuthority:optional('qa/week10-recap-owner-playback-waiver.json')});
  const {chromium,webkit}=await import('playwright');
  const receipt={version:2,week,historicalWeek:9,releaseSha:env.RELEASE_SHA,origin,checkedAt:new Date().toISOString(),browsers:[],media:[]};
  for(const [name,engine] of Object.entries({chromium,webkit})){
@@ -56,11 +63,11 @@ export async function verifyHostedWeek9Media(env=process.env){
      diagnostic.edition=edition;stage('homepage');
      const prefix=edition==='loog'?'':'/'+edition;const cohort=rows.filter(r=>r.edition===edition);
      const response=await page.goto(origin+(prefix||'/'));need(response?.status()===200,'HOME_HTTP_FAILED');
-     const shelf=page.getByRole('region',{name:`Week ${week}, the previews. videos`});
+     const shelf=page.getByRole('region',{name:`Week ${week}, the ${kind}s. videos`});
      stage('shelf-visible');await shelf.waitFor({state:'visible'});
      const buttons=shelf.getByRole('button',{name:/^Watch /});
      const ids=await buttons.evaluateAll(es=>es.map(e=>e.getAttribute('aria-describedby')));
-     need(JSON.stringify(ids)===JSON.stringify(cohort.map(r=>`reel-state-${edition}-week${week}-preview-v1-${r.id}`)),'HOME_COHORT_MISMATCH');
+     need(JSON.stringify(ids)===JSON.stringify(cohort.map(r=>`reel-state-${edition}-week${week}-${kind}-v1-${r.id}`)),'HOME_COHORT_MISMATCH');
      await buttons.first().scrollIntoViewIfNeeded();
      const headerBefore=await page.locator('header').first().innerText();
      await buttons.first().evaluate(e=>e.addEventListener('click',()=>{window.__hostedReelClickTop=e.getBoundingClientRect().top},{capture:true,once:true}));
@@ -91,11 +98,17 @@ export async function verifyHostedWeek9Media(env=process.env){
      }
      stage('current-watch-archive');const archive=await page.goto(origin+prefix+'/archive/watch');need(archive?.status()===200,'WATCH_HTTP_FAILED');
      const games=page.locator('section[aria-labelledby="games-heading"]');
-     await games.getByRole('status').filter({hasText:`Week ${week} · 6 videos`}).waitFor();
+     await games.getByRole('status').filter({hasText:`Week ${week} · ${kind==='recap'?12:6} videos`}).waitFor();
+     if(kind==='recap'){
+      need(await games.getByRole('button',{name:/^Watch /}).count()===12,'WATCH_COUNT_MISMATCH');
+      for(const row of priorPreviewRows.filter(r=>r.edition===edition))need(await games.locator(`img[src*="${row.id}"]`).count()===1,'HISTORICAL_WATCH_ID_MISMATCH');
+      await page.getByLabel('Coverage',{exact:false}).selectOption('recap');
+     }
      need(await games.getByRole('button',{name:/^Watch /}).count()===6,'WATCH_COUNT_MISMATCH');
      for(const row of cohort)need(await games.locator(`img[src*="${row.id}"]`).count()===1,'WATCH_ID_MISMATCH');
      if(week!==9){
       stage('historical-watch-archive');
+      await page.getByLabel('Coverage',{exact:false}).selectOption('');
       await games.getByRole('combobox',{name:/^Week/}).selectOption('9');
       await games.getByRole('status').filter({hasText:'Week 9 · 6 videos'}).waitFor();
       need(await games.getByRole('button',{name:/^Watch /}).count()===6,'HISTORICAL_WATCH_COUNT_MISMATCH');

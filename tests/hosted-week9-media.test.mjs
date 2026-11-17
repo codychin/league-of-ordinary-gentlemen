@@ -46,7 +46,7 @@ test('active hosted gate follows approved Week10 but retains mandatory Week9 his
  const result=activeRelease(current);assert.equal(result.week,10);assert.equal(result.rows.length,18);assert.equal(result.historicalRows.length,18);
  for(const change of [{week10Manifest:[]},{week10Authority:{}},{week10Manifest:undefined},{week10Authority:undefined},{week9Manifest:[]}])assert.throws(()=>activeRelease({...current,...change}));
  const src=fs.readFileSync('scripts/operations/verify-hosted-week9-media.mjs','utf8');
- assert.ok(src.includes('Week ${week}, the previews. videos'));assert.match(src,/HISTORICAL_WATCH_ID_MISMATCH/);
+ assert.ok(src.includes('Week ${week}, the ${kind}s. videos'));assert.match(src,/HISTORICAL_WATCH_ID_MISMATCH/);
  const workflow=fs.readFileSync('.github/workflows/promote-verified-production.yml','utf8');
  for(const path of ['/lib/week10-preview-cohort.mjs','/data/week10-approved-homepage-media.json','/qa/week10-publication-authority.json'])assert.ok(workflow.includes(path));
 });
@@ -62,3 +62,10 @@ test('hosted failure diagnostics emit only bounded fixed stage fields, not raw b
 test('diagnostics reject arbitrary uppercase messages',async()=>{const {safeDiagnosticCode}=await import('../scripts/operations/verify-hosted-week9-media.mjs');for(const message of ['SECRET_TOKEN','A'.repeat(500),'https://secret.example'])assert.equal(safeDiagnosticCode({message}),'VERIFICATION_ERROR');assert.equal(safeDiagnosticCode({message:'HOME_HTTP_FAILED'}),'HOME_HTTP_FAILED');assert.equal(safeDiagnosticCode({name:'TimeoutError'}),'BROWSER_TIMEOUT');});
 
 test('historical archive selects the labeled Week combobox like proven UI verification',()=>{const src=fs.readFileSync('scripts/operations/verify-hosted-week9-media.mjs','utf8');assert.ok(src.includes("games.getByRole('combobox',{name:/^Week/}).selectOption('9')"));assert.ok(!src.includes("getByLabel('Week',{exact:true})"));assert.match(src,/HISTORICAL_WATCH_COUNT_MISMATCH/);assert.match(src,/HISTORICAL_WATCH_ID_MISMATCH/);});
+
+ test('active hosted gate binds all eighteen current recaps and retains same-week previews',()=>{
+ const read=p=>JSON.parse(fs.readFileSync(p));
+ const input={week9Manifest:read('data/week9-approved-homepage-media.json'),week9Authority:read('qa/week9-owner-playback-waiver.json'),week10Manifest:read('data/week10-approved-homepage-media.json'),week10Authority:read('qa/week10-publication-authority.json'),week10RecapManifest:read('data/week10-recap-approved-homepage-media.json'),week10RecapAuthority:read('qa/week10-recap-owner-playback-waiver.json')};
+ const result=activeRelease(input);assert.equal(result.kind,'recap');assert.equal(result.rows.length,18);assert.equal(result.priorPreviewRows.length,18);assert.equal(result.historicalRows.length,18);
+ for(const change of [{week10RecapManifest:[]},{week10RecapAuthority:{}},{week10RecapManifest:undefined},{week10RecapAuthority:undefined},{week10Manifest:[]}])assert.throws(()=>activeRelease({...input,...change}));
+ });

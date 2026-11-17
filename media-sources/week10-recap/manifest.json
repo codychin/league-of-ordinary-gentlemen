@@ -1,0 +1,326 @@
+{
+  "version": 1,
+  "originals": [
+    {
+      "path": "public/reels/832cbe9f786ab0b4a3ab41bc0f5854a8.mp4",
+      "bytes": 12436594,
+      "sha256": "b29a1710afcc8989a657af399874c96288c75c3f2b2ad870b4a75c5c611e39ff",
+      "parts": [
+        {
+          "path": "media-sources/week10-recap/832cbe9f786ab0b4a3ab41bc0f5854a8/part_000.bin",
+          "bytes": 6291456,
+          "sha256": "1cce37638b0a575191143514d6e778b44fb12af222585c80ecc12a45c63bd5b0"
+        },
+        {
+          "path": "media-sources/week10-recap/832cbe9f786ab0b4a3ab41bc0f5854a8/part_001.bin",
+          "bytes": 6145138,
+          "sha256": "210a98d9003d53a74c5faa4c9b15853006b35f4263113d0261812d4254d8bb76"
+        }
+      ]
+    },
+    {
+      "path": "public/reels/8c675368fbf01f16230ffe26e34188b5.mp4",
+      "bytes": 8846687,
+      "sha256": "d26cc435f70004186b79a6463c1f2324b434399a23b342e75c1c1565db16340f",
+      "parts": [
+        {
+          "path": "media-sources/week10-recap/8c675368fbf01f16230ffe26e34188b5/part_000.bin",
+          "bytes": 6291456,
+          "sha256": "617ce1dc1b20735e38f44bb47829d20ebd2ce2273132fa721a90842bd064cee8"
+        },
+        {
+          "path": "media-sources/week10-recap/8c675368fbf01f16230ffe26e34188b5/part_001.bin",
+          "bytes": 2555231,
+          "sha256": "c3608f1aab34985e1727b7f56fbf02810aadea744a073e48cd6284552bb0fcea"
+        }
+      ]
+    },
+    {
+      "path": "public/reels/e0a2fdc4338328ae25356b4c693a7735.mp4",
+      "bytes": 9048265,
+      "sha256": "0da8142d2e785e9b2e03d8ec3a18c9d2302bd83fa81f2eb6b4dd9be505ba8ba2",
+      "parts": [
+        {
+          "path": "media-sources/week10-recap/e0a2fdc4338328ae25356b4c693a7735/part_000.bin",
+          "bytes": 6291456,
+          "sha256": "2a8db8baae14a89dd7ca71bab56a2f58ff27e2e11d712fff485915a366b3bf6c"
+        },
+        {
+          "path": "media-sources/week10-recap/e0a2fdc4338328ae25356b4c693a7735/part_001.bin",
+          "bytes": 2756809,
+          "sha256": "d7e3788c6a37d1de7ba9f5da3a44c65e8c6e07f6c44fc05522667ff16fba2f09"
+        }
+      ]
+    },
+    {
+      "path": "public/reels/f32b22172a6d3d6762f804972417907a.mp4",
+      "bytes": 9691046,
+      "sha256": "d2a254464c733f7a3aed8399047b79ce5bf6302e57088a1fe052880300920ec1",
+      "parts": [
+        {
+          "path": "media-sources/week10-recap/f32b22172a6d3d6762f804972417907a/part_000.bin",
+          "bytes": 6291456,
+          "sha256": "78d0200c1b4fa2740b1c6b77c76e77a56236fa40ca808415efe06fda30cad055"
+        },
+        {
+          "path": "media-sources/week10-recap/f32b22172a6d3d6762f804972417907a/part_001.bin",
+          "bytes": 3399590,
+          "sha256": "392de154483a423ee7ef3a3b8fc18d00550134b78590301540d73c0284b06eb1"
+        }
+      ]
+    },
+    {
+      "path": "public/reels/b58f04b2acf3c0b3286e888547a6c2b5.mp4",
+      "bytes": 11462267,
+      "sha256": "bdbc58faca23c774f106f9c982639f2c3cdd99bf8964a56a2d17153241e6a492",
+      "parts": [
+        {
+          "path": "media-sources/week10-recap/b58f04b2acf3c0b3286e888547a6c2b5/part_000.bin",
+          "bytes": 6291456,
+          "sha256": "6bee98e85b49c334d6ada5a343ed88160e6025488d9c0d63d282a5cdfc86d9d7"
+        },
+        {
+          "path": "media-sources/week10-recap/b58f04b2acf3c0b3286e888547a6c2b5/part_001.bin",
+          "bytes": 5170811,
+          "sha256": "778bcd533e08346927d8ecdbd97cb3f67382d04ef4e181728ea825ee89cc62c6"
+        }
+      ]
+    },
+    {
+      "path": "public/reels/98dd8f1e7ac6aa03bb5e23b413574eef.mp4",
+      "bytes": 15432861,
+      "sha256": "bf1c061be8e35620142ea24fca53f3ee70d09eabc27a95825f57bb41ece9f5fc",
+      "parts": [
+        {
+          "path": "media-sources/week10-recap/98dd8f1e7ac6aa03bb5e23b413574eef/part_000.bin",
+          "bytes": 6291456,
+          "sha256": "8c51da326d998351f81c6e15e0a7b53e9e5717d1107e42ee10da20c2c54678eb"
+        },
+        {
+          "path": "media-sources/week10-recap/98dd8f1e7ac6aa03bb5e23b413574eef/part_001.bin",
+          "bytes": 6291456,
+          "sha256": "0b44aac5bf44020de904caec680dae408e9c34c8ff86f59c03fcdbf53ebea287"
+        },
+        {
+          "path": "media-sources/week10-recap/98dd8f1e7ac6aa03bb5e23b413574eef/part_002.bin",
+          "bytes": 2849949,
+          "sha256": "3e4f276bb09f72ab34f11f4df3bb3fa537320f55832481a4ebe690d3c7922a50"
+        }
+      ]
+    },
+    {
+      "path": "public/reels/fda5e3bb471086dbab70871c48210ab0.mp4",
+      "bytes": 8706942,
+      "sha256": "862ee9adca6a9a18303fa3925d55bcada5e1f8419207d030e17a081a4b912360",
+      "parts": [
+        {
+          "path": "media-sources/week10-recap/fda5e3bb471086dbab70871c48210ab0/part_000.bin",
+          "bytes": 6291456,
+          "sha256": "ddd4da93205a6070c6cc4779824b4854a698e55997eb38cdba4304ed4f9745b7"
+        },
+        {
+          "path": "media-sources/week10-recap/fda5e3bb471086dbab70871c48210ab0/part_001.bin",
+          "bytes": 2415486,
+          "sha256": "ff415416cef3d582acbb8bcfc8e332edf6ea0d313c15f272c3cb7f8fac19be8c"
+        }
+      ]
+    },
+    {
+      "path": "public/reels/515df7bccff2ec6c45ef93455d531feb.mp4",
+      "bytes": 10530574,
+      "sha256": "0c024d7ce4be6efd9fc6efe4aa77411f4719342a1fd81e20a4ae9ff48c15248f",
+      "parts": [
+        {
+          "path": "media-sources/week10-recap/515df7bccff2ec6c45ef93455d531feb/part_000.bin",
+          "bytes": 6291456,
+          "sha256": "6361a36126fbef8487023259666a980a47339da1a13716562a0bce44d5a8e22c"
+        },
+        {
+          "path": "media-sources/week10-recap/515df7bccff2ec6c45ef93455d531feb/part_001.bin",
+          "bytes": 4239118,
+          "sha256": "1d611e92901734bbe865ae9f501e95bccda990518d6df3c76e6e948b0ecfab4b"
+        }
+      ]
+    },
+    {
+      "path": "public/reels/780adcbef8fcd913d9ffc4600a7628af.mp4",
+      "bytes": 10540791,
+      "sha256": "55b63ea418c9c89f08cafeca2c20686bafddb0fba04c6f9345dd45e2550194c1",
+      "parts": [
+        {
+          "path": "media-sources/week10-recap/780adcbef8fcd913d9ffc4600a7628af/part_000.bin",
+          "bytes": 6291456,
+          "sha256": "81fcdc9a2502a6fbd7d36bf001e6e13500af2f4dd971c76478812d41ff5b6bcb"
+        },
+        {
+          "path": "media-sources/week10-recap/780adcbef8fcd913d9ffc4600a7628af/part_001.bin",
+          "bytes": 4249335,
+          "sha256": "1e8ca13212e9f051d65f5f1a94325306f1ebe89aea6feaf76d3cfcb8d53e0640"
+        }
+      ]
+    },
+    {
+      "path": "public/reels/4fcbdbe2fad3510395ec1f2a6034a79c.mp4",
+      "bytes": 8583990,
+      "sha256": "566395a74c6da9d605238ab188e44e7a9de4f72949c8b237161b9f9889344cd9",
+      "parts": [
+        {
+          "path": "media-sources/week10-recap/4fcbdbe2fad3510395ec1f2a6034a79c/part_000.bin",
+          "bytes": 6291456,
+          "sha256": "4fd3b8e67b656dbdcd86ed9c54cae38ef3996b2dadc4f0bf97aabfcfb7aee389"
+        },
+        {
+          "path": "media-sources/week10-recap/4fcbdbe2fad3510395ec1f2a6034a79c/part_001.bin",
+          "bytes": 2292534,
+          "sha256": "aeff184beefb2006b3e4bf51c8e1d3d3b66ee9d1d1d54a8d6ba249bdefe3289a"
+        }
+      ]
+    },
+    {
+      "path": "public/reels/ff86d34c75d6b44b09e28d773a15906b.mp4",
+      "bytes": 10101987,
+      "sha256": "e8526445d1b3373e1c830f1f8a63000a9ac4ffc40a0e0b356b96b720893a09ff",
+      "parts": [
+        {
+          "path": "media-sources/week10-recap/ff86d34c75d6b44b09e28d773a15906b/part_000.bin",
+          "bytes": 6291456,
+          "sha256": "de26d9df00909f0572d8c1335c33e47e78b3f6aeb6a9f1ea8fc23009acfd7717"
+        },
+        {
+          "path": "media-sources/week10-recap/ff86d34c75d6b44b09e28d773a15906b/part_001.bin",
+          "bytes": 3810531,
+          "sha256": "064fa142e68fee2c6a2a61196b2dd7dbe2562a1e5bb2b9361bbe11d299f17a8a"
+        }
+      ]
+    },
+    {
+      "path": "public/reels/8a684a384d75552fda7833bd62830f75.mp4",
+      "bytes": 17635051,
+      "sha256": "ce9689cbb35d5c13a87f4a184f7793705509c151f7fe2193ce2aa2b0edb53910",
+      "parts": [
+        {
+          "path": "media-sources/week10-recap/8a684a384d75552fda7833bd62830f75/part_000.bin",
+          "bytes": 6291456,
+          "sha256": "53014e56f88b1c3e4ce2a389a983cd149957d58a7b6261903e8ebe9eff5768f3"
+        },
+        {
+          "path": "media-sources/week10-recap/8a684a384d75552fda7833bd62830f75/part_001.bin",
+          "bytes": 6291456,
+          "sha256": "51f69a9c691e0f189d93b18c32af0d066b574d62be816936d53e850373c6f354"
+        },
+        {
+          "path": "media-sources/week10-recap/8a684a384d75552fda7833bd62830f75/part_002.bin",
+          "bytes": 5052139,
+          "sha256": "19b14c77c7bac4609913c25077f9fad77a9723b2cdb522b5a3b7b7b62a45536d"
+        }
+      ]
+    },
+    {
+      "path": "public/reels/3de75dc2db4ad8d22d4af46988557a8e.mp4",
+      "bytes": 10784886,
+      "sha256": "33e4f4dd3326460ec10ea4211bcd4c0736cd43d59ea4a9804770306c3ab2d5ec",
+      "parts": [
+        {
+          "path": "media-sources/week10-recap/3de75dc2db4ad8d22d4af46988557a8e/part_000.bin",
+          "bytes": 6291456,
+          "sha256": "8bee76373f7a3c71f727c6bd49a708ae6ce542ca3b3f13eeaf5e99c45680273a"
+        },
+        {
+          "path": "media-sources/week10-recap/3de75dc2db4ad8d22d4af46988557a8e/part_001.bin",
+          "bytes": 4493430,
+          "sha256": "32ef541ce55dbbe06468c4a2d33b7e142f06888ee4c4548dedd888d894a075ae"
+        }
+      ]
+    },
+    {
+      "path": "public/reels/327d009b05b7948847dbd1a6459ab627.mp4",
+      "bytes": 9547276,
+      "sha256": "918df78adc65b35972e488411dec6ef1fbbfc462c7c086f785b6e9e7e2ca2eba",
+      "parts": [
+        {
+          "path": "media-sources/week10-recap/327d009b05b7948847dbd1a6459ab627/part_000.bin",
+          "bytes": 6291456,
+          "sha256": "c04783ca313a0ba276a0b74e57667beab32278e36bf58feb9acd55075e808958"
+        },
+        {
+          "path": "media-sources/week10-recap/327d009b05b7948847dbd1a6459ab627/part_001.bin",
+          "bytes": 3255820,
+          "sha256": "b30e99854d9129d8aa426e05da75146942425117a55746206da0211050bb2719"
+        }
+      ]
+    },
+    {
+      "path": "public/reels/420758d9ce6313aee752bdde2ba578d5.mp4",
+      "bytes": 8203299,
+      "sha256": "55bf6654673975a8398e386feb4dbb18eeebf0f99086657086fcdae7395761b6",
+      "parts": [
+        {
+          "path": "media-sources/week10-recap/420758d9ce6313aee752bdde2ba578d5/part_000.bin",
+          "bytes": 6291456,
+          "sha256": "ea950403af464b379f5f24f6115c2ffccb4928743aa75392b32f400384a52879"
+        },
+        {
+          "path": "media-sources/week10-recap/420758d9ce6313aee752bdde2ba578d5/part_001.bin",
+          "bytes": 1911843,
+          "sha256": "e97821a9617536ee25527b6df6dcf946865bf9db01d119e8b3ceab02be0f2323"
+        }
+      ]
+    },
+    {
+      "path": "public/reels/335996b92d47d0319dc47aa195c5e04f.mp4",
+      "bytes": 9488011,
+      "sha256": "2729055356c9e8c598e78c244cab3f0398afff4d5655c452ae26fdeb4f74910a",
+      "parts": [
+        {
+          "path": "media-sources/week10-recap/335996b92d47d0319dc47aa195c5e04f/part_000.bin",
+          "bytes": 6291456,
+          "sha256": "714a3722a2012afa282f667c44d73022183ee83fb38ff6b3853945c4fd9091ec"
+        },
+        {
+          "path": "media-sources/week10-recap/335996b92d47d0319dc47aa195c5e04f/part_001.bin",
+          "bytes": 3196555,
+          "sha256": "a302085e05307272ac1704594b3cb7c7a036878a35cfa0ed1b5bc2b50a5e6471"
+        }
+      ]
+    },
+    {
+      "path": "public/reels/03af38b97f953fd93e95c0411be1d8a9.mp4",
+      "bytes": 17163017,
+      "sha256": "6a81d397cebf14bfa8eb41d468fabdd3c68c43a678a60224daf43947a5ed7101",
+      "parts": [
+        {
+          "path": "media-sources/week10-recap/03af38b97f953fd93e95c0411be1d8a9/part_000.bin",
+          "bytes": 6291456,
+          "sha256": "049c4a50c551eff644a0885b8743e873772c9c063e8b34c50baf5eda853872db"
+        },
+        {
+          "path": "media-sources/week10-recap/03af38b97f953fd93e95c0411be1d8a9/part_001.bin",
+          "bytes": 6291456,
+          "sha256": "83dcf8e07ca3a8c2c9353370afa175c67ed3d1d1d774f4fc85ccf52d1a41c0bb"
+        },
+        {
+          "path": "media-sources/week10-recap/03af38b97f953fd93e95c0411be1d8a9/part_002.bin",
+          "bytes": 4580105,
+          "sha256": "4cbf2daf0b4c3b9f3f73de08de790ade593e20503020cd6d8363661d273e333b"
+        }
+      ]
+    },
+    {
+      "path": "public/reels/636c32c1c3c7e5a7dd42f252dc7eb878.mp4",
+      "bytes": 8869047,
+      "sha256": "3ced2f4e74707dc524aabbe4ed95addf18fde4fc7a0d25679b64bc0f4cd89915",
+      "parts": [
+        {
+          "path": "media-sources/week10-recap/636c32c1c3c7e5a7dd42f252dc7eb878/part_000.bin",
+          "bytes": 6291456,
+          "sha256": "2654c14b17ff7c28eebcaa39d4ad32d37f4d77ce86af210218ccb68d99d143be"
+        },
+        {
+          "path": "media-sources/week10-recap/636c32c1c3c7e5a7dd42f252dc7eb878/part_001.bin",
+          "bytes": 2577591,
+          "sha256": "fd22cfac81691156f705ba9c167538dbd943e7c3c8904b0f411d7ac5e46b3f5a"
+        }
+      ]
+    }
+  ]
+}
