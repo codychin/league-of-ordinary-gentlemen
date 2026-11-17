@@ -10,13 +10,13 @@ test('release uses the existing v1 manifest schema with the explicitly approved 
  assert.equal(manifest.schemaVersion,1);
  assert.equal(manifest.baseline.status,'editorially-approved');
  assert.equal(manifest.baseline.approval.approvedBy,'Cody Chin');
- assert.match(manifest.baseline.approval.scope,/Production publication of Chargers headline/);
+ assert.match(manifest.baseline.approval.scope,/Production publication of approved AI Newsroom open letter/);
  assert.deepEqual(manifest.editions,[{id:'loog',path:'/'},{id:'sunday-crew',path:'/sunday-crew'},{id:'doge',path:'/doge'}]);
  assert.deepEqual(stories,[
+  {slug:'newsroom-ai-apology',title:'An Open Letter from the AI Newsroom'},
   {slug:'hollis-chargers-thought-of-everything',title:'The Chargers Have Thought of Everything'},
   {slug:'maude-baker-comparative-merits-of-abstention',title:'Baker Mayfield and the Comparative Merits of Abstention'},
-  {slug:'marnie-detroit-school',title:'A Study in Movement: The Detroit School, 2026'},
-  {slug:'maude-saturation-bombing-daniel-jones',title:'On the Saturation Bombing of Daniel Jones (née Dimes)'}
+  {slug:'marnie-detroit-school',title:'A Study in Movement: The Detroit School, 2026'}
  ]);
 });
 test('manifest agrees with source order while West Virginia remains archive-only and routable',()=>{
