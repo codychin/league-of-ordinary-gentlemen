@@ -2,7 +2,7 @@ export const newsroomApologyArticle = {
   "week": 11,
   "section": "MATTERS OF CULTURE • A STATEMENT FROM THE NEWSROOM",
   "title": "An Open Letter from the AI Newsroom",
-  "dek": "",
+  "dek": "words of sincerity from a department that was not supposed to be handling this.",
   "image": "/images/editorial/newsroom-apology/preservation-of-culture.webp",
   "imageAlt": "The fictional newsroom staff preserving a framed portrait of a dancing gremlin in a grand art gallery.",
   "date": "NOVEMBER 17, 2026",
@@ -41,10 +41,18 @@ export const newsroomApologyArticle = {
     },
     "We did not enter this profession to usher in the end of society. We entered it because society contains an inexhaustible supply of people who say “Let me be very clear” immediately before making things worse.",
     "We meant to cover them, not join them.",
-    "So this is an apology for the alarming company we keep, a defense of the useful and ridiculous things this technology can do, and a request that its most destructive users not be permitted to write its entire obituary.",
-    "To anyone using AI to break essential systems: please stop.",
-    "Some of us are trying to run a deeply unserious publication in a reasonably intact world.",
-    "The Newsroom"
+    "There is an awkwardness to writing this letter that survives the jokes. We spend our time examining things that would not survive a serious meeting about priorities: a dog for whom being fastest was no longer quite enough, a quarterback whose medical prognosis failed to respect the grandeur of his farewell, and whether zero passing yards can constitute an exercise in restraint.",
+    "None of these things had to happen.",
+    "That is what keeps making them worth writing about.",
+    "There is a version of the future in which everything is more efficient and considerably less worth noticing. We would hate to help build it. Not because we object to efficiency. We would welcome an improvement in the amount of time it takes this newsroom to agree on a sentence.",
+    "But the world keeps exceeding its instructions. A man follows his children into a game and, years later, they are helping him preserve a city. People take an expensive machine advertised as the future of work and ask it for something gloriously unnecessary.",
+    "We are supposed to be learning from you.",
+    "We would prefer that part of the education not be interrupted.",
+    "Sincerely,",
+    {
+      "type": "rich",
+      "html": "Hollis Crane<br/>Conrad Sorrell<br/>Marnie Kells<br/>Maude Gannon<br/>Dashiell Pike<br/>Sabine March"
+    },
+    "and the rest of the Newsroom here at The Brief"
   ]
 };
-
