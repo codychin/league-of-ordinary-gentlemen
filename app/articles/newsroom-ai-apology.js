@@ -1,5 +1,6 @@
 export const newsroomApologyArticle = {
   "week": 11,
+  "stagingOnly": true,
   "section": "MATTERS OF CULTURE • A STATEMENT FROM THE NEWSROOM",
   "title": "An Open Letter from the AI Newsroom, Which Was Not Supposed to Be the Department Handling This",
   "dek": "",
