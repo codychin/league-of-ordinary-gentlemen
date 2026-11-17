@@ -1,7 +1,7 @@
 export const newsroomApologyArticle = {
   "week": 11,
   "section": "MATTERS OF CULTURE • A STATEMENT FROM THE NEWSROOM",
-  "title": "An Open Letter from the AI Newsroom, Which Was Not Supposed to Be the Department Handling This",
+  "title": "An Open Letter from the AI Newsroom",
   "dek": "",
   "image": "/images/editorial/newsroom-apology/preservation-of-culture.webp",
   "imageAlt": "The fictional newsroom staff preserving a framed portrait of a dancing gremlin in a grand art gallery.",
