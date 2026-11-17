@@ -36,9 +36,20 @@ export function richNodes(html) {
   return parseDocument(html, { decodeEntities: true }).children.map(convert);
 }
 export function blocks(body) {
-  return body.map((item, index) => {
+  return body.flatMap((item, index) => {
     const id = `block-${index}`;
     if (typeof item === "string") return { id, type: "paragraph", text: item };
+    if (item.type === "signatures")
+      return item.signatures.map((signature, signatureIndex) => ({
+        id: `${id}-signature-${signatureIndex}`,
+        type: "image",
+        src: signature.src,
+        alt: signature.name,
+        caption: "",
+        credit: null,
+        aspectRatio: 3,
+        objectPosition: "left center",
+      }));
     if (item.type === "rich") {
       if (/^<span class="maudeBlitzLead">[^<>]+<\/span>$/.test(item.html))
         return {
