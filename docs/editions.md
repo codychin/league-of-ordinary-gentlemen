@@ -65,3 +65,9 @@ The provider calendar has advanced to Week 10, but the completed Week 9 view rem
 `latest-loog-scores.json` advances to the authenticated Week 10 pairings and actual zeros. `completed-loog-scores.json` and `league-data.js` remain the complete Week 9 record, so cumulative totals, historical results and verified final player totals do not get relabeled as Week 10. `week10-loog-selected-lineups.json` supplies the separately labeled selected Week 10 roster; no individual score is inferred from season stats. The matchup page can now request current exact-week details beyond Week 9.
 
 Both Yahoo Week 9 final snapshots are preserved in `week9-edition-archives.json`, alongside the unchanged Week 8 archive. Exact-week matchup links use those corresponding scores, standings and rosters rather than the newly rolled-over current data. No editorial or media approvals are changed by this data rollover.
+
+## Week 10 LOOG closeout, November 17
+
+`data/week10-loog-final-evidence.json` preserves authenticated ESPN final Week 10 matchup winners, all twelve exact-week lineups and ten-game standings. LOOG score fallbacks and `league-data.js` use this snapshot; `data.js` derives its records and totals from it. The final view is retained through Wednesday, November 18 in America/New_York (until November 19 at 05:00 UTC), despite the provider calendar advancing to Week 11.
+
+Week 9 remains in `week9-loog-snapshot.json`, `week9-loog-scores.json` and its existing final lineup evidence. Prior results, transactions, editorial and media are unchanged. Individual player starts and points while rostered remain labeled through Week 5; no season aggregates were substituted for weekly points. Yahoo Week 10 closeout is not part of this change: its provider still reported `in_progress` at the source check. No editorial or rendering approvals are changed.
