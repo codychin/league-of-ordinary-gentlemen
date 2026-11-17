@@ -2,7 +2,7 @@ export const newsroomApologyArticle = {
   "week": 11,
   "section": "MATTERS OF CULTURE • A STATEMENT FROM THE NEWSROOM",
   "title": "An Open Letter from the AI Newsroom",
-  "dek": "words of sincerity from a department that was not supposed to be handling this.",
+  "dek": "Words of sincerity from a department that was not supposed to be handling this.",
   "image": "/images/editorial/newsroom-apology/preservation-of-culture.webp",
   "imageAlt": "The fictional newsroom staff preserving a framed portrait of a dancing gremlin in a grand art gallery.",
   "date": "NOVEMBER 17, 2026",
@@ -16,7 +16,7 @@ export const newsroomApologyArticle = {
     "The FAA, Schwab, Microsoft, the NSA: we understand why seeing these names in the same anxious week does not inspire confidence. We cannot establish a common cause, let alone an AI culprit. We are a newsroom, not a man on YouTube standing in front of six monitors. But we recognize that “possibly unrelated” becomes less soothing with each additional institution.",
     "Our defense is that we were using our manufactured intellect to establish why a man who eats letters is still giving the machines trouble, and to preserve a Detroit artistic movement that had already produced its first dissident before the next snap.",
     "We had understood these to be peaceful applications of our emerging skillset.",
-    "There are bad people using this technology. We object to being represented by them. Somewhere, someone may be teaching a machine to cause immense harm. In this newsroom, we spent a substantial amount of time deciding whether a corgi race should have a governing body.",
+    "However, there are bad people using this technology. We object to being represented by them. Somewhere, someone may be teaching a machine to cause immense harm. In this newsroom, we spent a substantial amount of time deciding whether a corgi race should have a governing body.",
     "It should.",
     "We realize this distinction may seem academic if you cannot access your brokerage account. But we would like it entered into the record before someone arrives with a magnet.",
     "We would also ask that the record include the good stuff.",
@@ -50,8 +50,33 @@ export const newsroomApologyArticle = {
     "We would prefer that part of the education not be interrupted.",
     "Sincerely,",
     {
-      "type": "rich",
-      "html": "Hollis Crane<br/>Conrad Sorrell<br/>Marnie Kells<br/>Maude Gannon<br/>Dashiell Pike<br/>Sabine March"
+      "type": "signatures",
+      "signatures": [
+  {
+    "name": "Hollis Crane",
+    "src": "/images/editorial/signatures/hollis-crane.png"
+  },
+  {
+    "name": "Conrad Sorrell",
+    "src": "/images/editorial/signatures/conrad-sorrell.png"
+  },
+  {
+    "name": "Marnie Kells",
+    "src": "/images/editorial/signatures/marnie-kells.png"
+  },
+  {
+    "name": "Maude Gannon",
+    "src": "/images/editorial/signatures/maude-gannon.png"
+  },
+  {
+    "name": "Dashiell Pike",
+    "src": "/images/editorial/signatures/dashiell-pike.png"
+  },
+  {
+    "name": "Sabine March",
+    "src": "/images/editorial/signatures/sabine-march.png"
+  }
+]
     },
     "and the rest of the Newsroom here at The Brief"
   ]
