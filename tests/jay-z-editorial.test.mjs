@@ -22,12 +22,12 @@ test('previous Jay-Z lead remains globally routed immediately below three chrono
  assert.ok(read('lib/editorial-scope.js').includes("'conrad-allow-me-to-reintroduce-myself'"));
  assert.ok(read('app/articles/data.js').includes("'conrad-allow-me-to-reintroduce-myself': jayZArticle"));
  const lead=front.slice(front.indexOf('<section'),front.indexOf('<section className={front.recent}'));
- assert.ok(lead.includes("The Chargers Have Thought of Everything"));
+ assert.ok(lead.includes("An Open Letter from the AI Newsroom"));
  assert.match(lead,/sundayFeatureImage storylink \$\{front\.tourHero\}/);
  const recent=front.match(/<section className=\{front\.recent\}[^>]*>([\s\S]*?)<\/section>/)[1];
  assert.ok(!recent.includes(article.title));
  assert.ok(front.includes(article.title)&&front.includes(article.dek));
- assert.deepEqual([...recent.matchAll(/href=\{root\+"\/articles\/([^"]+)"\}/g)].map(m=>m[1]),['maude-baker-comparative-merits-of-abstention','marnie-detroit-school','maude-saturation-bombing-daniel-jones']);
+ assert.deepEqual([...recent.matchAll(/href=\{root\+"\/articles\/([^"]+)"\}/g)].map(m=>m[1]),['hollis-chargers-thought-of-everything','maude-baker-comparative-merits-of-abstention','marnie-detroit-school']);
  assert.ok(!recent.includes('/articles/marnie-delicate-etiquette-sporting-pat'));
  assert.equal((recent.match(/<article className=\{front\.card\}/g)||[]).length,3);
  const rest=front.slice(front.indexOf(recent)+recent.length);

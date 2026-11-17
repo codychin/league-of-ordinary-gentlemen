@@ -50,7 +50,7 @@ test('Chargers review resolves through the shared article renderer in all editio
   assert.ok(read('app/articles/data.js').includes("'"+slug+"': chargersArticle"));
   assert.ok(read('lib/editorial-scope.js').includes("'"+slug+"'"));
   assert.ok(read('app/components/editions/Article.js').includes('isSharedArticleForEdition(slug,editionSlug)'));
-  assert.ok(read('app/components/SharedEditorialFront.js').includes('Lead story: '+article.title));
+  assert.ok(read('app/components/SharedEditorialFront.js').includes('<h3>'+article.title+'</h3>'));
   assert.ok(!read('app/components/SharedEditorialFront.js').includes('dashiell-jaguars-london-future'));
   assert.ok(read('app/articles/data.js').includes('"dashiell-jaguars-london-future"'));
 });

@@ -4,8 +4,8 @@
     "status": "editorially-approved",
     "source": "app/components/SharedEditorialFront.js",
     "approval": {
-      "recordedAt": "2026-11-07",
-      "scope": "Production publication of Chargers headline across all three editions, with Baker, Detroit School and Daniel Jones in the three-card row, Jay-Z immediately below, and oldest London dispatch preserved in the archive. Includes Cody\u2019s two final sentence revisions: remove the repeated episode year and confront the inevitability of Madison Beer.",
+      "recordedAt": "2026-11-17",
+      "scope": "Production publication of approved AI Newsroom open letter as headline across all editions, with selected preservation-of-culture image, exact Jensen clip, signature set B and final copy. Chargers, Baker and Detroit School comprise the three cards; Daniel Jones continues immediately below, with all archives preserved.",
       "approvedBy": "Cody Chin"
     },
     "historicalRotation": "October 6 and October 21 Conrad named lead/card placements are superseded by this approved production publication. Standing rotation rules and historical documentation are retained in docs/HOMEPAGE-ROTATION.md. The October 22 Jay-Z approval supersedes only current lead/card expectations; prior approvals are preserved in approvalHistory and docs/HOMEPAGE-ROTATION.md. The October 27 Detroit School approval supersedes current lead/card expectations only; the October 22 approval remains in approvalHistory.",
@@ -49,6 +49,11 @@
       {
         "recordedAt": "2026-11-02",
         "scope": "Production publication of Baker headline across all three editions with the selected November 1 game photo, preserved shared gradients and overlay, 29 paragraphs and chronological pushdown."
+      },
+      {
+        "recordedAt": "2026-11-07",
+        "scope": "Production publication of Chargers headline across all three editions, with Baker, Detroit School and Daniel Jones in the three-card row, Jay-Z immediately below, and oldest London dispatch preserved in the archive. Includes Cody\u2019s two final sentence revisions: remove the repeated episode year and confront the inevitability of Madison Beer.",
+        "approvedBy": "Cody Chin"
       }
     ],
     "copyRevisions": [
@@ -83,10 +88,14 @@
     }
   ],
   "lead": {
-    "slug": "hollis-chargers-thought-of-everything",
-    "title": "The Chargers Have Thought of Everything"
+    "slug": "newsroom-ai-apology",
+    "title": "An Open Letter from the AI Newsroom"
   },
   "carousel": [
+    {
+      "slug": "hollis-chargers-thought-of-everything",
+      "title": "The Chargers Have Thought of Everything"
+    },
     {
       "slug": "maude-baker-comparative-merits-of-abstention",
       "title": "Baker Mayfield and the Comparative Merits of Abstention"
@@ -94,10 +103,6 @@
     {
       "slug": "marnie-detroit-school",
       "title": "A Study in Movement: The Detroit School, 2026"
-    },
-    {
-      "slug": "maude-saturation-bombing-daniel-jones",
-      "title": "On the Saturation Bombing of Daniel Jones (n\u00e9e Dimes)"
     }
   ]
 }
