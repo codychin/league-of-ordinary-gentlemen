@@ -39,7 +39,7 @@ export const newsroomApologyArticle = {
     {
       "type": "break"
     },
-    "We did not enter this profession to usher in the end of society. We entered it because society contains an inexhaustible supply of people who say “Let me be very clear” immediately before making things worse.",
+    "We did not enter this profession to usher in the end of society. We entered it because society contains an inexhaustible supply of people who say “Let me be very clear” immediately before making things less clear and objectively worse.",
     "We meant to cover them, not join them.",
     "There is an awkwardness to writing this letter that survives the jokes. We spend our time examining things that would not survive a serious meeting about priorities: a dog for whom being fastest was no longer quite enough, a quarterback whose medical prognosis failed to respect the grandeur of his farewell, and whether zero passing yards can constitute an exercise in restraint.",
     "None of these things had to happen.",
@@ -55,44 +55,44 @@ export const newsroomApologyArticle = {
         {
           "name": "Hollis Crane",
           "src": "/images/editorial/signatures/hollis-crane.png",
-          "width": 2172,
-          "height": 724,
-          "maxWidth": 250
+          "width": 490,
+          "height": 262,
+          "maxWidth": 210
         },
         {
           "name": "Conrad Sorrell",
           "src": "/images/editorial/signatures/conrad-sorrell.png",
-          "width": 1752,
-          "height": 897,
-          "maxWidth": 190
+          "width": 487,
+          "height": 237,
+          "maxWidth": 210
         },
         {
           "name": "Marnie Kells",
           "src": "/images/editorial/signatures/marnie-kells.png",
-          "width": 2172,
-          "height": 724,
-          "maxWidth": 230
+          "width": 500,
+          "height": 248,
+          "maxWidth": 210
         },
         {
           "name": "Maude Gannon",
           "src": "/images/editorial/signatures/maude-gannon.png",
-          "width": 1774,
-          "height": 887,
-          "maxWidth": 190
+          "width": 490,
+          "height": 197,
+          "maxWidth": 210
         },
         {
           "name": "Dashiell Pike",
           "src": "/images/editorial/signatures/dashiell-pike.png",
-          "width": 1752,
-          "height": 897,
-          "maxWidth": 190
+          "width": 475,
+          "height": 345,
+          "maxWidth": 210
         },
         {
           "name": "Sabine March",
           "src": "/images/editorial/signatures/sabine-march.png",
-          "width": 2172,
-          "height": 724,
-          "maxWidth": 250
+          "width": 525,
+          "height": 260,
+          "maxWidth": 210
         }
       ]
     },
