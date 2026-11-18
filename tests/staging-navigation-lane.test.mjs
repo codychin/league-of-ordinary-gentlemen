@@ -19,3 +19,11 @@ test('navigation runs actual build and relevant browsers with full hydrated medi
  assert.ok(y.includes('steps.media-source.outputs.commit'));
  assert.doesNotMatch(y,/continue-on-error|restore-keys:/);
 });
+
+test('default-branch cache is seeded from verified full-checkout inputs before build',()=>{
+ const block=y.split('      - name: Verify main inputs before seeding future PR caches\n')[1].split('      - uses: actions/setup-node')[0];
+ assert.ok(block.includes("github.event_name == 'push'"));
+ assert.ok(block.includes('media-input-cache.mjs verify'));
+ assert.ok(block.indexOf('media-input-cache.mjs verify')<block.indexOf('actions/cache/save'));
+ assert.ok(y.includes("lookup-only: ${{ github.event_name == 'push' }}"));
+});
