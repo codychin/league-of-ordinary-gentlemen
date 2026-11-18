@@ -30,3 +30,10 @@ test('NUL parser is lossless and cannot smuggle paths',()=>{
   for(const input of ['', 'M\0app/sitemap.js','M\0','M\0app/sitemap.js\0trailing\0']) assert.throws(()=>parseNameStatus(input));
   assert.equal(selectStagingChecks({event:'pull_request',changes:parseNameStatus('M\0app/sitemap.js\nM\tapp/robots.js\0')}).media,'required');
 });
+
+test('only complete discovery-only changes select source contracts',()=>{
+ const select=changes=>selectStagingChecks({event:'pull_request',changes:changes.map(path=>({path,status:'M'}))}).scope;
+ assert.equal(select(['app/sitemap.js','app/robots.js','lib/public-sitemap.mjs']),'discovery');
+ for(const path of ['README.md','app/components/SiteNav.js','app/reader-navigation.css','package.json','app/articles/data.js','unknown.js'])assert.equal(select(['app/sitemap.js',path]),'full');
+ assert.equal(select([]),'full');
+});

@@ -6,6 +6,8 @@ import {readFileSync, appendFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {pathToFileURL} from 'node:url';
 
+export const discoveryPaths = new Set(['app/sitemap.js','app/robots.js','lib/public-sitemap.mjs']);
+
 export const independentPaths = new Set([
   'app/sitemap.js',
   'app/robots.js',
@@ -18,14 +20,14 @@ export const independentPaths = new Set([
 ]);
 
 export function selectStagingChecks({event, changes, complete = true}) {
-  const full = reason => ({media: 'required', reason});
+  const full = reason => ({media: 'required', scope: 'full', reason});
   if (event !== 'pull_request') return full('Production and manual runs retain full validation');
   if (!complete || !Array.isArray(changes) || !changes.length) return full('No complete change set');
   for (const change of changes) {
     if (!change || !['A','M'].includes(change.status)) return full('Deletion, rename or unsupported status');
     if (!independentPaths.has(change.path)) return full('Unclassified or potentially shared input');
   }
-  return {media: 'not-required', reason: 'Only explicitly independent navigation, discovery or documentation inputs changed'};
+  return {media: 'not-required', scope: changes.every(change=>discoveryPaths.has(change.path)) ? 'discovery' : 'full', reason: 'Only explicitly independent navigation, discovery or documentation inputs changed'};
 }
 
 export function parseNameStatus(input) {
@@ -45,5 +47,5 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
   if (!process.env.GITHUB_OUTPUT) throw Error('GITHUB_OUTPUT is required');
   const identity = ['GITHUB_SHA','GITHUB_RUN_ID','GITHUB_RUN_ATTEMPT','GITHUB_WORKFLOW_REF'].map(key=>process.env[key]);
   if (identity.some(value=>!value || /[\r\n]/.test(value))) throw Error('Missing or malformed execution identity');
-  appendFileSync(process.env.GITHUB_OUTPUT, 'media='+plan.media+'\nidentity='+identity.join(':')+'\n');
+  appendFileSync(process.env.GITHUB_OUTPUT, 'media='+plan.media+'\nscope='+plan.scope+'\nidentity='+identity.join(':')+'\n');
 }

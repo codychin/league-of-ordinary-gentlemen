@@ -27,11 +27,11 @@ test('cancel only superseded PR validation, never main or a dispatch',()=>{
 });
 test('independent checks run concurrently but release still requires real media',()=>{
   const integrity=workflow.split('  integrity:\n')[1].split('  article-image-qa:\n')[0];
-  assert.doesNotMatch(integrity,/^    needs:/m);
+  assert.match(integrity,/^    needs: select-checks/m);
   assert.match(workflow,/article-image-qa:\n    needs: \[integrity, media-preparation, select-checks\]/);
   assert.ok(workflow.includes('test "$MEDIA_RESULT" = success'));
   assert.match(workflow,/permissions:\n  contents: read/);
-  assert.equal((workflow.match(/persist-credentials: false/g)||[]).length,3);
+  assert.equal((workflow.match(/persist-credentials: false/g)||[]).length,4);
   assert.match(workflow,/timeout-minutes: 30/);
   assert.doesNotMatch(workflow,/continue-on-error|actions: write|contents: write|id-token:/);
 });
