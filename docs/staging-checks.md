@@ -1,71 +1,82 @@
 # Change-aware staging checks
 
-The initial independent-change lane applies only to pull-request validation. It
-avoids the real-media preparation job for an explicit set of navigation, sitemap,
-robots, and README inputs. It does not label media as tested: the aggregate
-accepts a skipped media job only with a successful same-SHA/run/attempt/workflow
-classification from this dependency graph and only on a pull request.
+These lanes apply only to PRs. Main pushes, manual runs, incomplete diffs,
+deletions/renames, unknown/shared/dependency/media changes and changes to this
+policy retain full validation. The allowlist is intentionally narrow.
 
-Unknown paths, shared modules, media, manifests, application content, dependency
-or lockfile changes, workflow/classifier/test changes, deletions, renames, missing
-bases and incomplete diffs run the existing full checks. All main pushes and
-manual runs retain full media validation. There is no repository-wide filename
-denylist pretending to prove transitive independence.
+## Lanes
 
-The allowlist is a media-preparation dependency boundary, not a UI exemption.
-The integrity job still builds the actual application and runs existing unit and
-browser checks. Branch protection, production promotion, exact-SHA checks,
-serialization, credentials, and rollback behavior are not changed.
+- Discovery: only sitemap/robots/public-sitemap inputs. Small source checkout,
+  compiled real route contracts against canonical inventory, no stripped-media
+  application build or UI claim. Unexpected runtime dependencies fail contracts.
+- Navigation: explicit SiteNav, EditionSiteNav, useCompactMobileNav and
+  reader-navigation CSS inputs, optionally discovery inputs. Sparse source plus
+  verified complete media, normal build, relevant real browser contracts.
+- Audited copy: modified newsroom-ai-apology JSON article, optionally discovery.
+  Parse old/new without execution. Only existing title/dek/plain paragraph text
+  may change; body shape, metadata, embeds, media and signatures are fixed.
+  Complete-media build and actual article browser layout across editions,
+  viewports and color schemes.
+- README: may skip independent media preparation, retains full integrity.
+- Everything else: full integrity and media preparation.
 
-## Pilot and limits
+Required aggregate accepts skipped media only with explicit successful same-SHA,
+run, attempt and workflow classification/integrity evidence, and only on a PR.
+Failed/cancelled/missing/stale evidence fails closed. Failed-only reruns cannot
+reuse successful evidence from another attempt: rerun all dependencies together
+or start a complete new run. Do not weaken this safeguard.
 
-Changing this policy runs full validation. Once it is reviewed, an independent
-navigation/sitemap change can exercise the skip path. The selector's local tests
-also exercise independent changes, mixed media changes, unknown shared
-dependencies, malformed diffs, deleted/renamed files, and non-PR events. Aggregate
-tests reject missing/stale selection evidence, unsuccessful dependencies and
-production skips.
+## Media cache
 
-This is a bounded first improvement, not a claim that staging is now fast.
-The integrity job still checks out media and runs broad browser coverage; its
-pretest/build scripts currently require historical media reconstruction. Reducing
-that checkout needs a separately verified source/media split, not silent removal
-of assets. Representative hosted timings and preview readiness must be recorded
-before claiming an end-to-end improvement. Production promotion remains subject
-to the owner's UI validation; do not merge a pilot just to trigger auto-promotion.
+Cache only tracked public/reels, public/reels-hls and media-sources inputs. Key
+uses exact three Git tree IDs, object format and schema version. No partial key,
+Git directory, credentials, dependencies or generated build output. Verify every
+file against its Git blob identity; reject missing/extra files, unsafe paths,
+modes, links and corruption before candidate application code executes.
 
-## Discovery-only source lane
+Miss/corruption clears only fixed owned media paths, hydrates exact Git checkout
+and verifies again. Unsafe parent symlink fails closed without deleting target.
+Restore/verify/save is serialized before npm/build. Immutable keys plus byte
+verification, not cache hits, establish identity. Concurrent saves are harmless.
 
-A PR changing only app/sitemap.js, app/robots.js and/or lib/public-sitemap.mjs
-uses a source-only checkout and compiled actual route contracts. The esbuild
-test imports the real sitemap and robots exports against canonical article data,
-and verifies inventory/exclusions, canonical origin, duplicates and robots.
-It rejects unexpected external runtime dependencies. Tests execute directly,
-not through npm test and its unrelated historical-media pretest.
+Main uses lookup-only and NEVER restores PR archives. It verifies full checkout
+before potentially seeding default-branch cache. Branch isolation is retained.
+That seed path has not run on main yet; cross-PR performance is not promised.
+Eviction/misses fall back to verified Git hydration. No quota/billing changes.
+Observed usage after pilot: 4,426,193,474 bytes/two entries, previously
+144,478,330 bytes/one entry.
 
-This lane deliberately does not build a local stripped-media application or
-claim to have tested media playback or the UI. The ordinary Vercel preview build
-is unchanged and retains all assets; its completion is independent of these
-source-contract checks. Navigation, article copy, unknown changes, main pushes
-and manual runs still retain full application/browser validation. Do not promote
-until the owner has reviewed the complete preview.
+## Hosted pilots, 2026-11-18
 
-## Complete-media navigation and audited copy lanes
+| Lane | Total through aggregate | Run |
+| --- | ---: | --- |
+| Discovery | 86s | 44357209363 |
+| Navigation cold | 13m08s | 44362258963 |
+| Navigation warm, same PR | 7m50s | 44364741438 |
+| Audited copy warm, same PR | 2m18s | 44367095002 |
 
-Navigation changes on the explicit allowlist and plain-copy edits of the audited
-newsroom JSON article now use a sparse source checkout plus an exact-tree media
-input cache. All tracked MP4, HLS and source chunks remain present and verified
-before the normal application build. The cache contains no Git directory,
-credentials, dependencies or built application outputs. No partial restore keys.
-Cache misses/corruption remove only the owned media inputs and hydrate them again
-from the checked-out Git commit, then verify every blob. Save inputs before
-restoration generates additional outputs. Default cache quota is not increased.
+All passed; pilot PRs178/179 closed unmerged. Cold hydration/verification took
+5m21s and save22s; warm restore30s plus verification5s. Navigation browser suites
+remain about5m40s. Copy build16s plus18 real browser cases13s. These are observed
+samples, not guarantees that all staging changes are fast.
 
-The navigation lane runs real navigation/anchor/reading browser contracts. The
-copy lane parses old/new source without executing it, allows only existing plain
-title/dek/paragraph text, fixes all object/media/signature structure, and tests
-the actual current article layout across editions, viewports and color schemes.
-Unknown or mixed changes still take full checks. No public promotion or protected
-preview authentication change is part of this optimization.
+First copy pilot caught formatting-dependent mutation fixtures and failed closed.
+Fixtures now canonicalize their own JSON; actual source is independently tested.
+All74 copy canaries pass with compact/two-space/four-space formatting. Cache
+corruption/miss/unsafe-parent fallback has deterministic local fixture tests;
+real cold hydration and warm4.3GB restore were exercised on GitHub.
 
-Cold and warm hosted timings must be measured, not inferred from cache hit.
+## Preview/release boundary
+
+Vercel independently builds a complete-media preview, observed around7min, not
+86s/138s. No assets omitted to make preview fast. HTTP validation does not imply
+native playback or owner UI acceptance. Canonical staging ignores pilot branches
+and was not promoted. Production workflow, branch protections, SHA gates and
+protected-preview authentication remain unchanged. Owner UI review precedes
+merge/promotion.
+
+Full-policy run44362718284 passed. At bd12af25, full application/unit/build/browser
+integrity passed in44367051488 but Ubuntu FFmpeg install timed out before media
+tests, correctly failing aggregate. Exact complete Vercel preview READY in6m53s;
+authenticated sitemap/archive/article/current-HLS-manifest returned200. Bootstrap
+reliability follow-up must be verified; that failure is not a media-test pass.
