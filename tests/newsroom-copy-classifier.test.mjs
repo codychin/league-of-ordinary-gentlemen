@@ -2,12 +2,16 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {isNewsroomCopyOnlyChange,NEWSROOM_COPY_PATH} from '../scripts/operations/classify-newsroom-copy.mjs';
-const source=readFileSync(NEWSROOM_COPY_PATH,'utf8');
-const original=JSON.parse(source.replace(/^\s*export const newsroomApologyArticle\s*=\s*/,'').replace(/;\s*$/,''));
+const rawSource=readFileSync(NEWSROOM_COPY_PATH,'utf8');
+const original=JSON.parse(rawSource.replace(/^\s*export const newsroomApologyArticle\s*=\s*/,'').replace(/;\s*$/,''));
 const module=article=>'export const newsroomApologyArticle = '+JSON.stringify(article,null,2)+';\n';
+// Construct mutation fixtures independently of the article's chosen formatting.
+const source=module(original);
+const weekToken='"week": '+original.week;
 function changed(edit){const article=structuredClone(original);edit(article);return module(article);}
 function denied(name,edit){test(name,()=>assert.equal(isNewsroomCopyOnlyChange(source,changed(edit)),false));}
-test('actual article qualifies without changes',()=>assert.equal(isNewsroomCopyOnlyChange(source,source),true));
+test('actual article qualifies independent of current source formatting',()=>assert.equal(isNewsroomCopyOnlyChange(rawSource,source),true));
+test('compact article source remains eligible',()=>assert.equal(isNewsroomCopyOnlyChange(rawSource,'export const newsroomApologyArticle = '+JSON.stringify(original)+';'),true));
 for(const field of ['title','dek'])test('literal '+field+' edit allowed',()=>assert.equal(isNewsroomCopyOnlyChange(source,changed(a=>{a[field]+=' Revised.';})),true));
 test('plain paragraphs can change at their existing positions',()=>assert.equal(isNewsroomCopyOnlyChange(source,changed(a=>{a.body[0]='Dear civilization,';a.body[1]='We have further thoughts.';})),true));
 test('JSON formatting and object-key order are semantically inert',()=>{
@@ -37,15 +41,15 @@ for(const bad of [
  source.replace('newsroomApologyArticle','someOtherArticle'),
  source.replace('export const','export let'),
  source.replace('export const','const'),
- source.replace('"week": 11','"week": 11, "week": 11'),
+ source.replace(weekToken,'"week": 11, "week": 11'),
  source.replace('"type": "xclip"','"type": "xclip", "type": "xclip"'),
- source.replace('"week": 11','"week": (() => { globalThis.__COPY_EVALUATED__=true; return 11; })()'),
- source.replace('"week": 11','"week": 11 /* comment */'),
- source.replace('"week": 11','"__proto__": {}, "week": 11'),
- source.replace('"week": 11','"week": NaN'),
- source.replace('"week": 11','"week": Infinity'),
- source.replace('"week": 11','"week": 01'),
- source.replace('"week": 11','"week": 11,'),
+ source.replace(weekToken,'"week": (() => { globalThis.__COPY_EVALUATED__=true; return 11; })()'),
+ source.replace(weekToken,'"week": 11 /* comment */'),
+ source.replace(weekToken,'"__proto__": {}, "week": 11'),
+ source.replace(weekToken,'"week": NaN'),
+ source.replace(weekToken,'"week": Infinity'),
+ source.replace(weekToken,'"week": 01'),
+ source.replace(weekToken,'"week": 11,'),
  'export const newsroomApologyArticle = {};',
  '', null, undefined,
 ]) test('unknown/ambiguous/non-JSON source rejected '+String(bad).slice(0,55),()=>{
@@ -55,7 +59,7 @@ for(const bad of [
  assert.equal(globalThis.__COPY_EVALUATED__,undefined);
 });
 test('JSON escape representations preserve same text',()=>assert.equal(isNewsroomCopyOnlyChange(source,source.replace('"title"','"\\u0074itle"')),true));
-test('escaped duplicate keys cannot bypass detection',()=>assert.equal(isNewsroomCopyOnlyChange(source,source.replace('"week": 11','"week": 11, "\\u0077eek": 11')),false));
+test('escaped duplicate keys cannot bypass detection',()=>assert.equal(isNewsroomCopyOnlyChange(source,source.replace(weekToken,'"week": 11, "\\u0077eek": 11')),false));
 test('source size bound fails closed',()=>assert.equal(isNewsroomCopyOnlyChange(source,' '.repeat(1_000_001)),false));
 test('before source must have the audited schema too',()=>{
  const baseline=changed(a=>{a.unknown='preserved';});assert.equal(isNewsroomCopyOnlyChange(baseline,baseline),false);
