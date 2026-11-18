@@ -143,13 +143,14 @@ jobs:
             !/public/reels/
             !/public/reels-hls/
       - name: Identify exact tracked media inputs
-        if: ${{ (needs.select-checks.outputs.scope == 'navigation' || needs.select-checks.outputs.scope == 'copy') }}
+        if: ${{ ((needs.select-checks.outputs.scope == 'navigation' || needs.select-checks.outputs.scope == 'copy') || github.event_name == 'push') }}
         id: media-key
         run: echo "key=$(node scripts/operations/media-input-cache.mjs key)" >> "$GITHUB_OUTPUT"
       - uses: actions/cache/restore@v4
-        if: ${{ (needs.select-checks.outputs.scope == 'navigation' || needs.select-checks.outputs.scope == 'copy') }}
+        if: ${{ ((needs.select-checks.outputs.scope == 'navigation' || needs.select-checks.outputs.scope == 'copy') || github.event_name == 'push') }}
         id: media-cache
         with:
+          lookup-only: ${{ github.event_name == 'push' }}
           path: |
             public/reels
             public/reels-hls
@@ -158,8 +159,11 @@ jobs:
       - name: Verify restored media or hydrate exact Git inputs
         if: ${{ (needs.select-checks.outputs.scope == 'navigation' || needs.select-checks.outputs.scope == 'copy') }}
         run: node scripts/operations/hydrate-media-inputs.mjs
+      - name: Verify main inputs before seeding future PR caches
+        if: ${{ github.event_name == 'push' }}
+        run: node scripts/operations/media-input-cache.mjs verify
       - uses: actions/cache/save@v4
-        if: ${{ (needs.select-checks.outputs.scope == 'navigation' || needs.select-checks.outputs.scope == 'copy') && steps.media-cache.outputs.cache-hit != 'true' }}
+        if: ${{ ((needs.select-checks.outputs.scope == 'navigation' || needs.select-checks.outputs.scope == 'copy') || github.event_name == 'push') && steps.media-cache.outputs.cache-hit != 'true' }}
         with:
           path: |
             public/reels
