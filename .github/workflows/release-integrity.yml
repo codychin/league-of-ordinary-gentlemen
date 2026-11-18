@@ -18,7 +18,7 @@ concurrency:
 jobs:
   media-preparation:
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
@@ -55,8 +55,9 @@ jobs:
         with:
           node-version: 22
       - name: Ensure runner media prerequisites
-        # Allow slow Ubuntu mirrors without changing validation or the job limit.
-        timeout-minutes: 8
+        # Slow Ubuntu mirrors have exceeded eight minutes before validation begins.
+        # Preserve every validation step; allow dependency installation to finish.
+        timeout-minutes: 15
         run: bash scripts/operations/ensure-media-tools.sh
       - name: Verify real preparation and shelf delivery contracts without spending
         run: node --test qa/operations/media-preparation.test.mjs
