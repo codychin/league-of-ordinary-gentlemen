@@ -25,8 +25,11 @@ test('cancel only superseded PR validation, never main or a dispatch',()=>{
   assert.match(workflow,/group: release-integrity-\$\{\{ github.event_name == 'pull_request' && format\('pr-\{0\}', github.event.pull_request.number\) \|\| github.run_id \}\}/);
   assert.match(workflow,/cancel-in-progress: \$\{\{ github.event_name == 'pull_request' \}\}/);
 });
-test('required integrity still waits for real media and retains read-only credentials',()=>{
-  assert.match(workflow,/integrity:\n    needs: media-preparation/);
+test('independent checks run concurrently but release still requires real media',()=>{
+  const integrity=workflow.split('  integrity:\n')[1].split('  article-image-qa:\n')[0];
+  assert.doesNotMatch(integrity,/^    needs:/m);
+  assert.match(workflow,/article-image-qa:\n    needs: \[integrity, media-preparation\]/);
+  assert.ok(workflow.includes('test "$MEDIA_RESULT" = success'));
   assert.match(workflow,/permissions:\n  contents: read/);
   assert.equal((workflow.match(/persist-credentials: false/g)||[]).length,2);
   assert.match(workflow,/timeout-minutes: 30/);

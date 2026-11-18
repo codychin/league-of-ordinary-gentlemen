@@ -8,7 +8,7 @@ const script = gate.split('        run: |\n')[1].replace(/^          /gm, '');
 const identity = {GITHUB_SHA:'a'.repeat(40), GITHUB_RUN_ID:'123', GITHUB_RUN_ATTEMPT:'2', GITHUB_WORKFLOW_REF:'codychin/league-of-ordinary-gentlemen/.github/workflows/release-integrity.yml@refs/pull/103/merge'};
 const evidence = Object.values(identity).join(':');
 function run(patch = {}) {
-  return spawnSync('bash', ['-e', '-c', script], {env:{...identity, VALIDATION_RESULT:'success', VALIDATION_IDENTITY:evidence, ...patch}}).status;
+  return spawnSync('bash', ['-e', '-c', script], {env:{...identity, MEDIA_RESULT:'success', VALIDATION_RESULT:'success', VALIDATION_IDENTITY:evidence, ...patch}}).status;
 }
 test('same-run successful exact-commit evidence passes without fetching artifacts', () => assert.equal(run(), 0));
 for (const result of ['failure', 'cancelled', 'skipped', '', 'in_progress']) {
@@ -60,7 +60,7 @@ test('one install/build retains both server environments and all suites before e
     assert.ok(workflow.indexOf(required) < workflow.indexOf('id: evidence'), required);
     assert.ok(workflow.includes(required), required);
   }
-  assert.match(workflow, /article-image-qa:\n    needs: integrity\n    if: \$\{\{ always\(\) \}\}/);
+  assert.match(workflow, /article-image-qa:\n    needs: \[integrity, media-preparation\]\n    if: \$\{\{ always\(\) \}\}/);
   assert.match(workflow, /CHECKED_OUT_SHA: \$\{\{ steps.source.outputs.commit \}\}/);
   assert.match(workflow, /uses: actions\/checkout@v4\n        id: source/);
   assert.doesNotMatch(workflow, /download-artifact|continue-on-error/);
@@ -76,4 +76,12 @@ for (const checkedOut of [identity.GITHUB_SHA, '', 'b'.repeat(40)]) {
 }
 test('identity recording does not alter Git trust configuration or depend on container ownership', () => {
   assert.doesNotMatch(record, /git |safe.directory/);
+});
+for (const result of ['failure', 'cancelled', 'skipped', '', 'in_progress']) {
+  test('media dependency ' + (result || 'missing') + ' blocks otherwise valid image evidence', () => {
+    assert.notEqual(run({MEDIA_RESULT:result}), 0);
+  });
+}
+test('media result comes from this run dependency graph', () => {
+  assert.ok(gate.includes('MEDIA_RESULT: ${{ needs.media-preparation.result }}'));
 });
