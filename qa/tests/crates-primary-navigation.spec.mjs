@@ -24,3 +24,14 @@ for(const root of ['', '/sunday-crew','/doge']){
   if(mobile)await expect(nav).toHaveAttribute('data-active-tab','crates');
  });
 }
+
+for(const root of ['/sunday-crew','/doge'])test(`edition newsroom keeps Crates accessible ${root}`,async({page})=>{
+ await page.goto(root+'/newsroom');
+ const mobile=page.viewportSize().width<=760;
+ const nav=page.getByRole('navigation',{name:mobile?'App navigation':'Primary navigation',exact:true});
+ const crates=nav.getByRole('link',{name:/^(The )?Crates$/i});
+ await expect(crates).toHaveAttribute('href',root+'/archive');
+ await crates.click();
+ await expect(page).toHaveURL(new RegExp(root+'/archive$'));
+ await expect(page.getByRole('heading',{name:'The Crates.',exact:true})).toBeVisible();
+});

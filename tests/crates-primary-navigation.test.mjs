@@ -27,3 +27,13 @@ test('pre-hydration app shell marks all archive and watch routes as crates',()=>
   assert.equal(document.documentElement.dataset.appTab,'crates',pathname);
  }
 });
+
+test('edition homepage and newsroom inline navigation include the edition archive',()=>{
+ for(const name of ['Home.js','Newsroom.js']){
+  const source=read('app/components/editions/'+name);
+  const nav=source.match(/<nav className="siteNav"[^>]*>(.*?)<\/nav>/s)[1];
+  assert.equal((nav.match(/THE CRATES/g)||[]).length,1,name);
+  assert.match(nav,/<Link href=\{root\+"\/archive"\}>THE CRATES<\/Link>/);
+  assert.ok(nav.indexOf('THE CRATES')<nav.indexOf('>SCORES<'));
+ }
+});
