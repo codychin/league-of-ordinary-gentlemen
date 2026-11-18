@@ -61,8 +61,9 @@ jobs:
         run: bash scripts/operations/ensure-media-tools.sh
       - name: Verify real preparation and shelf delivery contracts without spending
         run: node --test qa/operations/media-preparation.test.mjs
+  # Independent work runs concurrently. The required aggregate gate below
+  # still refuses promotion unless BOTH jobs succeed in this exact run.
   integrity:
-    needs: media-preparation
     outputs:
       evidence: ${{ steps.evidence.outputs.identity }}
     runs-on: ubuntu-24.04
@@ -190,15 +191,17 @@ jobs:
           echo "identity=$GITHUB_SHA:$GITHUB_RUN_ID:$GITHUB_RUN_ATTEMPT:$GITHUB_WORKFLOW_REF" >> "$GITHUB_OUTPUT"
   # Preserve the required check name while reusing only this run's completed work.
   article-image-qa:
-    needs: integrity
+    needs: [integrity, media-preparation]
     if: ${{ always() }}
     runs-on: ubuntu-24.04
     steps:
       - name: Require successful validation of this exact run
         env:
+          MEDIA_RESULT: ${{ needs.media-preparation.result }}
           VALIDATION_RESULT: ${{ needs.integrity.result }}
           VALIDATION_IDENTITY: ${{ needs.integrity.outputs.evidence }}
         run: |
+          test "$MEDIA_RESULT" = success
           test "$VALIDATION_RESULT" = success
           test -n "$GITHUB_SHA"
           test -n "$GITHUB_RUN_ID"
