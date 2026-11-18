@@ -16,7 +16,39 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
+  select-checks:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    outputs:
+      media: ${{ steps.plan.outputs.media }}
+      identity: ${{ steps.plan.outputs.identity }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 2
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /scripts/operations/select-staging-checks.mjs
+            /tests/staging-check-selection.test.mjs
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Test conservative change selection
+        run: node --test tests/staging-check-selection.test.mjs
+      - id: plan
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          # Missing/stale shallow bases deliberately produce the full lane.
+          # No full history, media clone, API pagination, or saved credentials.
+          if [ "$GITHUB_EVENT_NAME" = pull_request ] && git cat-file -e "$BASE_SHA^{commit}" 2>/dev/null; then
+            git diff --name-status --no-renames -z "$BASE_SHA" HEAD > /tmp/staging-changes
+          fi
+          node scripts/operations/select-staging-checks.mjs /tmp/staging-changes
   media-preparation:
+    needs: select-checks
+    if: ${{ needs.select-checks.outputs.media != 'not-required' }}
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
@@ -61,8 +93,8 @@ jobs:
         run: bash scripts/operations/ensure-media-tools.sh
       - name: Verify real preparation and shelf delivery contracts without spending
         run: node --test qa/operations/media-preparation.test.mjs
-  # Independent work runs concurrently. The required aggregate gate below
-  # still refuses promotion unless BOTH jobs succeed in this exact run.
+  # Integrity runs concurrently with classification/media. Full main validation
+  # and exact-run aggregate evidence are unchanged; PR-only media skips are explicit.
   integrity:
     outputs:
       evidence: ${{ steps.evidence.outputs.identity }}
@@ -191,17 +223,27 @@ jobs:
           echo "identity=$GITHUB_SHA:$GITHUB_RUN_ID:$GITHUB_RUN_ATTEMPT:$GITHUB_WORKFLOW_REF" >> "$GITHUB_OUTPUT"
   # Preserve the required check name while reusing only this run's completed work.
   article-image-qa:
-    needs: [integrity, media-preparation]
+    needs: [integrity, media-preparation, select-checks]
     if: ${{ always() }}
     runs-on: ubuntu-24.04
     steps:
       - name: Require successful validation of this exact run
         env:
+          SELECTION_RESULT: ${{ needs.select-checks.result }}
+          SELECTED_MEDIA: ${{ needs.select-checks.outputs.media }}
+          SELECTION_IDENTITY: ${{ needs.select-checks.outputs.identity }}
           MEDIA_RESULT: ${{ needs.media-preparation.result }}
           VALIDATION_RESULT: ${{ needs.integrity.result }}
           VALIDATION_IDENTITY: ${{ needs.integrity.outputs.evidence }}
         run: |
-          test "$MEDIA_RESULT" = success
+          test "$SELECTION_RESULT" = success
+          test "$SELECTION_IDENTITY" = "$GITHUB_SHA:$GITHUB_RUN_ID:$GITHUB_RUN_ATTEMPT:$GITHUB_WORKFLOW_REF"
+          if [ "$GITHUB_EVENT_NAME" = pull_request ] && [ "$SELECTED_MEDIA" = not-required ]; then
+            test "$MEDIA_RESULT" = skipped
+          else
+            test "$SELECTED_MEDIA" = required
+            test "$MEDIA_RESULT" = success
+          fi
           test "$VALIDATION_RESULT" = success
           test -n "$GITHUB_SHA"
           test -n "$GITHUB_RUN_ID"
