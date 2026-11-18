@@ -38,8 +38,8 @@ for(const root of ['', '/doge', '/sunday-crew'])for(const standalone of [false,t
         expect(m.controls.every(h=>h>=44)).toBe(true);
       }
     }
-    await nav.getByRole('link',{name:'Culture',exact:true}).click();
-    await expect(page.locator('html')).toHaveAttribute('data-app-tab','culture');
+    await nav.getByRole('link',{name:'Crates',exact:true}).click();
+    await expect(page.locator('html')).toHaveAttribute('data-app-tab','crates');
     await expect(nav).toHaveAttribute('data-compact','false');
     // The Brief's home destination is labeled Live during Sunday coverage;
     // league editions retain Home. Exercise both valid runtime labels.
