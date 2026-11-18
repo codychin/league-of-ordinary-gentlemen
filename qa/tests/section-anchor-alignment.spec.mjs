@@ -69,9 +69,19 @@ for(const root of ['/','/doge','/sunday-crew'])for(const standalone of [false,tr
     throw error;
    }
   }
-  const second=mobile||root==='/'?'culture':'league';
+  // Culture is still a deep-linkable section, but no longer a primary tab.
+  // Exercise real section navigation through Scores and The League; on mobile
+  // The League lives in More. Keep history and direct Culture hashes below.
+  const second='league';
   for(const id of ['scores',second]){
-   await nav.getByRole('link',{name:new RegExp('^(THE )?'+id+'$','i')}).click();await expectLanding(page,id,mobile);
+   if(mobile&&id==='league'){
+    await nav.getByRole('button',{name:'More',exact:true}).click();
+    await page.getByRole('complementary',{name:'More and settings'}).getByRole('link',{name:'The League',exact:true}).click();
+   }else{
+    await nav.getByRole('link',{name:new RegExp('^(THE )?'+id+'$','i')}).click();
+   }
+   await expect(page).toHaveURL(new RegExp('#'+id+'$'));
+   await expectLanding(page,id,mobile);
   }
   await page.goBack();await expectLanding(page,'scores',mobile);
   await page.goForward();await expectLanding(page,second,mobile);
