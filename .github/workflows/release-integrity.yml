@@ -18,7 +18,7 @@ concurrency:
 jobs:
   media-preparation:
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
@@ -55,8 +55,9 @@ jobs:
         with:
           node-version: 22
       - name: Ensure runner media prerequisites
-        # Allow slow Ubuntu mirrors without changing validation or the job limit.
-        timeout-minutes: 8
+        # Slow Ubuntu mirrors have exceeded eight minutes before validation begins.
+        # Preserve every validation step; allow dependency installation to finish.
+        timeout-minutes: 15
         run: bash scripts/operations/ensure-media-tools.sh
       - name: Verify real preparation and shelf delivery contracts without spending
         run: node --test qa/operations/media-preparation.test.mjs
@@ -121,7 +122,7 @@ jobs:
             sleep 2
           done
           test "$ready" = true
-          QA_BASE_URL=http://127.0.0.1:3000 npx playwright test qa/tests/article-image-framing.spec.mjs qa/tests/scorecard-divider-regression.spec.mjs qa/tests/pwa-reading-navigation.spec.mjs qa/tests/section-anchor-alignment.spec.mjs qa/tests/crates-mobile-intro.spec.mjs qa/tests/nav-circle-alignment.spec.mjs qa/tests/live-desk-badge.spec.mjs qa/tests/desktop-feature-spreads.spec.mjs qa/tests/web-paper.spec.mjs qa/tests/baker-draft.spec.mjs qa/tests/article-byline.spec.mjs
+          QA_BASE_URL=http://127.0.0.1:3000 npx playwright test qa/tests/article-image-framing.spec.mjs qa/tests/scorecard-divider-regression.spec.mjs qa/tests/pwa-reading-navigation.spec.mjs qa/tests/section-anchor-alignment.spec.mjs qa/tests/crates-mobile-intro.spec.mjs qa/tests/crates-primary-navigation.spec.mjs qa/tests/nav-circle-alignment.spec.mjs qa/tests/live-desk-badge.spec.mjs qa/tests/desktop-feature-spreads.spec.mjs qa/tests/web-paper.spec.mjs qa/tests/baker-draft.spec.mjs qa/tests/article-byline.spec.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:

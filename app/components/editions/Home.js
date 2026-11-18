@@ -54,7 +54,7 @@ const currentPreviewReels=(week10Reels.length===6?week10Reels:week9PreviewReels(
     <header>
       <div className="utility"><span className="utilityMain">{name.toUpperCase()} EDITION <i>•</i> JOURNALISM WITHOUT PURPOSE</span></div>
       <div className="mast"><h1>{edition.tenant.publication_name}</h1><div className="dek">Fantasy football, personal grievances, forensic accounting and other matters of irrelevance.</div></div>
-      <nav className="siteNav" aria-label="Primary navigation"><Link href={root+""}>HOME</Link>{LIVE_DESK_ENABLED&&<Link href={root+"#live-desk"}>LIVE DESK</Link>}<Link href={root+"#league"}>THE LEAGUE</Link><Link href={root+"/teams"}>FRANCHISES</Link><Link href={root+"#standings"}>STANDINGS</Link><Link href={root+"#transactions"}>THE WIRE</Link><Link href={root+"#scores"}>SCORES</Link></nav>
+      <nav className="siteNav" aria-label="Primary navigation"><Link href={root+""}>HOME</Link>{LIVE_DESK_ENABLED&&<Link href={root+"#live-desk"}>LIVE DESK</Link>}<Link href={root+"#league"}>THE LEAGUE</Link><Link href={root+"/teams"}>FRANCHISES</Link><Link href={root+"#standings"}>STANDINGS</Link><Link href={root+"#transactions"}>THE WIRE</Link><Link href={root+"/archive"}>THE CRATES</Link><Link href={root+"#scores"}>SCORES</Link></nav>
     </header>
     <main data-weekly-media={completedWeek10Reels.length===6||currentPreviewReels.length===6||currentRecapReels.length===6||previewReels.length===6||reels.length>0?"present":"absent"}>
       <SundayLiveDesk editionSlug={slug} editionLabel={name.toUpperCase()} staffPath={root+"/newsroom"}/>

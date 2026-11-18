@@ -158,7 +158,7 @@ function TabIcon({name}){
     Home:<><path d="M4 7.5 12 3l8 4.5v11A1.5 1.5 0 0 1 18.5 20h-13A1.5 1.5 0 0 1 4 18.5z"/><path d="M8 11h8M8 14h8M8 17h5"/></>,
     Scores:<><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M7 9h3v3H7zM14 9h3M14 12h3M7 16h10"/></>,
     Teams:<><path d="M8.5 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM15.8 10a2.4 2.4 0 1 0 0-4.8"/><path d="M3 19c.4-3.6 2.2-5.4 5.5-5.4S13.6 15.4 14 19M14.5 13.2c3.7-.2 5.8 1.7 6 5.8"/></>,
-    Culture:<><path d="m12 3 1.7 5.3L19 10l-5.3 1.7L12 17l-1.7-5.3L5 10l5.3-1.7z"/><path d="m18.5 15 .7 2.3 2.3.7-2.3.7-.7 2.3-.7-2.3-2.3-.7 2.3-.7z"/></>,
+    Crates:<><path d="M4 7h16v13H4z"/><path d="M3 4h18v3H3zM9 11h6"/></>,
     More:<><circle cx="5" cy="12" r="1.4"/><circle cx="12" cy="12" r="1.4"/><circle cx="19" cy="12" r="1.4"/></>,
   }
   return <span className="appTabIcon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">{paths[name]}</svg></span>
@@ -180,9 +180,11 @@ function MobileAppNav(){
   const editionRoot=edition?.root||''
   const homePath=editionRoot||'/'
   const teamsPath=editionRoot?editionRoot+'/teams':'/teams'
+  const archivePath=editionRoot+'/archive'
+  const isCrates=pathname===archivePath||pathname.startsWith(archivePath+'/')
   const isEditionHome=pathname===homePath
   const isEditionTeams=pathname.startsWith(teamsPath)
-  const [activeTab,setActiveTab]=useState(isEditionTeams?'teams':pathname.includes('/matchups/')?'scores':['/staff','/archive','/corrections'].some(path=>pathname.startsWith(path))?'more':isEditionHome?'home':'detail')
+  const [activeTab,setActiveTab]=useState(isCrates?'crates':isEditionTeams?'teams':pathname.includes('/matchups/')?'scores':['/staff','/archive','/corrections'].some(path=>pathname.startsWith(path))?'more':isEditionHome?'home':'detail')
   const [moreOpen,setMoreOpen]=useState(false)
   const [headerOnCulture,setHeaderOnCulture]=useState(false)
   const [compactNav,expandNav]=useCompactMobileNav(pathname,moreOpen)
@@ -212,7 +214,7 @@ function MobileAppNav(){
       const scores=document.getElementById('scores')?.getBoundingClientRect()
       const y=boundary+2
       const within=rect=>rect&&rect.top<=y&&rect.bottom>y
-      setActiveTab(within(culture)?'culture':within(scores)?'scores':'home')
+      setActiveTab(within(scores)?'scores':'home')
     }
     const schedule=()=>{if(!frame)frame=requestAnimationFrame(update)}
     window.addEventListener('scroll',schedule,{passive:true})
@@ -223,6 +225,7 @@ function MobileAppNav(){
     return()=>{cancelAnimationFrame(frame);resize.disconnect();window.removeEventListener('scroll',schedule);window.removeEventListener('resize',schedule)}
   },[pathname,isEditionHome])
   const tabFor=hash=>{
+    if(isCrates) return 'crates'
     if(isEditionTeams) return 'teams'
     if(pathname.includes('/matchups/')) return 'scores'
     if(['/staff','/archive','/corrections',...(editionRoot?[editionRoot+'/newsroom',editionRoot+'/archive']:[])].some(path=>pathname.startsWith(path))) return 'more'
@@ -242,7 +245,7 @@ function MobileAppNav(){
     document.documentElement.dataset.appTab=nextTab
     document.querySelectorAll('.siteNav a').forEach(link=>{
       const url=new URL(link.href,window.location.origin)
-      const current=url.pathname===pathname&&url.hash===hash
+      const current=url.pathname===archivePath?isCrates:url.pathname===pathname&&url.hash===hash
       link.classList.toggle('active',current)
       if(current)link.setAttribute('aria-current',hash?'location':'page')
       else link.removeAttribute('aria-current')
@@ -254,6 +257,7 @@ function MobileAppNav(){
     try{const parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());const get=t=>parts.find(p=>p.type===t)?.value;setSundayLive(get('weekday')==='Sun'&&(Number(get('hour'))>12||(Number(get('hour'))===12&&Number(get('minute'))>=30)))}catch{}
     router.prefetch(homePath)
     router.prefetch(teamsPath)
+    router.prefetch(archivePath)
     setMoreOpen(false)
     const preview=new URLSearchParams(window.location.search).get('app-preview')==='1'
     const standalone=preview||window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true
@@ -304,7 +308,7 @@ function MobileAppNav(){
     {href:editionRoot?homePath:(sundayLive?'/#live-desk':'/'),label:editionRoot?'Home':(sundayLive?'Live':'Home'),icon:'Home',tab:'home',hash:editionRoot?undefined:(sundayLive?'#live-desk':undefined),active:activeTab==='home'||activeTab==='detail'},
     {href:homePath+'#scores',label:'Scores',tab:'scores',hash:'#scores',active:activeTab==='scores'},
     {href:teamsPath,label:'Teams',tab:'teams',active:activeTab==='teams'},
-    {href:homePath+'#culture',label:'Culture',tab:'culture',hash:'#culture',active:activeTab==='culture'},
+    {href:archivePath,label:'Crates',tab:'crates',active:activeTab==='crates'},
   ]
   const navigate=(event,item)=>{
     if(event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return
@@ -313,6 +317,11 @@ function MobileAppNav(){
     setMoreOpen(false)
     pendingScroll.current?.()
     setActiveTab(item.tab)
+    if(item.tab==='crates'){
+      if(pathname===archivePath)resetAppScroll()
+      else router.push(archivePath)
+      return
+    }
     if(item.tab==='teams'){
       if(isEditionTeams)resetAppScroll()
       else router.push(teamsPath)
@@ -331,13 +340,12 @@ function MobileAppNav(){
     {moreOpen&&<aside className="appMoreSheet" aria-label="More and settings">
       <div className="appMoreHead"><small>THE BRIEF</small><b>More</b><button type="button" onClick={()=>setMoreOpen(false)} aria-label="Close more menu">×</button></div>
       <div className="appSettings"><small>SETTINGS</small><ArticleAlertSettings edition={edition}/></div>
-      <div className="appMoreLinks"><Link href={homePath+"#league"} data-section-link><MoreMenuIcon name="Staff"/><span>The League</span></Link>{editionRoot&&<><Link href={homePath+"#standings"} data-section-link><MoreMenuIcon name="Archive"/><span>Standings</span></Link><Link href={homePath+"#transactions"} data-section-link><MoreMenuIcon name="Archive"/><span>The Wire</span></Link>{LIVE_DESK_ENABLED&&<Link href={homePath+"#live-desk"} data-section-link><MoreMenuIcon name="Archive"/><span>Live Desk</span></Link>}</>}{editionRoot?<><Link href={editionRoot+"/archive"} onClick={()=>setMoreOpen(false)}><MoreMenuIcon name="Archive"/><span>The Crates</span></Link><Link href={editionRoot+"/newsroom"} onClick={()=>setMoreOpen(false)}><MoreMenuIcon name="Staff"/><span>{edition.name} newsroom</span></Link></>:<>
-        <Link href="/archive"><MoreMenuIcon name="Archive"/><span>The Crates</span></Link>
+      <div className="appMoreLinks"><Link href={homePath+"#league"} data-section-link><MoreMenuIcon name="Staff"/><span>The League</span></Link>{editionRoot&&<><Link href={homePath+"#standings"} data-section-link><MoreMenuIcon name="Archive"/><span>Standings</span></Link><Link href={homePath+"#transactions"} data-section-link><MoreMenuIcon name="Archive"/><span>The Wire</span></Link>{LIVE_DESK_ENABLED&&<Link href={homePath+"#live-desk"} data-section-link><MoreMenuIcon name="Archive"/><span>Live Desk</span></Link>}</>}{editionRoot?<><Link href={editionRoot+"/newsroom"} onClick={()=>setMoreOpen(false)}><MoreMenuIcon name="Staff"/><span>{edition.name} newsroom</span></Link></>:<>
         <Link href="/staff"><MoreMenuIcon name="Staff"/><span>Staff</span></Link>
         <Link href="/corrections"><MoreMenuIcon name="Corrections"/><span>Corrections</span></Link></>}
       </div>
     </aside>}
-    <nav className="appTabBar" data-compact={compactNav} data-active-tab={moreOpen?'more':activeTab==='detail'?'home':activeTab} aria-label="App navigation">
+    <nav className="appTabBar" data-compact={compactNav} data-active-tab={moreOpen?'more':['detail','culture'].includes(activeTab)?'home':activeTab} aria-label="App navigation">
       <span className="appTabGlider" aria-hidden="true"/>
       {items.map(item=><Link
       key={item.label}

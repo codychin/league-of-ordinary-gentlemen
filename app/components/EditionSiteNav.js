@@ -5,8 +5,8 @@ export default function EditionSiteNav({root='/'}){
     <Link href={root}>HOME</Link>
     <Link href={root+'#league'}>THE LEAGUE</Link>
     <Link href={root+'/teams'}>FRANCHISES</Link>
-    <Link href={root+'#culture'}>CULTURE</Link>
+    <Link href={root+'/archive'}>THE CRATES</Link>
     <Link href={root+'#scores'}>SCORES</Link>
-    <details className="navMore"><summary>MORE</summary><div><Link href={root+"/archive"}>THE CRATES</Link><Link href={root+"/newsroom"}>MASTHEAD</Link></div></details>
+    <details className="navMore"><summary>MORE</summary><div><Link href={root+"/newsroom"}>MASTHEAD</Link></div></details>
   </nav>;
 }

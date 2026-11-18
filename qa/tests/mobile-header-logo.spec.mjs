@@ -16,7 +16,7 @@ test('floating text logo stays visible across browser and installed-web navigati
  for(const mode of ['', '?app-preview=1']){
   await page.goto('/'+mode);await page.evaluate(()=>document.fonts.ready);await check();
   await page.mouse.wheel(0,300);await page.waitForTimeout(150);await check();
-  await page.getByRole('navigation',{name:'App navigation'}).getByRole('link',{name:'Culture',exact:true}).click();await expect(page.locator('#culture')).toBeVisible();await check();
+  await page.goto('/#culture');await expect(page.locator('#culture')).toBeVisible();await check();
   await page.screenshot({path:`/workspace/font-qa/header-culture-${mode?'installed':'browser'}-${page.viewportSize().width}.png`});
   await page.goto('/articles/marnie-detroit-school'+mode);await page.evaluate(()=>document.fonts.ready);await check();
   await page.mouse.wheel(0,350);await page.waitForTimeout(150);await check();

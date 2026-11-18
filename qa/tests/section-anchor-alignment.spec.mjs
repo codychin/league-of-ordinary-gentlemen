@@ -69,9 +69,19 @@ for(const root of ['/','/doge','/sunday-crew'])for(const standalone of [false,tr
     throw error;
    }
   }
-  const second=mobile||root==='/'?'culture':'league';
+  // Culture is still a deep-linkable section, but no longer a primary tab.
+  // Exercise real section navigation through Scores and The League; on mobile
+  // The League lives in More. Keep history and direct Culture hashes below.
+  const second='league';
   for(const id of ['scores',second]){
-   await nav.getByRole('link',{name:new RegExp('^(THE )?'+id+'$','i')}).click();await expectLanding(page,id,mobile);
+   if(mobile&&id==='league'){
+    await nav.getByRole('button',{name:'More',exact:true}).click();
+    await page.getByRole('complementary',{name:'More and settings'}).getByRole('link',{name:'The League',exact:true}).click();
+   }else{
+    await nav.getByRole('link',{name:new RegExp('^(THE )?'+id+'$','i')}).click();
+   }
+   await expect(page).toHaveURL(new RegExp('#'+id+'$'));
+   await expectLanding(page,id,mobile);
   }
   await page.goBack();await expectLanding(page,'scores',mobile);
   await page.goForward();await expectLanding(page,second,mobile);
@@ -93,7 +103,7 @@ test('late image layout changes retain the selected mobile section until user in
  for(const root of ['/','/doge','/sunday-crew']){
   await navigate(page,root,{waitUntil:'domcontentloaded'});await expect(page.locator('html')).toHaveAttribute('data-app-tab','home');await page.evaluate(()=>document.fonts.ready);
   await page.evaluate(()=>{const wrapper=document.createElement('div');wrapper.id='qa-delayed-layout';const img=document.createElement('img');img.style.cssText='display:block;width:300px';img.src='/qa-anchor-delayed.svg';wrapper.append(img);document.querySelector('main').prepend(wrapper);});
-  await page.getByRole('navigation',{name:'App navigation'}).getByRole('link',{name:'Culture',exact:true}).click();
+  await page.evaluate(()=>{location.hash='culture'});
   await expect.poll(()=>page.locator('#qa-delayed-layout img').evaluate(i=>i.complete&&i.naturalHeight===300)).toBe(true);await expectLanding(page,'culture',true);
   // Safe-area/header resizing changes the fixed header without requiring body growth.
   await page.locator('.appSectionHeader').evaluate(h=>h.style.paddingTop='59px');await expectLanding(page,'culture',true);
@@ -131,7 +141,7 @@ for(const root of ['/','/doge','/sunday-crew'])test(`Culture pagination and floa
   await expect(pagination.getByRole('button',{name:'NEWER',exact:false})).toHaveCSS('opacity','1');
   await expect(pagination).toHaveCSS('border-top-width','0px');
   if(mobile){
-   await expect(page.locator('.appTabBar')).toHaveAttribute('data-active-tab','culture');
+   await expect(page.locator('.appTabBar')).toHaveAttribute('data-active-tab','home');
    await expect(page.locator('.appSectionHeader')).toHaveAttribute('data-surface','culture');
    await expect(page.locator('.appSectionHeader')).toHaveCSS('background-image','none');
    await expect(page.locator('.appSectionHeader')).toHaveCSS('background-color','rgba(0, 0, 0, 0)');

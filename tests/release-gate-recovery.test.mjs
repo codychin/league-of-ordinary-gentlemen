@@ -14,7 +14,7 @@ test('article headline remains required',()=>assert.throws(()=>validatePublicPag
 const detroit=JSON.parse(readFileSync('app/articles/marnie-detroit-school.js','utf8').replace(/^export const detroitSchoolArticle = /,'').replace(/;\s*$/,''));
 const plateHtml=detroit.body.filter(p=>p.type==='image').map(p=>'<figure class="articleInlineFigure"><img src="'+p.src+'" alt="'+p.alt+'"/><figcaption>'+p.caption+'</figcaption></figure>').join('');
 const detroitHtml='<h1>'+detroit.title+'</h1><p>The Brief</p><p>'+detroit.dek+'</p><div class="articleBylineShare">Marnie</div><figure>The Detroit School in performance.</figure><article class="articleBody">'+plateHtml+'</article>';
-function homepageFixture(root){return '<p>The Brief</p><section aria-label="Lead story: '+'The Chargers Have Thought of Everything'+'"><a href="'+root+'/articles/hollis-chargers-thought-of-everything"><img src="/images/cache/b4f167d2d69fadce5b71-1280.webp" alt="Jim Harbaugh stands with Chargers coaches and players on the sideline against Washington at SoFi Stadium on October 5, 2025."/></a></section><section aria-label="Recent stories"><h3>Baker Mayfield and the Comparative Merits of Abstention</h3><h3>A Study in Movement: The Detroit School, 2026</h3><h3>On the Saturation Bombing of Daniel Jones (née Dimes)</h3></section>';}
+function homepageFixture(root){return '<p>The Brief</p><section aria-label="Lead story: '+'An Open Letter from the AI Newsroom'+'"><a href="'+root+'/articles/newsroom-ai-apology"><img src="/images/editorial/newsroom-apology/preservation-of-culture.webp" alt="The fictional newsroom staff preserving a framed portrait of a dancing gremlin in a grand art gallery."/></a></section><section aria-label="Recent stories"><h3>The Chargers Have Thought of Everything</h3><h3>Baker Mayfield and the Comparative Merits of Abstention</h3><h3>A Study in Movement: The Detroit School, 2026</h3></section>';}
 const sha='a'.repeat(40);
 const project='prj_h89MCmxn3Mr3O0wRpnwstM917E0l';
 const team='team_hU7RX1oX9Ea0W2U9ieHwNxzL';
@@ -55,7 +55,7 @@ function simulate(mode,extra={}){
      if(path.startsWith('/images/'))return new Response(mode==='bad-detroit-image'?Buffer.alloc(5000):readFileSync('public'+path),{status:200,headers:{'content-type':'image/webp'}});
      if(path.endsWith('/articles/marnie-detroit-school'))return new Response(mode==='bad-detroit-plate'?${JSON.stringify(detroitHtml.replace('Jahmyr Gibbs extends','Wrong athlete extends'))}:${JSON.stringify(detroitHtml)},{status:200});
      if(!path.includes('/articles/'))return new Response(mode==='bad-detroit-lead'?'The Brief':({'/':${JSON.stringify(homepageFixture(''))},'/doge':${JSON.stringify(homepageFixture('/doge'))},'/sunday-crew':${JSON.stringify(homepageFixture('/sunday-crew'))}})[path],{status:mode==='bad-routes'?403:200});
-     return new Response(${JSON.stringify(good.replace("The Juice Box Guy","The Chargers Have Thought of Everything"))},{status:mode==='bad-routes'?403:200});
+     return new Response(${JSON.stringify(good.replace("The Juice Box Guy","An Open Letter from the AI Newsroom"))},{status:mode==='bad-routes'?403:200});
     }
     if(u.hostname==='api.github.com'){
      if(path.endsWith('/branches/main'))return Response.json({commit:{sha:mode==='obsolete'||(mode==='changed-main'&&++branchReads>1)?'b'.repeat(40):sha}});

@@ -67,8 +67,8 @@ test('mobile nav expands for menus, tabs and article history transitions',async(
   await nav.getByRole('link',{name:'Home',exact:true}).click();
   await expect(page).toHaveURL(/\/$/);
   await expect(nav).toHaveAttribute('data-compact','false');
-  await nav.getByRole('link',{name:'Culture',exact:true}).click();
-  await expect(page).toHaveURL(/#culture$/);
+  await nav.getByRole('link',{name:'Crates',exact:true}).click();
+  await expect(page).toHaveURL(/\/archive$/);
   // Anchor scrolling must not immediately compact a newly selected tab.
   await expect(nav).toHaveAttribute('data-compact','false');
   await nav.getByRole('link',{name:'Home',exact:true}).click();
@@ -128,8 +128,8 @@ test('installed web app keeps its fixed safe-area anchor through compact scrolli
   await expect(nav).toHaveCSS('height','50px');
   await expect(nav).toHaveCSS('bottom',bottom);
   await targets(nav);
-  await nav.getByRole('link',{name:'Culture',exact:true}).click();
-  await expect(page.locator('html')).toHaveAttribute('data-app-tab','culture');
+  await nav.getByRole('link',{name:'Crates',exact:true}).click();
+  await expect(page.locator('html')).toHaveAttribute('data-app-tab','crates');
   await expect(nav).toHaveAttribute('data-compact','false');
   await nav.getByRole('link',{name:'Home',exact:true}).click();
   await expect(page.locator('html')).toHaveAttribute('data-app-tab','home');

@@ -11,13 +11,11 @@ test('desktop primary navigation sticks without a layout jump and keeps keyboard
  await expect.poll(async()=>Math.round((await nav.boundingBox()).y)).toBe(0);
  const y=await page.evaluate(()=>scrollY);expect((await page.locator('main').boundingBox()).y+y).toBeCloseTo(main.y,0);
  const more=nav.locator('summary');await more.focus();await page.keyboard.press('Enter');
- await expect(nav.getByRole('link',{name:'THE CRATES'})).toBeVisible();
+ await expect(nav.getByRole('link',{name:'MASTHEAD'})).toBeVisible();
  await expect(more).toHaveCSS('outline-width','2px');await page.keyboard.press('Enter');
- await nav.getByRole('link',{name:'CULTURE',exact:true}).click();
- await expect(page).toHaveURL(/#culture$/);await expect.poll(()=>page.locator('#culture').evaluate(e=>Math.abs(e.getBoundingClientRect().top-parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop)-(parseFloat(getComputedStyle(e).scrollMarginTop)||0)))).toBeLessThan(2);
- await page.screenshot({path:'/workspace/font-qa/desktop-sticky-navigation.png'});
- await more.click();await nav.getByRole('link',{name:'THE CRATES'}).click();await expect(page).toHaveURL(/\/archive$/);
- await page.goBack();await expect(page).toHaveURL(/#culture$/);
+ await nav.getByRole('link',{name:'THE CRATES',exact:true}).click();await expect(page).toHaveURL(/\/archive$/);
+ await expect(page.getByRole('heading',{name:'The Crates.',exact:true})).toBeVisible();
+ await page.goBack();await expect(page).toHaveURL(/\/$/);
  await page.setViewportSize({width:761,height:900});await expect(nav).toBeVisible();await expect(nav).toHaveCSS('position','sticky');
  await page.setViewportSize({width:760,height:900});await expect(nav).toBeHidden();await expect(page.getByRole('navigation',{name:'App navigation'})).toBeVisible();
 });
