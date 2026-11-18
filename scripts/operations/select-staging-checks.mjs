@@ -2,11 +2,15 @@
 // Shared runtime, arbitrary app code, manifests, assets, dependencies, tests and
 // this classifier itself are deliberately full. Thus unknown transitive inputs
 // cannot accidentally bypass real media preparation.
+import {execFileSync} from 'node:child_process';
+import {NEWSROOM_COPY_PATH,isNewsroomCopyOnlyChange} from './classify-newsroom-copy.mjs';
 import {readFileSync, appendFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {pathToFileURL} from 'node:url';
 
 export const discoveryPaths = new Set(['app/sitemap.js','app/robots.js','lib/public-sitemap.mjs']);
+
+export const navigationPaths = new Set(['app/components/SiteNav.js','app/components/EditionSiteNav.js','app/components/useCompactMobileNav.js','app/reader-navigation.css']);
 
 export const independentPaths = new Set([
   'app/sitemap.js',
@@ -19,15 +23,19 @@ export const independentPaths = new Set([
   'README.md',
 ]);
 
-export function selectStagingChecks({event, changes, complete = true}) {
+export function selectStagingChecks({event, changes, complete = true, copyOnly = false}) {
   const full = reason => ({media: 'required', scope: 'full', reason});
   if (event !== 'pull_request') return full('Production and manual runs retain full validation');
   if (!complete || !Array.isArray(changes) || !changes.length) return full('No complete change set');
+  if(copyOnly && changes.some(change=>change.path===NEWSROOM_COPY_PATH) && changes.every(change=>
+    change && change.status==='M' && (change.path===NEWSROOM_COPY_PATH || discoveryPaths.has(change.path)))) {
+    return {media:'not-required',scope:'copy',reason:'Audited plain-copy fields only; unchanged embeds, media and structure'};
+  }
   for (const change of changes) {
     if (!change || !['A','M'].includes(change.status)) return full('Deletion, rename or unsupported status');
     if (!independentPaths.has(change.path)) return full('Unclassified or potentially shared input');
   }
-  return {media: 'not-required', scope: changes.every(change=>discoveryPaths.has(change.path)) ? 'discovery' : 'full', reason: 'Only explicitly independent navigation, discovery or documentation inputs changed'};
+  return {media: 'not-required', scope: changes.every(change=>discoveryPaths.has(change.path)) ? 'discovery' : changes.every(change=>navigationPaths.has(change.path)||discoveryPaths.has(change.path)) ? 'navigation' : 'full', reason: 'Only explicitly independent navigation, discovery or documentation inputs changed'};
 }
 
 export function parseNameStatus(input) {
@@ -42,7 +50,17 @@ export function parseNameStatus(input) {
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
   let changes = [], complete = false;
   try { changes = parseNameStatus(readFileSync(process.argv[2], 'utf8')); complete = true; } catch {}
-  const plan = selectStagingChecks({event:process.env.GITHUB_EVENT_NAME,changes,complete});
+  let copyOnly=false;
+  if(complete && changes.some(change=>change.path===NEWSROOM_COPY_PATH)){
+    try {
+      const base=process.env.BASE_SHA;
+      if(!/^[a-f0-9]{40}$/.test(base||''))throw Error('No pinned base');
+      const before=execFileSync('git',['show',base+':'+NEWSROOM_COPY_PATH],{encoding:'utf8',maxBuffer:2_000_000,timeout:30000,stdio:['ignore','pipe','pipe']});
+      const after=readFileSync(NEWSROOM_COPY_PATH,'utf8');
+      copyOnly=isNewsroomCopyOnlyChange(before,after);
+    }catch{}
+  }
+  const plan = selectStagingChecks({event:process.env.GITHUB_EVENT_NAME,changes,complete,copyOnly});
   console.log(JSON.stringify(plan));
   if (!process.env.GITHUB_OUTPUT) throw Error('GITHUB_OUTPUT is required');
   const identity = ['GITHUB_SHA','GITHUB_RUN_ID','GITHUB_RUN_ATTEMPT','GITHUB_WORKFLOW_REF'].map(key=>process.env[key]);

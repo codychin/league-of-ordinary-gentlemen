@@ -31,7 +31,7 @@ test('independent checks run concurrently but release still requires real media'
   assert.match(workflow,/article-image-qa:\n    needs: \[integrity, media-preparation, select-checks\]/);
   assert.ok(workflow.includes('test "$MEDIA_RESULT" = success'));
   assert.match(workflow,/permissions:\n  contents: read/);
-  assert.equal((workflow.match(/persist-credentials: false/g)||[]).length,4);
+  assert.equal((workflow.match(/persist-credentials: false/g)||[]).length,5);
   assert.match(workflow,/timeout-minutes: 30/);
   assert.doesNotMatch(workflow,/continue-on-error|actions: write|contents: write|id-token:/);
 });

@@ -49,3 +49,23 @@ is unchanged and retains all assets; its completion is independent of these
 source-contract checks. Navigation, article copy, unknown changes, main pushes
 and manual runs still retain full application/browser validation. Do not promote
 until the owner has reviewed the complete preview.
+
+## Complete-media navigation and audited copy lanes
+
+Navigation changes on the explicit allowlist and plain-copy edits of the audited
+newsroom JSON article now use a sparse source checkout plus an exact-tree media
+input cache. All tracked MP4, HLS and source chunks remain present and verified
+before the normal application build. The cache contains no Git directory,
+credentials, dependencies or built application outputs. No partial restore keys.
+Cache misses/corruption remove only the owned media inputs and hydrate them again
+from the checked-out Git commit, then verify every blob. Save inputs before
+restoration generates additional outputs. Default cache quota is not increased.
+
+The navigation lane runs real navigation/anchor/reading browser contracts. The
+copy lane parses old/new source without executing it, allows only existing plain
+title/dek/paragraph text, fixes all object/media/signature structure, and tests
+the actual current article layout across editions, viewports and color schemes.
+Unknown or mixed changes still take full checks. No public promotion or protected
+preview authentication change is part of this optimization.
+
+Cold and warm hosted timings must be measured, not inferred from cache hit.

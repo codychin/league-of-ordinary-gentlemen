@@ -34,6 +34,21 @@ test('NUL parser is lossless and cannot smuggle paths',()=>{
 test('only complete discovery-only changes select source contracts',()=>{
  const select=changes=>selectStagingChecks({event:'pull_request',changes:changes.map(path=>({path,status:'M'}))}).scope;
  assert.equal(select(['app/sitemap.js','app/robots.js','lib/public-sitemap.mjs']),'discovery');
- for(const path of ['README.md','app/components/SiteNav.js','app/reader-navigation.css','package.json','app/articles/data.js','unknown.js'])assert.equal(select(['app/sitemap.js',path]),'full');
+ for(const path of ['README.md','package.json','app/articles/data.js','unknown.js'])assert.equal(select(['app/sitemap.js',path]),'full');
  assert.equal(select([]),'full');
+});
+
+test('navigation and discovery mixtures require real complete-app navigation checks',()=>{
+ for(const path of ['app/components/SiteNav.js','app/components/EditionSiteNav.js','app/components/useCompactMobileNav.js','app/reader-navigation.css']){
+ assert.equal(selectStagingChecks({event:'pull_request',changes:[{status:'M',path},{status:'M',path:'app/sitemap.js'}]}).scope,'navigation');
+ }
+});
+
+test('copy lane requires explicit semantic evidence and only modified audited inputs',()=>{
+ const path='app/articles/newsroom-ai-apology.js',event='pull_request';
+ assert.equal(selectStagingChecks({event,changes:[{path,status:'M'}]}).scope,'full');
+ assert.equal(selectStagingChecks({event,changes:[{path,status:'M'}],copyOnly:true}).scope,'copy');
+ for(const patch of [{event:'push'},{changes:[{path,status:'A'}]},{changes:[{path,status:'D'}]},{changes:[{path,status:'M'},{path:'app/components/SiteNav.js',status:'M'}]}]){
+ assert.equal(selectStagingChecks({event,changes:[{path,status:'M'}],copyOnly:true,...patch}).scope,'full');
+ }
 });

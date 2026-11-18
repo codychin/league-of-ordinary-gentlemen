@@ -31,7 +31,9 @@ jobs:
           sparse-checkout-cone-mode: false
           sparse-checkout: |
             /scripts/operations/select-staging-checks.mjs
+            /scripts/operations/classify-newsroom-copy.mjs
             /tests/staging-check-selection.test.mjs
+            /app/articles/newsroom-ai-apology.js
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -108,7 +110,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         id: source
-        if: ${{ needs.select-checks.outputs.scope != 'discovery' }}
+        if: ${{ needs.select-checks.outputs.scope == 'full' }}
         with:
           persist-credentials: false
       - uses: actions/checkout@v4
@@ -124,19 +126,61 @@ jobs:
             /package-lock.json
             /.github/workflows/release-integrity.yml
             /scripts/operations/select-staging-checks.mjs
+            /scripts/operations/classify-newsroom-copy.mjs
             /tests/public-sitemap.test.mjs
             /tests/staging-check-selection.test.mjs
             /tests/release-validation-reuse.test.mjs
             /tests/staging-discovery-lane.test.mjs
+      - uses: actions/checkout@v4
+        id: media-source
+        if: ${{ (needs.select-checks.outputs.scope == 'navigation' || needs.select-checks.outputs.scope == 'copy') }}
+        with:
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !/media-sources/
+            !/public/reels/
+            !/public/reels-hls/
+      - name: Identify exact tracked media inputs
+        if: ${{ (needs.select-checks.outputs.scope == 'navigation' || needs.select-checks.outputs.scope == 'copy') }}
+        id: media-key
+        run: echo "key=$(node scripts/operations/media-input-cache.mjs key)" >> "$GITHUB_OUTPUT"
+      - uses: actions/cache/restore@v4
+        if: ${{ (needs.select-checks.outputs.scope == 'navigation' || needs.select-checks.outputs.scope == 'copy') }}
+        id: media-cache
+        with:
+          path: |
+            public/reels
+            public/reels-hls
+            media-sources
+          key: ${{ steps.media-key.outputs.key }}
+      - name: Verify restored media or hydrate exact Git inputs
+        if: ${{ (needs.select-checks.outputs.scope == 'navigation' || needs.select-checks.outputs.scope == 'copy') }}
+        run: node scripts/operations/hydrate-media-inputs.mjs
+      - uses: actions/cache/save@v4
+        if: ${{ (needs.select-checks.outputs.scope == 'navigation' || needs.select-checks.outputs.scope == 'copy') && steps.media-cache.outputs.cache-hit != 'true' }}
+        with:
+          path: |
+            public/reels
+            public/reels-hls
+            media-sources
+          key: ${{ steps.media-key.outputs.key }}
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
       - run: npm ci
+      - name: Verify plain-copy source and cache contracts
+        if: ${{ needs.select-checks.outputs.scope == 'copy' }}
+        run: node --test tests/newsroom-copy-classifier.test.mjs tests/staging-check-selection.test.mjs tests/media-input-cache.test.mjs tests/media-input-hydration.test.mjs
+      - name: Verify navigation source and cache contracts
+        if: ${{ needs.select-checks.outputs.scope == 'navigation' }}
+        run: node --test tests/anchor-navigation.test.mjs tests/crates-primary-navigation.test.mjs tests/public-sitemap.test.mjs tests/staging-check-selection.test.mjs tests/staging-discovery-lane.test.mjs tests/staging-navigation-lane.test.mjs tests/media-input-cache.test.mjs tests/media-input-hydration.test.mjs
       - name: Verify discovery routes against the actual canonical inventory
         if: ${{ needs.select-checks.outputs.scope == 'discovery' }}
         run: node --test tests/public-sitemap.test.mjs tests/staging-check-selection.test.mjs tests/release-validation-reuse.test.mjs tests/staging-discovery-lane.test.mjs
-      - if: ${{ needs.select-checks.outputs.scope != 'discovery' && (!(github.event_name == 'pull_request' && ((github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') || github.head_ref == 'release/week9-rollback-shell')) && !(github.event_name == 'pull_request' && (github.head_ref == 'fix/week9-deployment-event-routing' || github.head_ref == 'fix/week9-pinned-preview-verification'))) }}
+      - if: ${{ needs.select-checks.outputs.scope == 'full' && (!(github.event_name == 'pull_request' && ((github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') || github.head_ref == 'release/week9-rollback-shell')) && !(github.event_name == 'pull_request' && (github.head_ref == 'fix/week9-deployment-event-routing' || github.head_ref == 'fix/week9-pinned-preview-verification'))) }}
         run: npm test
       - if: ${{ needs.select-checks.outputs.scope != 'discovery' && (!(github.event_name == 'pull_request' && (github.head_ref == 'fix/week9-deployment-event-routing' || github.head_ref == 'fix/week9-pinned-preview-verification'))) }}
         run: npm run build
@@ -145,7 +189,7 @@ jobs:
         run: node scripts/operations/assert-playwright-container.mjs
       # Keep the former standalone gate's unmocked server coverage on this build.
       - name: Verify article images without score fixture
-        if: ${{ needs.select-checks.outputs.scope != 'discovery' && (!(github.event_name == 'pull_request' && ((github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') || github.head_ref == 'release/week9-rollback-shell')) && !(github.event_name == 'pull_request' && (github.head_ref == 'fix/week9-deployment-event-routing' || github.head_ref == 'fix/week9-pinned-preview-verification'))) }}
+        if: ${{ needs.select-checks.outputs.scope == 'full' && (!(github.event_name == 'pull_request' && ((github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') || github.head_ref == 'release/week9-rollback-shell')) && !(github.event_name == 'pull_request' && (github.head_ref == 'fix/week9-deployment-event-routing' || github.head_ref == 'fix/week9-pinned-preview-verification'))) }}
         run: |
           npm run start -- -p 3001 > /tmp/brief-unmocked-server.log 2>&1 &
           server_pid=$!
@@ -166,8 +210,35 @@ jobs:
             qa/reports/browser-results.json
             qa/test-results
             /tmp/brief-unmocked-server.log
+      - name: Verify actual edited article layout with complete assets
+        if: ${{ needs.select-checks.outputs.scope == 'copy' }}
+        run: |
+          NODE_OPTIONS="--require=$PWD/qa/fixtures/pwa-shell-scores.cjs" npm run start -- -p 3000 > /tmp/brief-copy-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          ready=false
+          for i in $(seq 1 60); do
+            if curl -fsS http://127.0.0.1:3000/articles/newsroom-ai-apology > /dev/null; then ready=true; break; fi
+            sleep 2
+          done
+          test "$ready" = true
+          QA_BASE_URL=http://127.0.0.1:3000 npx playwright test qa/tests/newsroom-copy-layout.spec.mjs
+      - name: Verify actual navigation in the complete media-backed app
+        if: ${{ needs.select-checks.outputs.scope == 'navigation' }}
+        run: |
+          NODE_OPTIONS="--require=$PWD/qa/fixtures/pwa-shell-scores.cjs" npm run start -- -p 3000 > /tmp/brief-navigation-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          ready=false
+          for i in $(seq 1 60); do
+            if curl -fsS http://127.0.0.1:3000/ > /dev/null; then ready=true; break; fi
+            sleep 2
+          done
+          test "$ready" = true
+          QA_BASE_URL=http://127.0.0.1:3000 npx playwright test qa/tests/crates-primary-navigation.spec.mjs qa/tests/nav-circle-alignment.spec.mjs qa/tests/section-anchor-alignment.spec.mjs
+          QA_BASE_URL=http://127.0.0.1:3000 npx playwright test qa/tests/pwa-reading-navigation.spec.mjs --grep 'bounded standalone navigation|normal browser keeps document navigation|article masthead stays visible'
       - name: Verify article image geometry before release
-        if: ${{ needs.select-checks.outputs.scope != 'discovery' && (!(github.event_name == 'pull_request' && ((github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') || github.head_ref == 'release/week9-rollback-shell')) && !(github.event_name == 'pull_request' && (github.head_ref == 'fix/week9-deployment-event-routing' || github.head_ref == 'fix/week9-pinned-preview-verification'))) }}
+        if: ${{ needs.select-checks.outputs.scope == 'full' && (!(github.event_name == 'pull_request' && ((github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') || github.head_ref == 'release/week9-rollback-shell')) && !(github.event_name == 'pull_request' && (github.head_ref == 'fix/week9-deployment-event-routing' || github.head_ref == 'fix/week9-pinned-preview-verification'))) }}
         run: |
           NODE_OPTIONS="--require=$PWD/qa/fixtures/pwa-shell-scores.cjs" npm run start -- -p 3000 > /tmp/brief-server.log 2>&1 &
           server_pid=$!
@@ -239,7 +310,7 @@ jobs:
       - name: Record successful validation identity
         id: evidence
         env:
-          CHECKED_OUT_SHA: ${{ steps.source.outputs.commit || steps.discovery-source.outputs.commit }}
+          CHECKED_OUT_SHA: ${{ steps.source.outputs.commit || steps.discovery-source.outputs.commit || steps.media-source.outputs.commit }}
         run: |
           test -n "$GITHUB_SHA"
           test "$CHECKED_OUT_SHA" = "$GITHUB_SHA"
