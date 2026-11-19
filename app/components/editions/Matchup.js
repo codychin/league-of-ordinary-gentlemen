@@ -1,5 +1,5 @@
-import archivedEditions from '../../../data/week8-edition-archives.json';
-import week9ArchivedEditions from '../../../data/week9-edition-archives.json';
+import {yahooMatchupArchives} from '../../../lib/yahoo-matchup-archives';
+import {findYahooMatchup,selectYahooMatchupEdition} from '../../../lib/select-yahoo-matchup-edition.mjs';
 import {isMatchupFinal} from '../../../lib/matchup-status.mjs';
 import matchupColumnsWeek6 from '../../../data/week6-matchup-columns.json';
 import matchupColumnsWeek7 from '../../../data/week7-matchup-columns.json';
@@ -21,18 +21,14 @@ export default async function Matchup({params,searchParams,config}){
   const {root,name:editionName,slug:editionSlug,publicationName}=config;
   const {a,b}=await params;
   const [currentEdition,headshots]=await Promise.all([getEditionData(editionSlug),getNflHeadshotsByYahooId()]);
-  const requested=Number((await searchParams)?.week||0);
-  const currentWeek=Number(currentEdition?.snapshots?.matchups?.data?.data?.matchupWeek);
-  let edition=currentEdition;
-  if(requested&&requested!==currentWeek){
-    const archived=[archivedEditions[editionSlug],week9ArchivedEditions[editionSlug]].find(x=>x?.week===requested);
-    if(archived?.week===requested) edition={...currentEdition,snapshots:archived.snapshots};
-    else notFound();
-  }
+  const rawWeek=(await searchParams)?.week;
+  const requested=rawWeek==null?0:typeof rawWeek==='string'&&/^[1-9][0-9]*$/.test(rawWeek)?Number(rawWeek):NaN;
+  const edition=selectYahooMatchupEdition({currentEdition,requested,editionSlug,archivedEditions:yahooMatchupArchives,a,b});
+  if(!edition)notFound();
   const rosters=edition?.snapshots?.rosters?.data?.data||[], standings=edition?.snapshots?.standings?.data?.data?.standings||[], games=edition?.snapshots?.matchups?.data?.data?.matchups||[];
   const left=rosters.find(r=>String(r.teamKey).endsWith('.t.'+a)),right=rosters.find(r=>String(r.teamKey).endsWith('.t.'+b));
   if(!left||!right)notFound();
-  const game=games.find(g=>[String(g.home?.teamId),String(g.away?.teamId)].includes(String(a))&&[String(g.home?.teamId),String(g.away?.teamId)].includes(String(b)));
+  const game=findYahooMatchup(games,a,b);
   if(!game)notFound();
   const side=(id)=>String(game.home.teamId)===String(id)?game.home:game.away;
   const ls=side(a),rs=side(b),week=Number(edition?.snapshots?.matchups?.data?.data?.matchupWeek||4);
