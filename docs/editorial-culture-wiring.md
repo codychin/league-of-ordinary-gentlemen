@@ -3,14 +3,15 @@
 ## Authoring → consumer → review
 
 1. `EDITORIAL.md` is the human editorial source. The deployable instruction source is
-   `supabase/functions/brief-editorial-worker/contract.ts`, version `2026-10-17.2`.
+   `supabase/functions/brief-editorial-worker/contract.ts`, version `2026-11-07.1`.
    It preserves existing factual, league-boundary, no-quota, name and structure corrections.
 2. The reachable worker entrypoint (`index.ts`) calls `sharedDesk` (`shared.ts`). That
    path captures one contract snapshot for both its draft and independent review calls.
    Both receive every newsroom rule and all six desk profiles as actual instructions.
 3. The review receives `reviewInstructions(snapshot)`. A machine review must supply
    specific evidence for reader respect, entertainment/movement, voice, independent
-   angle and reporting honesty. Missing, empty or unresolved checks cannot approve.
+   angle, reporting honesty, through-line/escalation, evidence earning space, coherent
+   satire and feedback application. Missing, empty or unresolved checks cannot approve.
    This is a structured qualitative judgment, not a score or a keyword novelty test.
 4. The inserted review records its contract version. No new model calls, retry loops,
    model changes, budgets or credentials are introduced.
@@ -20,12 +21,13 @@
 
 ## Boundaries and rollout prerequisites
 
-**Do not activate this change as proof of Cody-controlled publication.** The existing
+**Source changes are not a deployment or an expansion of publication authority.** The
 reachable `sharedDesk` inserts into `brief_global_live_posts` after machine approval.
-It has no verified owner-approval receipt or draft-to-owner approval step. Cody is
-currently approving everything: before rollout, implement and test that separate
-approval mechanism or keep generation non-publishing. This patch does not authorize
-activation, merge, deployment, generation spending or publication.
+It has no per-post owner-approval receipt. Cody explicitly exempted scheduled Sunday
+Live Desk posts from per-post approval on October 17; he distinguished those posts from
+matchup copy. That limited existing authority does not extend to full articles,
+matchup copy, paid media, new spending or this patch's merge/deployment. Do not revive
+the older blanket claim that every Live Desk post now needs an individual approval.
 
 The capped path has no revision loop. It declines/rejects weak material rather than
 spending indefinitely; the continuing-edit instruction does not create a post-approval
@@ -36,7 +38,9 @@ reachable `Deno.serve` branch. Do not reactivate it as an alternate culture-free
 `lib/newsroom-context.js` composes canonical identity and local relationships but is not
 loaded by this shared worker. Saved ChatGPT correspondent conversations, long-form
 manual work, visual/audio generation and existing articles are not automatically updated.
-No runtime deployment or direct-correspondent conversation propagation is asserted.
+This patch does not deploy the worker or update historical correspondent conversations.
+The five active writing/discovery task prompts were separately updated and read back;
+the status and limits of that change are recorded below.
 
 The present event packet mainly supplies ESPN reports and game data. Instructions to
 inspect original artifacts and compare closest coverage do not create those inputs.
@@ -96,3 +100,122 @@ The expressly skipped proposal remains skipped; this work does not revive it. Pe
 founder biography is unnecessary to these writing instructions. An internal editorial
 identity is not silently added to the public correspondent cast. No publication authority
 is inferred from approval of a successful GitHub build.
+
+## November 7 feedback delivery audit
+
+The [scoped feedback record](editorial-feedback/2026-11-07-chargers.md) contains both
+verbatim Chargers feedback rounds and their article-specific versus room-wide meaning.
+The human handoff adds a concrete preparation, draft, passage-specific review, rewrite
+and revision-receipt loop. Prior founder voices, sport-centered selection and original
+source/credit responsibilities remain in force.
+
+### Saved instructions changed now
+
+Five existing enabled tasks were updated and individually re-read on November 7 UTC:
+Brief newsroom rotation, Scout original Brief stories, Thursday: new matchups and
+previews, Thursday matchup script delivery, and Tuesday: results and recap reels.
+The new prompt text matched the intended replacement in every read-back. Schedule,
+timezone, enabled state and destination matched the pre-change values. No new task
+was created. Paused legacy jobs and score-only tasks were not changed.
+
+The prompts directly carry the new feedback, so delivery does not depend on this
+unmerged documentation being present on main. They also request current canonical
+sources instead of pinning the October 17 snapshot. Rotation and Scout remain
+conversation/discovery, not unrequested full drafting. Each task keeps its existing
+publication, spending and output scope. This is verified configuration; no later run
+or improved article was established by the read-back.
+
+### Proposed executable change
+
+Contract `2026-11-07.1` supplies scoped learning, whole-piece development, evidence
+earning space and coherent satire to every existing draft/review consumer. Four new
+review dimensions join the original five. The `feedback-application` evidence field
+is the compact receipt: actual applicable correction, passage changed, strength retained
+and unresolved issue. If no prior correction or approved passage is supplied, record
+that absence rather than inventing a history. The contract does not ingest chat
+automatically; assignment-local corrections still must reach the packet.
+
+All six writers retain their existing desk profiles; article-local jokes and endings
+are deliberately absent from the executable common rules. Current jobs retain their
+pinned contract. The schema and instructions of an older snapshot do not silently
+acquire the new review requirements. No additional model calls, paid generation,
+database tables or revision retries are introduced.
+
+### Read-only production check
+
+Supabase `brief-editorial-worker` was retrieved on November 7, 2026: ACTIVE function
+version 21, updated October 25, using contract `2026-10-17.2`. The entrypoint calls
+`sharedDesk`, whose actual draft and review both receive the old contract. Its
+control is enabled, the worker cron is active, and the function enforces its Sunday
+window. The legacy Sunday-engine cron is inactive. The latest three published-post
+reviews (November 1) also record `2026-10-17.2`.
+
+No function, control, cron, record or article was changed during that check. Thus
+the new chat-task instructions are saved, but the deployed Live Desk still uses the
+old contract. A merge alone will not establish a new Supabase deployment. A separately
+authorized rollout must verify the actual function source/version and subsequent
+review evidence before calling the code-side change operational.
+
+### Verification and remaining proof
+
+Focused fake-network/database tests cover both reachable and legacy consumers, all
+six writers, every new required check, rejection when checks are missing/unverified,
+old snapshot isolation, revision limits and spending caps. These are software delivery
+tests, not a blind judgment of prose or a claim that code can measure humor.
+
+No real generation or article publication was performed for this change. A next
+authorized piece and Cody's response must demonstrate whether the learning improves
+the writing. Full application CI/build results should be read from the exact PR head;
+focused tests must never be described as a full application pass.
+
+
+
+## Completed-revision learning: November 7 team meeting
+
+The initial PR128 change was deliberately scoped to the first two feedback rounds.
+It did not compare the first article to the finished piece and therefore did not
+fully satisfy Cody's later team-meeting request. The
+[completed case study](editorial-feedback/chargers-original-to-final-2026-11-07.md)
+adds sourced before/after mechanics, the provenance of important ideas and distinct
+transfer lessons for all six desks. The handoff now requires those lessons to inform
+the preparation of a first draft, not only its final checklist.
+
+There are three different consumers:
+
+1. **Direct long-form assignments:** Rika must include the accessible case-study
+   revision and relevant lesson in the actual writer handoff. Preserve the initial
+   draft and later edits in the existing working record so progress can be evaluated.
+2. **Five saved conversation/discovery/matchup workflows:** replace their earlier
+   generic learning preface with a compact instruction that reads the exact case-study
+   revision, distinguishes supplied material from writer contributions and applies
+   the relevant desk-specific mechanism. Read each saved prompt back and fetch the
+   referenced file to verify that the source is accessible. This verifies configured
+   delivery, not that a future run has read it or that a draft improved.
+3. **Sunday Live Desk code:** it does not fetch these Markdown case studies. Its
+   capped path receives a short event packet and a static versioned contract; its
+   compact evidence is not a long-form archive/research dossier. PR128's code remains
+   a proposed change, and no added documentation or conversation-task update deploys
+   it. Preserve existing controls, cadence, budgets and publishing scope.
+
+The case-study mechanism is proportionate, not a requirement that a short post perform
+the entire Chargers narrative. Better first drafts require better material and judgment,
+not simply more review fields. No new scheduled task, model call, paid generation or
+production publication is introduced by this follow-up. Its documentation and workflow
+instruction changes are independent of the existing Chargers article release.
+
+## Archetype inventory delivery
+
+The subsequent founder instruction (`Sentinel_69292d31657c8191b87c9cd906c0167f`)
+is reflected in the [six-voice inventory](editorial-feedback/brief-archetypes-six-voices-2026-11-07.md).
+It connects each desk's originating angle, kind of humor and actual prerequisites
+to its later consequence without making a fixed plot or compulsory ending.
+
+The five existing workflow prefaces should read the inventory and case study at the
+same immutable revision, preserve their original task instructions, and distinguish
+configured access from a run that actually read and used the material. Direct writer
+handoffs must carry those same sources explicitly. Delivery of already-approved
+scripts remains reuse, not an opportunity to rewrite them.
+
+This follow-up changes Markdown guidance and saved prompts only. It does not alter
+the proposed worker contract, enable workers, expand publishing authority or deploy
+the Sunday code. Better first drafts remain to be demonstrated on subsequent work.

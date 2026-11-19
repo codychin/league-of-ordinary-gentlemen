@@ -128,3 +128,35 @@ shorthand. `docs/editorial-culture-wiring.md` records the exact consumers and va
 limits. Editing this Markdown alone does not update prompts, a running deployment, or
 saved correspondent conversations. Future corrections must be deliberately scoped,
 versioned, wired and tested, not merely acknowledged.
+
+## Feedback must change the next draft (November 7, 2026)
+
+Read the [current newsroom handoff](docs/newsroom-culture-handoff.md), including its
+feedback-to-draft loop, and the
+[scoped Chargers learning record](docs/editorial-feedback/2026-11-07-chargers.md).
+The latter preserves Cody's exact feedback and separates room-wide lessons from this
+article's instructions. Later explicit correction wins.
+
+Prepare a compact premise/voice/progression/evidence/preserve brief for an authorized
+draft. Write connected comic development rather than display the research. Give every
+statistic, scene and clip a job beyond reciting what happened. Obviously imagined comic
+motives can be satire; verified factual anchors and honest source/access claims remain
+necessary. Do not turn all six writers into Hollis or all features into matchup recaps.
+
+Before delivery, read the whole piece separately and cite the actual passages that
+develop its argument, preserve the writer's perspective, earn the evidence, complete
+the setup/payoff and retain praised strengths. Rewrite unresolved sections, reread the
+whole, and keep a compact source/scope/change/preserve/unresolved receipt with that exact
+draft revision. This is review of the prose, not a claim that a checklist measures humor.
+
+Cody's November 6 sports-centered direction supersedes any older standalone-culture
+shorthand: sports must be a substantive subject. Sports-connected culture, economics,
+politics and ordinary life remain in scope; fantasy ties are optional. Preserve the
+October all-hands writer-specific refinements and originality/credit standard recorded
+in the current handoff. An acknowledged note, updated prompt or passing test is not proof
+of improved writing. The next piece and Cody's judgment provide that evidence.
+
+The saved active workflow prompts were updated separately. This source change does not
+activate, merge or deploy a worker, authorize publication, or add spending or model calls.
+
+
