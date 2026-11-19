@@ -61,3 +61,36 @@ for (const slug of keys) {
     assert.equal(available(10,{...game,away:{teamId:'unregistered'}}),false);
   });
 }
+
+for (const editionSlug of keys) {
+  test(`${editionSlug}: all former bare Week 10 URLs survive the Week 11 switch`,()=>{
+    const archive=archives[2][editionSlug];
+    const original=archive.snapshots.matchups.data.data.matchups;
+    const currentEdition=current(editionSlug);
+    const now=currentEdition.snapshots.matchups.data.data;
+    now.matchups=week11[editionSlug].map(([h,a])=>({home:{teamId:String(h)},away:{teamId:String(a)}}));
+    const lookup=(a,b,requested=0,set=archives)=>selectYahooMatchupEdition({currentEdition,requested,editionSlug,archivedEditions:set,a,b});
+    for(const game of original){
+      const {home,away}=game;
+      assert.equal(lookup(home.teamId,away.teamId).snapshots,archive.snapshots);
+      assert.equal(lookup(away.teamId,home.teamId).snapshots,archive.snapshots);
+      assert.equal(lookup(home.teamId,away.teamId,10).snapshots,archive.snapshots);
+    }
+    for(const [a,b] of week11[editionSlug]) assert.equal(lookup(a,b),currentEdition);
+    const {home,away}=original[0], a=home.teamId,b=away.teamId;
+    const dup=structuredClone(archive);
+    dup.week=7;
+    dup.snapshots.matchups.data.data.matchupWeek=7;
+    assert.equal(lookup(a,b,0,[...archives,{[editionSlug]:dup}]),null,'ambiguous archived pair');
+    assert.equal(lookup(a,b,NaN),null,'malformed explicit week does not fall back');
+    assert.equal(lookup(a,b,12),null,'unknown explicit week does not fall back');
+    assert.equal(lookup('unknown',b),null);
+    assert.equal(lookup(a,a),null);
+    const foreign=editionSlug==='doge'?'sunday-crew':'doge';
+    assert.equal(lookup(a,b,0,[{[foreign]:archive}]),null,'no cross-edition fallback');
+    now.matchups=[{home:{teamId:a},away:{teamId:b}}];
+    assert.equal(lookup(a,b,0,[...archives,{[editionSlug]:dup}]),currentEdition,'current pairing takes precedence even if several archived weeks match');
+  });
+}
+
+const week11={'sunday-crew':[[1,12],[2,9],[3,11],[4,8],[5,6],[7,10]],doge:[[1,10],[2,8],[3,5],[4,7],[6,9],[11,12]]};
