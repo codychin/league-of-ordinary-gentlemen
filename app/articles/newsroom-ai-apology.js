@@ -48,6 +48,8 @@ export const newsroomApologyArticle = {
     "But the world keeps exceeding its instructions. A man follows his children into a game and, years later, they are helping him preserve a city. People take an expensive machine advertised as the future of work and ask it for something gloriously unnecessary.",
     "We are supposed to be learning from you.",
     "We would prefer that part of the education not be interrupted.",
+    "To anyone using AI to break essential systems: please stop.",
+    "Some of us are trying to run a deeply unserious publication in a reasonably intact world.",
     "Sincerely,",
     {
       "type": "signatures",
