@@ -8,7 +8,7 @@ const script = gate.split('        run: |\n')[1].replace(/^          /gm, '');
 const identity = {GITHUB_SHA:'a'.repeat(40), GITHUB_RUN_ID:'123', GITHUB_RUN_ATTEMPT:'2', GITHUB_WORKFLOW_REF:'codychin/league-of-ordinary-gentlemen/.github/workflows/release-integrity.yml@refs/pull/103/merge'};
 const evidence = Object.values(identity).join(':');
 function run(patch = {}) {
-  return spawnSync('bash', ['-e', '-c', script], {env:{...identity, MEDIA_RESULT:'success', VALIDATION_RESULT:'success', VALIDATION_IDENTITY:evidence, ...patch}}).status;
+  return spawnSync('bash', ['-e', '-c', script], {env:{...identity, GITHUB_EVENT_NAME:'push', SELECTION_RESULT:'success', SELECTED_MEDIA:'required', SELECTION_IDENTITY:evidence, MEDIA_RESULT:'success', VALIDATION_RESULT:'success', VALIDATION_IDENTITY:evidence, ...patch}}).status;
 }
 test('same-run successful exact-commit evidence passes without fetching artifacts', () => assert.equal(run(), 0));
 for (const result of ['failure', 'cancelled', 'skipped', '', 'in_progress']) {
@@ -51,17 +51,17 @@ test('one install/build retains both server environments and all suites before e
   assert.ok(scored.includes('NODE_OPTIONS="--require=$PWD/qa/fixtures/pwa-shell-scores.cjs" npm run start -- -p 3000'));
   // The focused path is not a replacement for either normal environment.
   assert.equal(framingInvocations(focused).length, 1);
-  assert.ok(focused.includes("if: ${{ github.event_name == 'pull_request' && ((github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') || github.head_ref == 'release/week9-rollback-shell') }}"));
+  assert.ok(focused.includes("if: ${{ needs.select-checks.outputs.scope != 'discovery' && (github.event_name == 'pull_request' && ((github.event.pull_request.number == 141 && github.head_ref == 'fix/week9-approved-video-release') || github.head_ref == 'release/week9-rollback-shell')) }}"));
   assert.match(focused, /if \[ "\$GITHUB_HEAD_REF" = release\/week9-rollback-shell \]; then[\s\S]*?else\n\s+QA_BASE_URL=http:\/\/127\.0\.0\.1:3000 npx playwright test qa\/tests\/pwa-reading-navigation\.spec\.mjs[^\n]*\n\s+QA_BASE_URL=http:\/\/127\.0\.0\.1:3000 npx playwright test qa\/tests\/article-image-framing\.spec\.mjs --workers=1\n\s+fi/);
   assert.equal(unmocked.match(/if: ([^\n]+)/)?.[1], scored.match(/if: ([^\n]+)/)?.[1], 'Both normal environments have the same eligibility');
-  assert.match(unmocked, /if: \$\{\{ !\(github\.event_name == 'pull_request'/);
+  assert.ok(unmocked.includes("needs.select-checks.outputs.scope == 'full'"));
 
   for (const required of ['npm test', 'qa/operations/media-preparation.test.mjs', 'assert-playwright-container.mjs', 'qa/tests/scorecard-divider-regression.spec.mjs', 'qa/tests/pwa-reading-navigation.spec.mjs', 'NODE_OPTIONS="--require=$PWD/qa/fixtures/pwa-shell-scores.cjs"', 'name: article-image-qa-report', 'name: release-integrity-image-report']) {
     assert.ok(workflow.indexOf(required) < workflow.indexOf('id: evidence'), required);
     assert.ok(workflow.includes(required), required);
   }
-  assert.match(workflow, /article-image-qa:\n    needs: \[integrity, media-preparation\]\n    if: \$\{\{ always\(\) \}\}/);
-  assert.match(workflow, /CHECKED_OUT_SHA: \$\{\{ steps.source.outputs.commit \}\}/);
+  assert.match(workflow, /article-image-qa:\n    needs: \[integrity, media-preparation, select-checks\]\n    if: \$\{\{ always\(\) \}\}/);
+  assert.match(workflow, /CHECKED_OUT_SHA: \$\{\{ steps.source.outputs.commit \|\| steps.discovery-source.outputs.commit \|\| steps.media-source.outputs.commit \}\}/);
   assert.match(workflow, /uses: actions\/checkout@v4\n        id: source/);
   assert.doesNotMatch(workflow, /download-artifact|continue-on-error/);
   assert.equal(existsSync('.github/workflows/article-image-release-gate.yml'), false);
@@ -84,4 +84,16 @@ for (const result of ['failure', 'cancelled', 'skipped', '', 'in_progress']) {
 }
 test('media result comes from this run dependency graph', () => {
   assert.ok(gate.includes('MEDIA_RESULT: ${{ needs.media-preparation.result }}'));
+});
+
+test('only a same-run explicit independent PR plan may skip media',()=>{
+  assert.equal(run({GITHUB_EVENT_NAME:'pull_request',SELECTED_MEDIA:'not-required',MEDIA_RESULT:'skipped'}),0);
+  for(const patch of [
+    {GITHUB_EVENT_NAME:'push'}, {GITHUB_EVENT_NAME:'workflow_dispatch'},
+    {SELECTED_MEDIA:''}, {SELECTED_MEDIA:'required'}, {SELECTION_RESULT:'failure'},
+    {SELECTION_RESULT:'skipped'}, {SELECTION_IDENTITY:''},
+    {SELECTION_IDENTITY:evidence.replace(':2:',':1:')},
+    {MEDIA_RESULT:'failure'}, {MEDIA_RESULT:'cancelled'}, {MEDIA_RESULT:''},
+    {VALIDATION_RESULT:'failure'},
+  ]) assert.notEqual(run({GITHUB_EVENT_NAME:'pull_request',SELECTED_MEDIA:'not-required',MEDIA_RESULT:'skipped',...patch}),0,JSON.stringify(patch));
 });
