@@ -1,5 +1,7 @@
 import archivedEditions from '../../../data/week8-edition-archives.json';
 import week9ArchivedEditions from '../../../data/week9-edition-archives.json';
+import week10ArchivedEditions from '../../../data/week10-edition-archives.json';
+import {selectYahooMatchupEdition} from '../../../lib/select-yahoo-matchup-edition.mjs';
 import {isMatchupFinal} from '../../../lib/matchup-status.mjs';
 import matchupColumnsWeek6 from '../../../data/week6-matchup-columns.json';
 import matchupColumnsWeek7 from '../../../data/week7-matchup-columns.json';
@@ -22,13 +24,8 @@ export default async function Matchup({params,searchParams,config}){
   const {a,b}=await params;
   const [currentEdition,headshots]=await Promise.all([getEditionData(editionSlug),getNflHeadshotsByYahooId()]);
   const requested=Number((await searchParams)?.week||0);
-  const currentWeek=Number(currentEdition?.snapshots?.matchups?.data?.data?.matchupWeek);
-  let edition=currentEdition;
-  if(requested&&requested!==currentWeek){
-    const archived=[archivedEditions[editionSlug],week9ArchivedEditions[editionSlug]].find(x=>x?.week===requested);
-    if(archived?.week===requested) edition={...currentEdition,snapshots:archived.snapshots};
-    else notFound();
-  }
+  const edition=selectYahooMatchupEdition({currentEdition,requested,editionSlug,archivedEditions:[archivedEditions,week9ArchivedEditions,week10ArchivedEditions]});
+  if(!edition)notFound();
   const rosters=edition?.snapshots?.rosters?.data?.data||[], standings=edition?.snapshots?.standings?.data?.data?.standings||[], games=edition?.snapshots?.matchups?.data?.data?.matchups||[];
   const left=rosters.find(r=>String(r.teamKey).endsWith('.t.'+a)),right=rosters.find(r=>String(r.teamKey).endsWith('.t.'+b));
   if(!left||!right)notFound();
