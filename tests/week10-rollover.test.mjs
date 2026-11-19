@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {selectLoogScores} from '../lib/select-loog-scores.mjs';
+import {selectYahooMatchupEdition} from '../lib/select-yahoo-matchup-edition.mjs';
 
 const read=p=>JSON.parse(fs.readFileSync('data/'+p));
 const leagueSnapshot=read('week9-loog-snapshot.json');
@@ -23,5 +24,8 @@ test('Yahoo archived Week 9 retains exact final pairings and exact-week player t
   assert.equal(games.length,6);assert.equal(rosters.length,12);
   for(const g of games){assert.equal(g.status,'final');for(const side of [g.home,g.away]){const r=rosters.find(r=>r.teamKey===side.teamKey);assert.equal(r.snapshot.week,9);const sum=r.players.filter(p=>!['BN','IR'].includes(p.selectedPosition)).reduce((n,p)=>n+p.points,0);assert.ok(Math.abs(sum-side.points)<0.001,slug+' lineup sum');}}
  }
- const page=fs.readFileSync('app/components/editions/Matchup.js','utf8');assert.match(page,/week9ArchivedEditions\[editionSlug\]/);
+ for(const [editionSlug,archived] of Object.entries(archives)){
+  const currentEdition={snapshots:{matchups:{data:{data:{matchupWeek:10}}}}};
+  assert.equal(selectYahooMatchupEdition({currentEdition,requested:9,editionSlug,archivedEditions:[archives]}).snapshots,archived.snapshots);
+ }
 });

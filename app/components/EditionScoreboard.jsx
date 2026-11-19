@@ -1,3 +1,5 @@
+import {yahooMatchupArchives} from '../../lib/yahoo-matchup-archives';
+import {yahooArchivedMatchupHref} from '../../lib/select-yahoo-matchup-edition.mjs';
 import {isMatchupFinal} from '../../lib/matchup-status.mjs';
 import matchupColumns from '../../data/week6-matchup-columns.json';
 import {writers} from '../articles/writers';
@@ -28,6 +30,9 @@ export default function EditionScoreboard({matchups=[],week=4,rosters=[],headsho
     
   <MatchupCardGrid cards={cards}/>
 
-    {history.filter(w=>Number(w.matchupWeek)<Number(week)).sort((a,b)=>b.matchupWeek-a.matchupWeek).map(w=><details className="editionScoreHistory" key={w.matchupWeek}><summary>Week {w.matchupWeek} Final</summary>{w.matchups.map(g=><div className="editionHistoryGame" key={g.matchupId}><span>{g.home.teamName}</span><b>{score(g.home.points)}</b><span>{g.away.teamName}</span><b>{score(g.away.points)}</b>{Number(w.matchupWeek)===8&&<a href={`${root}/matchups/${g.home.teamId}/${g.away.teamId}?week=${w.matchupWeek}`}>Read matchup →</a>}</div>)}</details>)}
+    {history.filter(w=>Number(w.matchupWeek)<Number(week)).sort((a,b)=>b.matchupWeek-a.matchupWeek).map(w=><details className="editionScoreHistory" key={w.matchupWeek}><summary>Week {w.matchupWeek} Final</summary>{w.matchups.map(g=>{
+      const href=yahooArchivedMatchupHref({archivedEditions:yahooMatchupArchives,root,week:w.matchupWeek,game:g});
+      return <div className="editionHistoryGame" key={g.matchupId}><span>{g.home.teamName}</span><b>{score(g.home.points)}</b><span>{g.away.teamName}</span><b>{score(g.away.points)}</b>{href&&<a href={href}>Read matchup →</a>}</div>;
+    })}</details>)}
   </section>;
 }

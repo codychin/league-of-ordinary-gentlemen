@@ -1,7 +1,7 @@
 import {readFileSync} from 'node:fs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {selectYahooMatchupEdition} from '../lib/select-yahoo-matchup-edition.mjs';
+import {selectYahooMatchupEdition,yahooArchivedMatchupHref} from '../lib/select-yahoo-matchup-edition.mjs';
 
 const archives=[8,9,10].map(week=>JSON.parse(readFileSync(new URL(`../data/week${week}-edition-archives.json`,import.meta.url),'utf8')));
 const leagueKeys={'sunday-crew':'470.l.197826',doge:'470.l.226614'};
@@ -24,6 +24,7 @@ for (const editionSlug of keys) {
         const ids=[game.home.teamId,game.away.teamId].map(String).sort();
         const routed=chosen.matchups.data.data.matchups.find(x=>[x.home.teamId,x.away.teamId].map(String).sort().join()===ids.join());
         assert.equal(routed,game);
+        assert.equal(yahooArchivedMatchupHref({archivedEditions:archives,root:`/${editionSlug}`,week,game}),`/${editionSlug}/matchups/${game.home.teamId}/${game.away.teamId}?week=${week}`);
         assert.equal(game.status,'final');
         for (const side of [game.home,game.away]) {
           assert.equal(side.teamKey,`${leagueKeys[editionSlug]}.t.${side.teamId}`);
@@ -49,3 +50,14 @@ for (const editionSlug of keys) {
 test('unknown edition never borrows another league archive',()=>{
   assert.equal(selectYahooMatchupEdition({currentEdition:current('doge'),requested:10,editionSlug:'other',archivedEditions:archives}),null);
 });
+
+for (const slug of keys) {
+  test(`${slug} scoreboard history only links available matchup pages`,()=>{
+    const root=`/${slug}`,game=archives[2][slug].snapshots.matchups.data.data.matchups[0];
+    const link=(week,which=game)=>yahooArchivedMatchupHref({archivedEditions:archives,root,week,game:which});
+    assert.ok(link(10)?.endsWith('?week=10'));
+    assert.equal(link(7),null);
+    assert.equal(link(11),null);
+    assert.equal(link(10,{...game,away:{teamId:'unregistered'}}),null);
+  });
+}
