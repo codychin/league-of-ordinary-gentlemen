@@ -6,6 +6,7 @@ on:
     paths:
       - '.github/workflows/transcode-reels-hls.yml'
       - 'scripts/operations/package-missing-hls.mjs'
+      - 'scripts/operations/fetch-hls-before.sh'
       - 'public/reels/**'
   workflow_dispatch:
 
@@ -24,7 +25,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 1
+      - name: Fetch only the triggering comparison commit
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+        run: bash scripts/operations/fetch-hls-before.sh
       - uses: actions/setup-node@v4
         with:
           node-version: 22
